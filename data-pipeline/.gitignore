@@ -1,15 +1,67 @@
-# 環境変数ファイル（絶対に公開しない）
+# ==========================================
+# 機密情報・環境変数（最重要）
+# ==========================================
 .env
+.env.*
+*.env
+.env.local
+*.pem
+*.key
 
-# Pythonの一時ファイル
+# ==========================================
+# Python 関連
+# ==========================================
+.venv/
+venv/
+ENV/
+env/
 __pycache__/
-*.pyc
-
-# 取得した生データや解析済みデータ（サイズが大きいためGit管理から外す）
-sagebase_crawled_data.json
-analyzed_kyoto_politicians.json
-
-# Node.js (フロントエンド用)
-node_modules/
+*.py[cod]
+*$py.class
+*.pyd
+.Python
+build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# Node / Frontend 関連
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+dist/
+dist-ssr/
+*.local
+.vite/
+
+# ==========================================
+# ローカル生成データ（大容量JSON）
+# ==========================================
+data-pipeline/*.json
+!data-pipeline/sample_*.json
+
+# ==========================================
+# OS / エディタ固有ファイル
+# ==========================================
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

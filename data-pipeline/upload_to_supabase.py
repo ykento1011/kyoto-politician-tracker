@@ -1,47 +1,88 @@
 import json
+import os
+from pathlib import Path
+from dotenv import load_dotenv
 from supabase import create_client, Client
 
-# Step 1でメモしたURLとAPIキーに書き換えてください
-SUPABASE_URL = "https://redywauvhaugiinkxzrc.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJlZHl3YXV2aGF1Z2lpbmt4enJjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MjE1MjQwMywiZXhwIjoyMTA3NzI4NDAzfQ.kPH_6Ejwi6ZTejzgfVPKDHQ4jbAdtn1h5z3GL7HX020"
+# 1. 複数の階層（カレント、親ディレクトリ、frontendフォルダ）から .env を探索して読み込む
+current_dir = Path(__file__).resolve().parent
+env_candidates = [
+    current_dir / ".env",
+    current_dir.parent / ".env",
+    current_dir.parent / "frontend" / ".env",
+    current_dir.parent / "frontend" / ".env.local"
+]
 
+for env_path in env_candidates:
+    if env_path.exists():
+        load_dotenv(dotenv_path=env_path)
+
+# 2. 変数名のゆらぎに対応
+SUPABASE_URL = os.getenv("SUPABASE_URL") or os.getenv("VITE_SUPABASE_URL")
+SUPABASE_KEY = (
+    os.getenv("SUPABASE_SERVICE_ROLE_KEY") 
+    or os.getenv("SUPABASE_SERVICE_KEY")        # ← ここを追加
+    or os.getenv("SUPABASE_KEY") 
+    or os.getenv("VITE_SUPABASE_ANON_KEY")
+)
+
+# 読み込み確認
+if not SUPABASE_URL:
+    raise ValueError(
+        f"SUPABASE_URL が見つかりません。以下のいずれかのパスに .env を配置し、SUPABASE_URL または VITE_SUPABASE_URL を設定してください:\n"
+        + "\n".join([str(p) for p in env_candidates])
+    )
+
+if not SUPABASE_KEY:
+    raise ValueError("SUPABASE_KEY (または SUPABASE_SERVICE_ROLE_KEY / VITE_SUPABASE_ANON_KEY) が設定されていません。")
+
+print(f"Connecting to Supabase: {SUPABASE_URL}")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-def upload_data():
-    input_file = "analyzed_kyoto_politicians.json"
-    
-    with open(input_file, "r", encoding="utf-8") as f:
+def upload():
+    json_path = current_dir / "analyzed_kyoto_politicians.json"
+    if not json_path.exists():
+        raise FileNotFoundError(f"{json_path} が存在しません。")
+
+    with open(json_path, "r", encoding="utf-8") as f:
         records = json.load(f)
 
-    print(f"🚀 {len(records)} 件のデータをSupabaseへアップロードします...")
-
-    insert_data = []
-    for row in records:
-        # Geminiの解析結果を取り出す
-        analysis = row.get("analysis", {})
+    payload = []
+    for r in records:
+        analysis = r.get("analysis", {})
+        scores = analysis.get("scores", {})
         
-        insert_data.append({
-            "meeting_title": row.get("meeting_title"),
-            "meeting_date": row.get("meeting_date"),
-            "speaker": row.get("speaker"),
-            "speaker_id": row.get("speaker_id", None), # まだ取得していない場合はNone
-            "speaker_header": row.get("speaker_header"),
-            "statement_text": row.get("statement_text"),
-            "sequence_number": row.get("sequence_number"),
-            "conversation_id": row.get("conversation_id"),
-            "meeting_id": row.get("meeting_id"),
-            "source_url": row.get("source_url"),
-            "category": analysis.get("category", "未分類"),
+        payload.append({
+            "conversation_id": r.get("conversation_id"),
+            "meeting_id": r.get("meeting_id"),
+            "meeting_title": r.get("meeting_title"),
+            "meeting_date": r.get("meeting_date"),
+            "speaker": r.get("speaker"),
+            "speaker_id": str(r.get("speaker_id")) if r.get("speaker_id") else None,
+            "speaker_header": r.get("speaker_header"),
+            "statement_text": r.get("statement_text"),
+            "sequence_number": r.get("sequence_number"),
+            "source_url": r.get("source_url"),
+            "category": analysis.get("category", "事務・進行"),
             "summary": analysis.get("summary", ""),
-            "keywords": analysis.get("keywords", [])
+            "keywords": analysis.get("keywords", []),
+            "evidence_score": scores.get("evidence", 0),
+            "solution_score": scores.get("solution", 0),
+            "local_focus_score": scores.get("local_focus", 0),
+            "constructive_score": scores.get("constructive", 0),
+            "total_quality_score": scores.get("total_quality", 0),
+            "is_evaluated": analysis.get("is_evaluated", False),
+            "scoring_reasoning": analysis.get("reasoning", "")
         })
 
-    # Supabaseに一括挿入 (upsertを使うことで、conversation_idが被った場合は上書き更新される)
-    try:
-        response = supabase.table("statements").upsert(insert_data).execute()
-        print("🎉 アップロード完了！SupabaseのTable Editor画面でデータを確認してください。")
-    except Exception as e:
-        print(f"❌ エラーが発生しました: {e}")
+    # 100件ずつ一括Upsert実行
+    batch_size = 100
+    for i in range(0, len(payload), batch_size):
+        batch = payload[i:i + batch_size]
+        supabase.table("statements").upsert(batch, on_conflict="conversation_id").execute()
+        print(f"Uploaded: {min(i + batch_size, len(payload))} / {len(payload)}")
+
+    print("✅ Supabaseへの全件アップロードが完了しました！")
 
 if __name__ == "__main__":
-    upload_data()
+    upload()
