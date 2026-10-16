@@ -1,0 +1,15 @@
+# 環境変数ファイル（絶対に公開しない）
+.env
+
+# Pythonの一時ファイル
+__pycache__/
+*.pyc
+
+# 取得した生データや解析済みデータ（サイズが大きいためGit管理から外す）
+sagebase_crawled_data.json
+analyzed_kyoto_politicians.json
+
+# Node.js (フロントエンド用)
+node_modules/
+dist/
+.DS_Store
