@@ -22,9 +22,9 @@ def fetch_kyoto_data():
     conf_gb_col = "governing_body_id" if "conferences.governing_body_id" in columns else "governing_body_sagebase_id"
     min_meeting_col = "meeting_id" if "minutes.meeting_id" in columns else "meeting_sagebase_id"
 
-    print("\n🚀 2023年以降の京都市会発言データを大規模抽出中...")
+    print("\n🚀 現任期（2023年5月〜現在）の京都市会全発言データを抽出中...")
 
-    # 対象年を広げ、speaker_idを取得し、LIMITを1000に拡大
+    # 💡 2023年5月以降（現任期）を全件取得。非質疑の会議体は事前に除外
     query = f"""
         SELECT 
             m.name AS meeting_name,
@@ -47,13 +47,16 @@ def fetch_kyoto_data():
         JOIN `{PROJECT_ID}.{DATASET_ID}.governing_bodies` gb
           ON conf.{conf_gb_col} = gb.id
         WHERE gb.sagebase_id = '{KYOTO_GOV_ID}'
-          AND EXTRACT(YEAR FROM m.date) >= 2023
-        ORDER BY m.date DESC, c.sequence_number ASC
-        LIMIT 1000
+          AND m.date >= '2023-05-01'
+          AND m.name NOT LIKE '%市会運営委員会%'
+          AND m.name NOT LIKE '%理事会%'
+        ORDER BY m.date ASC, m.id ASC, c.sequence_number ASC
     """
 
     try:
-        results = client.query(query).result()
+        query_job = client.query(query)
+        results = query_job.result()
+
         formatted_data = []
         for row in results:
             formatted_data.append({
@@ -80,7 +83,7 @@ def main():
         output_file = "sagebase_crawled_data.json"
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-        print(f"\n🎉 抽出成功: {len(data)} 件の発言データを {output_file} に保存しました。")
+        print(f"\n🎉 抽出成功: 合計 {len(data):,} 件の発言データを {output_file} に保存しました。")
     else:
         print("\nデータが0件、またはクエリ修正が必要です。")
 
