@@ -12,10 +12,10 @@ import CompareDashboard from './components/CompareDashboard';
 import BillsSection from './components/BillsSection';
 import ThreadCard from './components/ThreadCard';
 import HighlightedThreads from './components/HighlightedThreads';
-import MethodologyModal from './components/MethodologyModal';
 import TimelineModal from './components/TimelineModal';
 import BillDetailModal from './components/BillDetailModal';
 import AboutPage from './components/AboutPage';
+import Methodology from './components/Methodology'; // 💡 本来の技術白書ページを正しく読み込み
 import { useStatements } from './hooks/useStatements';
 
 const HOT_TOPICS = [
@@ -75,9 +75,10 @@ export default function App() {
   const [selectedBillForModal, setSelectedBillForModal] = useState(null);
   const [onlyContestedBills, setOnlyContestedBills] = useState(true);
 
-  const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
+  // 画面遷移ステート
   const [compareActive, setCompareActive] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
 
   useEffect(() => {
     fetch('/data/votes_summary.json')
@@ -97,20 +98,31 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
+  // URL直接アクセス・ブラウザ戻る進むの監視
   useEffect(() => {
-    const checkAboutRoute = () => {
+    const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
-      if (window.location.pathname === '/about' || params.get('view') === 'about') {
+      const view = params.get('view');
+      const pathname = window.location.pathname;
+
+      if (pathname === '/about' || view === 'about') {
         setIsAboutOpen(true);
+        setIsMethodologyOpen(false);
+      } else if (pathname === '/methodology' || view === 'methodology') {
+        setIsMethodologyOpen(true);
+        setIsAboutOpen(false);
       } else {
         setIsAboutOpen(false);
+        setIsMethodologyOpen(false);
       }
     };
-    checkAboutRoute();
-    window.addEventListener('popstate', checkAboutRoute);
-    return () => window.removeEventListener('popstate', checkAboutRoute);
+
+    handlePopState();
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // About ページの開閉
   const handleOpenAbout = () => {
     clearSpeakerAndCompare();
     setCompareActive(false);
@@ -126,13 +138,28 @@ export default function App() {
     setIsAboutOpen(false);
     const url = new URL(window.location);
     url.searchParams.delete('view');
-    if (url.pathname === '/about') url.pathname = '/';
     window.history.pushState({}, '', url);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Methodology（技術白書）ページの開閉
   const handleOpenMethodology = () => {
+    clearSpeakerAndCompare();
+    setCompareActive(false);
+    setIsAboutOpen(false);
     setIsMethodologyOpen(true);
+    const url = new URL(window.location);
+    url.searchParams.set('view', 'methodology');
+    window.history.pushState({}, '', url);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCloseMethodology = () => {
+    setIsMethodologyOpen(false);
+    const url = new URL(window.location);
+    url.searchParams.delete('view');
+    window.history.pushState({}, '', url);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleCloseCompare = () => {
@@ -211,7 +238,7 @@ export default function App() {
     );
   }
 
-  // 1. Aboutページ
+  // 1. About ページ
   if (isAboutOpen) {
     return (
       <AboutPage
@@ -224,7 +251,14 @@ export default function App() {
     );
   }
 
-  // 2. 比較画面
+  // 2. 💡 Methodology（AI採点基準・技術白書）フルページ
+  if (isMethodologyOpen) {
+    return (
+      <Methodology onBack={handleCloseMethodology} />
+    );
+  }
+
+  // 3. 議員比較画面
   if (compareActive || (isCompareMode && compareList.length >= 2)) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -269,7 +303,7 @@ export default function App() {
     );
   }
 
-  // 3. 議員詳細画面（Propsの欠落を完全復元）
+  // 4. 議員詳細画面
   if (selectedSpeaker) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -315,16 +349,12 @@ export default function App() {
           speakerStats={speakerStats}
           onSpeakerClick={handleSpeakerClick}
         />
-        <MethodologyModal
-          isOpen={isMethodologyOpen}
-          onClose={() => setIsMethodologyOpen(false)}
-        />
         <Footer onOpenMethodology={handleOpenMethodology} />
       </div>
     );
   }
 
-  // 4. 検索結果画面
+  // 5. 検索結果画面
   if (submittedQuery.trim() !== '') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -371,16 +401,12 @@ export default function App() {
           selectedContext={selectedContext}
           isLoading={isLoadingContext}
         />
-        <MethodologyModal
-          isOpen={isMethodologyOpen}
-          onClose={() => setIsMethodologyOpen(false)}
-        />
         <Footer onOpenMethodology={handleOpenMethodology} />
       </div>
     );
   }
 
-  // 5. トップ画面
+  // 6. トップ画面
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
       <Navbar
@@ -588,6 +614,7 @@ export default function App() {
         </section>
       </main>
 
+      {/* フローティング比較バー */}
       {compareList.length > 0 && !isCompareMode && !compareActive && (
         <aside aria-label="選択中の議員の比較" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-slate-900/95 backdrop-blur text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
           <div className="flex items-center gap-2">
@@ -625,6 +652,7 @@ export default function App() {
         </aside>
       )}
 
+      {/* 議案詳細モーダル */}
       <BillDetailModal
         isOpen={Boolean(selectedBillForModal)}
         onClose={() => setSelectedBillForModal(null)}
@@ -634,16 +662,12 @@ export default function App() {
         onSpeakerClick={handleSpeakerClick}
       />
 
+      {/* タイムラインモーダル */}
       <TimelineModal
         isOpen={isPanelOpen}
         onClose={() => setIsPanelOpen(false)}
         selectedContext={selectedContext}
         isLoading={isLoadingContext}
-      />
-
-      <MethodologyModal
-        isOpen={isMethodologyOpen}
-        onClose={() => setIsMethodologyOpen(false)}
       />
 
       <Footer onOpenMethodology={handleOpenMethodology} />

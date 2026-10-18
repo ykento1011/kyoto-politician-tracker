@@ -107,7 +107,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
 
           <div className="space-y-4 pt-1">
             <div>
-              <h3 className="text-xl font-black text-slate-900">山本 健人（Kento Yamamoto）</h3>
+              <h3 className="text-xl font-black text-slate-900">山本 健人（Yamamoto Kento）</h3>
               <p className="text-xs text-slate-500 font-bold mt-1">
                 株式会社KICKs 代表 / 京都大学MBA
               </p>
@@ -120,7 +120,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
               その後、京都大学経営管理大学院（MBA）にて観光・地域課題を研究。在学中の研究をもとに、観光地のトイレ利用と情報の非対称性を可視化するWebサービス「TOIMAP」を開発・運営（SDGsリーダーシップアワード2025 最優秀賞などを受賞）。
             </p>
             <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-              現在は地域ビジネスの支援を行いながら、データ分析やWeb技術を活用した情報可視化の試みに取り組んでいます。（保有資格：行政書士、元米国公認会計士）
+              現在は宿泊施設運営も手掛けながら、データ分析やWeb技術を活用した情報可視化の試みに取り組んでいます。（保有資格：行政書士、元米国公認会計士）
             </p>
 
             {/* TOIMAPリンク */}

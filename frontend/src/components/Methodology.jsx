@@ -12,7 +12,7 @@ export default function Methodology({ onBack }) {
         <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
           <button
             onClick={onBack}
-            className="inline-flex items-center text-xs font-bold text-slate-600 hover:text-indigo-600 transition-colors py-1.5 px-3 rounded-lg border border-slate-200 bg-white shadow-2xs hover:bg-slate-50"
+            className="inline-flex items-center text-xs font-bold text-slate-600 hover:text-indigo-600 transition-colors py-1.5 px-3 rounded-lg border border-slate-200 bg-white shadow-2xs hover:bg-slate-50 cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5 mr-1.5" />
             トップページに戻る
@@ -53,7 +53,7 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* ③ セクション2：データの前処理とスレッド構造化（Sagebaseクレジット記載） */}
+        {/* ③ セクション2：データの前処理とスレッド構造化（Sagebaseクレジット・利用規約明記） */}
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
             <span>2. 分析対象データと「スレッド化」の仕組み</span>
@@ -69,7 +69,7 @@ export default function Methodology({ onBack }) {
                 <Database className="w-4 h-4 text-indigo-600" />
                 採用データソースとクレジット
               </div>
-              <ul className="list-disc list-inside space-y-1 text-slate-600 pl-1 leading-normal">
+              <ul className="list-disc list-inside space-y-1.5 text-slate-600 pl-1 leading-normal">
                 <li>
                   <strong className="text-slate-700">一次情報源:</strong> 京都市会 公式会議録および議決結果（本会議・常任委員会・特別委員会）
                 </li>
@@ -83,7 +83,16 @@ export default function Methodology({ onBack }) {
                   >
                     Sagebase <ExternalLink className="w-3 h-3 opacity-60" />
                   </a>
-                  （発言の構造化・人物同定データを利用 / ライセンス:{' '}
+                  （発言の構造化・人物同定データを利用 /{' '}
+                  <a 
+                    href="https://sage-base.com/terms/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-indigo-600 font-bold hover:underline"
+                  >
+                    利用規約
+                  </a>
+                  {' '}/ ライセンス:{' '}
                   <a 
                     href="https://creativecommons.org/licenses/by/4.0/deed.ja" 
                     target="_blank" 
@@ -240,7 +249,7 @@ export default function Methodology({ onBack }) {
         <div className="text-center pt-4">
           <button
             onClick={onBack}
-            className="inline-flex items-center px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-md"
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-md cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             トップページに戻って分析を見る
