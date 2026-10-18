@@ -12,6 +12,8 @@ import CompareDashboard from './components/CompareDashboard';
 import BillsSection from './components/BillsSection';
 import ThreadCard from './components/ThreadCard';
 import HighlightedThreads from './components/HighlightedThreads';
+import MacroTopicMap from './components/MacroTopicMap'; // 💡 復元
+import ContestedBillsView from './components/ContestedBillsView'; // 💡 復元
 import TimelineModal from './components/TimelineModal';
 import BillDetailModal from './components/BillDetailModal';
 import AboutPage from './components/AboutPage';
@@ -25,8 +27,21 @@ const HOT_TOPICS = [
   '空き家対策',
   '伝統産業',
   '子育て支援',
-  '財政再建'
 ];
+
+// 議案テキストから政策分野を判定するヘルパー
+function getCategoryForBill(b) {
+  const text = `${b.title || ''} ${b.key_conflict || ''} ${b.background || ''}`;
+  if (text.includes('都市計画') || text.includes('建築') || text.includes('開発') || text.includes('住宅') || text.includes('新幹線')) return '都市再生・交通インフラ';
+  if (text.includes('観光') || text.includes('宿泊税') || text.includes('産業') || text.includes('万博') || text.includes('芸術大学') || text.includes('市場')) return '産業・観光・地域経済';
+  if (text.includes('医療') || text.includes('健康保険') || text.includes('国保') || text.includes('介護') || text.includes('保護') || text.includes('衛生')) return '福祉・医療・健康';
+  if (text.includes('子ども') || text.includes('給食') || text.includes('学校') || text.includes('保育') || text.includes('児童')) return '子育て・教育';
+  if (text.includes('予算') || text.includes('決算') || text.includes('報酬') || text.includes('給与') || text.includes('定数') || text.includes('手続')) return '財政・行革';
+  if (text.includes('原発') || text.includes('温暖化') || text.includes('環境') || text.includes('下水') || text.includes('水道')) return 'くらし・環境・エネルギー';
+  if (text.includes('防災') || text.includes('消防') || text.includes('災害') || text.includes('耐震')) return '防災・減災・治安';
+  if (text.includes('文化') || text.includes('景観') || text.includes('世界遺産') || text.includes('歴史')) return '文化・景観・歴史';
+  return '市政全般';
+}
 
 export default function App() {
   const {
@@ -68,11 +83,12 @@ export default function App() {
   } = useStatements();
 
   const [votesData, setVotesData] = useState([]);
+  const [billIssuesList, setBillIssuesList] = useState([]); // 配列そのまま保持
   const [issuesMap, setIssuesMap] = useState({});
   const [selectedBillForModal, setSelectedBillForModal] = useState(null);
   const [onlyContestedBills, setOnlyContestedBills] = useState(true);
 
-  // 💡 議案専用のフィルターステート
+  // 議案フィルター
   const [selectedSession, setSelectedSession] = useState('');
   const [selectedResult, setSelectedResult] = useState('');
 
@@ -80,6 +96,8 @@ export default function App() {
   const [compareActive, setCompareActive] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
+  const [isContestedViewOpen, setIsContestedViewOpen] = useState(false); // 💡 激戦議案ビュー
+  const [contestedInitialCategory, setContestedInitialCategory] = useState('');
 
   useEffect(() => {
     fetch('/data/votes_summary.json')
@@ -90,6 +108,7 @@ export default function App() {
     fetch('/data/bill_issues.json')
       .then(res => (res.ok ? res.json() : []))
       .then(data => {
+        setBillIssuesList(data);
         const map = {};
         data.forEach(item => {
           map[`${item.session_name}_${item.bill_number}`] = item;
@@ -108,12 +127,15 @@ export default function App() {
       if (pathname === '/about' || view === 'about') {
         setIsAboutOpen(true);
         setIsMethodologyOpen(false);
+        setIsContestedViewOpen(false);
       } else if (pathname === '/methodology' || view === 'methodology') {
         setIsMethodologyOpen(true);
         setIsAboutOpen(false);
+        setIsContestedViewOpen(false);
       } else {
         setIsAboutOpen(false);
         setIsMethodologyOpen(false);
+        setIsContestedViewOpen(false);
       }
     };
 
@@ -126,6 +148,7 @@ export default function App() {
     clearSpeakerAndCompare();
     setCompareActive(false);
     setIsMethodologyOpen(false);
+    setIsContestedViewOpen(false);
     setIsAboutOpen(true);
     const url = new URL(window.location);
     url.searchParams.set('view', 'about');
@@ -145,6 +168,7 @@ export default function App() {
     clearSpeakerAndCompare();
     setCompareActive(false);
     setIsAboutOpen(false);
+    setIsContestedViewOpen(false);
     setIsMethodologyOpen(true);
     const url = new URL(window.location);
     url.searchParams.set('view', 'methodology');
@@ -182,7 +206,17 @@ export default function App() {
     setSubmittedQuery('');
   };
 
-  // 💡 議案フィルター用：ユニークな会期・結果の抽出
+  // 💡 分野ごとの激論議案数をカウントする関数（MacroTopicMap に渡す）
+  const getIssueCountForCategory = useMemo(() => {
+    const counts = {};
+    billIssuesList.forEach(b => {
+      const cat = getCategoryForBill(b);
+      counts[cat] = (counts[cat] || 0) + 1;
+    });
+    return (catName) => counts[catName] || 0;
+  }, [billIssuesList]);
+
+  // 議案フィルター用：ユニークな会期・結果の抽出
   const uniqueSessions = useMemo(() => {
     if (!votesData) return [];
     return [...new Set(votesData.map(b => b.session_name).filter(Boolean))];
@@ -196,7 +230,6 @@ export default function App() {
   const filteredBills = useMemo(() => {
     let list = votesData || [];
     
-    // 検索ワード
     if (submittedQuery.trim() !== '') {
       const q = submittedQuery.toLowerCase();
       list = list.filter(b => 
@@ -206,16 +239,13 @@ export default function App() {
       );
     }
     
-    // 💡 会期での絞り込み
     if (selectedSession) {
       list = list.filter(b => b.session_name === selectedSession);
     }
-    // 💡 議決結果での絞り込み
     if (selectedResult) {
       list = list.filter(b => b.result === selectedResult);
     }
     
-    // 激論議案のみ
     if (onlyContestedBills) {
       list = list.filter(bill => {
         const votes = Object.values(bill.votes || {});
@@ -249,6 +279,32 @@ export default function App() {
   if (isMethodologyOpen) {
     return (
       <Methodology onBack={handleCloseMethodology} />
+    );
+  }
+
+  // 💡 激戦議案詳細画面（ContestedBillsView）
+  if (isContestedViewOpen) {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
+        <Navbar
+          onLogoClick={() => setIsContestedViewOpen(false)}
+          isCompareMode={false}
+          onOpenAbout={handleOpenAbout}
+          onOpenMethodology={handleOpenMethodology}
+          onOpenCompare={() => {
+            setIsContestedViewOpen(false);
+            setCompareActive(true);
+          }}
+        />
+        <ContestedBillsView
+          initialCategory={contestedInitialCategory}
+          billIssues={billIssuesList}
+          votesData={votesData}
+          onClose={() => setIsContestedViewOpen(false)}
+          onSpeakerClick={handleSpeakerClick}
+        />
+        <Footer onOpenMethodology={handleOpenMethodology} />
+      </div>
     );
   }
 
@@ -438,7 +494,6 @@ export default function App() {
             12万件超の発言記録を構造化。文字数や登壇回数では見えない「政策提言の密度と個性」を中立なAIルーブリック評価で可視化します。
           </p>
 
-          {/* 💡 追加: 分析対象任期とデータ範囲の明記バッジ */}
           <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-100/80 border border-slate-200 text-[11px] text-slate-600 font-bold">
             <span className="flex items-center gap-1 text-indigo-700">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse" />
@@ -482,10 +537,23 @@ export default function App() {
           </div>
         </section>
 
+        {/* 💡 復元: 市議会マクロ論戦マップ */}
+        <MacroTopicMap
+          topicStats={topicStats}
+          selectedCategory={selectedCategory}
+          onSelectCategory={(cat) => {
+            setSelectedCategory(cat);
+            if (viewMode === 'bills') setViewMode('threads');
+          }}
+          getIssueCountForCategory={getIssueCountForCategory}
+        />
+
+        {/* 💡 注目の政策論戦ピックアップ */}
         <HighlightedThreads
           statements={statements}
           onViewContext={handleViewContext}
           onSpeakerClick={handleSpeakerClick}
+          onOpenMethodology={handleOpenMethodology}
         />
 
         <section className="space-y-6">
@@ -527,7 +595,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* 💡 議員・スレッド用のフィルターバー */}
+          {/* 議員・スレッド用のフィルターバー */}
           {viewMode !== 'bills' && (
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2 flex-wrap">
@@ -583,7 +651,7 @@ export default function App() {
             </div>
           )}
 
-          {/* 💡 議案専用のフィルターバー */}
+          {/* 議案専用のフィルターバー */}
           {viewMode === 'bills' && (
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2 flex-wrap">
