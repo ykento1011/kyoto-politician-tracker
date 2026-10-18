@@ -1,9 +1,39 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Legend } from 'recharts';
-import { ArrowLeft, GitCompare, Share2, Target, BarChart3, MessageCircle, User, Plus, X, Users } from 'lucide-react';
+import { ArrowLeft, GitCompare, Share2, Target, BarChart3, MessageCircle, User, Plus, X, Users, Scale, AlertCircle } from 'lucide-react';
 import ThreadCard from './ThreadCard';
 
 const COMPARE_COLORS = ['#6366f1', '#10b981', '#f59e0b']; // Indigo, Emerald, Amber
+
+function getVoteForSpeaker(bill, speakerObj) {
+  if (!bill || !bill.votes || !speakerObj) return null;
+  const votes = bill.votes;
+  const spkName = (speakerObj.speaker || '').replace(/[\s ]+/g, '');
+  const party = (speakerObj.partyGroup || '').replace(/[\s ]+/g, '');
+
+  for (const [k, v] of Object.entries(votes)) {
+    const cleanK = k.replace(/[\s ]+/g, '');
+    if (cleanK === spkName || cleanK.includes(spkName) || spkName.includes(cleanK)) {
+      return v;
+    }
+  }
+
+  if (party) {
+    for (const [k, v] of Object.entries(votes)) {
+      const cleanK = k.replace(/[\s ]+/g, '');
+      if (cleanK === party) return v;
+    }
+    const coreParty = party.replace(/京都市会議員団|市会議員団|議員団|市議団/, '');
+    for (const [k, v] of Object.entries(votes)) {
+      const cleanK = k.replace(/[\s ]+/g, '').replace(/京都市会議員団|市会議員団|議員団|市議団/, '');
+      if (coreParty && cleanK && (cleanK.includes(coreParty) || coreParty.includes(cleanK))) {
+        return v;
+      }
+    }
+  }
+
+  return null;
+}
 
 export default function CompareDashboard({
   compareList = [],
@@ -12,13 +42,26 @@ export default function CompareDashboard({
   onRemoveSpeaker,
   onClose,
   onViewContext,
-  onSpeakerClick
+  onSpeakerClick,
+  votesData = [],
+  issuesMap = {},
+  onSelectBill // 💡 議案選択時のハンドラーを受け取る
 }) {
   const [activeTab, setActiveTab] = useState('style');
+  const [internalVotes, setInternalVotes] = useState(votesData || []);
 
-  // SNS共有機能
+  useEffect(() => {
+    if (votesData && votesData.length > 0) {
+      setInternalVotes(votesData);
+    } else {
+      fetch('/data/votes_summary.json')
+        .then(res => res.ok ? res.json() : [])
+        .then(data => setInternalVotes(data))
+        .catch(err => console.error("Failed to load votes:", err));
+    }
+  }, [votesData]);
+
   const handleShare = async () => {
-    // 💡 本番ドメインに固定しつつ、シェアされたURLから直接比較画面を開けるようパラメータを付与
     const compareNames = compareList.map(s => s.speaker).join(',');
     const url = `https://gikai-mikata.jp/?compare=${encodeURIComponent(compareNames)}`;
     const text = `議会のミカタ 京都で ${compareList.map(s => s.speaker).join(' vs ')} の質疑スタイル・注力政策を徹底比較しました！`;
@@ -35,7 +78,6 @@ export default function CompareDashboard({
     }
   };
 
-  // 1人目の議員と同じ選挙区の候補者リスト
   const sameDistrictCandidates = useMemo(() => {
     if (compareList.length === 0 || !allSpeakers.length) return [];
     const baseSpeaker = compareList[0];
@@ -45,7 +87,6 @@ export default function CompareDashboard({
     );
   }, [compareList, allSpeakers]);
 
-  // 全議員を行政区ごとにグループ化（セレクト用）
   const speakersByDistrict = useMemo(() => {
     if (!allSpeakers) return {};
     const map = {};
@@ -57,7 +98,6 @@ export default function CompareDashboard({
     return map;
   }, [allSpeakers]);
 
-  // 強み発揮率（%）の計算
   const calculateRates = (speaker) => {
     const total = speaker?.statements?.length || 0;
     if (total === 0) return { solution: 0, local: 0, evidence: 0, constructive: 0 };
@@ -121,10 +161,46 @@ export default function CompareDashboard({
     return { category: bestCat, threads };
   }, [compareList]);
 
+  const commonVotes = useMemo(() => {
+    const list = internalVotes || [];
+    if (compareList.length < 2 || list.length === 0) return [];
+
+    const enriched = list.map(bill => {
+      const spkVotes = compareList.map(spk => ({
+        speaker: spk.speaker,
+        vote: getVoteForSpeaker(bill, spk)
+      }));
+
+      const vValues = Object.values(bill.votes || {});
+      const isContested = vValues.includes('賛成') && vValues.includes('反対');
+      const validVotes = spkVotes.map(s => s.vote).filter(Boolean);
+      const isSplitBetweenSelected = validVotes.includes('賛成') && validVotes.includes('反対');
+      const hasAnyVote = validVotes.length > 0;
+
+      return {
+        ...bill,
+        spkVotes,
+        isContested,
+        isSplitBetweenSelected,
+        hasAnyVote
+      };
+    });
+
+    let result = enriched.filter(b => b.hasAnyVote && (b.isContested || b.isSplitBetweenSelected));
+    if (result.length === 0) result = enriched.filter(b => b.hasAnyVote);
+
+    result.sort((a, b) => {
+      if (a.isSplitBetweenSelected && !b.isSplitBetweenSelected) return -1;
+      if (!a.isSplitBetweenSelected && b.isSplitBetweenSelected) return 1;
+      return (b.session_name || '').localeCompare(a.session_name || '');
+    });
+
+    return result;
+  }, [compareList, internalVotes]);
+
   return (
     <main className="max-w-6xl mx-auto py-8 px-6 animate-in fade-in slide-in-from-bottom-4 duration-300 w-full">
 
-      {/* 画面トップ戻る＆シェア */}
       <div className="flex items-center justify-between mb-6">
         <button
           onClick={onClose}
@@ -135,8 +211,7 @@ export default function CompareDashboard({
         <button
           onClick={handleShare}
           disabled={compareList.length < 2}
-          className={`inline-flex items-center text-xs font-bold text-white transition-colors px-4 py-2 rounded-lg shadow-md ${compareList.length >= 2 ? 'bg-slate-900 hover:bg-slate-800 cursor-pointer' : 'bg-slate-400 cursor-not-allowed opacity-60'
-            }`}
+          className={`inline-flex items-center text-xs font-bold text-white transition-colors px-4 py-2 rounded-lg shadow-md ${compareList.length >= 2 ? 'bg-slate-900 hover:bg-slate-800 cursor-pointer' : 'bg-slate-400 cursor-not-allowed opacity-60'}`}
         >
           <Share2 className="w-3.5 h-3.5 mr-1.5" />この比較をシェア
         </button>
@@ -144,7 +219,6 @@ export default function CompareDashboard({
 
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
 
-        {/* ヘッダー領域: 比較スロット */}
         <div className="p-6 md:p-8 bg-slate-50/50 border-b border-slate-100">
           <div className="flex items-center gap-2 mb-6">
             <div className="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600">
@@ -157,7 +231,6 @@ export default function CompareDashboard({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* 選択済み議員のカード */}
             {compareList.map((spk, idx) => (
               <div key={spk.speaker} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm relative overflow-hidden group flex flex-col justify-between">
                 <div className="absolute top-0 left-0 w-1.5 h-full" style={{ backgroundColor: COMPARE_COLORS[idx] }} />
@@ -171,28 +244,12 @@ export default function CompareDashboard({
                       </div>
                     </div>
                     <div className="flex items-center gap-1">
-                      <button
-                        onClick={() => onSpeakerClick(spk.speaker)}
-                        className="w-7 h-7 rounded-full bg-slate-50 hover:bg-indigo-50 text-slate-400 hover:text-indigo-600 flex items-center justify-center transition-colors border border-slate-200"
-                        title="詳細ページへ"
-                      >
-                        <User className="w-3.5 h-3.5" />
-                      </button>
-                      <button
-                        onClick={() => onRemoveSpeaker(spk)}
-                        className="w-7 h-7 rounded-full bg-slate-50 hover:bg-rose-50 text-slate-400 hover:text-rose-600 flex items-center justify-center transition-colors border border-slate-200 cursor-pointer"
-                        title="比較から外す"
-                      >
-                        <X className="w-3.5 h-3.5" />
-                      </button>
+                      <button onClick={() => onSpeakerClick(spk.speaker)} className="w-7 h-7 rounded-full bg-slate-50 hover:bg-indigo-50 text-slate-400 hover:text-indigo-600 flex items-center justify-center transition-colors border border-slate-200 cursor-pointer" title="詳細ページへ"><User className="w-3.5 h-3.5" /></button>
+                      <button onClick={() => onRemoveSpeaker(spk)} className="w-7 h-7 rounded-full bg-slate-50 hover:bg-rose-50 text-slate-400 hover:text-rose-600 flex items-center justify-center transition-colors border border-slate-200 cursor-pointer" title="比較から外す"><X className="w-3.5 h-3.5" /></button>
                     </div>
                   </div>
-                  <div className={`px-2 py-0.5 text-[10px] font-bold rounded border inline-block mb-2.5 ${spk.style?.badgeClass}`}>
-                    {spk.style?.label}
-                  </div>
-                  <div className="text-[10px] text-slate-500 font-medium leading-relaxed">
-                    {spk.style?.desc}
-                  </div>
+                  <div className={`px-2 py-0.5 text-[10px] font-bold rounded border inline-block mb-2.5 ${spk.style?.badgeClass}`}>{spk.style?.label}</div>
+                  <div className="text-[10px] text-slate-500 font-medium leading-relaxed">{spk.style?.desc}</div>
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-400">
@@ -202,36 +259,20 @@ export default function CompareDashboard({
               </div>
             ))}
 
-            {/* 💡 未選択スロット：その場で相手を選べる直感UI */}
             {compareList.length < 3 && (
               <div className="p-5 rounded-2xl bg-white border-2 border-dashed border-indigo-200 hover:border-indigo-300 transition-colors flex flex-col justify-between shadow-2xs">
                 <div>
-                  <div className="flex items-center gap-1.5 text-indigo-700 font-black text-sm mb-1">
-                    <Plus className="w-4 h-4" />
-                    <span>比較相手の議員を追加</span>
-                  </div>
-                  <p className="text-[11px] text-slate-500 mb-3.5 leading-relaxed">
-                    ワンクリックで相手を追加して比較を開始できます。
-                  </p>
+                  <div className="flex items-center gap-1.5 text-indigo-700 font-black text-sm mb-1"><Plus className="w-4 h-4" /><span>比較相手の議員を追加</span></div>
+                  <p className="text-[11px] text-slate-500 mb-3.5 leading-relaxed">ワンクリックで相手を追加して比較を開始できます。</p>
 
-                  {/* 同じ選挙区の議員クイック選択ボタン */}
                   {sameDistrictCandidates.length > 0 && (
                     <div className="mb-4">
-                      <span className="text-[10px] font-extrabold text-slate-400 block mb-1.5 flex items-center gap-1">
-                        <Users className="w-3 h-3 text-indigo-500" />
-                        同じ【{compareList[0]?.district}】の議員から選ぶ:
-                      </span>
+                      <span className="text-[10px] font-extrabold text-slate-400 block mb-1.5 flex items-center gap-1"><Users className="w-3 h-3 text-indigo-500" />同じ【{compareList[0]?.district}】の議員から選ぶ:</span>
                       <div className="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto pr-1">
                         {sameDistrictCandidates.map(candidate => (
-                          <button
-                            key={candidate.speaker}
-                            onClick={() => onAddSpeaker(candidate)}
-                            className="px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-600 hover:text-white text-indigo-700 text-xs font-bold transition-all border border-indigo-200/80 flex items-center gap-1 cursor-pointer group"
-                          >
+                          <button key={candidate.speaker} onClick={() => onAddSpeaker(candidate)} className="px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-600 hover:text-white text-indigo-700 text-xs font-bold transition-all border border-indigo-200/80 flex items-center gap-1 cursor-pointer group">
                             <span>+ {candidate.speaker}</span>
-                            <span className="text-[9px] opacity-70 font-normal">
-                              ({candidate.partyGroup?.replace(/京都市会議員団|議員団/, '')})
-                            </span>
+                            <span className="text-[9px] opacity-70 font-normal">({candidate.partyGroup?.replace(/京都市会議員団|議員団/, '')})</span>
                           </button>
                         ))}
                       </div>
@@ -239,28 +280,14 @@ export default function CompareDashboard({
                   )}
                 </div>
 
-                {/* 全議員ドロップダウン */}
                 <div className="mt-2 pt-3 border-t border-slate-100">
-                  <span className="text-[10px] font-extrabold text-slate-400 block mb-1.5">
-                    全議員から選択:
-                  </span>
-                  <select
-                    onChange={(e) => {
-                      if (!e.target.value) return;
-                      const target = allSpeakers.find(s => s.speaker === e.target.value);
-                      if (target) onAddSpeaker(target);
-                      e.target.value = '';
-                    }}
-                    className="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 outline-none cursor-pointer transition-colors"
-                    defaultValue=""
-                  >
+                  <span className="text-[10px] font-extrabold text-slate-400 block mb-1.5">全議員から選択:</span>
+                  <select onChange={(e) => { if (!e.target.value) return; const target = allSpeakers.find(s => s.speaker === e.target.value); if (target) onAddSpeaker(target); e.target.value = ''; }} className="w-full bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 outline-none cursor-pointer transition-colors" defaultValue="">
                     <option value="" disabled>議員名を選択...</option>
                     {Object.entries(speakersByDistrict).map(([district, spkList]) => (
                       <optgroup key={district} label={district}>
                         {spkList.filter(s => !compareList.some(c => c.speaker === s.speaker)).map(s => (
-                          <option key={s.speaker} value={s.speaker}>
-                            {s.speaker} ({s.partyGroup?.replace(/京都市会議員団|議員団/, '')})
-                          </option>
+                          <option key={s.speaker} value={s.speaker}>{s.speaker} ({s.partyGroup?.replace(/京都市会議員団|議員団/, '')})</option>
                         ))}
                       </optgroup>
                     ))}
@@ -271,20 +298,14 @@ export default function CompareDashboard({
           </div>
         </div>
 
-        {/* 1名のみ選択されている場合のアナウンス */}
         {compareList.length < 2 ? (
           <div className="p-12 text-center bg-slate-50 min-h-[400px] flex flex-col items-center justify-center space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600">
-              <GitCompare className="w-6 h-6" />
-            </div>
+            <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600"><GitCompare className="w-6 h-6" /></div>
             <h3 className="text-base font-extrabold text-slate-800">比較する相手の議員を選択してください</h3>
-            <p className="text-xs text-slate-500 max-w-md leading-relaxed">
-              上の枠から「同じ選挙区の議員」を1クリックするか、全議員一覧から選択すると、2名の4軸ポリシーレーダーや注力政策の直接突き合わせが自動表示されます。
-            </p>
+            <p className="text-xs text-slate-500 max-w-md leading-relaxed">上の枠から「同じ選挙区の議員」を1クリックするか、全議員一覧から選択すると、2名の4軸ポリシーレーダーや注力政策の直接突き合わせが自動表示されます。</p>
           </div>
         ) : (
           <>
-            {/* タブナビゲーション */}
             <div className="flex overflow-x-auto border-b border-slate-200 bg-white hide-scrollbar">
               <button onClick={() => setActiveTab('style')} className={`px-6 py-4 text-sm font-bold flex items-center whitespace-nowrap transition-colors border-b-2 cursor-pointer ${activeTab === 'style' ? 'border-indigo-600 text-indigo-700 bg-indigo-50/30' : 'border-transparent text-slate-500 hover:bg-slate-50'}`}>
                 <Target className="w-4 h-4 mr-2" />アプローチと強み
@@ -293,14 +314,15 @@ export default function CompareDashboard({
                 <BarChart3 className="w-4 h-4 mr-2" />注力政策ポートフォリオ
               </button>
               <button onClick={() => setActiveTab('head2head')} className={`px-6 py-4 text-sm font-bold flex items-center whitespace-nowrap transition-colors border-b-2 cursor-pointer ${activeTab === 'head2head' ? 'border-indigo-600 text-indigo-700 bg-indigo-50/30' : 'border-transparent text-slate-500 hover:bg-slate-50'}`}>
-                <MessageCircle className="w-4 h-4 mr-2" />共通論点 直接突き合わせ
+                <MessageCircle className="w-4 h-4 mr-2" />代表質疑 突き合わせ
+              </button>
+              <button onClick={() => setActiveTab('bills')} className={`px-6 py-4 text-sm font-bold flex items-center whitespace-nowrap transition-colors border-b-2 cursor-pointer ${activeTab === 'bills' ? 'border-indigo-600 text-indigo-700 bg-indigo-50/30' : 'border-transparent text-slate-500 hover:bg-slate-50'}`}>
+                <Scale className="w-4 h-4 mr-2" />議案・賛否の比較
               </button>
             </div>
 
-            {/* タブコンテンツ */}
             <div className="p-6 md:p-8 bg-slate-50 min-h-[500px]">
 
-              {/* タブ1: アプローチと強み */}
               {activeTab === 'style' && (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in">
                   <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
@@ -356,14 +378,12 @@ export default function CompareDashboard({
                 </div>
               )}
 
-              {/* タブ2: 注力政策ポートフォリオ */}
               {activeTab === 'portfolio' && (
                 <div className="space-y-8 animate-in fade-in max-w-4xl mx-auto">
                   <div className="text-center mb-6">
                     <h4 className="text-base font-extrabold text-slate-800 mb-2">発言時間の投下ポートフォリオ</h4>
                     <p className="text-xs text-slate-500">
-                      全質疑の中で、どの政策分野に最も多くエネルギー（発言機会）を割いているかを帯グラフで比較します。<br />
-                      これにより、「どの議員が自分の関心テーマに一番近いか」が分かります。
+                      全質疑の中で、どの政策分野に最も多くエネルギー（発言機会）を割いているかを帯グラフで比較します。
                     </p>
                   </div>
 
@@ -376,11 +396,7 @@ export default function CompareDashboard({
                         {port.distribution.map((item, i) => {
                           const alpha = 1 - (i * 0.15);
                           return (
-                            <div
-                              key={item.name}
-                              className="h-full flex items-center justify-center hover:opacity-80 transition-opacity relative group"
-                              style={{ width: `${item.pct}%`, backgroundColor: COMPARE_COLORS[idx], opacity: alpha }}
-                            >
+                            <div key={item.name} className="h-full flex items-center justify-center hover:opacity-80 transition-opacity relative group" style={{ width: `${item.pct}%`, backgroundColor: COMPARE_COLORS[idx], opacity: alpha }}>
                               {item.pct > 8 && <span className="text-[9px] font-bold text-white truncate px-1">{item.name}</span>}
                             </div>
                           );
@@ -400,7 +416,6 @@ export default function CompareDashboard({
                 </div>
               )}
 
-              {/* タブ3: 直接突き合わせ */}
               {activeTab === 'head2head' && (
                 <div className="animate-in fade-in">
                   {!headToHead ? (
@@ -412,8 +427,7 @@ export default function CompareDashboard({
                       <div className="text-center mb-8">
                         <h4 className="text-base font-extrabold text-slate-800 mb-2">代表質疑 直接突き合わせ</h4>
                         <p className="text-xs text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                          共通して登壇数の多い分野 <strong className="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">【{headToHead.category}】</strong> における、両者の最も評価の高い質疑スレッドを並べました。<br />
-                          同じ課題に対して「どのような切り口で迫るか」のスタイルの違いをご確認ください。
+                          共通して登壇数の多い分野 <strong className="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">【{headToHead.category}】</strong> における、両者の最も評価の高い質疑スレッドを並べました。
                         </p>
                       </div>
 
@@ -425,17 +439,10 @@ export default function CompareDashboard({
                             </div>
                             {item.thread ? (
                               <div className={`flex-1 border-2 rounded-2xl rounded-tl-none overflow-hidden bg-white shadow-sm`} style={{ borderColor: COMPARE_COLORS[idx] }}>
-                                <ThreadCard
-                                  stmt={item.thread}
-                                  onSpeakerClick={() => { }}
-                                  onViewContext={onViewContext}
-                                  showSpeakerHeader={false}
-                                />
+                                <ThreadCard stmt={item.thread} onSpeakerClick={() => { }} onViewContext={onViewContext} showSpeakerHeader={false} />
                               </div>
                             ) : (
-                              <div className="flex-1 border-2 border-slate-200 border-dashed rounded-2xl rounded-tl-none bg-white p-6 text-center text-slate-400 text-xs">
-                                該当データなし
-                              </div>
+                              <div className="flex-1 border-2 border-slate-200 border-dashed rounded-2xl rounded-tl-none bg-white p-6 text-center text-slate-400 text-xs">該当データなし</div>
                             )}
                           </div>
                         ))}
@@ -445,10 +452,89 @@ export default function CompareDashboard({
                 </div>
               )}
 
+              {/* 💡 議案・賛否の比較タブ（すっきり表示 ＆ クリックでモーダル表示） */}
+              {activeTab === 'bills' && (
+                <div className="animate-in fade-in max-w-5xl mx-auto space-y-4">
+                  <div className="text-center mb-4">
+                    <h4 className="text-base font-extrabold text-slate-800 mb-1">議案に対する賛否スタンスの違い</h4>
+                    <p className="text-xs text-slate-500">
+                      議案をクリックすると、AI争点解説や各会派の投票状況を確認できます。
+                    </p>
+                  </div>
+
+                  {commonVotes.length === 0 ? (
+                    <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-slate-300 space-y-2">
+                      <AlertCircle className="w-8 h-8 text-slate-400 mx-auto" />
+                      <p className="text-slate-600 font-bold">比較対象の議員に関する投票記録を読み込み中、または該当がありません。</p>
+                    </div>
+                  ) : (
+                    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left text-sm whitespace-nowrap">
+                          <thead className="bg-slate-50 border-b border-slate-200 text-[11px] font-black text-slate-500 uppercase tracking-wider">
+                            <tr>
+                              <th className="px-6 py-3.5 sticky left-0 bg-slate-50 z-10 min-w-[320px]">
+                                議案名
+                              </th>
+                              {compareList.map((spk, idx) => (
+                                <th key={spk.speaker} className="px-6 py-3.5 text-center min-w-[120px]" style={{ color: COMPARE_COLORS[idx] }}>
+                                  {spk.speaker}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-slate-100">
+                            {commonVotes.map(bill => (
+                              <tr 
+                                key={`${bill.session_name}_${bill.bill_number}`}
+                                onClick={() => onSelectBill && onSelectBill(bill)}
+                                className="hover:bg-indigo-50/40 transition-colors cursor-pointer group"
+                              >
+                                <td className="px-6 py-3.5 whitespace-normal sticky left-0 bg-white group-hover:bg-indigo-50/40 z-10">
+                                  <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+                                    <span className="px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded text-[10px] font-bold">{bill.session_name}</span>
+                                    <span className="text-[10px] font-bold text-slate-400">{bill.bill_number}</span>
+                                  </div>
+                                  <div className="font-bold text-slate-800 text-xs leading-snug group-hover:text-indigo-600 transition-colors" title={bill.title}>
+                                    {bill.title}
+                                  </div>
+                                </td>
+                                
+                                {compareList.map(spk => {
+                                  const voteItem = bill.spkVotes?.find(sv => sv.speaker === spk.speaker);
+                                  const vote = voteItem?.vote;
+                                  
+                                  let badgeClass = "bg-slate-100 text-slate-400 border-slate-200";
+                                  if (vote === '賛成') badgeClass = "bg-emerald-50 text-emerald-700 border-emerald-200 shadow-2xs font-black";
+                                  if (vote === '反対') badgeClass = "bg-rose-50 text-rose-700 border-rose-200 shadow-2xs font-black";
+                                  
+                                  return (
+                                    <td key={spk.speaker} className="px-6 py-3.5 text-center border-l border-slate-50 group-hover:border-indigo-50/40">
+                                      {vote ? (
+                                        <span className={`px-2.5 py-1 rounded-md text-xs border inline-block min-w-[54px] ${badgeClass}`}>
+                                          {vote}
+                                        </span>
+                                      ) : (
+                                        <span className="text-[10px] text-slate-400 font-bold bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
+                                          -
+                                        </span>
+                                      )}
+                                    </td>
+                                  );
+                                })}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
             </div>
           </>
         )}
-
       </div>
     </main>
   );

@@ -185,7 +185,7 @@ export default function App() {
     return <Methodology onBack={handleCloseMethodology} />;
   }
 
-  if (compareActive || (isCompareMode && compareList.length >= 2)) {
+if (compareActive || (isCompareMode && compareList.length >= 2)) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         <Navbar onLogoClick={handleCloseCompare} isCompareMode={true} />
@@ -197,6 +197,21 @@ export default function App() {
           onClose={handleCloseCompare}
           onViewContext={handleViewContext}
           onSpeakerClick={handleSpeakerClick}
+          votesData={votesData}
+          issuesMap={issuesMap}
+          onSelectBill={setSelectedBillForModal} // 💡 これを追加
+        />
+        {/* 💡 比較画面内でも議案詳細モーダルが開くように追加 */}
+        <BillDetailModal
+          isOpen={Boolean(selectedBillForModal)}
+          onClose={() => setSelectedBillForModal(null)}
+          bill={selectedBillForModal}
+          issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
+          speakerStats={speakerStats}
+          onSpeakerClick={(spkName) => {
+            setSelectedBillForModal(null);
+            handleSpeakerClick(spkName);
+          }}
         />
         <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
       </div>
