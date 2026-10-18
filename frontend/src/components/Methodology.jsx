@@ -206,7 +206,7 @@ export default function Methodology({ onBack }) {
 
             <div className="pt-2">
               <a
-                href="https://github.com"
+                href="https://github.com/ykento1011/kyoto-politician-tracker"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-lg border border-slate-300 transition-colors"

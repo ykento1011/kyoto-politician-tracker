@@ -8,15 +8,41 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+function getDailyRandomGenerator() {
+  const todayStr = new Date().toISOString().slice(0, 10);
+  let h = 0;
+  for (let i = 0; i < todayStr.length; i++) {
+    h = Math.imul(31, h) + todayStr.charCodeAt(i) | 0;
+  }
+  return function() {
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    return ((h ^= h >>> 16) >>> 0) / 4294967296;
+  };
+}
+
+function shuffleWithDailySeed(array) {
+  const rng = getDailyRandomGenerator();
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 export function useStatements() {
   const [statements, setStatements] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // 💡 検索中の文字と、確定した文字（検索結果画面のトリガー）を分離
   const [searchQuery, setSearchQuery] = useState('');
+  const [submittedQuery, setSubmittedQuery] = useState('');
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedCommittee, setSelectedCommittee] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
-  const [sortPerspective, setSortPerspective] = useState('recent');
+  const [sortPerspective, setSortPerspective] = useState('random');
   const [viewMode, setViewMode] = useState('speakers');
 
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -27,7 +53,6 @@ export function useStatements() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isLoadingContext, setIsLoadingContext] = useState(false);
 
-  // 💡 比較機能用ステートとルーティングフラグ
   const [compareList, setCompareList] = useState([]);
   const [isCompareMode, setIsCompareMode] = useState(false);
   const [initialRouteSet, setInitialRouteSet] = useState(false);
@@ -154,7 +179,6 @@ export function useStatements() {
       .sort((a, b) => b.count - a.count);
   }, [statements]);
 
-  // 💡 URLルーティングの初期化
   useEffect(() => {
     if (!initialRouteSet && speakerStats.length > 0) {
       const params = new URLSearchParams(window.location.search);
@@ -177,7 +201,6 @@ export function useStatements() {
     }
   }, [speakerStats, initialRouteSet]);
 
-  // 💡 ブラウザ「戻る/進む」への対応
   useEffect(() => {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
@@ -204,7 +227,6 @@ export function useStatements() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, [speakerStats]);
 
-  // 💡 SPA画面遷移とURL更新アクション
   const handleSpeakerClick = (speakerName) => {
     const speaker = speakerStats.find((s) => s.speaker === speakerName);
     if (speaker) {
@@ -255,10 +277,11 @@ export function useStatements() {
     window.scrollTo(0, 0);
   };
 
+  // 💡 全て `submittedQuery` （エンターで確定した文字）をベースにフィルタリング
   const filteredSpeakers = useMemo(() => {
     let targetSpeakers = new Set(speakerStats.map((s) => s.speaker));
-    if (searchQuery.trim() !== '') {
-      const results = miniSearch.search(searchQuery);
+    if (submittedQuery.trim() !== '') {
+      const results = miniSearch.search(submittedQuery);
       const matchedSpeakers = new Set(results.map((r) => r.speaker));
       targetSpeakers = new Set([...targetSpeakers].filter((s) => matchedSpeakers.has(s)));
     }
@@ -274,14 +297,18 @@ export function useStatements() {
     else if (sortPerspective === 'local_focus') list.sort((a, b) => b.avg_local_focus - a.avg_local_focus);
     else if (sortPerspective === 'constructive') list.sort((a, b) => b.avg_constructive - a.avg_constructive);
     else if (sortPerspective === 'evidence') list.sort((a, b) => b.avg_evidence - a.avg_evidence);
-    else list.sort((a, b) => new Date(b.latest_date) - new Date(a.latest_date));
+    else if (sortPerspective === 'name') list.sort((a, b) => a.speaker.localeCompare(b.speaker, 'ja'));
+    else if (sortPerspective === 'recent') list.sort((a, b) => new Date(b.latest_date) - new Date(a.latest_date));
+    else {
+      list = shuffleWithDailySeed(list);
+    }
     return list;
-  }, [speakerStats, searchQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch]);
+  }, [speakerStats, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch]);
 
   const filteredThreads = useMemo(() => {
     let targetIds = new Set(statements.map((s) => s.id));
-    if (searchQuery.trim() !== '') {
-      const results = miniSearch.search(searchQuery);
+    if (submittedQuery.trim() !== '') {
+      const results = miniSearch.search(submittedQuery);
       targetIds = new Set(results.map((r) => r.id));
     }
     let list = statements.filter((s) => targetIds.has(s.id));
@@ -296,14 +323,18 @@ export function useStatements() {
         return info.district === selectedDistrict;
       });
     }
+
     if (sortPerspective === 'solution') list.sort((a, b) => b.solution_score - a.solution_score || new Date(b.meeting_date) - new Date(a.meeting_date));
     else if (sortPerspective === 'local_focus') list.sort((a, b) => b.local_focus_score - a.local_focus_score || new Date(b.meeting_date) - new Date(a.meeting_date));
     else if (sortPerspective === 'constructive') list.sort((a, b) => b.constructive_score - a.constructive_score || new Date(b.meeting_date) - new Date(a.meeting_date));
     else if (sortPerspective === 'evidence') list.sort((a, b) => b.evidence_score - a.evidence_score || new Date(b.meeting_date) - new Date(a.meeting_date));
-    else list.sort((a, b) => new Date(b.meeting_date) - new Date(a.meeting_date));
+    else if (sortPerspective === 'recent') list.sort((a, b) => new Date(b.meeting_date) - new Date(a.meeting_date));
+    else {
+      list = shuffleWithDailySeed(list);
+    }
 
     return list.slice(0, 100);
-  }, [statements, searchQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch]);
+  }, [statements, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch]);
 
   const speakerFilteredThreads = useMemo(() => {
     if (!selectedSpeaker) return [];
@@ -346,7 +377,9 @@ export function useStatements() {
 
   return {
     statements, isLoading,
-    searchQuery, setSearchQuery, selectedCategory, setSelectedCategory,
+    searchQuery, setSearchQuery, 
+    submittedQuery, setSubmittedQuery, // 💡 追加
+    selectedCategory, setSelectedCategory,
     selectedCommittee, setSelectedCommittee, selectedDistrict, setSelectedDistrict,
     sortPerspective, setSortPerspective, viewMode, setViewMode,
     selectedSpeaker,

@@ -110,3 +110,40 @@ kyoto-politician-tracker/
 │   ├── package.json
 │   └── vite.config.js
 └── README.md
+
+🚀 ローカル環境での実行手順
+1. リポジトリのクローン
+Bash
+git clone [https://github.com/ykento1011/kyoto-politician-tracker.git](https://github.com/ykento1011/kyoto-politician-tracker.git)
+cd kyoto-politician-tracker
+2. データパイプライン（Python）
+Bash
+cd data-pipeline
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+# source .venv/bin/activate
+
+pip install -r requirements.txt
+
+# 議決賛否データの取得・更新
+python scrape_kyoto_votes.py
+3. フロントエンド（React）
+Bash
+cd ../frontend
+npm install
+
+# 開発サーバーの起動
+npm run dev
+ブラウザで http://localhost:5173 を開いて動作を確認します。
+
+👨‍💻 開発・運営
+開発・運営主体: 株式会社KICKs
+
+代表: 山本 健人
+
+お問い合わせ / Issues: バグ報告や機能要望は GitHub Issues までお願いいたします。
+
+📄 ライセンス
+本リポジトリのソースコードは MIT License のもとで公開されています。

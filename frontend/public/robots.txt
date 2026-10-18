@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gikai-mikata.jp/sitemap.xml

@@ -1,215 +1,234 @@
-import React, { useState, useMemo } from 'react';
-import { Sparkles, MessageCircle, User, Calendar, Tag } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
+import { 
+  Sparkles, Target, MapPin, Database, TrendingUp, 
+  Shuffle, BookOpen, ChevronDown, ChevronUp, CheckCircle2 
+} from 'lucide-react';
+import ThreadCard from './ThreadCard';
 import { cleanName } from '../utils/styleHelpers';
 
-// クイックジャンルの定義
-const GENRE_PRESETS = [
-  { id: 'all', label: 'すべて' },
-  { id: 'industry', label: '産業・観光', keywords: ['産業', '観光', '経済', '中小企業'] },
-  { id: 'transit', label: '交通・都市', keywords: ['都市再生', '交通', '市バス', 'まちづくり'] },
-  { id: 'welfare', label: '子育て・福祉', keywords: ['子育て', '福祉', '医療', '教育'] },
-  { id: 'environment', label: 'くらし・防災', keywords: ['環境', '防災', '消防', '治安'] },
-  { id: 'finance', label: '財政・行革', keywords: ['財政', '行革'] },
-];
+// 💡 今日の日付文字列（YYYY-MM-DD）から決まるシード付き乱数生成
+function getDailyRng() {
+  const todayStr = new Date().toISOString().slice(0, 10);
+  let h = 0;
+  for (let i = 0; i < todayStr.length; i++) {
+    h = Math.imul(31, h) + todayStr.charCodeAt(i) | 0;
+  }
+  return function() {
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    return ((h ^= h >>> 16) >>> 0) / 4294967296;
+  };
+}
 
-export default function HighlightedThreads({
-  statements = [],
-  onSpeakerClick,
-  onViewContext
+export default function HighlightedThreads({ 
+  statements = [], 
+  onSpeakerClick, 
+  onViewContext, 
+  onOpenMethodology 
 }) {
-  const [selectedGenre, setSelectedGenre] = useState('all');
-  const [period, setPeriod] = useState('recent'); // 'recent' (直近1年) | 'all' (任期全体)
+  // 💡 初期状態は折りたたんで場所を取らない（クリックで開閉）
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('solution');
 
-  // 選択条件に基づき上位3件を動的に抽出
-  const filteredHighlights = useMemo(() => {
-    if (!statements || statements.length === 0) return [];
+  // 4つの観点ごとにハイスコアプールから日替わりで1件ずつ抽出
+  const highlights = useMemo(() => {
+    if (!statements || statements.length === 0) return {};
 
-    // 1. 期間による絞り込み（最新日付から365日前までを「直近1年」とする）
-    let target = [...statements];
-    if (period === 'recent') {
-      const dates = target.map(s => s.meeting_date).filter(Boolean).sort();
-      if (dates.length > 0) {
-        const latestDateStr = dates[dates.length - 1];
-        const latestDate = new Date(latestDateStr);
-        const oneYearAgo = new Date(latestDate);
-        oneYearAgo.setDate(oneYearAgo.getDate() - 365);
-        target = target.filter(s => new Date(s.meeting_date) >= oneYearAgo);
+    const rng = getDailyRng();
+
+    const criteriaList = [
+      { key: 'solution', scoreKey: 'solution_score', minScore: 4 },
+      { key: 'local', scoreKey: 'local_focus_score', minScore: 4 },
+      { key: 'evidence', scoreKey: 'evidence_score', minScore: 4 },
+      { key: 'constructive', scoreKey: 'constructive_score', minScore: 4 },
+    ];
+
+    const result = {};
+    const usedSpeakers = new Set();
+
+    criteriaList.forEach(({ key, scoreKey, minScore }) => {
+      let pool = statements.filter(s => (s[scoreKey] || 0) >= 5);
+      if (pool.length < 3) {
+        pool = statements.filter(s => (s[scoreKey] || 0) >= minScore);
       }
-    }
+      if (pool.length === 0) pool = [...statements];
 
-    // 2. ジャンルによる絞り込み
-    if (selectedGenre !== 'all') {
-      const preset = GENRE_PRESETS.find(g => g.id === selectedGenre);
-      if (preset && preset.keywords) {
-        target = target.filter(s => 
-          preset.keywords.some(kw => (s.category || '').includes(kw))
-        );
+      let nonOverlappingPool = pool.filter(s => !usedSpeakers.has(cleanName(s.speaker)));
+      const finalPool = nonOverlappingPool.length > 0 ? nonOverlappingPool : pool;
+
+      const randomIndex = Math.floor(rng() * finalPool.length);
+      const picked = finalPool[randomIndex] || pool[0];
+
+      if (picked) {
+        result[key] = picked;
+        usedSpeakers.add(cleanName(picked.speaker));
       }
-    }
-
-    // 3. スコア合計（満点優先）降順、同点は日付順にソート
-    target.sort((a, b) => {
-      const totalA = a.evidence_score + a.solution_score + a.local_focus_score + a.constructive_score;
-      const totalB = b.evidence_score + b.solution_score + b.local_focus_score + b.constructive_score;
-      if (totalB !== totalA) return totalB - totalA;
-      return new Date(b.meeting_date) - new Date(a.meeting_date);
     });
 
-    // 上位3件をフォーマット
-    return target.slice(0, 3).map(thread => {
-      const total = thread.evidence_score + thread.solution_score + thread.local_focus_score + thread.constructive_score;
-      let badgeTitle = "";
-      let reason = "";
-      let badgeColor = "";
+    return result;
+  }, [statements]);
 
-      if (total === 20) {
-        badgeTitle = "最高評価（全項目満点）";
-        reason = "4つの評価軸すべてで満点を獲得した、極めて質の高いモデル論戦です。";
-        badgeColor = "bg-yellow-50 text-yellow-700 border-yellow-200";
-      } else if (total >= 18) {
-        badgeTitle = "マスタークラス評価";
-        reason = "複数の軸で満点を獲得し、圧倒的な解像度と対案で議論を牽引しています。";
-        badgeColor = "bg-blue-50 text-blue-700 border-blue-200";
-      } else {
-        badgeTitle = "高評価ピックアップ";
-        reason = "データと対案に基づき、この分野において特に評価の高かった注目の質疑です。";
-        badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200";
-      }
+  const tabs = [
+    { 
+      key: 'solution', 
+      label: '具体的対案の提示', 
+      shortLabel: '対案',
+      icon: Target, 
+      desc: '問題点の指摘にとどまらず、実現可能な代案や制度改善を提案した質疑',
+      colorClass: 'text-emerald-700 bg-emerald-50 border-emerald-200' 
+    },
+    { 
+      key: 'local', 
+      label: '現場解像度・市民の声', 
+      shortLabel: '現場',
+      icon: MapPin, 
+      desc: '地域の切実な困りごとや現場当事者の実態に根ざした質疑',
+      colorClass: 'text-amber-700 bg-amber-50 border-amber-200' 
+    },
+    { 
+      key: 'evidence', 
+      label: '客観データ・根拠', 
+      shortLabel: 'データ',
+      icon: Database, 
+      desc: '統計数字、他都市の先行事例、公的データを根拠に展開した質疑',
+      colorClass: 'text-indigo-700 bg-indigo-50 border-indigo-200' 
+    },
+    { 
+      key: 'constructive', 
+      label: '行政監視・議論の進展', 
+      shortLabel: '進展',
+      icon: TrendingUp, 
+      desc: '市側の答弁の論理の穴を突き、新たな見解や前向きな答弁を引き出した質疑',
+      colorClass: 'text-rose-700 bg-rose-50 border-rose-200' 
+    },
+  ];
 
-      return {
-        ...thread,
-        highlightTheme: { title: badgeTitle, desc: reason, badgeColor }
-      };
-    });
-  }, [statements, selectedGenre, period]);
+  const currentTabInfo = tabs.find(t => t.key === activeTab) || tabs[0];
+  const activeStatement = highlights[activeTab];
 
-  if (!statements || statements.length === 0) return null;
+  if (!activeStatement) return null;
 
   return (
-    <section className="bg-gradient-to-br from-indigo-50/40 via-white to-slate-50 p-5 md:p-6 rounded-2xl border border-indigo-100/60 shadow-sm space-y-4">
+    <section className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300">
       
-      {/* ヘッダーエリア */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
-        <div className="flex items-center space-x-2">
-          <div className="w-7 h-7 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-600">
-            <Sparkles className="w-4 h-4" />
-          </div>
-          <div>
-            <h3 className="text-sm font-extrabold text-slate-900 tracking-tight">
+      {/* 💡 常駐表示されるコンパクトなトリガーバー */}
+      <div 
+        onClick={() => setIsOpen(!isOpen)}
+        className="p-4 md:px-6 md:py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3 cursor-pointer hover:bg-slate-50/80 transition-colors select-none"
+      >
+        <div className="flex items-center gap-3 flex-wrap">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1 text-xs font-black px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200 shrink-0">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
               注目の政策論戦ピックアップ
-            </h3>
-            <p className="text-[10px] text-slate-400 font-medium">条件別のハイスコア質疑を自動抽出</p>
+            </span>
+            <span className="text-[10px] font-bold text-slate-400 hidden sm:inline-flex items-center gap-1">
+              <Shuffle className="w-3 h-3 text-slate-400" />
+              日替わり選出
+            </span>
+          </div>
+
+          {/* 閉じた状態でも選ばれた議員名がひと目でわかるミニバッジ */}
+          <div className="flex items-center gap-1.5 flex-wrap">
+            {tabs.map(t => {
+              const spk = highlights[t.key]?.speaker;
+              if (!spk) return null;
+              return (
+                <span key={t.key} className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200/80">
+                  <span className="text-slate-400 mr-1">{t.shortLabel}:</span>{spk}
+                </span>
+              );
+            })}
           </div>
         </div>
 
-        {/* 期間切り替えトグル */}
-        <div className="flex items-center bg-slate-100/80 p-0.5 rounded-lg border border-slate-200/80 self-start sm:self-auto text-[11px] font-bold">
-          <button
-            onClick={() => setPeriod('recent')}
-            className={`px-2.5 py-1 rounded-md transition-all flex items-center gap-1 ${
-              period === 'recent'
-                ? 'bg-white text-indigo-700 shadow-2xs'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
-          >
-            <Calendar className="w-3 h-3" />
-            直近1年
-          </button>
-          <button
-            onClick={() => setPeriod('all')}
-            className={`px-2.5 py-1 rounded-md transition-all ${
-              period === 'all'
-                ? 'bg-white text-indigo-700 shadow-2xs'
-                : 'text-slate-500 hover:text-slate-700'
-            }`}
-          >
-            任期全体
-          </button>
+        {/* 開閉ボタン */}
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 shrink-0 self-end md:self-auto">
+          <span>{isOpen ? 'ピックアップを閉じる' : '質疑を見る'}</span>
+          <div className="w-6 h-6 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 border border-indigo-100">
+            {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          </div>
         </div>
       </div>
 
-      {/* ジャンル選択ピルボタン */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 hide-scrollbar">
-        <span className="text-[10px] font-bold text-slate-400 shrink-0 mr-1 flex items-center">
-          <Tag className="w-3 h-3 mr-0.5" />分野:
-        </span>
-        {GENRE_PRESETS.map((genre) => (
-          <button
-            key={genre.id}
-            onClick={() => setSelectedGenre(genre.id)}
-            className={`px-3 py-1 rounded-full text-xs font-bold transition-all shrink-0 border ${
-              selectedGenre === genre.id
-                ? 'bg-indigo-600 text-white border-indigo-600 shadow-2xs'
-                : 'bg-white text-slate-600 hover:bg-slate-50 border-slate-200'
-            }`}
-          >
-            {genre.label}
-          </button>
-        ))}
-      </div>
+      {/* 💡 クリック時にのみアコーディオン展開されるコンテンツ */}
+      {isOpen && (
+        <div className="p-6 pt-4 border-t border-slate-100 bg-slate-50/30 space-y-5 animate-in fade-in duration-300">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <p className="text-xs text-slate-500 font-medium leading-relaxed">
+              AI評価で各観点（スコア4〜5）に輝いた質疑ログから、公平性を期して日替わりでローテーション紹介しています。
+            </p>
 
-      {/* カード一覧（モバイル横スクロール対応） */}
-      {filteredHighlights.length > 0 ? (
-        <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory hide-scrollbar pt-1">
-          {filteredHighlights.map((thread) => (
-            <div
-              key={thread.id}
-              className="w-[85vw] sm:w-[340px] md:w-auto shrink-0 snap-center bg-white rounded-xl border border-slate-200/80 p-4 shadow-2xs hover:border-indigo-300 hover:shadow-md transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded border ${thread.highlightTheme.badgeColor}`}>
-                    {thread.highlightTheme.title}
-                  </span>
-                  <span className="text-[10px] text-slate-400 font-medium">{thread.meeting_date}</span>
-                </div>
+            {onOpenMethodology && (
+              <button
+                onClick={(e) => { e.stopPropagation(); onOpenMethodology(); }}
+                className="text-[11px] font-bold text-slate-500 hover:text-indigo-600 transition-colors inline-flex items-center gap-1 self-start sm:self-auto shrink-0 bg-white hover:bg-slate-100 px-2.5 py-1.5 rounded-lg border border-slate-200 cursor-pointer"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
+                <span>AI採点基準について</span>
+              </button>
+            )}
+          </div>
 
-                <div className="flex items-center justify-between mb-2">
-                  <button
-                    onClick={() => onSpeakerClick(cleanName(thread.speaker))}
-                    className="flex items-center text-xs font-black text-slate-800 hover:text-indigo-600 transition-colors"
-                  >
-                    <User className="w-3.5 h-3.5 mr-1 text-slate-400" />
-                    {thread.speaker} 議員
-                  </button>
-                  <span className="text-[10px] font-bold text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded border border-slate-100">
-                    {thread.category}
-                  </span>
-                </div>
+          {/* 4つの観点タブセレクター */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              const isSelected = activeTab === tab.key;
+              const targetStmt = highlights[tab.key];
 
-                <h4 className="text-xs font-bold text-slate-900 line-clamp-1 mb-2">
-                  {thread.meeting_title}
-                </h4>
-
-                <div className="mb-2.5 p-2 bg-slate-50/80 rounded-lg border border-slate-100">
-                  <p className="text-[9px] font-bold text-slate-400 mb-0.5 flex items-center">
-                    <Sparkles className="w-3 h-3 mr-1 text-amber-500" />選出理由
-                  </p>
-                  <p className="text-[11px] text-slate-700 font-medium leading-relaxed">
-                    {thread.highlightTheme.desc}
-                  </p>
-                </div>
-
-                <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
-                  {thread.summary}
-                </p>
-              </div>
-
-              <div className="pt-3 mt-3 border-t border-slate-100">
+              return (
                 <button
-                  onClick={() => onViewContext(thread)}
-                  className="w-full py-1.5 text-xs font-bold text-indigo-600 bg-indigo-50/60 hover:bg-indigo-600 hover:text-white rounded-lg transition-colors flex items-center justify-center"
+                  key={tab.key}
+                  onClick={(e) => { e.stopPropagation(); setActiveTab(tab.key); }}
+                  className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between cursor-pointer ${
+                    isSelected
+                      ? 'bg-white border-indigo-400 shadow-sm ring-2 ring-indigo-500/20'
+                      : 'bg-white hover:bg-slate-50 border-slate-200/80 hover:border-indigo-200'
+                  }`}
                 >
-                  <MessageCircle className="w-3.5 h-3.5 mr-1" />
-                  論戦タイムラインを読む
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <div className={`p-1.5 rounded-lg ${isSelected ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-100 text-slate-600'}`}>
+                        <Icon className="w-3.5 h-3.5" />
+                      </div>
+                      {targetStmt && (
+                        <span className="text-[10px] font-black text-slate-700 truncate max-w-[80px]">
+                          {targetStmt.speaker}
+                        </span>
+                      )}
+                    </div>
+                    <div className={`text-xs font-black leading-snug ${isSelected ? 'text-indigo-900' : 'text-slate-700'}`}>
+                      {tab.label}
+                    </div>
+                  </div>
+
+                  <div className="mt-2 text-[10px] text-slate-400 font-medium truncate">
+                    {targetStmt ? `${targetStmt.meeting_date}・${targetStmt.meeting_title?.slice(0, 10)}...` : ''}
+                  </div>
                 </button>
+              );
+            })}
+          </div>
+
+          {/* 選択された観点の解説とThreadCard */}
+          <div className="space-y-3 pt-1">
+            <div className="bg-white p-3 rounded-xl border border-slate-200/80 flex items-start gap-2.5 shadow-2xs">
+              <currentTabInfo.icon className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+              <div className="text-xs">
+                <span className="font-black text-slate-800 mr-2">{currentTabInfo.label}：</span>
+                <span className="text-slate-600 font-medium">{currentTabInfo.desc}</span>
               </div>
             </div>
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-8 text-xs text-slate-400 bg-white/60 rounded-xl border border-dashed border-slate-200">
-          指定された条件に一致する高評価論戦が見つかりませんでした。別のジャンルや「任期全体」をお試しください。
+
+            <ThreadCard
+              stmt={activeStatement}
+              onSpeakerClick={onSpeakerClick}
+              onViewContext={onViewContext}
+              showSpeakerHeader={true}
+              onOpenMethodology={onOpenMethodology}
+            />
+          </div>
         </div>
       )}
     </section>
