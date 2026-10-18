@@ -36,7 +36,7 @@ export default function TimelineModal({
             <X className="w-5 h-5" />
           </button>
         </div>
-        
+
         <div className="flex-1 overflow-y-auto p-5 bg-slate-50 space-y-4 relative">
           {isLoading ? (
             <div className="flex justify-center py-10">
@@ -58,12 +58,8 @@ export default function TimelineModal({
                 if (msg.is_short_procedural && !msg.is_target) return null;
                 if (!showPrevious && idx < targetIndex) return null;
 
-                // 💡 要件4-1: 行政職員発言の肩書解像度向上
-                const speakerLabel = msg.is_admin
-                  ? (msg.speaker.includes('部長') || msg.speaker.includes('室長') || msg.speaker.includes('局長')
-                      ? msg.speaker
-                      : `${msg.speaker} (市側)`)
-                  : `${msg.speaker} 議員`;
+
+                const speakerLabel = msg.speaker;
 
                 return (
                   <div key={idx} className={`flex flex-col ${msg.is_target ? 'items-end' : 'items-start'} ${msg.is_target && !showPrevious ? 'mt-0' : 'mt-4'}`}>
@@ -78,15 +74,14 @@ export default function TimelineModal({
                     <div className={`text-[10px] font-bold mb-1 ${msg.is_target ? 'text-indigo-600 mr-1' : 'text-slate-500 ml-1'}`}>
                       {speakerLabel} {msg.is_admin && msg.is_short_procedural ? '(進行)' : ''}
                     </div>
-                    
+
                     <div
-                      className={`max-w-[90%] rounded-xl px-4 py-3 text-sm leading-relaxed shadow-sm ${
-                        msg.is_target
+                      className={`max-w-[90%] rounded-xl px-4 py-3 text-sm leading-relaxed shadow-sm ${msg.is_target
                           ? 'bg-indigo-600 text-white rounded-tr-none border border-indigo-700'
                           : msg.is_admin
-                          ? 'bg-white border border-slate-200 text-slate-800 rounded-tl-none'
-                          : 'bg-slate-200 text-slate-700 rounded-tl-none'
-                      }`}
+                            ? 'bg-white border border-slate-200 text-slate-800 rounded-tl-none'
+                            : 'bg-slate-200 text-slate-700 rounded-tl-none'
+                        }`}
                     >
                       {msg.statement_text}
                     </div>

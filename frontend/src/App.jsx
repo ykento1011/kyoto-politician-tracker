@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Search, Sparkles, Users, MessageSquare, Scale, 
-  SlidersHorizontal, X, GitCompare, ArrowUpDown 
+  SlidersHorizontal, ArrowUpDown 
 } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -15,7 +15,7 @@ import HighlightedThreads from './components/HighlightedThreads';
 import TimelineModal from './components/TimelineModal';
 import BillDetailModal from './components/BillDetailModal';
 import AboutPage from './components/AboutPage';
-import Methodology from './components/Methodology'; // 💡 本来の技術白書ページを正しく読み込み
+import Methodology from './components/Methodology';
 import { useStatements } from './hooks/useStatements';
 
 const HOT_TOPICS = [
@@ -54,9 +54,6 @@ export default function App() {
     speakerFilteredThreads,
     compareList,
     setCompareList,
-    isCompareMode,
-    toggleCompare,
-    executeCompare,
     clearSpeakerAndCompare,
     handleSpeakerClick,
     handleViewContext,
@@ -74,6 +71,10 @@ export default function App() {
   const [issuesMap, setIssuesMap] = useState({});
   const [selectedBillForModal, setSelectedBillForModal] = useState(null);
   const [onlyContestedBills, setOnlyContestedBills] = useState(true);
+
+  // 💡 議案専用のフィルターステート
+  const [selectedSession, setSelectedSession] = useState('');
+  const [selectedResult, setSelectedResult] = useState('');
 
   // 画面遷移ステート
   const [compareActive, setCompareActive] = useState(false);
@@ -98,7 +99,6 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // URL直接アクセス・ブラウザ戻る進むの監視
   useEffect(() => {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
@@ -122,7 +122,6 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // About ページの開閉
   const handleOpenAbout = () => {
     clearSpeakerAndCompare();
     setCompareActive(false);
@@ -142,7 +141,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Methodology（技術白書）ページの開閉
   const handleOpenMethodology = () => {
     clearSpeakerAndCompare();
     setCompareActive(false);
@@ -167,32 +165,6 @@ export default function App() {
     clearSpeakerAndCompare();
   };
 
-  const handleAddCompareSpeaker = (speaker) => {
-    if (compareList.length >= 3) {
-      alert('比較できる議員は最大3名までです。');
-      return;
-    }
-    if (!compareList.some(s => s.speaker === speaker.speaker)) {
-      setCompareList([...compareList, speaker]);
-    }
-  };
-
-  const handleRemoveCompareSpeaker = (speaker) => {
-    setCompareList(compareList.filter(s => s.speaker !== speaker.speaker));
-  };
-
-  const handleDirectCompare = (speaker) => {
-    if (!compareList.some(s => s.speaker === speaker.speaker)) {
-      if (compareList.length >= 3) {
-        alert('比較できる議員は最大3名までです。');
-        return;
-      }
-      setCompareList(prev => [...prev, speaker]);
-    }
-    setCompareActive(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     setSubmittedQuery(searchQuery);
@@ -210,8 +182,21 @@ export default function App() {
     setSubmittedQuery('');
   };
 
+  // 💡 議案フィルター用：ユニークな会期・結果の抽出
+  const uniqueSessions = useMemo(() => {
+    if (!votesData) return [];
+    return [...new Set(votesData.map(b => b.session_name).filter(Boolean))];
+  }, [votesData]);
+
+  const uniqueResults = useMemo(() => {
+    if (!votesData) return [];
+    return [...new Set(votesData.map(b => b.result).filter(Boolean))];
+  }, [votesData]);
+
   const filteredBills = useMemo(() => {
     let list = votesData || [];
+    
+    // 検索ワード
     if (submittedQuery.trim() !== '') {
       const q = submittedQuery.toLowerCase();
       list = list.filter(b => 
@@ -220,6 +205,17 @@ export default function App() {
         (b.session_name && b.session_name.toLowerCase().includes(q))
       );
     }
+    
+    // 💡 会期での絞り込み
+    if (selectedSession) {
+      list = list.filter(b => b.session_name === selectedSession);
+    }
+    // 💡 議決結果での絞り込み
+    if (selectedResult) {
+      list = list.filter(b => b.result === selectedResult);
+    }
+    
+    // 激論議案のみ
     if (onlyContestedBills) {
       list = list.filter(bill => {
         const votes = Object.values(bill.votes || {});
@@ -227,7 +223,7 @@ export default function App() {
       });
     }
     return list;
-  }, [votesData, submittedQuery, onlyContestedBills]);
+  }, [votesData, submittedQuery, selectedSession, selectedResult, onlyContestedBills]);
 
   if (isLoading) {
     return (
@@ -238,7 +234,6 @@ export default function App() {
     );
   }
 
-  // 1. About ページ
   if (isAboutOpen) {
     return (
       <AboutPage
@@ -251,15 +246,13 @@ export default function App() {
     );
   }
 
-  // 2. 💡 Methodology（AI採点基準・技術白書）フルページ
   if (isMethodologyOpen) {
     return (
       <Methodology onBack={handleCloseMethodology} />
     );
   }
 
-  // 3. 議員比較画面
-  if (compareActive || (isCompareMode && compareList.length >= 2)) {
+  if (compareActive || compareList.length >= 2) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         <Navbar
@@ -272,8 +265,10 @@ export default function App() {
         <CompareDashboard
           compareList={compareList}
           allSpeakers={speakerStats}
-          onAddSpeaker={handleAddCompareSpeaker}
-          onRemoveSpeaker={handleRemoveCompareSpeaker}
+          onAddSpeaker={(spk) => {
+            if (compareList.length < 3) setCompareList([...compareList, spk]);
+          }}
+          onRemoveSpeaker={(spk) => setCompareList(compareList.filter(s => s.speaker !== spk.speaker))}
           onClose={handleCloseCompare}
           onViewContext={handleViewContext}
           onSpeakerClick={handleSpeakerClick}
@@ -303,7 +298,6 @@ export default function App() {
     );
   }
 
-  // 4. 議員詳細画面
   if (selectedSpeaker) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -328,7 +322,11 @@ export default function App() {
           setSpeakerSort={setSpeakerSort}
           votesData={votesData}
           issuesMap={issuesMap}
-          onOpenCompare={handleDirectCompare}
+          onOpenCompare={(spk) => {
+            setCompareList([spk]);
+            setCompareActive(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           onBack={clearSpeakerAndCompare}
           onSpeakerClick={handleSpeakerClick}
           onViewContext={handleViewContext}
@@ -354,7 +352,6 @@ export default function App() {
     );
   }
 
-  // 5. 検索結果画面
   if (submittedQuery.trim() !== '') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -383,7 +380,11 @@ export default function App() {
           setOnlyContestedBills={setOnlyContestedBills}
           onSpeakerClick={handleSpeakerClick}
           onViewContext={handleViewContext}
-          onOpenCompare={handleDirectCompare}
+          onOpenCompare={(spk) => {
+            setCompareList([spk]);
+            setCompareActive(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           onSelectBill={setSelectedBillForModal}
           onOpenMethodology={handleOpenMethodology}
         />
@@ -406,7 +407,6 @@ export default function App() {
     );
   }
 
-  // 6. トップ画面
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
       <Navbar
@@ -516,6 +516,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* 💡 議員・スレッド用のフィルターバー */}
           {viewMode !== 'bills' && (
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2 flex-wrap">
@@ -571,6 +572,49 @@ export default function App() {
             </div>
           )}
 
+          {/* 💡 議案専用のフィルターバー */}
+          {viewMode === 'bills' && (
+            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2 flex-wrap">
+                <SlidersHorizontal className="w-4 h-4 text-slate-400 mr-1" />
+                
+                <select
+                  value={selectedSession}
+                  onChange={(e) => setSelectedSession(e.target.value)}
+                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 outline-none cursor-pointer max-w-[200px] truncate"
+                >
+                  <option value="">すべての会期</option>
+                  {uniqueSessions.map(s => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
+
+                <select
+                  value={selectedResult}
+                  onChange={(e) => setSelectedResult(e.target.value)}
+                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 outline-none cursor-pointer"
+                >
+                  <option value="">すべての議決結果</option>
+                  {uniqueResults.map(r => (
+                    <option key={r} value={r}>{r}</option>
+                  ))}
+                </select>
+
+                {(selectedSession || selectedResult) && (
+                  <button
+                    onClick={() => { setSelectedSession(''); setSelectedResult(''); }}
+                    className="text-slate-400 hover:text-rose-600 font-bold ml-1 transition-colors cursor-pointer"
+                  >
+                    リセット
+                  </button>
+                )}
+              </div>
+              <div className="text-[11px] font-bold text-slate-400">
+                該当: <span className="text-indigo-600">{filteredBills.length}</span> 件
+              </div>
+            </div>
+          )}
+
           {viewMode === 'speakers' && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredSpeakers.map((speaker) => (
@@ -578,9 +622,11 @@ export default function App() {
                   key={speaker.speaker}
                   speaker={speaker}
                   onSpeakerClick={handleSpeakerClick}
-                  onToggleCompare={toggleCompare}
-                  isCompared={compareList.some(s => s.speaker === speaker.speaker)}
-                  onOpenCompare={handleDirectCompare}
+                  onOpenCompare={(spk) => {
+                    setCompareList([spk]);
+                    setCompareActive(true);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                 />
               ))}
             </div>
@@ -614,45 +660,6 @@ export default function App() {
         </section>
       </main>
 
-      {/* フローティング比較バー */}
-      {compareList.length > 0 && !isCompareMode && !compareActive && (
-        <aside aria-label="選択中の議員の比較" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-slate-900/95 backdrop-blur text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-slate-300">比較候補:</span>
-            <div className="flex items-center gap-1.5">
-              {compareList.map((spk) => (
-                <span
-                  key={spk.speaker}
-                  className="inline-flex items-center gap-1 bg-slate-800 text-white text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-700"
-                >
-                  {spk.speaker}
-                  <button
-                    onClick={(e) => toggleCompare(spk, e)}
-                    className="text-slate-400 hover:text-white cursor-pointer ml-1"
-                  >
-                    <X className="w-3 h-3" />
-                  </button>
-                </span>
-              ))}
-            </div>
-          </div>
-          <button
-            onClick={() => {
-              if (compareList.length < 2) {
-                alert('2名以上の議員を選択してください。');
-                return;
-              }
-              executeCompare();
-            }}
-            className="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-black px-4 py-2 rounded-xl shadow-md transition-all cursor-pointer"
-          >
-            <GitCompare className="w-3.5 h-3.5" />
-            ポリシー比較を開始 ({compareList.length}/3)
-          </button>
-        </aside>
-      )}
-
-      {/* 議案詳細モーダル */}
       <BillDetailModal
         isOpen={Boolean(selectedBillForModal)}
         onClose={() => setSelectedBillForModal(null)}
@@ -662,7 +669,6 @@ export default function App() {
         onSpeakerClick={handleSpeakerClick}
       />
 
-      {/* タイムラインモーダル */}
       <TimelineModal
         isOpen={isPanelOpen}
         onClose={() => setIsPanelOpen(false)}
