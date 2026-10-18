@@ -1,56 +1,24 @@
 import React from 'react';
-import { Scale, Mail } from 'lucide-react';
-import GithubIcon from './GithubIcon';
 
-export default function Footer({ onOpenMethodology }) {
+export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-400 py-12 px-6 mt-10">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="space-y-4">
-          <h3 className="text-white font-extrabold text-sm flex items-center">
-            <Scale className="w-4 h-4 mr-2" />運営ポリシー・中立性の宣誓
-          </h3>
-          <p className="text-xs leading-relaxed">
-            本プラットフォームは特定の政党・政治団体を支持または批判するものではありません。AI（Gemini）による客観的ルーブリック評価は、全議員に対して完全に同一のプロンプトと基準で機械的に適用されています。
-          </p>
-          <div className="pt-1">
-            <button
-              onClick={onOpenMethodology}
-              className="text-xs font-bold text-indigo-400 hover:text-indigo-300 hover:underline inline-flex items-center cursor-pointer"
-            >
-              評価基準・AIプロンプト仕様書（Methodology）を詳しく確認する →
-            </button>
-          </div>
+    <footer className="mt-20 border-t border-slate-200 bg-white py-10 px-4 text-center text-slate-500">
+      <div className="max-w-4xl mx-auto space-y-3">
+        <div className="text-xs font-extrabold text-slate-800 tracking-tight">
+          京都市会議員 ポリティシャントラッカー
         </div>
 
-        <div className="space-y-4 md:text-right">
-          <h3 className="text-white font-extrabold text-sm">開発・運営</h3>
-          <div className="text-xs space-y-1">
-            <p>株式会社KICKs</p>
-            <p>代表 山本健人</p>
-          </div>
+        <p className="text-[11px] text-slate-500 leading-relaxed">
+          分析対象データ：京都市会 会議録検索システム（現任期：2023年5月〜直近公開分まで）<br className="hidden sm:inline" />
+          本会議（代表質問・個人質疑）・常任委員会・決算及び予算特別委員会における全発言・対話スレッド
+        </p>
 
-          <div className="pt-2 flex flex-col items-start md:items-end space-y-2.5">
-            <a
-              href="https://github.com/ykento1011/kyoto-politician-tracker"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors"
-            >
-              <GithubIcon className="w-3.5 h-3.5" />
-              <span>GitHub Repository</span>
-            </a>
+        <p className="text-[10px] text-slate-400 leading-relaxed max-w-2xl mx-auto">
+          ※本プラットフォームは、地方自治体が公開する公式会議録オープンデータを元に、AIによる客観ルーブリック評価で対話構造を可視化した中立な市民向けプロジェクトです。特定の政党・会派・信条を支持または排除するものではありません。
+        </p>
 
-            <a
-              href="https://forms.gle/36F9b6xeC8NqzNsU9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-indigo-400 transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>お問い合わせ（取材・改善要望・データ修正等）</span>
-            </a>
-          </div>
+        <div className="text-[10px] text-slate-400 pt-3 border-t border-slate-100">
+          &copy; {new Date().getFullYear()} Kyoto Politician Tracker. All rights reserved.
         </div>
       </div>
     </footer>
