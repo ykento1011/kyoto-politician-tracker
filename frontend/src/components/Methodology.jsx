@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   ArrowLeft, ShieldCheck, Database, Sliders, Scale, 
-  AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText 
+  AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText, Calendar 
 } from 'lucide-react';
 
 export default function Methodology({ onBack }) {
@@ -53,7 +53,7 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* ③ セクション2：データの前処理とスレッド構造化（Sagebaseクレジット・利用規約明記） */}
+        {/* ③ セクション2：データの前処理とスレッド構造化 */}
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
             <span>2. 分析対象データと「スレッド化」の仕組み</span>
@@ -106,6 +106,16 @@ export default function Methodology({ onBack }) {
               </ul>
             </div>
             
+            {/* 💡 追加: 期間と公平性のブロック */}
+            <div className="bg-indigo-50/60 p-4 rounded-xl border border-indigo-100">
+              <h3 className="font-bold text-indigo-900 text-xs flex items-center gap-1.5 mb-1.5">
+                <Calendar className="w-4 h-4 text-indigo-600" /> 対象期間と公平性の担保（現任期への統一）
+              </h3>
+              <p className="text-xs text-indigo-950/80 leading-normal">
+                本プラットフォームでは、<strong>現任期（2023年5月の改選以降〜最新公開分）</strong>のみを分析・評価の対象としています。期数の長いベテラン議員と新人議員が「活動量や質」において対等に比較されるよう、全議員共通のスタート地点に揃えることで、直近の政策活動を公平に可視化しています。
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <h3 className="font-bold text-slate-900 text-xs flex items-center gap-1.5 mb-1.5">
