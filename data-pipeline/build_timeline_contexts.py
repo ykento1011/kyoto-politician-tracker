@@ -1,11 +1,19 @@
 import json
 import os
 import re
+import hashlib
+import shutil
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CRAWLED_PATH = os.path.join(BASE_DIR, "sagebase_crawled_data.json")
 SUMMARY_PATH = os.path.join(BASE_DIR, "..", "frontend", "public", "data", "statements_summary.json")
-OUTPUT_PATH = os.path.join(BASE_DIR, "..", "frontend", "public", "data", "timeline_contexts.json")
+TIMELINES_DIR = os.path.join(BASE_DIR, "..", "frontend", "public", "data", "timelines")
+OLD_FILE = os.path.join(BASE_DIR, "..", "frontend", "public", "data", "timeline_contexts.json")
+
+# 💡 制限オーバーの原因だった旧巨大ファイルを削除
+if os.path.exists(OLD_FILE):
+    os.remove(OLD_FILE)
+    print(f"旧ファイル {OLD_FILE} を削除しました。")
 
 VALID_COUNCILORS = {
     "青野仁志", "赤阪仁", "あさのえりか", "浅野枝里加", "天方浩之", "天方ひろゆき", "井上けんじ", "井上耕司",
@@ -39,19 +47,27 @@ for s in raw_statements:
 for mid in meetings_map:
     meetings_map[mid].sort(key=lambda x: int(x.get("sequence_number") or 0))
 
-print("3. タイムライン文脈を抽出中...")
-timeline_contexts = {}
-success_count = 0
+print("3. 会議単位でタイムライン文脈を抽出中...")
+# 会議ID -> { seq_number: formatted_context }
+meetings_timelines = {}
+total_threads = 0
 
 for stmt in summary_statements:
-    mid = stmt.get("meeting_id") or stmt.get("meeting_title")
+    mid = stmt.get("meeting_id")
+    if not mid:
+        mtitle = stmt.get("meeting_title")
+        if not mtitle:
+            continue
+        mid = "mtg_" + hashlib.md5(mtitle.encode('utf-8')).hexdigest()
+
     target_seq = int(stmt.get("sequence_number") or 0)
     target_speaker = (stmt.get("speaker") or "").strip()
 
-    if not mid or target_seq == 0 or mid not in meetings_map:
+    lookup_key = stmt.get("meeting_id") or stmt.get("meeting_title")
+    if not lookup_key or target_seq == 0 or lookup_key not in meetings_map:
         continue
 
-    meeting_list = meetings_map[mid]
+    meeting_list = meetings_map[lookup_key]
     
     target_idx = -1
     for idx, s in enumerate(meeting_list):
@@ -79,7 +95,7 @@ for stmt in summary_statements:
             break
 
         collected.append(s)
-        if len(collected) >= 10:
+        if len(collected) >= 12:
             break
 
     formatted_context = []
@@ -108,16 +124,20 @@ for stmt in summary_statements:
             "is_short_procedural": is_procedural
         })
 
-    # 💡 重複キーを排除し、meeting_id_seq の単一キーのみで保持（容量半減）
-    key = f"{stmt.get('meeting_id')}_{target_seq}"
-    timeline_contexts[key] = formatted_context
-    success_count += 1
+    if mid not in meetings_timelines:
+        meetings_timelines[mid] = {}
 
-print(f"4. 圧縮JSONとして出力中 -> {OUTPUT_PATH}")
-os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-# 💡 separators=(',', ':') で改行・余白を排除（容量さらに半減）
-with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-    json.dump(timeline_contexts, f, ensure_ascii=False, separators=(',', ':'))
+    meetings_timelines[mid][str(target_seq)] = formatted_context
+    total_threads += 1
 
-file_size_mb = os.path.getsize(OUTPUT_PATH) / (1024 * 1024)
-print(f"完了: {success_count} 件のタイムラインを出力しました (ファイルサイズ: {file_size_mb:.2f} MB)")
+print(f"4. 会議ごとの個別JSONファイルを出力中 -> {TIMELINES_DIR}")
+if os.path.exists(TIMELINES_DIR):
+    shutil.rmtree(TIMELINES_DIR)
+os.makedirs(TIMELINES_DIR, exist_ok=True)
+
+for mid, seq_map in meetings_timelines.items():
+    file_path = os.path.join(TIMELINES_DIR, f"{mid}.json")
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(seq_map, f, ensure_ascii=False, separators=(',', ':'))
+
+print(f"完了: 全 {len(meetings_timelines)} 会議（計 {total_threads} 件の質疑）を分割ファイルとして生成しました！")

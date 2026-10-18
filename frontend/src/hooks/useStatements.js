@@ -391,7 +391,8 @@ export function useStatements() {
 
 
   // 会議録タイムライン（複合キー照合版）
-  const [timelineMap, setTimelineMap] = useState(null);
+// 会議単位オンデマンド取得キャッシュ
+  const timelineCache = useMemo(() => new Map(), []);
 
   const handleViewContext = async (stmt) => {
     setIsLoadingContext(true);
@@ -399,30 +400,33 @@ export function useStatements() {
 
     try {
       console.log('[handleViewContext] 選択された質疑:', stmt);
-      let map = timelineMap;
+      const meetingId = stmt.meeting_id;
+      const targetSeq = Number(stmt.sequence_number ?? stmt.speech_order ?? 0);
 
-      if (!map) {
-        try {
-          const res = await fetch('/data/timeline_contexts.json');
-          if (res.ok) {
-            map = await res.json();
-            setTimelineMap(map);
+      let contextData = [];
+
+      if (meetingId && targetSeq > 0) {
+        // メモリキャッシュにあれば即座に再利用
+        let meetingTimelines = timelineCache.get(meetingId);
+
+        if (!meetingTimelines) {
+          try {
+            const res = await fetch(`/data/timelines/${meetingId}.json`);
+            if (res.ok) {
+              meetingTimelines = await res.json();
+              timelineCache.set(meetingId, meetingTimelines);
+            }
+          } catch (fetchErr) {
+            console.warn(`[handleViewContext] 会議タイムライン取得失敗 (${meetingId}):`, fetchErr);
           }
-        } catch (e) {
-          console.warn('timeline_contexts.json fetch error:', e);
+        }
+
+        if (meetingTimelines && meetingTimelines[String(targetSeq)]) {
+          contextData = meetingTimelines[String(targetSeq)];
         }
       }
 
-      let contextData = [];
-      if (map) {
-        const seq = Number(stmt.sequence_number ?? stmt.speech_order ?? 0);
-        const keyMidSeq = `${stmt.meeting_id}_${seq}`;
-        const keyTitleSeq = `${stmt.meeting_title}_${seq}`;
-        const keyId = stmt.id ? String(stmt.id) : null;
-
-        contextData = map[keyMidSeq] || map[keyTitleSeq] || (keyId && map[keyId]) || [];
-      }
-
+      // ファイルが見つからなかった場合のフォールバック
       if (!contextData || contextData.length === 0) {
         contextData = [{
           ...stmt,
@@ -431,7 +435,7 @@ export function useStatements() {
         }];
       }
 
-      console.log(`[handleViewContext] タイムライン取得成功: ${contextData.length} 件のやり取り`);
+      console.log(`[handleViewContext] タイムライン取得完了: ${contextData.length} 件のやり取り`);
 
       setSelectedContext({
         statement: stmt,
@@ -459,7 +463,7 @@ export function useStatements() {
       setIsLoadingContext(false);
     }
   };
-
+  
   return {
     statements, isLoading,
     searchQuery, setSearchQuery,
