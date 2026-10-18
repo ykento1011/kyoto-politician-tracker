@@ -54,9 +54,9 @@ export default function Footer({ onOpenMethodology }) {
               <span>GitHub Repository</span>
             </a>
 
-            {/* ※フォームIDを作成済みの実際のURLに差し替えてください */}
+            {/* 💡 実際のGoogleフォームリンクに修正 */}
             <a
-              href="https://forms.gle/YOUR_GOOGLE_FORM_ID"
+              href="https://forms.gle/vUaP885dxHEopaRX7"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-indigo-400 transition-colors"
