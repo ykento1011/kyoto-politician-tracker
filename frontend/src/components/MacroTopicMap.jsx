@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { PieChart, Flame, Info, ChevronDown } from 'lucide-react';
 
 export default function MacroTopicMap({ topicStats, selectedCategory, onSelectCategory, getIssueCountForCategory }) {
+  // リアルタイムの質疑総数を算出
+  const totalThreadsCount = useMemo(() => {
+    return topicStats.reduce((sum, t) => sum + (t.count || 0), 0);
+  }, [topicStats]);
+
   return (
     <section className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
       <div className="flex items-center justify-between mb-4">
@@ -10,7 +15,7 @@ export default function MacroTopicMap({ topicStats, selectedCategory, onSelectCa
             <PieChart className="w-4 h-4 mr-1.5 text-indigo-500" />市議会マクロ論戦マップ
           </h3>
           <p className="text-[11px] text-slate-400 font-medium mt-0.5">
-            全5,128スレッドの質疑量と、議決で賛否が分かれた激論議案の分布
+            全{totalThreadsCount.toLocaleString()}スレッドの質疑量と、議決で賛否が分かれた激論議案の分布
           </p>
         </div>
         {selectedCategory && (

@@ -14,6 +14,7 @@ FETCH_SCRIPT = os.path.join(BASE_DIR, "fetch_sagebase.py")
 ANALYZE_SCRIPT = os.path.join(BASE_DIR, "batch_analyze_council.py")
 TIMELINE_SCRIPT = os.path.join(BASE_DIR, "build_timeline_contexts.py")
 STATIC_DATA_SCRIPT = os.path.join(BASE_DIR, "generate_static_data.py")
+REMAP_SCRIPT = os.path.join(BASE_DIR, "remap_categories.py")
 SCRAPE_VOTES_SCRIPT = os.path.join(BASE_DIR, "scrape_kyoto_votes.py")
 GENERATE_ISSUES_SCRIPT = os.path.join(BASE_DIR, "generate_bill_issues.py")
 
@@ -153,6 +154,11 @@ def main():
         ok, _ = run_script(STATIC_DATA_SCRIPT, "フロントエンド用 サマリーJSON生成")
         if not ok:
             return
+
+        # 7.5 カテゴリーの統一再マッピング（先祖返り防止）
+        ok, _ = run_script(REMAP_SCRIPT, "最新カテゴリーへの統一再マッピング")
+        if not ok:
+            log("カテゴリー再マッピングで警告が出ましたが続行します", "WARN")
     else:
         log("✅ 新しい議事録はありませんでした。")
 
