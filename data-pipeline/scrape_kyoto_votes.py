@@ -3,30 +3,11 @@ import os
 import re
 import time
 import unicodedata
+from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 import requests
 
 BASE_URL = "https://www2.city.kyoto.lg.jp/shikai/honkaigi"
-
-TARGET_SESSIONS = [
-    ("R05", "5", "令和5年5月市会"),
-    ("R05", "7", "令和5年7月市会"),
-    ("R05", "9", "令和5年9月市会"),
-    ("R05", "11", "令和5年11月市会"),
-    ("R05", "3", "令和6年3月市会"),  # 💡 '2' から '3' に変更（2024年市長選に伴う3月開会）    ("R06", "5", "令和6年5月市会"),
-    ("R06", "7", "令和6年7月市会"),
-    ("R06", "9", "令和6年9月市会"),
-    ("R06", "11", "令和6年11月市会"),
-    ("R06", "2", "令和7年2月市会"),
-    ("R07", "5", "令和7年5月市会"),
-    ("R07", "7", "令和7年7月市会"),
-    ("R07", "9", "令和7年9月市会"),
-    ("R07", "11", "令和7年11月市会"),
-    ("R07", "2", "令和8年2月市会"),
-    ("R08", "5", "令和8年5月市会"),
-    ("R08", "7", "令和8年7月市会"),
-    ("R08", "9", "令和8年9月市会"),
-]
 
 VALID_COUNCILORS = [
     "青野仁志", "赤阪仁", "天方ひろゆき", "井﨑敦子", "井崎敦子", "井上よしひろ", "宇佐美賢一",
@@ -47,7 +28,7 @@ def clean_str(text):
     if not text:
         return ""
     t = unicodedata.normalize('NFKC', str(text))
-    t = t.replace('\r', '').replace('\n', '').replace(' ', '').replace(' ', '').replace('\t', '')
+    t = t.replace('\r', '').replace('\n', '').replace(' ', '').replace('\t', '')
     return t.strip()
 
 def normalize_vote(val):
@@ -62,30 +43,21 @@ def normalize_vote(val):
 
 def normalize_group_or_person(raw_name):
     name = clean_str(raw_name)
-
-    # 1. 自民党最優先
     if "自民" in name or "自由民主" in name:
         return "自由民主党京都市会議員団"
-    # 2. 共産党
     if "共産" in name:
         return "日本共産党京都市会議員団"
-    # 3. 維新
     if "維" in name or "維京国" in name:
         return "維新・京都・国民市会議員団"
-    # 4. 公明党
     if "公明" in name:
         return "公明党京都市会議員団"
-    # 5. 改新京都
     if "改新" in name:
         return "改新京都"
-    # 6. 京都党
     if "京都党" in name:
         return "地域政党京都党市会議員団"
-    # 7. 民主・市民フォーラム
     if "民主" in name or "フォーラム" in name:
         return "民主・市民フォーラム"
 
-    # 8. 議員個人名
     for c in VALID_COUNCILORS:
         if c in name:
             return "井﨑敦子" if c == "井崎敦子" else c
@@ -95,13 +67,8 @@ def normalize_group_or_person(raw_name):
     return name
 
 def parse_page_notes(soup):
-    """
-    注記から「会派略称・無所属番号」と「正式名称・議員名」を確実に抽出
-    """
     mapping = {}
     norm_text = unicodedata.normalize('NFKC', soup.get_text())
-
-    # = の前後のペアを直接キャプチャ（空白区切り・カンマ区切りの両方に対応）
     raw_pairs = re.findall(r'([^\s=、,;；。・]+)\s*=\s*([^\s=、,;；。]+)', norm_text)
 
     for raw_k, raw_v in raw_pairs:
@@ -110,7 +77,6 @@ def parse_page_notes(soup):
         if not k or not v:
             continue
 
-        # キーのクレンジング（無所属の抽出）
         if "無所属" in k:
             all_m = re.findall(r'無所属(?:\([0-9]+\)|\[[0-9]+\]|[0-9]+)?', k)
             if all_m:
@@ -122,7 +88,6 @@ def parse_page_notes(soup):
             else:
                 mapping["無所属"] = v
         else:
-            # 会派略称
             for p in ["自民", "共産", "維新", "公明", "民主", "改新", "京都党"]:
                 if p in k:
                     mapping[p] = v
@@ -167,27 +132,17 @@ def normalize_table_to_grid(table):
 
 def resolve_column_entity(header_text, notes_map):
     h = clean_str(header_text)
-
-    # 1. 完全一致
     if h in notes_map:
         return notes_map[h]
-
-    # 2. 注記マップの部分一致（キーがヘッダーに含まれるか、ヘッダーがキーに含まれるか）
     for k, v in notes_map.items():
         if k == h or (len(k) >= 2 and k in h):
             return v
-
-    # 3. 数字のみの列（「1」「2」など）がヘッダーにある場合
     digits = re.search(r'\d+', h)
     if digits and digits.group(0) in notes_map:
         return notes_map[digits.group(0)]
-
-    # 4. 議員ホワイトリスト直結
     for c in VALID_COUNCILORS:
         if c in h:
             return "井﨑敦子" if c == "井崎敦子" else c
-
-    # 5. 会派名判定
     return normalize_group_or_person(h)
 
 def fetch_and_parse_table(soup, url, session_name):
@@ -276,50 +231,125 @@ def fetch_and_parse_table(soup, url, session_name):
 
     return records, all_col_entities
 
-def scrape_session(year, month, session_name):
-    url = f"{BASE_URL}/{year}/gian{month}.html"
+# 💡 動的に公開済みの会期・議案ページ（gian*.html）を発見するクローラー
+def discover_sessions():
+    """
+    本会議ポータル（index.html）から現任期（令和5年=R05以降）の全会期議案ページを動的取得
+    """
+    index_url = f"{BASE_URL}/index.html"
     headers = {"User-Agent": "Mozilla/5.0"}
-    
-    res = None
+    discovered = []
+
     try:
-        r = requests.get(url, headers=headers, timeout=10)
-        if r.status_code == 200:
-            res = r
-            actual_url = url
-        elif r.status_code == 404 and month in ["2", "3"]:
-            alt_month = "3" if month == "2" else "2"
-            alt_url = f"{BASE_URL}/{year}/gian{alt_month}.html"
-            r_alt = requests.get(alt_url, headers=headers, timeout=10)
-            if r_alt.status_code == 200:
-                res = r_alt
-                actual_url = alt_url
+        r = requests.get(index_url, headers=headers, timeout=10)
+        if r.status_code != 200:
+            return []
+        r.encoding = r.apparent_encoding or "shift_jis"
+        soup = BeautifulSoup(r.text, "html.parser")
     except Exception as e:
-        print(f"  ⚠️ {url} 通信エラー: {e}")
+        print(f"⚠️ ポータル巡回エラー: {e}")
         return []
 
-    if not res:
-        print(f"  ⚠️ {session_name}: ページなし（スキップ）")
-        return []
+    # 1. 令和5年（R05）以降の kekka.html / 定例会リンクを抽出
+    # リンク例: R08/kekka.html, R07/kekka.html, R06/kekka.html, R05/kekka.html
+    year_links = []
+    for a in soup.find_all('a', href=True):
+        href = a['href']
+        m = re.search(r'(R\d{2})/(?:kekka|index)\.html', href)
+        if m:
+            r_year = m.group(1)
+            year_num = int(r_year[1:])
+            if year_num >= 5:  # 現任期（令和5年=R05以降すべて）
+                full_url = urljoin(index_url, href)
+                year_links.append((r_year, full_url))
 
-    res.encoding = res.apparent_encoding or "shift_jis"
-    soup = BeautifulSoup(res.text, "html.parser")
-    records, entities = fetch_and_parse_table(soup, actual_url, session_name)
+    # 重複除去（順序維持）
+    seen_urls = set()
+    unique_year_links = []
+    for y, u in year_links:
+        if u not in seen_urls:
+            seen_urls.add(u)
+            unique_year_links.append((y, u))
 
-    has_jimin = "自由民主党京都市会議員団" in entities
-    councilor_names = [e for e in entities if e in VALID_COUNCILORS]
-    print(f"  ✅ {session_name}: {len(records)} 件 (自民: {'〇' if has_jimin else '×'} / 議員実名: {', '.join(councilor_names) if councilor_names else 'なし'})")
-    return records
+    # 2. 各年度の kekka.html から議案ページ（gian*.html）を抽出
+    for r_year, kekka_url in unique_year_links:
+        try:
+            rk = requests.get(kekka_url, headers=headers, timeout=10)
+            if rk.status_code != 200:
+                continue
+            rk.encoding = rk.apparent_encoding or "shift_jis"
+            soup_k = BeautifulSoup(rk.text, "html.parser")
+
+            # ページ内の各セクション（令和○年定例会（○月市会）など）と gian リンクを紐付け
+            for a in soup_k.find_all('a', href=True):
+                href = a['href']
+                if 'gian' in href and href.endswith('.html'):
+                    gian_url = urljoin(kekka_url, href)
+                    
+                    # 会期名の推定（親テキストや見出しから取得）
+                    session_label = ""
+                    parent_block = a.find_parent(['table', 'div', 'dl', 'section', 'ul', 'tr'])
+                    if parent_block:
+                        block_text = unicodedata.normalize('NFKC', parent_block.get_text())
+                        m_sess = re.search(r'令和\s*(\d+|元)\s*年\s*(?:定例会)?\s*(?:（|[\(])?([^\)）\n]+市会)(?:）|[\)])?', block_text)
+                        if m_sess:
+                            session_label = f"令和{m_sess.group(1)}年{m_sess.group(2)}"
+                    
+                    # 見出しから取れなかった場合のフォールバック（ファイル名 gian9.html ➔ 9月市会）
+                    if not session_label:
+                        m_num = re.search(r'gian(\d+)\.html', href)
+                        m_cnt = m_num.group(1) if m_num else ""
+                        y_int = int(r_year[1:])
+                        session_label = f"令和{y_int}年{m_cnt}月市会"
+
+                    discovered.append({
+                        "session_name": session_label,
+                        "url": gian_url
+                    })
+        except Exception as e:
+            print(f"⚠️ {kekka_url} 巡回エラー: {e}")
+
+    # 重複URL除去
+    res_list = []
+    seen_gian = set()
+    for item in discovered:
+        if item["url"] not in seen_gian:
+            seen_gian.add(item["url"])
+            res_list.append(item)
+
+    return res_list
 
 def main():
     print("==================================================")
-    print("🚀 京都市会 全会派・全無所属議員 賛否スクレイパー（完全版）")
+    print("🚀 京都市会 全会派・全無所属議員 賛否スクレイパー（動的クローリング版）")
     print("==================================================")
-    all_bills = []
 
-    for year, month, session_name in TARGET_SESSIONS:
-        bills = scrape_session(year, month, session_name)
-        all_bills.extend(bills)
-        time.sleep(0.3)
+    # 動的に現任期の公開済み議案ページを検出
+    target_sessions = discover_sessions()
+    print(f"🔍 検出された公開済み会期: {len(target_sessions)} 件")
+
+    all_bills = []
+    headers = {"User-Agent": "Mozilla/5.0"}
+
+    for item in target_sessions:
+        session_name = item["session_name"]
+        url = item["url"]
+
+        try:
+            r = requests.get(url, headers=headers, timeout=10)
+            if r.status_code != 200:
+                continue
+            r.encoding = r.apparent_encoding or "shift_jis"
+            soup = BeautifulSoup(r.text, "html.parser")
+            records, entities = fetch_and_parse_table(soup, url, session_name)
+
+            has_jimin = "自由民主党京都市会議員団" in entities
+            councilor_names = [e for e in entities if e in VALID_COUNCILORS]
+            print(f"  ✅ {session_name}: {len(records)} 件 (自民: {'〇' if has_jimin else '×'} / 議員実名: {', '.join(councilor_names) if councilor_names else 'なし'})")
+            all_bills.extend(records)
+            time.sleep(0.3)
+        except Exception as e:
+            print(f"  ⚠️ {session_name} ({url}) 取得エラー: {e}")
 
     output_dir = os.path.join(os.path.dirname(__file__), "..", "frontend", "public", "data")
     os.makedirs(output_dir, exist_ok=True)
