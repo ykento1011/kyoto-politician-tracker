@@ -1,173 +1,154 @@
 import os
 import sys
-import json
 import subprocess
+import time
 from datetime import datetime
-from google.cloud import bigquery
-from dotenv import load_dotenv
 
-# .env の読み込み
-load_dotenv()
-
-# === パス・環境設定 ===
+# パス設定
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-RAW_DATA_PATH = os.path.join(BASE_DIR, "sagebase_crawled_data.json")
+PROJECT_ROOT = os.path.dirname(BASE_DIR)
 
-# Sagebase (BigQuery) 接続情報
-PROJECT_ID = "gen-lang-client-0253904061"
-DATASET_ID = "sagebase_data"
-KYOTO_INTERNAL_ID = 88  # 京都市
+# スクリプトのパス
+FETCH_SCRIPT = os.path.join(BASE_DIR, "fetch_sagebase.py")
+ANALYZE_SCRIPT = os.path.join(BASE_DIR, "batch_analyze_council.py")
+TIMELINE_SCRIPT = os.path.join(BASE_DIR, "build_timeline_contexts.py")
+STATIC_DATA_SCRIPT = os.path.join(BASE_DIR, "generate_static_data.py")
+SCRAPE_VOTES_SCRIPT = os.path.join(BASE_DIR, "scrape_kyoto_votes.py") # 💡 追加
+GENERATE_ISSUES_SCRIPT = os.path.join(BASE_DIR, "generate_bill_issues.py") # 💡 追加
 
-def log(msg):
-    print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 🚀 {msg}")
+# 出力・監視対象のファイル
+CRAWLED_FILE = os.path.join(BASE_DIR, "sagebase_crawled_data.json")
+VOTES_FILE = os.path.join(PROJECT_ROOT, "frontend", "public", "data", "votes_summary.json")
+ISSUES_FILE = os.path.join(PROJECT_ROOT, "frontend", "public", "data", "bill_issues.json")
 
-def run_step(script_name):
-    """データパイプラインスクリプトを順次実行"""
-    script_path = os.path.join(BASE_DIR, script_name)
-    log(f"実行中: {script_name}...")
-    res = subprocess.run([sys.executable, script_path], cwd=BASE_DIR)
-    if res.returncode != 0:
-        log(f"❌ {script_name} の実行中にエラーが発生しました。パイプラインを中断します。")
-        sys.exit(1)
+def log(msg, level="INFO"):
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    emoji = "🚀" if level == "INFO" else "⚠️" if level == "WARN" else "❌"
+    print(f"[{ts}] {emoji} {msg}", flush=True)
 
-def get_local_latest_info():
-    """手元データから最新会議日と取得済み発言キー（meeting_id + sequence_number）を取得"""
-    if not os.path.exists(RAW_DATA_PATH):
-        return "2023-05-01", set()
-
-    with open(RAW_DATA_PATH, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    latest_date = "2023-05-01"
-    existing_ids = set()
-
-    for item in data:
-        mid = item.get("meeting_id") or ""
-        seq = str(item.get("sequence_number") or "")
-        existing_ids.add(f"{mid}_{seq}")
-
-        mdate = item.get("meeting_date")
-        if mdate and str(mdate) > latest_date:
-            latest_date = str(mdate)
-
-    return latest_date, existing_ids
-
-def check_and_fetch_new_statements(latest_date, existing_ids):
-    """BigQuery を監視し、手元にない新規発言レコードのみを抽出"""
-    log(f"Sagebase (BigQuery) を監視中... (手元の最新会議日: {latest_date})")
-    client = bigquery.Client(project=PROJECT_ID)
-
-    query = f"""
-        SELECT 
-            m.sagebase_id AS meeting_id,
-            c.sequence_number,
-            c.speaker_name AS speaker,
-            c.comment AS statement_text,
-            m.name AS meeting_title,
-            m.date AS meeting_date
-        FROM `{PROJECT_ID}.{DATASET_ID}.conversations` c
-        JOIN `{PROJECT_ID}.{DATASET_ID}.minutes` min
-          ON c.minutes_id = min.id
-        JOIN `{PROJECT_ID}.{DATASET_ID}.meetings` m
-          ON min.meeting_id = m.id
-        JOIN `{PROJECT_ID}.{DATASET_ID}.conferences` conf
-          ON m.conference_id = conf.id
-        WHERE conf.governing_body_id = {KYOTO_INTERNAL_ID}
-          AND m.date >= '{latest_date}'
-        ORDER BY m.date ASC, c.sequence_number ASC
-    """
-
+def run_script(script_path, description):
+    log(f"{description} を開始...")
     try:
-        query_job = client.query(query)
-        rows = list(query_job.result())
-    except Exception as e:
-        log(f"❌ BigQueryクエリエラー: {e}")
-        sys.exit(1)
+        # 仮想環境の python で実行する
+        python_exe = sys.executable
+        result = subprocess.run([python_exe, script_path], capture_output=True, text=True, check=True)
+        log(f"{description} 完了")
+        return True, result.stdout
+    except subprocess.CalledProcessError as e:
+        log(f"{description} でエラー発生！", "ERROR")
+        print("--- Error Output ---")
+        print(e.stderr)
+        print("--------------------")
+        return False, e.stderr
 
-    new_records = []
-    for r in rows:
-        unique_key = f"{r.meeting_id}_{r.sequence_number}"
-        if unique_key not in existing_ids:
-            new_records.append({
-                "meeting_id": r.meeting_id,
-                "sequence_number": r.sequence_number,
-                "speaker": r.speaker,
-                "statement_text": r.statement_text,
-                "meeting_title": r.meeting_title,
-                "meeting_date": str(r.meeting_date)
-            })
+def get_file_timestamp(filepath):
+    """ファイルの最終更新日時（タイムスタンプ）を取得"""
+    if os.path.exists(filepath):
+        return os.path.getmtime(filepath)
+    return 0
 
-    return new_records
-
-def git_commit_and_push():
-    """更新された差分データを GitHub へ自動プッシュ"""
-    log("GitHub への自動コミット＆プッシュを実行中...")
+def check_for_changes():
+    """Git の status を確認し、コミットすべき変更があるか判定"""
     try:
-        project_root = os.path.dirname(BASE_DIR)
-        
-        # Git ステージング
-        subprocess.run(["git", "add", "frontend/public/data/"], cwd=project_root, check=True)
-        subprocess.run(["git", "add", "data-pipeline/sagebase_crawled_data.json"], cwd=project_root, check=True)
-        subprocess.run(["git", "add", "data-pipeline/analyzed_kyoto_politicians_term.json"], cwd=project_root, check=True)
-        subprocess.run(["git", "add", "data-pipeline/eval_checkpoint.json"], cwd=project_root, check=True)
-        
-        status = subprocess.run(["git", "status", "--porcelain"], cwd=project_root, capture_output=True, text=True)
-        if not status.stdout.strip():
-            log("コミット対象の差分はありませんでした。")
-            return
+        os.chdir(PROJECT_ROOT)
+        result = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+        changes = result.stdout.strip()
+        # pycache など関係ない変更を省くため、frontend/public/data と data-pipeline/ 配下の .json を監視
+        has_data_change = any(line.endswith(".json") for line in changes.split('\n') if line)
+        return has_data_change
+    except subprocess.CalledProcessError as e:
+        log("Git の状態確認に失敗しました", "ERROR")
+        return False
 
-        commit_msg = f"chore: 議事録データ自動定期更新 ({datetime.now().strftime('%Y-%m-%d')})"
-        subprocess.run(["git", "commit", "-m", commit_msg], cwd=project_root, check=True)
-        subprocess.run(["git", "push", "origin", "main"], cwd=project_root, check=True)
-        log("✅ GitHub へのプッシュが完了しました！Cloudflare Pages が自動更新されます。")
-    except Exception as e:
-        log(f"⚠️ Git操作中にエラーが発生しました: {e}")
+def push_to_github():
+    """変更をステージング、コミット、プッシュする"""
+    log("GitHub への自動デプロイを開始...")
+    try:
+        os.chdir(PROJECT_ROOT)
+        
+        # 💡 ワイルドカードを使わずディレクトリ単位で追加（本番に必要なデータのみ安全にステージング）
+        subprocess.run(["git", "add", "frontend/public/data"], check=True)
+        
+        # コミット
+        commit_msg = f"Auto-update: 議事録または議決データの最新化 ({datetime.now().strftime('%Y-%m-%d %H:%M')})"
+        subprocess.run(["git", "commit", "-m", commit_msg], check=True)
+        
+        # プッシュ (Cloudflare Pagesのビルドが走る)
+        subprocess.run(["git", "push", "origin", "main"], check=True)
+        log("✅ GitHub へのプッシュが完了。本番環境に数分で反映されます。")
+    except subprocess.CalledProcessError as e:
+        log(f"Git プッシュ処理中にエラーが発生しました: {e}", "ERROR")
 
 def main():
-    print("=" * 60)
+    print("\n" + "="*60)
     log("Sagebase 定期監視・全自動データ更新パイプラインを開始")
-    print("=" * 60)
+    print("="*60)
 
-    # 1. 手元の状態確認
-    latest_date, existing_ids = get_local_latest_info()
+    # 1. 議事録ファイル更新前のタイムスタンプを取得
+    before_ts = get_file_timestamp(CRAWLED_FILE)
 
-    # 2. BigQuery から新規発言ログを取得
-    new_statements = check_and_fetch_new_statements(latest_date, existing_ids)
-
-    if not new_statements:
-        log("✅ 新しい議事録はありませんでした（手元のデータは最新です）。")
-        print("=" * 60)
+    # 2. 議事録データの取得 (fetch_sagebase)
+    success, output = run_script(FETCH_SCRIPT, "Sagebaseからの新着議事録取得")
+    if not success:
+        log("データ取得で致命的エラー。パイプラインを中断します。", "ERROR")
         return
 
-    log(f"🎉 新着の発言データを検知しました！ (新規: {len(new_statements):,} 件)")
-
-    # 3. 生データ (sagebase_crawled_data.json) へマージ保存
-    with open(RAW_DATA_PATH, "r", encoding="utf-8") as f:
-        current_raw = json.load(f)
+    # 3. 議決・賛否データの更新 (scrape & generate issues)
+    # ※スクレイピングやAPI制限等でエラーになっても、議事録側のパイプラインは止めない
+    log("--- [議決・賛否データの更新チェック] ---")
     
-    current_raw.extend(new_statements)
-    with open(RAW_DATA_PATH, "w", encoding="utf-8") as f:
-        json.dump(current_raw, f, ensure_ascii=False)
-    log(f"生データファイルを更新しました (総計: {len(current_raw):,} 件)")
+    votes_before_ts = get_file_timestamp(VOTES_FILE)
+    scrape_ok, _ = run_script(SCRAPE_VOTES_SCRIPT, "京都市会HPからの議案・賛否スクレイピング")
+    
+    if scrape_ok:
+        votes_after_ts = get_file_timestamp(VOTES_FILE)
+        # votes_summary.json が更新された（または前回完了している）場合、対立議案分析を実行
+        issues_ok, _ = run_script(GENERATE_ISSUES_SCRIPT, "Geminiによる新規対立議案の争点分析")
+        if not issues_ok:
+            log("対立議案分析でエラーが発生しましたが、パイプラインは続行します", "WARN")
+    else:
+        log("議案スクレイピングでエラーが発生しましたが、パイプラインは続行します", "WARN")
+    
+    log("--- [議決・賛否データの更新チェック完了] ---")
 
-    # 4. 新規スレッドの Gemini 自動評価（未評価のみ処理）
-    run_step("batch_analyze_council.py")
+    # 4. 議事録の差分確認
+    after_ts = get_file_timestamp(CRAWLED_FILE)
 
-    # 5. カテゴリ判定の最適化
-    run_step("remap_categories.py")
+    # 議事録が更新されたか、あるいは議決データ側で更新（未解析議案の処理含む）があったか
+    minutes_updated = after_ts > before_ts
+    
+    if minutes_updated:
+        log("🆕 新しい議事録が追加・更新されました。Gemini解析パイプラインを実行します。")
+        
+        # 5. Gemini 評価バッチの実行
+        ok, _ = run_script(ANALYZE_SCRIPT, "Gemini 評価バッチ")
+        if not ok:
+            return
 
-    # 6. 一覧用サマリー (statements_summary.json) の再生成
-    run_step("generate_static_data.py")
+        # 6. JSON 分割・タイムライン生成
+        ok, _ = run_script(TIMELINE_SCRIPT, "タイムライン・コンテキストJSON分割")
+        if not ok:
+            return
 
-    # 7. 会議別タイムラインJSONの分割・生成
-    run_step("build_timeline_contexts.py")
+        # 7. フロントエンド用 サマリー生成
+        ok, _ = run_script(STATIC_DATA_SCRIPT, "フロントエンド用 サマリーJSON生成")
+        if not ok:
+            return
+            
+    else:
+        log("✅ 新しい議事録はありませんでした。")
 
-    # 8. GitHub へ自動 Push して公開反映
-    git_commit_and_push()
+    # 8. 全体のGit差分チェックとデプロイ
+    # （議事録が更新されていなくても、議案データ・AI争点解説が更新されていればプッシュする）
+    if check_for_changes():
+        log("データファイルに変更があります。デプロイ処理へ進みます。")
+        push_to_github()
+    else:
+        log("✅ 変更されたデータはありませんでした（手元のデータは最新です）。")
 
-    print("=" * 60)
-    log("🎉 パイプラインが完了しました！")
-    print("=" * 60)
+    print("="*60)
+    log("🎉 パイプラインが安全に終了しました。")
+    print("="*60)
 
 if __name__ == "__main__":
     main()
