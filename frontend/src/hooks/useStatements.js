@@ -56,9 +56,6 @@ export function useStatements() {
   const [isCompareMode, setIsCompareMode] = useState(false);
   const [initialRouteSet, setInitialRouteSet] = useState(false);
 
-  // 💡 タイムライン表示用の全発言キャッシュ
-  const [allRawStatements, setAllRawStatements] = useState(null);
-
   const [miniSearch] = useState(
     new MiniSearch({
       fields: ['summary', 'meeting_title', 'speaker', 'category'],
@@ -82,15 +79,15 @@ export function useStatements() {
           const text = await res.text();
           if (text.trim().startsWith('[') || text.trim().startsWith('{')) {
             allRecords = JSON.parse(text);
-            console.log(`[useStatements] 静的JSON(要約版)より ${allRecords.length} 件を取得しました。`);
+            console.log(`[useStatements] 静的JSONより ${allRecords.length} 件を取得しました。`);
           }
         }
       } catch (jsonErr) {
-        console.warn('[useStatements] 静的JSON(要約版)取得エラー:', jsonErr);
+        console.warn('[useStatements] 静的JSON取得エラー:', jsonErr);
       }
 
       if ((!allRecords || allRecords.length === 0) && supabase) {
-        console.log('[useStatements] Supabaseから要約データ取得を開始...');
+        console.log('[useStatements] Supabaseからデータ取得を開始...');
         try {
           let page = 0; const pageSize = 1000; let hasMore = true;
           while (hasMore) {
@@ -374,7 +371,8 @@ export function useStatements() {
     else if (sortPerspective === 'recent') list.sort((a, b) => new Date(b.meeting_date) - new Date(a.meeting_date));
     else list = shuffleWithDailySeed(list);
 
-    return list.slice(0, 100);
+    // 💡 100件制限（.slice(0, 100)）を解除し、全件を返す
+    return list;
   }, [statements, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch]);
 
   const speakerFilteredThreads = useMemo(() => {
@@ -389,9 +387,6 @@ export function useStatements() {
     return list;
   }, [selectedSpeaker, speakerCategory, speakerSort]);
 
-
-  // 会議録タイムライン（複合キー照合版）
-// 会議単位オンデマンド取得キャッシュ
   const timelineCache = useMemo(() => new Map(), []);
 
   const handleViewContext = async (stmt) => {
@@ -399,14 +394,12 @@ export function useStatements() {
     setIsPanelOpen(true);
 
     try {
-      console.log('[handleViewContext] 選択された質疑:', stmt);
       const meetingId = stmt.meeting_id;
       const targetSeq = Number(stmt.sequence_number ?? stmt.speech_order ?? 0);
 
       let contextData = [];
 
       if (meetingId && targetSeq > 0) {
-        // メモリキャッシュにあれば即座に再利用
         let meetingTimelines = timelineCache.get(meetingId);
 
         if (!meetingTimelines) {
@@ -426,7 +419,6 @@ export function useStatements() {
         }
       }
 
-      // ファイルが見つからなかった場合のフォールバック
       if (!contextData || contextData.length === 0) {
         contextData = [{
           ...stmt,
@@ -434,8 +426,6 @@ export function useStatements() {
           statement_text: stmt.statement_text || stmt.summary || ''
         }];
       }
-
-      console.log(`[handleViewContext] タイムライン取得完了: ${contextData.length} 件のやり取り`);
 
       setSelectedContext({
         statement: stmt,
