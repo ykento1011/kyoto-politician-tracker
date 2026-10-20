@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { MessageCircle, X, Loader2, ChevronUp, Landmark, ExternalLink, Check } from 'lucide-react';
+import { MessageCircle, X, Loader2, ChevronUp, Landmark, ExternalLink } from 'lucide-react';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
 export default function TimelineModal({
@@ -9,12 +9,10 @@ export default function TimelineModal({
   isLoading
 }) {
   const [showPrevious, setShowPrevious] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       setShowPrevious(false);
-      setCopied(false);
     }
   }, [isOpen, selectedContext]);
 
@@ -27,13 +25,6 @@ export default function TimelineModal({
   const targetStatement = useMemo(() => {
     return selectedContext?.statement || selectedContext?.context?.find((m) => m.is_target) || null;
   }, [selectedContext]);
-
-  const handleOpenOfficial = () => {
-    openOfficialMinute(targetStatement, () => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    });
-  };
 
   if (!isOpen) return null;
 
@@ -55,26 +46,13 @@ export default function TimelineModal({
           <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0">
             {targetStatement && (
               <button
-                onClick={handleOpenOfficial}
+                onClick={() => openOfficialMinute(targetStatement)}
                 title={getOfficialLinkTooltip(targetStatement)}
-                className={`inline-flex items-center text-xs font-bold px-3 py-1.5 rounded-lg transition-all cursor-pointer group ${
-                  copied
-                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-300'
-                    : 'text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200'
-                }`}
+                className="inline-flex items-center text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer group"
               >
-                {copied ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 mr-1.5 text-emerald-600 animate-in zoom-in" />
-                    <span>コピー完了！貼り付けて検索</span>
-                  </>
-                ) : (
-                  <>
-                    <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600" />
-                    <span>原本検索（議員名をコピー）</span>
-                    <ExternalLink className="w-3 h-3 ml-1 text-indigo-400 group-hover:text-indigo-600" />
-                  </>
-                )}
+                <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600" />
+                <span>京都市会 公式原本で確認</span>
+                <ExternalLink className="w-3 h-3 ml-1 text-indigo-400 group-hover:text-indigo-600" />
               </button>
             )}
 

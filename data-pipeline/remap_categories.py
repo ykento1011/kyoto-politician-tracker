@@ -1,9 +1,10 @@
 import os
 import json
-import shutil
+import re
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INPUT_FILE = os.path.join(BASE_DIR, "frontend", "public", "data", "statements_summary.json")
+SOURCE_FILE = os.path.join(BASE_DIR, "data-pipeline", "sagebase_crawled_data.json")
 
 INDUSTRY_KEYWORDS = [
     "中小企業", "伝統産業", "地場産業", "観光", "インバウンド", "オーバーツーリズム",
@@ -32,7 +33,6 @@ def refine_category(item):
     current_cat = normalize_category_value(item.get("category"))
     full_text = f"{title} {summary}"
 
-    # 1. 委員会・キーワード優先判定
     if "産業交通水道" in title:
         if any(k in full_text for k in TRANSIT_KEYWORDS):
             return "都市再生・交通インフラ"
@@ -44,10 +44,9 @@ def refine_category(item):
     if any(k in full_text for k in INDUSTRY_KEYWORDS):
         return "産業・観光・地域経済"
 
-    if any(k in full_text for k in FINANCE_KEYWORDS) or "総務消防" in title and "財政" in full_text:
+    if any(k in full_text for k in FINANCE_KEYWORDS) or ("総務消防" in title and "財政" in full_text):
         return "財政・行革"
 
-    # 2. 既存カテゴリの名称正規化
     if "都市計画" in current_cat or "交通" in current_cat or "道路" in full_text:
         return "都市再生・交通インフラ"
     if "福祉" in current_cat or "医療" in current_cat or "健康" in current_cat:
@@ -68,24 +67,44 @@ def main():
         print(f"❌ {INPUT_FILE} が見つかりません。")
         return
 
+    # 元データから meeting_id + sequence_number -> source_url のマッピング表を作成
+    url_map = {}
+    if os.path.exists(SOURCE_FILE):
+        try:
+            with open(SOURCE_FILE, "r", encoding="utf-8") as f:
+                raw_data = json.load(f)
+                for r in raw_data:
+                    m_id = r.get("meeting_id")
+                    seq = r.get("sequence_number")
+                    u = r.get("source_url")
+                    if m_id and u:
+                        url_map[f"{m_id}_{seq}"] = u
+                        url_map[f"{m_id}"] = u  # フォールバック用
+            print(f"📖 原本URLマッピング表を作成: {len(url_map):,} 件")
+        except Exception as e:
+            print(f"⚠️ 元データの読み込み警告: {e}")
+
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    linked_count = 0
     for item in data:
+        # カテゴリ再マッピング
         item["category"] = refine_category(item)
+
+        # 原本URLの結合
+        key = f"{item.get('meeting_id')}_{item.get('sequence_number')}"
+        if key in url_map:
+            item["source_url"] = url_map[key]
+            linked_count += 1
+        elif item.get("meeting_id") in url_map:
+            item["source_url"] = url_map[item.get("meeting_id")]
+            linked_count += 1
 
     with open(INPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    cat_counts = {}
-    for item in data:
-        c = normalize_category_value(item.get("category"))
-        cat_counts[c] = cat_counts.get(c, 0) + 1
-
-    print("\n=== 再マッピング完了: カテゴリ別件数 ===")
-    for c, count in sorted(cat_counts.items(), key=lambda x: x[1], reverse=True):
-        pct = (count / len(data)) * 100
-        print(f"{c}: {count:,}件 ({pct:.1f}%)")
+    print(f"✅ 全 {len(data):,} 件中、{linked_count:,} 件に京都市会原本直リンク（source_url）を紐付けました。")
 
 if __name__ == "__main__":
     main()

@@ -1,40 +1,45 @@
 /**
- * 京都市会 公式会議録システムへの安全な遷移処理
+ * 京都市会 公式会議録システム原本への完全ダイレクト遷移処理
  */
-export async function openOfficialMinute(stmt, onCopiedCallback) {
+export function openOfficialMinute(stmt) {
   if (!stmt) return;
 
-  const searchBaseUrl = 'https://ssp.kaigiroku.net/tenant/kyoto/MinuteSearch.html';
+  let targetUrl = stmt.source_url || '';
 
-  // 最もヒットしやすい議員名（または日付）を抽出
-  const speaker = (stmt.speaker || '').replace(/[（(].*?[)）]/g, '').trim();
-  const date = stmt.meeting_date || '';
-  const searchKeyword = speaker || date;
+  // meeting_date から西暦年（view_years）を取得（例: 2026）
+  const matchYear = (stmt.meeting_date || '').match(/^(\d{4})/);
+  const viewYear = matchYear ? matchYear[1] : '';
 
-  // クリップボードへコピー
-  if (searchKeyword && navigator.clipboard) {
-    try {
-      await navigator.clipboard.writeText(searchKeyword);
-      if (onCopiedCallback) {
-        onCopiedCallback(searchKeyword);
-      }
-    } catch (err) {
-      console.warn('クリップボードのコピーに失敗しました:', err);
+  // 1. source_url が存在する場合（最優先・1クリック原本直行）
+  if (targetUrl && targetUrl.startsWith('http')) {
+    // 動作確認された安定パラメータ（is_search=false と view_years）を補完
+    if (!targetUrl.includes('is_search=')) {
+      targetUrl += (targetUrl.includes('?') ? '&' : '?') + 'is_search=false';
     }
+    if (viewYear && !targetUrl.includes('view_years=')) {
+      targetUrl += `&view_years=${viewYear}`;
+    }
+    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+    return;
   }
 
-  // 念のためパラメータも付与して別タブで開く
-  const targetUrl = searchKeyword 
-    ? `${searchBaseUrl}?word=${encodeURIComponent(searchKeyword)}` 
-    : searchBaseUrl;
+  // 2. council_id と schedule_id が個別にある場合
+  if (stmt.council_id && stmt.schedule_id) {
+    const directUrl = `https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=${stmt.council_id}&schedule_id=${stmt.schedule_id}&is_search=false${viewYear ? `&view_years=${viewYear}` : ''}`;
+    window.open(directUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
 
-  window.open(targetUrl, '_blank', 'noopener,noreferrer');
+  // 3. 完全なフォールバック（公式検索システムトップ）
+  window.open('https://ssp.kaigiroku.net/tenant/kyoto/MinuteSearch.html', '_blank', 'noopener,noreferrer');
 }
 
 /**
  * ツールチップ文言
  */
 export function getOfficialLinkTooltip(stmt) {
-  const speaker = (stmt?.speaker || '').replace(/[（(].*?[)）]/g, '').trim();
-  return `「${speaker}」をコピーして京都市会の公式検索画面を開きます。開いた画面で貼り付け（Ctrl+V / ペースト）してください。`;
+  if (stmt?.source_url) {
+    return '京都市会公式サーバー上の会議録原本を直接開きます';
+  }
+  return '京都市会公式の会議録システムを開きます';
 }
