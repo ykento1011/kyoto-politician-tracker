@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Search, Sparkles, Users, MessageSquare, Scale, 
-  SlidersHorizontal, ArrowUpDown 
+  SlidersHorizontal, ArrowUpDown, ChevronDown 
 } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -14,7 +14,7 @@ import ThreadCard from './components/ThreadCard';
 import HighlightedThreads from './components/HighlightedThreads';
 import MacroTopicMap from './components/MacroTopicMap';
 import ContestedBillsView from './components/ContestedBillsView';
-import TopicDetailPage from './components/TopicDetailPage'; // 💡 論点詳細ページ
+import TopicDetailPage from './components/TopicDetailPage';
 import TimelineModal from './components/TimelineModal';
 import BillDetailModal from './components/BillDetailModal';
 import AboutPage from './components/AboutPage';
@@ -30,7 +30,9 @@ const HOT_TOPICS = [
   '子育て支援',
 ];
 
-// 議案テキストから政策分野を判定するヘルパー
+const INITIAL_SPEAKERS_LIMIT = 12;
+const INITIAL_THREADS_LIMIT = 10;
+
 function getCategoryForBill(b) {
   const text = `${b.title || ''} ${b.key_conflict || ''} ${b.background || ''}`;
   if (text.includes('都市計画') || text.includes('建築') || text.includes('開発') || text.includes('住宅') || text.includes('新幹線')) return '都市再生・交通インフラ';
@@ -99,7 +101,17 @@ export default function App() {
   const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
   const [isContestedViewOpen, setIsContestedViewOpen] = useState(false);
   const [contestedInitialCategory, setContestedInitialCategory] = useState('');
-  const [selectedTopicId, setSelectedTopicId] = useState(null); // 💡 政策論点詳細用
+  const [selectedTopicId, setSelectedTopicId] = useState(null);
+
+  // 💡 表示件数制限ステート（縦長スクロール防止）
+  const [visibleSpeakersCount, setVisibleSpeakersCount] = useState(INITIAL_SPEAKERS_LIMIT);
+  const [visibleThreadsCount, setVisibleThreadsCount] = useState(INITIAL_THREADS_LIMIT);
+
+  // フィルター・ソート条件変更時に表示件数をリセット
+  useEffect(() => {
+    setVisibleSpeakersCount(INITIAL_SPEAKERS_LIMIT);
+    setVisibleThreadsCount(INITIAL_THREADS_LIMIT);
+  }, [selectedCategory, selectedDistrict, sortPerspective, viewMode]);
 
   useEffect(() => {
     fetch('/data/votes_summary.json')
@@ -120,7 +132,6 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // URLパラメータ・ハッシュ連動（popstate & hashchange）
   useEffect(() => {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
@@ -164,7 +175,6 @@ export default function App() {
     };
   }, []);
 
-  // 論点詳細ページを開くハンドラー
   const handleOpenTopicDetail = (topicId) => {
     clearSpeakerAndCompare();
     setCompareActive(false);
@@ -176,7 +186,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 論点詳細ページから戻るハンドラー
   const handleBackFromTopic = () => {
     setSelectedTopicId(null);
     window.location.hash = '';
@@ -253,7 +262,6 @@ export default function App() {
     setSubmittedQuery('');
   };
 
-  // 分野ごとの激論議案数をカウントする関数（MacroTopicMap に渡す）
   const getIssueCountForCategory = useMemo(() => {
     const counts = {};
     billIssuesList.forEach(b => {
@@ -263,7 +271,6 @@ export default function App() {
     return (catName) => counts[catName] || 0;
   }, [billIssuesList]);
 
-  // 議案フィルター用：ユニークな会期・結果の抽出
   const uniqueSessions = useMemo(() => {
     if (!votesData) return [];
     return [...new Set(votesData.map(b => b.session_name).filter(Boolean))];
@@ -302,6 +309,15 @@ export default function App() {
     return list;
   }, [votesData, submittedQuery, selectedSession, selectedResult, onlyContestedBills]);
 
+  // 表示用に切り詰めたリスト
+  const displayedSpeakers = useMemo(() => {
+    return filteredSpeakers.slice(0, visibleSpeakersCount);
+  }, [filteredSpeakers, visibleSpeakersCount]);
+
+  const displayedThreads = useMemo(() => {
+    return filteredThreads.slice(0, visibleThreadsCount);
+  }, [filteredThreads, visibleThreadsCount]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center space-y-4">
@@ -311,7 +327,6 @@ export default function App() {
     );
   }
 
-  // 💡 政策論点詳細ページ（単独フルスクリーンビュー）
   if (selectedTopicId) {
     return (
       <TopicDetailPage
@@ -339,7 +354,6 @@ export default function App() {
     );
   }
 
-  // 激戦議案詳細画面（ContestedBillsView）
   if (isContestedViewOpen) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -500,6 +514,7 @@ export default function App() {
           }}
           onSelectBill={setSelectedBillForModal}
           onOpenMethodology={handleOpenMethodology}
+          onOpenTopicDetail={handleOpenTopicDetail}
         />
         <BillDetailModal
           isOpen={Boolean(selectedBillForModal)}
@@ -598,7 +613,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 💡 市議会マクロ論戦マップ（論点詳細ページへの導線付き） */}
+        {/* 市議会マクロ論戦マップ */}
         <MacroTopicMap
           topicStats={topicStats}
           selectedCategory={selectedCategory}
@@ -756,39 +771,70 @@ export default function App() {
             </div>
           )}
 
+          {/* 議員カード一覧（初期12名表示 ＋ もっと見る） */}
           {viewMode === 'speakers' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredSpeakers.map((speaker) => (
-                <SpeakerCard
-                  key={speaker.speaker}
-                  speaker={speaker}
-                  onSpeakerClick={handleSpeakerClick}
-                  onOpenCompare={(spk) => {
-                    setCompareList([spk]);
-                    setCompareActive(true);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                />
-              ))}
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {displayedSpeakers.map((speaker) => (
+                  <SpeakerCard
+                    key={speaker.speaker}
+                    speaker={speaker}
+                    onSpeakerClick={handleSpeakerClick}
+                    onOpenCompare={(spk) => {
+                      setCompareList([spk]);
+                      setCompareActive(true);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                  />
+                ))}
+              </div>
+
+              {visibleSpeakersCount < filteredSpeakers.length && (
+                <div className="text-center pt-2">
+                  <button
+                    onClick={() => setVisibleSpeakersCount(prev => prev + 12)}
+                    className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-xs font-bold text-slate-700 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
+                  >
+                    <span>さらに議員を表示する（残り {filteredSpeakers.length - visibleSpeakersCount} 名）</span>
+                    <ChevronDown className="w-4 h-4 text-slate-400" />
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
+          {/* 質疑スレッド一覧（初期10件表示 ＋ もっと見る） */}
           {viewMode === 'threads' && (
             <div className="space-y-6">
-              {filteredThreads.map((stmt) => (
-                <ThreadCard
-                  key={stmt.id}
-                  stmt={stmt}
-                  speakerInfo={speakerStats.find(s => s.speaker === stmt.speaker)}
-                  onSpeakerClick={handleSpeakerClick}
-                  onViewContext={handleViewContext}
-                  showSpeakerHeader={true}
-                  onOpenMethodology={handleOpenMethodology}
-                />
-              ))}
+              <div className="space-y-6">
+                {displayedThreads.map((stmt) => (
+                  <ThreadCard
+                    key={stmt.id}
+                    stmt={stmt}
+                    speakerInfo={speakerStats.find(s => s.speaker === stmt.speaker)}
+                    onSpeakerClick={handleSpeakerClick}
+                    onViewContext={handleViewContext}
+                    showSpeakerHeader={true}
+                    onOpenMethodology={handleOpenMethodology}
+                  />
+                ))}
+              </div>
+
+              {visibleThreadsCount < filteredThreads.length && (
+                <div className="text-center pt-2">
+                  <button
+                    onClick={() => setVisibleThreadsCount(prev => prev + 10)}
+                    className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-xs font-bold text-slate-700 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
+                  >
+                    <span>さらに質疑スレッドを表示する（残り {filteredThreads.length - visibleThreadsCount} 件）</span>
+                    <ChevronDown className="w-4 h-4 text-slate-400" />
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
+          {/* 議案一覧 */}
           {viewMode === 'bills' && (
             <BillsSection
               filteredBills={filteredBills}
