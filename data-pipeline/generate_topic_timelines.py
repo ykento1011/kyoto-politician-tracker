@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-# パス設定と .env の明示的読み込み
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 ENV_PATH = os.path.join(BASE_DIR, ".env")
@@ -20,7 +19,7 @@ else:
 CRAWLED_FILE = os.path.join(BASE_DIR, "sagebase_crawled_data.json")
 OUTPUT_FILE = os.path.join(PROJECT_ROOT, "frontend", "public", "data", "topic_summaries.json")
 
-# 8大カテゴリー全網羅・20大コア論点マスター定義
+# 8大カテゴリー各4論点・全32政策論点マスター定義
 TARGET_TOPICS = [
     # 1. 都市再生・交通インフラ
     {
@@ -40,6 +39,21 @@ TARGET_TOPICS = [
         "category": "都市再生・交通インフラ",
         "title": "都市計画・高さ制限緩和（若者居住・産業用地確保）",
         "keywords": ["都市計画", "高さ規制", "高さ制限", "容積率", "新都市計画", "南部創造", "産業用地"]
+    },
+    {
+        "topic_id": "hokuriku_shinkansen_extension",
+        "category": "都市再生・交通インフラ",
+        "title": "北陸新幹線延伸（小浜・京都ルート）の財政負担と地下水・環境影響",
+        "keywords": [
+            "北陸新幹線", "小浜・京都", "小浜ルート", "大深度地下", 
+            "地下水", "名水", "残土処理", "新幹線延伸", "京都駅位置", "地方負担"
+        ]
+    },
+    {
+        "topic_id": "subway_tozai_extension_management",
+        "category": "都市再生・交通インフラ",
+        "title": "地下鉄東西線・烏丸線の経営改善と可動式ホーム柵整備",
+        "keywords": ["地下鉄東西線", "烏丸線", "公営交通経営", "地下鉄経営", "洛西延伸", "可動式ホーム柵"]
     },
 
     # 2. 産業・観光・地域経済
@@ -61,6 +75,12 @@ TARGET_TOPICS = [
         "title": "伝統産業・地域企業の事業承継と担い手育成",
         "keywords": ["伝統産業", "事業承継", "後継者", "西陣織", "京友禅", "地場産業", "職人育成"]
     },
+    {
+        "topic_id": "central_market_redevelopment",
+        "category": "産業・観光・地域経済",
+        "title": "中央卸売市場・食肉市場の施設再整備と活性化",
+        "keywords": ["中央市場", "中央卸売市場", "第一市場", "食肉市場", "水産棟", "青果"]
+    },
 
     # 3. 子育て・教育
     {
@@ -80,6 +100,12 @@ TARGET_TOPICS = [
         "category": "子育て・教育",
         "title": "教員の多忙化解消・働き方改革と学校ICT・不登校対策",
         "keywords": ["教員の多忙化", "教員不足", "働き方改革", "学校ICT", "GIGAスクール", "不登校"]
+    },
+    {
+        "topic_id": "nursery_teacher_subsidy_reform",
+        "category": "子育て・教育",
+        "title": "民間保育施設への京都市独自給与上乗せ補助の見直し",
+        "keywords": ["民間保育園", "保育士給与", "独自給与", "保育給与上乗せ", "処遇改善", "保育所補助"]
     },
 
     # 4. 福祉・医療・健康
@@ -101,6 +127,12 @@ TARGET_TOPICS = [
         "title": "帯状疱疹ワクチン等の任意予防接種公費助成",
         "keywords": ["帯状疱疹", "ワクチン助成", "予防接種", "公費助成", "定期接種化"]
     },
+    {
+        "topic_id": "poverty_hikikomori_support",
+        "category": "福祉・医療・健康",
+        "title": "生活困窮者自立支援とひきこもり・ヤングケアラー相談体制",
+        "keywords": ["生活困窮", "ひきこもり", "自立支援", "就労準備支援", "福祉相談", "ヤングケアラー"]
+    },
 
     # 5. 財政・行革
     {
@@ -120,6 +152,12 @@ TARGET_TOPICS = [
         "category": "財政・行革",
         "title": "公共施設等総合管理計画と民間委託・資産売却",
         "keywords": ["公共施設", "民間委託", "包括管理", "資産売却", "指定管理者", "跡地活用"]
+    },
+    {
+        "topic_id": "city_hall_reconstruction_cost",
+        "category": "財政・行革",
+        "title": "市役所新庁舎整備事業と分庁舎集約による執務環境適正化",
+        "keywords": ["本庁舎", "分庁舎", "新庁舎", "庁舎建て替え", "本庁舎整備", "庁舎集約"]
     },
 
     # 6. くらし・環境・エネルギー
@@ -141,6 +179,12 @@ TARGET_TOPICS = [
         "title": "脱炭素都市・建築物太陽光パネル設置義務化の推進",
         "keywords": ["脱炭素", "カーボンニュートラル", "太陽光パネル", "再エネ", "省エネ基準", "ZEH"]
     },
+    {
+        "topic_id": "bike_sharing_illegal_parking",
+        "category": "くらし・環境・エネルギー",
+        "title": "放置自転車対策とシェアサイクルポートの全市的展開",
+        "keywords": ["放置自転車", "シェアサイクル", "駐輪場", "自転車撤去", "サイクルポート", "自転車レーン"]
+    },
 
     # 7. 防災・減災・治安
     {
@@ -155,19 +199,43 @@ TARGET_TOPICS = [
         "title": "鴨川・桂川水系の内水氾濫対策と雨水幹線整備",
         "keywords": ["内水氾濫", "浸水被害", "雨水幹線", "桂川", "鴨川", "治水", "ハザードマップ"]
     },
+    {
+        "topic_id": "landslide_disaster_prevention",
+        "category": "防災・減災・治安",
+        "title": "土砂災害警戒区域の安全対策と急傾斜地崩壊防止事業",
+        "keywords": ["土砂災害", "急傾斜地", "砂防", "土砂災害警戒区域", "山腹崩壊", "北部山間"]
+    },
+    {
+        "topic_id": "evacuation_center_bed_women",
+        "category": "防災・減災・治安",
+        "title": "避難所における段ボールベッド等の備蓄と女性視点の防災機能",
+        "keywords": ["避難所", "段ボールベッド", "女性視点", "プライバシー", "備蓄物資", "福祉避難所"]
+    },
 
     # 8. 文化・景観・歴史
     {
         "topic_id": "culture_agency_relocation_impact",
         "category": "文化・景観・歴史",
         "title": "文化庁京都移転の波及効果創出と文化芸術支援",
-        "keywords": ["文化庁", "文化移転", "文化芸術", "文化財保護", "芸大移転", "文化創造"]
+        "keywords": ["文化庁", "文化移転", "文化芸術", "文化財保護", "文化創造"]
     },
     {
         "topic_id": "townscape_wire_undergrounding",
         "category": "文化・景観・歴史",
         "title": "歴史的景観の保全・無電柱化と屋外広告物対策",
         "keywords": ["無電柱化", "景観保全", "屋外広告物", "電柱地中化", "歴史的風土", "町並み"]
+    },
+    {
+        "topic_id": "world_heritage_buffer_zone",
+        "category": "文化・景観・歴史",
+        "title": "世界遺産周辺のバッファーゾーン保全と開発の調和",
+        "keywords": ["世界遺産", "バッファーゾーン", "景観計画", "文化遺産", "眺望景観", "借景"]
+    },
+    {
+        "topic_id": "kyoto_arts_univ_sujin_impact",
+        "category": "文化・景観・歴史",
+        "title": "京都市立芸術大学の崇仁移転と地域活性化・アート振興",
+        "keywords": ["京都芸大", "美術工芸大学", "崇仁", "芸大移転", "崇仁地域", "若手アーティスト"]
     }
 ]
 
@@ -179,7 +247,7 @@ SYSTEM_PROMPT = """
 1. lead_summary: 論点の背景、全体の構図、現在の着地点を客観的に要約（180字以内）。
 2. current_status: 制度導入・検討の「現在地」（例: 令和9年度導入に向け国交省と協議中）。
 3. conflict_axes: 会派間や行政・議会間で争点となった主な対立軸（2〜3件）。
-4. timeline_phases: 時系列を「2〜3のフェーズ」に分割し、各フェーズでの【市側の答弁姿勢】と【議員側の主な主張】を整理すること。
+4. timeline_phases: 時系列を過去から現在へ向かう「2〜3のフェーズ」に分割し、各フェーズでの【行政・市側の姿勢】と【議場での主な議論・指摘】を整理すること。
 5. 出力は以下のJSON形式のみを返すこと。
 
 {
@@ -188,8 +256,8 @@ SYSTEM_PROMPT = """
   "conflict_axes": ["...", "..."],
   "timeline_phases": [
     {
-      "period": "2024年（令和6年）",
-      "phase_title": "問題の顕在化と行政の慎重姿勢",
+      "period": "2023年（令和5年）",
+      "phase_title": "問題の顕在化と検討開始",
       "city_stance": "市側の公式姿勢の要約",
       "key_points": ["議員側の指摘ポイント", "追及内容"]
     }
@@ -204,7 +272,6 @@ def get_gemini_client():
     return genai.Client(api_key=api_key)
 
 def extract_related_statements(raw_data, keywords):
-    """キーワードに合致する質疑ログを抽出し、時系列順に整列"""
     matched = []
     for item in raw_data:
         text = str(item.get("statement_text") or "")
@@ -242,16 +309,22 @@ def is_meaningful_statement(stmt):
         return False
     return True
 
+def clean_speaker_name(speaker):
+    if not speaker:
+        return "理事者"
+    name = str(speaker).strip()
+    name = re.sub(r"(議員|委員長|副委員長|市長|副市長|局長|部長|理事者)$", "", name).strip()
+    return name
+
 def build_topic_timeline(client, topic, statements):
-    """未要約の論点に対してのみ Gemini で構造化サマリーを生成"""
-    sample_texts = []
     step = max(1, len(statements) // 25)
     sampled = statements[::step][:25]
+    sample_texts = []
 
     for s in sampled:
         date = s.get("meeting_date", "")
         title = s.get("meeting_title", "")
-        speaker = s.get("speaker", "")
+        speaker = clean_speaker_name(s.get("speaker", ""))
         body = (s.get("statement_text") or "")[:200]
         sample_texts.append(f"[{date} | {title} | {speaker}]: {body}")
 
@@ -281,7 +354,7 @@ def build_topic_timeline(client, topic, statements):
 
 def main():
     print("==================================================", flush=True)
-    print("🚀 8大カテゴリー全網羅・20大政策論点タイムライン生成", flush=True)
+    print("🚀 8大カテゴリー×各4論点（計32論点）タイムライン生成", flush=True)
     print("==================================================", flush=True)
 
     if not os.path.exists(CRAWLED_FILE):
@@ -298,7 +371,7 @@ def main():
                 saved = json.load(f)
                 for item in saved:
                     existing_summaries[item["topic_id"]] = item
-            print(f"📖 既存のキャッシュを検出: {len(existing_summaries)} 件", flush=True)
+            print(f"📖 既存キャッシュ検出: {len(existing_summaries)} 件", flush=True)
         except Exception as e:
             print(f"⚠️ 既存キャッシュ読み込み警告: {e}", flush=True)
 
@@ -317,8 +390,8 @@ def main():
 
         ai_analysis = existing_summaries.get(t_id)
 
-        # 既存キャッシュがない場合のみ Gemini API を実行
-        if not ai_analysis:
+        # 既存キャッシュにない論点のみ Gemini API で生成
+        if not ai_analysis or not ai_analysis.get("timeline_phases"):
             if client is None:
                 client = get_gemini_client()
             print("   ✨ 新規論点のため AI 解析を実行中...", flush=True)
@@ -326,7 +399,7 @@ def main():
             if not ai_analysis:
                 print("   ❌ AI 解析に失敗しました。スキップします。", flush=True)
                 continue
-            time.sleep(1.0) # API レートリミット保護
+            time.sleep(1.0)
 
         phases = ai_analysis.get("timeline_phases", [])
         for phase in phases:
@@ -346,7 +419,7 @@ def main():
                 phase["exchanges"].append({
                     "meeting_date": m.get("meeting_date"),
                     "meeting_title": m.get("meeting_title"),
-                    "speaker": m.get("speaker"),
+                    "speaker": clean_speaker_name(m.get("speaker")),
                     "statement_summary": (m.get("statement_text") or "")[:140].replace("\n", " ") + "...",
                     "source_url": m.get("source_url")
                 })

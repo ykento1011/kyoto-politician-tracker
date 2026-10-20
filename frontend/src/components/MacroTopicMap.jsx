@@ -4,41 +4,51 @@ import { PieChart, Flame, Info, ChevronDown, Sparkles, ArrowRight } from 'lucide
 const CATEGORY_TOPICS_MAP = {
   '都市再生・交通インフラ': [
     { id: 'bus_fare_priority', title: '市バス混雑・市民優先価格' },
+    { id: 'hokuriku_shinkansen_extension', title: '北陸新幹線延伸・地下水と財政負担' }, // 💡 追加
     { id: 'vacant_house_tax', title: '空き家税・若者定住' },
     { id: 'urban_planning_height_relax', title: '高さ規制緩和・産業用地' }
   ],
   '産業・観光・地域経済': [
     { id: 'accommodation_tax_revision', title: '宿泊税引き上げ・使途拡大' },
     { id: 'overtourism_clean_manners', title: 'オーバーツーリズム・散乱ごみ' },
-    { id: 'traditional_industry_succession', title: '伝統産業・事業承継' }
+    { id: 'traditional_industry_succession', title: '伝統産業・事業承継' },
+    { id: 'central_market_redevelopment', title: '中央卸売市場・食肉市場再整備' }
   ],
   '子育て・教育': [
     { id: 'school_lunch_free', title: '全員制中学校給食・無償化' },
     { id: 'children_medical_subsidy', title: '子ども医療費助成の拡充' },
-    { id: 'teacher_workload_ict', title: '教員の多忙化・学校ICT' }
+    { id: 'teacher_workload_ict', title: '教員の多忙化・学校ICT' },
+    { id: 'nursery_teacher_subsidy_reform', title: '民間保育所独自給与補助見直し' }
   ],
   '福祉・医療・健康': [
     { id: 'senior_bus_pass_reform', title: '敬老乗車証・制度見直し' },
     { id: 'national_health_insurance_burden', title: '国保料・介護保険料の軽減' },
-    { id: 'vaccine_public_subsidy', title: '帯状疱疹ワクチン公費助成' }
+    { id: 'vaccine_public_subsidy', title: '帯状疱疹ワクチン公費助成' },
+    { id: 'poverty_hikikomori_support', title: '生活困窮・ひきこもり相談' }
   ],
   '財政・行革': [
     { id: 'fiscal_reform_reconstruction', title: '行財政改革・財政健全化' },
     { id: 'council_reform_transparency', title: '議員定数・政務活動費公開' },
-    { id: 'public_facility_management_privatization', title: '公共施設包括管理・資産売却' }
+    { id: 'public_facility_management_privatization', title: '公共施設包括管理・資産売却' },
+    { id: 'city_hall_reconstruction_cost', title: '市役所新庁舎整備・分庁舎集約' }
   ],
   'くらし・環境・エネルギー': [
     { id: 'waste_charging_recycling', title: '指定ごみ袋・プラ資源循環' },
     { id: 'water_tariff_earthquake_pipe', title: '水道料金改定・管路耐震化' },
-    { id: 'decarbonization_solar_obligation', title: '脱炭素・太陽光パネル義務化' }
+    { id: 'decarbonization_solar_obligation', title: '脱炭素・太陽光パネル義務化' },
+    { id: 'bike_sharing_illegal_parking', title: '放置自転車対策・シェアサイクル' }
   ],
   '防災・減災・治安': [
     { id: 'wooden_houses_earthquake_retrofitting', title: '木密・京町家耐震・路地防災' },
-    { id: 'flood_control_urban_inundation', title: '鴨川・桂川水系の内水氾濫対策' }
+    { id: 'flood_control_urban_inundation', title: '鴨川・桂川水系の内水氾濫対策' },
+    { id: 'landslide_disaster_prevention', title: '土砂災害警戒区域・砂防対策' },
+    { id: 'evacuation_center_bed_women', title: '避難所段ボールベッド・女性視点防災' }
   ],
   '文化・景観・歴史': [
     { id: 'culture_agency_relocation_impact', title: '文化庁移転の波及効果創出' },
-    { id: 'townscape_wire_undergrounding', title: '歴史的景観・無電柱化' }
+    { id: 'townscape_wire_undergrounding', title: '歴史的景観・無電柱化' },
+    { id: 'world_heritage_buffer_zone', title: '世界遺産バッファーゾーン保全' },
+    { id: 'kyoto_arts_univ_sujin_impact', title: '京都芸大崇仁移転・地域活性化' }
   ]
 };
 
