@@ -15,6 +15,7 @@ import HighlightedThreads from './components/HighlightedThreads';
 import MacroTopicMap from './components/MacroTopicMap';
 import ContestedBillsView from './components/ContestedBillsView';
 import TopicDetailPage from './components/TopicDetailPage';
+import CategoryDetailPage from './components/CategoryDetailPage';
 import TimelineModal from './components/TimelineModal';
 import BillDetailModal from './components/BillDetailModal';
 import AboutPage from './components/AboutPage';
@@ -33,6 +34,7 @@ const HOT_TOPICS = [
 const INITIAL_SPEAKERS_LIMIT = 12;
 const INITIAL_THREADS_LIMIT = 10;
 
+// 議案テキストから政策分野を判定するヘルパー[cite: 8]
 function getCategoryForBill(b) {
   const text = `${b.title || ''} ${b.key_conflict || ''} ${b.background || ''}`;
   if (text.includes('都市計画') || text.includes('建築') || text.includes('開発') || text.includes('住宅') || text.includes('新幹線')) return '都市再生・交通インフラ';
@@ -91,19 +93,20 @@ export default function App() {
   const [selectedBillForModal, setSelectedBillForModal] = useState(null);
   const [onlyContestedBills, setOnlyContestedBills] = useState(true);
 
-  // 議案フィルター
+  // 議案フィルター[cite: 8]
   const [selectedSession, setSelectedSession] = useState('');
   const [selectedResult, setSelectedResult] = useState('');
 
-  // 画面遷移ステート
+  // 画面遷移ステート[cite: 8]
   const [compareActive, setCompareActive] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
   const [isContestedViewOpen, setIsContestedViewOpen] = useState(false);
   const [contestedInitialCategory, setContestedInitialCategory] = useState('');
-  const [selectedTopicId, setSelectedTopicId] = useState(null);
+  const [selectedTopicId, setSelectedTopicId] = useState(null); // 政策論点詳細用
+  const [selectedCategoryPage, setSelectedCategoryPage] = useState(null); // カテゴリー包括解説用
 
-  // 💡 表示件数制限ステート（縦長スクロール防止）
+  // 表示件数制限ステート
   const [visibleSpeakersCount, setVisibleSpeakersCount] = useState(INITIAL_SPEAKERS_LIMIT);
   const [visibleThreadsCount, setVisibleThreadsCount] = useState(INITIAL_THREADS_LIMIT);
 
@@ -132,6 +135,7 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
+  // URLパラメータ・ハッシュ連動（popstate & hashchange）[cite: 8]
   useEffect(() => {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
@@ -158,8 +162,14 @@ export default function App() {
       if (hash.startsWith('#topic=')) {
         const topicId = hash.replace('#topic=', '');
         setSelectedTopicId(topicId);
+        setSelectedCategoryPage(null);
+      } else if (hash.startsWith('#category=')) {
+        const catName = decodeURIComponent(hash.replace('#category=', ''));
+        setSelectedCategoryPage(catName);
+        setSelectedTopicId(null);
       } else {
         setSelectedTopicId(null);
+        setSelectedCategoryPage(null);
       }
     };
 
@@ -175,17 +185,40 @@ export default function App() {
     };
   }, []);
 
+  // カテゴリー包括解説ページを開く
+  const handleOpenCategoryDetail = (catName) => {
+    clearSpeakerAndCompare();
+    setCompareActive(false);
+    setIsAboutOpen(false);
+    setIsMethodologyOpen(false);
+    setIsContestedViewOpen(false);
+    setSelectedTopicId(null);
+    setSelectedCategoryPage(catName);
+    window.location.hash = `category=${encodeURIComponent(catName)}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // カテゴリー包括解説ページから戻る
+  const handleBackFromCategory = () => {
+    setSelectedCategoryPage(null);
+    window.location.hash = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // 政策論点詳細ページを開く
   const handleOpenTopicDetail = (topicId) => {
     clearSpeakerAndCompare();
     setCompareActive(false);
     setIsAboutOpen(false);
     setIsMethodologyOpen(false);
     setIsContestedViewOpen(false);
+    setSelectedCategoryPage(null);
     setSelectedTopicId(topicId);
     window.location.hash = `topic=${topicId}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // 政策論点詳細ページから戻る
   const handleBackFromTopic = () => {
     setSelectedTopicId(null);
     window.location.hash = '';
@@ -198,6 +231,7 @@ export default function App() {
     setIsMethodologyOpen(false);
     setIsContestedViewOpen(false);
     setSelectedTopicId(null);
+    setSelectedCategoryPage(null);
     window.location.hash = '';
     setIsAboutOpen(true);
     const url = new URL(window.location);
@@ -220,6 +254,7 @@ export default function App() {
     setIsAboutOpen(false);
     setIsContestedViewOpen(false);
     setSelectedTopicId(null);
+    setSelectedCategoryPage(null);
     window.location.hash = '';
     setIsMethodologyOpen(true);
     const url = new URL(window.location);
@@ -244,6 +279,7 @@ export default function App() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     setSelectedTopicId(null);
+    setSelectedCategoryPage(null);
     window.location.hash = '';
     setSubmittedQuery(searchQuery);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -251,6 +287,7 @@ export default function App() {
 
   const handleKeywordClick = (keyword) => {
     setSelectedTopicId(null);
+    setSelectedCategoryPage(null);
     window.location.hash = '';
     setSearchQuery(keyword);
     setSubmittedQuery(keyword);
@@ -262,6 +299,7 @@ export default function App() {
     setSubmittedQuery('');
   };
 
+  // 分野ごとの激論議案数をカウントする関数[cite: 8]
   const getIssueCountForCategory = useMemo(() => {
     const counts = {};
     billIssuesList.forEach(b => {
@@ -271,6 +309,7 @@ export default function App() {
     return (catName) => counts[catName] || 0;
   }, [billIssuesList]);
 
+  // 議案フィルター用：ユニークな会期・結果の抽出[cite: 8]
   const uniqueSessions = useMemo(() => {
     if (!votesData) return [];
     return [...new Set(votesData.map(b => b.session_name).filter(Boolean))];
@@ -327,11 +366,36 @@ export default function App() {
     );
   }
 
+  // 1. 政策論点詳細ページ
   if (selectedTopicId) {
     return (
       <TopicDetailPage
         topicId={selectedTopicId}
         onBack={handleBackFromTopic}
+      />
+    );
+  }
+
+  // 2. カテゴリー包括解説ページ
+  if (selectedCategoryPage) {
+    const catThreads = statements.filter(s => s.category === selectedCategoryPage);
+    const catBills = votesData.filter(b => getCategoryForBill(b) === selectedCategoryPage);
+    return (
+      <CategoryDetailPage
+        categoryName={selectedCategoryPage}
+        onBack={handleBackFromCategory}
+        topicStats={topicStats}
+        filteredThreads={catThreads}
+        filteredBills={catBills}
+        speakerStats={speakerStats}
+        issuesMap={issuesMap}
+        onlyContestedBills={onlyContestedBills}
+        setOnlyContestedBills={setOnlyContestedBills}
+        onSpeakerClick={handleSpeakerClick}
+        onViewContext={handleViewContext}
+        onSelectBill={setSelectedBillForModal}
+        onOpenMethodology={handleOpenMethodology}
+        onOpenTopicDetail={handleOpenTopicDetail}
       />
     );
   }
@@ -354,6 +418,7 @@ export default function App() {
     );
   }
 
+  // 激戦議案詳細画面（ContestedBillsView）[cite: 8]
   if (isContestedViewOpen) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -543,6 +608,7 @@ export default function App() {
           handleClearSearch();
           setCompareActive(false);
           setSelectedTopicId(null);
+          setSelectedCategoryPage(null);
           window.location.hash = '';
         }}
         onOpenAbout={handleOpenAbout}
@@ -551,6 +617,7 @@ export default function App() {
           clearSpeakerAndCompare();
           setCompareActive(true);
           setSelectedTopicId(null);
+          setSelectedCategoryPage(null);
           window.location.hash = '';
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
@@ -613,19 +680,16 @@ export default function App() {
           </div>
         </section>
 
-        {/* 市議会マクロ論戦マップ */}
+        {/* 市議会マクロ論戦マップ（カテゴリー詳細・政策タイムラインへの導線） */}
         <MacroTopicMap
           topicStats={topicStats}
           selectedCategory={selectedCategory}
-          onSelectCategory={(cat) => {
-            setSelectedCategory(cat);
-            if (viewMode === 'bills') setViewMode('threads');
-          }}
+          onOpenCategoryDetail={handleOpenCategoryDetail}
           getIssueCountForCategory={getIssueCountForCategory}
           onOpenTopicDetail={handleOpenTopicDetail}
         />
 
-        {/* 注目の政策論戦ピックアップ */}
+        {/* 注目の政策論戦ピックアップ[cite: 8] */}
         <HighlightedThreads
           statements={statements}
           onViewContext={handleViewContext}
@@ -672,7 +736,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* 議員・スレッド用のフィルターバー */}
+          {/* 議員・スレッド用のフィルターバー[cite: 8] */}
           {viewMode !== 'bills' && (
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2 flex-wrap">
@@ -728,7 +792,7 @@ export default function App() {
             </div>
           )}
 
-          {/* 議案専用のフィルターバー */}
+          {/* 議案専用のフィルターバー[cite: 8] */}
           {viewMode === 'bills' && (
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2 flex-wrap">
@@ -834,7 +898,7 @@ export default function App() {
             </div>
           )}
 
-          {/* 議案一覧 */}
+          {/* 議案一覧[cite: 8] */}
           {viewMode === 'bills' && (
             <BillsSection
               filteredBills={filteredBills}

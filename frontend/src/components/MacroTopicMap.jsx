@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { PieChart, Flame, Info, ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
 
-// 8大カテゴリー全網羅・論点マップ
 const CATEGORY_TOPICS_MAP = {
   '都市再生・交通インフラ': [
     { id: 'bus_fare_priority', title: '市バス混雑・市民優先価格' },
@@ -46,7 +45,7 @@ const CATEGORY_TOPICS_MAP = {
 export default function MacroTopicMap({
   topicStats,
   selectedCategory,
-  onSelectCategory,
+  onOpenCategoryDetail, // 💡 カテゴリー詳細ページを開くハンドラー
   getIssueCountForCategory,
   onOpenTopicDetail
 }) {
@@ -66,39 +65,24 @@ export default function MacroTopicMap({
             全{totalThreadsCount.toLocaleString()}スレッドの質疑量と、8大分野の重要政策タイムライン
           </p>
         </div>
-        {selectedCategory && (
-          <button 
-            onClick={() => onSelectCategory('')}
-            className="text-xs font-bold text-indigo-600 hover:underline cursor-pointer"
-          >
-            選択解除
-          </button>
-        )}
       </div>
       
       {/* 8大カテゴリーのグリッド */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
         {topicStats.map(topic => {
-          const isSelected = selectedCategory === topic.name;
           const issueCount = getIssueCountForCategory(topic.name);
           const coreTopics = CATEGORY_TOPICS_MAP[topic.name] || [];
 
           return (
             <div 
               key={topic.name} 
-              className={`flex flex-col justify-between p-3.5 rounded-xl border transition-all ${
-                isSelected 
-                  ? 'bg-indigo-50/50 border-indigo-400 shadow-sm ring-2 ring-indigo-500/20' 
-                  : 'bg-white border-slate-200 hover:border-slate-300 hover:shadow-xs'
-              }`}
+              onClick={() => onOpenCategoryDetail && onOpenCategoryDetail(topic.name)}
+              className="flex flex-col justify-between p-3.5 rounded-xl border bg-white border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group"
             >
               {/* カード上部：カテゴリ名と激論バッジ */}
-              <div 
-                onClick={() => onSelectCategory(topic.name)} 
-                className="cursor-pointer"
-              >
+              <div>
                 <div className="flex items-center justify-between w-full mb-1">
-                  <span className={`text-xs font-bold truncate ${isSelected ? 'text-indigo-800' : 'text-slate-800'}`}>
+                  <span className="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors truncate">
                     {topic.name}
                   </span>
                   {issueCount > 0 ? (
@@ -114,7 +98,7 @@ export default function MacroTopicMap({
                 </div>
                 
                 <div className="flex items-end justify-between mt-1">
-                  <span className="text-lg font-black text-slate-900">
+                  <span className="text-lg font-black text-slate-900 group-hover:text-indigo-600 transition-colors">
                     {topic.percentage}<span className="text-[10px] text-slate-400 font-medium ml-0.5">%</span>
                   </span>
                   <span className="text-[10px] text-slate-400 font-medium">{topic.count}質疑</span>
@@ -125,7 +109,7 @@ export default function MacroTopicMap({
                 </div>
               </div>
 
-              {/* カード下部：注目の重要論点詳細ページへの直通バッジ */}
+              {/* カード下部：注目の重要論点バッジ */}
               {coreTopics.length > 0 && onOpenTopicDetail && (
                 <div className="mt-3 pt-2.5 border-t border-slate-100 flex flex-col gap-1.5">
                   <span className="text-[9px] font-black text-indigo-900/60 uppercase tracking-wider flex items-center gap-1">
@@ -135,7 +119,7 @@ export default function MacroTopicMap({
                     <button
                       key={ct.id}
                       onClick={(e) => {
-                        e.stopPropagation();
+                        e.stopPropagation(); // 親のカードクリックを阻止して論点へ直行
                         onOpenTopicDetail(ct.id);
                       }}
                       className="text-left text-[11px] font-bold text-slate-700 hover:text-indigo-600 bg-slate-50 hover:bg-indigo-50/80 px-2 py-1 rounded-md border border-slate-200 hover:border-indigo-200 transition-colors flex items-center justify-between group/btn cursor-pointer"
@@ -160,8 +144,7 @@ export default function MacroTopicMap({
         <div className="mt-2.5 pl-1 pt-2 border-t border-slate-200">
           <ul className="list-disc list-inside space-y-1.5 leading-relaxed">
             <li><strong className="text-slate-600">質疑データ:</strong> 現任期（2023年5月〜2026年）の本会議・常任委員会・特別委員会の会議録からAI抽出した実質質疑スレッド</li>
-            <li><strong className="text-slate-600">激論議案バッジ:</strong> 全議案中、全会一致とならず各会派の賛成・反対が分かれた議案の件数です。</li>
-            <li><strong className="text-slate-600">政策タイムライン:</strong> 8大カテゴリーの主要争点について、年度・会期をまたぐ議論の変遷と公式原本リンクをAIが構造化しています。</li>
+            <li><strong className="text-slate-600">分野カードのクリック:</strong> カードをクリックすると、その政策分野の任期内総括（包括解説）と関連質疑を閲覧できます。</li>
           </ul>
         </div>
       </details>
