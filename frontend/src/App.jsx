@@ -34,7 +34,6 @@ const HOT_TOPICS = [
 const INITIAL_SPEAKERS_LIMIT = 12;
 const INITIAL_THREADS_LIMIT = 10;
 
-// 議案テキストから政策分野を判定するヘルパー[cite: 8]
 function getCategoryForBill(b) {
   const text = `${b.title || ''} ${b.key_conflict || ''} ${b.background || ''}`;
   if (text.includes('都市計画') || text.includes('建築') || text.includes('開発') || text.includes('住宅') || text.includes('新幹線')) return '都市再生・交通インフラ';
@@ -93,24 +92,20 @@ export default function App() {
   const [selectedBillForModal, setSelectedBillForModal] = useState(null);
   const [onlyContestedBills, setOnlyContestedBills] = useState(true);
 
-  // 議案フィルター[cite: 8]
   const [selectedSession, setSelectedSession] = useState('');
   const [selectedResult, setSelectedResult] = useState('');
 
-  // 画面遷移ステート[cite: 8]
   const [compareActive, setCompareActive] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
   const [isContestedViewOpen, setIsContestedViewOpen] = useState(false);
   const [contestedInitialCategory, setContestedInitialCategory] = useState('');
-  const [selectedTopicId, setSelectedTopicId] = useState(null); // 政策論点詳細用
-  const [selectedCategoryPage, setSelectedCategoryPage] = useState(null); // カテゴリー包括解説用
+  const [selectedTopicId, setSelectedTopicId] = useState(null);
+  const [selectedCategoryPage, setSelectedCategoryPage] = useState(null);
 
-  // 表示件数制限ステート
   const [visibleSpeakersCount, setVisibleSpeakersCount] = useState(INITIAL_SPEAKERS_LIMIT);
   const [visibleThreadsCount, setVisibleThreadsCount] = useState(INITIAL_THREADS_LIMIT);
 
-  // フィルター・ソート条件変更時に表示件数をリセット
   useEffect(() => {
     setVisibleSpeakersCount(INITIAL_SPEAKERS_LIMIT);
     setVisibleThreadsCount(INITIAL_THREADS_LIMIT);
@@ -135,7 +130,6 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // URLパラメータ・ハッシュ連動（popstate & hashchange）[cite: 8]
   useEffect(() => {
     const handlePopState = () => {
       const params = new URLSearchParams(window.location.search);
@@ -185,7 +179,6 @@ export default function App() {
     };
   }, []);
 
-  // カテゴリー包括解説ページを開く
   const handleOpenCategoryDetail = (catName) => {
     clearSpeakerAndCompare();
     setCompareActive(false);
@@ -198,14 +191,12 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // カテゴリー包括解説ページから戻る
   const handleBackFromCategory = () => {
     setSelectedCategoryPage(null);
     window.location.hash = '';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 政策論点詳細ページを開く
   const handleOpenTopicDetail = (topicId) => {
     clearSpeakerAndCompare();
     setCompareActive(false);
@@ -218,7 +209,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 政策論点詳細ページから戻る
   const handleBackFromTopic = () => {
     setSelectedTopicId(null);
     window.location.hash = '';
@@ -299,7 +289,6 @@ export default function App() {
     setSubmittedQuery('');
   };
 
-  // 分野ごとの激論議案数をカウントする関数[cite: 8]
   const getIssueCountForCategory = useMemo(() => {
     const counts = {};
     billIssuesList.forEach(b => {
@@ -309,7 +298,6 @@ export default function App() {
     return (catName) => counts[catName] || 0;
   }, [billIssuesList]);
 
-  // 議案フィルター用：ユニークな会期・結果の抽出[cite: 8]
   const uniqueSessions = useMemo(() => {
     if (!votesData) return [];
     return [...new Set(votesData.map(b => b.session_name).filter(Boolean))];
@@ -348,7 +336,6 @@ export default function App() {
     return list;
   }, [votesData, submittedQuery, selectedSession, selectedResult, onlyContestedBills]);
 
-  // 表示用に切り詰めたリスト
   const displayedSpeakers = useMemo(() => {
     return filteredSpeakers.slice(0, visibleSpeakersCount);
   }, [filteredSpeakers, visibleSpeakersCount]);
@@ -366,7 +353,6 @@ export default function App() {
     );
   }
 
-  // 1. 政策論点詳細ページ
   if (selectedTopicId) {
     return (
       <TopicDetailPage
@@ -376,7 +362,6 @@ export default function App() {
     );
   }
 
-  // 2. カテゴリー包括解説ページ
   if (selectedCategoryPage) {
     const catThreads = statements.filter(s => s.category === selectedCategoryPage);
     const catBills = votesData.filter(b => getCategoryForBill(b) === selectedCategoryPage);
@@ -418,7 +403,6 @@ export default function App() {
     );
   }
 
-  // 激戦議案詳細画面（ContestedBillsView）[cite: 8]
   if (isContestedViewOpen) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -689,7 +673,7 @@ export default function App() {
           onOpenTopicDetail={handleOpenTopicDetail}
         />
 
-        {/* 注目の政策論戦ピックアップ[cite: 8] */}
+        {/* 注目の政策論戦ピックアップ */}
         <HighlightedThreads
           statements={statements}
           onViewContext={handleViewContext}
@@ -709,7 +693,7 @@ export default function App() {
                 }`}
               >
                 <Users className="w-4 h-4 mr-2" />
-                議員一覧 ({filteredSpeakers.length})
+                議員一覧 ({filteredSpeakers.length.toLocaleString()})
               </button>
               <button
                 onClick={() => setViewMode('threads')}
@@ -720,7 +704,7 @@ export default function App() {
                 }`}
               >
                 <MessageSquare className="w-4 h-4 mr-2" />
-                質疑スレッド ({filteredThreads.length})
+                質疑スレッド ({filteredThreads.length.toLocaleString()})
               </button>
               <button
                 onClick={() => setViewMode('bills')}
@@ -731,12 +715,12 @@ export default function App() {
                 }`}
               >
                 <Scale className="w-4 h-4 mr-2" />
-                議案・賛否の記録 ({filteredBills.length})
+                議案・賛否の記録 ({filteredBills.length.toLocaleString()})
               </button>
             </div>
           </div>
 
-          {/* 議員・スレッド用のフィルターバー[cite: 8] */}
+          {/* 議員・スレッド用のフィルターバー */}
           {viewMode !== 'bills' && (
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2 flex-wrap">
@@ -759,7 +743,7 @@ export default function App() {
                 >
                   <option value="">すべての政策分野</option>
                   {topicStats.map(t => (
-                    <option key={t.name} value={t.name}>{t.name} ({t.count}件)</option>
+                    <option key={t.name} value={t.name}>{t.name} ({t.count.toLocaleString()}件)</option>
                   ))}
                 </select>
 
@@ -792,7 +776,7 @@ export default function App() {
             </div>
           )}
 
-          {/* 議案専用のフィルターバー[cite: 8] */}
+          {/* 議案専用のフィルターバー */}
           {viewMode === 'bills' && (
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2 flex-wrap">
@@ -830,7 +814,7 @@ export default function App() {
                 )}
               </div>
               <div className="text-[11px] font-bold text-slate-400">
-                該当: <span className="text-indigo-600">{filteredBills.length}</span> 件
+                該当: <span className="text-indigo-600">{filteredBills.length.toLocaleString()}</span> 件
               </div>
             </div>
           )}
@@ -859,7 +843,7 @@ export default function App() {
                     onClick={() => setVisibleSpeakersCount(prev => prev + 12)}
                     className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-xs font-bold text-slate-700 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
                   >
-                    <span>さらに議員を表示する（残り {filteredSpeakers.length - visibleSpeakersCount} 名）</span>
+                    <span>さらに議員を表示する（残り {(filteredSpeakers.length - visibleSpeakersCount).toLocaleString()} 名）</span>
                     <ChevronDown className="w-4 h-4 text-slate-400" />
                   </button>
                 </div>
@@ -890,7 +874,7 @@ export default function App() {
                     onClick={() => setVisibleThreadsCount(prev => prev + 10)}
                     className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-xs font-bold text-slate-700 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
                   >
-                    <span>さらに質疑スレッドを表示する（残り {filteredThreads.length - visibleThreadsCount} 件）</span>
+                    <span>さらに質疑スレッドを表示する（残り {(filteredThreads.length - visibleThreadsCount).toLocaleString()} 件）</span>
                     <ChevronDown className="w-4 h-4 text-slate-400" />
                   </button>
                 </div>
@@ -898,7 +882,7 @@ export default function App() {
             </div>
           )}
 
-          {/* 議案一覧[cite: 8] */}
+          {/* 議案一覧 */}
           {viewMode === 'bills' && (
             <BillsSection
               filteredBills={filteredBills}
