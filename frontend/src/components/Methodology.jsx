@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   ArrowLeft, ShieldCheck, Database, Sliders, Scale, 
-  AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText, Calendar 
+  AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText, Calendar, Landmark, Layers
 } from 'lucide-react';
 
 export default function Methodology({ onBack }) {
@@ -18,7 +18,7 @@ export default function Methodology({ onBack }) {
             トップページに戻る
           </button>
           <span className="text-[11px] font-mono text-slate-400 font-semibold tracking-wider uppercase">
-            Platform Methodology v1.0
+            Platform Methodology v1.2
           </span>
         </div>
       </div>
@@ -34,7 +34,7 @@ export default function Methodology({ onBack }) {
             AI政策監査ロジックと評価基準
           </h1>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed pt-2">
-            「議会のミカタ 京都」が採用するデータ収集・前処理アルゴリズム、評価ルーブリック、およびAI（Gemini）採点における中立性・再現性の技術的担保について公開します。
+            「議会のミカタ 京都」が採用するデータ収集・前処理アルゴリズム、公的原本へのトレーサビリティ機構、評価ルーブリック、およびAI（Gemini）採点における中立性・再現性の技術仕様を公開します。
           </p>
         </header>
 
@@ -53,14 +53,14 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* ③ セクション2：データの前処理とスレッド構造化 */}
+        {/* ③ セクション2：データ構造化と原本トレーサビリティ */}
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
-            <span>2. 分析対象データと「スレッド化」の仕組み</span>
+            <span>2. 分析対象データと「スレッド構造化」の仕組み</span>
           </h2>
           <div className="text-sm leading-relaxed text-slate-700 space-y-4 pl-4">
             <p>
-              本プラットフォームは、一次情報源である公式会議録に加え、政治議論のオープンデータ基盤を活用して構築されています。
+              一次情報源である京都市会の公式会議録に加え、政治議論のオープンデータ基盤を活用して構築されています。
             </p>
 
             {/* データソース＆ライセンス明記ブロック */}
@@ -106,7 +106,7 @@ export default function Methodology({ onBack }) {
               </ul>
             </div>
             
-            {/* 💡 追加: 期間と公平性のブロック */}
+            {/* 期間と公平性のブロック */}
             <div className="bg-indigo-50/60 p-4 rounded-xl border border-indigo-100">
               <h3 className="font-bold text-indigo-900 text-xs flex items-center gap-1.5 mb-1.5">
                 <Calendar className="w-4 h-4 text-indigo-600" /> 対象期間と公平性の担保（現任期への統一）
@@ -116,10 +116,23 @@ export default function Methodology({ onBack }) {
               </p>
             </div>
 
+            {/* 💡 原本トレーサビリティ仕様ブロック */}
+            <div className="bg-emerald-50/50 p-4 rounded-xl border border-emerald-200/80 space-y-2">
+              <h3 className="font-bold text-emerald-900 text-xs flex items-center gap-1.5">
+                <Landmark className="w-4 h-4 text-emerald-700" /> 公的原本への完全トレーサビリティ（監査可能性の技術仕様）
+              </h3>
+              <p className="text-xs text-emerald-950/90 leading-relaxed">
+                大規模言語モデル（LLM）の要約や評価における「ハルシネーション（誤生成）」や「文脈の欠落」を排除するため、全5,000件以上の質疑スレッドに対して、<strong>京都市会公式サーバー上の原本ページ（MinuteView）へ直接遷移する固有URL（council_id / schedule_id / view_years）を 1 対 1 で結合</strong>しています。
+              </p>
+              <p className="text-xs text-emerald-950/90 leading-relaxed">
+                利用者はAIによる要約やスコアを見た直後に、ボタン1つで公的機関の一次情報に直接アクセスし、発言の前後文脈や議場の生ログを即座に事実確認（ファクトチェック）できる設計としています。
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <h3 className="font-bold text-slate-900 text-xs flex items-center gap-1.5 mb-1.5">
-                  <Database className="w-4 h-4 text-slate-600" /> ノイズ発言の完全排除
+                  <Database className="w-4 h-4 text-slate-600" /> ノイズ発言の機械的排除
                 </h3>
                 <p className="text-xs text-slate-600 leading-normal">
                   議長による議事進行、開会挨拶、定型辞、点呼、単なる賛否の宣告など、政策的な議論を含まない発言ブロックは、前処理パイプラインのルールベース・アルゴリズムにより機械的に除外しています。
@@ -202,10 +215,38 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* ⑤ セクション4：AIの再現性と公平性の担保 */}
+        {/* ⑤ セクション4：政策カテゴリーの統一分類アルゴリズム */}
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
-            <span>4. アルゴリズムの中立性と技術仕様</span>
+            <span>4. 8大政策分野への統一マッピングアルゴリズム</span>
+          </h2>
+          <div className="text-sm leading-relaxed text-slate-700 space-y-3 pl-4">
+            <p>
+              LLMによる自由なカテゴリ出力は表記揺れや粒度の不揃いを生むため、本プラットフォームでは市議会の所管構造に適合した<strong>「統一8大政策分野」</strong>への再マッピングパイプラインを採用しています。
+            </p>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+              <div className="font-bold text-slate-800 flex items-center gap-1.5">
+                <Layers className="w-4 h-4 text-indigo-600" />
+                採用する8大政策分野と分類ルール
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                常任委員会（産業交通水道、総務消防等）の所管構造および専門キーワード辞書（伝統産業・宿泊税・市バス・財政行革・京町家景観等）を組み合わせた階層的ルールベース・アルゴリズムにより、客観的かつ再現性の高い分類を行っています。
+              </p>
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {['子育て・教育', '都市再生・交通インフラ', '産業・観光・地域経済', '福祉・医療・健康', '財政・行革', 'くらし・環境・エネルギー', '防災・減災・治安', '文化・景観・歴史'].map(cat => (
+                  <span key={cat} className="px-2 py-0.5 bg-white border border-slate-200 rounded font-bold text-slate-700">
+                    {cat}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ⑥ セクション5：AIの再現性と公平性の担保 */}
+        <section className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
+            <span>5. アルゴリズムの中立性と技術仕様</span>
           </h2>
           <div className="text-sm leading-relaxed text-slate-700 space-y-3 pl-4">
             <p>
@@ -219,7 +260,7 @@ export default function Methodology({ onBack }) {
                 <strong>完全単一プロンプトの適用:</strong> 議員の所属会派、当選回数、年齢、性別などの属性情報は評価用プロンプトから完全に遮断され、全議員・全スレッドに対して単一の同一プロンプトのみが機械的に適用されています。
               </li>
               <li>
-                <strong>プロンプトとパイプラインの公開:</strong> データスクレイピングから評価に至るソースコードおよびプロンプト文面は、オープンソースとして透明性を確保しています。
+                <strong>パイプラインの自動化と公開:</strong> データスクレイピングから評価、原本URL結合に至る全ソースコードおよびプロンプト文面はオープンソースとして公開しています。
               </li>
             </ul>
 
@@ -236,10 +277,10 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* ⑥ セクション5：評価の限界と免責事項 */}
+        {/* ⑦ セクション6：評価の限界と免責事項 */}
         <section className="space-y-4 pb-8 border-b border-slate-200">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
-            <span>5. 本データが示さないもの（免責事項）</span>
+            <span>6. 本データが示さないもの（免責事項）</span>
           </h2>
           <div className="bg-amber-50/70 border border-amber-200/90 rounded-2xl p-5 text-xs md:text-sm leading-relaxed text-amber-950 space-y-2.5">
             <div className="flex items-center gap-2 font-bold text-amber-900">
