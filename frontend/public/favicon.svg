@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <!-- 背景：角丸インディゴ -->
   <rect width="32" height="32" rx="7" fill="#4F46E5" />
-  <!-- 中央テキスト：「議」 -->
-  <text x="50%" y="54%" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="900" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">
+  <!-- 中央テキスト：「議」（高さを上方向へ微調整） -->
+  <text x="50%" y="47%" font-family="&#39;Hiragino Sans&#39;, &#39;Noto Sans JP&#39;, &#39;Meiryo&#39;, system-ui, sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">
     議
   </text>
 </svg>
