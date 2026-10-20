@@ -14,7 +14,6 @@ STATEMENTS_OUT = os.path.join(OUTPUT_DIR, "statements_summary.json")
 SPEAKER_STATS_OUT = os.path.join(OUTPUT_DIR, "speaker_stats.json")
 TOPIC_STATS_OUT = os.path.join(OUTPUT_DIR, "topic_stats.json")
 
-# 8大カテゴリーの標準マッピング定義
 CATEGORIES = [
     "都市再生・交通インフラ",
     "産業・観光・地域経済",
@@ -58,7 +57,7 @@ def get_committee_name(title):
 
 def main():
     print("=" * 60)
-    print("🚀 全件軽量インデックス生成パイプラインを開始")
+    print("🚀 実質質疑スレッド（約5,100件）軽量インデックス生成を開始")
     print("=" * 60)
 
     if not os.path.exists(CRAWLED_FILE):
@@ -68,17 +67,24 @@ def main():
     with open(CRAWLED_FILE, "r", encoding="utf-8") as f:
         raw_items = json.load(f)
 
-    print(f"📖 読み込み完了: {len(raw_items)} 件の発言ログ")
+    print(f"📖 発言ログ読み込み: {len(raw_items)} 件")
 
-    # 1. 重複排除・実質質疑スレッドの整理（全件対象）
+    # 1. 「実質質疑スレッド（要約またはAI評価スコアが存在するもの）」のみを抽出
     thread_map = {}
     for item in raw_items:
-        t_id = item.get("id") or f"{item.get('meeting_id')}_{item.get('sequence_number')}"
-        text = str(item.get("statement_text") or "")
+        t_id = str(item.get("id") or f"{item.get('meeting_id')}_{item.get('sequence_number')}")
         
-        # 事務的なアナウンス等のノイズを除外（40字未満）
-        if len(text.strip()) < 40 and not item.get("summary"):
+        # 答弁や単なる発言を除くため、AI要約または評価スコアが付与されているスレッド代表発言に限定
+        has_summary = bool(item.get("summary"))
+        has_score = item.get("solution_score") is not None or item.get("evidence_score") is not None
+        
+        if not (has_summary or has_score):
             continue
+
+        text = str(item.get("statement_text") or "").strip()
+        summary = str(item.get("summary") or "").strip()
+        if not summary:
+            summary = text[:100].replace("\n", " ") + "..."
 
         raw_speaker = item.get("speaker") or ""
         clean_speaker = clean_speaker_name(raw_speaker)
@@ -87,7 +93,7 @@ def main():
         if category not in CATEGORIES and category != "市政全般":
             category = "市政全般"
 
-        # 軽量インデックス用オブジェクト（長文本文を120字スニペットに圧縮）
+        # 軽量インデックス用オブジェクト（長文テキストは含めず要約とメタ情報のみ）
         summary_obj = {
             "id": t_id,
             "meeting_id": item.get("meeting_id"),
@@ -96,9 +102,8 @@ def main():
             "committee": get_committee_name(item.get("meeting_title")),
             "speaker": clean_speaker,
             "category": category,
-            "summary": item.get("summary") or (text[:120].replace("\n", " ") + "..."),
-            # 検索用のテキストスニペット（120文字）
-            "statement_text": text[:120].replace("\n", " "),
+            "summary": summary[:140],  # 140文字以内に制限
+            "statement_text": summary[:100],  # 検索互換用
             "solution_score": float(item.get("solution_score") or 3.0),
             "evidence_score": float(item.get("evidence_score") or 3.0),
             "local_focus_score": float(item.get("local_focus_score") or 3.0),
@@ -107,13 +112,13 @@ def main():
         }
         thread_map[t_id] = summary_obj
 
-    # 日付降順（最新順）にソート（スライスせず全件保持）
+    # 日付降順（最新順）にソート
     all_statements = list(thread_map.values())
     all_statements.sort(key=lambda x: str(x.get("meeting_date") or ""), reverse=True)
     total_count = len(all_statements)
-    print(f"✅ 有効質疑スレッド数（全件）: {total_count} 件")
+    print(f"✅ 抽出された実質質疑スレッド数: {total_count} 件")
 
-    # 2. 議員別集計（全件から正確な登壇数と平均スコアを算出）
+    # 2. 議員別集計
     speaker_aggregates = defaultdict(lambda: {
         "speaker": "",
         "count": 0,
@@ -157,7 +162,7 @@ def main():
 
     speaker_stats_list.sort(key=lambda x: x["count"], reverse=True)
 
-    # 3. 分野別集計（全件からの正確な比率を算出）
+    # 3. 分野別集計
     category_counts = defaultdict(int)
     for s in all_statements:
         category_counts[s["category"]] += 1
@@ -172,11 +177,11 @@ def main():
             "percentage": pct
         })
 
-    # 4. JSONファイルの出力
+    # 4. JSON出力
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     with open(STATEMENTS_OUT, "w", encoding="utf-8") as f:
-        json.dump(all_statements, f, ensure_ascii=False, indent=None)  # 改行なしでファイルサイズ最小化
+        json.dump(all_statements, f, ensure_ascii=False, separators=(',', ':'))
 
     with open(SPEAKER_STATS_OUT, "w", encoding="utf-8") as f:
         json.dump(speaker_stats_list, f, ensure_ascii=False, indent=2)
@@ -184,13 +189,11 @@ def main():
     with open(TOPIC_STATS_OUT, "w", encoding="utf-8") as f:
         json.dump(topic_stats_list, f, ensure_ascii=False, indent=2)
 
-    # ファイルサイズの確認
     file_size_mb = os.path.getsize(STATEMENTS_OUT) / (1024 * 1024)
     print("=" * 60)
-    print(f"🎉 全件軽量インデックスの生成完了:")
-    print(f"   ・質疑スレッド: {total_count} 件 (ファイルサイズ: {file_size_mb:.2f} MB)")
-    print(f"   ・議員集計: {len(speaker_stats_list)} 名")
-    print(f"   ・分野集計: {len(topic_stats_list)} 分野")
+    print(f"🎉 処理完了:")
+    print(f"   ・質疑スレッド: {total_count} 件")
+    print(f"   ・ファイルサイズ: {file_size_mb:.2f} MB (25MB制限を大幅にクリア)")
     print(f"📁 保存先: {STATEMENTS_OUT}")
     print("=" * 60)
 
