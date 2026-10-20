@@ -27,9 +27,19 @@ except Exception:
     font_badge = font_title = font_sub = font_desc = font_url = ImageFont.load_default()
 
 # 4. テキストの描画
-# バッジ（カテゴリ）
-draw.rectangle([90, 90, 430, 140], fill="#1e1b4b", outline="#4338ca", width=1)
-draw.text((105, 98), "京都市会 公開データ × 生成AI", fill="#a5b4fc", font=font_badge)
+# バッジ（カテゴリ）の背景枠を文字幅に合わせて自動調整
+badge_text = "京都市会 公開データ × 生成AI"
+badge_x, badge_y = 105, 98
+
+# textbboxで実際の文字幅を取得し、左右に15px、上下に10pxの余白を足して枠を描画
+bbox = draw.textbbox((badge_x, badge_y), badge_text, font=font_badge)
+draw.rectangle(
+    [bbox[0] - 15, bbox[1] - 10, bbox[2] + 15, bbox[3] + 10], 
+    fill="#1e1b4b", 
+    outline="#4338ca", 
+    width=1
+)
+draw.text((badge_x, badge_y), badge_text, fill="#a5b4fc", font=font_badge)
 
 # タイトル
 draw.text((90, 175), "議会のミカタ 京都", fill="#ffffff", font=font_title)
