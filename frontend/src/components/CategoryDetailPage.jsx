@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
-  ArrowLeft, PieChart, Sparkles, Milestone, Flame, 
-  MessageSquare, Scale, ArrowRight, ExternalLink 
+  ArrowLeft, PieChart, Sparkles, Milestone, 
+  MessageSquare, ArrowRight, SlidersHorizontal, ArrowUpDown, 
+  Search, ChevronDown, User, Calendar, Landmark
 } from 'lucide-react';
 import ThreadCard from './ThreadCard';
-import BillsSection from './BillsSection';
 import { cleanName } from '../utils/styleHelpers';
 
 // 8大カテゴリーの包括的な政策総括マスター
@@ -75,7 +75,6 @@ const CATEGORY_OVERVIEWS = {
   }
 };
 
-// 各カテゴリーに紐づく政策タイムラインの定義
 const CATEGORY_TOPICS_MAP = {
   '都市再生・交通インフラ': [
     { id: 'bus_fare_priority', title: '市バス混雑・市民優先価格' },
@@ -117,14 +116,34 @@ const CATEGORY_TOPICS_MAP = {
   ]
 };
 
+// 会議体名を正規化して抽出するヘルパー
+function getMeetingBodyName(stmt) {
+  if (stmt.committee) return stmt.committee;
+  const title = stmt.meeting_title || '';
+  if (title.includes('本会議')) return '本会議';
+  if (title.includes('予算特別委員会')) return '予算特別委員会';
+  if (title.includes('決算特別委員会')) return '決算特別委員会';
+  if (title.includes('総務消防委員会')) return '総務消防委員会';
+  if (title.includes('文教はぐくみ委員会')) return '文教はぐくみ委員会';
+  if (title.includes('まちづくり委員会')) return 'まちづくり委員会';
+  if (title.includes('産業交通水道委員会')) return '産業交通水道委員会';
+  if (title.includes('くらし環境委員会')) return 'くらし環境委員会';
+  if (title.includes('市会運営委員会')) return '市会運営委員会';
+  const match = title.match(/([^\s]+委員会)/);
+  if (match) return match[1];
+  return 'その他委員会';
+}
+
+const INITIAL_VISIBLE_COUNT = 15;
+
 export default function CategoryDetailPage({
   categoryName,
   onBack,
   topicStats,
-  filteredThreads,
-  filteredBills,
-  speakerStats,
-  issuesMap,
+  filteredThreads = [],
+  filteredBills = [],
+  speakerStats = [],
+  issuesMap = {},
   onlyContestedBills,
   setOnlyContestedBills,
   onSpeakerClick,
@@ -133,12 +152,109 @@ export default function CategoryDetailPage({
   onOpenMethodology,
   onOpenTopicDetail
 }) {
-  const stat = topicStats.find(t => t.name === categoryName) || { count: 0, percentage: 0 };
+  const stat = topicStats.find(t => t.name === categoryName) || { count: filteredThreads.length, percentage: 0 };
   const overview = CATEGORY_OVERVIEWS[categoryName] || {
     lead: `京都市議会において「${categoryName}」分野に関する質疑が多数記録されています。`,
     key_points: []
   };
   const coreTopics = CATEGORY_TOPICS_MAP[categoryName] || [];
+
+  // 絞り込みフィルター用のステート
+  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedCommittee, setSelectedCommittee] = useState('');
+  const [selectedSpeaker, setSelectedSpeaker] = useState('');
+  const [filterQuery, setFilterQuery] = useState('');
+  const [sortOrder, setSortOrder] = useState('recent'); // 'recent' | 'score'
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+
+  // カテゴリー内の全質疑から、選択肢リスト（年次・会議体・発言者）を動的に生成
+  const availableYears = useMemo(() => {
+    const set = new Set();
+    filteredThreads.forEach(s => {
+      if (s.meeting_date && s.meeting_date.length >= 4) {
+        set.add(s.meeting_date.slice(0, 4));
+      }
+    });
+    return Array.from(set).sort((a, b) => b.localeCompare(a));
+  }, [filteredThreads]);
+
+  const availableCommittees = useMemo(() => {
+    const counts = {};
+    filteredThreads.forEach(s => {
+      const name = getMeetingBodyName(s);
+      counts[name] = (counts[name] || 0) + 1;
+    });
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([name]) => name);
+  }, [filteredThreads]);
+
+  const availableSpeakers = useMemo(() => {
+    const counts = {};
+    filteredThreads.forEach(s => {
+      const name = cleanName(s.speaker);
+      if (name) counts[name] = (counts[name] || 0) + 1;
+    });
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({ name, count }));
+  }, [filteredThreads]);
+
+  // フィルター変更時に表示件数をリセット
+  useEffect(() => {
+    setVisibleCount(INITIAL_VISIBLE_COUNT);
+  }, [selectedYear, selectedCommittee, selectedSpeaker, filterQuery, sortOrder]);
+
+  // 絞り込み ＆ ソート処理
+  const processedThreads = useMemo(() => {
+    let list = [...filteredThreads];
+
+    if (selectedYear) {
+      list = list.filter(s => (s.meeting_date || '').startsWith(selectedYear));
+    }
+
+    if (selectedCommittee) {
+      list = list.filter(s => getMeetingBodyName(s) === selectedCommittee);
+    }
+
+    if (selectedSpeaker) {
+      list = list.filter(s => cleanName(s.speaker) === selectedSpeaker);
+    }
+
+    if (filterQuery.trim()) {
+      const q = filterQuery.trim().toLowerCase();
+      list = list.filter(s => 
+        (s.statement_text && s.statement_text.toLowerCase().includes(q)) ||
+        (s.summary && s.summary.toLowerCase().includes(q)) ||
+        (s.meeting_title && s.meeting_title.toLowerCase().includes(q))
+      );
+    }
+
+    if (sortOrder === 'recent') {
+      list.sort((a, b) => String(b.meeting_date || '').localeCompare(String(a.meeting_date || '')));
+    } else if (sortOrder === 'score') {
+      list.sort((a, b) => {
+        const scoreA = (a.solution_score || 0) + (a.evidence_score || 0) + (a.local_focus_score || 0) + (a.constructive_score || 0);
+        const scoreB = (b.solution_score || 0) + (b.evidence_score || 0) + (b.local_focus_score || 0) + (b.constructive_score || 0);
+        return scoreB - scoreA;
+      });
+    }
+
+    return list;
+  }, [filteredThreads, selectedYear, selectedCommittee, selectedSpeaker, filterQuery, sortOrder]);
+
+  const displayedThreads = useMemo(() => {
+    return processedThreads.slice(0, visibleCount);
+  }, [processedThreads, visibleCount]);
+
+  const isFiltered = Boolean(selectedYear || selectedCommittee || selectedSpeaker || filterQuery);
+
+  const handleResetFilters = () => {
+    setSelectedYear('');
+    setSelectedCommittee('');
+    setSelectedSpeaker('');
+    setFilterQuery('');
+  };
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans pb-24 selection:bg-indigo-500 selection:text-white">
@@ -169,7 +285,7 @@ export default function CategoryDetailPage({
               政策カテゴリー
             </span>
             <span className="text-xs text-slate-500 font-bold">
-              市議会全体の <span className="text-indigo-600 font-black">{stat.percentage}%</span>（{stat.count}質疑スレッド）
+              市議会全体の <span className="text-indigo-600 font-black">{stat.percentage}%</span>（{filteredThreads.length}質疑スレッド）
             </span>
           </div>
 
@@ -206,7 +322,7 @@ export default function CategoryDetailPage({
           )}
         </section>
 
-        {/* ③ この分野に属する政策タイムライン一覧（Policy Timeline導線） */}
+        {/* ③ 注目の政策タイムライン（Policy Timeline導線） */}
         {coreTopics.length > 0 && (
           <section className="space-y-4">
             <div className="flex items-center justify-between">
@@ -241,28 +357,143 @@ export default function CategoryDetailPage({
           </section>
         )}
 
-        {/* ④ この分野の質疑スレッド一覧 */}
-        <section className="space-y-4 pt-4 border-t border-slate-200">
-          <div className="flex items-center justify-between">
-            <h2 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-indigo-600" />
-              「{categoryName}」に関する質疑スレッド（{filteredThreads.length}件）
-            </h2>
+        {/* ④ 質疑スレッド一覧（全件対象の高度フィルターバー付き） */}
+        <section className="space-y-5 pt-4 border-t border-slate-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <h2 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                <MessageSquare className="w-4 h-4 text-indigo-600" />
+                「{categoryName}」に関する質疑スレッド
+              </h2>
+              <p className="text-xs text-slate-400 font-bold mt-0.5">
+                該当: <span className="text-indigo-600">{processedThreads.length}</span> 件 / 全 {filteredThreads.length} 件
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-6">
-            {filteredThreads.slice(0, 15).map((stmt) => (
-              <ThreadCard
-                key={stmt.id}
-                stmt={stmt}
-                speakerInfo={speakerStats.find(s => s.speaker === cleanName(stmt.speaker))}
-                onSpeakerClick={onSpeakerClick}
-                onViewContext={onViewContext}
-                showSpeakerHeader={true}
-                onOpenMethodology={onOpenMethodology}
-              />
-            ))}
+          {/* フィルターバー */}
+          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs space-y-3 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5">
+              
+              {/* 年次フィルター */}
+              <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5">
+                <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <select
+                  value={selectedYear}
+                  onChange={(e) => setSelectedYear(e.target.value)}
+                  className="w-full bg-transparent font-bold text-slate-700 outline-none cursor-pointer"
+                >
+                  <option value="">すべての年次</option>
+                  {availableYears.map(y => (
+                    <option key={y} value={y}>{y}年</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* 会議体フィルター */}
+              <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5">
+                <Landmark className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <select
+                  value={selectedCommittee}
+                  onChange={(e) => setSelectedCommittee(e.target.value)}
+                  className="w-full bg-transparent font-bold text-slate-700 outline-none cursor-pointer truncate"
+                >
+                  <option value="">すべての会議体</option>
+                  {availableCommittees.map(c => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* 発言者フィルター（肩書を省いた氏名表記） */}
+              <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5">
+                <User className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <select
+                  value={selectedSpeaker}
+                  onChange={(e) => setSelectedSpeaker(e.target.value)}
+                  className="w-full bg-transparent font-bold text-slate-700 outline-none cursor-pointer truncate"
+                >
+                  <option value="">すべての発言者</option>
+                  {availableSpeakers.map(spk => (
+                    <option key={spk.name} value={spk.name}>
+                      {spk.name} ({spk.count}件)
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* キーワード内検索 */}
+              <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5">
+                <Search className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <input
+                  type="text"
+                  value={filterQuery}
+                  onChange={(e) => setFilterQuery(e.target.value)}
+                  placeholder="キーワードで絞り込み..."
+                  className="w-full bg-transparent font-bold text-slate-700 outline-none placeholder:text-slate-400"
+                />
+              </div>
+
+            </div>
+
+            {/* ソート順 ＆ リセット */}
+            <div className="flex items-center justify-between pt-2 border-t border-slate-100 flex-wrap gap-2">
+              <div className="flex items-center gap-1.5">
+                <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
+                <select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1 font-bold text-slate-700 outline-none cursor-pointer"
+                >
+                  <option value="recent">登壇日が新しい順</option>
+                  <option value="score">AI評価スコア順</option>
+                </select>
+              </div>
+
+              {isFiltered && (
+                <button
+                  onClick={handleResetFilters}
+                  className="text-xs font-bold text-rose-600 hover:underline cursor-pointer"
+                >
+                  条件をすべてリセット
+                </button>
+              )}
+            </div>
           </div>
+
+          {/* スレッドカードのレンダリング */}
+          <div className="space-y-6">
+            {displayedThreads.length > 0 ? (
+              displayedThreads.map((stmt) => (
+                <ThreadCard
+                  key={stmt.id}
+                  stmt={stmt}
+                  speakerInfo={speakerStats.find(s => s.speaker === cleanName(stmt.speaker))}
+                  onSpeakerClick={onSpeakerClick}
+                  onViewContext={onViewContext}
+                  showSpeakerHeader={true}
+                  onOpenMethodology={onOpenMethodology}
+                />
+              ))
+            ) : (
+              <div className="text-center py-16 bg-white rounded-2xl border border-slate-200 text-xs font-bold text-slate-400">
+                選択した条件に一致する質疑スレッドは見つかりませんでした。
+              </div>
+            )}
+          </div>
+
+          {/* ページネーション（さらに表示ボタン） */}
+          {visibleCount < processedThreads.length && (
+            <div className="text-center pt-4">
+              <button
+                onClick={() => setVisibleCount(prev => prev + 15)}
+                className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-xs font-bold text-slate-700 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
+              >
+                <span>さらに質疑を表示する（残り {processedThreads.length - visibleCount} 件）</span>
+                <ChevronDown className="w-4 h-4 text-slate-400" />
+              </button>
+            </div>
+          )}
         </section>
 
       </main>

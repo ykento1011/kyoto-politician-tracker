@@ -191,18 +191,18 @@ export default function TopicDetailPage({ topicId, onBack }) {
                   </p>
                 </div>
 
-                {/* 議員側の追及・主要発言ログ（公式原本直リンク付き） */}
+                {/* 発言ログ（公式原本直リンク付き・肩書を排除して発言者名のみ表示） */}
                 {phase.exchanges?.length > 0 && (
                   <div className="space-y-3 pt-1">
                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">
-                      議場での主な質疑と追及
+                      議場での主な質疑と答弁
                     </span>
 
                     {phase.exchanges.map((ex, exIdx) => (
                       <div key={exIdx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 hover:border-slate-300 transition-colors">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                           <span className="text-xs font-black text-slate-900">
-                            🗣️ {ex.speaker} 議員
+                            🗣️ {ex.speaker}
                           </span>
                           <span className="text-[11px] font-medium text-slate-500">
                             {ex.meeting_date} {ex.meeting_title}
