@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   ArrowLeft, Compass, Search, Lightbulb, User, 
-  ExternalLink, Mail, Award, Shield, Milestone, Sparkles 
+  ExternalLink, Mail, Award, Shield, Milestone, Landmark, Layers, FileCheck
 } from 'lucide-react';
 
 export default function AboutPage({ onBack, onOpenMethodology }) {
@@ -61,8 +61,8 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
           </div>
         </section>
 
-        {/* 3. このツールのスタンス（OUR APPROACH） */}
-        <section className="bg-white rounded-3xl border border-slate-200 p-8 md:p-10 shadow-sm space-y-5">
+        {/* 3. このツールのスタンス（OUR APPROACH & PRIMARY SOURCE） */}
+        <section className="bg-white rounded-3xl border border-slate-200 p-8 md:p-10 shadow-sm space-y-6">
           <div className="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-wider">
             <Lightbulb className="w-4 h-4" />
             OUR APPROACH / このツールのスタンス
@@ -77,10 +77,22 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
             <p>
               議事録という公開データをAIで分析し、「どのようなテーマに注力しているのか」「どのような視点から提案を行っているのか」を構造化して表示しています。AIによる要約やスコアリングはあくまでひとつの補助線（補助的な見方）に過ぎません。
             </p>
-            <p className="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-slate-700 text-sm">
-              「この議員はこういう分野を熱心に質問しているんだ」「会派によって着眼点がこれだけ違うんだ」といった発見のきっかけとして、気軽にデータを眺めてもらうためのツールを目指しています。
+          </div>
+
+          {/* 💡 一次情報への徹底した接続性（原本直リンクの思想） */}
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+            <div className="flex items-center gap-2 text-xs font-black text-slate-900">
+              <Landmark className="w-4 h-4 text-indigo-600 shrink-0" />
+              <span>一次情報（公式原本）への徹底した接続性とトレーサビリティ</span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              AIによる要約や評価は、時に文脈を削ぎ落としたり誤読を生むリスク（ハルシネーション）を孕んでいます。私たちはこの課題に対し、<strong>「AIの出力からワンクリックで京都市会の公式原本（公的サーバー上の会議録原本）へ直接アクセスできる仕組み」</strong>を実装しました。
+            </p>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              AIは膨大な議事録の入口を広げるための「案内役」であり、真実を確かめる最終的な拠り所は常に公的な一次情報です。疑わしい点があれば、いつでも原本を開いて前後の生の発言をご確認いただけます。
             </p>
           </div>
+
           {onOpenMethodology && (
             <div className="pt-2">
               <button
@@ -139,45 +151,52 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
           </div>
         </section>
 
-        {/* 5. 今後の予定（FUTURE STEPS） */}
+        {/* 5. 今後の展開と方針（FUTURE HORIZON） */}
         <section className="bg-white rounded-3xl border border-slate-200 p-8 md:p-10 shadow-sm space-y-6">
           <div className="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-wider">
             <Milestone className="w-4 h-4" />
-            FUTURE STEPS / 今後の予定
+            FUTURE HORIZON / 今後の展開と方針
           </div>
           <div>
             <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-              本サービスは現在、個人開発による実験的なベータ版として公開しています。
+              「議会のテキスト」から、「行政プロセスと重要論点の深層解剖」へ。
             </h2>
+            <p className="text-xs md:text-sm text-slate-600 mt-2 leading-relaxed">
+              本サービスは実験的なベータ版としてスタートしましたが、今後は単なる議事録の要約を超え、市民生活や地域経済に直結する重要政策の執行プロセスを多角的に可視化していきます。
+            </p>
           </div>
 
-          <div className="space-y-3 pt-1">
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
-              <div className="text-xs font-black text-slate-800">1. データの拡充</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-black text-slate-900">
+                <Layers className="w-4 h-4 text-indigo-600" />
+                <span>1. 政策論点と行政執行の可視化強化</span>
+              </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                京都市会の直近の質疑データの順次反映・分析精度の向上
+                「議会でどのような対立や議論があったか」にとどまらず、可決された予算や条例が実際の行政施策としてどう執行され、どのような成果や課題を生んでいるかを一連のプロセスとして追跡・構造化する機能の強化を図ります。
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
-              <div className="text-xs font-black text-slate-800">2. 機能のブラッシュアップ</div>
+            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-black text-slate-900">
+                <FileCheck className="w-4 h-4 text-indigo-600" />
+                <span>2. 宿泊税・法定外目的税の横断データ分析</span>
+              </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                実際に使ってくださった方々からのご意見をもとにした検索や比較UIの改善
+                観光都市・京都における最大の争点のひとつである「宿泊税」やオーバーツーリズム対策に着目。全国の導入・検討自治体（金沢、東京、福岡、倶知安町など）の議事録や使途データを横断的に収集・分析し、制度設計や税の使途の透明性を比較検証するデータパイプラインの構築を進めています。
               </p>
             </div>
+          </div>
 
-            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
-              <div className="text-xs font-black text-slate-800">3. 他地域への展開の検討</div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                需要やフィードバックを見ながら、周辺自治体や他都市への対応も緩やかに模索していきます
-              </p>
-            </div>
+          <div className="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-100 text-xs text-slate-700 leading-relaxed">
+            <span className="font-bold text-indigo-950">シビックテックとしてのデータ開放：</span>
+            蓄積された政策論点データや分析スキーマは、研究者や地域ジャーナリズム、市民のオープンデータ活動に貢献できるよう、APIや構造化データとしての外部公開・活用も視野に入れて開発を進めています。
           </div>
 
           {/* ご意見・フィードバック導線 */}
           <div className="mt-8 pt-8 border-t border-slate-100 text-center space-y-4">
             <p className="text-xs text-slate-500 max-w-lg mx-auto leading-relaxed">
-              データの誤記やシステムの改善点、感想などがございましたら、お気軽にフィードバックフォームよりお寄せください。
+              データの誤記やシステムの改善点、取り上げてほしい政策テーマなどがございましたら、お気軽にフィードバックフォームよりお寄せください。
             </p>
             <div>
               <a
