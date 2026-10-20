@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
   ArrowLeft, Milestone, Calendar, Landmark, ExternalLink, 
-  Layers, Clock, ShieldCheck, Share2, Check, MessageSquare
+  Layers, Clock, Share2, Check, ArrowUpDown, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
@@ -9,9 +9,10 @@ export default function TopicDetailPage({ topicId, onBack }) {
   const [topic, setTopic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [copiedShare, setCopiedShare] = useState(false);
+  // 💡 デフォルトを「最新順 (desc)」に設定
+  const [sortOrder, setSortOrder] = useState('desc'); // 'desc' (最新順) | 'asc' (時系列順)
 
   useEffect(() => {
-    // スクロールを最上部へ
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     fetch('/data/topic_summaries.json')
@@ -34,6 +35,13 @@ export default function TopicDetailPage({ topicId, onBack }) {
       setTimeout(() => setCopiedShare(false), 2500);
     }
   };
+
+  // 並び順に応じたフェーズリストの生成
+  const sortedPhases = useMemo(() => {
+    if (!topic?.timeline_phases) return [];
+    const list = [...topic.timeline_phases];
+    return sortOrder === 'desc' ? list.reverse() : list;
+  }, [topic, sortOrder]);
 
   if (isLoading) {
     return (
@@ -93,7 +101,7 @@ export default function TopicDetailPage({ topicId, onBack }) {
 
       <main className="max-w-4xl mx-auto px-6 pt-8 space-y-8">
         
-        {/* ① ヘッダー部（パンくず・タイトル） */}
+        {/* ① ヘッダー部 */}
         <header className="space-y-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-100 flex items-center gap-1">
@@ -147,7 +155,7 @@ export default function TopicDetailPage({ topicId, onBack }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {topic.conflict_axes.map((axis, i) => (
                   <div key={i} className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 text-xs font-medium text-slate-700 flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1 shrink-0" />
                     <span>{axis}</span>
                   </div>
                 ))}
@@ -156,20 +164,35 @@ export default function TopicDetailPage({ topicId, onBack }) {
           )}
         </section>
 
-        {/* ③ Policy Timeline（年度・会期をまたぐ議論の変遷） */}
+        {/* ③ Policy Timeline（最新順デフォルト ＋ ソート切り替え） */}
         <section className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-lg font-black text-slate-900 flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-indigo-600" />
-              Policy Timeline / 年度・会期をまたぐ議論の変遷
-            </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
+            <div>
+              <h2 className="text-lg font-black text-slate-900 flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-indigo-600" />
+                Policy Timeline / 議論の変遷
+              </h2>
+              <p className="text-xs text-slate-400 font-bold mt-0.5">
+                {sortOrder === 'desc' ? '直近の到達点から過去の経緯へ遡って表示しています' : '過去の発端から現在へ時系列順に表示しています'}
+              </p>
+            </div>
+
+            {/* 💡 並び順切り替えトグルボタン */}
+            <button
+              onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50/80 hover:bg-indigo-100/70 border border-indigo-200/80 px-3 py-1.5 rounded-xl transition-colors cursor-pointer self-start sm:self-auto"
+            >
+              <ArrowUpDown className="w-3.5 h-3.5" />
+              <span>{sortOrder === 'desc' ? '最新から表示中' : '過去から表示中'}</span>
+              {sortOrder === 'desc' ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronUp className="w-3.5 h-3.5" />}
+            </button>
           </div>
 
           <div className="relative border-l-2 border-indigo-200 ml-4 space-y-10 pl-6 md:pl-8 py-2">
-            {topic.timeline_phases?.map((phase, idx) => (
+            {sortedPhases.map((phase, idx) => (
               <div key={idx} className="relative space-y-4">
                 
-                {/* タイムラインのポイントマーカー */}
+                {/* タイムラインマーカー */}
                 <div className="absolute -left-[33px] md:-left-[41px] top-1 w-4 h-4 rounded-full bg-white border-4 border-indigo-600 shadow-sm" />
 
                 <div>
@@ -191,7 +214,7 @@ export default function TopicDetailPage({ topicId, onBack }) {
                   </p>
                 </div>
 
-                {/* 発言ログ（公式原本直リンク付き・肩書を排除して発言者名のみ表示） */}
+                {/* 議場での主な発言ログ（肩書なし・原本直リンク） */}
                 {phase.exchanges?.length > 0 && (
                   <div className="space-y-3 pt-1">
                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">
@@ -213,7 +236,6 @@ export default function TopicDetailPage({ topicId, onBack }) {
                           {ex.statement_summary}
                         </p>
 
-                        {/* 公式原本直リンクボタン */}
                         <div className="pt-1 flex justify-end">
                           <button
                             onClick={() => openOfficialMinute(ex)}
