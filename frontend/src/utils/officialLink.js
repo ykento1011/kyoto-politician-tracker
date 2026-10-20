@@ -1,39 +1,57 @@
 /**
- * 京都市会 会議録システムへの遷移および検索支援
- * @param {Object} statement - 発言データオブジェクト
+ * 京都市会 公式会議録システムへのリンク処理およびフォールバック
  */
-export function openOfficialMinute(statement) {
-  if (!statement) return;
+export async function openOfficialMinute(stmt) {
+  if (!stmt) return;
 
-  // 1. 直リンクURLを保持している場合はそのまま開く
-  if (statement.official_url) {
-    window.open(statement.official_url, '_blank', 'noopener,noreferrer');
+  // 1. 直リンクの URL が既にデータ内に存在する場合
+  if (stmt.source_url && stmt.source_url.startsWith('http')) {
+    window.open(stmt.source_url, '_blank', 'noopener,noreferrer');
     return;
   }
 
-  // 2. 検索利便性のため、会議名と発言者名をクリップボードへ自動コピー
-  const searchKeywords = [
-    statement.meeting_date,
-    statement.meeting_title,
-    statement.speaker
-  ].filter(Boolean).join(' ');
-
-  if (navigator.clipboard && searchKeywords) {
-    navigator.clipboard.writeText(searchKeywords).catch(() => {});
+  // 2. council_id と schedule_id がある場合、MinuteView URL を動的生成
+  if (stmt.council_id && stmt.schedule_id) {
+    const directUrl = `https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=${stmt.council_id}&schedule_id=${stmt.schedule_id}`;
+    window.open(directUrl, '_blank', 'noopener,noreferrer');
+    return;
   }
 
-  // 3. 京都市会 会議録検索システムのベースURLを開く
-  const defaultUrl = 'https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html';
-  window.open(defaultUrl, '_blank', 'noopener,noreferrer');
+  // 3. meeting_id が数値_数値形式の場合（例: "6253_5"）
+  if (stmt.meeting_id && String(stmt.meeting_id).includes('_')) {
+    const parts = String(stmt.meeting_id).split('_');
+    if (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+      const directUrl = `https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=${parts[0]}&schedule_id=${parts[1]}`;
+      window.open(directUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
+  }
+
+  // 4. フォールバック: 公式検索トップへ遷移 ＋ 検索キーワードを自動コピー
+  const searchBaseUrl = 'https://ssp.kaigiroku.net/tenant/kyoto/MinuteSearch.html';
+  const meetingDate = stmt.meeting_date || '';
+  const speaker = stmt.speaker || '';
+
+  // 検索窓にそのまま貼り付けてヒットしやすいキーワード（日付 + 発言者名）
+  const clipboardText = `${meetingDate} ${speaker}`.trim();
+
+  if (clipboardText && navigator.clipboard) {
+    try {
+      await navigator.clipboard.writeText(clipboardText);
+    } catch (err) {
+      console.warn('クリップボードへのコピーに失敗しました:', err);
+    }
+  }
+
+  window.open(searchBaseUrl, '_blank', 'noopener,noreferrer');
 }
 
 /**
- * リンクボタンのツールチップ表示テキスト生成
- * @param {Object} statement - 発言データオブジェクト
- * @returns {string} ツールチップ文字列
+ * ボタン表示用ツールチップ文言の生成
  */
-export function getOfficialLinkTooltip(statement) {
-  if (!statement) return '京都市会 公式会議録で原文を確認';
-  const title = statement.meeting_title ? `（${statement.meeting_title}）` : '';
-  return `京都市会 公式会議録で原本を確認 ${title}`;
+export function getOfficialLinkTooltip(stmt) {
+  if (stmt?.source_url || (stmt?.council_id && stmt?.schedule_id)) {
+    return '京都市会 公式サーバー上の原本を別タブで開きます';
+  }
+  return '京都市会の公式検索システムを開きます（検索用キーワード「日付＋議員名」が自動コピーされます）';
 }
