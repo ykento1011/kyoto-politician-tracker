@@ -1,0 +1,252 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  ArrowLeft, Milestone, Calendar, Landmark, ExternalLink, 
+  Layers, Clock, ShieldCheck, Share2, Check, MessageSquare
+} from 'lucide-react';
+import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
+
+export default function TopicDetailPage({ topicId, onBack }) {
+  const [topic, setTopic] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [copiedShare, setCopiedShare] = useState(false);
+
+  useEffect(() => {
+    // スクロールを最上部へ
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    fetch('/data/topic_summaries.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const found = data.find((t) => t.topic_id === topicId) || data[0];
+        setTopic(found);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error('Failed to load topic:', err);
+        setIsLoading(false);
+      });
+  }, [topicId]);
+
+  const handleShare = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href);
+      setCopiedShare(true);
+      setTimeout(() => setCopiedShare(false), 2500);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center">
+        <div className="text-sm font-bold text-slate-500">政策論点データを読み込み中...</div>
+      </div>
+    );
+  }
+
+  if (!topic) {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] p-8 text-center space-y-4">
+        <p className="text-sm font-bold text-slate-600">論点データが見つかりませんでした。</p>
+        <button
+          onClick={onBack}
+          className="px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold"
+        >
+          トップへ戻る
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans pb-24 selection:bg-indigo-500 selection:text-white">
+      {/* 画面上部固定バー */}
+      <div className="bg-white border-b border-slate-200 sticky top-0 z-30 px-6 py-3.5 shadow-2xs">
+        <div className="max-w-4xl mx-auto flex items-center justify-between">
+          <button
+            onClick={onBack}
+            className="inline-flex items-center text-xs font-bold text-slate-600 hover:text-indigo-600 bg-slate-50 hover:bg-indigo-50 border border-slate-200 px-3.5 py-2 rounded-xl transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4 mr-1.5" />
+            論戦マップへ戻る
+          </button>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleShare}
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-indigo-600 bg-white border border-slate-200 px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer"
+            >
+              {copiedShare ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="text-emerald-700">URLコピー完了</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5 text-slate-400" />
+                  <span>この論点をシェア</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <main className="max-w-4xl mx-auto px-6 pt-8 space-y-8">
+        
+        {/* ① ヘッダー部（パンくず・タイトル） */}
+        <header className="space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-100 flex items-center gap-1">
+              <Layers className="w-3.5 h-3.5" />
+              {topic.category}
+            </span>
+            <span className="text-xs text-slate-400 font-medium flex items-center gap-1">
+              <Clock className="w-3 h-3" />
+              最新質疑: {topic.last_updated}
+            </span>
+            <span className="text-xs text-slate-400 font-medium">
+              ・ 累積 {topic.thread_count} 質疑スレッド
+            </span>
+          </div>
+
+          <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight">
+            {topic.title}
+          </h1>
+        </header>
+
+        {/* ② AI エグゼクティブ・サマリー */}
+        <section className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-5">
+          <div className="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-wider">
+            <Milestone className="w-4 h-4" />
+            AI EXECUTIVE SUMMARY / 政策の現在地と争点
+          </div>
+
+          <div className="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100 text-indigo-950 space-y-1">
+            <div className="text-[11px] font-black uppercase tracking-wider text-indigo-800">
+              【制度設計・検討の現在地】
+            </div>
+            <p className="text-sm font-bold text-indigo-950 leading-relaxed">
+              {topic.current_status}
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider">
+              論点の全体像・背景
+            </h2>
+            <p className="text-sm leading-relaxed text-slate-700 font-medium">
+              {topic.lead_summary}
+            </p>
+          </div>
+
+          {topic.conflict_axes?.length > 0 && (
+            <div className="pt-4 border-t border-slate-100 space-y-2.5">
+              <div className="text-[11px] font-black text-slate-500 uppercase tracking-wider">
+                主な対立軸・残された課題
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {topic.conflict_axes.map((axis, i) => (
+                  <div key={i} className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 text-xs font-medium text-slate-700 flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
+                    <span>{axis}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* ③ Policy Timeline（年度・会期をまたぐ議論の変遷） */}
+        <section className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-black text-slate-900 flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-indigo-600" />
+              Policy Timeline / 年度・会期をまたぐ議論の変遷
+            </h2>
+          </div>
+
+          <div className="relative border-l-2 border-indigo-200 ml-4 space-y-10 pl-6 md:pl-8 py-2">
+            {topic.timeline_phases?.map((phase, idx) => (
+              <div key={idx} className="relative space-y-4">
+                
+                {/* タイムラインのポイントマーカー */}
+                <div className="absolute -left-[33px] md:-left-[41px] top-1 w-4 h-4 rounded-full bg-white border-4 border-indigo-600 shadow-sm" />
+
+                <div>
+                  <span className="text-xs font-black text-indigo-600 tracking-wide uppercase">
+                    {phase.period}
+                  </span>
+                  <h3 className="text-base font-extrabold text-slate-900 mt-0.5">
+                    【{phase.phase_title}】
+                  </h3>
+                </div>
+
+                {/* 市側の公式答弁姿勢 */}
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs space-y-1.5 shadow-2xs">
+                  <span className="text-[10px] font-black text-slate-500 flex items-center gap-1.5 uppercase">
+                    <Landmark className="w-3.5 h-3.5 text-indigo-600" /> 行政・市側の公式姿勢
+                  </span>
+                  <p className="text-slate-800 font-bold leading-relaxed">
+                    {phase.city_stance}
+                  </p>
+                </div>
+
+                {/* 議員側の追及・主要発言ログ（公式原本直リンク付き） */}
+                {phase.exchanges?.length > 0 && (
+                  <div className="space-y-3 pt-1">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">
+                      議場での主な質疑と追及
+                    </span>
+
+                    {phase.exchanges.map((ex, exIdx) => (
+                      <div key={exIdx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 hover:border-slate-300 transition-colors">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                          <span className="text-xs font-black text-slate-900">
+                            🗣️ {ex.speaker} 議員
+                          </span>
+                          <span className="text-[11px] font-medium text-slate-500">
+                            {ex.meeting_date} {ex.meeting_title}
+                          </span>
+                        </div>
+
+                        <p className="text-xs text-slate-700 leading-relaxed font-normal">
+                          {ex.statement_summary}
+                        </p>
+
+                        {/* 公式原本直リンクボタン */}
+                        <div className="pt-1 flex justify-end">
+                          <button
+                            onClick={() => openOfficialMinute(ex)}
+                            title={getOfficialLinkTooltip(ex)}
+                            className="inline-flex items-center text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors cursor-pointer group shadow-2xs"
+                          >
+                            <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600 group-hover:text-indigo-700" />
+                            <span>京都市会 公式原本で確認</span>
+                            <ExternalLink className="w-3 h-3 ml-1.5 text-slate-400 group-hover:text-slate-600" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ページ下部戻るボタン */}
+        <div className="pt-8 border-t border-slate-200 text-center">
+          <button
+            onClick={onBack}
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-all shadow-md cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            トップページ（マクロ論戦マップ）に戻る
+          </button>
+        </div>
+
+      </main>
+    </div>
+  );
+}
