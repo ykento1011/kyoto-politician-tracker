@@ -1,11 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import { 
   ArrowLeft, Sparkles, MessageCircle, User, Scale, Search, Flame, 
-  Target, GitCompare, ArrowRight // 💡 Target を追加
+  Target, GitCompare, ArrowRight 
 } from 'lucide-react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import ThreadCard from './ThreadCard';
 import BillsSection from './BillsSection';
+import AiSearchAnswer from './AiSearchAnswer'; // 💡 AI政策アンサーコンポーネント
 import { cleanName } from '../utils/styleHelpers';
 
 export default function SearchResultsView({
@@ -26,7 +27,7 @@ export default function SearchResultsView({
 }) {
   const [activeTab, setActiveTab] = useState('threads'); // 'threads' | 'bills' | 'speakers'
 
-  // 💡 検索ヒットした「激論議案」のAI解説データを抽出
+  // 検索ヒットした「激論議案」のAI解説データを抽出
   const aiIssueDigest = useMemo(() => {
     for (const bill of filteredBills) {
       const issue = issuesMap[`${bill.session_name}_${bill.bill_number}`];
@@ -35,7 +36,7 @@ export default function SearchResultsView({
     return null;
   }, [filteredBills, issuesMap]);
 
-  // 💡 検索ヒットした「質疑」の中で、総合評価スコアが最も高いものをピックアップ
+  // 検索ヒットした「質疑」の中で、総合評価スコアが最も高いものをピックアップ
   const topThreadDigest = useMemo(() => {
     if (filteredThreads.length === 0) return null;
     return [...filteredThreads].sort((a, b) => {
@@ -53,48 +54,58 @@ export default function SearchResultsView({
   ];
 
   return (
-    <main className="max-w-6xl mx-auto py-8 px-6 animate-in fade-in slide-in-from-bottom-4 duration-300 w-full">
-      <div className="mb-6 flex items-center justify-between">
+    <main className="max-w-6xl mx-auto py-8 px-6 animate-in fade-in slide-in-from-bottom-4 duration-300 w-full space-y-6">
+      
+      {/* ナビゲーション戻るボタン */}
+      <div className="flex items-center justify-between">
         <button 
           onClick={onClearSearch}
-          className="inline-flex items-center text-xs font-bold text-slate-500 hover:text-indigo-600 bg-white hover:bg-slate-50 border border-slate-200 px-3 py-2 rounded-xl shadow-sm transition-colors cursor-pointer"
+          className="inline-flex items-center text-xs font-bold text-slate-500 hover:text-indigo-600 bg-white hover:bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl shadow-2xs transition-colors cursor-pointer"
         >
-          <ArrowLeft className="w-4 h-4 mr-1.5" />検索をクリアしてトップへ
+          <ArrowLeft className="w-4 h-4 mr-1.5" />
+          検索をクリアしてトップへ戻る
         </button>
       </div>
 
-      <header className="mb-8">
-        <div className="flex items-center gap-2 mb-2">
+      {/* 検索ヘッダー */}
+      <header className="space-y-1">
+        <div className="flex items-center gap-2">
           <Search className="w-5 h-5 text-indigo-500" />
-          <h2 className="text-2xl font-black text-slate-900">
-            「{submittedQuery}」<span className="text-slate-500 text-lg">の検索結果</span>
-          </h2>
+          <h1 className="text-2xl font-black text-slate-900 tracking-tight">
+            「{submittedQuery}」<span className="text-slate-500 text-lg font-bold">の検索結果</span>
+          </h1>
         </div>
-        <p className="text-sm font-bold text-slate-500 ml-7">
+        <p className="text-xs font-bold text-slate-500 ml-7">
           関連質疑 {filteredThreads.length}件 / 関連議案 {filteredBills.length}件 / 言及した議員 {filteredSpeakers.length}名
         </p>
       </header>
 
-      {/* 💡 AIダイジェスト領域 */}
+      {/* 💡 1. 議会ログに基づく AI 政策アンサー（RAG即時回答 ＋ 原本直リンク） */}
+      <AiSearchAnswer
+        query={submittedQuery}
+        filteredThreads={filteredThreads}
+      />
+
+      {/* 💡 2. 議会の対立構造ダイジェスト（激論議案 ＆ 最高評価質疑） */}
       {(aiIssueDigest || topThreadDigest) && (
-        <section className="bg-gradient-to-br from-indigo-50/80 to-slate-50 border border-indigo-100 p-6 rounded-2xl mb-8 shadow-sm">
-          <div className="flex items-center gap-1.5 text-xs font-black text-indigo-700 bg-white border border-indigo-100 px-2.5 py-1 rounded-lg shadow-2xs w-fit mb-4">
+        <section className="bg-gradient-to-br from-indigo-50/70 via-slate-50 to-white border border-indigo-100/90 p-5 md:p-6 rounded-2xl shadow-2xs space-y-4">
+          <div className="flex items-center gap-1.5 text-xs font-black text-indigo-700 bg-white border border-indigo-100 px-2.5 py-1 rounded-lg shadow-2xs w-fit">
             <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
-            AI自動分析：このテーマを巡る議会の対立構造と論点
+            議会対立構造・論点ダイジェスト
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {aiIssueDigest && (
-              <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-3">
-                <div className="flex items-center gap-1.5 text-[11px] font-black text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-100 w-fit">
+              <div className="bg-white p-4.5 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+                <div className="flex items-center gap-1 text-[11px] font-black text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-100 w-fit">
                   <Flame className="w-3 h-3 fill-rose-500" />
                   最も激論になった関連議案の争点
                 </div>
                 <div>
-                  <h4 className="text-sm font-black text-slate-800 mb-1.5 leading-snug">
+                  <h4 className="text-xs font-black text-slate-800 mb-1 leading-snug">
                     {aiIssueDigest.key_conflict}
                   </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {aiIssueDigest.background}
                   </p>
                 </div>
@@ -102,17 +113,17 @@ export default function SearchResultsView({
             )}
 
             {topThreadDigest && (
-              <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-3">
-                <div className="flex items-center gap-1.5 text-[11px] font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100 w-fit">
+              <div className="bg-white p-4.5 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+                <div className="flex items-center gap-1 text-[11px] font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100 w-fit">
                   <Target className="w-3 h-3" />
                   AI最高評価の代表質疑サマリー
                 </div>
                 <div>
-                  <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center justify-between mb-1">
                     <span className="text-xs font-black text-slate-800">{topThreadDigest.speaker} 議員</span>
                     <span className="text-[10px] text-slate-400 font-bold">{topThreadDigest.meeting_date}</span>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {topThreadDigest.summary}
                   </p>
                 </div>
@@ -122,12 +133,14 @@ export default function SearchResultsView({
         </section>
       )}
 
-      {/* タブ切り替え */}
-      <div className="flex items-center overflow-x-auto border-b border-slate-200 mb-6 pb-px hide-scrollbar">
+      {/* 3. 表示切り替えタブ */}
+      <div className="flex items-center overflow-x-auto border-b border-slate-200 pb-px hide-scrollbar">
         <button
           onClick={() => setActiveTab('threads')}
           className={`flex items-center px-5 py-3 text-sm font-black whitespace-nowrap transition-colors border-b-2 cursor-pointer ${
-            activeTab === 'threads' ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50' : 'border-transparent text-slate-500 hover:bg-slate-50'
+            activeTab === 'threads' 
+              ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50' 
+              : 'border-transparent text-slate-500 hover:bg-slate-50'
           }`}
         >
           <MessageCircle className="w-4 h-4 mr-2" />
@@ -136,7 +149,9 @@ export default function SearchResultsView({
         <button
           onClick={() => setActiveTab('bills')}
           className={`flex items-center px-5 py-3 text-sm font-black whitespace-nowrap transition-colors border-b-2 cursor-pointer ${
-            activeTab === 'bills' ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50' : 'border-transparent text-slate-500 hover:bg-slate-50'
+            activeTab === 'bills' 
+              ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50' 
+              : 'border-transparent text-slate-500 hover:bg-slate-50'
           }`}
         >
           <Scale className="w-4 h-4 mr-2" />
@@ -145,7 +160,9 @@ export default function SearchResultsView({
         <button
           onClick={() => setActiveTab('speakers')}
           className={`flex items-center px-5 py-3 text-sm font-black whitespace-nowrap transition-colors border-b-2 cursor-pointer ${
-            activeTab === 'speakers' ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50' : 'border-transparent text-slate-500 hover:bg-slate-50'
+            activeTab === 'speakers' 
+              ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50' 
+              : 'border-transparent text-slate-500 hover:bg-slate-50'
           }`}
         >
           <User className="w-4 h-4 mr-2" />
@@ -153,7 +170,7 @@ export default function SearchResultsView({
         </button>
       </div>
 
-      {/* コンテンツ表示エリア */}
+      {/* 4. タブコンテンツ */}
       <div className="animate-in fade-in duration-300 min-h-[400px]">
         {activeTab === 'threads' && (
           <div className="space-y-6">
@@ -191,12 +208,20 @@ export default function SearchResultsView({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredSpeakers.length > 0 ? (
               filteredSpeakers.map((speaker) => (
-                <article key={speaker.speaker} onClick={() => onSpeakerClick(speaker.speaker)} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all duration-300 cursor-pointer flex flex-col group relative">
+                <article 
+                  key={speaker.speaker} 
+                  onClick={() => onSpeakerClick(speaker.speaker)} 
+                  className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg hover:border-indigo-300 transition-all duration-300 cursor-pointer flex flex-col group relative"
+                >
                   <div className="p-5 border-b border-slate-100 flex justify-between items-start bg-slate-50/50">
                     <div>
-                      <h2 className="text-lg font-black text-slate-900 tracking-tight group-hover:text-indigo-700 transition-colors">{speaker.speaker}</h2>
+                      <h2 className="text-lg font-black text-slate-900 tracking-tight group-hover:text-indigo-700 transition-colors">
+                        {speaker.speaker}
+                      </h2>
                       <div className="flex items-center gap-1.5 mt-0.5 text-[11px] font-bold text-slate-500">
-                        <span className="bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded border border-slate-300">{speaker.district}</span>
+                        <span className="bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded border border-slate-300">
+                          {speaker.district}
+                        </span>
                         <span className="truncate max-w-[150px]">{speaker.partyGroup}</span>
                       </div>
                     </div>
@@ -210,7 +235,9 @@ export default function SearchResultsView({
                   <div className="p-5 flex-grow flex flex-col items-center justify-center relative">
                     <div className="absolute top-3 left-4">
                       <div className="text-[9px] font-bold text-slate-400 uppercase">質疑スレッド</div>
-                      <div className="text-lg font-black text-slate-700">{speaker.count}<span className="text-[10px] font-medium text-slate-400 ml-0.5">件</span></div>
+                      <div className="text-lg font-black text-slate-700">
+                        {speaker.count}<span className="text-[10px] font-medium text-slate-400 ml-0.5">件</span>
+                      </div>
                     </div>
                     <div className="w-full h-36">
                       <ResponsiveContainer width="100%" height="100%">
@@ -229,9 +256,12 @@ export default function SearchResultsView({
                       onClick={(e) => { e.stopPropagation(); onOpenCompare(speaker); }}
                       className="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 transition-all flex items-center gap-1 cursor-pointer"
                     >
-                      <GitCompare className="w-3.5 h-3.5 text-indigo-500" />比較する
+                      <GitCompare className="w-3.5 h-3.5 text-indigo-500" />
+                      比較する
                     </button>
-                    <span className="text-xs font-bold text-indigo-600 group-hover:translate-x-0.5 transition-transform">詳細を見る →</span>
+                    <span className="text-xs font-bold text-indigo-600 group-hover:translate-x-0.5 transition-transform">
+                      詳細を見る →
+                    </span>
                   </div>
                 </article>
               ))
