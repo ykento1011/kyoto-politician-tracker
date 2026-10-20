@@ -1,12 +1,12 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { 
-  ArrowLeft, Sparkles, MessageCircle, User, Scale, Search, Flame, 
-  Target, GitCompare, ArrowRight 
+  ArrowLeft, MessageCircle, User, Scale, Search, 
+  GitCompare, ArrowRight 
 } from 'lucide-react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import ThreadCard from './ThreadCard';
 import BillsSection from './BillsSection';
-import AiSearchAnswer from './AiSearchAnswer'; // 💡 AI政策アンサーコンポーネント
+import AiSearchAnswer from './AiSearchAnswer';
 import { cleanName } from '../utils/styleHelpers';
 
 export default function SearchResultsView({
@@ -23,28 +23,10 @@ export default function SearchResultsView({
   onViewContext,
   onOpenCompare,
   onSelectBill,
-  onOpenMethodology
+  onOpenMethodology,
+  onOpenTopicDetail // 💡 論点詳細ページへの導線
 }) {
-  const [activeTab, setActiveTab] = useState('threads'); // 'threads' | 'bills' | 'speakers'
-
-  // 検索ヒットした「激論議案」のAI解説データを抽出
-  const aiIssueDigest = useMemo(() => {
-    for (const bill of filteredBills) {
-      const issue = issuesMap[`${bill.session_name}_${bill.bill_number}`];
-      if (issue && issue.key_conflict) return issue;
-    }
-    return null;
-  }, [filteredBills, issuesMap]);
-
-  // 検索ヒットした「質疑」の中で、総合評価スコアが最も高いものをピックアップ
-  const topThreadDigest = useMemo(() => {
-    if (filteredThreads.length === 0) return null;
-    return [...filteredThreads].sort((a, b) => {
-      const scoreA = (a.solution_score || 0) + (a.evidence_score || 0) + (a.local_focus_score || 0) + (a.constructive_score || 0);
-      const scoreB = (b.solution_score || 0) + (b.evidence_score || 0) + (b.local_focus_score || 0) + (b.constructive_score || 0);
-      return scoreB - scoreA;
-    })[0];
-  }, [filteredThreads]);
+  const [activeTab, setActiveTab] = useState('threads');
 
   const formatSummaryRadar = (speaker) => [
     { subject: '根拠・データ', A: speaker.avg_evidence || 0, fullMark: 5 },
@@ -56,7 +38,7 @@ export default function SearchResultsView({
   return (
     <main className="max-w-6xl mx-auto py-8 px-6 animate-in fade-in slide-in-from-bottom-4 duration-300 w-full space-y-6">
       
-      {/* ナビゲーション戻るボタン */}
+      {/* 戻るボタン */}
       <div className="flex items-center justify-between">
         <button 
           onClick={onClearSearch}
@@ -80,61 +62,15 @@ export default function SearchResultsView({
         </p>
       </header>
 
-      {/* 💡 1. 議会ログに基づく AI 政策アンサー（RAG即時回答 ＋ 原本直リンク） */}
+      {/* 💡 論点の要旨・ポイント解説 ＆ 一次情報位置カード */}
       <AiSearchAnswer
         query={submittedQuery}
         filteredThreads={filteredThreads}
+        onOpenTopicDetail={onOpenTopicDetail}
       />
 
-      {/* 💡 2. 議会の対立構造ダイジェスト（激論議案 ＆ 最高評価質疑） */}
-      {(aiIssueDigest || topThreadDigest) && (
-        <section className="bg-gradient-to-br from-indigo-50/70 via-slate-50 to-white border border-indigo-100/90 p-5 md:p-6 rounded-2xl shadow-2xs space-y-4">
-          <div className="flex items-center gap-1.5 text-xs font-black text-indigo-700 bg-white border border-indigo-100 px-2.5 py-1 rounded-lg shadow-2xs w-fit">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
-            議会対立構造・論点ダイジェスト
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {aiIssueDigest && (
-              <div className="bg-white p-4.5 rounded-xl border border-slate-200 shadow-2xs space-y-2">
-                <div className="flex items-center gap-1 text-[11px] font-black text-rose-600 bg-rose-50 px-2 py-0.5 rounded border border-rose-100 w-fit">
-                  <Flame className="w-3 h-3 fill-rose-500" />
-                  最も激論になった関連議案の争点
-                </div>
-                <div>
-                  <h4 className="text-xs font-black text-slate-800 mb-1 leading-snug">
-                    {aiIssueDigest.key_conflict}
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {aiIssueDigest.background}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {topThreadDigest && (
-              <div className="bg-white p-4.5 rounded-xl border border-slate-200 shadow-2xs space-y-2">
-                <div className="flex items-center gap-1 text-[11px] font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100 w-fit">
-                  <Target className="w-3 h-3" />
-                  AI最高評価の代表質疑サマリー
-                </div>
-                <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-black text-slate-800">{topThreadDigest.speaker} 議員</span>
-                    <span className="text-[10px] text-slate-400 font-bold">{topThreadDigest.meeting_date}</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {topThreadDigest.summary}
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* 3. 表示切り替えタブ */}
-      <div className="flex items-center overflow-x-auto border-b border-slate-200 pb-px hide-scrollbar">
+      {/* 表示切り替えタブ */}
+      <div className="flex items-center overflow-x-auto border-b border-slate-200 pb-px hide-scrollbar pt-2">
         <button
           onClick={() => setActiveTab('threads')}
           className={`flex items-center px-5 py-3 text-sm font-black whitespace-nowrap transition-colors border-b-2 cursor-pointer ${
@@ -170,7 +106,7 @@ export default function SearchResultsView({
         </button>
       </div>
 
-      {/* 4. タブコンテンツ */}
+      {/* タブコンテンツ */}
       <div className="animate-in fade-in duration-300 min-h-[400px]">
         {activeTab === 'threads' && (
           <div className="space-y-6">
