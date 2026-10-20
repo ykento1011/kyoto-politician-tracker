@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { 
-  Search, Sparkles, Users, MessageSquare, Scale, 
-  SlidersHorizontal, ArrowUpDown, ChevronDown, Compass, ArrowRight 
-} from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import SpeakerCard from './components/SpeakerCard';
+import HeroSection from './components/HeroSection';
+import MainTabView from './components/MainTabView';
 import SpeakerDetailView from './components/SpeakerDetailView';
 import SearchResultsView from './components/SearchResultsView';
 import CompareDashboard from './components/CompareDashboard';
-import BillsSection from './components/BillsSection';
-import ThreadCard from './components/ThreadCard';
 import HighlightedThreads from './components/HighlightedThreads';
 import MacroTopicMap from './components/MacroTopicMap';
 import ContestedBillsView from './components/ContestedBillsView';
@@ -22,18 +17,6 @@ import AboutPage from './components/AboutPage';
 import Methodology from './components/Methodology';
 import GuidePage from './components/GuidePage';
 import { useStatements } from './hooks/useStatements';
-
-const HOT_TOPICS = [
-  'オーバーツーリズム',
-  '市バス',
-  '中小企業支援',
-  '空き家対策',
-  '伝統産業',
-  '子育て支援',
-];
-
-const INITIAL_SPEAKERS_LIMIT = 12;
-const INITIAL_THREADS_LIMIT = 10;
 
 function getCategoryForBill(b) {
   const text = `${b.title || ''} ${b.key_conflict || ''} ${b.background || ''}`;
@@ -58,8 +41,6 @@ export default function App() {
     setSubmittedQuery,
     selectedCategory,
     setSelectedCategory,
-    selectedCommittee,
-    setSelectedCommittee,
     selectedDistrict,
     setSelectedDistrict,
     sortPerspective,
@@ -104,14 +85,6 @@ export default function App() {
   const [contestedInitialCategory, setContestedInitialCategory] = useState('');
   const [selectedTopicId, setSelectedTopicId] = useState(null);
   const [selectedCategoryPage, setSelectedCategoryPage] = useState(null);
-
-  const [visibleSpeakersCount, setVisibleSpeakersCount] = useState(INITIAL_SPEAKERS_LIMIT);
-  const [visibleThreadsCount, setVisibleThreadsCount] = useState(INITIAL_THREADS_LIMIT);
-
-  useEffect(() => {
-    setVisibleSpeakersCount(INITIAL_SPEAKERS_LIMIT);
-    setVisibleThreadsCount(INITIAL_THREADS_LIMIT);
-  }, [selectedCategory, selectedDistrict, sortPerspective, viewMode]);
 
   useEffect(() => {
     fetch('/data/votes_summary.json')
@@ -164,12 +137,10 @@ export default function App() {
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash.startsWith('#topic=')) {
-        const topicId = hash.replace('#topic=', '');
-        setSelectedTopicId(topicId);
+        setSelectedTopicId(hash.replace('#topic=', ''));
         setSelectedCategoryPage(null);
       } else if (hash.startsWith('#category=')) {
-        const catName = decodeURIComponent(hash.replace('#category=', ''));
-        setSelectedCategoryPage(catName);
+        setSelectedCategoryPage(decodeURIComponent(hash.replace('#category=', '')));
         setSelectedTopicId(null);
       } else {
         setSelectedTopicId(null);
@@ -182,14 +153,13 @@ export default function App() {
 
     window.addEventListener('popstate', handlePopState);
     window.addEventListener('hashchange', handleHashChange);
-
     return () => {
       window.removeEventListener('popstate', handlePopState);
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
 
-  const handleOpenCategoryDetail = (catName) => {
+  const resetAllSubViews = () => {
     clearSpeakerAndCompare();
     setCompareActive(false);
     setIsGuideOpen(false);
@@ -197,111 +167,44 @@ export default function App() {
     setIsMethodologyOpen(false);
     setIsContestedViewOpen(false);
     setSelectedTopicId(null);
+    setSelectedCategoryPage(null);
+  };
+
+  const handleOpenCategoryDetail = (catName) => {
+    resetAllSubViews();
     setSelectedCategoryPage(catName);
     window.location.hash = `category=${encodeURIComponent(catName)}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleBackFromCategory = () => {
-    setSelectedCategoryPage(null);
-    window.location.hash = '';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleOpenTopicDetail = (topicId) => {
-    clearSpeakerAndCompare();
-    setCompareActive(false);
-    setIsGuideOpen(false);
-    setIsAboutOpen(false);
-    setIsMethodologyOpen(false);
-    setIsContestedViewOpen(false);
-    setSelectedCategoryPage(null);
+    resetAllSubViews();
     setSelectedTopicId(topicId);
     window.location.hash = `topic=${topicId}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleBackFromTopic = () => {
-    setSelectedTopicId(null);
+  const navigateToView = (viewName) => {
+    resetAllSubViews();
     window.location.hash = '';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleOpenGuide = () => {
-    clearSpeakerAndCompare();
-    setCompareActive(false);
-    setIsAboutOpen(false);
-    setIsMethodologyOpen(false);
-    setIsContestedViewOpen(false);
-    setSelectedTopicId(null);
-    setSelectedCategoryPage(null);
-    window.location.hash = '';
-    setIsGuideOpen(true);
     const url = new URL(window.location);
-    url.searchParams.set('view', 'guide');
+    url.searchParams.set('view', viewName);
     window.history.pushState({}, '', url);
+
+    if (viewName === 'guide') setIsGuideOpen(true);
+    if (viewName === 'about') setIsAboutOpen(true);
+    if (viewName === 'methodology') setIsMethodologyOpen(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleCloseGuide = () => {
-    setIsGuideOpen(false);
-    const url = new URL(window.location);
-    url.searchParams.delete('view');
-    window.history.pushState({}, '', url);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleOpenAbout = () => {
-    clearSpeakerAndCompare();
-    setCompareActive(false);
-    setIsGuideOpen(false);
-    setIsMethodologyOpen(false);
-    setIsContestedViewOpen(false);
-    setSelectedTopicId(null);
-    setSelectedCategoryPage(null);
-    window.location.hash = '';
-    setIsAboutOpen(true);
-    const url = new URL(window.location);
-    url.searchParams.set('view', 'about');
-    window.history.pushState({}, '', url);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleCloseAbout = () => {
-    setIsAboutOpen(false);
-    const url = new URL(window.location);
-    url.searchParams.delete('view');
-    window.history.pushState({}, '', url);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleOpenMethodology = () => {
-    clearSpeakerAndCompare();
-    setCompareActive(false);
+  const closeViewAndResetUrl = () => {
     setIsGuideOpen(false);
     setIsAboutOpen(false);
-    setIsContestedViewOpen(false);
-    setSelectedTopicId(null);
-    setSelectedCategoryPage(null);
-    window.location.hash = '';
-    setIsMethodologyOpen(true);
-    const url = new URL(window.location);
-    url.searchParams.set('view', 'methodology');
-    window.history.pushState({}, '', url);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleCloseMethodology = () => {
     setIsMethodologyOpen(false);
     const url = new URL(window.location);
     url.searchParams.delete('view');
     window.history.pushState({}, '', url);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleCloseCompare = () => {
-    setCompareActive(false);
-    clearSpeakerAndCompare();
   };
 
   const handleSearchSubmit = (e) => {
@@ -322,11 +225,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleClearSearch = () => {
-    setSearchQuery('');
-    setSubmittedQuery('');
-  };
-
   const getIssueCountForCategory = useMemo(() => {
     const counts = {};
     billIssuesList.forEach(b => {
@@ -336,19 +234,11 @@ export default function App() {
     return (catName) => counts[catName] || 0;
   }, [billIssuesList]);
 
-  const uniqueSessions = useMemo(() => {
-    if (!votesData) return [];
-    return [...new Set(votesData.map(b => b.session_name).filter(Boolean))];
-  }, [votesData]);
-
-  const uniqueResults = useMemo(() => {
-    if (!votesData) return [];
-    return [...new Set(votesData.map(b => b.result).filter(Boolean))];
-  }, [votesData]);
+  const uniqueSessions = useMemo(() => [...new Set((votesData || []).map(b => b.session_name).filter(Boolean))], [votesData]);
+  const uniqueResults = useMemo(() => [...new Set((votesData || []).map(b => b.result).filter(Boolean))], [votesData]);
 
   const filteredBills = useMemo(() => {
     let list = votesData || [];
-    
     if (submittedQuery.trim() !== '') {
       const q = submittedQuery.toLowerCase();
       list = list.filter(b => 
@@ -357,14 +247,8 @@ export default function App() {
         (b.session_name && b.session_name.toLowerCase().includes(q))
       );
     }
-    
-    if (selectedSession) {
-      list = list.filter(b => b.session_name === selectedSession);
-    }
-    if (selectedResult) {
-      list = list.filter(b => b.result === selectedResult);
-    }
-    
+    if (selectedSession) list = list.filter(b => b.session_name === selectedSession);
+    if (selectedResult) list = list.filter(b => b.result === selectedResult);
     if (onlyContestedBills) {
       list = list.filter(bill => {
         const votes = Object.values(bill.votes || {});
@@ -373,14 +257,6 @@ export default function App() {
     }
     return list;
   }, [votesData, submittedQuery, selectedSession, selectedResult, onlyContestedBills]);
-
-  const displayedSpeakers = useMemo(() => {
-    return filteredSpeakers.slice(0, visibleSpeakersCount);
-  }, [filteredSpeakers, visibleSpeakersCount]);
-
-  const displayedThreads = useMemo(() => {
-    return filteredThreads.slice(0, visibleThreadsCount);
-  }, [filteredThreads, visibleThreadsCount]);
 
   if (isLoading) {
     return (
@@ -391,38 +267,17 @@ export default function App() {
     );
   }
 
-  // 1. できること（ご利用ガイド）ページ
-  if (isGuideOpen) {
-    return (
-      <GuidePage
-        onBack={handleCloseGuide}
-        onOpenMethodology={handleOpenMethodology}
-        onOpenAbout={handleOpenAbout}
-      />
-    );
-  }
-
-  // 2. 政策論点詳細ページ
-  if (selectedTopicId) {
-    return (
-      <TopicDetailPage
-        topicId={selectedTopicId}
-        onBack={handleBackFromTopic}
-      />
-    );
-  }
-
-  // 3. カテゴリー包括解説ページ
+  // --- サブページ条件分岐 ---
+  if (isGuideOpen) return <GuidePage onBack={closeViewAndResetUrl} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />;
+  if (selectedTopicId) return <TopicDetailPage topicId={selectedTopicId} onBack={() => { setSelectedTopicId(null); window.location.hash = ''; }} />;
   if (selectedCategoryPage) {
-    const catThreads = statements.filter(s => s.category === selectedCategoryPage);
-    const catBills = votesData.filter(b => getCategoryForBill(b) === selectedCategoryPage);
     return (
       <CategoryDetailPage
         categoryName={selectedCategoryPage}
-        onBack={handleBackFromCategory}
+        onBack={() => { setSelectedCategoryPage(null); window.location.hash = ''; }}
         topicStats={topicStats}
-        filteredThreads={catThreads}
-        filteredBills={catBills}
+        filteredThreads={statements.filter(s => s.category === selectedCategoryPage)}
+        filteredBills={votesData.filter(b => getCategoryForBill(b) === selectedCategoryPage)}
         speakerStats={speakerStats}
         issuesMap={issuesMap}
         onlyContestedBills={onlyContestedBills}
@@ -430,309 +285,87 @@ export default function App() {
         onSpeakerClick={handleSpeakerClick}
         onViewContext={handleViewContext}
         onSelectBill={setSelectedBillForModal}
-        onOpenMethodology={handleOpenMethodology}
+        onOpenMethodology={() => navigateToView('methodology')}
         onOpenTopicDetail={handleOpenTopicDetail}
       />
     );
   }
+  if (isAboutOpen) return <AboutPage onBack={closeViewAndResetUrl} onOpenMethodology={() => navigateToView('methodology')} />;
+  if (isMethodologyOpen) return <Methodology onBack={closeViewAndResetUrl} />;
 
-  if (isAboutOpen) {
-    return (
-      <AboutPage
-        onBack={handleCloseAbout}
-        onOpenMethodology={() => {
-          setIsAboutOpen(false);
-          handleOpenMethodology();
-        }}
-      />
-    );
-  }
-
-  if (isMethodologyOpen) {
-    return (
-      <Methodology onBack={handleCloseMethodology} />
-    );
-  }
-
+  // 激戦議案ビュー
   if (isContestedViewOpen) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar
-          onLogoClick={() => setIsContestedViewOpen(false)}
-          onOpenGuide={handleOpenGuide}
-          onOpenAbout={handleOpenAbout}
-          onOpenMethodology={handleOpenMethodology}
-          onOpenCompare={() => {
-            setIsContestedViewOpen(false);
-            setCompareActive(true);
-          }}
-          isCompareMode={false}
-        />
-        <ContestedBillsView
-          initialCategory={contestedInitialCategory}
-          billIssues={billIssuesList}
-          votesData={votesData}
-          onClose={() => setIsContestedViewOpen(false)}
-          onSpeakerClick={handleSpeakerClick}
-        />
-        <Footer onOpenMethodology={handleOpenMethodology} />
+        <Navbar onLogoClick={() => setIsContestedViewOpen(false)} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => { setIsContestedViewOpen(false); setCompareActive(true); }} isCompareMode={false} />
+        <ContestedBillsView initialCategory={contestedInitialCategory} billIssues={billIssuesList} votesData={votesData} onClose={() => setIsContestedViewOpen(false)} onSpeakerClick={handleSpeakerClick} />
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
 
+  // 議員比較ダッシュボード
   if (compareActive || compareList.length >= 2) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar
-          onLogoClick={handleCloseCompare}
-          onOpenGuide={handleOpenGuide}
-          onOpenAbout={handleOpenAbout}
-          onOpenMethodology={handleOpenMethodology}
-          onOpenCompare={() => {}}
-          isCompareMode={true}
-        />
-        <CompareDashboard
-          compareList={compareList}
-          allSpeakers={speakerStats}
-          onAddSpeaker={(spk) => {
-            if (compareList.length < 3) setCompareList([...compareList, spk]);
-          }}
-          onRemoveSpeaker={(spk) => setCompareList(compareList.filter(s => s.speaker !== spk.speaker))}
-          onClose={handleCloseCompare}
-          onViewContext={handleViewContext}
-          onSpeakerClick={handleSpeakerClick}
-          votesData={votesData}
-          issuesMap={issuesMap}
-          onSelectBill={setSelectedBillForModal}
-        />
-        <BillDetailModal
-          isOpen={Boolean(selectedBillForModal)}
-          onClose={() => setSelectedBillForModal(null)}
-          bill={selectedBillForModal}
-          issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
-          speakerStats={speakerStats}
-          onSpeakerClick={(spkName) => {
-            setSelectedBillForModal(null);
-            handleSpeakerClick(spkName);
-          }}
-        />
-        <TimelineModal
-          isOpen={isPanelOpen}
-          onClose={() => setIsPanelOpen(false)}
-          selectedContext={selectedContext}
-          isLoading={isLoadingContext}
-        />
-        <Footer onOpenMethodology={handleOpenMethodology} />
+        <Navbar onLogoClick={() => setCompareActive(false)} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => {}} isCompareMode={true} />
+        <CompareDashboard compareList={compareList} allSpeakers={speakerStats} onAddSpeaker={(spk) => { if (compareList.length < 3) setCompareList([...compareList, spk]); }} onRemoveSpeaker={(spk) => setCompareList(compareList.filter(s => s.speaker !== spk.speaker))} onClose={() => setCompareActive(false)} onViewContext={handleViewContext} onSpeakerClick={handleSpeakerClick} votesData={votesData} issuesMap={issuesMap} onSelectBill={setSelectedBillForModal} />
+        <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={(spk) => { setSelectedBillForModal(null); handleSpeakerClick(spk); }} />
+        <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
 
+  // 議員個別詳細ビュー
   if (selectedSpeaker) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar
-          onLogoClick={() => { clearSpeakerAndCompare(); handleCloseAbout(); }}
-          onOpenGuide={handleOpenGuide}
-          onOpenAbout={handleOpenAbout}
-          onOpenMethodology={handleOpenMethodology}
-          onOpenCompare={() => {
-            clearSpeakerAndCompare();
-            setCompareActive(true);
-          }}
-          isCompareMode={false}
-        />
-        <SpeakerDetailView
-          selectedSpeaker={selectedSpeaker}
-          speakerStats={speakerStats}
-          speakerFilteredThreads={speakerFilteredThreads}
-          topicStats={topicStats}
-          speakerCategory={speakerCategory}
-          setSpeakerCategory={setSpeakerCategory}
-          speakerSort={speakerSort}
-          setSpeakerSort={setSpeakerSort}
-          votesData={votesData}
-          issuesMap={issuesMap}
-          onOpenCompare={(spk) => {
-            setCompareList([spk]);
-            setCompareActive(true);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          onBack={clearSpeakerAndCompare}
-          onSpeakerClick={handleSpeakerClick}
-          onViewContext={handleViewContext}
-          onOpenMethodology={handleOpenMethodology}
-          onSelectBill={setSelectedBillForModal}
-        />
-        <TimelineModal
-          isOpen={isPanelOpen}
-          onClose={() => setIsPanelOpen(false)}
-          selectedContext={selectedContext}
-          isLoading={isLoadingContext}
-        />
-        <BillDetailModal
-          isOpen={Boolean(selectedBillForModal)}
-          onClose={() => setSelectedBillForModal(null)}
-          bill={selectedBillForModal}
-          issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
-          speakerStats={speakerStats}
-          onSpeakerClick={handleSpeakerClick}
-        />
-        <Footer onOpenMethodology={handleOpenMethodology} />
+        <Navbar onLogoClick={clearSpeakerAndCompare} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => { clearSpeakerAndCompare(); setCompareActive(true); }} isCompareMode={false} />
+        <SpeakerDetailView selectedSpeaker={selectedSpeaker} speakerStats={speakerStats} speakerFilteredThreads={speakerFilteredThreads} topicStats={topicStats} speakerCategory={speakerCategory} setSpeakerCategory={setSpeakerCategory} speakerSort={speakerSort} setSpeakerSort={setSpeakerSort} votesData={votesData} issuesMap={issuesMap} onOpenCompare={(spk) => { setCompareList([spk]); setCompareActive(true); window.scrollTo({ top: 0, behavior: 'smooth' }); }} onBack={clearSpeakerAndCompare} onSpeakerClick={handleSpeakerClick} onViewContext={handleViewContext} onOpenMethodology={() => navigateToView('methodology')} onSelectBill={setSelectedBillForModal} />
+        <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
 
+  // キーワード検索結果画面
   if (submittedQuery.trim() !== '') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar
-          onLogoClick={() => {
-            handleClearSearch();
-            clearSpeakerAndCompare();
-          }}
-          onOpenGuide={handleOpenGuide}
-          onOpenAbout={handleOpenAbout}
-          onOpenMethodology={handleOpenMethodology}
-          onOpenCompare={() => {
-            clearSpeakerAndCompare();
-            setCompareActive(true);
-          }}
-          isCompareMode={false}
-        />
-        <SearchResultsView
-          submittedQuery={submittedQuery}
-          onClearSearch={handleClearSearch}
-          filteredThreads={filteredThreads}
-          filteredBills={filteredBills}
-          filteredSpeakers={filteredSpeakers}
-          speakerStats={speakerStats}
-          issuesMap={issuesMap}
-          onlyContestedBills={onlyContestedBills}
-          setOnlyContestedBills={setOnlyContestedBills}
-          onSpeakerClick={handleSpeakerClick}
-          onViewContext={handleViewContext}
-          onOpenCompare={(spk) => {
-            setCompareList([spk]);
-            setCompareActive(true);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          onSelectBill={setSelectedBillForModal}
-          onOpenMethodology={handleOpenMethodology}
-          onOpenTopicDetail={handleOpenTopicDetail}
-        />
-        <BillDetailModal
-          isOpen={Boolean(selectedBillForModal)}
-          onClose={() => setSelectedBillForModal(null)}
-          bill={selectedBillForModal}
-          issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
-          speakerStats={speakerStats}
-          onSpeakerClick={handleSpeakerClick}
-        />
-        <TimelineModal
-          isOpen={isPanelOpen}
-          onClose={() => setIsPanelOpen(false)}
-          selectedContext={selectedContext}
-          isLoading={isLoadingContext}
-        />
-        <Footer onOpenMethodology={handleOpenMethodology} />
+        <Navbar onLogoClick={() => { setSearchQuery(''); setSubmittedQuery(''); }} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => { clearSpeakerAndCompare(); setCompareActive(true); }} isCompareMode={false} />
+        <SearchResultsView submittedQuery={submittedQuery} onClearSearch={() => { setSearchQuery(''); setSubmittedQuery(''); }} filteredThreads={filteredThreads} filteredBills={filteredBills} filteredSpeakers={filteredSpeakers} speakerStats={speakerStats} issuesMap={issuesMap} onlyContestedBills={onlyContestedBills} setOnlyContestedBills={setOnlyContestedBills} onSpeakerClick={handleSpeakerClick} onViewContext={handleViewContext} onOpenCompare={(spk) => { setCompareList([spk]); setCompareActive(true); }} onSelectBill={setSelectedBillForModal} onOpenMethodology={() => navigateToView('methodology')} onOpenTopicDetail={handleOpenTopicDetail} />
+        <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
+        <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
 
+  // --- トップ画面（メインポータル） ---
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
       <Navbar
-        onLogoClick={() => {
-          clearSpeakerAndCompare();
-          handleClearSearch();
-          setCompareActive(false);
-          setSelectedTopicId(null);
-          setSelectedCategoryPage(null);
-          window.location.hash = '';
-        }}
-        onOpenGuide={handleOpenGuide}
-        onOpenAbout={handleOpenAbout}
-        onOpenMethodology={handleOpenMethodology}
-        onOpenCompare={() => {
-          clearSpeakerAndCompare();
-          setCompareActive(true);
-          setSelectedTopicId(null);
-          setSelectedCategoryPage(null);
-          window.location.hash = '';
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
+        onLogoClick={() => { resetAllSubViews(); setSearchQuery(''); setSubmittedQuery(''); }}
+        onOpenGuide={() => navigateToView('guide')}
+        onOpenAbout={() => navigateToView('about')}
+        onOpenMethodology={() => navigateToView('methodology')}
+        onOpenCompare={() => { resetAllSubViews(); setCompareActive(true); }}
         isCompareMode={false}
       />
 
       <main className="max-w-6xl mx-auto py-8 px-6 w-full flex-grow space-y-10">
-        <section className="text-center py-6 md:py-10 space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-black shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
-            京都市議会 公開データ × 生成AI客観分析
-          </div>
-          <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            対話がわかる。政策が見える。
-          </h1>
-          <p className="text-xs md:text-sm text-slate-500 max-w-xl mx-auto leading-relaxed">
-            12万件超の発言記録を構造化。文字数や登壇回数では見えない「政策提言の密度と個性」を中立なAIルーブリック評価で可視化します。
-          </p>
+        {/* ① ヒーローセクション（検索・タグ・バナー） */}
+        <HeroSection
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          onSearchSubmit={handleSearchSubmit}
+          onKeywordClick={handleKeywordClick}
+          onOpenGuide={() => navigateToView('guide')}
+        />
 
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-100/80 border border-slate-200 text-[11px] text-slate-600 font-bold">
-            <span className="flex items-center gap-1 text-indigo-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse" />
-              分析対象
-            </span>
-            <span>現任期（2023年5月〜最新公開分）</span>
-            <span className="text-slate-300">|</span>
-            <span>本会議・全常任委員会・特別委員会（全12万発言・5,100超の質疑スレッド）</span>
-          </div>
-
-          {/* できることページへの直通バナー */}
-          <div className="pt-1">
-            <button
-              onClick={handleOpenGuide}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white hover:bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-bold transition-all shadow-2xs group cursor-pointer"
-            >
-              <Compass className="w-3.5 h-3.5 text-indigo-600" />
-              <span>初めての方へ：当サイトでできること・活用ガイドを見る</span>
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform text-indigo-500" />
-            </button>
-          </div>
-
-          <div className="max-w-xl mx-auto pt-2">
-            <form onSubmit={handleSearchSubmit} className="relative flex items-center">
-              <Search className="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="論点、キーワード、議員名で議会全体を横断検索..."
-                className="w-full pl-12 pr-24 py-3.5 bg-white border border-slate-300 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm font-bold text-slate-800 placeholder:text-slate-400 transition-all"
-              />
-              <button
-                type="submit"
-                className="absolute right-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-black rounded-xl shadow-xs transition-colors cursor-pointer"
-              >
-                検索
-              </button>
-            </form>
-
-            <div className="flex items-center gap-1.5 flex-wrap justify-center mt-3 text-xs">
-              <span className="text-[11px] font-bold text-slate-400">注目の論点:</span>
-              {HOT_TOPICS.map((topic) => (
-                <button
-                  key={topic}
-                  onClick={() => handleKeywordClick(topic)}
-                  className="px-2.5 py-1 rounded-lg bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 text-slate-600 hover:text-indigo-600 text-[11px] font-bold transition-all cursor-pointer shadow-2xs"
-                >
-                  {topic}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 市議会マクロ論戦マップ */}
+        {/* ② 市議会マクロ論戦マップ */}
         <MacroTopicMap
           topicStats={topicStats}
           selectedCategory={selectedCategory}
@@ -741,228 +374,47 @@ export default function App() {
           onOpenTopicDetail={handleOpenTopicDetail}
         />
 
-        {/* 注目の政策論戦ピックアップ */}
+        {/* ③ 注目の政策論戦ピックアップ */}
         <HighlightedThreads
           statements={statements}
           onViewContext={handleViewContext}
           onSpeakerClick={handleSpeakerClick}
-          onOpenMethodology={handleOpenMethodology}
+          onOpenMethodology={() => navigateToView('methodology')}
         />
 
-        <section className="space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-px overflow-x-auto hide-scrollbar">
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => setViewMode('speakers')}
-                className={`flex items-center px-5 py-3 text-sm font-black whitespace-nowrap transition-colors border-b-2 cursor-pointer ${
-                  viewMode === 'speakers'
-                    ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50'
-                    : 'border-transparent text-slate-500 hover:bg-slate-50'
-                }`}
-              >
-                <Users className="w-4 h-4 mr-2" />
-                議員一覧 ({filteredSpeakers.length.toLocaleString()})
-              </button>
-              <button
-                onClick={() => setViewMode('threads')}
-                className={`flex items-center px-5 py-3 text-sm font-black whitespace-nowrap transition-colors border-b-2 cursor-pointer ${
-                  viewMode === 'threads'
-                    ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50'
-                    : 'border-transparent text-slate-500 hover:bg-slate-50'
-                }`}
-              >
-                <MessageSquare className="w-4 h-4 mr-2" />
-                質疑スレッド ({filteredThreads.length.toLocaleString()})
-              </button>
-              <button
-                onClick={() => setViewMode('bills')}
-                className={`flex items-center px-5 py-3 text-sm font-black whitespace-nowrap transition-colors border-b-2 cursor-pointer ${
-                  viewMode === 'bills'
-                    ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50'
-                    : 'border-transparent text-slate-500 hover:bg-slate-50'
-                }`}
-              >
-                <Scale className="w-4 h-4 mr-2" />
-                議案・賛否の記録 ({filteredBills.length.toLocaleString()})
-              </button>
-            </div>
-          </div>
-
-          {/* 議員・スレッド用のフィルターバー */}
-          {viewMode !== 'bills' && (
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
-              <div className="flex items-center gap-2 flex-wrap">
-                <SlidersHorizontal className="w-4 h-4 text-slate-400 mr-1" />
-                <select
-                  value={selectedDistrict}
-                  onChange={(e) => setSelectedDistrict(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 outline-none cursor-pointer"
-                >
-                  <option value="">すべての選挙区（行政区）</option>
-                  {['北区', '上京区', '左京区', '中京区', '東山区', '下京区', '南区', '右京区', '西京区', '伏見区', '山科区'].map(d => (
-                    <option key={d} value={d}>{d}</option>
-                  ))}
-                </select>
-
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 outline-none cursor-pointer"
-                >
-                  <option value="">すべての政策分野</option>
-                  {topicStats.map(t => (
-                    <option key={t.name} value={t.name}>{t.name} ({t.count.toLocaleString()}件)</option>
-                  ))}
-                </select>
-
-                {(selectedDistrict || selectedCategory) && (
-                  <button
-                    onClick={() => { setSelectedDistrict(''); setSelectedCategory(''); }}
-                    className="text-slate-400 hover:text-rose-600 font-bold ml-1 transition-colors cursor-pointer"
-                  >
-                    リセット
-                  </button>
-                )}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />
-                <select
-                  value={sortPerspective}
-                  onChange={(e) => setSortPerspective(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 outline-none cursor-pointer"
-                >
-                  <option value="random">日替わりランダム（中立順）</option>
-                  <option value="recent">登壇日が新しい順</option>
-                  <option value="solution">具体的対案スコア順</option>
-                  <option value="local_focus">地域解像度スコア順</option>
-                  <option value="evidence">データ活用スコア順</option>
-                  <option value="constructive">議論の進展スコア順</option>
-                  {viewMode === 'speakers' && <option value="name">議員名（五十音順）</option>}
-                </select>
-              </div>
-            </div>
-          )}
-
-          {/* 議案専用のフィルターバー */}
-          {viewMode === 'bills' && (
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs flex flex-wrap items-center justify-between gap-3 text-xs">
-              <div className="flex items-center gap-2 flex-wrap">
-                <SlidersHorizontal className="w-4 h-4 text-slate-400 mr-1" />
-                
-                <select
-                  value={selectedSession}
-                  onChange={(e) => setSelectedSession(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 outline-none cursor-pointer max-w-[200px] truncate"
-                >
-                  <option value="">すべての会期</option>
-                  {uniqueSessions.map(s => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
-
-                <select
-                  value={selectedResult}
-                  onChange={(e) => setSelectedResult(e.target.value)}
-                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 outline-none cursor-pointer"
-                >
-                  <option value="">すべての議決結果</option>
-                  {uniqueResults.map(r => (
-                    <option key={r} value={r}>{r}</option>
-                  ))}
-                </select>
-
-                {(selectedSession || selectedResult) && (
-                  <button
-                    onClick={() => { setSelectedSession(''); setSelectedResult(''); }}
-                    className="text-slate-400 hover:text-rose-600 font-bold ml-1 transition-colors cursor-pointer"
-                  >
-                    リセット
-                  </button>
-                )}
-              </div>
-              <div className="text-[11px] font-bold text-slate-400">
-                該当: <span className="text-indigo-600">{filteredBills.length.toLocaleString()}</span> 件
-              </div>
-            </div>
-          )}
-
-          {/* 議員カード一覧（初期12名表示 ＋ もっと見る） */}
-          {viewMode === 'speakers' && (
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {displayedSpeakers.map((speaker) => (
-                  <SpeakerCard
-                    key={speaker.speaker}
-                    speaker={speaker}
-                    onSpeakerClick={handleSpeakerClick}
-                    onOpenCompare={(spk) => {
-                      setCompareList([spk]);
-                      setCompareActive(true);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                  />
-                ))}
-              </div>
-
-              {visibleSpeakersCount < filteredSpeakers.length && (
-                <div className="text-center pt-2">
-                  <button
-                    onClick={() => setVisibleSpeakersCount(prev => prev + 12)}
-                    className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-xs font-bold text-slate-700 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
-                  >
-                    <span>さらに議員を表示する（残り {(filteredSpeakers.length - visibleSpeakersCount).toLocaleString()} 名）</span>
-                    <ChevronDown className="w-4 h-4 text-slate-400" />
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* 質疑スレッド一覧（初期10件表示 ＋ もっと見る） */}
-          {viewMode === 'threads' && (
-            <div className="space-y-6">
-              <div className="space-y-6">
-                {displayedThreads.map((stmt) => (
-                  <ThreadCard
-                    key={stmt.id}
-                    stmt={stmt}
-                    speakerInfo={speakerStats.find(s => s.speaker === stmt.speaker)}
-                    onSpeakerClick={handleSpeakerClick}
-                    onViewContext={handleViewContext}
-                    showSpeakerHeader={true}
-                    onOpenMethodology={handleOpenMethodology}
-                  />
-                ))}
-              </div>
-
-              {visibleThreadsCount < filteredThreads.length && (
-                <div className="text-center pt-2">
-                  <button
-                    onClick={() => setVisibleThreadsCount(prev => prev + 10)}
-                    className="inline-flex items-center gap-1.5 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-xs font-bold text-slate-700 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
-                  >
-                    <span>さらに質疑スレッドを表示する（残り {(filteredThreads.length - visibleThreadsCount).toLocaleString()} 件）</span>
-                    <ChevronDown className="w-4 h-4 text-slate-400" />
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* 議案一覧 */}
-          {viewMode === 'bills' && (
-            <BillsSection
-              filteredBills={filteredBills}
-              onlyContestedBills={onlyContestedBills}
-              setOnlyContestedBills={setOnlyContestedBills}
-              issuesMap={issuesMap}
-              onSelectBill={setSelectedBillForModal}
-            />
-          )}
-        </section>
+        {/* ④ メインタブビュー（議員一覧 / 質疑スレッド / 議案・賛否） */}
+        <MainTabView
+          viewMode={viewMode}
+          setViewMode={setViewMode}
+          filteredSpeakers={filteredSpeakers}
+          filteredThreads={filteredThreads}
+          filteredBills={filteredBills}
+          topicStats={topicStats}
+          speakerStats={speakerStats}
+          selectedDistrict={selectedDistrict}
+          setSelectedDistrict={setSelectedDistrict}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          sortPerspective={sortPerspective}
+          setSortPerspective={setSortPerspective}
+          selectedSession={selectedSession}
+          setSelectedSession={setSelectedSession}
+          selectedResult={selectedResult}
+          setSelectedResult={setSelectedResult}
+          uniqueSessions={uniqueSessions}
+          uniqueResults={uniqueResults}
+          onlyContestedBills={onlyContestedBills}
+          setOnlyContestedBills={setOnlyContestedBills}
+          issuesMap={issuesMap}
+          onSpeakerClick={handleSpeakerClick}
+          onOpenCompare={(spk) => { setCompareList([spk]); setCompareActive(true); }}
+          onViewContext={handleViewContext}
+          onSelectBill={setSelectedBillForModal}
+          onOpenMethodology={() => navigateToView('methodology')}
+        />
       </main>
 
+      {/* グローバルモーダル */}
       <BillDetailModal
         isOpen={Boolean(selectedBillForModal)}
         onClose={() => setSelectedBillForModal(null)}
@@ -979,7 +431,7 @@ export default function App() {
         isLoading={isLoadingContext}
       />
 
-      <Footer onOpenMethodology={handleOpenMethodology} />
+      <Footer onOpenMethodology={() => navigateToView('methodology')} />
     </div>
   );
 }
