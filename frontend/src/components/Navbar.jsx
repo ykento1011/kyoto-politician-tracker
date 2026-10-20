@@ -1,10 +1,11 @@
 import React from 'react';
-import { BookOpen, GitCompare, Landmark, Info } from 'lucide-react';
+import { BookOpen, GitCompare, Landmark, Info, Compass } from 'lucide-react';
 
 export default function Navbar({
   onLogoClick,
+  onOpenGuide,
+  onOpenAbout,
   onOpenMethodology,
-  onOpenAbout, // 💡 追加
   onOpenCompare,
   isCompareMode = false
 }) {
@@ -30,20 +31,29 @@ export default function Navbar({
         </button>
 
         {/* ナビゲーションメニュー */}
-        <nav className="flex items-center gap-2">
+        <nav className="flex items-center gap-1.5 sm:gap-2">
+          {/* できること（Guide） */}
+          <button
+            onClick={onOpenGuide}
+            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50/60 transition-colors cursor-pointer"
+          >
+            <Compass className="w-3.5 h-3.5 text-indigo-600" />
+            <span>できること</span>
+          </button>
+
           {/* 当サイトについて（About） */}
           <button
             onClick={onOpenAbout}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition-colors cursor-pointer"
           >
-            <Info className="w-3.5 h-3.5 text-indigo-500" />
+            <Info className="w-3.5 h-3.5 text-slate-400" />
             <span>当サイトについて</span>
           </button>
 
           {/* AI採点基準（Methodology） */}
           <button
             onClick={onOpenMethodology}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition-colors cursor-pointer"
           >
             <BookOpen className="w-3.5 h-3.5 text-slate-400" />
             <span className="hidden md:inline">AI採点基準</span>
@@ -52,7 +62,7 @@ export default function Navbar({
           {/* 議員比較 */}
           <button
             onClick={onOpenCompare}
-            className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               isCompareMode
                 ? 'bg-indigo-50 text-indigo-700 border border-indigo-200'
                 : 'bg-white border border-slate-200 hover:border-indigo-300 text-slate-700 hover:text-indigo-600 shadow-2xs'

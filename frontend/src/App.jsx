@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Search, Sparkles, Users, MessageSquare, Scale, 
-  SlidersHorizontal, ArrowUpDown, ChevronDown 
+  SlidersHorizontal, ArrowUpDown, ChevronDown, Compass, ArrowRight 
 } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -20,6 +20,7 @@ import TimelineModal from './components/TimelineModal';
 import BillDetailModal from './components/BillDetailModal';
 import AboutPage from './components/AboutPage';
 import Methodology from './components/Methodology';
+import GuidePage from './components/GuidePage';
 import { useStatements } from './hooks/useStatements';
 
 const HOT_TOPICS = [
@@ -96,6 +97,7 @@ export default function App() {
   const [selectedResult, setSelectedResult] = useState('');
 
   const [compareActive, setCompareActive] = useState(false);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
   const [isContestedViewOpen, setIsContestedViewOpen] = useState(false);
@@ -136,15 +138,23 @@ export default function App() {
       const view = params.get('view');
       const pathname = window.location.pathname;
 
-      if (pathname === '/about' || view === 'about') {
+      if (pathname === '/guide' || view === 'guide') {
+        setIsGuideOpen(true);
+        setIsAboutOpen(false);
+        setIsMethodologyOpen(false);
+        setIsContestedViewOpen(false);
+      } else if (pathname === '/about' || view === 'about') {
         setIsAboutOpen(true);
+        setIsGuideOpen(false);
         setIsMethodologyOpen(false);
         setIsContestedViewOpen(false);
       } else if (pathname === '/methodology' || view === 'methodology') {
         setIsMethodologyOpen(true);
+        setIsGuideOpen(false);
         setIsAboutOpen(false);
         setIsContestedViewOpen(false);
       } else {
+        setIsGuideOpen(false);
         setIsAboutOpen(false);
         setIsMethodologyOpen(false);
         setIsContestedViewOpen(false);
@@ -182,6 +192,7 @@ export default function App() {
   const handleOpenCategoryDetail = (catName) => {
     clearSpeakerAndCompare();
     setCompareActive(false);
+    setIsGuideOpen(false);
     setIsAboutOpen(false);
     setIsMethodologyOpen(false);
     setIsContestedViewOpen(false);
@@ -200,6 +211,7 @@ export default function App() {
   const handleOpenTopicDetail = (topicId) => {
     clearSpeakerAndCompare();
     setCompareActive(false);
+    setIsGuideOpen(false);
     setIsAboutOpen(false);
     setIsMethodologyOpen(false);
     setIsContestedViewOpen(false);
@@ -215,9 +227,34 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleOpenGuide = () => {
+    clearSpeakerAndCompare();
+    setCompareActive(false);
+    setIsAboutOpen(false);
+    setIsMethodologyOpen(false);
+    setIsContestedViewOpen(false);
+    setSelectedTopicId(null);
+    setSelectedCategoryPage(null);
+    window.location.hash = '';
+    setIsGuideOpen(true);
+    const url = new URL(window.location);
+    url.searchParams.set('view', 'guide');
+    window.history.pushState({}, '', url);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCloseGuide = () => {
+    setIsGuideOpen(false);
+    const url = new URL(window.location);
+    url.searchParams.delete('view');
+    window.history.pushState({}, '', url);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleOpenAbout = () => {
     clearSpeakerAndCompare();
     setCompareActive(false);
+    setIsGuideOpen(false);
     setIsMethodologyOpen(false);
     setIsContestedViewOpen(false);
     setSelectedTopicId(null);
@@ -241,6 +278,7 @@ export default function App() {
   const handleOpenMethodology = () => {
     clearSpeakerAndCompare();
     setCompareActive(false);
+    setIsGuideOpen(false);
     setIsAboutOpen(false);
     setIsContestedViewOpen(false);
     setSelectedTopicId(null);
@@ -353,6 +391,18 @@ export default function App() {
     );
   }
 
+  // 1. できること（ご利用ガイド）ページ
+  if (isGuideOpen) {
+    return (
+      <GuidePage
+        onBack={handleCloseGuide}
+        onOpenMethodology={handleOpenMethodology}
+        onOpenAbout={handleOpenAbout}
+      />
+    );
+  }
+
+  // 2. 政策論点詳細ページ
   if (selectedTopicId) {
     return (
       <TopicDetailPage
@@ -362,6 +412,7 @@ export default function App() {
     );
   }
 
+  // 3. カテゴリー包括解説ページ
   if (selectedCategoryPage) {
     const catThreads = statements.filter(s => s.category === selectedCategoryPage);
     const catBills = votesData.filter(b => getCategoryForBill(b) === selectedCategoryPage);
@@ -408,13 +459,14 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         <Navbar
           onLogoClick={() => setIsContestedViewOpen(false)}
-          isCompareMode={false}
+          onOpenGuide={handleOpenGuide}
           onOpenAbout={handleOpenAbout}
           onOpenMethodology={handleOpenMethodology}
           onOpenCompare={() => {
             setIsContestedViewOpen(false);
             setCompareActive(true);
           }}
+          isCompareMode={false}
         />
         <ContestedBillsView
           initialCategory={contestedInitialCategory}
@@ -433,10 +485,11 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         <Navbar
           onLogoClick={handleCloseCompare}
-          isCompareMode={true}
+          onOpenGuide={handleOpenGuide}
           onOpenAbout={handleOpenAbout}
           onOpenMethodology={handleOpenMethodology}
           onOpenCompare={() => {}}
+          isCompareMode={true}
         />
         <CompareDashboard
           compareList={compareList}
@@ -479,6 +532,7 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         <Navbar
           onLogoClick={() => { clearSpeakerAndCompare(); handleCloseAbout(); }}
+          onOpenGuide={handleOpenGuide}
           onOpenAbout={handleOpenAbout}
           onOpenMethodology={handleOpenMethodology}
           onOpenCompare={() => {
@@ -536,6 +590,7 @@ export default function App() {
             handleClearSearch();
             clearSpeakerAndCompare();
           }}
+          onOpenGuide={handleOpenGuide}
           onOpenAbout={handleOpenAbout}
           onOpenMethodology={handleOpenMethodology}
           onOpenCompare={() => {
@@ -595,6 +650,7 @@ export default function App() {
           setSelectedCategoryPage(null);
           window.location.hash = '';
         }}
+        onOpenGuide={handleOpenGuide}
         onOpenAbout={handleOpenAbout}
         onOpenMethodology={handleOpenMethodology}
         onOpenCompare={() => {
@@ -631,6 +687,18 @@ export default function App() {
             <span>本会議・全常任委員会・特別委員会（全12万発言・5,100超の質疑スレッド）</span>
           </div>
 
+          {/* できることページへの直通バナー */}
+          <div className="pt-1">
+            <button
+              onClick={handleOpenGuide}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white hover:bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-bold transition-all shadow-2xs group cursor-pointer"
+            >
+              <Compass className="w-3.5 h-3.5 text-indigo-600" />
+              <span>初めての方へ：当サイトでできること・活用ガイドを見る</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform text-indigo-500" />
+            </button>
+          </div>
+
           <div className="max-w-xl mx-auto pt-2">
             <form onSubmit={handleSearchSubmit} className="relative flex items-center">
               <Search className="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none" />
@@ -664,7 +732,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 市議会マクロ論戦マップ（カテゴリー詳細・政策タイムラインへの導線） */}
+        {/* 市議会マクロ論戦マップ */}
         <MacroTopicMap
           topicStats={topicStats}
           selectedCategory={selectedCategory}
