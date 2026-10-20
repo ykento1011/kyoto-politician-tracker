@@ -1,6 +1,6 @@
 import React from 'react';
-import { 
-  ArrowLeft, Compass, Search, Lightbulb, User, 
+import {
+  ArrowLeft, Compass, Search, Lightbulb, User,
   ExternalLink, Mail, Award, Shield, Milestone, Landmark, Layers, FileCheck
 } from 'lucide-react';
 
@@ -124,7 +124,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
                 株式会社KICKs 代表 / 京都大学MBA
               </p>
             </div>
-            
+
             <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
               一橋大学社会学部を卒業後、アマゾンジャパン合同会社にてオペレーション管理やAI導入などの業務プロセスの改善に従事。
             </p>
@@ -135,8 +135,19 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
               現在は宿泊施設運営も手掛けながら、データ分析やWeb技術を活用した情報可視化の試みに取り組んでいます。（保有資格：行政書士、元米国公認会計士）
             </p>
 
-            {/* TOIMAPリンク */}
-            <div className="pt-2">
+            {/* 関連リンク（KICKs HP & TOIMAP） */}
+            <div className="pt-2 flex flex-wrap items-center gap-2">
+              <a
+                href="https://kanko-innovation.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 border border-slate-200 text-xs font-bold transition-all shadow-2xs"
+              >
+                <Landmark className="w-3.5 h-3.5 text-indigo-600" />
+                <span>運営元：株式会社KICKs コーポレートサイト</span>
+                <ExternalLink className="w-3 h-3 ml-0.5 opacity-60" />
+              </a>
+
               <a
                 href="https://toimap.jp/"
                 target="_blank"
@@ -144,7 +155,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 text-slate-700 hover:text-indigo-600 border border-slate-200 text-xs font-bold transition-all shadow-2xs"
               >
                 <Award className="w-3.5 h-3.5 text-amber-500" />
-                <span>シビックテックの取り組み：TOIMAP（トイマップ）公式サイト</span>
+                <span>シビックテック：TOIMAP（トイマップ）公式サイト</span>
                 <ExternalLink className="w-3 h-3 ml-0.5 opacity-60" />
               </a>
             </div>
