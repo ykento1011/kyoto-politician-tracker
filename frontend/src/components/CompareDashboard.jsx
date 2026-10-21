@@ -3,19 +3,23 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 import { ArrowLeft, GitCompare, Share2, Target, BarChart3, MessageCircle, User, Plus, X, Users, Scale, AlertCircle, UserPlus } from 'lucide-react';
 import ThreadCard from './ThreadCard';
 
-// 最大8名まで対応する拡張カラーパレット
+// 💡 伏見区（12名）などの最大定数に対応する12色カラーパレット
 const COMPARE_COLORS = [
-  '#6366f1', // Indigo
-  '#10b981', // Emerald
-  '#f59e0b', // Amber
-  '#ec4899', // Pink / Rose
-  '#0ea5e9', // Sky
-  '#8b5cf6', // Violet
-  '#f97316', // Orange
-  '#14b8a6', // Teal
+  '#6366f1', // 1: Indigo
+  '#10b981', // 2: Emerald
+  '#f59e0b', // 3: Amber
+  '#ec4899', // 4: Pink
+  '#0ea5e9', // 5: Sky
+  '#8b5cf6', // 6: Violet
+  '#f97316', // 7: Orange
+  '#14b8a6', // 8: Teal
+  '#e11d48', // 9: Rose
+  '#84cc16', // 10: Lime
+  '#06b6d4', // 11: Cyan
+  '#64748b', // 12: Slate
 ];
 
-const MAX_COMPARE = 8; // 同区内全員比較に対応する上限数
+const MAX_COMPARE = 12; // 伏見区（12名定数）全員比較に対応
 
 const ALIAS_MAP = {
   '井崎敦子': '井﨑敦子',
@@ -24,7 +28,6 @@ const ALIAS_MAP = {
   '繁隆夫': '繁隆夫'
 };
 
-// 異体字フォールバック付きの顔写真アバター
 function SpeakerAvatar({ speakerName }) {
   const cleanName = speakerName ? speakerName.replace(/\s+/g, '') : '';
   const [src, setSrc] = useState(`/councilors/${cleanName}.jpg`);
@@ -117,22 +120,9 @@ export default function CompareDashboard({
     }
   }, [votesData]);
 
-  // 議員の追加・削除時にURLクエリパラメータ（?compare=A,B,C）をリアルタイム自動同期
-  useEffect(() => {
-    if (compareList.length > 0) {
-      const url = new URL(window.location);
-      const names = compareList.map(s => s.speaker).join(',');
-      if (url.searchParams.get('compare') !== names) {
-        url.searchParams.set('compare', names);
-        url.searchParams.delete('speaker');
-        window.history.replaceState({}, '', url);
-      }
-    }
-  }, [compareList]);
-
   const handleShare = async () => {
     const compareNames = compareList.map(s => s.speaker).join(',');
-    const url = `https://gikai-mikata.jp/?compare=${encodeURIComponent(compareNames)}`;
+    const url = `${window.location.origin}/?compare=${encodeURIComponent(compareNames)}`;
     const text = `議会のミカタ 京都で ${compareList.map(s => s.speaker).join(' vs ')} の質疑スタイル・注力政策を徹底比較しました！`;
 
     try {
@@ -156,7 +146,7 @@ export default function CompareDashboard({
     );
   }, [compareList, allSpeakers]);
 
-  // 同区の議員を一括で配列ごと追加する（確実に全員追加）
+  // 💡 同区内全員一括追加（最大12名まで）
   const handleAddAllDistrict = () => {
     const availableSlots = MAX_COMPARE - compareList.length;
     if (availableSlots <= 0) {
@@ -307,7 +297,7 @@ export default function CompareDashboard({
             <div>
               <h2 className="text-xl font-black text-slate-900">議員ポリシー徹底比較</h2>
               <p className="text-xs text-slate-500 font-medium">
-                議場でのアプローチと注力政策の違い（最大{MAX_COMPARE}名まで同時比較可能）
+                議場でのアプローチと注力政策の違い（伏見区など最大{MAX_COMPARE}名まで同時比較可能）
               </p>
             </div>
           </div>
@@ -451,9 +441,9 @@ export default function CompareDashboard({
                               name={spk.speaker}
                               dataKey={`speaker_${idx}`}
                               stroke={COMPARE_COLORS[idx % COMPARE_COLORS.length]}
-                              strokeWidth={2.5}
+                              strokeWidth={2}
                               fill={COMPARE_COLORS[idx % COMPARE_COLORS.length]}
-                              fillOpacity={0.12}
+                              fillOpacity={0.1}
                             />
                           ))}
                           <Legend />
@@ -477,7 +467,7 @@ export default function CompareDashboard({
                     ].map(metric => (
                       <div key={metric.key} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                         <div className="text-xs font-bold text-slate-700 mb-3">{metric.label}</div>
-                        <div className="space-y-2.5">
+                        <div className="space-y-2.5 max-h-56 overflow-y-auto pr-1">
                           {compareList.map((spk, idx) => {
                             const rate = calculateRates(spk)[metric.key];
                             return (
