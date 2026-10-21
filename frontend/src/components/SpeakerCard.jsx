@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
-import { GitCompare, Check, ChevronRight } from 'lucide-react';
+import { GitCompare, Check, ChevronRight, User } from 'lucide-react';
 
 export default function SpeakerCard({
   speaker,
@@ -9,6 +9,12 @@ export default function SpeakerCard({
   isCompared = false,
   onOpenCompare
 }) {
+  const [imgError, setImgError] = useState(false);
+
+  // 議員名から空白を除去した画像ファイル名
+  const cleanSpeakerName = speaker.speaker ? speaker.speaker.replace(/\s+/g, '') : '';
+  const photoUrl = `/councilors/${cleanSpeakerName}.jpg`;
+
   const radarData = [
     { subject: '根拠・データ', A: speaker.avg_evidence || 0, fullMark: 5 },
     { subject: '対案・是正', A: speaker.avg_solution || 0, fullMark: 5 },
@@ -26,22 +32,42 @@ export default function SpeakerCard({
       }`}
     >
       <div className="p-6">
-        {/* 上段：議員名・選挙区・会派・比較ボタン */}
+        {/* 上段：顔写真・議員名・選挙区・会派・比較ボタン */}
         <div className="flex items-start justify-between gap-3 mb-3">
-          <div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <h3 className="text-lg font-black text-slate-900 group-hover:text-indigo-600 transition-colors">
-                {speaker.speaker}
-              </h3>
-              <span className="text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
-                {speaker.district || '京都'}
-              </span>
+          <div className="flex items-center gap-3 min-w-0 flex-1">
+            {/* 議員プロフィール顔写真 / フォールバック */}
+            <div className="w-12 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center">
+              {!imgError ? (
+                <img
+                  src={photoUrl}
+                  alt={speaker.speaker}
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => setImgError(true)}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <User className="w-6 h-6 text-slate-300" />
+              )}
             </div>
-            <p className="text-xs text-slate-400 font-medium mt-0.5 truncate max-w-[200px]">
-              {speaker.partyGroup || '京都市会'}
-            </p>
+
+            {/* 議員名・選挙区・会派 */}
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug truncate">
+                  {speaker.speaker}
+                </h3>
+                <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded shrink-0">
+                  {speaker.district || '京都'}
+                </span>
+              </div>
+              <p className="text-xs text-slate-400 font-medium mt-0.5 truncate">
+                {speaker.partyGroup || '京都市会'}
+              </p>
+            </div>
           </div>
 
+          {/* 比較ボタン */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -76,17 +102,17 @@ export default function SpeakerCard({
           <ResponsiveContainer width="100%" height="100%">
             <RadarChart cx="50%" cy="50%" outerRadius="62%" data={radarData}>
               <PolarGrid stroke="#e2e8f0" />
-              <PolarAngleAxis 
-                dataKey="subject" 
-                tick={{ fill: '#64748b', fontSize: 9, fontWeight: 700 }} 
+              <PolarAngleAxis
+                dataKey="subject"
+                tick={{ fill: '#64748b', fontSize: 9, fontWeight: 700 }}
               />
-              <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
-              <Radar 
-                dataKey="A" 
-                stroke="#6366f1" 
-                strokeWidth={2} 
-                fill="#818cf8" 
-                fillOpacity={0.35} 
+              <PolarRadiusAxis domain={[0, 5]} axisLine={false} tick={false} />
+              <Radar
+                dataKey="A"
+                stroke="#6366f1"
+                fill="#818cf8"
+                fillOpacity={0.35}
+                strokeWidth={2}
               />
             </RadarChart>
           </ResponsiveContainer>
