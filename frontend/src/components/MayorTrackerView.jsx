@@ -14,16 +14,18 @@ export default function MayorTrackerView({
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedStageLevel, setSelectedStageLevel] = useState(0);
 
+  // 💡 画像読み込みエラー管理
+  const [imgSrc, setImgSrc] = useState('/councilors/matsui_koji.jpg');
+  const [imgError, setImgError] = useState(false);
+
   const mayorInfo = data?.mayor_info || {};
   const stats = data?.stats || {};
   const pledges = data?.pledges || [];
 
-  // カテゴリ一覧抽出
   const categories = useMemo(() => {
     return [...new Set(pledges.map(p => p.category).filter(Boolean))];
   }, [pledges]);
 
-  // フィルタリング
   const filteredPledges = useMemo(() => {
     return pledges.filter(p => {
       if (selectedCategory && p.category !== selectedCategory) return false;
@@ -32,7 +34,6 @@ export default function MayorTrackerView({
     });
   }, [pledges, selectedCategory, selectedStageLevel]);
 
-  // 5段階ステップバーの定義
   const STAGES = [
     { level: 1, label: '公約表明', desc: '市長選公報・マニフェスト' },
     { level: 2, label: '施政方針反映', desc: '本会議演説・所信表明' },
@@ -40,6 +41,15 @@ export default function MayorTrackerView({
     { level: 4, label: '条例提出・可決', desc: '市会での議案成立' },
     { level: 5, label: '本格執行・達成', desc: '目標完了・制度運用' },
   ];
+
+  const handleImageError = () => {
+    if (imgSrc === '/councilors/matsui_koji.jpg') {
+      // 予備として日本語パスを試す
+      setImgSrc('/councilors/松井孝治.jpg');
+    } else {
+      setImgError(true);
+    }
+  };
 
   return (
     <main className="max-w-6xl mx-auto py-8 px-4 sm:px-6 animate-in fade-in duration-300 w-full space-y-8">
@@ -85,15 +95,19 @@ export default function MayorTrackerView({
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-slate-100">
           <div className="flex items-start gap-5">
             <div className="w-20 h-24 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-xs flex items-center justify-center">
-              <img
-                src="/councilors/松井孝治.jpg"
-                alt="松井孝治 京都市長"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement.innerHTML = '<span class="text-xs font-bold text-slate-400">市長写真</span>';
-                }}
-              />
+              {!imgError ? (
+                <img
+                  src={imgSrc}
+                  alt="松井孝治 京都市長"
+                  className="w-full h-full object-cover object-top"
+                  onError={handleImageError}
+                />
+              ) : (
+                <div className="text-center p-2">
+                  <span className="text-[10px] font-bold text-slate-400 block">京都市長</span>
+                  <span className="text-xs font-black text-slate-600">松井孝治</span>
+                </div>
+              )}
             </div>
             <div>
               <div className="flex items-center gap-3 flex-wrap">
@@ -146,7 +160,6 @@ export default function MayorTrackerView({
 
       {/* 絞り込みバー */}
       <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        {/* ステージ別フィルター */}
         <div className="flex items-center gap-1.5 flex-wrap">
           <span className="text-xs font-bold text-slate-400 mr-1 flex items-center gap-1">
             <Filter className="w-3.5 h-3.5" />進捗度:
@@ -171,7 +184,6 @@ export default function MayorTrackerView({
           ))}
         </div>
 
-        {/* カテゴリセレクト */}
         <div className="flex items-center gap-2 w-full md:w-auto">
           <span className="text-xs font-bold text-slate-400 shrink-0">分野:</span>
           <select
@@ -201,7 +213,6 @@ export default function MayorTrackerView({
               key={pledge.id}
               className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden"
             >
-              {/* カードヘッダー */}
               <div className="bg-slate-50/80 px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 flex-wrap">
                   <span className="px-2.5 py-0.5 rounded-md text-[10px] font-black bg-indigo-50 text-indigo-700 border border-indigo-200">
@@ -224,7 +235,6 @@ export default function MayorTrackerView({
                 </div>
               </div>
 
-              {/* 5段階 政策ライフサイクル・プログレスインジケーター */}
               <div className="px-6 py-4 bg-slate-50/40 border-b border-slate-100">
                 <div className="grid grid-cols-5 gap-1 sm:gap-2">
                   {STAGES.map((st) => {
@@ -247,9 +257,8 @@ export default function MayorTrackerView({
                 </div>
               </div>
 
-              {/* 2カラム対比グリッド（左: 選挙公約 ⇄ 右: 執行パイプライン） */}
               <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
-                {/* 左側: 選挙公約・マニフェスト原本エビデンス (4列) */}
+                {/* 左側: 選挙公約 原本引用 */}
                 <div className="lg:col-span-4 p-6 bg-indigo-50/15 space-y-4 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
@@ -284,9 +293,8 @@ export default function MayorTrackerView({
                   )}
                 </div>
 
-                {/* 右側: 執行パイプライン（施政方針・予算・議案・マイルストーン） (8列) */}
+                {/* 右側: 執行パイプライン */}
                 <div className="lg:col-span-8 p-6 space-y-6 bg-white">
-                  {/* 1. 施政方針・所信表明 */}
                   {speeches.length > 0 && (
                     <div className="space-y-2">
                       <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
@@ -320,7 +328,6 @@ export default function MayorTrackerView({
                     </div>
                   )}
 
-                  {/* 2. 予算措置 */}
                   {budgets.length > 0 && (
                     <div className="space-y-2">
                       <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
@@ -346,7 +353,6 @@ export default function MayorTrackerView({
                     </div>
                   )}
 
-                  {/* 3. 条例・提出議案と会派別賛否態度 */}
                   {bills.length > 0 && (
                     <div className="space-y-2">
                       <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
@@ -368,7 +374,6 @@ export default function MayorTrackerView({
                               {bill.bill_title}
                             </h3>
 
-                            {/* 各会派の賛否態度 */}
                             {bill.party_votes && (
                               <div className="pt-2 border-t border-slate-200/60 flex items-center gap-2 flex-wrap text-xs">
                                 <span className="text-[10px] font-bold text-slate-400">会派賛否:</span>
@@ -393,7 +398,6 @@ export default function MayorTrackerView({
                     </div>
                   )}
 
-                  {/* 4. 執行マイルストーン */}
                   {milestones.length > 0 && (
                     <div className="space-y-2">
                       <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
