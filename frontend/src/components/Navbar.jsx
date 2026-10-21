@@ -33,13 +33,14 @@ export default function Navbar({
 
         {/* ナビゲーションメニュー */}
         <nav className="flex items-center gap-1.5 sm:gap-2">
-          {/* 💡 松井市長 政策進捗ボタン */}
+          {/* 💡 松井市長 政策進捗ボタン（Newバッジ付き） */}
           <button
             onClick={onOpenMayor}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-black text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 transition-all cursor-pointer shadow-2xs"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-black text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 transition-all cursor-pointer shadow-2xs"
           >
-            <Layers className="w-3.5 h-3.5 text-indigo-600" />
+            <Landmark className="w-3.5 h-3.5 text-indigo-600" />
             <span>松井市長 政策進捗</span>
+            <span className="bg-indigo-600 text-white text-[9px] px-1.5 py-0.2 rounded-full font-bold">New</span>
           </button>
 
           {/* 議員比較 */}

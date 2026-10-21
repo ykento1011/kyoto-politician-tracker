@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import {
   Landmark, ArrowLeft, ExternalLink, ShieldCheck, BookmarkCheck,
-  CheckCircle2, Clock, FileText, ChevronRight, Scale, Sparkles,
-  PieChart, Filter, AlertCircle, Award, ArrowRight, Layers
+  CheckCircle2, Clock, FileText, Scale, Sparkles,
+  PieChart, Filter, AlertCircle, ArrowRight, Layers, Coins, Building2
 } from 'lucide-react';
 
 export default function MayorTrackerView({
@@ -14,12 +14,12 @@ export default function MayorTrackerView({
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedStageLevel, setSelectedStageLevel] = useState(0);
 
-  // 💡 画像読み込みエラー管理
+  // 画像フォールバック制御
   const [imgSrc, setImgSrc] = useState('/councilors/matsui_koji.jpg');
   const [imgError, setImgError] = useState(false);
 
   const mayorInfo = data?.mayor_info || {};
-  const stats = data?.stats || {};
+  const stats = data?.summary_stats || {};
   const pledges = data?.pledges || [];
 
   const categories = useMemo(() => {
@@ -35,16 +35,15 @@ export default function MayorTrackerView({
   }, [pledges, selectedCategory, selectedStageLevel]);
 
   const STAGES = [
-    { level: 1, label: '公約表明', desc: '市長選公報・マニフェスト' },
-    { level: 2, label: '施政方針反映', desc: '本会議演説・所信表明' },
-    { level: 3, label: '予算計上・実証', desc: '当初・補正予算措置' },
-    { level: 4, label: '条例提出・可決', desc: '市会での議案成立' },
-    { level: 5, label: '本格執行・達成', desc: '目標完了・制度運用' },
+    { level: 1, label: '1.公約表明', desc: '市長選公報・マニフェスト' },
+    { level: 2, label: '2.施政方針', desc: '本会議演説・所信表明' },
+    { level: 3, label: '3.予算措置', desc: '当初・補正予算計上' },
+    { level: 4, label: '4.条例提出', desc: '市会での審議・可決' },
+    { level: 5, label: '5.成立・執行', desc: '目標完了・制度運用' },
   ];
 
   const handleImageError = () => {
     if (imgSrc === '/councilors/matsui_koji.jpg') {
-      // 予備として日本語パスを試す
       setImgSrc('/councilors/松井孝治.jpg');
     } else {
       setImgError(true);
@@ -63,9 +62,9 @@ export default function MayorTrackerView({
         </button>
 
         <div className="flex items-center gap-2">
-          {mayorInfo.election_bulletin_pdf && (
+          {mayorInfo.bulletin_pdf && (
             <a
-              href={mayorInfo.election_bulletin_pdf}
+              href={mayorInfo.bulletin_pdf}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-indigo-600 hover:bg-indigo-50 font-bold text-xs transition-colors shadow-2xs"
@@ -75,9 +74,9 @@ export default function MayorTrackerView({
               <ExternalLink className="w-3 h-3 opacity-60" />
             </a>
           )}
-          {mayorInfo.manifesto_url && (
+          {mayorInfo.manifesto_pdf && (
             <a
-              href={mayorInfo.manifesto_url}
+              href={mayorInfo.manifesto_pdf}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-xs transition-colors shadow-2xs"
@@ -126,33 +125,33 @@ export default function MayorTrackerView({
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-indigo-50/80 to-slate-50 p-4 rounded-2xl border border-indigo-100 w-full md:w-auto shrink-0 flex items-center justify-around gap-6">
+          {/* 財政ハイライトカード */}
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 bg-gradient-to-br from-indigo-50/80 to-slate-50 p-4 rounded-2xl border border-indigo-100 w-full md:w-auto shrink-0">
             <div className="text-center">
-              <span className="text-[10px] font-black text-slate-400 block uppercase">追跡看板公約</span>
-              <span className="text-2xl font-black text-slate-900 font-mono">{stats.total_pledges || 14}</span>
-              <span className="text-[10px] text-slate-500 ml-0.5">項目</span>
+              <span className="text-[10px] font-black text-indigo-700 block uppercase">公約投入予算総額</span>
+              <span className="text-lg sm:text-2xl font-black text-slate-900 font-mono">{stats.total_allocated_budget_jpy || '104億円'}</span>
+              <span className="text-[10px] text-slate-400 block mt-0.5">主要事業説明書定量</span>
             </div>
-            <div className="w-px h-8 bg-slate-200" />
-            <div className="text-center">
-              <span className="text-[10px] font-black text-indigo-500 block uppercase">条例成立・可決</span>
-              <span className="text-2xl font-black text-indigo-600 font-mono">{stats.bill_passed_count || 0}</span>
-              <span className="text-[10px] text-indigo-500 ml-0.5">件</span>
+            <div className="text-center border-x border-indigo-100/80 px-2 sm:px-4">
+              <span className="text-[10px] font-black text-emerald-700 block uppercase">宿泊税収（年見込）</span>
+              <span className="text-lg sm:text-2xl font-black text-emerald-600 font-mono">{stats.accommodation_tax_revenue_jpy || '132億円'}</span>
+              <span className="text-[10px] text-emerald-600 block mt-0.5">財源エンジン化</span>
             </div>
-            <div className="w-px h-8 bg-slate-200" />
             <div className="text-center">
-              <span className="text-[10px] font-black text-emerald-600 block uppercase">政策具体化率</span>
-              <span className="text-2xl font-black text-emerald-600 font-mono">{stats.execution_rate_percentage || 0}%</span>
+              <span className="text-[10px] font-black text-slate-500 block uppercase">過去負債返済</span>
+              <span className="text-lg sm:text-2xl font-black text-slate-700 font-mono">{stats.debt_repayment_jpy || '年35億円'}</span>
+              <span className="text-[10px] text-slate-400 block mt-0.5">公債基金償還堅持</span>
             </div>
           </div>
         </div>
 
-        {/* 政策ライフサイクル検証の原則説明 */}
+        {/* 政策ライフサイクルの検証原則 */}
         <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 text-xs text-slate-600 leading-relaxed flex items-start gap-3">
           <ShieldCheck className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
           <div>
-            <strong className="text-slate-800">政策ライフサイクルの検証原則:</strong>
+            <strong className="text-slate-800">政策ライフサイクル×予算定量検証の原則:</strong>
             <p className="text-[11px] text-slate-500 mt-0.5">
-              首長（市長）は議決権を持たない代わりに予算編成権と議案提出権を独占しています。本トラッカーでは主観的評価を行わず、「公約原本の言及 ➔ 施政方針での表明 ➔ 予算書への計上 ➔ 条例改正案の市会可決」という客観的な公文書の足跡のみを追跡します。
+              市長は議案提出権と予算編成権を独占しています。本トラッカーは、単なるテキスト要約にとどまらず「①公約表明 ➔ ②施政方針演説 ➔ ③予算措置（計上額・財源内訳） ➔ ④条例提出と可決」という一次公文書の足跡を定量的に追跡します。
             </p>
           </div>
         </div>
@@ -162,7 +161,7 @@ export default function MayorTrackerView({
       <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-center gap-1.5 flex-wrap">
           <span className="text-xs font-bold text-slate-400 mr-1 flex items-center gap-1">
-            <Filter className="w-3.5 h-3.5" />進捗度:
+            <Filter className="w-3.5 h-3.5" />進捗フェーズ:
           </span>
           {[
             { level: 0, label: 'すべて' },
@@ -199,20 +198,20 @@ export default function MayorTrackerView({
         </div>
       </div>
 
-      {/* 14項目 看板公約カード一覧 */}
+      {/* 看板公約カード一覧（14項目） */}
       <div className="space-y-8">
         {filteredPledges.map((pledge) => {
-          const lc = pledge.lifecycle || {};
-          const speeches = lc.policy_speeches || [];
-          const budgets = lc.budgets || [];
-          const bills = lc.bills || [];
-          const milestones = lc.milestones || [];
+          const budgets = pledge.budget_records || [];
+          const bill = pledge.legislative_bill;
+          const speech = pledge.policy_address;
+          const milestone = pledge.milestone;
 
           return (
             <article
               key={pledge.id}
               className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden"
             >
+              {/* カードヘッダー */}
               <div className="bg-slate-50/80 px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 flex-wrap">
                   <span className="px-2.5 py-0.5 rounded-md text-[10px] font-black bg-indigo-50 text-indigo-700 border border-indigo-200">
@@ -235,6 +234,7 @@ export default function MayorTrackerView({
                 </div>
               </div>
 
+              {/* 5段階 政策ライフサイクル・プログレスバー */}
               <div className="px-6 py-4 bg-slate-50/40 border-b border-slate-100">
                 <div className="grid grid-cols-5 gap-1 sm:gap-2">
                   {STAGES.map((st) => {
@@ -257,14 +257,15 @@ export default function MayorTrackerView({
                 </div>
               </div>
 
+              {/* 2カラム対比グリッド（左: 選挙公約原本 ⇄ 右: 執行・予算定量・議決） */}
               <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
-                {/* 左側: 選挙公約 原本引用 */}
+                {/* 左側: 選挙公報原本引用 (4列) */}
                 <div className="lg:col-span-4 p-6 bg-indigo-50/15 space-y-4 flex flex-col justify-between">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-black text-indigo-950 flex items-center gap-1.5 uppercase tracking-wider">
                         <BookmarkCheck className="w-4 h-4 text-indigo-600" />
-                        選挙公約 原本引用
+                        選挙公報 原本引用
                       </span>
                       <span className="text-[10px] font-bold text-slate-400">公式選挙公報</span>
                     </div>
@@ -286,110 +287,105 @@ export default function MayorTrackerView({
                         className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 hover:underline"
                       >
                         <Landmark className="w-3.5 h-3.5" />
-                        <span>選管公式公報原本（PDF）で確認</span>
+                        <span>京都市選管 公式公報原本（PDF）で確認</span>
                         <ExternalLink className="w-3 h-3 opacity-60 ml-0.5" />
                       </a>
                     </div>
                   )}
                 </div>
 
-                {/* 右側: 執行パイプライン */}
+                {/* 右側: 市政での具体的執行アクション（定量データ連動） (8列) */}
                 <div className="lg:col-span-8 p-6 space-y-6 bg-white">
-                  {speeches.length > 0 && (
+                  {/* ① 施政方針・所信表明演説 */}
+                  {speech && (
                     <div className="space-y-2">
                       <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
                         <FileText className="w-3.5 h-3.5 text-indigo-500" />
                         市会本会議での施政方針・所信表明
                       </span>
-                      <div className="space-y-2">
-                        {speeches.map((sp, idx) => (
-                          <div key={idx} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
-                            <div className="flex items-center justify-between text-[10px] font-bold text-slate-500">
-                              <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700">
-                                {sp.date} / {sp.session_name}
-                              </span>
-                              {sp.official_url && (
-                                <a
-                                  href={sp.official_url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-indigo-600 hover:underline inline-flex items-center gap-0.5 font-bold"
-                                >
-                                  会議録原本 <ExternalLink className="w-2.5 h-2.5 opacity-60" />
-                                </a>
-                              )}
-                            </div>
-                            <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                              {sp.summary}
-                            </p>
-                          </div>
-                        ))}
+                      <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+                        <div className="flex items-center justify-between text-[10px] font-bold text-slate-500">
+                          <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700">
+                            {speech.date} / {speech.session}
+                          </span>
+                          {speech.speech_url && (
+                            <a
+                              href={speech.speech_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-indigo-600 hover:underline inline-flex items-center gap-0.5 font-bold"
+                            >
+                              会議録原本 <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                            </a>
+                          )}
+                        </div>
+                        <p className="text-xs text-slate-700 leading-relaxed font-medium">
+                          {speech.summary}
+                        </p>
                       </div>
                     </div>
                   )}
 
+                  {/* ② 予算定量データカード（最重要） */}
                   {budgets.length > 0 && (
                     <div className="space-y-2">
-                      <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
-                        <PieChart className="w-3.5 h-3.5 text-emerald-500" />
-                        計上された予算措置
-                      </span>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {budgets.map((bg, idx) => (
-                          <div key={idx} className="p-3 rounded-xl bg-emerald-50/30 border border-emerald-100 space-y-1">
-                            <div className="flex justify-between items-center text-[10px] font-bold">
-                              <span className="text-emerald-800 font-mono bg-white px-1.5 py-0.2 rounded border border-emerald-200">
-                                {bg.fiscal_year}
-                              </span>
-                              <span className="text-emerald-700 font-black font-mono text-xs">{bg.amount_text}</span>
-                            </div>
-                            <div className="text-xs font-bold text-slate-800 truncate" title={bg.item_name}>
-                              {bg.item_name}
-                            </div>
-                            {bg.note && <p className="text-[10px] text-slate-500 leading-normal">{bg.note}</p>}
-                          </div>
-                        ))}
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
+                          <Coins className="w-3.5 h-3.5 text-emerald-600" />
+                          予算措置・計上実績（定量エビデンス）
+                        </span>
+                        <span className="text-[10px] text-slate-400 font-bold">
+                          計 {budgets.length} 事業
+                        </span>
                       </div>
-                    </div>
-                  )}
 
-                  {bills.length > 0 && (
-                    <div className="space-y-2">
-                      <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
-                        <Scale className="w-3.5 h-3.5 text-indigo-600" />
-                        提出条例案と市会審議結果（二元代表制）
-                      </span>
-                      <div className="space-y-2">
-                        {bills.map((bill, idx) => (
-                          <div key={idx} className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                            <div className="flex items-center justify-between flex-wrap gap-2">
-                              <span className="text-[10px] font-mono text-slate-500 font-black">
-                                {bill.session_name} ({bill.bill_number})
-                              </span>
-                              <span className="px-2 py-0.5 rounded text-[11px] font-black bg-emerald-100 text-emerald-800 border border-emerald-200">
-                                審議結果: {bill.status} ({bill.passed_date})
-                              </span>
+                      <div className="space-y-3">
+                        {budgets.map((b, bIdx) => (
+                          <div
+                            key={bIdx}
+                            className="p-4 rounded-2xl bg-emerald-50/20 border border-emerald-100 space-y-2.5"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-mono font-bold bg-white text-emerald-800 px-2 py-0.5 rounded border border-emerald-200 shrink-0">
+                                  {b.fiscal_year}
+                                </span>
+                                <span className="text-xs font-black text-slate-800 leading-snug">
+                                  {b.project_name}
+                                </span>
+                              </div>
+                              <div className="text-right shrink-0">
+                                <span className="text-base sm:text-lg font-black text-emerald-700 font-mono">
+                                  {b.amount_display}
+                                </span>
+                              </div>
                             </div>
-                            <h3 className="text-xs font-bold text-slate-900 leading-snug">
-                              {bill.bill_title}
-                            </h3>
 
-                            {bill.party_votes && (
-                              <div className="pt-2 border-t border-slate-200/60 flex items-center gap-2 flex-wrap text-xs">
-                                <span className="text-[10px] font-bold text-slate-400">会派賛否:</span>
-                                {Object.entries(bill.party_votes).map(([party, vote]) => (
-                                  <span
-                                    key={party}
-                                    className={`px-2 py-0.5 rounded text-[10px] font-black inline-flex items-center gap-1 ${
-                                      vote === '賛成'
-                                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                                        : 'bg-rose-50 text-rose-700 border border-rose-200'
-                                    }`}
-                                  >
-                                    <span>{party}:</span>
-                                    <span>{vote}</span>
-                                  </span>
-                                ))}
+                            {/* 財源内訳バッジ */}
+                            <div className="flex items-center gap-1.5 flex-wrap pt-1 border-t border-emerald-100/60">
+                              <span className="text-[10px] font-bold text-slate-400">財源内訳:</span>
+                              {b.funding_sources?.map((fs, fsIdx) => (
+                                <span
+                                  key={fsIdx}
+                                  className={`text-[10px] font-bold px-2 py-0.5 rounded border ${fs.color || 'bg-slate-50 text-slate-600'}`}
+                                >
+                                  {fs.label}: {fs.amount}
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* 主要事業説明書 原本リンク */}
+                            {b.doc_url && (
+                              <div className="pt-1 flex justify-between items-center text-[10px]">
+                                <span className="text-slate-400 font-medium">出典: {b.doc_source}</span>
+                                <a
+                                  href={b.doc_url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-emerald-700 hover:text-emerald-900 font-bold inline-flex items-center gap-0.5 hover:underline"
+                                >
+                                  主要事業説明書 原本PDF <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                                </a>
                               </div>
                             )}
                           </div>
@@ -398,24 +394,72 @@ export default function MayorTrackerView({
                     </div>
                   )}
 
-                  {milestones.length > 0 && (
+                  {/* ③ 提出条例案と会派別賛否態度 */}
+                  {bill && (
                     <div className="space-y-2">
                       <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-indigo-500" />
-                        執行マイルストーン
+                        <Scale className="w-3.5 h-3.5 text-indigo-600" />
+                        提出条例案と市会審議結果（二元代表制）
                       </span>
-                      <div className="space-y-1.5 pl-2 border-l-2 border-indigo-100">
-                        {milestones.map((ms, idx) => (
-                          <div key={idx} className="flex items-start gap-2 text-xs">
-                            <span className={`w-2 h-2 rounded-full mt-1 shrink-0 ${
-                              ms.is_completed ? 'bg-indigo-600' : 'bg-slate-300'
-                            }`} />
-                            <span className="font-mono text-slate-400 text-[11px] shrink-0">{ms.date}</span>
-                            <span className={`font-medium ${ms.is_completed ? 'text-slate-800' : 'text-slate-400'}`}>
-                              {ms.title}
-                            </span>
+                      <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                        <div className="flex items-center justify-between flex-wrap gap-2">
+                          <span className="text-[10px] font-mono text-slate-500 font-black">
+                            {bill.session_name} ({bill.bill_number})
+                          </span>
+                          <span className="px-2 py-0.5 rounded text-[11px] font-black bg-emerald-100 text-emerald-800 border border-emerald-200">
+                            結果: {bill.result}
+                          </span>
+                        </div>
+                        <h3 className="text-xs font-bold text-slate-900 leading-snug">
+                          {bill.bill_title}
+                        </h3>
+
+                        {/* 会派別賛否バッジ */}
+                        {bill.party_votes && (
+                          <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between flex-wrap gap-2">
+                            <div className="flex items-center gap-1.5 flex-wrap text-xs">
+                              <span className="text-[10px] font-bold text-slate-400">会派賛否:</span>
+                              {Object.entries(bill.party_votes).map(([party, vote]) => (
+                                <span
+                                  key={party}
+                                  className={`px-2 py-0.5 rounded text-[10px] font-black inline-flex items-center gap-1 ${
+                                    vote.includes('賛成')
+                                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                      : 'bg-rose-50 text-rose-700 border border-rose-200'
+                                  }`}
+                                >
+                                  <span>{party}:</span>
+                                  <span>{vote}</span>
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* モーダル連携ボタン */}
+                            {onSelectBill && (
+                              <button
+                                onClick={() => onSelectBill(bill)}
+                                className="px-2.5 py-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 bg-white hover:bg-indigo-50 rounded-lg border border-indigo-200 transition-all flex items-center gap-1 shadow-2xs cursor-pointer"
+                              >
+                                <span>全議員の採決ログ詳細</span>
+                                <ArrowRight className="w-3 h-3" />
+                              </button>
+                            )}
                           </div>
-                        ))}
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* ④ 執行マイルストーン */}
+                  {milestone && (
+                    <div className="space-y-1.5 pl-3 border-l-2 border-indigo-200">
+                      <span className="text-[10px] font-black text-slate-400 block uppercase">
+                        直近の達成マイルストーン
+                      </span>
+                      <div className="flex items-center gap-2 text-xs">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span className="font-mono text-slate-500 font-bold">{milestone.date}</span>
+                        <span className="font-bold text-slate-800">{milestone.title}</span>
                       </div>
                     </div>
                   )}

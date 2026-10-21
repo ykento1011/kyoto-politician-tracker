@@ -138,7 +138,7 @@ export default function App() {
       .catch(err => console.error('Failed to load mayor tracker:', err));
   }, []);
 
-  // 💡 ブラウザ「戻る・進む」同期リスナー
+  // 💡 URLとブラウザ戻るボタン（popstate）の同期
   useEffect(() => {
     const onLocationChange = () => {
       const nextRoute = parseCurrentRoute();
@@ -335,7 +335,7 @@ export default function App() {
 
   // --- 排他的画面ルーティング ---
 
-  // 💡 市長政策トラッカー
+  // 💡 市長政策ライフサイクル×予算定量トラッカー
   if (currentRoute.type === 'mayor') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
