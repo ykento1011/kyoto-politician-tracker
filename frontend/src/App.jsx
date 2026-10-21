@@ -134,17 +134,17 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // 💡 ブラウザの「戻る・進む」および URL変更の検知リスナー
+  // 💡【重要】ブラウザ戻るボタン（popstate）発火時の完全同期処理
   useEffect(() => {
     const onLocationChange = () => {
       const nextRoute = parseCurrentRoute();
       setCurrentRoute(nextRoute);
 
-      // 💡 議員詳細から戻った時は、内部状態の selectedSpeaker も確実にクリアする
+      // 💡 もしURLから ?speaker が消えていたら、強制的に selectedSpeaker を null にする
       if (nextRoute.type === 'speaker' && nextRoute.speakerName) {
         internalSpeakerClick(nextRoute.speakerName);
       } else {
-        internalSpeakerClick(null);
+        internalSpeakerClick(null); // ← これが抜けていたため一覧に戻れませんでした
       }
 
       if (nextRoute.type === 'search') {
@@ -165,12 +165,6 @@ export default function App() {
     };
   }, [setSearchQuery, setSubmittedQuery, internalSpeakerClick]);
 
-  useEffect(() => {
-    if (currentRoute.type === 'speaker' && currentRoute.speakerName) {
-      internalSpeakerClick(currentRoute.speakerName);
-    }
-  }, [currentRoute, internalSpeakerClick]);
-
   const navigate = useCallback((url, replace = false) => {
     if (replace) {
       window.history.replaceState({}, '', url);
@@ -190,7 +184,7 @@ export default function App() {
   const handleGoHome = useCallback(() => {
     setSearchQuery('');
     setSubmittedQuery('');
-    internalSpeakerClick(null);
+    internalSpeakerClick(null); // UIボタンで戻る時も状態をクリア
     navigate('/');
   }, [navigate, setSearchQuery, setSubmittedQuery, internalSpeakerClick]);
 
@@ -263,7 +257,7 @@ export default function App() {
     return currentRoute.names.map(name => resolveSpeaker(name)).filter(Boolean);
   }, [currentRoute, compareList, resolveSpeaker]);
 
-  // 💡 ルートが speaker でない時は確実に null を返し、詳細画面が残存するバグを解消
+  // 💡【重要】URLが speaker 以外の時は強制的に activeSpeaker を null にする
   const activeSpeaker = useMemo(() => {
     if (currentRoute.type !== 'speaker') return null;
     return resolveSpeaker(currentRoute.speakerName) || selectedSpeaker;
@@ -324,7 +318,6 @@ export default function App() {
 
   // --- 排他的画面ルーティング ---
 
-  // 1. できること（ガイド）
   if (currentRoute.type === 'guide') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -337,7 +330,6 @@ export default function App() {
     );
   }
 
-  // 2. 当サイトについて
   if (currentRoute.type === 'about') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -350,7 +342,6 @@ export default function App() {
     );
   }
 
-  // 3. AI採点基準（Methodology）
   if (currentRoute.type === 'methodology') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -363,7 +354,6 @@ export default function App() {
     );
   }
 
-  // 4. 重要政策トピック詳細
   if (currentRoute.type === 'topic') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -376,7 +366,6 @@ export default function App() {
     );
   }
 
-  // 5. 政策分野カテゴリー詳細
   if (currentRoute.type === 'category') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -404,7 +393,6 @@ export default function App() {
     );
   }
 
-  // 6. 激論議案一覧
   if (currentRoute.type === 'contested') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -417,7 +405,6 @@ export default function App() {
     );
   }
 
-  // 7. 議員比較ダッシュボード
   if (currentRoute.type === 'compare') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -444,7 +431,7 @@ export default function App() {
     );
   }
 
-  // 8. 議員個別詳細画面
+  // 💡 ここで activeSpeaker が null になるため、ブラウザ戻るボタンで確実に一覧画面へ復帰します
   if (currentRoute.type === 'speaker' && activeSpeaker) {
     const threadsForSpeaker = (speakerFilteredThreads && speakerFilteredThreads.length > 0)
       ? speakerFilteredThreads
@@ -480,7 +467,6 @@ export default function App() {
     );
   }
 
-  // 9. 検索結果一覧画面
   if (currentRoute.type === 'search') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -511,7 +497,6 @@ export default function App() {
     );
   }
 
-  // 10. メインポータル（トップ画面）
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
       {renderNavbar(false)}
