@@ -1,0 +1,4411 @@
+{
+  "片桐直哉": {
+    "district": "北区",
+    "party": "立憲民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_citizen_participation",
+        "headline": "市民参加と協働で財政改革",
+        "category": "財政・行革",
+        "target_issue": "行財政改革・市民参加",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "徹底した市民参加と協働による改革で、市民と行政の信頼関係を取り戻す",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和6年9月市会",
+          "bill_number": "報12",
+          "bill_title": "令和5年度京都市市公債特別会計歳入歳出決算",
+          "my_vote": "賛成",
+          "result": "認定",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_population",
+        "headline": "人口減少対策と子育て支援",
+        "category": "子育て・教育",
+        "target_issue": "人口減少対策・子育て支援",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "数が増え、子育てを楽しめる京都をつくる",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_mayoral_election_candidate",
+        "headline": "次期市長選で独自候補擁立",
+        "category": "財政・行革",
+        "target_issue": "市長選挙候補者擁立",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "次期市長選で独自の候補を擁立し、市民に選択肢を示す",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "菅谷浩平": {
+    "district": "北区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_politician_salary",
+        "headline": "議員報酬・定数削減、市長退職手当廃止",
+        "category": "財政・行革",
+        "target_issue": "議員報酬・定数・市長退職手当",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "議員報酬・議員定数の削減や市長の退職手当の廃止など、政治家らによる身を切る改革をまずはおこなう。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年11月市会",
+          "bill_number": "議201",
+          "bill_title": "京都市会議員の議員報酬、費用弁償及び期末手当の支給に関する条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_fiscal_reform_city_hall_waste",
+        "headline": "市役所内部のムダを徹底改革",
+        "category": "財政・行革",
+        "target_issue": "市役所内部の無駄改革",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "市民に負担を求める前に、市役所内部のムダを徹底的に改革する。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_fiscal_reform_sustainable_finance",
+        "headline": "将来にツケを残さない財政運営",
+        "category": "財政・行革",
+        "target_issue": "持続可能な財政運営",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "借金ではなく改革により財源を生み出し、将来世代にツケを残さない財政運営と住民サービス向上のための予算を確保する。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "山本恵一": {
+    "district": "北区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_plastic_recycling",
+        "headline": "プラスチック分別回収で資源循環推進",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "プラスチック分別回収・資源循環",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "令和5年4月から開始するプラスチック製品の分別回収により、更なる資源循環を推進。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_environment",
+        "headline": "子育て環境整備で安心社会へ",
+        "category": "子育て・教育",
+        "target_issue": "子育て環境整備",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "今よりさらに安心して子育てができる京都市への実現に向けて環境整備を進めていきます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_biodiversity_center",
+        "headline": "生物多様性センター活用し保全推進",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "生物多様性保全センター",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "環府市協働で設置する生物多様性センターを活用した大都市における生物多様性保全の推進。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "兵藤甚一": {
+    "district": "北区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_school_lunch_junior_high",
+        "headline": "全員制中学校給食を推進",
+        "category": "子育て・教育",
+        "target_issue": "全員制中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "食育を考えた全員制中学校給食を推進",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_wage_scholarship_support",
+        "headline": "賃金アップと奨学金返済支援拡充",
+        "category": "産業・観光・地域経済",
+        "target_issue": "賃金アップ・奨学金返済支援",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "賃金アップの取組推進奨学金返済支援制度の拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_startup_ecosystem",
+        "headline": "スタートアップエコシステム推進",
+        "category": "産業・観光・地域経済",
+        "target_issue": "スタートアップ支援・新規起業",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "スタートアップエコシステム(新規起業推進)",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "谷口みゆき": {
+    "district": "北区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_education_environment_children",
+        "headline": "子どもの教育・環境整備に尽力",
+        "category": "子育て・教育",
+        "target_issue": "教育・子育て環境整備",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "次代を担う子どもたちの明るい未来のため教育や環境整備に尽くします。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_disaster_prevention_infrastructure",
+        "headline": "防災・減災・インフラ整備推進",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災・インフラ整備",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "防災・減災・インフラ整備対策の充実で安心安全に暮らせるまちづくりを推進します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_healthcare_welfare_lifelong_learning",
+        "headline": "医療・福祉・生涯学習の充実",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療・福祉・生涯学習",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "誰もが健康で長生きを享受できる医療・福祉と生涯学習の充実を図ります。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "玉本なるみ": {
+    "district": "北区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_consumption_tax_invoice",
+        "headline": "消費税5%減税、インボイス反対",
+        "category": "財政・行革",
+        "target_issue": "消費税減税・インボイス制度",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "消費税5%への減税を! インボイスは反対です。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro_pass",
+        "headline": "敬老乗車証の負担・年齢を元に",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "敬老乗車証の負担と対象年齢は元に戻します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_medical_expenses",
+        "headline": "子どもの医療費助成を拡充",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費助成",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子どもの医療費助成拡充を実現!さらに拡充します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "井坂博文": {
+    "district": "北区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_child_medical_expenses_18",
+        "headline": "子どもの医療費18歳まで無料に",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費助成",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子どもの医療費助成(通院月200円負担が小学校卒業まで拡充。さらに)18歳まで無料に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "headline": "中学校給食実現、小中学校給食費無償化",
+        "category": "子育て・教育",
+        "target_issue": "全員制中学校給食・給食費無償化",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "小学校のような全員制の中学校給食の実現、小中学校の給食費無償化を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_scholarship_subway_discount",
+        "headline": "大学奨学金制度、地下鉄定期値下げ",
+        "category": "子育て・教育",
+        "target_issue": "大学奨学金・地下鉄通学定期",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "返さなくてもいい大学奨学金制度の実施と大学生の地下鉄通学定期の値下げを",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "中高しゅうじ": {
+    "district": "上京区",
+    "party": "日本維新の会 公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_salary_reduction",
+        "headline": "議員報酬・定数削減と行財政改革",
+        "category": "財政・行革",
+        "target_issue": "議員報酬及び議員定数の削減、行財政改革",
+        "stance": "断行、徹底的になくす",
+        "election_promise": {
+          "quote": "議員報酬及び議員定数の削減、行財政改革を断行、無駄遣いを徹底的になくしまず",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "headline": "小中学校給食の完全無償化",
+        "category": "子育て・教育",
+        "target_issue": "小中学校給食",
+        "stance": "完全無償化",
+        "election_promise": {
+          "quote": "小中学校給食を完全無償化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_highschool_free",
+        "headline": "保育・高校無償化を京都府全域で",
+        "category": "子育て・教育",
+        "target_issue": "保育の無償化や高校無償化",
+        "stance": "目指す",
+        "election_promise": {
+          "quote": "京都府全域で保育の無償化や高校無償化を目指します",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "中村三之助": {
+    "district": "上京区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_welfare_enhancement",
+        "headline": "子ども・高齢者も安心の福祉充実",
+        "category": "福祉・医療・健康",
+        "target_issue": "福祉",
+        "stance": "安心して暮らせる福祉の充実",
+        "election_promise": {
+          "quote": "子どももお年寄りも安心して暮らせる福祉の充実",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_traditional_industry_promotion",
+        "headline": "和装・伝統産業・商業の振興",
+        "category": "産業・観光・地域経済",
+        "target_issue": "和装をはじめ伝統産業、商業振興",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "和装をはじめ伝統産業、商業振興",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "headline": "更なる防災・減災対策の推進",
+        "category": "防災・減災・治安",
+        "target_issue": "防災、減災対策",
+        "stance": "更なる推進",
+        "election_promise": {
+          "quote": "更なる防災、減災対策",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "森かれん": {
+    "district": "上京区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_dementia_care",
+        "headline": "認知症対策で日本一の京都へ",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症対策",
+        "stance": "日本一の京都を目指す",
+        "election_promise": {
+          "quote": "認知症対策日本一の京都",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_fiscal_reform_councilor_reduction",
+        "headline": "議員定数削減と海外視察廃止",
+        "category": "財政・行革",
+        "target_issue": "議員定数、海外視察",
+        "stance": "削減、廃止",
+        "election_promise": {
+          "quote": "議員定数7名減、海外視察は廃止",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_medical_free",
+        "headline": "子ども医療費の完全無償化",
+        "category": "子育て・教育",
+        "target_issue": "子ども医療費",
+        "stance": "完全無償化",
+        "election_promise": {
+          "quote": "子ども医療費完全無償化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "梅原ちづく": {
+    "district": "上京区",
+    "party": "新人無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_welfare_review",
+        "headline": "生活保護制度の条件見直し",
+        "category": "福祉・医療・健康",
+        "target_issue": "生活保護制度",
+        "stance": "条件の見直し",
+        "election_promise": {
+          "quote": "社会保障一生活保護制度の条件の見直し 公共職業安定所 (ハローワーク) や中途採用のバランス改革",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_social_security_reform_sme",
+        "headline": "保険料徴収・免除制度変更(中小企業)",
+        "category": "財政・行革",
+        "target_issue": "年金厚生福利・保険料徴収と免除",
+        "stance": "制度変更",
+        "election_promise": {
+          "quote": "年金厚生福利一保険料以上の売上からの保険料徴収と免除の制度変更(中小企業)",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_education_cost_free",
+        "headline": "大学費用・給食費の全子供免除",
+        "category": "子育て・教育",
+        "target_issue": "大学費用、小・中学校給食費",
+        "stance": "免除",
+        "election_promise": {
+          "quote": "教育一親の支払えない女の子の大学費用免除・小・中学校給食費全子供免除",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "くらた共子": {
+    "district": "上京区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_insurance_fee_reduction",
+        "headline": "国保・介護保険料の引き下げ",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保・介護保険料",
+        "stance": "引き下げ",
+        "election_promise": {
+          "quote": "高すぎる国保・介護保険料の引き下げ",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_medical_free_18",
+        "headline": "子ども医療費18歳まで無料化",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "18歳までの無料化",
+        "election_promise": {
+          "quote": "子どもの医療費の18歳までの無料化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_junior_high_free",
+        "headline": "中学校給食の早期実現と無償化",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "早期実現、無償化",
+        "election_promise": {
+          "quote": "小学校のような温かくて栄養のある中学校給食の早期実現、給食費の無償化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "寺田かずひろ": {
+    "district": "上京区",
+    "party": "市会自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_community_revitalization_ordinance",
+        "headline": "自治会等活性化条例の制定",
+        "category": "防災・減災・治安",
+        "target_issue": "自治会等活性化",
+        "stance": "推進 (条例制定)",
+        "election_promise": {
+          "quote": "自治会等活性化条例",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_health_promotion_points",
+        "headline": "歯と体の健康推進、ポイント拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "歯と体の健康、いきいきポイント",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "歯と体の健康をいきいきポイントの拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_fiscal_transparency",
+        "headline": "バス係数・補助金・ゴミ袋使途公開",
+        "category": "財政・行革",
+        "target_issue": "バス営業係数、補助金支出、ゴミ袋有料化の使途",
+        "stance": "情報公開",
+        "election_promise": {
+          "quote": "バス営業係数等の表示補助金支出一覧の公開ゴミ袋有料化の使途公開",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "さくらい泰広": {
+    "district": "左京区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform",
+        "headline": "行財政改革を継続推進",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "行財政改革は道半ば、引き続き取り組ませて下さい。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "全員制中学校給食の検討",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "国の異次元の少子化対策を受けた、全員制中学給食の検討。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "headline": "左京区民の命を守る防災対策",
+        "category": "防災・減災・治安",
+        "target_issue": "防災対策",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "左京区民の皆様、そして子どもの命を守る防災対策を最優先に。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "とよだえみ": {
+    "district": "左京区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf",
+    "tracked_items": []
+  },
+  "ひぐち英明": {
+    "district": "左京区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_shinkansen",
+        "headline": "北陸新幹線延伸などムダな大型事業中止",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "北陸新幹線延伸",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "北陸新幹線延伸(21兆円以上)・堀川地下バイパストンネル(100億円)をやめ、くらしの予算を充実する",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "市会議25",
+          "bill_title": "北陸新幹線延伸を白紙撤回するよう求める意見書の提出について",
+          "my_vote": "賛成",
+          "result": "否決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro",
+        "headline": "敬老乗車証を元の制度に戻す",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "敬老乗車証を元の制度に戻す",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "全員制中学校給食の実施",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "小学校のような全員制の中学校給食の実施",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "おもて雅敏": {
+    "district": "左京区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf",
+    "tracked_items": []
+  },
+  "加藤あい": {
+    "district": "左京区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_ishin",
+        "headline": "身を切る改革と行財政改革",
+        "category": "財政・行革",
+        "target_issue": "行財政改革・身を切る改革",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "身を切る改革・行財政改革",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "しまうち研": {
+    "district": "左京区",
+    "party": "立憲民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf",
+    "tracked_items": []
+  },
+  "井崎敦子": {
+    "district": "左京区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_arena_shinkansen",
+        "headline": "府立大学アリーナ・新幹線よりくらし優先",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "府立大学アリーナ建設, 北陸新幹線延伸",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "府立大学への1万人アリーナ・北陸新幹線よりくらしを優先",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "市会議25",
+          "bill_title": "北陸新幹線延伸を白紙撤回するよう求める意見書の提出について",
+          "my_vote": "賛成",
+          "result": "否決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "headline": "学校給食の無償化",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "学校給食の無償化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro_pass_restore",
+        "headline": "敬老乗車証は元に戻す",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "敬老乗車証は元に戻す",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "岡野たかしげ": {
+    "district": "左京区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf",
+    "tracked_items": []
+  },
+  "おんづか功": {
+    "district": "左京区",
+    "party": "国民民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_school_lunch_cost_reduction_and_start",
+        "headline": "小学校給食費値下げと中学校給食開始",
+        "category": "子育て・教育",
+        "target_issue": "小学校給食費, 中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "「小学校給食費」の値下げと「中学校給食」の開始",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro_pass_age_reduction",
+        "headline": "敬老乗車証の対象年齢引き下げ",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "「敬老乗車証」の二段階方式採用による対象年齢引き下げ",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_housing_policy_childcare",
+        "headline": "子育て世代向け住宅政策推進",
+        "category": "子育て・教育",
+        "target_issue": "住宅政策 (市街化調整区域活用)",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "子育て世代が住み続けられる住宅政策(市街化調整区域の活用)",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "河村りょう": {
+    "district": "左京区",
+    "party": "KYOTO PARTY",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_personnel",
+        "headline": "人員配置見直しと事業整理で財政再建",
+        "category": "財政・行革",
+        "target_issue": "行財政改革 (人員配置・事業整理)",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "人員配置の見直しや事業の整理を進め、「市民政治にツケを回さない健全財政に取り組みます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_admin_reform_digital",
+        "headline": "窓口・書類の電子化で便利な役所へ",
+        "category": "財政・行革",
+        "target_issue": "行政改革 (窓口・書類の電子化)",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "窓口や書類の統合・電子化に取り組み、杓子定規な役所から便利な役所へと改造します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_councilor_salary_reduction",
+        "headline": "議員報酬・定数のさらなる削減",
+        "category": "財政・行革",
+        "target_issue": "議員定数・報酬",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "議員報酬、定数のさらなる削減",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "宇佐美けんいち": {
+    "district": "左京区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_personnel_cost",
+        "headline": "人件費抑制と人事制度改革で財政健全化",
+        "category": "財政・行革",
+        "target_issue": "行財政改革 (人件費抑制・人事制度改革)",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "将来世代に負担を先送りしない健全な財政運営。市職員総人件費を抑制。職員のやる気に報いる人事制度改革。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_medical_expansion",
+        "headline": "子ども医療費支給制度の拡充",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "通院医療費の自己負担上限1医療機関ごと「月200円」が小6まで拡充へ。さらに高3までを目指す。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_junior_high",
+        "headline": "中学校における全員制給食の導入",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "ついに実施に向けた調査が予算化へ。既存の事業者、小学校の調理室を活用し、また新たな民間委託も視野に早期導入。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "熊澤昭子": {
+    "district": "左京区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_cost_of_living_energy",
+        "headline": "電気・ガス・燃料費を約4.5万円軽減",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高騰対策 (電気・ガス・燃料費)",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "電気・ガス・燃料費を約45,000円軽減(本年1~9月の総額)※標準的な世帯で",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_medical_limit",
+        "headline": "子どもの通院医療費上限200円/月に",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子どもの通院医療上限200円/月に!(本年秋より小6まで拡充)",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_quality",
+        "headline": "幼児教育・保育の質の向上",
+        "category": "子育て・教育",
+        "target_issue": "幼児教育・保育の質",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "保育士16年の経験を活かし、幼児教育・保育の質の向上を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和8年5月市会",
+          "bill_number": "議66",
+          "bill_title": "京都市保育所条例の一部を改正する等の条例の制定について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R08/gian5.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "津田大三": {
+    "district": "中京区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_subway_fare",
+        "headline": "地下鉄運賃値上げの回避を実現",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地下鉄運賃",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "地下鉄運賃値上げの回避",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_road_expansion",
+        "headline": "三条通歩道拡幅を推進",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "三条通歩道拡幅",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "三条通(七本松~六軒町)の歩道拡幅の推進",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_education",
+        "headline": "保育・教育充実で若者に選ばれる街へ",
+        "category": "子育て・教育",
+        "target_issue": "保育・教育",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "保育・教育の充実で、若者に選ばれる街に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "加藤昌洋": {
+    "district": "中京区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_road_expansion_kato",
+        "headline": "三条通歩道拡幅を推進",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "三条通歩道拡幅",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "三条通(七本松~六軒町)の歩道拡幅の推進",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_ic_card",
+        "headline": "市バス・地下鉄ICカード利用促進",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "ICカード利用促進",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "市バス・地下鉄でのICカード利用促進",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_employment_creation",
+        "headline": "まちづくりと産業政策で雇用創出",
+        "category": "産業・観光・地域経済",
+        "target_issue": "雇用創出",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "まちづくりと産業立地政策で雇用の創出",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "近藤邦彦": {
+    "district": "中京区",
+    "party": "立憲民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_kyoto_culture_experience",
+        "headline": "京文化体験提供で観光客誘致",
+        "category": "産業・観光・地域経済",
+        "target_issue": "京文化体験提供",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "ホテルを増やすより、観光客が何度も来たくなる京都を目指しましょう。-京文化の体験を提供することでより多くのお金と彼らとの友情をはぐくみましょう。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_export_kyoto_culture",
+        "headline": "京都に来られない外国人へ製品輸出",
+        "category": "産業・観光・地域経済",
+        "target_issue": "京都文化製品輸出",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "京都に来られない外国人にも京都を体験できる製品を輸出しましょう。本当に彼らが欲しいモノを作るマーケティングを支援します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "平井良人": {
+    "district": "中京区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_rent_subsidy",
+        "headline": "家賃・住宅購入補助制度の創設",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "家賃・住宅購入補助",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "◆家賃補助・住宅購入補助制度の創設を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_minimum_wage",
+        "headline": "最低賃金を1500円に引き上げ",
+        "category": "産業・観光・地域経済",
+        "target_issue": "最低賃金",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "中小企業支援と最低賃金を1500円に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "全員制中学校給食の早期実現",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "◆全員制の温かい中学校給食の早期実現へ",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro_pass",
+        "headline": "敬老乗車証改悪の撤回",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "◆市民の宝、敬老乗車証改悪、撤回を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "青野ひとし": {
+    "district": "中京区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_startup_culture",
+        "headline": "スタートアップ支援と文化財活用で経済活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "スタートアップ支援・文化財活用",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●新たな成長戦略! 「スタートアップ (起業) 支援」・「文化財×現代アート」で地域経済を活性化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_makers_garage",
+        "headline": "ものづくりベンチャー支援拠点開設",
+        "category": "産業・観光・地域経済",
+        "target_issue": "ベンチャー支援拠点",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●ものづくりベンチャーの支援拠点・京都メーカーズガレージを開設",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_frail_care",
+        "headline": "健康寿命延伸へフレイル対策拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "フレイル対策・介護予防",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "●健康寿命を延ばすフレイル対策(介護予防)を拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "大津ゆうた": {
+    "district": "中京区",
+    "party": "地域政党京都党・日本維新の会市議団",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_policy",
+        "headline": "子育て政策を他都市並みに推進",
+        "category": "子育て・教育",
+        "target_issue": "子育て政策",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "周回遅れの子育て政策を他都市並みに!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_dementia_care",
+        "headline": "認知症予防・治療・ケアの先進都市へ",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症予防・治療・ケア",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "京都を認知症予防・治療・ケアの先進都市へ!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_councilor_salary_cut",
+        "headline": "議員報酬15%カット議論を主導し実現",
+        "category": "財政・行革",
+        "target_issue": "議員報酬",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "■議員報酬15%カットの議論を主導し、実現!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "朝倉りょう": {
+    "district": "中京区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_council_reform",
+        "headline": "市議会定数・報酬削減で財政見直し",
+        "category": "財政・行革",
+        "target_issue": "議員定数・報酬・行財政改革",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "市議会の定数、報酬の削減による行財政の見直し●議会の過分な定数、報酬の削減を足掛かりとし、京都市の財政改革を徹底します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "headline": "全員給食実施と給食無償化を推進",
+        "category": "子育て・教育",
+        "target_issue": "全員給食・給食無償化",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "全員給食実施及び給食の無償化に全力で取り組みます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_support_education",
+        "headline": "子どもの学習・生活・進学支援を徹底",
+        "category": "子育て・教育",
+        "target_issue": "子どもの学習・生活・進学支援",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●子どもの学習・生活支援、進学に係る費用の支援を徹底し、機会の平等を目指します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "小林たかひろ": {
+    "district": "東山区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_school_lunch",
+        "headline": "中学校給食の無償化と全員制",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・無償化",
+        "election_promise": {
+          "quote": "給食費無償化、東山泉での全員制中学校給食を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_medical",
+        "headline": "子どもの医療費16歳まで無料化",
+        "category": "福祉・医療・健康",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子どもの医療費は16歳まで無料に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_shinkansen",
+        "headline": "北陸新幹線京都延伸は撤回",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "北陸新幹線延伸",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "北陸新幹線京都延伸は撤回を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "市会議25",
+          "bill_title": "北陸新幹線延伸を白紙撤回するよう求める意見書の提出について",
+          "my_vote": "賛成",
+          "result": "否決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "中野洋一": {
+    "district": "東山区",
+    "party": "国民民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf",
+    "tracked_items": []
+  },
+  "平山たかお": {
+    "district": "東山区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_medical_expansion",
+        "headline": "子ども医療費の拡充を推進",
+        "category": "福祉・医療・健康",
+        "target_issue": "子どもの医療費",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "「子ども医療費の拡充」(府市協調)",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_universal",
+        "headline": "市立中学校全員給食の実現",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・実現",
+        "election_promise": {
+          "quote": "「市立中学校全員給食」",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro_bus",
+        "headline": "敬老バス回数券の実現",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "「敬老バス回数券」",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "北山ただお": {
+    "district": "山科区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_keiro",
+        "headline": "敬老乗車証の制度維持",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "市民の宝、敬老乗車証は元に戻します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "中学校給食の無償化と学校調理型への移行",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "学校調理型の中学校給食、給食費を無償にします。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare",
+        "headline": "子どもの医療費助成を18歳まで拡充",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子どもの医療費助成を18歳まで引き上げます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "まるはし光次": {
+    "district": "山科区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_education_budget",
+        "headline": "減額された教育文化予算の回復",
+        "category": "子育て・教育",
+        "target_issue": "教育文化予算",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "最も減額された教育文化予算(-60億円※)を取り戻します!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_facilities",
+        "headline": "学校設備を最新化",
+        "category": "子育て・教育",
+        "target_issue": "学校設備",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "ボロボロの学校と時代遅れの設備を最新にします!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_budget",
+        "headline": "子育て支援予算の増額",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援予算",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "子育て支援予算を増やします!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "山本陽子": {
+    "district": "山科区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_medical_fees",
+        "headline": "子どもの医療費18歳まで無料化",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "子どもの医療費18歳まで無料に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_yoko",
+        "headline": "中学校給食の無償化と学校調理型への移行",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "学校調理の温かい中学校給食・給食費無償化を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro_yoko",
+        "headline": "敬老乗車証制度の維持",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "敬老乗車証制度を元に戻す",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "山本しゅうじ": {
+    "district": "山科区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_special_zone",
+        "headline": "山科を子育て特区に",
+        "category": "子育て・教育",
+        "target_issue": "子育て特区",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "山科を『子育て特区』にしたい!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_public_transport",
+        "headline": "山科の公共交通網の充実",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "公共交通網",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "山科の公共交通網を更に充実させたい!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_urban_park",
+        "headline": "山科に都市型緑地公園を建設",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "都市型緑地公園",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "山科に大きな都市型緑地公園をつくりたい!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "植田げんき": {
+    "district": "山科区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_councilor_reduction",
+        "headline": "議員報酬30%カット・定数10%削減",
+        "category": "財政・行革",
+        "target_issue": "議員定数・報酬",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "議員報酬 30% カット 議員定数10%削減",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_kyoto_brand_tax",
+        "headline": "不動産取得税の新税創設",
+        "category": "財政・行革",
+        "target_issue": "新税創設",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "京都ブランド税の創設を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_dental_checkup",
+        "headline": "30代以上への定期歯科検診実施",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症対策・歯科検診",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "歯周病の予防策として、30代以上に定期的な歯科検診を実施します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "こじま信太郎": {
+    "district": "山科区",
+    "party": "国民民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform",
+        "headline": "お金の使い道を変える行財政改革",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "「お金の使い道を変える」1 行財政改革",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_livable_city",
+        "headline": "居住地として選ばれるまちづくり",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "都市再生・まちづくり",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "居住地として選ばれる2 まちづくり",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_community",
+        "headline": "地域コミュニティの活性化",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "地域コミュニティ",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "3 地域コミュニティ",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "松田けい子": {
+    "district": "山科区",
+    "party": "公明党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_energy_cost_reduction",
+        "headline": "電気・ガス・燃料費の負担軽減",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高対策・エネルギー費用",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "電気・ガス・燃料費の負担軽減",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_outpatient_medical",
+        "headline": "子どもの通院医療費を小6まで拡充",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子どもの通院医療費月200円を「小6」まで拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_maternity_benefits",
+        "headline": "妊娠・出産時給付10万円と出産一時金増額",
+        "category": "子育て・教育",
+        "target_issue": "妊娠・出産支援",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "妊娠・出産時に計10万円給付と伴走型相談支援、出産一時金の増額",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "宮田きくお": {
+    "district": "山科区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_child_elderly_welfare",
+        "headline": "子育て支援と高齢者福祉の充実",
+        "category": "福祉・医療・健康",
+        "target_issue": "子育て支援・高齢者福祉",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "ひと 子育て支援と高齢者福祉のさらなる充実",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_bus_bypass",
+        "headline": "バス利便性向上と一号線バイパス早期着工",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "バス交通・道路インフラ",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "バスの利便性向上と新・山科まちづくり一号線バイパスの早期着工へ",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "headline": "さらなる防災・減災対策と危機管理",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災・危機管理",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "安全 さらなる防災・減災対策と危機管理",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "西山のぶまさ": {
+    "district": "下京区",
+    "party": "公明党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_medical_cost",
+        "headline": "教育・子ども医療費など負担軽減",
+        "category": "子育て・教育",
+        "target_issue": "教育・子ども医療費負担",
+        "stance": "負担軽減",
+        "election_promise": {
+          "quote": "教育・子ども医療など負担の軽減、男性の育児・家事支援",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_dementia_care",
+        "headline": "認知症支援、健康増進、在宅生活支援充実",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症支援・在宅介護",
+        "stance": "制度充実",
+        "election_promise": {
+          "quote": "認知症支援、健康増進、在宅生活を支える仕組みの充実",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "headline": "ハード・ソフト両面の防災・減災対策",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "ハード・ソフト両面の防災・減災対策",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "かまの敏徳": {
+    "district": "下京区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_shinkansen_stop",
+        "headline": "北陸新幹線京都延伸計画中止",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "北陸新幹線京都延伸計画",
+        "stance": "中止",
+        "election_promise": {
+          "quote": "環境破壊や地下水脈に影響を及ぼす北陸新幹線京都延伸計画中止。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "市会議25",
+          "bill_title": "北陸新幹線延伸を白紙撤回するよう求める意見書の提出について",
+          "my_vote": "賛成",
+          "result": "否決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_school_lunch_medical",
+        "headline": "保育所・学童増設、中学校給食、医療費18歳まで無料化",
+        "category": "子育て・教育",
+        "target_issue": "認可保育所・学童保育所・中学校給食・学校給食無償化・子どもの医療費",
+        "stance": "増設・実現・無償化・無料化",
+        "election_promise": {
+          "quote": "認可保育所・学童保育所増設、小学校のような全員制中学校給食、学校給食無償化、子どもの医療費18歳まで無料化を実現します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_tax_reduction",
+        "headline": "消費税5%減税・インボイス中止",
+        "category": "産業・観光・地域経済",
+        "target_issue": "消費税・インボイス制度",
+        "stance": "減税・中止",
+        "election_promise": {
+          "quote": "消費税5%への減税・インボイス中止を求めます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "北尾ゆか": {
+    "district": "下京区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_salary_cut",
+        "headline": "議員報酬30%カット・定数10%削減",
+        "category": "財政・行革",
+        "target_issue": "議員報酬・議員定数",
+        "stance": "削減",
+        "election_promise": {
+          "quote": "議員報酬30%カット・議員定数10%削減! は「まずは政治家が率先して身を切るべき! 「改革により財源を確保し、市民サービスの向上へ!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_medical_free",
+        "headline": "こども医療費の無償化",
+        "category": "子育て・教育",
+        "target_issue": "子ども医療費",
+        "stance": "無償化",
+        "election_promise": {
+          "quote": "こども医療費の無償化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "全員制中学校給食の早期実現",
+        "category": "子育て・教育",
+        "target_issue": "全員制中学校給食",
+        "stance": "早期実現",
+        "election_promise": {
+          "quote": "全員制中学校給食の早期実現",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "神谷修平": {
+    "district": "下京区",
+    "party": "日本維新の会公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf",
+    "tracked_items": []
+  },
+  "やまずえあきら": {
+    "district": "下京区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_youth_family_migration",
+        "headline": "若者・子育て世代の移住・定住促進",
+        "category": "産業・観光・地域経済",
+        "target_issue": "若者・子育て世代の移住・定住",
+        "stance": "促進",
+        "election_promise": {
+          "quote": "若者・子育て世代の移住・定住促進",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_kyoto_station_revitalization",
+        "headline": "芸大移転・市場整備契機に京都駅周辺活性化",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "京都駅周辺活性化 (芸大移転、市場整備、梅小路公園、商店街、市民緑地)",
+        "stance": "活性化",
+        "election_promise": {
+          "quote": "京都市立芸術大学の崇仁学区への移転や京都市中央卸売市場第一市場の施設整備、梅小路公園周辺や商店街、東本願寺前市民緑地の供用開始を契機とした京都駅周辺の活性化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_infertility_support",
+        "headline": "子育て環境充実、不妊症治療助成拡充",
+        "category": "子育て・教育",
+        "target_issue": "子育て環境・不妊症治療助成",
+        "stance": "充実・拡充",
+        "election_promise": {
+          "quote": "子育て環境の充実、不妊症治療助成の拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "下村あきら": {
+    "district": "下京区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_market_redevelopment",
+        "headline": "中央卸売市場施設整備推進と跡地活用検討",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "中央卸売市場第一市場施設整備・跡地活用",
+        "stance": "推進・検討",
+        "election_promise": {
+          "quote": "京都市中央卸売市場第一市場の施設整備計画の確実な推進と整備後の跡地活用の検討",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_kyoto_station_east_art_economy",
+        "headline": "芸大移転契機に京都駅東部エリア文化経済好循環",
+        "category": "文化・景観・歴史",
+        "target_issue": "京都駅東部エリアの文化芸術と経済の好循環まちづくり",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "京都市立芸術大学の移転・開校を契機とした京都駅東部エリアにおける文化芸術と経済が好循環する新たなまちづくり",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_furusato_tax_local_industry",
+        "headline": "ふるさと納税軸に地場産業・中小企業・商店街活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "ふるさと納税返礼品・地場産業・中小企業・伝統産業・商店街",
+        "stance": "育成・振興・活性化",
+        "election_promise": {
+          "quote": "ふるさと納税の返礼品を軸とした地場産業の育成並びに中小企業、伝統産業、商店街の振興と活性化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "森田ゆみ子": {
+    "district": "南区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_medical_cost",
+        "headline": "子どもの医療費18歳まで完全無料化",
+        "category": "福祉・医療・健康",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子どもの医療費を18歳まで完全無料に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "中学校給食無償化と小学校並み給食",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "給食無償化、小学校のような中学校給食を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro",
+        "headline": "敬老乗車証をもとの制度に戻す",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "敬老乗車証をもとの制度にもどす",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "土方りさ": {
+    "district": "南区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_education",
+        "headline": "子どもまん中社会を目指し教育・支援拡充",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育支援",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "『子どもまん中社会』を目指し、子どもや保護者の目線に立ち、教育・支援を拡充させます。『京都で働き、京都で育てる』を目標に京都の改革に取り組みます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_urban_park",
+        "headline": "全世代の憩いの場となる公園設備を推進",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "公園設備",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "すべての世代の憩いの場となる公園設備を進めます。若者や子育て世帯の市外転出に問題意識を持ち10年後も20年後も住みたい京都にしていきます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_fiscal_reform_politician",
+        "headline": "政治家自らが身を切る改革を推進",
+        "category": "財政・行革",
+        "target_issue": "政治家の身を切る改革",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "政治家自らが、身を切る改革に取り組みます。住民主体の政治、実行する政治、透明性のある政治で『京都に住む人たちの手で次の京都を創る』ことを目指します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "島本きょうじ": {
+    "district": "南区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_public_contract_ordinance",
+        "headline": "公契約条例制定で市経済活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "公契約条例",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "公契約条例制定市経済活性循環を実現",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_medical_cost_reduction",
+        "headline": "子ども医療費の大幅軽減",
+        "category": "福祉・医療・健康",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子ども医療費の大幅軽減",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_southern_urban_planning_landscape",
+        "headline": "南部新都市計画策定と景観・高さ規制緩和",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "南部新都市計画・景観・高さ規制",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "南部新都市計画策定と景観 高さ等緩和職域と住みやすさへ",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "しらつか悦子": {
+    "district": "南区",
+    "party": "立憲民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_citizen_centric",
+        "headline": "市民生活に寄り添う財政改革",
+        "category": "財政・行革",
+        "target_issue": "財政改革",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "市民生活に寄り添う財政改革を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_citizen_participation",
+        "headline": "政策決定に市民が参加できる市政",
+        "category": "財政・行革",
+        "target_issue": "市民参加",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "政策決定に市民が参加できる市政を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "井上げんじ": {
+    "district": "南区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_medical_cost_18",
+        "headline": "医療費をさらに18歳まで無料に",
+        "category": "福祉・医療・健康",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "■医療費は、さらに18歳まで無料に。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_scholarship",
+        "headline": "給食費無償化と無償奨学金制度を推進",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食・奨学金",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "教育予算を増やし、小学校のようなあたたかい給食を。給食費を無償に、家庭の負担軽減へ。返済無用の奨学金を。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro_restore",
+        "headline": "敬老乗車証制度を元に戻す",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "■敬老乗車証制度を元に戻すために頑張ります。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "中村まり": {
+    "district": "南区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_disaster_prevention",
+        "headline": "地震・水害対策を強化し安全安心なまちへ",
+        "category": "防災・減災・治安",
+        "target_issue": "地震・水害対策",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "・地震・水害対策を強化し、安全安心のまちへ",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_inflation_relief",
+        "headline": "物価高から生活を守る追加支援策",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高対策",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "公明党は物価高から生活を守ります。現在、電気・ガス・燃料費において1~9月まで総額45,000円(標準的な世帯)の負担を軽減中です。今後も追加支援策で支えます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "ムクダ隆知": {
+    "district": "南区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_child_friendly_city",
+        "headline": "子育てしやすいまちづくり",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "子育てしやすいまちづくり",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "安持成美": {
+    "district": "右京区",
+    "party": "れいわ新選組",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_school_lunch_medical_care",
+        "headline": "中学校給食と高校生まで医療費軽減",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食, 子どもの医療費",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "温かい中学校給食に! 高校生までの医療費軽減",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_community_cafe",
+        "headline": "みんなが集えるコミュニティ食堂実現",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域コミュニティ支援",
+        "stance": "推進・実現",
+        "election_promise": {
+          "quote": "子どもたち高齢者、障がい者･･･みんなが集えるコミュニティ食堂(カフェ)を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_welfare_cut_opposition",
+        "headline": "福祉切り捨てに絶対反対",
+        "category": "財政・行革",
+        "target_issue": "福祉予算",
+        "stance": "反対・維持",
+        "election_promise": {
+          "quote": "ほんとうに財政危機だった? 福祉切り捨ては絶対ダメ!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "ゆあさ光彦": {
+    "district": "右京区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_child_medical_h3_school_lunch",
+        "headline": "高校生まで医療費無料化、中学校給食早期実現",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費, 待機児童, 中学校給食",
+        "stance": "推進・拡充・早期実現",
+        "election_promise": {
+          "quote": "子ども医療費の高校3年生までの無料化、待機児童ゼロの継続、0~2歳までの伴走型支援、全員制中学校給食の早期実現を実行します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_elderly_care_dementia",
+        "headline": "地域包括ケアと認知症対策の充実",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域包括ケアシステム, 認知症対策",
+        "stance": "推進・充実",
+        "election_promise": {
+          "quote": "住み慣れた地域で過ごす地域包括ケアシステム、認知症対策の更なる充実を進めます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_economy_tourism_sme",
+        "headline": "文化を軸に観光・中小企業を振興",
+        "category": "産業・観光・地域経済",
+        "target_issue": "観光振興, 中小企業支援",
+        "stance": "推進・振興",
+        "election_promise": {
+          "quote": "文化を基軸とし、コロナ禍で傷んだ観光、ものづくり、中小企業の振興を図ります。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "田中たかのり": {
+    "district": "右京区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_waste_reduction",
+        "headline": "健全財政と無駄づかい見直し",
+        "category": "財政・行革",
+        "target_issue": "財政健全化, 無駄削減",
+        "stance": "推進・見直し",
+        "election_promise": {
+          "quote": "健全財政をめざし、財政無駄づかいを見直します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和6年9月市会",
+          "bill_number": "報12",
+          "bill_title": "令和5年度京都市市公債特別会計歳入歳出決算",
+          "my_vote": "賛成",
+          "result": "認定",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_economy_attract_companies_deregulation",
+        "headline": "企業誘致・規制緩和で経済活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "企業誘致, 規制緩和, 中小企業支援",
+        "stance": "推進・強化",
+        "election_promise": {
+          "quote": "企業誘致、メリハリある規制緩和で経済力を取り戻し、京都経済を活性化。さらに国と連携し、コロナで疲弊した中小零細企業の回復支援を強化します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_elderly_welfare_nursing_home",
+        "headline": "特養増設など高齢者福祉の拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "特別養護老人ホーム, 高齢者福祉",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "特別養護老人ホームの増設・医療・介護など高齢者福祉の拡充を目指します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和6年3月市会",
+          "bill_number": "議25",
+          "bill_title": "京都市特別養護老人ホーム条例の一部を改正する条例の制定について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian3.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "西村よしみ": {
+    "district": "右京区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_shinkansen_cancellation",
+        "headline": "北陸新幹線京都延伸計画は撤回",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "北陸新幹線延伸",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "「財政破たん招き・環境と暮らしを壊す」北陸新幹線京都延伸計画は撤回求めます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "市会議25",
+          "bill_title": "北陸新幹線延伸を白紙撤回するよう求める意見書の提出について",
+          "my_vote": "賛成",
+          "result": "否決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_tourism_hotel_cancellation",
+        "headline": "観光誘致中止、ホテル建設中止",
+        "category": "産業・観光・地域経済",
+        "target_issue": "観光誘致, ホテル建設, 景観保護",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "行き過ぎた観光誘致政策は中止。世界遺産周辺の景観と住環境壊す御室仁和寺前ホテル建設は中止を求めます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和8年2月市会",
+          "bill_number": "議32",
+          "bill_title": "京都市都市計画関係手数料条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_medical_care_18",
+        "headline": "中学校給食早期実現、医療費18歳まで",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食, 子どもの医療費",
+        "stance": "推進・早期実現・拡充",
+        "election_promise": {
+          "quote": "小学校のような全員制の中学校給食早期実現し、子ども医療費支援制度は直ちに中学校まで拡充し、18歳まですすめます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "山田こうじ": {
+    "district": "右京区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_inflation_tax_reduction",
+        "headline": "物価高騰対策、消費税5%減税",
+        "category": "産業・観光・地域経済",
+        "target_issue": "物価高騰対策, 消費税",
+        "stance": "推進・減税",
+        "election_promise": {
+          "quote": "物価高騰対策 消費税5%減税を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_medical_18_school_lunch_free",
+        "headline": "医療費18歳まで無料、中学校給食無料化",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費, 中学校給食",
+        "stance": "推進・無料化・早期実現",
+        "election_promise": {
+          "quote": "子どもの医療費さらに18歳まで無料に! 全員制の温かい中学校給食の早期実現、給食費の無料化を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro_subsidy_revival",
+        "headline": "敬老乗車制度改悪阻止、保育園補助金復活",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証, 保育園補助金",
+        "stance": "反対・制度維持・復活",
+        "election_promise": {
+          "quote": "敬老乗車制度の改悪ストップ! 負担額もとに戻せ! 民間保育園への補助金 (13億円) 復活を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "こうち大輔": {
+    "district": "右京区",
+    "party": "日本維新の会公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_salary_reduction",
+        "headline": "議員報酬3割削減と定数削減",
+        "category": "財政・行革",
+        "target_issue": "議員定数・報酬",
+        "stance": "削減",
+        "election_promise": {
+          "quote": "議員報酬3割削減 議員定数削減",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "全員制中学校給食の早期実施と無償化",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "全員制中学校給食の早期実施と給食費無償化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_fiscal_mayor_retirement",
+        "headline": "市長の退職金カットを求める",
+        "category": "財政・行革",
+        "target_issue": "市長退職金",
+        "stance": "カット",
+        "election_promise": {
+          "quote": "市長の退職金カットを求める",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "えもとかよこ": {
+    "district": "右京区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_school_lunch",
+        "headline": "全員制中学校給食の早期実現",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "小学校のような全員制の中学校給食の早期実現",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_medical",
+        "headline": "子どもの医療費を18歳まで無料に",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "無償化",
+        "election_promise": {
+          "quote": "子どもの医療費を18歳まで無料に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro",
+        "headline": "敬老乗車証制度を元に戻す",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "敬老乗車証制度を元に戻す",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "さかまきゆずる": {
+    "district": "右京区",
+    "party": "立憲民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_barrier_free",
+        "headline": "公共施設等のバリアフリー化推進",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "バリアフリー化・公共交通",
+        "stance": "推進・向上",
+        "election_promise": {
+          "quote": "公共施設、駅、道路等のバリアフリー化、公共交通の利便性向上",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "井上よしひろ": {
+    "district": "右京区",
+    "party": "市会自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_disaster_prevention",
+        "headline": "地域の防犯・防災・防火対策を推進",
+        "category": "防災・減災・治安",
+        "target_issue": "防犯・防災・防火対策",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "地域の防犯・防災・防火対策を推進し、安心・安全なまちづくりに取り組みます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_culture_landscape",
+        "headline": "歴史・文化・景観を守り豊かな生活を",
+        "category": "文化・景観・歴史",
+        "target_issue": "歴史・文化・景観",
+        "stance": "維持・保護",
+        "election_promise": {
+          "quote": "歴史・文化や景観を守り、心豊かな生活のできるまちづくりに取り組みます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_tourism_harmony",
+        "headline": "観光地のゴミ問題解決と市民生活の調和",
+        "category": "産業・観光・地域経済",
+        "target_issue": "観光地のゴミ問題・観光と市民生活の調和",
+        "stance": "推進・調和",
+        "election_promise": {
+          "quote": "観光地のゴミ問題や観光と市民生活の調和に努めます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "森田守": {
+    "district": "右京区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_sustainability",
+        "headline": "持続可能な京都市財政の確立",
+        "category": "財政・行革",
+        "target_issue": "京都市財政",
+        "stance": "確立",
+        "election_promise": {
+          "quote": "持続可能な京都市財政の確立",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_enhancement",
+        "headline": "子育て施策の充実",
+        "category": "子育て・教育",
+        "target_issue": "子育て施策",
+        "stance": "充実",
+        "election_promise": {
+          "quote": "子育て施策の充実",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_local_wood",
+        "headline": "市内産木材の利用促進",
+        "category": "産業・観光・地域経済",
+        "target_issue": "市内産木材利用",
+        "stance": "促進",
+        "election_promise": {
+          "quote": "市内産木材の利用促進",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "江村りさ": {
+    "district": "右京区",
+    "party": "京都党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform",
+        "headline": "発想転換による行財政改革推進",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "発想の転換による行財政改革! アイデアで稼げる自治体に転換し、財政再建と市民サービス向上を両立。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_political_transparency",
+        "headline": "特定団体からの支援を排除し透明な政治",
+        "category": "財政・行革",
+        "target_issue": "政治の透明性・団体献金",
+        "stance": "推進・排除",
+        "election_promise": {
+          "quote": "しがらみのない政治 旧統一教会を含め特定の団体からの支援を頂かず、市民目線で政策判断する政治。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_kyoto_brand_tax",
+        "headline": "京都ブランド活用と市外投資家負担",
+        "category": "産業・観光・地域経済",
+        "target_issue": "京都ブランド活用・市外投資家負担",
+        "stance": "推進・負担増",
+        "election_promise": {
+          "quote": "京都ブランドの活用 京都のまちを守りつつ、外国資本など市外の投資家や事業者から一定の負担を。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "西村よしあき": {
+    "district": "西京区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_welfare_elderly_child",
+        "headline": "赤ちゃんから高齢者への福祉施策向上",
+        "category": "福祉・医療・健康",
+        "target_issue": "介護・社会福祉水準",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "○赤ちゃんから高齢者への福祉施策向上を目指し介護などの社会福祉水準の確保に努めます",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_infrastructure_roads_rivers",
+        "headline": "道路や河川などの都市基盤整備の拡充",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "都市基盤整備（道路・河川）",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "○道路や河川などの都市基盤整備の拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "池田峰子": {
+    "district": "西京区",
+    "party": "地域政党おんな竜馬プロジェクト",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_nursing_care_insurance_reduction",
+        "headline": "介護保険料の減額",
+        "category": "福祉・医療・健康",
+        "target_issue": "介護保険料",
+        "stance": "負担軽減",
+        "election_promise": {
+          "quote": "・介護保険料の減額!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_art_university_site_utilization",
+        "headline": "芸大など学校跡地の活用",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "学校跡地活用",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "・芸大など学校跡地の活用",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_welfare_beauty_budget_expansion",
+        "headline": "訪問美容・理容・福祉ネイル予算拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "訪問美容・理容・福祉ネイル",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "・訪問美容・理容・福祉ネイルの予算を拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "田中あきひで": {
+    "district": "西京区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_saikyo_ward_office_maintenance",
+        "headline": "西京区総合庁舎整備の推進",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "総合庁舎整備",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●西京区総合庁舎整備の推進",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_art_university_site_employment",
+        "headline": "芸大跡地活用で雇用創出・経済活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "芸大跡地活用",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●芸大の跡地活用による雇用の創出と有効活用による経済の活性化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_rakusai_transport_convenience",
+        "headline": "洛西地域の更なる交通利便性向上",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "洛西地域の交通利便性",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●洛西地域の更なる交通の利便性向上",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "内村しゅん": {
+    "district": "西京区",
+    "party": "地域政党京都党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_kyoto_art_university_site_utilization",
+        "headline": "京都市立芸大の跡地活用",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "芸大跡地活用",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "■京都市立芸大の跡地活用",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_brt_introduction",
+        "headline": "新公共交通システム(BRT)の導入",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "BRT導入",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "■日新公共交通システム(BRT)の導入",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_transverse_road_enterprise_attraction",
+        "headline": "縦貫道活用で規制緩和と企業誘致",
+        "category": "産業・観光・地域経済",
+        "target_issue": "企業誘致・規制緩和",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "縦貫道の利便性を最大限活用し!規制緩和と企業誘致 企業の生産・物流の拠点に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "河合ようこ": {
+    "district": "西京区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_shinkansen_extension_opposition",
+        "headline": "北陸新幹線延伸よりいのち・暮らし優先",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "北陸新幹線延伸",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "「北陸新幹線延伸よりいのち・暮らし優先」の京都市政に変えるためにがんばります。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "市会議25",
+          "bill_title": "北陸新幹線延伸を白紙撤回するよう求める意見書の提出について",
+          "my_vote": "賛成",
+          "result": "否決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_medical_care_free_18",
+        "headline": "子どもの医療費18歳まで無料に",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "●子どもの医療費は18歳まで無料に。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_free_junior_high",
+        "headline": "全員制中学校給食の早期実施と給食費無料化",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●小学校のような全員制中学校給食の早期実施。●給食費を無料に。教育費の負担軽減。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "北川みき": {
+    "district": "西京区",
+    "party": "日本維新の会 公認候補",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_kitagawa_childcare_support",
+        "headline": "働きながら安心して子育て",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "働きながらでも安心して子育てできる社会にします!現実際に子育てしながら仕事 をしてみると両立は本当に難しいと痛感!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_kitagawa_education_free",
+        "headline": "全ての子に手厚い教育環境",
+        "category": "子育て・教育",
+        "target_issue": "教育無償化",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "全ての子に手厚い教育環境を提供します!現経済格差=教育格差状になってしまっている。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_kitagawa_social_welfare",
+        "headline": "安心して京都に住み続けられる",
+        "category": "福祉・医療・健康",
+        "target_issue": "社会福祉",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "安心して京都に住み続けられる環境にします!現相次ぐ市民サービスの縮小が▶生活を不安にさせ、市外への人口流出が止まらない!!!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "天方ひろゆき": {
+    "district": "西京区",
+    "party": "無所属 連合京都「推せん」明日の西京を考える会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_amakata_urban_revitalize",
+        "headline": "都市格向上と民間活力導入",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "都市格向上・民間活力導入",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "京都市の都市格の向上・民間活力の導入",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_amakata_public_education",
+        "headline": "地域と連携した公教育・子育て",
+        "category": "子育て・教育",
+        "target_issue": "公教育・子育て環境",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "地域・家庭と連携した公教育・子育て環境づくり",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_amakata_elderly_welfare",
+        "headline": "高齢者福祉施設の拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者福祉施設",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "利用者に応じた高齢者福祉施設の拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "平山よしかず": {
+    "district": "西京区",
+    "party": "公明党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_hirayama_keiro_pass",
+        "headline": "敬老乗車証利用地域を拡大",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "民間バスでも敬老乗車証を使える地域を拡大しました!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_hirayama_rakusaiguchi_dev",
+        "headline": "洛西口駅高架下開発で地域活性化",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "洛西口駅高架下開発",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "阪急京都線洛西口駅高架下開発で地域活性化を実現!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_hirayama_fureai_mori",
+        "headline": "「ふれあいの杜」を6ヶ所へ拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "京都市ふれあいの杜",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "「京都市ふれあいの杜」を京都市内6ヶ所へ拡充!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "吉岡しんたろう": {
+    "district": "西京区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_yoshioka_economic_support",
+        "headline": "現役世代の負担軽減と減税",
+        "category": "財政・行革",
+        "target_issue": "現役世代の経済的支援・減税",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "現役世代の負担を軽減するため、市でできる減税措置や給付を行う。・学生への就学支援",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_yoshioka_childcare_no_income",
+        "headline": "所得制限なしの子育て支援拡充",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援（所得制限なし）",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "兵庫県明石市の例を参考に様々な子育て支援を所得制限なしで行い、希望の持てる環境を整備する。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_yoshioka_fiscal_reform",
+        "headline": "京都市財政の抜本的改革",
+        "category": "財政・行革",
+        "target_issue": "京都市財政改革・市民税負担",
+        "stance": "慎重・見直し",
+        "election_promise": {
+          "quote": "納税義務者の割合が少ないからと高額の市民税負担を市民に強いるのは責任の転嫁に他ならない。構造から変える必要がある。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "田中正一": {
+    "district": "伏見区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_sme_support",
+        "headline": "中小企業支援で地域力アップ",
+        "category": "産業・観光・地域経済",
+        "target_issue": "中小企業支援",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "中小企業",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "headline": "防災力アップで地域力向上",
+        "category": "防災・減災・治安",
+        "target_issue": "防災力",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "防災力アップ",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_demographics",
+        "headline": "少子高齢化対策を推進",
+        "category": "福祉・医療・健康",
+        "target_issue": "少子高齢化対策",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "少子高齢化対策",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "片岡しんいち": {
+    "district": "伏見区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_school_lunch",
+        "headline": "小中学校給食の無償化を推進",
+        "category": "子育て・教育",
+        "target_issue": "小中学校給食無償化",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "☆学校給食は大切。小中学校給食の無償化推進。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_local_industry",
+        "headline": "地元産業を活性化し地域経済を振興",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地元産業活性化",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "地元産業を活性化!市の財源確保に努めます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_fiscal_reform",
+        "headline": "公金使用の無駄を無くし財源確保",
+        "category": "財政・行革",
+        "target_issue": "公金使用の無駄削減",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "◎大切な公金使用の無駄を無くし市の財源確保に努めます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "かわしま優子": {
+    "district": "伏見区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_energy_subsidy",
+        "headline": "電気・ガス・燃料費約4.5万円軽減",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "電気・ガス・燃料費軽減",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "電気・ガス・燃料費を約45,000円軽減!(本年1~9月の総額)※標準的な世帯で",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_medical_care",
+        "headline": "子ども医療費上限月200円を小6まで拡充",
+        "category": "子育て・教育",
+        "target_issue": "子どもの通院医療費",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "子どもの通院医療費上限月200円を小6まで拡充!(本年秋より)",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childbirth_lump_sum",
+        "headline": "出産育児一時金を50万円に拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "出産育児一時金",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "出産育児一時金を42万円から50万円に拡充!(本年4月から)",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "吉田たかお": {
+    "district": "伏見区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_child_medical_care_yoshida",
+        "headline": "子ども医療費、高校3年生まで無償化目指す",
+        "category": "子育て・教育",
+        "target_issue": "子ども医療費減額・無償化",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "子ども医療費の減額を実現!0歳から2歳までは、月200円の負担で済んでいたのが3歳からは一気に月3,000円の負担になっていました。吉田たかおが市会本会議で門川市長に強く減額を求め半額の「月1,500円」が実現。更には今秋より小学6年生まで月200円の医療費の拡充が決定!今後、高校3年生(18歳)までの無償化を目指します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_energy_subsidy_yoshida",
+        "headline": "電気・ガス・燃料費の負担軽減",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "電気・ガス・燃料費軽減",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "負担が軽減!電気料金 2,800円 ガス料金 900円 ガソリン他1,300円 毎月の合計 5,000円 1月~9月 45,000円 ※標準的な世帯の場合",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_garbage_collection",
+        "headline": "伏見区での家庭ごみ午前収集を実現",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "家庭ごみ午前収集",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "家庭ごみの午前収集が実現!家庭用ごみ(燃やすごみ)の収集が、お昼を過ぎても来ないとの声が多く寄せられました。地域の声を重く受け止め、議会において粘り強く交渉を重ねました。最後は環境局長と直談判した結果伏見区において完全午前中収集が実現しました!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "山本洋平": {
+    "district": "伏見区",
+    "party": "地域政党 京都党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_dementia_diagnosis",
+        "headline": "認知症の診断・治療を無償化",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症診断・治療無償化",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "認知症の診断・治療の無償化一滴の血液からの認知症診断。最先端技術の導入により早期に発見し、投薬により認知症状をストップ!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_periodontal_disease",
+        "headline": "歯周病診断で認知症を予防",
+        "category": "福祉・医療・健康",
+        "target_issue": "歯周病診断による認知症予防",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "歯周病診断による認知症予防歯周病患者は発症確率が10倍!無償診断を行うことで認知症を予防するほか、心疾患・糖尿病・脳梗塞の予防にも。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_dementia_kyoto_creation",
+        "headline": "認知症対策で介護負担軽減、京都創生",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症対策を通じた京都創生",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "認知症対策による京都創生認知症対策により介護負担を軽減し、子育て・教育に注力。また、医薬・検査関連の投資を京都に呼び込み財政に活力を!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "みちはた弘之": {
+    "district": "伏見区",
+    "party": "自民党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_reform_michihata",
+        "headline": "行財政改革で人件費削減・事業見直し",
+        "category": "財政・行革",
+        "target_issue": "行財政改革・人件費削減",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "行財政改革計画による職員の人件費削減・施策事業の見直しを断行!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "赤阪仁": {
+    "district": "伏見区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_shinkansen",
+        "headline": "北陸新幹線延伸ストップ、伏見の地下水守る",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "北陸新幹線延伸",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "北陸新幹線延伸ストップ。伏見の地下水を守る",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "市会議25",
+          "bill_title": "北陸新幹線延伸を白紙撤回するよう求める意見書の提出について",
+          "my_vote": "賛成",
+          "result": "否決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "全員制中学校給食の実現と無償化",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "◆神川中学校等マンモス校解消、小学校のような全員制のあったかい中学校給食の実現と無償化をめざします。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_keiro",
+        "headline": "国保料引き下げ、敬老乗車証制度を元に",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "制度維持・拡充",
+        "election_promise": {
+          "quote": "◆高すぎる国保料をひきさげ、敬老乗車証制度を元に戻します。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "やまでちか": {
+    "district": "伏見区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf",
+    "tracked_items": []
+  },
+  "平田けい": {
+    "district": "伏見区",
+    "party": "立憲民主党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal",
+        "headline": "市民生活を支える京都市の財政改革",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●市民生活を支える京都市の財政改革",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_landscape",
+        "headline": "地域特性を活かした景観対策",
+        "category": "文化・景観・歴史",
+        "target_issue": "景観対策",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "●地域特性を活かした景観対策",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "しげ隆夫": {
+    "district": "伏見区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_industry_support",
+        "headline": "伏見の地場産業振興と中小企業支援",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地場産業の振興・中小企業支援",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "コロナ禍で業績が悪化し厳しい状況が続く中小企業への支援対策に取り組み、京都経済の原動力として大きな役割を担う伏見の地場産業の振興に全力を挙げてまいります。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_education_culture_sports",
+        "headline": "教育環境充実と生涯学習・文化・スポーツ振興",
+        "category": "子育て・教育",
+        "target_issue": "教育環境の充実・生涯学習・文化・スポーツ振興",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "伏見、そして京都の未来を支える子供たちの教育環境の充実、市民の生涯学習・文化・スポーツの振興に全力投球していきます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_welfare",
+        "headline": "高齢者・子育て・障害者支援の福祉推進",
+        "category": "福祉・医療・健康",
+        "target_issue": "福祉のまちづくり（高齢者・子育て・障害者支援）",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "長寿化、少子化などが進む下、お年寄りがいきいきと暮らせ、子供たちが健やかに成長し、障害ある人も安心して生活出来る福祉のまちづくりを一層進めます。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "西野さち子": {
+    "district": "伏見区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_keiro",
+        "headline": "敬老乗車証の負担増撤回",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老乗車証",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "● 敬老乗車証の負担増撤回を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_medical",
+        "headline": "子どもの医療費18歳まで無料に",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "> 子どもの医療費を18歳まで無料に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch",
+        "headline": "中学校給食の早期実施と無償化",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "> 小学校のような中学校給食の早期実施と無償化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "もりもと英情": {
+    "district": "伏見区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_fiscal_diet_member",
+        "headline": "議員定数・報酬3割減、行財政改革",
+        "category": "財政・行革",
+        "target_issue": "議員定数・報酬削減、行財政改革",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "政治家みずからが率先垂範、議員報酬の3割減、議員定数3割減、二重行政解消、総合区創設",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_highschool",
+        "headline": "学校給食・私立高校の無償化",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化, 私立高校無償化",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "学校給食の無償化。私立高校実質無償化。兵庫県・明石市、千葉県・流山市の人口増加!京都もできる!子育て・介護",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "headline": "京都防災庁設置、ドクターヘリ導入",
+        "category": "防災・減災・治安",
+        "target_issue": "防災庁設置, ドクターヘリ導入",
+        "stance": "推進・早期実現",
+        "election_promise": {
+          "quote": "防災・減災の危機管理機能の一元化のため京都防災庁設置。専用ドクターヘリ導入。ないのは都道府県中、京都だけ!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "やまね智史": {
+    "district": "伏見区",
+    "party": "日本共産党・市会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_childcare_medical_free",
+        "headline": "子どもの医療費18歳まで無料化",
+        "category": "福祉・医療・健康",
+        "target_issue": "子どもの医療費",
+        "stance": "無償化推進",
+        "election_promise": {
+          "quote": "子どもの医療費は18歳まで無料に",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "headline": "全員制中学校給食の実施と無償化",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・無償化",
+        "election_promise": {
+          "quote": "今すぐ全員制中学校給食の実施と無償化を",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "議104",
+          "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+          "my_vote": "反対",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_shinkansen_stop",
+        "headline": "北陸新幹線延伸ストップ",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "北陸新幹線延伸",
+        "stance": "反対・中止",
+        "election_promise": {
+          "quote": "北陸新幹線延伸ストップ 伏見の地下水を守る!",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年9月市会",
+          "bill_number": "市会議25",
+          "bill_title": "北陸新幹線延伸を白紙撤回するよう求める意見書の提出について",
+          "my_vote": "賛成",
+          "result": "否決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
+        "council_statement": null
+      }
+    ]
+  },
+  "山岸たかゆき": {
+    "district": "伏見区",
+    "party": "連合京都推薦",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_disaster_prevention_rivers",
+        "headline": "河川・斜面地の防災対策推進",
+        "category": "防災・減災・治安",
+        "target_issue": "河川・斜面地の防災対策",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "河川・斜面地の防災対策",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_public_transport_improvement",
+        "headline": "地域公共交通の利便性向上",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域公共交通",
+        "stance": "利便性向上",
+        "election_promise": {
+          "quote": "地域公共交通の利便性向上",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_fushimi_castle_revitalization",
+        "headline": "伏見桃山城の再生・有効活用",
+        "category": "産業・観光・地域経済",
+        "target_issue": "伏見桃山城の再生・有効活用",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "地域資源を生かした活力ある伏見づくり (伏見桃山城の再生・有効活用など)",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "くぼたまさき": {
+    "district": "伏見区",
+    "party": "日本維新の会",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_councilor_salary_cut",
+        "headline": "市会議員報酬30%カット",
+        "category": "財政・行革",
+        "target_issue": "市会議員報酬",
+        "stance": "削減",
+        "election_promise": {
+          "quote": "市会議員報酬 30%カット",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_councilor_number_cut",
+        "headline": "議員定数削減 (67人→60人)",
+        "category": "財政・行革",
+        "target_issue": "議員定数",
+        "stance": "削減",
+        "election_promise": {
+          "quote": "議員定数削減 67人→60人",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_school_lunch_free_full",
+        "headline": "中学校給食の全員喫食と完全無償化",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "全員喫食・完全無償化推進",
+        "election_promise": {
+          "quote": "中学校給食の全員喫食と完全無償化",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  },
+  "はしむら芳和": {
+    "district": "伏見区",
+    "party": "自民党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf",
+    "tracked_items": []
+  },
+  "ますなり竜治": {
+    "district": "伏見区",
+    "party": "公明党公認",
+    "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf",
+    "tracked_items": [
+      {
+        "id": "pledge_energy_cost_reduction",
+        "headline": "電気・ガス・燃料費の負担軽減",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "電気・ガス・燃料費",
+        "stance": "負担軽減",
+        "election_promise": {
+          "quote": "電気・ガス・燃料費の負担を軽減",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      },
+      {
+        "id": "pledge_childcare_medical_expand",
+        "headline": "子どもの通院医療費を小6まで拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "子どもの通院医療費",
+        "stance": "助成拡充",
+        "election_promise": {
+          "quote": "子どもの通院医療費 月200円を「小6」まで拡充",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": {
+          "session_name": "令和7年2月市会",
+          "bill_number": "議221",
+          "bill_title": "京都市老人医療費支給条例の一部を改正する条例の制定について",
+          "my_vote": "賛成",
+          "result": "可決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
+        "council_statement": null
+      },
+      {
+        "id": "pledge_child_allowance_expansion",
+        "headline": "児童手当の所得制限撤廃・18歳まで拡大",
+        "category": "子育て・教育",
+        "target_issue": "児童手当",
+        "stance": "所得制限撤廃・対象拡大",
+        "election_promise": {
+          "quote": "児童手当については、所得制限を撤廃し、18歳まで対象拡大をめざします。",
+          "source_name": "令和5年 京都市議会議員選挙 公報原本",
+          "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
+        },
+        "council_vote": null,
+        "council_statement": null
+      }
+    ]
+  }
+}
