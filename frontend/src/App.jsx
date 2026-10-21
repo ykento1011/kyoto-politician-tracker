@@ -134,10 +134,18 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
+  // 💡 ブラウザの「戻る・進む」および URL変更の検知リスナー
   useEffect(() => {
     const onLocationChange = () => {
       const nextRoute = parseCurrentRoute();
       setCurrentRoute(nextRoute);
+
+      // 💡 議員詳細から戻った時は、内部状態の selectedSpeaker も確実にクリアする
+      if (nextRoute.type === 'speaker' && nextRoute.speakerName) {
+        internalSpeakerClick(nextRoute.speakerName);
+      } else {
+        internalSpeakerClick(null);
+      }
 
       if (nextRoute.type === 'search') {
         setSearchQuery(nextRoute.query);
@@ -155,7 +163,7 @@ export default function App() {
       window.removeEventListener('hashchange', onLocationChange);
       window.removeEventListener('app-navigate', onLocationChange);
     };
-  }, [setSearchQuery, setSubmittedQuery]);
+  }, [setSearchQuery, setSubmittedQuery, internalSpeakerClick]);
 
   useEffect(() => {
     if (currentRoute.type === 'speaker' && currentRoute.speakerName) {
@@ -182,8 +190,9 @@ export default function App() {
   const handleGoHome = useCallback(() => {
     setSearchQuery('');
     setSubmittedQuery('');
+    internalSpeakerClick(null);
     navigate('/');
-  }, [navigate, setSearchQuery, setSubmittedQuery]);
+  }, [navigate, setSearchQuery, setSubmittedQuery, internalSpeakerClick]);
 
   const handleSpeakerClick = useCallback((speakerName) => {
     internalSpeakerClick(speakerName);
@@ -254,8 +263,9 @@ export default function App() {
     return currentRoute.names.map(name => resolveSpeaker(name)).filter(Boolean);
   }, [currentRoute, compareList, resolveSpeaker]);
 
+  // 💡 ルートが speaker でない時は確実に null を返し、詳細画面が残存するバグを解消
   const activeSpeaker = useMemo(() => {
-    if (currentRoute.type !== 'speaker') return selectedSpeaker;
+    if (currentRoute.type !== 'speaker') return null;
     return resolveSpeaker(currentRoute.speakerName) || selectedSpeaker;
   }, [currentRoute, selectedSpeaker, resolveSpeaker]);
 
@@ -301,7 +311,6 @@ export default function App() {
     );
   }
 
-  // 💡 全画面共通のNavbarレンダラー
   const renderNavbar = (isCompare = false) => (
     <Navbar
       onLogoClick={handleGoHome}
@@ -313,7 +322,7 @@ export default function App() {
     />
   );
 
-  // --- 排他的画面ルーティング（常にNavbarを最上部に表示） ---
+  // --- 排他的画面ルーティング ---
 
   // 1. できること（ガイド）
   if (currentRoute.type === 'guide') {
