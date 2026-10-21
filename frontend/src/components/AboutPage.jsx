@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   ArrowLeft, Compass, Search, Lightbulb, User,
-  ExternalLink, Mail, Award, Shield, Milestone, Landmark, Layers, FileCheck
+  ExternalLink, Mail, Award, Shield, Milestone, Landmark, Layers, FileCheck, Scale, Coins, BookmarkCheck
 } from 'lucide-react';
 
 export default function AboutPage({ onBack, onOpenMethodology }) {
@@ -32,7 +32,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
             「議会のミカタ」について
           </h1>
           <p className="text-sm md:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-            膨大な議事録のデータを、もう少し身近に、わかりやすく読み解くための個人的な実験プロジェクトです。
+            選挙公報原本から議事録、予算書まで。地方自治の「公約・議決・予算執行」を完全連動させ、二元代表制を客観可視化する独立系シビックテック基盤です。
           </p>
         </header>
 
@@ -43,20 +43,20 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
             BACKGROUND / はじまりと動機
           </div>
           <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-            「議会で実際に何が話されているのか」を知りたかった。
+            「選挙時の公約は、議会と市政で本当に実行されているのか？」を知りたかった。
           </h2>
           <div className="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-normal">
             <p>
-              京都市のまちづくりや地域の動きを見ていると、日々さまざまな政策や条例が議論されています。しかし、実際に議会の公式サイトを見てみると、そこにあるのは数万字におよぶ膨大な議事録の文字の羅列でした。
+              選挙のたびに各候補者や首長は魅力的な公約を掲げます。しかし、当選後にそれらが市議会でどのように質疑され、どの議案に賛否が投じられ、実際にいくらの予算として執行されたのかを一連の流れとして追跡することは極めて困難でした。
             </p>
             <p>
-              「誰がどんなテーマに関心を持ち、どういうスタンスで質疑を行っているのか」を知りたいと思っても、忙しい日常の中でこれらを一つひとつ読み通すのはかなり骨が折れます。
+              公開されているのは、数万ページに及ぶ議事録PDF、膨大で難解な主要事業説明書、公報画像データの断片です。これらがバラバラに存在しているため、市民が「言行一致」や「公約の現在地」を確かめるには莫大な時間と専門知識が必要でした。
             </p>
             <div className="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100 text-indigo-950 text-sm font-medium leading-relaxed">
-              「自然言語処理やAIの力を借りてデータを整理すれば、もっと直感的に議論の論点や流れを追えるのではないか？」
+              「選挙公報の原本から議決、予算執行までを1本のデータパイプラインで結べば、市民誰もが市政を客観検証できるのではないか？」
             </div>
             <p>
-              そんな個人的な知的好奇心と関心から、このサイトの開発をスタートしました。
+              この問題意識から、単なる議事録検索ツールを超え、公約を起点とした政策トレーサビリティ基盤の開発をスタートしました。
             </p>
           </div>
         </section>
@@ -68,28 +68,28 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
             OUR APPROACH / このツールのスタンス
           </div>
           <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-            正解を決めるためではなく、論点を立体的に眺めるために。
+            正解を決めるためではなく、論点と事実関係を立体的に眺めるために。
           </h2>
           <div className="space-y-4 text-sm md:text-base text-slate-600 leading-relaxed font-normal">
             <p>
-              本サイトは、特定の政治的主張を支持・批判したり、議員の優劣をランキング付けしたりするものではありません。
+              本サイトは、特定の政治的主張を支持・批判したり、「公約違反」といった主観的なラベリングを行うものではありません。
             </p>
             <p>
-              議事録という公開データをAIで分析し、「どのようなテーマに注力しているのか」「どのような視点から提案を行っているのか」を構造化して表示しています。AIによる要約やスコアリングはあくまでひとつの補助線（補助的な見方）に過ぎません。
+              首長と議会がそれぞれ持つ権能（予算編成権と議決権）に即し、公式選挙公報、新京都戦略、主要事業説明書、会議録原本という公文書のファクトのみを並列提示しています。事実の解釈と判断は、常に主権者である市民自身に委ねられています。
             </p>
           </div>
 
-          {/* 💡 一次情報への徹底した接続性（原本直リンクの思想） */}
+          {/* 一次情報への徹底した接続性 */}
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
             <div className="flex items-center gap-2 text-xs font-black text-slate-900">
               <Landmark className="w-4 h-4 text-indigo-600 shrink-0" />
-              <span>一次情報（公式原本）への徹底した接続性とトレーサビリティ</span>
+              <span>一次公文書への完全な接続性とトレーサビリティ</span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
-              AIによる要約や評価は、時に文脈を削ぎ落としたり誤読を生むリスク（ハルシネーション）を孕んでいます。私たちはこの課題に対し、<strong>「AIの出力からワンクリックで京都市会の公式原本（公的サーバー上の会議録原本）へ直接アクセスできる仕組み」</strong>を実装しました。
+              AIによる要約やスコアリングは入口を広げるための補助線です。私たちはハルシネーション（誤生成）や文脈の断絶を排除するため、すべての質疑スレッド、公約引用カード、予算定量データに、<strong>選挙管理委員会・京都市会・京都市行財政局の公式原本（PDF／Web）への直リンク</strong>を完備しています。
             </p>
             <p className="text-xs text-slate-600 leading-relaxed">
-              AIは膨大な議事録の入口を広げるための「案内役」であり、真実を確かめる最終的な拠り所は常に公的な一次情報です。疑わしい点があれば、いつでも原本を開いて前後の生の発言をご確認いただけます。
+              疑わしい点があればいつでも原本を開き、直接数字や前後の発言を確認できるよう設計しています。
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
                 onClick={onOpenMethodology}
                 className="text-xs font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-4 inline-flex items-center cursor-pointer transition-colors"
               >
-                AIの客観的評価基準（プロンプト・仕様書）を見る →
+                AIの客観的評価基準および公約・予算データ仕様書を見る →
               </button>
             </div>
           )}
@@ -132,10 +132,9 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
               その後、京都大学経営管理大学院（MBA）にて観光・地域課題を研究。在学中の研究をもとに、観光地のトイレ利用と情報の非対称性を可視化するWebサービス「TOIMAP」を開発・運営（SDGsリーダーシップアワード2025 最優秀賞などを受賞）。
             </p>
             <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-              現在は宿泊施設運営も手掛けながら、データ分析やWeb技術を活用した情報可視化の試みに取り組んでいます。（保有資格：行政書士、元米国公認会計士）
+              現在は宿泊施設運営も手掛けながら、データ分析やWeb技術を活用した行政・地域情報可視化の試みに取り組んでいます。（保有資格：行政書士、元米国公認会計士）
             </p>
 
-            {/* 関連リンク（KICKs HP & TOIMAP） */}
             <div className="pt-2 flex flex-wrap items-center gap-2">
               <a
                 href="https://kanko-innovation.com/"
@@ -162,46 +161,57 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
           </div>
         </section>
 
-        {/* 5. 今後の展開と方針（FUTURE HORIZON） */}
+        {/* 5. 到達点と今後の展開（CURRENT MILESTONE & FUTURE HORIZON） */}
         <section className="bg-white rounded-3xl border border-slate-200 p-8 md:p-10 shadow-sm space-y-6">
           <div className="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-wider">
             <Milestone className="w-4 h-4" />
-            FUTURE HORIZON / 今後の展開と方針
+            CURRENT MILESTONE & FUTURE HORIZON / 現在地と今後の展望
           </div>
           <div>
             <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-              「議会のテキスト」から、「行政プロセスと重要論点の深層解剖」へ。
+              公約・議決・予算執行を一体で洗う「二元代表制の完全可視化基盤」へ到達。
             </h2>
-            <p className="text-xs md:text-sm text-slate-600 mt-2 leading-relaxed">
-              本サービスは実験的なベータ版としてスタートしましたが、今後は単なる議事録の要約を超え、市民生活や地域経済に直結する重要政策の執行プロセスを多角的に可視化していきます。
+            <p className="text-xs md:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
+              本サービスは単なる議事録の要約からスタートしましたが、今回のアップデートにより、地方自治の二大主役である「議会」と「首長」の言行一致および行政執行プロセスを一体的に追跡する基盤へと進化しました。
             </p>
           </div>
 
+          {/* 二元代表制の両輪ブロック */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="flex items-center gap-1.5 text-xs font-black text-slate-900">
-                <Layers className="w-4 h-4 text-indigo-600" />
-                <span>1. 政策論点と行政執行の可視化強化</span>
+            <div className="p-5 rounded-2xl bg-indigo-50/40 border border-indigo-100 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-black text-indigo-950">
+                <BookmarkCheck className="w-4 h-4 text-indigo-600" />
+                <span>議会（ブレーキ・ハンドル）の言行一致追跡</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                「議会でどのような対立や議論があったか」にとどまらず、可決された予算や条例が実際の行政施策としてどう執行され、どのような成果や課題を生んでいるかを一連のプロセスとして追跡・構造化する機能の強化を図ります。
+                全67名の市議会議員を対象に、選挙公報原本に掲載された看板公約と、任期中の実際の議決態度（賛成/反対）および委員会質疑ログを直接照合。議会が持つ監視・政策提言機能のファクトを明らかにします。
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="flex items-center gap-1.5 text-xs font-black text-slate-900">
-                <FileCheck className="w-4 h-4 text-indigo-600" />
-                <span>2. 宿泊税・法定外目的税の横断データ分析</span>
+            <div className="p-5 rounded-2xl bg-emerald-50/40 border border-emerald-100 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-black text-emerald-950">
+                <Coins className="w-4 h-4 text-emerald-600" />
+                <span>首長（アクセル）の予算・条例ライフサイクル検証</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                観光都市・京都における最大の争点のひとつである「宿泊税」やオーバーツーリズム対策に着目。全国の導入・検討自治体（金沢、東京、福岡、倶知安町など）の議事録や使途データを横断的に収集・分析し、制度設計や税の使途の透明性を比較検証するデータパイプラインの構築を進めています。
+                松井市長の公約14項目を対象に、京都市総合計画『新京都戦略（確定版）』への公式位置づけ、主要事業説明書の予算計上額（千円単位）と財源内訳、提出条例の会派別賛否までを定量的に追跡します。
               </p>
             </div>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+            <div className="flex items-center gap-1.5 text-xs font-black text-slate-900">
+              <FileCheck className="w-4 h-4 text-indigo-600" />
+              <span>宿泊税・法定外目的税の使途透明性と他自治体比較</span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              年132億円規模へと拡大する「宿泊税」に着目し、集められた目的税が具体的にどの公約やインフラ対策に充当されているのかを主要事業説明書ベースで透明化。金沢市、東京都、倶知安町など全国の導入自治体との制度比較データ分析パイプラインの構築を進めています。
+            </p>
           </div>
 
           <div className="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-100 text-xs text-slate-700 leading-relaxed">
             <span className="font-bold text-indigo-950">シビックテックとしてのデータ開放：</span>
-            蓄積された政策論点データや分析スキーマは、研究者や地域ジャーナリズム、市民のオープンデータ活動に貢献できるよう、APIや構造化データとしての外部公開・活用も視野に入れて開発を進めています。
+            蓄積された政策論点データ、公約マッピング、予算定量スキーマは、研究者や地域報道、市民のオープンデータ活動に貢献できるよう、APIや構造化データとしての外部公開・活用も視野に入れて運用しています。
           </div>
 
           {/* ご意見・フィードバック導線 */}

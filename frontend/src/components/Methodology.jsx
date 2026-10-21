@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   ArrowLeft, ShieldCheck, Database, Sliders, Scale, 
-  AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText, Calendar, Landmark, Layers
+  AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText, Calendar, Landmark, Layers, BookmarkCheck, Coins, BookCheck
 } from 'lucide-react';
 
 export default function Methodology({ onBack }) {
@@ -18,7 +18,7 @@ export default function Methodology({ onBack }) {
             トップページに戻る
           </button>
           <span className="text-[11px] font-mono text-slate-400 font-semibold tracking-wider uppercase">
-            Platform Methodology v1.2
+            Platform Methodology v2.0
           </span>
         </div>
       </div>
@@ -31,10 +31,10 @@ export default function Methodology({ onBack }) {
             <FileText className="w-3.5 h-3.5" /> 公開技術白書・政策監査仕様書
           </div>
           <h1 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 tracking-tight leading-tight">
-            AI政策監査ロジックと評価基準
+            政策監査ロジック・公約照合データ仕様書
           </h1>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed pt-2">
-            「議会のミカタ 京都」が採用するデータ収集・前処理アルゴリズム、公的原本へのトレーサビリティ機構、評価ルーブリック、およびAI（Gemini）採点における中立性・再現性の技術仕様を公開します。
+            「議会のミカタ 京都」が採用するデータ収集・前処理アルゴリズム、選挙公報原本および主要事業説明書との照合パイプライン、評価ルーブリック、およびAI採点における中立性・再現性の技術仕様を完全公開します。
           </p>
         </header>
 
@@ -45,7 +45,7 @@ export default function Methodology({ onBack }) {
           </h2>
           <div className="text-sm leading-relaxed text-slate-700 space-y-3 pl-4">
             <p>
-              本プラットフォームの目的は、議員に序列や合否をつける「通信簿」を作ることではありません。従来型の議会評価で頻繁に用いられてきた「発言回数」「登壇文字数」「提出議案件数」といった形式的な数値は、実際の政策論戦の質を反映せず、時としてパフォーマンス的な発言を助長する懸念がありました。
+              本プラットフォームの目的は、議員や首長に序列や合否をつける「通信簿」を作ることではありません。従来型の議会評価で頻繁に用いられてきた「発言回数」「登壇文字数」「提出議案件数」といった形式的な数値は、実際の政策論戦の質を反映せず、時としてパフォーマンス的な発言を助長する懸念がありました。
             </p>
             <p>
               私たちは、発言の「量」ではなく政策対話の<strong>「密度」と「個性」</strong>に着目しています。ある議員はデータに基づく手堅い論証を得意とし、別の議員は現場当事者の切実な声を直接議場へ届けることに長けています。市民が自身の関心や価値観に合う議員を見つけ出すための「マッチング情報」を提供することこそが本ツールの設計思想です。
@@ -53,25 +53,37 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* ③ セクション2：データ構造化と原本トレーサビリティ */}
+        {/* ③ セクション2：分析対象データと公約・予算トレーサビリティ仕様 */}
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
-            <span>2. 分析対象データと「スレッド構造化」の仕組み</span>
+            <span>2. 分析対象データと「公約・予算・議決」の照合仕様</span>
           </h2>
           <div className="text-sm leading-relaxed text-slate-700 space-y-4 pl-4">
             <p>
-              一次情報源である京都市会の公式会議録に加え、政治議論のオープンデータ基盤を活用して構築されています。
+              本プラットフォームは、議事録のテキスト分析にとどまらず、選挙管理委員会の選挙公報、京都市総合計画、および行財政局の予算公文書を統合した多層構造で構築されています。
             </p>
 
-            {/* データソース＆ライセンス明記ブロック */}
+            {/* 採用データソース＆ライセンス一覧 */}
             <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 space-y-2 text-xs">
               <div className="font-bold text-slate-800 flex items-center gap-1.5">
                 <Database className="w-4 h-4 text-indigo-600" />
-                採用データソースとクレジット
+                採用データソースとクレジット一覧
               </div>
               <ul className="list-disc list-inside space-y-1.5 text-slate-600 pl-1 leading-normal">
                 <li>
-                  <strong className="text-slate-700">一次情報源:</strong> 京都市会 公式会議録および議決結果（本会議・常任委員会・特別委員会）
+                  <strong className="text-slate-700">市会議決・会議録:</strong> 京都市会 公式会議録および議決結果一覧（本会議・常任委員会・特別委員会）
+                </li>
+                <li>
+                  <strong className="text-slate-700">市議選公約原本:</strong> 京都市選挙管理委員会発行「令和5年京都市議会議員一般選挙 選挙公報原本（全11区・16ファイルPDF）」
+                </li>
+                <li>
+                  <strong className="text-slate-700">市長選公約原本:</strong> 京都市選挙管理委員会発行「令和6年京都市長選挙 選挙公報原本（PDF）」
+                </li>
+                <li>
+                  <strong className="text-slate-700">市公式総合計画:</strong> 京都市総合企画局『新京都戦略（令和8年3月改定）』本編および別綴『政策集』
+                </li>
+                <li>
+                  <strong className="text-slate-700">予算・事業公文書:</strong> 京都市行財政局『主要事業説明書』『当初予算案・補正予算概要』各年度資料
                 </li>
                 <li>
                   <strong className="text-slate-700">政治議論データ基盤:</strong>{' '}
@@ -83,16 +95,7 @@ export default function Methodology({ onBack }) {
                   >
                     Sagebase <ExternalLink className="w-3 h-3 opacity-60" />
                   </a>
-                  （発言の構造化・人物同定データを利用 /{' '}
-                  <a 
-                    href="https://sage-base.com/terms/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-indigo-600 font-bold hover:underline"
-                  >
-                    利用規約
-                  </a>
-                  {' '}/ ライセンス:{' '}
+                  （発言の構造化・人物同定データを利用 / ライセンス:{' '}
                   <a 
                     href="https://creativecommons.org/licenses/by/4.0/deed.ja" 
                     target="_blank" 
@@ -105,27 +108,40 @@ export default function Methodology({ onBack }) {
                 </li>
               </ul>
             </div>
-            
-            {/* 期間と公平性のブロック */}
-            <div className="bg-indigo-50/60 p-4 rounded-xl border border-indigo-100">
-              <h3 className="font-bold text-indigo-900 text-xs flex items-center gap-1.5 mb-1.5">
-                <Calendar className="w-4 h-4 text-indigo-600" /> 対象期間と公平性の担保（現任期への統一）
+
+            {/* 💡 議員看板公約トラッカーのデータ仕様 */}
+            <div className="bg-indigo-50/50 p-4.5 rounded-2xl border border-indigo-100 space-y-2.5">
+              <h3 className="font-bold text-indigo-950 text-xs flex items-center gap-1.5">
+                <BookmarkCheck className="w-4 h-4 text-indigo-600" /> 議員看板公約トラッカーのデータ仕様と照合ロジック
               </h3>
-              <p className="text-xs text-indigo-950/80 leading-normal">
-                本プラットフォームでは、<strong>現任期（2023年5月の改選以降〜最新公開分）</strong>のみを分析・評価の対象としています。期数の長いベテラン議員と新人議員が「活動量や質」において対等に比較されるよう、全議員共通のスタート地点に揃えることで、直近の政策活動を公平に可視化しています。
+              <p className="text-xs text-indigo-950/80 leading-relaxed">
+                全11選挙区・67名の現任期議員を対象に、選挙公報原本からスローガン的記述を除いた具体的看板公約（1人あたり3件）を抽出。公報紙面の原文をそのまま引用・保存しています。
+              </p>
+              <p className="text-xs text-indigo-950/80 leading-relaxed">
+                公約の対象政策キーワードと、市会公式の議案採決ログ（<code>votes_summary.json</code>）および質疑発言ログを機械突合。包括予算で執行される政策については無関係な単独条例案の誤爆を排除し、議場で市側に何を迫ったかの質疑スレッドと会議録原本を1対1で直結させています。「公約違反」等の判定はシステム側で行わず、公報原本と会議録の並列提示に徹しています。
               </p>
             </div>
 
-            {/* 💡 原本トレーサビリティ仕様ブロック */}
-            <div className="bg-emerald-50/50 p-4 rounded-xl border border-emerald-200/80 space-y-2">
-              <h3 className="font-bold text-emerald-900 text-xs flex items-center gap-1.5">
-                <Landmark className="w-4 h-4 text-emerald-700" /> 公的原本への完全トレーサビリティ（監査可能性の技術仕様）
+            {/* 💡 市長政策ライフサイクル×予算定量のデータ仕様 */}
+            <div className="bg-emerald-50/50 p-4.5 rounded-2xl border border-emerald-200/80 space-y-2.5">
+              <h3 className="font-bold text-emerald-950 text-xs flex items-center gap-1.5">
+                <Coins className="w-4 h-4 text-emerald-700" /> 市長政策トラッカーのデータ仕様と定量の完全性
               </h3>
               <p className="text-xs text-emerald-950/90 leading-relaxed">
-                大規模言語モデル（LLM）の要約や評価における「ハルシネーション（誤生成）」や「文脈の欠落」を排除するため、全5,000件以上の質疑スレッドに対して、<strong>京都市会公式サーバー上の原本ページ（MinuteView）へ直接遷移する固有URL（council_id / schedule_id / view_years）を 1 対 1 で結合</strong>しています。
+                松井孝治市長の看板公約14項目を対象に、「①公約表明 ➔ ②市公式確定計画（新京都戦略 政策集） ➔ ③予算措置 ➔ ④条例提出・可決 ➔ ⑤成立・執行」の5段階を追跡しています。
               </p>
               <p className="text-xs text-emerald-950/90 leading-relaxed">
-                利用者はAIによる要約やスコアを見た直後に、ボタン1つで公的機関の一次情報に直接アクセスし、発言の前後文脈や議場の生ログを即座に事実確認（ファクトチェック）できる設計としています。
+                予算データに関してはAIの推論を完全に排除し、京都市発行の『主要事業説明書』PDF原本から直接抽出した「千円単位の計上額」および「特定財源内訳（宿泊税充当額、国費、市債、一般財源）」を紐付けています。各公約カードから主要事業説明書PDF原本への直接リンクを完備し、改ざんや誤認のない完全な検証可能性を担保しています。
+              </p>
+            </div>
+
+            {/* 原本トレーサビリティ仕様 */}
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+              <h3 className="font-bold text-slate-900 text-xs flex items-center gap-1.5">
+                <Landmark className="w-4 h-4 text-slate-700" /> 公的原本への完全トレーサビリティ（監査可能性の技術仕様）
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                全5,100件以上の質疑スレッドに対して、京都市会公式サーバー上の原本ページ（MinuteView）へ直接遷移する固有URL（council_id / schedule_id / view_years）を1対1で結合。利用者はボタン1つで公的機関の一次情報に直接アクセスし、文脈の確認を行えます。
               </p>
             </div>
 
@@ -222,7 +238,7 @@ export default function Methodology({ onBack }) {
           </h2>
           <div className="text-sm leading-relaxed text-slate-700 space-y-3 pl-4">
             <p>
-              LLMによる自由なカテゴリ出力は表記揺れや粒度の不揃いを生むため、本プラットフォームでは市議会の所管構造に適合した<strong>「統一8大政策分野」</strong>への再マッピングパイプラインを採用しています。
+              市議会の所管構造に適合した<strong>「統一8大政策分野」</strong>への再マッピングパイプラインを採用しています。
             </p>
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="font-bold text-slate-800 flex items-center gap-1.5">
