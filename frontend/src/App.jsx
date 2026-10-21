@@ -31,6 +31,50 @@ function getCategoryForBill(b) {
   return '市政全般';
 }
 
+// 💡 現在のURLから画面種別とパラメータを単一特定するパーサー
+function parseCurrentRoute() {
+  const params = new URLSearchParams(window.location.search);
+  const hash = window.location.hash || '';
+  const pathname = window.location.pathname;
+
+  // ハッシュによる詳細画面
+  if (hash.startsWith('#topic=')) {
+    return { type: 'topic', topicId: hash.replace('#topic=', '') };
+  }
+  if (hash.startsWith('#category=')) {
+    return { type: 'category', categoryName: decodeURIComponent(hash.replace('#category=', '')) };
+  }
+
+  // クエリパラメータによる静的ビュー
+  const view = params.get('view');
+  if (view === 'guide' || pathname === '/guide') return { type: 'guide' };
+  if (view === 'about' || pathname === '/about') return { type: 'about' };
+  if (view === 'methodology' || pathname === '/methodology') return { type: 'methodology' };
+  if (view === 'contested') return { type: 'contested', category: params.get('cat') || '' };
+
+  // 議員比較ダッシュボード
+  const compareParam = params.get('compare');
+  if (compareParam !== null) {
+    const names = compareParam === 'open' ? [] : compareParam.split(',').map(s => decodeURIComponent(s.trim())).filter(Boolean);
+    return { type: 'compare', names };
+  }
+
+  // 議員詳細
+  const speakerParam = params.get('speaker');
+  if (speakerParam) {
+    return { type: 'speaker', speakerName: decodeURIComponent(speakerParam.trim()) };
+  }
+
+  // 検索結果
+  const qParam = params.get('q');
+  if (qParam) {
+    return { type: 'search', query: decodeURIComponent(qParam.trim()) };
+  }
+
+  // デフォルト: ポータルトップ画面
+  return { type: 'portal' };
+}
+
 export default function App() {
   const {
     statements,
@@ -55,8 +99,6 @@ export default function App() {
     speakerFilteredThreads,
     compareList,
     setCompareList,
-    clearSpeakerAndCompare,
-    handleSpeakerClick: internalSpeakerClick,
     handleViewContext,
     selectedContext,
     isPanelOpen,
@@ -77,16 +119,10 @@ export default function App() {
   const [selectedSession, setSelectedSession] = useState('');
   const [selectedResult, setSelectedResult] = useState('');
 
-  const [isCompareView, setIsCompareView] = useState(false);
-  const [isGuideOpen, setIsGuideOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
-  const [isMethodologyOpen, setIsMethodologyOpen] = useState(false);
-  const [isContestedViewOpen, setIsContestedViewOpen] = useState(false);
-  const [contestedInitialCategory, setContestedInitialCategory] = useState('');
-  const [selectedTopicId, setSelectedTopicId] = useState(null);
-  const [selectedCategoryPage, setSelectedCategoryPage] = useState(null);
+  // 💡 URLに基づく現在の画面ルート状態
+  const [currentRoute, setCurrentRoute] = useState(() => parseCurrentRoute());
 
-  // 1. データ読み込み
+  // データ初期読み込み
   useEffect(() => {
     fetch('/data/votes_summary.json')
       .then(res => (res.ok ? res.json() : []))
@@ -106,223 +142,146 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // 💡 議員名（文字列）またはオブジェクトから正規の議員オブジェクトを解決
-  const resolveSpeaker = useCallback((spk) => {
-    if (!spk) return null;
-    if (typeof spk === 'string') {
-      return (speakerStats || []).find(s => s.speaker === spk) || { speaker: spk };
-    }
-    return spk;
-  }, [speakerStats]);
-
-  // 💡 ブラウザの「戻る・進む（popstate）」および初回読み込み時のみURLから画面復元
+  // 💡 ブラウザの「戻る・進む」およびURL変更リスナー
   useEffect(() => {
     const onLocationChange = () => {
-      const params = new URLSearchParams(window.location.search);
-      const hash = window.location.hash;
-      const view = params.get('view');
-      const speakerParam = params.get('speaker');
-      const compareParam = params.get('compare');
-      const qParam = params.get('q');
+      const nextRoute = parseCurrentRoute();
+      setCurrentRoute(nextRoute);
 
-      setIsGuideOpen(view === 'guide');
-      setIsAboutOpen(view === 'about');
-      setIsMethodologyOpen(view === 'methodology');
-
-      if (hash.startsWith('#topic=')) {
-        setSelectedTopicId(hash.replace('#topic=', ''));
-        setSelectedCategoryPage(null);
-      } else if (hash.startsWith('#category=')) {
-        setSelectedCategoryPage(decodeURIComponent(hash.replace('#category=', '')));
-        setSelectedTopicId(null);
-      } else {
-        setSelectedTopicId(null);
-        setSelectedCategoryPage(null);
-      }
-
-      if (qParam) {
-        setSearchQuery(qParam);
-        setSubmittedQuery(qParam);
+      if (nextRoute.type === 'search') {
+        setSearchQuery(nextRoute.query);
+        setSubmittedQuery(nextRoute.query);
       } else {
         setSubmittedQuery('');
       }
-
-      if (compareParam) {
-        setIsCompareView(true);
-        if (compareParam !== 'open' && speakerStats && speakerStats.length > 0) {
-          const names = compareParam.split(',').map(s => decodeURIComponent(s.trim())).filter(Boolean);
-          const matched = names.map(n => speakerStats.find(s => s.speaker === n)).filter(Boolean);
-          if (matched.length > 0) setCompareList(matched);
-        }
-      } else {
-        setIsCompareView(false);
-      }
-
-      if (speakerParam) {
-        internalSpeakerClick(speakerParam);
-      } else {
-        clearSpeakerAndCompare();
-      }
     };
-
-    onLocationChange();
 
     window.addEventListener('popstate', onLocationChange);
     window.addEventListener('hashchange', onLocationChange);
+    window.addEventListener('app-navigate', onLocationChange);
     return () => {
       window.removeEventListener('popstate', onLocationChange);
       window.removeEventListener('hashchange', onLocationChange);
+      window.removeEventListener('app-navigate', onLocationChange);
     };
-  }, [speakerStats, internalSpeakerClick, clearSpeakerAndCompare, setCompareList, setSearchQuery, setSubmittedQuery]);
+  }, [setSearchQuery, setSubmittedQuery]);
 
-  // 💡 一覧・ホームに戻る
-  const handleGoHome = useCallback(() => {
-    clearSpeakerAndCompare();
-    setIsCompareView(false);
-    setCompareList([]);
-    setSubmittedQuery('');
-    setSearchQuery('');
-    setIsGuideOpen(false);
-    setIsAboutOpen(false);
-    setIsMethodologyOpen(false);
-    setIsContestedViewOpen(false);
-    setSelectedTopicId(null);
-    setSelectedCategoryPage(null);
-
-    const url = new URL(window.location.href);
-    url.search = '';
-    url.hash = '';
-    window.history.pushState({}, '', url);
+  // 💡 画面遷移ナビゲーション関数
+  const navigate = useCallback((url, replace = false) => {
+    if (replace) {
+      window.history.replaceState({}, '', url);
+    } else {
+      window.history.pushState({}, '', url);
+    }
+    window.dispatchEvent(new Event('app-navigate'));
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [clearSpeakerAndCompare, setCompareList, setSubmittedQuery, setSearchQuery]);
+  }, []);
+
+  // 議員名からオブジェクトを解決
+  const resolveSpeaker = useCallback((spk) => {
+    if (!spk) return null;
+    const name = typeof spk === 'string' ? spk : spk.speaker;
+    return (speakerStats || []).find(s => s.speaker === name) || { speaker: name, district: '京都', partyGroup: '京都市会' };
+  }, [speakerStats]);
+
+  // 💡 トップ画面・一覧へ完全復帰
+  const handleGoHome = useCallback(() => {
+    setSearchQuery('');
+    setSubmittedQuery('');
+    navigate('/');
+  }, [navigate, setSearchQuery, setSubmittedQuery]);
 
   // 💡 議員詳細へ遷移
   const handleSpeakerClick = useCallback((speakerName) => {
-    internalSpeakerClick(speakerName);
-    setIsCompareView(false);
-    setIsGuideOpen(false);
-    setIsAboutOpen(false);
-    setIsMethodologyOpen(false);
-    setIsContestedViewOpen(false);
-    setSelectedTopicId(null);
-    setSelectedCategoryPage(null);
+    navigate(`/?speaker=${encodeURIComponent(speakerName)}`);
+  }, [navigate]);
 
-    const url = new URL(window.location.href);
-    url.search = '';
-    url.hash = '';
-    url.searchParams.set('speaker', speakerName);
-    window.history.pushState({}, '', url);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [internalSpeakerClick]);
-
-  // 💡 議員比較画面オープン（確実に遷移）
+  // 💡 議員比較画面へ遷移
   const handleOpenCompare = useCallback((initialSpeaker) => {
-    const spkObj = resolveSpeaker(initialSpeaker);
-    const list = spkObj ? [spkObj] : (compareList.length > 0 ? compareList : []);
-    
-    setCompareList(list);
-    setIsCompareView(true);
-    setIsGuideOpen(false);
-    setIsAboutOpen(false);
-    setIsMethodologyOpen(false);
-    setIsContestedViewOpen(false);
-    setSelectedTopicId(null);
-    setSelectedCategoryPage(null);
-
-    const url = new URL(window.location.href);
-    url.search = '';
-    url.hash = '';
-    if (list.length > 0) {
-      url.searchParams.set('compare', list.map(s => s.speaker).join(','));
-    } else {
-      url.searchParams.set('compare', 'open');
+    let names = [];
+    if (initialSpeaker) {
+      const name = typeof initialSpeaker === 'string' ? initialSpeaker : initialSpeaker.speaker;
+      if (name) names = [name];
+    } else if (compareList.length > 0) {
+      names = compareList.map(s => s.speaker);
     }
-    window.history.pushState({}, '', url);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [resolveSpeaker, compareList, setCompareList]);
+    const param = names.length > 0 ? names.join(',') : 'open';
+    navigate(`/?compare=${encodeURIComponent(param)}`);
+  }, [compareList, navigate]);
 
-  // 比較リストの更新
+  // 💡 比較リストへの追加（最大12名対応）
   const handleAddSpeakerToCompare = useCallback((spkOrList) => {
-    setCompareList(prev => {
-      const rawAdd = Array.isArray(spkOrList) ? spkOrList : [spkOrList];
-      const resolved = rawAdd.map(s => resolveSpeaker(s)).filter(Boolean);
-      const unique = resolved.filter(item => !prev.some(p => p.speaker === item.speaker));
-      const nextList = [...prev, ...unique].slice(0, 12);
+    const rawAdd = Array.isArray(spkOrList) ? spkOrList : [spkOrList];
+    const newNames = rawAdd.map(s => (typeof s === 'string' ? s : s?.speaker)).filter(Boolean);
 
-      const url = new URL(window.location.href);
-      url.searchParams.set('compare', nextList.map(s => s.speaker).join(','));
-      window.history.replaceState({}, '', url);
-      return nextList;
+    const currentNames = (currentRoute.type === 'compare' ? currentRoute.names : compareList.map(s => s.speaker)) || [];
+    const combined = [...currentNames];
+    newNames.forEach(n => {
+      if (!combined.includes(n)) combined.push(n);
     });
-  }, [resolveSpeaker, setCompareList]);
+    const finalNames = combined.slice(0, 12);
 
+    navigate(`/?compare=${encodeURIComponent(finalNames.join(','))}`, true);
+  }, [currentRoute, compareList, navigate]);
+
+  // 💡 比較リストからの削除
   const handleRemoveSpeakerFromCompare = useCallback((spk) => {
-    setCompareList(prev => {
-      const nextList = prev.filter(s => s.speaker !== spk.speaker);
-      const url = new URL(window.location.href);
-      if (nextList.length > 0) {
-        url.searchParams.set('compare', nextList.map(s => s.speaker).join(','));
-      } else {
-        url.searchParams.set('compare', 'open');
-      }
-      window.history.replaceState({}, '', url);
-      return nextList;
-    });
-  }, [setCompareList]);
+    const targetName = typeof spk === 'string' ? spk : spk?.speaker;
+    const currentNames = (currentRoute.type === 'compare' ? currentRoute.names : compareList.map(s => s.speaker)) || [];
+    const nextNames = currentNames.filter(n => n !== targetName);
+    const param = nextNames.length > 0 ? nextNames.join(',') : 'open';
 
-  // 静的ビュー遷移
+    navigate(`/?compare=${encodeURIComponent(param)}`, true);
+  }, [currentRoute, compareList, navigate]);
+
+  // 💡 議員カード右上の「比較」トグル
+  const handleToggleCompare = useCallback((spk, e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const targetName = typeof spk === 'string' ? spk : spk?.speaker;
+    const isAlready = compareList.some(s => s.speaker === targetName);
+    if (isAlready) {
+      handleRemoveSpeakerFromCompare(spk);
+    } else {
+      handleAddSpeakerToCompare(spk);
+    }
+  }, [compareList, handleAddSpeakerToCompare, handleRemoveSpeakerFromCompare]);
+
+  // 各種ビューへのナビゲーション
   const navigateToView = useCallback((viewName) => {
-    handleGoHome();
-    const url = new URL(window.location.href);
-    url.search = '';
-    url.hash = '';
-    url.searchParams.set('view', viewName);
-    window.history.pushState({}, '', url);
-
-    if (viewName === 'guide') setIsGuideOpen(true);
-    if (viewName === 'about') setIsAboutOpen(true);
-    if (viewName === 'methodology') setIsMethodologyOpen(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [handleGoHome]);
+    navigate(`/?view=${viewName}`);
+  }, [navigate]);
 
   const handleOpenCategoryDetail = useCallback((catName) => {
-    handleGoHome();
-    setSelectedCategoryPage(catName);
-    window.location.hash = `category=${encodeURIComponent(catName)}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [handleGoHome]);
+    navigate(`/#category=${encodeURIComponent(catName)}`);
+  }, [navigate]);
 
   const handleOpenTopicDetail = useCallback((topicId) => {
-    handleGoHome();
-    setSelectedTopicId(topicId);
-    window.location.hash = `topic=${topicId}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [handleGoHome]);
+    navigate(`/#topic=${topicId}`);
+  }, [navigate]);
 
   const handleSearchSubmit = useCallback((e) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
-    handleGoHome();
-    setSubmittedQuery(searchQuery);
-    const url = new URL(window.location.href);
-    url.search = '';
-    url.hash = '';
-    url.searchParams.set('q', searchQuery);
-    window.history.pushState({}, '', url);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [searchQuery, handleGoHome, setSubmittedQuery]);
+    navigate(`/?q=${encodeURIComponent(searchQuery.trim())}`);
+  }, [searchQuery, navigate]);
 
   const handleKeywordClick = useCallback((keyword) => {
-    handleGoHome();
     setSearchQuery(keyword);
-    setSubmittedQuery(keyword);
-    const url = new URL(window.location.href);
-    url.search = '';
-    url.hash = '';
-    url.searchParams.set('q', keyword);
-    window.history.pushState({}, '', url);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [handleGoHome, setSearchQuery, setSubmittedQuery]);
+    navigate(`/?q=${encodeURIComponent(keyword.trim())}`);
+  }, [setSearchQuery, navigate]);
+
+  // 比較画面用のアクティブな議員リスト
+  const activeCompareList = useMemo(() => {
+    if (currentRoute.type !== 'compare') return compareList;
+    if (!currentRoute.names || currentRoute.names.length === 0) return [];
+    return currentRoute.names.map(name => resolveSpeaker(name)).filter(Boolean);
+  }, [currentRoute, compareList, resolveSpeaker]);
+
+  // 議員詳細画面用のアクティブ議員オブジェクト
+  const activeSpeaker = useMemo(() => {
+    if (currentRoute.type !== 'speaker') return selectedSpeaker;
+    return resolveSpeaker(currentRoute.speakerName) || selectedSpeaker;
+  }, [currentRoute, selectedSpeaker, resolveSpeaker]);
 
   const getIssueCountForCategory = useMemo(() => {
     const counts = {};
@@ -366,17 +325,37 @@ export default function App() {
     );
   }
 
-  // --- 画面表示ルーティング ---
-  if (isGuideOpen) return <GuidePage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />;
-  if (selectedTopicId) return <TopicDetailPage topicId={selectedTopicId} onBack={handleGoHome} />;
-  if (selectedCategoryPage) {
+  // --- 排他的画面ルーティング ---
+
+  // 1. できること（ガイド）
+  if (currentRoute.type === 'guide') {
+    return <GuidePage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />;
+  }
+
+  // 2. 当サイトについて
+  if (currentRoute.type === 'about') {
+    return <AboutPage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} />;
+  }
+
+  // 3. AI採点基準（Methodology）
+  if (currentRoute.type === 'methodology') {
+    return <Methodology onBack={handleGoHome} />;
+  }
+
+  // 4. 重要政策トピック詳細
+  if (currentRoute.type === 'topic') {
+    return <TopicDetailPage topicId={currentRoute.topicId} onBack={handleGoHome} />;
+  }
+
+  // 5. 政策分野カテゴリー詳細
+  if (currentRoute.type === 'category') {
     return (
       <CategoryDetailPage
-        categoryName={selectedCategoryPage}
+        categoryName={currentRoute.categoryName}
         onBack={handleGoHome}
         topicStats={topicStats}
-        filteredThreads={statements.filter(s => s.category === selectedCategoryPage)}
-        filteredBills={votesData.filter(b => getCategoryForBill(b) === selectedCategoryPage)}
+        filteredThreads={statements.filter(s => s.category === currentRoute.categoryName)}
+        filteredBills={votesData.filter(b => getCategoryForBill(b) === currentRoute.categoryName)}
         speakerStats={speakerStats}
         issuesMap={issuesMap}
         onlyContestedBills={onlyContestedBills}
@@ -389,26 +368,25 @@ export default function App() {
       />
     );
   }
-  if (isAboutOpen) return <AboutPage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} />;
-  if (isMethodologyOpen) return <Methodology onBack={handleGoHome} />;
 
-  if (isContestedViewOpen) {
+  // 6. 激論議案一覧
+  if (currentRoute.type === 'contested') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => handleOpenCompare()} isCompareMode={false} />
-        <ContestedBillsView initialCategory={contestedInitialCategory} billIssues={billIssuesList} votesData={votesData} onClose={handleGoHome} onSpeakerClick={handleSpeakerClick} />
+        <ContestedBillsView initialCategory={currentRoute.category} billIssues={billIssuesList} votesData={votesData} onClose={handleGoHome} onSpeakerClick={handleSpeakerClick} />
         <Footer onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
 
-  // 💡 議員比較ダッシュボード
-  if (isCompareView) {
+  // 7. 議員比較ダッシュボード
+  if (currentRoute.type === 'compare') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => handleOpenCompare()} isCompareMode={true} />
+        <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => {}} isCompareMode={true} />
         <CompareDashboard
-          compareList={compareList}
+          compareList={activeCompareList}
           allSpeakers={speakerStats}
           onAddSpeaker={handleAddSpeakerToCompare}
           onRemoveSpeaker={handleRemoveSpeakerFromCompare}
@@ -426,13 +404,13 @@ export default function App() {
     );
   }
 
-  // 議員個別詳細ビュー
-  if (selectedSpeaker) {
+  // 8. 議員個別詳細画面
+  if (currentRoute.type === 'speaker' && activeSpeaker) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => handleOpenCompare()} isCompareMode={false} />
         <SpeakerDetailView
-          selectedSpeaker={selectedSpeaker}
+          selectedSpeaker={activeSpeaker}
           speakerStats={speakerStats}
           speakerFilteredThreads={speakerFilteredThreads}
           topicStats={topicStats}
@@ -456,13 +434,13 @@ export default function App() {
     );
   }
 
-  // キーワード検索結果画面
-  if (submittedQuery.trim() !== '') {
+  // 9. 検索結果一覧画面
+  if (currentRoute.type === 'search') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => handleOpenCompare()} isCompareMode={false} />
         <SearchResultsView
-          submittedQuery={submittedQuery}
+          submittedQuery={currentRoute.query}
           onClearSearch={handleGoHome}
           filteredThreads={filteredThreads}
           filteredBills={filteredBills}
@@ -485,7 +463,7 @@ export default function App() {
     );
   }
 
-  // --- トップ画面（メインポータル） ---
+  // 10. メインポータル（トップ画面）
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
       <Navbar
@@ -546,6 +524,8 @@ export default function App() {
           issuesMap={issuesMap}
           onSpeakerClick={handleSpeakerClick}
           onOpenCompare={(spk) => handleOpenCompare(spk)}
+          onToggleCompare={handleToggleCompare}
+          compareList={compareList}
           onViewContext={handleViewContext}
           onSelectBill={setSelectedBillForModal}
           onOpenMethodology={() => navigateToView('methodology')}
