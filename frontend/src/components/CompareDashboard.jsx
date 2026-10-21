@@ -3,27 +3,27 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 import { 
   ArrowLeft, GitCompare, Share2, Target, BarChart3, MessageCircle, User, 
   Plus, X, Users, Scale, AlertCircle, UserPlus, ArrowUpDown, ArrowUp, ArrowDown, 
-  Table, Sparkles, Trophy 
+  Table, Sparkles, BookOpen, Layers, ShieldCheck, ExternalLink
 } from 'lucide-react';
 import ThreadCard from './ThreadCard';
 
-// 伏見区（12名）などの最大定数に対応する12色カラーパレット
 const COMPARE_COLORS = [
-  '#6366f1', // 1: Indigo
-  '#10b981', // 2: Emerald
-  '#f59e0b', // 3: Amber
-  '#ec4899', // 4: Pink
-  '#0ea5e9', // 5: Sky
-  '#8b5cf6', // 6: Violet
-  '#f97316', // 7: Orange
-  '#14b8a6', // 8: Teal
-  '#e11d48', // 9: Rose
-  '#84cc16', // 10: Lime
-  '#06b6d4', // 11: Cyan
-  '#64748b', // 12: Slate
+  '#6366f1', '#10b981', '#f59e0b', '#ec4899', '#0ea5e9', '#8b5cf6',
+  '#f97316', '#14b8a6', '#e11d48', '#84cc16', '#06b6d4', '#64748b'
 ];
 
 const MAX_COMPARE = 12;
+
+const ALL_8_CATEGORIES = [
+  '子育て・教育',
+  '都市再生・交通インフラ',
+  '産業・観光・地域経済',
+  '福祉・医療・健康',
+  '財政・行革',
+  'くらし・環境・エネルギー',
+  '防災・減災・治安',
+  '文化・景観・歴史'
+];
 
 const ALIAS_MAP = {
   '井崎敦子': '井﨑敦子',
@@ -108,24 +108,28 @@ export default function CompareDashboard({
   onSpeakerClick,
   votesData = [],
   issuesMap = {},
-  onSelectBill
+  onSelectBill,
+  onOpenMethodology
 }) {
   const [activeTab, setActiveTab] = useState('style');
   const [internalVotes, setInternalVotes] = useState(votesData || []);
 
-  // 💡 人数が4名以上の場合は初期表示を「ヒートマップ表」にし、2〜3名なら「レーダー」にする
   const [styleViewMode, setStyleViewMode] = useState(compareList.length > 3 ? 'heatmap' : 'radar');
+  const [portfolioViewMode, setPortfolioViewMode] = useState('table'); // 'table' or 'bars'
 
-  // 人数が大きく変動した際にビューを最適化
   useEffect(() => {
     if (compareList.length > 3) {
       setStyleViewMode('heatmap');
     }
   }, [compareList.length]);
 
-  // ヒートマップ表のソート状態（デフォルト: 対案・是正の降順）
+  // アプローチ表のソート
   const [sortKey, setSortKey] = useState('solution');
   const [sortOrder, setSortOrder] = useState('desc');
+
+  // ポートフォリオ表のソート（分野名）
+  const [portfolioSortCat, setPortfolioSortCat] = useState('子育て・教育');
+  const [portfolioSortOrder, setPortfolioSortOrder] = useState('desc');
 
   useEffect(() => {
     if (votesData && votesData.length > 0) {
@@ -196,7 +200,7 @@ export default function CompareDashboard({
     };
   };
 
-  // 💡 ヒートマップ比較用のリッチデータ構築（スコア・発揮率・総合平均を統合）
+  // アプローチ比較用データ
   const heatmapRows = useMemo(() => {
     const rows = compareList.map((spk, idx) => {
       const rates = calculateRates(spk);
@@ -204,7 +208,6 @@ export default function CompareDashboard({
       const solScore = spk.avg_solution || 0;
       const locScore = spk.avg_local_focus || 0;
       const conScore = spk.avg_constructive || 0;
-      const overall = Number(((evScore + solScore + locScore + conScore) / 4).toFixed(2));
 
       return {
         ...spk,
@@ -214,12 +217,10 @@ export default function CompareDashboard({
         evScore,
         solScore,
         locScore,
-        conScore,
-        overall
+        conScore
       };
     });
 
-    // ソート処理
     return rows.sort((a, b) => {
       let valA = 0;
       let valB = 0;
@@ -227,24 +228,11 @@ export default function CompareDashboard({
       else if (sortKey === 'evidence') { valA = a.evScore; valB = b.evScore; }
       else if (sortKey === 'local') { valA = a.locScore; valB = b.locScore; }
       else if (sortKey === 'constructive') { valA = a.conScore; valB = b.conScore; }
-      else if (sortKey === 'overall') { valA = a.overall; valB = b.overall; }
       else if (sortKey === 'count') { valA = a.count || 0; valB = b.count || 0; }
 
       return sortOrder === 'desc' ? valB - valA : valA - valB;
     });
   }, [compareList, sortKey, sortOrder]);
-
-  // 各指標の最高値を算出（1位バッジ用）
-  const topValues = useMemo(() => {
-    if (heatmapRows.length === 0) return {};
-    return {
-      solution: Math.max(...heatmapRows.map(r => r.solScore)),
-      evidence: Math.max(...heatmapRows.map(r => r.evScore)),
-      local: Math.max(...heatmapRows.map(r => r.locScore)),
-      constructive: Math.max(...heatmapRows.map(r => r.conScore)),
-      overall: Math.max(...heatmapRows.map(r => r.overall))
-    };
-  }, [heatmapRows]);
 
   const toggleSort = (key) => {
     if (sortKey === key) {
@@ -252,6 +240,44 @@ export default function CompareDashboard({
     } else {
       setSortKey(key);
       setSortOrder('desc');
+    }
+  };
+
+  // 💡 ポートフォリオ表用データ（8大政策分野のマトリクス）
+  const portfolioMatrixRows = useMemo(() => {
+    const rows = compareList.map((spk, idx) => {
+      const total = spk.count || 1;
+      const counts = spk.catCounts || {};
+      const catData = {};
+
+      ALL_8_CATEGORIES.forEach(cat => {
+        const cnt = counts[cat] || 0;
+        const pct = Number(((cnt / total) * 100).toFixed(1));
+        catData[cat] = { count: cnt, pct };
+      });
+
+      return {
+        ...spk,
+        originalIndex: idx,
+        color: COMPARE_COLORS[idx % COMPARE_COLORS.length],
+        catData,
+        totalCount: total
+      };
+    });
+
+    return rows.sort((a, b) => {
+      const valA = a.catData[portfolioSortCat]?.pct || 0;
+      const valB = b.catData[portfolioSortCat]?.pct || 0;
+      return portfolioSortOrder === 'desc' ? valB - valA : valA - valB;
+    });
+  }, [compareList, portfolioSortCat, portfolioSortOrder]);
+
+  const togglePortfolioSort = (cat) => {
+    if (portfolioSortCat === cat) {
+      setPortfolioSortOrder(prev => (prev === 'desc' ? 'asc' : 'desc'));
+    } else {
+      setPortfolioSortCat(cat);
+      setPortfolioSortOrder('desc');
     }
   };
 
@@ -344,13 +370,20 @@ export default function CompareDashboard({
     return result;
   }, [compareList, internalVotes]);
 
-  // ヒートマップセルのカラー計算ヘルパー
   const getCellBg = (score) => {
     if (score >= 4.0) return 'bg-indigo-600/20 text-indigo-950 font-black';
     if (score >= 3.6) return 'bg-indigo-500/15 text-indigo-900 font-bold';
     if (score >= 3.2) return 'bg-indigo-500/10 text-slate-800 font-medium';
     if (score >= 2.8) return 'bg-slate-100/80 text-slate-700';
     return 'bg-slate-50 text-slate-400';
+  };
+
+  const getPctCellBg = (pct) => {
+    if (pct >= 30) return 'bg-indigo-600/25 text-indigo-950 font-black';
+    if (pct >= 20) return 'bg-indigo-500/15 text-indigo-900 font-bold';
+    if (pct >= 10) return 'bg-indigo-500/10 text-slate-800 font-medium';
+    if (pct > 0) return 'bg-slate-50 text-slate-700';
+    return 'text-slate-300';
   };
 
   return (
@@ -512,15 +545,37 @@ export default function CompareDashboard({
               {activeTab === 'style' && (
                 <div className="space-y-6 animate-in fade-in">
                   
+                  {/* 💡 炎上防止・中立性宣言バナー（白書連携） */}
+                  <div className="bg-slate-100/90 rounded-2xl p-4 sm:p-5 border border-slate-200/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs leading-relaxed">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-800 text-xs">
+                        <ShieldCheck className="w-4 h-4 text-indigo-600 shrink-0" />
+                        <span>序列や格付け（通信簿）を目的としない客観データ可視化</span>
+                      </div>
+                      <p className="text-slate-600 text-[11px]">
+                        数値の高低は議員の優劣ではなく「議場でのアプローチ手法（具体的対案重視型か、市民現場の代弁型かなど）」の特色を示すものです。日常の地域相談や陳情対応など議場外の活動は含まれません。
+                      </p>
+                    </div>
+                    {onOpenMethodology && (
+                      <button
+                        onClick={onOpenMethodology}
+                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-indigo-600 hover:border-indigo-300 font-bold text-xs shrink-0 transition-colors shadow-2xs cursor-pointer"
+                      >
+                        <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
+                        <span>AI採点仕様書・中立性規約</span>
+                      </button>
+                    )}
+                  </div>
+
                   {/* 表示切り替えコントロールバー */}
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
                     <div>
                       <h4 className="text-sm font-black text-slate-800">
-                        {styleViewMode === 'heatmap' ? '4軸アプローチ比較マトリクス（ランキング表）' : '4軸レーダー重ね合わせ'}
+                        {styleViewMode === 'heatmap' ? '4軸アプローチ比較マトリクス' : '4軸レーダー重ね合わせ'}
                       </h4>
                       <p className="text-xs text-slate-500 mt-0.5">
                         {styleViewMode === 'heatmap'
-                          ? '列名をクリックすると各分野のランキング順に並び替えできます（色の濃さはスコアの高さに対応）'
+                          ? '列名をクリックすると各アプローチのスコア順に並び替えできます（色の濃さはスコアの高さに対応）'
                           : '平均スコアの面積差から、全体的なスタイルの違いを把握できます'}
                       </p>
                     </div>
@@ -533,7 +588,7 @@ export default function CompareDashboard({
                         }`}
                       >
                         <Table className="w-3.5 h-3.5" />
-                        <span>ヒートマップ表</span>
+                        <span>マトリクス表</span>
                       </button>
                       <button
                         onClick={() => setStyleViewMode('radar')}
@@ -547,7 +602,7 @@ export default function CompareDashboard({
                     </div>
                   </div>
 
-                  {/* 💡 案A: 4軸ヒートマップ・ランキングマトリクス */}
+                  {/* 4軸アプローチ比較マトリクス表 */}
                   {styleViewMode === 'heatmap' && (
                     <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden animate-in fade-in">
                       <div className="overflow-x-auto">
@@ -559,18 +614,17 @@ export default function CompareDashboard({
                               </th>
                               
                               {[
-                                { key: 'solution', label: '対案・是正の提示', desc: '具体的改善策' },
-                                { key: 'evidence', label: '根拠・データ活用', desc: 'ファクト重視' },
-                                { key: 'local', label: '地域課題の解像度', desc: '現場・市民の声' },
-                                { key: 'constructive', label: '議論の進展力', desc: '行政監視・追及' },
-                                { key: 'overall', label: '4軸総合平均', desc: 'バランス' },
+                                { key: 'solution', label: '対案・是正の提示', desc: '具体的改善策・追及' },
+                                { key: 'evidence', label: '根拠・データ活用', desc: 'ファクト・公的統計' },
+                                { key: 'local', label: '地域課題の解像度', desc: '生活現場・当事者の声' },
+                                { key: 'constructive', label: '議論の進展力', desc: '答弁の検証・是正引き出し' },
                               ].map(col => {
                                 const isActive = sortKey === col.key;
                                 return (
                                   <th
                                     key={col.key}
                                     onClick={() => toggleSort(col.key)}
-                                    className={`px-4 py-3.5 text-center cursor-pointer transition-colors hover:bg-indigo-50/60 min-w-[130px] border-l border-slate-100 ${
+                                    className={`px-4 py-3.5 text-center cursor-pointer transition-colors hover:bg-indigo-50/60 min-w-[140px] border-l border-slate-100 ${
                                       isActive ? 'bg-indigo-50/80 text-indigo-900 font-black' : ''
                                     }`}
                                   >
@@ -592,8 +646,6 @@ export default function CompareDashboard({
                           <tbody className="divide-y divide-slate-100 font-medium">
                             {heatmapRows.map((row) => (
                               <tr key={row.speaker} className="hover:bg-slate-50/80 transition-colors group">
-                                
-                                {/* 議員情報 */}
                                 <td className="px-5 py-3 sticky left-0 bg-white group-hover:bg-slate-50/80 z-10 border-r border-slate-100">
                                   <div className="flex items-center gap-3">
                                     <div className="w-1.5 h-10 rounded-full shrink-0" style={{ backgroundColor: row.color }} />
@@ -619,86 +671,33 @@ export default function CompareDashboard({
                                   </div>
                                 </td>
 
-                                {/* 1. 対案・是正 */}
                                 <td className={`px-4 py-3 text-center border-l border-slate-100 ${getCellBg(row.solScore)}`}>
                                   <div className="flex flex-col items-center justify-center">
-                                    <div className="flex items-center gap-1">
-                                      <span className="text-sm font-black font-mono">{row.solScore.toFixed(2)}</span>
-                                      {row.solScore === topValues.solution && (
-                                        <span className="px-1 py-0.2 rounded bg-amber-400 text-amber-950 text-[9px] font-black inline-flex items-center gap-0.5 shadow-2xs">
-                                          <Trophy className="w-2.5 h-2.5" /> 1位
-                                        </span>
-                                      )}
-                                    </div>
-                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">
-                                      発揮率 {row.rates.solution}%
-                                    </span>
+                                    <span className="text-sm font-black font-mono">{row.solScore.toFixed(2)}</span>
+                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">発揮率 {row.rates.solution}%</span>
                                   </div>
                                 </td>
 
-                                {/* 2. 根拠・データ */}
                                 <td className={`px-4 py-3 text-center border-l border-slate-100 ${getCellBg(row.evScore)}`}>
                                   <div className="flex flex-col items-center justify-center">
-                                    <div className="flex items-center gap-1">
-                                      <span className="text-sm font-black font-mono">{row.evScore.toFixed(2)}</span>
-                                      {row.evScore === topValues.evidence && (
-                                        <span className="px-1 py-0.2 rounded bg-amber-400 text-amber-950 text-[9px] font-black inline-flex items-center gap-0.5 shadow-2xs">
-                                          <Trophy className="w-2.5 h-2.5" /> 1位
-                                        </span>
-                                      )}
-                                    </div>
-                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">
-                                      発揮率 {row.rates.evidence}%
-                                    </span>
+                                    <span className="text-sm font-black font-mono">{row.evScore.toFixed(2)}</span>
+                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">発揮率 {row.rates.evidence}%</span>
                                   </div>
                                 </td>
 
-                                {/* 3. 地域課題の解像度 */}
                                 <td className={`px-4 py-3 text-center border-l border-slate-100 ${getCellBg(row.locScore)}`}>
                                   <div className="flex flex-col items-center justify-center">
-                                    <div className="flex items-center gap-1">
-                                      <span className="text-sm font-black font-mono">{row.locScore.toFixed(2)}</span>
-                                      {row.locScore === topValues.local && (
-                                        <span className="px-1 py-0.2 rounded bg-amber-400 text-amber-950 text-[9px] font-black inline-flex items-center gap-0.5 shadow-2xs">
-                                          <Trophy className="w-2.5 h-2.5" /> 1位
-                                        </span>
-                                      )}
-                                    </div>
-                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">
-                                      発揮率 {row.rates.local}%
-                                    </span>
+                                    <span className="text-sm font-black font-mono">{row.locScore.toFixed(2)}</span>
+                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">発揮率 {row.rates.local}%</span>
                                   </div>
                                 </td>
 
-                                {/* 4. 議論の進展力 */}
                                 <td className={`px-4 py-3 text-center border-l border-slate-100 ${getCellBg(row.conScore)}`}>
                                   <div className="flex flex-col items-center justify-center">
-                                    <div className="flex items-center gap-1">
-                                      <span className="text-sm font-black font-mono">{row.conScore.toFixed(2)}</span>
-                                      {row.conScore === topValues.constructive && (
-                                        <span className="px-1 py-0.2 rounded bg-amber-400 text-amber-950 text-[9px] font-black inline-flex items-center gap-0.5 shadow-2xs">
-                                          <Trophy className="w-2.5 h-2.5" /> 1位
-                                        </span>
-                                      )}
-                                    </div>
-                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">
-                                      発揮率 {row.rates.constructive}%
-                                    </span>
+                                    <span className="text-sm font-black font-mono">{row.conScore.toFixed(2)}</span>
+                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">発揮率 {row.rates.constructive}%</span>
                                   </div>
                                 </td>
-
-                                {/* 5. 4軸総合平均 */}
-                                <td className="px-4 py-3 text-center border-l border-slate-100 bg-slate-50/50">
-                                  <div className="flex items-center justify-center gap-1">
-                                    <span className="text-sm font-black text-slate-900 font-mono">{row.overall.toFixed(2)}</span>
-                                    {row.overall === topValues.overall && (
-                                      <span className="px-1 py-0.2 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">
-                                        最高
-                                      </span>
-                                    )}
-                                  </div>
-                                </td>
-
                               </tr>
                             ))}
                           </tbody>
@@ -707,7 +706,6 @@ export default function CompareDashboard({
                     </div>
                   )}
 
-                  {/* 従来のレーダーチャート重ね合わせ（手動切り替え可能） */}
                   {styleViewMode === 'radar' && (
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in">
                       <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
@@ -777,44 +775,167 @@ export default function CompareDashboard({
                 </div>
               )}
 
-              {/* ② 注力政策ポートフォリオ */}
+              {/* ② 注力政策ポートフォリオ（8大分野マトリクス表） */}
               {activeTab === 'portfolio' && (
-                <div className="space-y-6 animate-in fade-in max-w-4xl mx-auto">
-                  <div className="text-center mb-6">
-                    <h4 className="text-base font-extrabold text-slate-800 mb-2">発言時間の投下ポートフォリオ</h4>
-                    <p className="text-xs text-slate-500">
-                      全質疑の中で、どの政策分野に最も多くエネルギー（発言機会）を割いているかを帯グラフで比較します。
-                    </p>
+                <div className="space-y-6 animate-in fade-in">
+                  
+                  {/* ポートフォリオ用の解説バナー */}
+                  <div className="bg-slate-100/90 rounded-2xl p-4 sm:p-5 border border-slate-200/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs leading-relaxed">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-800 text-xs">
+                        <Layers className="w-4 h-4 text-indigo-600 shrink-0" />
+                        <span>発言機会（エネルギー）の投下ポートフォリオ</span>
+                      </div>
+                      <p className="text-slate-600 text-[11px]">
+                        各議員が任期中にどの政策テーマへ最も多くの登壇機会を配分しているかを示します。列のヘッダーをクリックすると、その分野に注力している順に議員が並び替わります。
+                      </p>
+                    </div>
+
+                    <div className="flex items-center bg-white p-1 rounded-xl border border-slate-200 shrink-0">
+                      <button
+                        onClick={() => setPortfolioViewMode('table')}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                          portfolioViewMode === 'table' ? 'bg-indigo-50 text-indigo-700 border border-indigo-200 shadow-2xs' : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                      >
+                        <Table className="w-3.5 h-3.5" />
+                        <span>8分野マトリクス表</span>
+                      </button>
+                      <button
+                        onClick={() => setPortfolioViewMode('bars')}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                          portfolioViewMode === 'bars' ? 'bg-indigo-50 text-indigo-700 border border-indigo-200 shadow-2xs' : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                      >
+                        <BarChart3 className="w-3.5 h-3.5" />
+                        <span>帯グラフ</span>
+                      </button>
+                    </div>
                   </div>
 
-                  {portfolios.map((port, idx) => (
-                    <div key={port.speaker} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
-                      <div className="absolute left-0 top-0 w-1.5 h-full" style={{ backgroundColor: COMPARE_COLORS[idx % COMPARE_COLORS.length] }} />
-                      <div className="flex items-center gap-2 mb-3 ml-2">
-                        <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: COMPARE_COLORS[idx % COMPARE_COLORS.length] }} />
-                        <h5 className="text-sm font-black text-slate-800">{port.speaker} 議員</h5>
-                      </div>
+                  {/* 💡 8大政策分野マトリクス表 */}
+                  {portfolioViewMode === 'table' && (
+                    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left text-xs whitespace-nowrap">
+                          <thead className="bg-slate-50 border-b border-slate-200 text-slate-600 font-extrabold uppercase tracking-wider">
+                            <tr>
+                              <th className="px-5 py-4 min-w-[200px] sticky left-0 bg-slate-50 z-10">
+                                議員名 / 全質疑数
+                              </th>
+                              {ALL_8_CATEGORIES.map(cat => {
+                                const isActive = portfolioSortCat === cat;
+                                return (
+                                  <th
+                                    key={cat}
+                                    onClick={() => togglePortfolioSort(cat)}
+                                    className={`px-3 py-3.5 text-center cursor-pointer transition-colors hover:bg-indigo-50/60 min-w-[110px] border-l border-slate-100 ${
+                                      isActive ? 'bg-indigo-50/80 text-indigo-900 font-black' : ''
+                                    }`}
+                                    title="クリックでこの分野への注力順にソート"
+                                  >
+                                    <div className="inline-flex items-center gap-1">
+                                      <span className="truncate max-w-[100px]">{cat}</span>
+                                      {isActive ? (
+                                        portfolioSortOrder === 'desc' ? <ArrowDown className="w-3 h-3 text-indigo-600 shrink-0" /> : <ArrowUp className="w-3 h-3 text-indigo-600 shrink-0" />
+                                      ) : (
+                                        <ArrowUpDown className="w-3 h-3 text-slate-300 opacity-60 shrink-0" />
+                                      )}
+                                    </div>
+                                  </th>
+                                );
+                              })}
+                            </tr>
+                          </thead>
 
-                      <div className="w-full h-7 rounded-lg overflow-hidden flex mb-2.5 shadow-inner bg-slate-100">
-                        {port.distribution.map((item, i) => {
-                          const alpha = 1 - (i * 0.15);
-                          return (
-                            <div key={item.name} className="h-full flex items-center justify-center hover:opacity-80 transition-opacity relative group" style={{ width: `${item.pct}%`, backgroundColor: COMPARE_COLORS[idx % COMPARE_COLORS.length], opacity: alpha }}>
-                              {item.pct > 10 && <span className="text-[9px] font-bold text-white truncate px-1">{item.name}</span>}
-                            </div>
-                          );
-                        })}
-                      </div>
+                          <tbody className="divide-y divide-slate-100 font-medium">
+                            {portfolioMatrixRows.map((row) => (
+                              <tr key={row.speaker} className="hover:bg-slate-50/80 transition-colors group">
+                                <td className="px-5 py-3 sticky left-0 bg-white group-hover:bg-slate-50/80 z-10 border-r border-slate-100">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-1.5 h-10 rounded-full shrink-0" style={{ backgroundColor: row.color }} />
+                                    <div className="w-9 h-11 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                                      <img
+                                        src={`/councilors/${(row.speaker || '').replace(/\s+/g, '')}.jpg`}
+                                        alt={row.speaker}
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => { e.target.style.display = 'none'; }}
+                                      />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <button
+                                        onClick={() => onSpeakerClick(row.speaker)}
+                                        className="font-black text-slate-900 hover:text-indigo-600 transition-colors text-sm text-left truncate block cursor-pointer"
+                                      >
+                                        {row.speaker}
+                                      </button>
+                                      <div className="text-[10px] text-slate-400 truncate mt-0.5">
+                                        全 {row.totalCount} 件登壇
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
 
-                      <div className="flex flex-wrap gap-x-3 gap-y-1 ml-2">
-                        {port.distribution.map((item, i) => (
-                          <div key={item.name} className="flex items-center gap-1">
-                            <span className="text-[10px] font-bold text-slate-600">{item.name} <span className="text-slate-400 font-medium">({item.pct.toFixed(1)}%)</span></span>
-                          </div>
-                        ))}
+                                {ALL_8_CATEGORIES.map(cat => {
+                                  const cell = row.catData[cat] || { count: 0, pct: 0 };
+                                  return (
+                                    <td
+                                      key={cat}
+                                      className={`px-3 py-3 text-center border-l border-slate-100 ${getPctCellBg(cell.pct)}`}
+                                    >
+                                      {cell.count > 0 ? (
+                                        <div className="flex flex-col items-center justify-center">
+                                          <span className="font-mono font-black text-xs">{cell.pct}%</span>
+                                          <span className="text-[10px] text-slate-400 font-normal">({cell.count}件)</span>
+                                        </div>
+                                      ) : (
+                                        <span className="text-slate-300">-</span>
+                                      )}
+                                    </td>
+                                  );
+                                })}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
                       </div>
                     </div>
-                  ))}
+                  )}
+
+                  {/* 帯グラフ表示（手動切り替え可能） */}
+                  {portfolioViewMode === 'bars' && (
+                    <div className="space-y-6 max-w-4xl mx-auto">
+                      {portfolios.map((port, idx) => (
+                        <div key={port.speaker} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+                          <div className="absolute left-0 top-0 w-1.5 h-full" style={{ backgroundColor: COMPARE_COLORS[idx % COMPARE_COLORS.length] }} />
+                          <div className="flex items-center gap-2 mb-3 ml-2">
+                            <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: COMPARE_COLORS[idx % COMPARE_COLORS.length] }} />
+                            <h5 className="text-sm font-black text-slate-800">{port.speaker} 議員</h5>
+                          </div>
+
+                          <div className="w-full h-7 rounded-lg overflow-hidden flex mb-2.5 shadow-inner bg-slate-100">
+                            {port.distribution.map((item, i) => {
+                              const alpha = 1 - (i * 0.15);
+                              return (
+                                <div key={item.name} className="h-full flex items-center justify-center hover:opacity-80 transition-opacity relative group" style={{ width: `${item.pct}%`, backgroundColor: COMPARE_COLORS[idx % COMPARE_COLORS.length], opacity: alpha }}>
+                                  {item.pct > 10 && <span className="text-[9px] font-bold text-white truncate px-1">{item.name}</span>}
+                                </div>
+                              );
+                            })}
+                          </div>
+
+                          <div className="flex flex-wrap gap-x-3 gap-y-1 ml-2">
+                            {port.distribution.map((item, i) => (
+                              <div key={item.name} className="flex items-center gap-1">
+                                <span className="text-[10px] font-bold text-slate-600">{item.name} <span className="text-slate-400 font-medium">({item.pct.toFixed(1)}%)</span></span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                 </div>
               )}
 
@@ -830,7 +951,7 @@ export default function CompareDashboard({
                       <div className="text-center mb-8">
                         <h4 className="text-base font-extrabold text-slate-800 mb-2">代表質疑 直接突き合わせ</h4>
                         <p className="text-xs text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                          共通して登壇数の多い分野 <strong className="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">【{headToHead.category}】</strong> における、各議員の最も評価の高い質疑スレッドを並べました。
+                          共通して登壇数の多い分野 <strong className="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">【{headToHead.category}】</strong> における、各議員の代表的な質疑スレッドを並べました。
                         </p>
                       </div>
 
