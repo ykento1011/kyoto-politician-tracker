@@ -7,6 +7,7 @@ import {
   Trophy, Award, Layers, BookmarkCheck, FileText, Check, AlertCircle, ShieldCheck
 } from 'lucide-react';
 import ThreadCard from './ThreadCard';
+import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
 // 異体字・旧字体エイリアス辞書
 const ALIAS_MAP = {
@@ -39,7 +40,7 @@ export default function SpeakerDetailView({
   const [speakerVoteFilter, setSpeakerVoteFilter] = useState('contested');
   const [pledgeTrackerMap, setPledgeTrackerMap] = useState({});
 
-  // 💡 看板公約トラッカーデータの読み込み
+  // 看板公約トラッカーデータの読み込み
   useEffect(() => {
     fetch('/data/pledge_tracker.json')
       .then(res => res.ok ? res.json() : {})
@@ -53,6 +54,36 @@ export default function SpeakerDetailView({
     const alias = ALIAS_MAP[name];
     return pledgeTrackerMap[name] || (alias ? pledgeTrackerMap[alias] : null) || null;
   }, [selectedSpeaker, pledgeTrackerMap]);
+
+  // 💡 公約カードの質疑から完全な質疑オブジェクトを逆引きして詳細モーダルを開く
+  const handleViewStatementContext = (stmtRecord) => {
+    if (!stmtRecord || !onViewContext) return;
+    const allStmts = selectedSpeaker?.statements || actualThreads || [];
+    const targetId = stmtRecord.speech_id || stmtRecord.id;
+    
+    // 1. IDで完全一致する質疑を検索
+    let target = allStmts.find(s => s.id === targetId);
+    
+    // 2. 日付と要約内容でのマッチング救済
+    if (!target) {
+      target = allStmts.find(s => s.meeting_date === stmtRecord.date && (s.summary === stmtRecord.summary || s.summary?.includes(stmtRecord.summary?.slice(0, 15))));
+    }
+    
+    // 3. 救済用オブジェクトのフォールバック
+    if (!target) {
+      target = {
+        ...stmtRecord,
+        id: targetId || `pledge_stmt_${stmtRecord.date}`,
+        speaker: selectedSpeaker?.speaker,
+        meeting_date: stmtRecord.date,
+        meeting_title: stmtRecord.committee,
+        committee_name: stmtRecord.committee,
+        category: selectedSpeaker?.topCategories?.[0] || '市政全般'
+      };
+    }
+    
+    onViewContext(target);
+  };
 
   // 顔写真用のエラー制御
   const cleanName = selectedSpeaker?.speaker ? selectedSpeaker.speaker.replace(/\s+/g, '') : '';
@@ -665,7 +696,7 @@ export default function SpeakerDetailView({
                       )}
                     </div>
 
-                    {/* 右側：市会での実際の行動（質疑を主役に配置） */}
+                    {/* 右側：市会での実際の行動（質疑を主役に配置 ＋ 詳細モーダル連携） */}
                     <div className="p-6 space-y-4 bg-white flex flex-col justify-between">
                       <div className="space-y-3.5">
                         <div className="flex items-center justify-between">
@@ -680,9 +711,9 @@ export default function SpeakerDetailView({
 
                         {/* 💡 質疑ログ（メイン表示） */}
                         {(item.council_statements && item.council_statements.length > 0) || item.council_statement ? (
-                          <div className="space-y-2.5">
+                          <div className="space-y-3">
                             {(item.council_statements || [item.council_statement]).map((stmt, sIdx) => (
-                              <div key={sIdx} className="p-3.5 rounded-xl bg-indigo-50/40 border border-indigo-100 space-y-2">
+                              <div key={sIdx} className="p-4 rounded-xl bg-indigo-50/40 border border-indigo-100 space-y-2.5">
                                 <div className="flex items-center justify-between text-[10px] font-bold text-slate-500">
                                   <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700">
                                     {stmt.date} / {stmt.committee}
@@ -691,21 +722,46 @@ export default function SpeakerDetailView({
                                     関連質疑
                                   </span>
                                 </div>
+
                                 <p className="text-xs text-slate-800 leading-relaxed font-medium">
                                   {stmt.summary}
                                 </p>
-                                {stmt.official_url && (
-                                  <div className="pt-1 text-right">
+
+                                {/* 💡 アクションボタンエリア：詳細タイムライン表示 ＆ 原本リンク */}
+                                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 border-t border-indigo-100/70 mt-2">
+                                  <button
+                                    onClick={() => handleViewStatementContext(stmt)}
+                                    className="flex-1 py-1.5 px-3 flex items-center justify-center text-xs font-bold text-indigo-700 bg-white hover:bg-indigo-50 border border-indigo-200 rounded-lg transition-colors shadow-2xs cursor-pointer group"
+                                  >
+                                    <MessageCircle className="w-3.5 h-3.5 mr-1.5 text-indigo-600 group-hover:scale-110 transition-transform" />
+                                    <span>市側答弁を含むタイムライン・詳細を表示</span>
+                                  </button>
+
+                                  {stmt.official_url ? (
                                     <a
                                       href={stmt.official_url}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="text-[11px] font-bold text-indigo-600 hover:text-indigo-800 hover:underline inline-flex items-center gap-0.5"
+                                      className="px-3 py-1.5 flex items-center justify-center text-[11px] font-bold text-slate-600 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors cursor-pointer shrink-0"
                                     >
-                                      京都市会 会議録原本で発言全文を確認 <ExternalLink className="w-3 h-3 opacity-60" />
+                                      <Landmark className="w-3.5 h-3.5 mr-1 text-slate-500" />
+                                      <span>会議録原本</span>
+                                      <ExternalLink className="w-2.5 h-2.5 ml-1 opacity-60" />
                                     </a>
-                                  </div>
-                                )}
+                                  ) : (
+                                    <button
+                                      onClick={() => {
+                                        const full = selectedSpeaker?.statements?.find(s => s.id === (stmt.speech_id || stmt.id));
+                                        if (full) openOfficialMinute(full);
+                                      }}
+                                      className="px-3 py-1.5 flex items-center justify-center text-[11px] font-bold text-slate-600 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors cursor-pointer shrink-0"
+                                    >
+                                      <Landmark className="w-3.5 h-3.5 mr-1 text-slate-500" />
+                                      <span>会議録原本</span>
+                                      <ExternalLink className="w-2.5 h-2.5 ml-1 opacity-60" />
+                                    </button>
+                                  )}
+                                </div>
                               </div>
                             ))}
                           </div>
