@@ -1,9 +1,13 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Legend } from 'recharts';
-import { ArrowLeft, GitCompare, Share2, Target, BarChart3, MessageCircle, User, Plus, X, Users, Scale, AlertCircle, UserPlus } from 'lucide-react';
+import { 
+  ArrowLeft, GitCompare, Share2, Target, BarChart3, MessageCircle, User, 
+  Plus, X, Users, Scale, AlertCircle, UserPlus, ArrowUpDown, ArrowUp, ArrowDown, 
+  Table, Sparkles, Trophy 
+} from 'lucide-react';
 import ThreadCard from './ThreadCard';
 
-// 💡 伏見区（12名）などの最大定数に対応する12色カラーパレット
+// 伏見区（12名）などの最大定数に対応する12色カラーパレット
 const COMPARE_COLORS = [
   '#6366f1', // 1: Indigo
   '#10b981', // 2: Emerald
@@ -19,7 +23,7 @@ const COMPARE_COLORS = [
   '#64748b', // 12: Slate
 ];
 
-const MAX_COMPARE = 12; // 伏見区（12名定数）全員比較に対応
+const MAX_COMPARE = 12;
 
 const ALIAS_MAP = {
   '井崎敦子': '井﨑敦子',
@@ -109,6 +113,20 @@ export default function CompareDashboard({
   const [activeTab, setActiveTab] = useState('style');
   const [internalVotes, setInternalVotes] = useState(votesData || []);
 
+  // 💡 人数が4名以上の場合は初期表示を「ヒートマップ表」にし、2〜3名なら「レーダー」にする
+  const [styleViewMode, setStyleViewMode] = useState(compareList.length > 3 ? 'heatmap' : 'radar');
+
+  // 人数が大きく変動した際にビューを最適化
+  useEffect(() => {
+    if (compareList.length > 3) {
+      setStyleViewMode('heatmap');
+    }
+  }, [compareList.length]);
+
+  // ヒートマップ表のソート状態（デフォルト: 対案・是正の降順）
+  const [sortKey, setSortKey] = useState('solution');
+  const [sortOrder, setSortOrder] = useState('desc');
+
   useEffect(() => {
     if (votesData && votesData.length > 0) {
       setInternalVotes(votesData);
@@ -146,7 +164,6 @@ export default function CompareDashboard({
     );
   }, [compareList, allSpeakers]);
 
-  // 💡 同区内全員一括追加（最大12名まで）
   const handleAddAllDistrict = () => {
     const availableSlots = MAX_COMPARE - compareList.length;
     if (availableSlots <= 0) {
@@ -177,6 +194,65 @@ export default function CompareDashboard({
       evidence: Math.round((speaker.statements.filter(s => s.evidence_score >= 4).length / total) * 100),
       constructive: Math.round((speaker.statements.filter(s => s.constructive_score >= 4).length / total) * 100),
     };
+  };
+
+  // 💡 ヒートマップ比較用のリッチデータ構築（スコア・発揮率・総合平均を統合）
+  const heatmapRows = useMemo(() => {
+    const rows = compareList.map((spk, idx) => {
+      const rates = calculateRates(spk);
+      const evScore = spk.avg_evidence || 0;
+      const solScore = spk.avg_solution || 0;
+      const locScore = spk.avg_local_focus || 0;
+      const conScore = spk.avg_constructive || 0;
+      const overall = Number(((evScore + solScore + locScore + conScore) / 4).toFixed(2));
+
+      return {
+        ...spk,
+        originalIndex: idx,
+        color: COMPARE_COLORS[idx % COMPARE_COLORS.length],
+        rates,
+        evScore,
+        solScore,
+        locScore,
+        conScore,
+        overall
+      };
+    });
+
+    // ソート処理
+    return rows.sort((a, b) => {
+      let valA = 0;
+      let valB = 0;
+      if (sortKey === 'solution') { valA = a.solScore; valB = b.solScore; }
+      else if (sortKey === 'evidence') { valA = a.evScore; valB = b.evScore; }
+      else if (sortKey === 'local') { valA = a.locScore; valB = b.locScore; }
+      else if (sortKey === 'constructive') { valA = a.conScore; valB = b.conScore; }
+      else if (sortKey === 'overall') { valA = a.overall; valB = b.overall; }
+      else if (sortKey === 'count') { valA = a.count || 0; valB = b.count || 0; }
+
+      return sortOrder === 'desc' ? valB - valA : valA - valB;
+    });
+  }, [compareList, sortKey, sortOrder]);
+
+  // 各指標の最高値を算出（1位バッジ用）
+  const topValues = useMemo(() => {
+    if (heatmapRows.length === 0) return {};
+    return {
+      solution: Math.max(...heatmapRows.map(r => r.solScore)),
+      evidence: Math.max(...heatmapRows.map(r => r.evScore)),
+      local: Math.max(...heatmapRows.map(r => r.locScore)),
+      constructive: Math.max(...heatmapRows.map(r => r.conScore)),
+      overall: Math.max(...heatmapRows.map(r => r.overall))
+    };
+  }, [heatmapRows]);
+
+  const toggleSort = (key) => {
+    if (sortKey === key) {
+      setSortOrder(prev => (prev === 'desc' ? 'asc' : 'desc'));
+    } else {
+      setSortKey(key);
+      setSortOrder('desc');
+    }
   };
 
   const radarData = useMemo(() => {
@@ -267,6 +343,15 @@ export default function CompareDashboard({
 
     return result;
   }, [compareList, internalVotes]);
+
+  // ヒートマップセルのカラー計算ヘルパー
+  const getCellBg = (score) => {
+    if (score >= 4.0) return 'bg-indigo-600/20 text-indigo-950 font-black';
+    if (score >= 3.6) return 'bg-indigo-500/15 text-indigo-900 font-bold';
+    if (score >= 3.2) return 'bg-indigo-500/10 text-slate-800 font-medium';
+    if (score >= 2.8) return 'bg-slate-100/80 text-slate-700';
+    return 'bg-slate-50 text-slate-400';
+  };
 
   return (
     <main className="max-w-6xl mx-auto py-8 px-6 animate-in fade-in slide-in-from-bottom-4 duration-300 w-full">
@@ -401,7 +486,7 @@ export default function CompareDashboard({
             <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600"><GitCompare className="w-6 h-6" /></div>
             <h3 className="text-base font-extrabold text-slate-800">比較する相手の議員を選択してください</h3>
             <p className="text-xs text-slate-500 max-w-md leading-relaxed">
-              上の枠から「同区全員追加」や候補議員をクリックすると、4軸ポリシーレーダーや注力政策の直接突き合わせが自動表示されます。
+              上の枠から「同区全員追加」や候補議員をクリックすると、4軸ポリシーマトリクスや注力政策の直接突き合わせが自動表示されます。
             </p>
           </div>
         ) : (
@@ -425,68 +510,270 @@ export default function CompareDashboard({
 
               {/* ① アプローチと強み */}
               {activeTab === 'style' && (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in">
-                  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <h4 className="text-sm font-extrabold text-slate-800 mb-2">4軸レーダー重ね合わせ</h4>
-                    <p className="text-[11px] text-slate-500 mb-4">平均スコアの面積差から、全体的なスタイルの違いを把握できます。</p>
-                    <div className="w-full h-80">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
-                          <PolarGrid stroke="#cbd5e1" />
-                          <PolarAngleAxis dataKey="subject" tick={{ fill: '#334155', fontSize: 11, fontWeight: 700 }} />
-                          <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
-                          {compareList.map((spk, idx) => (
-                            <Radar
-                              key={spk.speaker}
-                              name={spk.speaker}
-                              dataKey={`speaker_${idx}`}
-                              stroke={COMPARE_COLORS[idx % COMPARE_COLORS.length]}
-                              strokeWidth={2}
-                              fill={COMPARE_COLORS[idx % COMPARE_COLORS.length]}
-                              fillOpacity={0.1}
-                            />
-                          ))}
-                          <Legend />
-                        </RadarChart>
-                      </ResponsiveContainer>
+                <div className="space-y-6 animate-in fade-in">
+                  
+                  {/* 表示切り替えコントロールバー */}
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                    <div>
+                      <h4 className="text-sm font-black text-slate-800">
+                        {styleViewMode === 'heatmap' ? '4軸アプローチ比較マトリクス（ランキング表）' : '4軸レーダー重ね合わせ'}
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        {styleViewMode === 'heatmap'
+                          ? '列名をクリックすると各分野のランキング順に並び替えできます（色の濃さはスコアの高さに対応）'
+                          : '平均スコアの面積差から、全体的なスタイルの違いを把握できます'}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 shrink-0">
+                      <button
+                        onClick={() => setStyleViewMode('heatmap')}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                          styleViewMode === 'heatmap' ? 'bg-white text-indigo-700 shadow-2xs' : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                      >
+                        <Table className="w-3.5 h-3.5" />
+                        <span>ヒートマップ表</span>
+                      </button>
+                      <button
+                        onClick={() => setStyleViewMode('radar')}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                          styleViewMode === 'radar' ? 'bg-white text-indigo-700 shadow-2xs' : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                      >
+                        <Target className="w-3.5 h-3.5" />
+                        <span>レーダー重ね合わせ</span>
+                      </button>
                     </div>
                   </div>
 
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-extrabold text-slate-800">強み発揮率（アプローチの確率）</h4>
-                    <p className="text-[11px] text-slate-500 mb-6">
-                      登壇時に、そのアプローチ（スコア4以上）をどれくらいの確率で取るかを示します。<br />
-                      ※点数ではなく、「どのような手法を好むか」の比較に役立ちます。
-                    </p>
+                  {/* 💡 案A: 4軸ヒートマップ・ランキングマトリクス */}
+                  {styleViewMode === 'heatmap' && (
+                    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden animate-in fade-in">
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-left text-xs whitespace-nowrap">
+                          <thead className="bg-slate-50 border-b border-slate-200 text-slate-600 font-extrabold uppercase tracking-wider">
+                            <tr>
+                              <th className="px-5 py-4 min-w-[200px] sticky left-0 bg-slate-50 z-10">
+                                議員名 / 会派
+                              </th>
+                              
+                              {[
+                                { key: 'solution', label: '対案・是正の提示', desc: '具体的改善策' },
+                                { key: 'evidence', label: '根拠・データ活用', desc: 'ファクト重視' },
+                                { key: 'local', label: '地域課題の解像度', desc: '現場・市民の声' },
+                                { key: 'constructive', label: '議論の進展力', desc: '行政監視・追及' },
+                                { key: 'overall', label: '4軸総合平均', desc: 'バランス' },
+                              ].map(col => {
+                                const isActive = sortKey === col.key;
+                                return (
+                                  <th
+                                    key={col.key}
+                                    onClick={() => toggleSort(col.key)}
+                                    className={`px-4 py-3.5 text-center cursor-pointer transition-colors hover:bg-indigo-50/60 min-w-[130px] border-l border-slate-100 ${
+                                      isActive ? 'bg-indigo-50/80 text-indigo-900 font-black' : ''
+                                    }`}
+                                  >
+                                    <div className="inline-flex items-center gap-1">
+                                      <span>{col.label}</span>
+                                      {isActive ? (
+                                        sortOrder === 'desc' ? <ArrowDown className="w-3.5 h-3.5 text-indigo-600" /> : <ArrowUp className="w-3.5 h-3.5 text-indigo-600" />
+                                      ) : (
+                                        <ArrowUpDown className="w-3 h-3 text-slate-300 opacity-60" />
+                                      )}
+                                    </div>
+                                    <span className="block text-[10px] font-medium text-slate-400 mt-0.5">{col.desc}</span>
+                                  </th>
+                                );
+                              })}
+                            </tr>
+                          </thead>
 
-                    {[
-                      { key: 'solution', label: '具体的対案の提示率' },
-                      { key: 'local', label: '現場課題の代弁率' },
-                      { key: 'evidence', label: '客観データの活用率' },
-                      { key: 'constructive', label: '行政への鋭い追及率' },
-                    ].map(metric => (
-                      <div key={metric.key} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                        <div className="text-xs font-bold text-slate-700 mb-3">{metric.label}</div>
-                        <div className="space-y-2.5 max-h-56 overflow-y-auto pr-1">
-                          {compareList.map((spk, idx) => {
-                            const rate = calculateRates(spk)[metric.key];
-                            return (
-                              <div key={spk.speaker} className="flex items-center gap-2.5">
-                                <span className="w-20 text-[10px] font-bold text-slate-600 truncate text-right">{spk.speaker}</span>
-                                <div className="flex-1 bg-slate-100 h-2.5 rounded-full overflow-hidden flex">
-                                  <div
-                                    className="h-full rounded-full transition-all duration-500"
-                                    style={{ width: `${rate}%`, backgroundColor: COMPARE_COLORS[idx % COMPARE_COLORS.length] }}
-                                  />
-                                </div>
-                                <span className="w-8 text-[11px] font-black text-slate-700 text-right font-mono">{rate}%</span>
-                              </div>
-                            );
-                          })}
+                          <tbody className="divide-y divide-slate-100 font-medium">
+                            {heatmapRows.map((row) => (
+                              <tr key={row.speaker} className="hover:bg-slate-50/80 transition-colors group">
+                                
+                                {/* 議員情報 */}
+                                <td className="px-5 py-3 sticky left-0 bg-white group-hover:bg-slate-50/80 z-10 border-r border-slate-100">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-1.5 h-10 rounded-full shrink-0" style={{ backgroundColor: row.color }} />
+                                    <div className="w-9 h-11 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                                      <img
+                                        src={`/councilors/${(row.speaker || '').replace(/\s+/g, '')}.jpg`}
+                                        alt={row.speaker}
+                                        className="w-full h-full object-cover"
+                                        onError={(e) => { e.target.style.display = 'none'; }}
+                                      />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <button
+                                        onClick={() => onSpeakerClick(row.speaker)}
+                                        className="font-black text-slate-900 hover:text-indigo-600 transition-colors text-sm text-left truncate block cursor-pointer"
+                                      >
+                                        {row.speaker}
+                                      </button>
+                                      <div className="text-[10px] text-slate-400 truncate mt-0.5">
+                                        {row.district} / {row.partyGroup}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+
+                                {/* 1. 対案・是正 */}
+                                <td className={`px-4 py-3 text-center border-l border-slate-100 ${getCellBg(row.solScore)}`}>
+                                  <div className="flex flex-col items-center justify-center">
+                                    <div className="flex items-center gap-1">
+                                      <span className="text-sm font-black font-mono">{row.solScore.toFixed(2)}</span>
+                                      {row.solScore === topValues.solution && (
+                                        <span className="px-1 py-0.2 rounded bg-amber-400 text-amber-950 text-[9px] font-black inline-flex items-center gap-0.5 shadow-2xs">
+                                          <Trophy className="w-2.5 h-2.5" /> 1位
+                                        </span>
+                                      )}
+                                    </div>
+                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">
+                                      発揮率 {row.rates.solution}%
+                                    </span>
+                                  </div>
+                                </td>
+
+                                {/* 2. 根拠・データ */}
+                                <td className={`px-4 py-3 text-center border-l border-slate-100 ${getCellBg(row.evScore)}`}>
+                                  <div className="flex flex-col items-center justify-center">
+                                    <div className="flex items-center gap-1">
+                                      <span className="text-sm font-black font-mono">{row.evScore.toFixed(2)}</span>
+                                      {row.evScore === topValues.evidence && (
+                                        <span className="px-1 py-0.2 rounded bg-amber-400 text-amber-950 text-[9px] font-black inline-flex items-center gap-0.5 shadow-2xs">
+                                          <Trophy className="w-2.5 h-2.5" /> 1位
+                                        </span>
+                                      )}
+                                    </div>
+                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">
+                                      発揮率 {row.rates.evidence}%
+                                    </span>
+                                  </div>
+                                </td>
+
+                                {/* 3. 地域課題の解像度 */}
+                                <td className={`px-4 py-3 text-center border-l border-slate-100 ${getCellBg(row.locScore)}`}>
+                                  <div className="flex flex-col items-center justify-center">
+                                    <div className="flex items-center gap-1">
+                                      <span className="text-sm font-black font-mono">{row.locScore.toFixed(2)}</span>
+                                      {row.locScore === topValues.local && (
+                                        <span className="px-1 py-0.2 rounded bg-amber-400 text-amber-950 text-[9px] font-black inline-flex items-center gap-0.5 shadow-2xs">
+                                          <Trophy className="w-2.5 h-2.5" /> 1位
+                                        </span>
+                                      )}
+                                    </div>
+                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">
+                                      発揮率 {row.rates.local}%
+                                    </span>
+                                  </div>
+                                </td>
+
+                                {/* 4. 議論の進展力 */}
+                                <td className={`px-4 py-3 text-center border-l border-slate-100 ${getCellBg(row.conScore)}`}>
+                                  <div className="flex flex-col items-center justify-center">
+                                    <div className="flex items-center gap-1">
+                                      <span className="text-sm font-black font-mono">{row.conScore.toFixed(2)}</span>
+                                      {row.conScore === topValues.constructive && (
+                                        <span className="px-1 py-0.2 rounded bg-amber-400 text-amber-950 text-[9px] font-black inline-flex items-center gap-0.5 shadow-2xs">
+                                          <Trophy className="w-2.5 h-2.5" /> 1位
+                                        </span>
+                                      )}
+                                    </div>
+                                    <span className="text-[10px] text-slate-500 font-bold mt-0.5">
+                                      発揮率 {row.rates.constructive}%
+                                    </span>
+                                  </div>
+                                </td>
+
+                                {/* 5. 4軸総合平均 */}
+                                <td className="px-4 py-3 text-center border-l border-slate-100 bg-slate-50/50">
+                                  <div className="flex items-center justify-center gap-1">
+                                    <span className="text-sm font-black text-slate-900 font-mono">{row.overall.toFixed(2)}</span>
+                                    {row.overall === topValues.overall && (
+                                      <span className="px-1 py-0.2 rounded bg-amber-100 text-amber-800 text-[9px] font-bold">
+                                        最高
+                                      </span>
+                                    )}
+                                  </div>
+                                </td>
+
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 従来のレーダーチャート重ね合わせ（手動切り替え可能） */}
+                  {styleViewMode === 'radar' && (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in">
+                      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <h4 className="text-sm font-extrabold text-slate-800 mb-2">4軸レーダー重ね合わせ</h4>
+                        <p className="text-[11px] text-slate-500 mb-4">平均スコアの面積差から、全体的なスタイルの違いを把握できます。</p>
+                        <div className="w-full h-80">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
+                              <PolarGrid stroke="#cbd5e1" />
+                              <PolarAngleAxis dataKey="subject" tick={{ fill: '#334155', fontSize: 11, fontWeight: 700 }} />
+                              <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
+                              {compareList.map((spk, idx) => (
+                                <Radar
+                                  key={spk.speaker}
+                                  name={spk.speaker}
+                                  dataKey={`speaker_${idx}`}
+                                  stroke={COMPARE_COLORS[idx % COMPARE_COLORS.length]}
+                                  strokeWidth={2}
+                                  fill={COMPARE_COLORS[idx % COMPARE_COLORS.length]}
+                                  fillOpacity={0.1}
+                                />
+                              ))}
+                              <Legend />
+                            </RadarChart>
+                          </ResponsiveContainer>
                         </div>
                       </div>
-                    ))}
-                  </div>
+
+                      <div className="space-y-4">
+                        <h4 className="text-sm font-extrabold text-slate-800">強み発揮率（アプローチの確率）</h4>
+                        <p className="text-[11px] text-slate-500 mb-6">
+                          登壇時に、そのアプローチ（スコア4以上）をどれくらいの確率で取るかを示します。<br />
+                          ※点数ではなく、「どのような手法を好むか」の比較に役立ちます。
+                        </p>
+
+                        {[
+                          { key: 'solution', label: '具体的対案の提示率' },
+                          { key: 'local', label: '現場課題の代弁率' },
+                          { key: 'evidence', label: '客観データの活用率' },
+                          { key: 'constructive', label: '行政への鋭い追及率' },
+                        ].map(metric => (
+                          <div key={metric.key} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <div className="text-xs font-bold text-slate-700 mb-3">{metric.label}</div>
+                            <div className="space-y-2.5 max-h-56 overflow-y-auto pr-1">
+                              {compareList.map((spk, idx) => {
+                                const rate = calculateRates(spk)[metric.key];
+                                return (
+                                  <div key={spk.speaker} className="flex items-center gap-2.5">
+                                    <span className="w-20 text-[10px] font-bold text-slate-600 truncate text-right">{spk.speaker}</span>
+                                    <div className="flex-1 bg-slate-100 h-2.5 rounded-full overflow-hidden flex">
+                                      <div
+                                        className="h-full rounded-full transition-all duration-500"
+                                        style={{ width: `${rate}%`, backgroundColor: COMPARE_COLORS[idx % COMPARE_COLORS.length] }}
+                                      />
+                                    </div>
+                                    <span className="w-8 text-[11px] font-black text-slate-700 text-right font-mono">{rate}%</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                 </div>
               )}
 
