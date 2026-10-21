@@ -134,6 +134,23 @@ export default function App() {
       }
     };
 
+    // URLのクエリパラメータ（?compare=議員1,議員2...）から複数名を完全復元
+    useEffect(() => {
+      if (speakerStats && speakerStats.length > 0) {
+        const params = new URLSearchParams(window.location.search);
+        const compareParam = params.get('compare');
+        if (compareParam) {
+          const names = compareParam.split(',').map(s => decodeURIComponent(s.trim())).filter(Boolean);
+          const matched = names.map(n => speakerStats.find(s => s.speaker === n)).filter(Boolean);
+          if (matched.length >= 1) {
+            setCompareList(matched);
+            setCompareActive(true);
+          }
+        }
+      }
+    }, [speakerStats]);
+    
+
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash.startsWith('#topic=')) {
@@ -312,11 +329,15 @@ export default function App() {
         <CompareDashboard
           compareList={compareList}
           allSpeakers={speakerStats}
-          onAddSpeaker={(spk) => {
-            // 💡 3名制限を8名制限に緩和
-            if (compareList.length < 8) setCompareList([...compareList, spk]);
+          onAddSpeaker={(spkOrList) => {
+            // 単体議員・配列（同区全員）のどちらも受け取れるようにし、State競合を防ぐ
+            setCompareList(prev => {
+              const toAdd = Array.isArray(spkOrList) ? spkOrList : [spkOrList];
+              const uniqueAdd = toAdd.filter(item => item && !prev.some(p => p.speaker === item.speaker));
+              return [...prev, ...uniqueAdd].slice(0, 8);
+            });
           }}
-          onRemoveSpeaker={(spk) => setCompareList(compareList.filter(s => s.speaker !== spk.speaker))}
+          onRemoveSpeaker={(spk) => setCompareList(prev => prev.filter(s => s.speaker !== spk.speaker))}
           onClose={() => setCompareActive(false)}
           onViewContext={handleViewContext}
           onSpeakerClick={handleSpeakerClick}

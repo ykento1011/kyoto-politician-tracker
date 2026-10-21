@@ -3,7 +3,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 import { ArrowLeft, GitCompare, Share2, Target, BarChart3, MessageCircle, User, Plus, X, Users, Scale, AlertCircle, UserPlus } from 'lucide-react';
 import ThreadCard from './ThreadCard';
 
-// 💡 最大8名まで対応する拡張カラーパレット
+// 最大8名まで対応する拡張カラーパレット
 const COMPARE_COLORS = [
   '#6366f1', // Indigo
   '#10b981', // Emerald
@@ -24,7 +24,7 @@ const ALIAS_MAP = {
   '繁隆夫': '繁隆夫'
 };
 
-// 💡 異体字フォールバック付きの顔写真アバター
+// 異体字フォールバック付きの顔写真アバター
 function SpeakerAvatar({ speakerName }) {
   const cleanName = speakerName ? speakerName.replace(/\s+/g, '') : '';
   const [src, setSrc] = useState(`/councilors/${cleanName}.jpg`);
@@ -117,14 +117,14 @@ export default function CompareDashboard({
     }
   }, [votesData]);
 
-  // 💡 議員の追加・削除時にURLクエリパラメータ（?compare=A,B,C）をリアルタイム自動同期
+  // 議員の追加・削除時にURLクエリパラメータ（?compare=A,B,C）をリアルタイム自動同期
   useEffect(() => {
     if (compareList.length > 0) {
       const url = new URL(window.location);
       const names = compareList.map(s => s.speaker).join(',');
       if (url.searchParams.get('compare') !== names) {
         url.searchParams.set('compare', names);
-        url.searchParams.delete('speaker'); // 単独議員指定があれば削除
+        url.searchParams.delete('speaker');
         window.history.replaceState({}, '', url);
       }
     }
@@ -156,7 +156,7 @@ export default function CompareDashboard({
     );
   }, [compareList, allSpeakers]);
 
-  // 💡 同区の議員を一括で追加する
+  // 同区の議員を一括で配列ごと追加する（確実に全員追加）
   const handleAddAllDistrict = () => {
     const availableSlots = MAX_COMPARE - compareList.length;
     if (availableSlots <= 0) {
@@ -164,7 +164,7 @@ export default function CompareDashboard({
       return;
     }
     const toAdd = sameDistrictCandidates.slice(0, availableSlots);
-    toAdd.forEach(candidate => onAddSpeaker(candidate));
+    onAddSpeaker(toAdd);
   };
 
   const speakersByDistrict = useMemo(() => {
@@ -320,7 +320,6 @@ export default function CompareDashboard({
 
                 <div>
                   <div className="flex items-start gap-3 mb-2.5">
-                    {/* 💡 顔写真 */}
                     <SpeakerAvatar speakerName={spk.speaker} />
 
                     <div className="min-w-0 flex-1">
@@ -368,7 +367,6 @@ export default function CompareDashboard({
                           <Users className="w-3 h-3 text-indigo-500" />
                           同じ【{compareList[0]?.district}】の議員:
                         </span>
-                        {/* 💡 同区内全員一括追加ボタン */}
                         <button
                           onClick={handleAddAllDistrict}
                           className="text-[10px] font-black text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-2 py-0.5 rounded border border-indigo-200 transition-all flex items-center gap-1 cursor-pointer"
@@ -413,7 +411,7 @@ export default function CompareDashboard({
             <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600"><GitCompare className="w-6 h-6" /></div>
             <h3 className="text-base font-extrabold text-slate-800">比較する相手の議員を選択してください</h3>
             <p className="text-xs text-slate-500 max-w-md leading-relaxed">
-              上の枠から「同区全員追加」や候補議員をクリックすると、4軸ポリシーレーダーや注力政策の直接突き合わせが自動表示されます[cite: 10]。
+              上の枠から「同区全員追加」や候補議員をクリックすると、4軸ポリシーレーダーや注力政策の直接突き合わせが自動表示されます。
             </p>
           </div>
         ) : (
@@ -440,7 +438,7 @@ export default function CompareDashboard({
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in">
                   <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                     <h4 className="text-sm font-extrabold text-slate-800 mb-2">4軸レーダー重ね合わせ</h4>
-                    <p className="text-[11px] text-slate-500 mb-4">平均スコアの面積差から、全体的なスタイルの違いを把握できます[cite: 10]。</p>
+                    <p className="text-[11px] text-slate-500 mb-4">平均スコアの面積差から、全体的なスタイルの違いを把握できます。</p>
                     <div className="w-full h-80">
                       <ResponsiveContainer width="100%" height="100%">
                         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
@@ -468,7 +466,7 @@ export default function CompareDashboard({
                     <h4 className="text-sm font-extrabold text-slate-800">強み発揮率（アプローチの確率）</h4>
                     <p className="text-[11px] text-slate-500 mb-6">
                       登壇時に、そのアプローチ（スコア4以上）をどれくらいの確率で取るかを示します。<br />
-                      ※点数ではなく、「どのような手法を好むか」の比較に役立ちます[cite: 10]。
+                      ※点数ではなく、「どのような手法を好むか」の比較に役立ちます。
                     </p>
 
                     {[
@@ -508,7 +506,7 @@ export default function CompareDashboard({
                   <div className="text-center mb-6">
                     <h4 className="text-base font-extrabold text-slate-800 mb-2">発言時間の投下ポートフォリオ</h4>
                     <p className="text-xs text-slate-500">
-                      全質疑の中で、どの政策分野に最も多くエネルギー（発言機会）を割いているかを帯グラフで比較します[cite: 10]。
+                      全質疑の中で、どの政策分野に最も多くエネルギー（発言機会）を割いているかを帯グラフで比較します。
                     </p>
                   </div>
 
@@ -548,14 +546,14 @@ export default function CompareDashboard({
                 <div className="animate-in fade-in">
                   {!headToHead ? (
                     <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-slate-300">
-                      <p className="text-slate-500 font-bold">比較対象の議員間で、共通して質疑が行われた政策分野が見つかりませんでした[cite: 10]。</p>
+                      <p className="text-slate-500 font-bold">比較対象の議員間で、共通して質疑が行われた政策分野が見つかりませんでした。</p>
                     </div>
                   ) : (
                     <>
                       <div className="text-center mb-8">
                         <h4 className="text-base font-extrabold text-slate-800 mb-2">代表質疑 直接突き合わせ</h4>
                         <p className="text-xs text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                          共通して登壇数の多い分野 <strong className="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">【{headToHead.category}】</strong> における、各議員の最も評価の高い質疑スレッドを並べました[cite: 10]。
+                          共通して登壇数の多い分野 <strong className="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">【{headToHead.category}】</strong> における、各議員の最も評価の高い質疑スレッドを並べました。
                         </p>
                       </div>
 
@@ -586,14 +584,14 @@ export default function CompareDashboard({
                   <div className="text-center mb-4">
                     <h4 className="text-base font-extrabold text-slate-800 mb-1">議案に対する賛否スタンスの違い</h4>
                     <p className="text-xs text-slate-500">
-                      議案をクリックすると、AI争点解説や各会派の投票状況を確認できます[cite: 10]。
+                      議案をクリックすると、AI争点解説や各会派の投票状況を確認できます。
                     </p>
                   </div>
 
                   {commonVotes.length === 0 ? (
                     <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-slate-300 space-y-2">
                       <AlertCircle className="w-8 h-8 text-slate-400 mx-auto" />
-                      <p className="text-slate-600 font-bold">比較対象の議員に関する投票記録を読み込み中、または該当がありません[cite: 10]。</p>
+                      <p className="text-slate-600 font-bold">比較対象の議員に関する投票記録を読み込み中、または該当がありません。</p>
                     </div>
                   ) : (
                     <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
