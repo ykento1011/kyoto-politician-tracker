@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import {
   Landmark, ArrowLeft, ExternalLink, ShieldCheck, BookmarkCheck,
   CheckCircle2, Clock, FileText, Scale, Sparkles,
-  PieChart, Filter, AlertCircle, ArrowRight, Layers, Coins, Building2
+  PieChart, Filter, AlertCircle, ArrowRight, Layers, Coins, Calendar,
+  TrendingUp, Award
 } from 'lucide-react';
 
 export default function MayorTrackerView({
@@ -89,10 +90,12 @@ export default function MayorTrackerView({
         </div>
       </div>
 
-      {/* ヘッダーエリア：市長通信簿サマリー */}
+      {/* 💡 ヘッダーエリア：市長通信簿サマリー（崩れを解消した新デザイン） */}
       <header className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-slate-100">
-          <div className="flex items-start gap-5">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-6 border-b border-slate-100">
+          
+          {/* 左側：市長プロフィール */}
+          <div className="flex items-start gap-4 sm:gap-5">
             <div className="w-20 h-24 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-xs flex items-center justify-center">
               {!imgError ? (
                 <img
@@ -108,8 +111,9 @@ export default function MayorTrackerView({
                 </div>
               )}
             </div>
-            <div>
-              <div className="flex items-center gap-3 flex-wrap">
+            
+            <div className="space-y-2">
+              <div className="flex items-center gap-2.5 flex-wrap">
                 <span className="px-2.5 py-0.5 text-xs font-black rounded-md bg-indigo-600 text-white shadow-2xs">
                   第{mayorInfo.term_number || 27}代 京都市長
                 </span>
@@ -117,40 +121,86 @@ export default function MayorTrackerView({
                   {mayorInfo.name || '松井 孝治'}
                 </h1>
               </div>
-              <p className="text-xs font-bold text-slate-500 mt-2 flex items-center gap-2 flex-wrap">
-                <span>就任日: {mayorInfo.term_start}</span>
-                <span>•</span>
-                <span>任期: 2024年2月25日 〜 2028年2月24日</span>
-              </p>
+
+              {/* 就任日・任期タグ（独立バッジ形式で改行崩れ防止） */}
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-500 flex-wrap">
+                <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md border border-slate-200/70">
+                  <Calendar className="w-3 h-3 text-slate-400" />
+                  就任: 2024年2月25日
+                </span>
+                <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md border border-slate-200/70">
+                  任期: 2024年2月25日 〜 2028年2月24日
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* 財政ハイライトカード */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-6 bg-gradient-to-br from-indigo-50/80 to-slate-50 p-4 rounded-2xl border border-indigo-100 w-full md:w-auto shrink-0">
-            <div className="text-center">
-              <span className="text-[10px] font-black text-indigo-700 block uppercase">公約投入予算総額</span>
-              <span className="text-lg sm:text-2xl font-black text-slate-900 font-mono">{stats.total_allocated_budget_jpy || '104億円'}</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">主要事業説明書定量</span>
+          {/* 💡 右側：財政ハイライトカード（長い文字の折り返しを防止した3連パネル） */}
+          <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-3 gap-3 bg-slate-50/80 p-3 sm:p-4 rounded-2xl border border-slate-200/80">
+            {/* 指標1: 公約投入予算 */}
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[150px]">
+              <span className="text-[11px] font-black text-indigo-700 block tracking-tight">
+                公約投入予算総額
+              </span>
+              <div className="my-1">
+                <span className="text-xl sm:text-2xl font-black text-slate-900 font-mono tracking-tight">
+                  104.1
+                </span>
+                <span className="text-xs font-black text-slate-700 ml-0.5">億円</span>
+              </div>
+              <span className="text-[10px] text-slate-400 font-bold block">
+                主要事業説明書 定量計上
+              </span>
             </div>
-            <div className="text-center border-x border-indigo-100/80 px-2 sm:px-4">
-              <span className="text-[10px] font-black text-emerald-700 block uppercase">宿泊税収（年見込）</span>
-              <span className="text-lg sm:text-2xl font-black text-emerald-600 font-mono">{stats.accommodation_tax_revenue_jpy || '132億円'}</span>
-              <span className="text-[10px] text-emerald-600 block mt-0.5">財源エンジン化</span>
+
+            {/* 指標2: 宿泊税収 */}
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[150px]">
+              <div className="flex items-center justify-center gap-1">
+                <span className="text-[11px] font-black text-emerald-700 block tracking-tight">
+                  宿泊税収見込
+                </span>
+                <span className="text-[9px] font-extrabold bg-emerald-100 text-emerald-800 px-1 py-0.2 rounded">
+                  R8見込
+                </span>
+              </div>
+              <div className="my-1">
+                <span className="text-xl sm:text-2xl font-black text-emerald-600 font-mono tracking-tight">
+                  132
+                </span>
+                <span className="text-xs font-black text-emerald-700 ml-0.5">億円</span>
+              </div>
+              <span className="text-[10px] text-emerald-600 font-bold block">
+                財源エンジン化推進
+              </span>
             </div>
-            <div className="text-center">
-              <span className="text-[10px] font-black text-slate-500 block uppercase">過去負債返済</span>
-              <span className="text-lg sm:text-2xl font-black text-slate-700 font-mono">{stats.debt_repayment_jpy || '年35億円'}</span>
-              <span className="text-[10px] text-slate-400 block mt-0.5">公債基金償還堅持</span>
+
+            {/* 指標3: 過去負債返済 */}
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[150px]">
+              <span className="text-[11px] font-black text-slate-600 block tracking-tight">
+                過去負債返済ペース
+              </span>
+              <div className="my-1">
+                <span className="text-xs font-black text-slate-500 mr-0.5">年間</span>
+                <span className="text-xl sm:text-2xl font-black text-slate-800 font-mono tracking-tight">
+                  35
+                </span>
+                <span className="text-xs font-black text-slate-700 ml-0.5">億円</span>
+              </div>
+              <span className="text-[10px] text-slate-400 font-bold block">
+                公債基金償還を堅持
+              </span>
             </div>
           </div>
         </div>
 
-        {/* 政策ライフサイクルの検証原則 */}
-        <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 text-xs text-slate-600 leading-relaxed flex items-start gap-3">
-          <ShieldCheck className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
-          <div>
-            <strong className="text-slate-800">政策ライフサイクル×予算定量検証の原則:</strong>
-            <p className="text-[11px] text-slate-500 mt-0.5">
+        {/* 💡 政策ライフサイクルの検証原則バナー */}
+        <div className="bg-indigo-50/40 p-4 sm:p-4.5 rounded-2xl border border-indigo-100 flex items-start gap-3">
+          <ShieldCheck className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
+          <div className="space-y-1">
+            <h2 className="text-xs font-black text-indigo-950">
+              政策ライフサイクル×予算定量検証の原則
+            </h2>
+            <p className="text-[11px] text-slate-600 leading-relaxed font-medium">
               市長は議案提出権と予算編成権を独占しています。本トラッカーは、単なるテキスト要約にとどまらず「①公約表明 ➔ ②施政方針演説 ➔ ③予算措置（計上額・財源内訳） ➔ ④条例提出と可決」という一次公文書の足跡を定量的に追跡します。
             </p>
           </div>
@@ -218,9 +268,9 @@ export default function MayorTrackerView({
                     {pledge.category}
                   </span>
                   <span className="text-xs font-mono text-slate-400 font-bold">{pledge.id}</span>
-                  <h2 className="text-base sm:text-lg font-black text-slate-900 leading-snug">
+                  <h3 className="text-base sm:text-lg font-black text-slate-900 leading-snug">
                     {pledge.headline}
-                  </h2>
+                  </h3>
                 </div>
                 <div className="shrink-0 flex items-center gap-2">
                   <span className={`px-3 py-1 rounded-full text-xs font-black inline-flex items-center gap-1.5 ${
@@ -410,9 +460,9 @@ export default function MayorTrackerView({
                             結果: {bill.result}
                           </span>
                         </div>
-                        <h3 className="text-xs font-bold text-slate-900 leading-snug">
+                        <h4 className="text-xs font-bold text-slate-900 leading-snug">
                           {bill.bill_title}
-                        </h3>
+                        </h4>
 
                         {/* 会派別賛否バッジ */}
                         {bill.party_votes && (
