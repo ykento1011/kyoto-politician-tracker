@@ -157,7 +157,6 @@ export default function App() {
     };
   }, [setSearchQuery, setSubmittedQuery]);
 
-  // 💡 URLが議員詳細になった際、useStatements 側の内部ステートも自動同期
   useEffect(() => {
     if (currentRoute.type === 'speaker' && currentRoute.speakerName) {
       internalSpeakerClick(currentRoute.speakerName);
@@ -302,71 +301,133 @@ export default function App() {
     );
   }
 
-  // --- 排他的画面ルーティング ---
+  // 💡 全画面共通のNavbarレンダラー
+  const renderNavbar = (isCompare = false) => (
+    <Navbar
+      onLogoClick={handleGoHome}
+      onOpenGuide={() => navigateToView('guide')}
+      onOpenAbout={() => navigateToView('about')}
+      onOpenMethodology={() => navigateToView('methodology')}
+      onOpenCompare={() => handleOpenCompare()}
+      isCompareMode={isCompare}
+    />
+  );
+
+  // --- 排他的画面ルーティング（常にNavbarを最上部に表示） ---
+
+  // 1. できること（ガイド）
   if (currentRoute.type === 'guide') {
-    return <GuidePage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />;
-  }
-
-  if (currentRoute.type === 'about') {
-    return <AboutPage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} />;
-  }
-
-  if (currentRoute.type === 'methodology') {
-    return <Methodology onBack={handleGoHome} />;
-  }
-
-  if (currentRoute.type === 'topic') {
-    return <TopicDetailPage topicId={currentRoute.topicId} onBack={handleGoHome} />;
-  }
-
-  if (currentRoute.type === 'category') {
-    return (
-      <CategoryDetailPage
-        categoryName={currentRoute.categoryName}
-        onBack={handleGoHome}
-        topicStats={topicStats}
-        filteredThreads={statements.filter(s => s.category === currentRoute.categoryName)}
-        filteredBills={votesData.filter(b => getCategoryForBill(b) === currentRoute.categoryName)}
-        speakerStats={speakerStats}
-        issuesMap={issuesMap}
-        onlyContestedBills={onlyContestedBills}
-        setOnlyContestedBills={setOnlyContestedBills}
-        onSpeakerClick={handleSpeakerClick}
-        onViewContext={handleViewContext}
-        onSelectBill={setSelectedBillForModal}
-        onOpenMethodology={() => navigateToView('methodology')}
-        onOpenTopicDetail={handleOpenTopicDetail}
-      />
-    );
-  }
-
-  if (currentRoute.type === 'contested') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => handleOpenCompare()} isCompareMode={false} />
-        <ContestedBillsView initialCategory={currentRoute.category} billIssues={billIssuesList} votesData={votesData} onClose={handleGoHome} onSpeakerClick={handleSpeakerClick} />
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <GuidePage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />
+        </div>
         <Footer onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
 
- if (currentRoute.type === 'compare') {
+  // 2. 当サイトについて
+  if (currentRoute.type === 'about') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => {}} isCompareMode={true} />
-        <CompareDashboard
-          compareList={activeCompareList}
-          allSpeakers={speakerStats}
-          onAddSpeaker={handleAddSpeakerToCompare}
-          onRemoveSpeaker={handleRemoveSpeakerFromCompare}
-          onClose={handleGoHome}
-          onViewContext={handleViewContext}
-          onSpeakerClick={handleSpeakerClick}
-          votesData={votesData}
-          issuesMap={issuesMap}
-          onSelectBill={setSelectedBillForModal}
-          onOpenMethodology={() => navigateToView('methodology')}
-        />
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <AboutPage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} />
+        </div>
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+      </div>
+    );
+  }
+
+  // 3. AI採点基準（Methodology）
+  if (currentRoute.type === 'methodology') {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <Methodology onBack={handleGoHome} />
+        </div>
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+      </div>
+    );
+  }
+
+  // 4. 重要政策トピック詳細
+  if (currentRoute.type === 'topic') {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <TopicDetailPage topicId={currentRoute.topicId} onBack={handleGoHome} />
+        </div>
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+      </div>
+    );
+  }
+
+  // 5. 政策分野カテゴリー詳細
+  if (currentRoute.type === 'category') {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <CategoryDetailPage
+            categoryName={currentRoute.categoryName}
+            onBack={handleGoHome}
+            topicStats={topicStats}
+            filteredThreads={statements.filter(s => s.category === currentRoute.categoryName)}
+            filteredBills={votesData.filter(b => getCategoryForBill(b) === currentRoute.categoryName)}
+            speakerStats={speakerStats}
+            issuesMap={issuesMap}
+            onlyContestedBills={onlyContestedBills}
+            setOnlyContestedBills={setOnlyContestedBills}
+            onSpeakerClick={handleSpeakerClick}
+            onViewContext={handleViewContext}
+            onSelectBill={setSelectedBillForModal}
+            onOpenMethodology={() => navigateToView('methodology')}
+            onOpenTopicDetail={handleOpenTopicDetail}
+          />
+        </div>
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+      </div>
+    );
+  }
+
+  // 6. 激論議案一覧
+  if (currentRoute.type === 'contested') {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <ContestedBillsView initialCategory={currentRoute.category} billIssues={billIssuesList} votesData={votesData} onClose={handleGoHome} onSpeakerClick={handleSpeakerClick} />
+        </div>
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+      </div>
+    );
+  }
+
+  // 7. 議員比較ダッシュボード
+  if (currentRoute.type === 'compare') {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
+        {renderNavbar(true)}
+        <div className="flex-grow">
+          <CompareDashboard
+            compareList={activeCompareList}
+            allSpeakers={speakerStats}
+            onAddSpeaker={handleAddSpeakerToCompare}
+            onRemoveSpeaker={handleRemoveSpeakerFromCompare}
+            onClose={handleGoHome}
+            onViewContext={handleViewContext}
+            onSpeakerClick={handleSpeakerClick}
+            votesData={votesData}
+            issuesMap={issuesMap}
+            onSelectBill={setSelectedBillForModal}
+            onOpenMethodology={() => navigateToView('methodology')}
+          />
+        </div>
         <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={(spk) => { setSelectedBillForModal(null); handleSpeakerClick(spk); }} />
         <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
         <Footer onOpenMethodology={() => navigateToView('methodology')} />
@@ -374,7 +435,7 @@ export default function App() {
     );
   }
 
-  // 💡 議員個別詳細画面（フォールバック配列を安全に注入）
+  // 8. 議員個別詳細画面
   if (currentRoute.type === 'speaker' && activeSpeaker) {
     const threadsForSpeaker = (speakerFilteredThreads && speakerFilteredThreads.length > 0)
       ? speakerFilteredThreads
@@ -382,25 +443,27 @@ export default function App() {
 
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => handleOpenCompare()} isCompareMode={false} />
-        <SpeakerDetailView
-          selectedSpeaker={activeSpeaker}
-          speakerStats={speakerStats}
-          speakerFilteredThreads={threadsForSpeaker}
-          topicStats={topicStats}
-          speakerCategory={speakerCategory}
-          setSpeakerCategory={setSpeakerCategory}
-          speakerSort={speakerSort}
-          setSpeakerSort={setSpeakerSort}
-          votesData={votesData}
-          issuesMap={issuesMap}
-          onOpenCompare={(spk) => handleOpenCompare(spk)}
-          onBack={handleGoHome}
-          onSpeakerClick={handleSpeakerClick}
-          onViewContext={handleViewContext}
-          onOpenMethodology={() => navigateToView('methodology')}
-          onSelectBill={setSelectedBillForModal}
-        />
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <SpeakerDetailView
+            selectedSpeaker={activeSpeaker}
+            speakerStats={speakerStats}
+            speakerFilteredThreads={threadsForSpeaker}
+            topicStats={topicStats}
+            speakerCategory={speakerCategory}
+            setSpeakerCategory={setSpeakerCategory}
+            speakerSort={speakerSort}
+            setSpeakerSort={setSpeakerSort}
+            votesData={votesData}
+            issuesMap={issuesMap}
+            onOpenCompare={(spk) => handleOpenCompare(spk)}
+            onBack={handleGoHome}
+            onSpeakerClick={handleSpeakerClick}
+            onViewContext={handleViewContext}
+            onOpenMethodology={() => navigateToView('methodology')}
+            onSelectBill={setSelectedBillForModal}
+          />
+        </div>
         <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
         <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
         <Footer onOpenMethodology={() => navigateToView('methodology')} />
@@ -408,27 +471,30 @@ export default function App() {
     );
   }
 
+  // 9. 検索結果一覧画面
   if (currentRoute.type === 'search') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => handleOpenCompare()} isCompareMode={false} />
-        <SearchResultsView
-          submittedQuery={currentRoute.query}
-          onClearSearch={handleGoHome}
-          filteredThreads={filteredThreads}
-          filteredBills={filteredBills}
-          filteredSpeakers={filteredSpeakers}
-          speakerStats={speakerStats}
-          issuesMap={issuesMap}
-          onlyContestedBills={onlyContestedBills}
-          setOnlyContestedBills={setOnlyContestedBills}
-          onSpeakerClick={handleSpeakerClick}
-          onViewContext={handleViewContext}
-          onOpenCompare={(spk) => handleOpenCompare(spk)}
-          onSelectBill={setSelectedBillForModal}
-          onOpenMethodology={() => navigateToView('methodology')}
-          onOpenTopicDetail={handleOpenTopicDetail}
-        />
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <SearchResultsView
+            submittedQuery={currentRoute.query}
+            onClearSearch={handleGoHome}
+            filteredThreads={filteredThreads}
+            filteredBills={filteredBills}
+            filteredSpeakers={filteredSpeakers}
+            speakerStats={speakerStats}
+            issuesMap={issuesMap}
+            onlyContestedBills={onlyContestedBills}
+            setOnlyContestedBills={setOnlyContestedBills}
+            onSpeakerClick={handleSpeakerClick}
+            onViewContext={handleViewContext}
+            onOpenCompare={(spk) => handleOpenCompare(spk)}
+            onSelectBill={setSelectedBillForModal}
+            onOpenMethodology={() => navigateToView('methodology')}
+            onOpenTopicDetail={handleOpenTopicDetail}
+          />
+        </div>
         <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
         <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
         <Footer onOpenMethodology={() => navigateToView('methodology')} />
@@ -436,16 +502,10 @@ export default function App() {
     );
   }
 
+  // 10. メインポータル（トップ画面）
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
-      <Navbar
-        onLogoClick={handleGoHome}
-        onOpenGuide={() => navigateToView('guide')}
-        onOpenAbout={() => navigateToView('about')}
-        onOpenMethodology={() => navigateToView('methodology')}
-        onOpenCompare={() => handleOpenCompare()}
-        isCompareMode={false}
-      />
+      {renderNavbar(false)}
 
       <main className="max-w-6xl mx-auto py-8 px-6 w-full flex-grow space-y-10">
         <HeroSection
