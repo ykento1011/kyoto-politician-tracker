@@ -241,7 +241,7 @@ export default function App() {
     let list = votesData || [];
     if (submittedQuery.trim() !== '') {
       const q = submittedQuery.toLowerCase();
-      list = list.filter(b => 
+      list = list.filter(b =>
         (b.title && b.title.toLowerCase().includes(q)) ||
         (b.bill_number && b.bill_number.toLowerCase().includes(q)) ||
         (b.session_name && b.session_name.toLowerCase().includes(q))
@@ -308,8 +308,22 @@ export default function App() {
   if (compareActive || compareList.length >= 2) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar onLogoClick={() => setCompareActive(false)} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => {}} isCompareMode={true} />
-        <CompareDashboard compareList={compareList} allSpeakers={speakerStats} onAddSpeaker={(spk) => { if (compareList.length < 3) setCompareList([...compareList, spk]); }} onRemoveSpeaker={(spk) => setCompareList(compareList.filter(s => s.speaker !== spk.speaker))} onClose={() => setCompareActive(false)} onViewContext={handleViewContext} onSpeakerClick={handleSpeakerClick} votesData={votesData} issuesMap={issuesMap} onSelectBill={setSelectedBillForModal} />
+        <Navbar onLogoClick={() => setCompareActive(false)} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => { }} isCompareMode={true} />
+        <CompareDashboard
+          compareList={compareList}
+          allSpeakers={speakerStats}
+          onAddSpeaker={(spk) => {
+            // 💡 3名制限を8名制限に緩和
+            if (compareList.length < 8) setCompareList([...compareList, spk]);
+          }}
+          onRemoveSpeaker={(spk) => setCompareList(compareList.filter(s => s.speaker !== spk.speaker))}
+          onClose={() => setCompareActive(false)}
+          onViewContext={handleViewContext}
+          onSpeakerClick={handleSpeakerClick}
+          votesData={votesData}
+          issuesMap={issuesMap}
+          onSelectBill={setSelectedBillForModal}
+        />
         <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={(spk) => { setSelectedBillForModal(null); handleSpeakerClick(spk); }} />
         <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
         <Footer onOpenMethodology={() => navigateToView('methodology')} />
