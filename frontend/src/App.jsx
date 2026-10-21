@@ -106,74 +106,76 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // 💡 URLから全画面状態を復元するルーティング同期（ブラウザの戻る・進むに完全連動）
-  const syncStateFromUrl = useCallback(() => {
-    const params = new URLSearchParams(window.location.search);
-    const hash = window.location.hash;
-    const view = params.get('view');
-    const speakerParam = params.get('speaker');
-    const compareParam = params.get('compare');
-    const qParam = params.get('q');
-
-    // 静的ビュー
-    setIsGuideOpen(view === 'guide' || window.location.pathname === '/guide');
-    setIsAboutOpen(view === 'about' || window.location.pathname === '/about');
-    setIsMethodologyOpen(view === 'methodology' || window.location.pathname === '/methodology');
-
-    // ハッシュ
-    if (hash.startsWith('#topic=')) {
-      setSelectedTopicId(hash.replace('#topic=', ''));
-      setSelectedCategoryPage(null);
-    } else if (hash.startsWith('#category=')) {
-      setSelectedCategoryPage(decodeURIComponent(hash.replace('#category=', '')));
-      setSelectedTopicId(null);
-    } else {
-      setSelectedTopicId(null);
-      setSelectedCategoryPage(null);
+  // 💡 議員名（文字列）またはオブジェクトから正規の議員オブジェクトを解決
+  const resolveSpeaker = useCallback((spk) => {
+    if (!spk) return null;
+    if (typeof spk === 'string') {
+      return (speakerStats || []).find(s => s.speaker === spk) || { speaker: spk };
     }
+    return spk;
+  }, [speakerStats]);
 
-    // 検索クエリ
-    if (qParam) {
-      setSearchQuery(qParam);
-      setSubmittedQuery(qParam);
-    } else {
-      setSubmittedQuery('');
-    }
+  // 💡 ブラウザの「戻る・進む（popstate）」および初回読み込み時のみURLから画面復元
+  useEffect(() => {
+    const onLocationChange = () => {
+      const params = new URLSearchParams(window.location.search);
+      const hash = window.location.hash;
+      const view = params.get('view');
+      const speakerParam = params.get('speaker');
+      const compareParam = params.get('compare');
+      const qParam = params.get('q');
 
-    // 議員詳細
-    if (speakerParam) {
-      internalSpeakerClick(speakerParam);
-    } else {
-      clearSpeakerAndCompare();
-    }
+      setIsGuideOpen(view === 'guide');
+      setIsAboutOpen(view === 'about');
+      setIsMethodologyOpen(view === 'methodology');
 
-    // 議員比較
-    if (compareParam && speakerStats && speakerStats.length > 0) {
-      const names = compareParam.split(',').map(s => decodeURIComponent(s.trim())).filter(Boolean);
-      const matched = names.map(n => speakerStats.find(s => s.speaker === n)).filter(Boolean);
-      if (matched.length > 0) {
-        setCompareList(matched);
+      if (hash.startsWith('#topic=')) {
+        setSelectedTopicId(hash.replace('#topic=', ''));
+        setSelectedCategoryPage(null);
+      } else if (hash.startsWith('#category=')) {
+        setSelectedCategoryPage(decodeURIComponent(hash.replace('#category=', '')));
+        setSelectedTopicId(null);
+      } else {
+        setSelectedTopicId(null);
+        setSelectedCategoryPage(null);
+      }
+
+      if (qParam) {
+        setSearchQuery(qParam);
+        setSubmittedQuery(qParam);
+      } else {
+        setSubmittedQuery('');
+      }
+
+      if (compareParam) {
         setIsCompareView(true);
+        if (compareParam !== 'open' && speakerStats && speakerStats.length > 0) {
+          const names = compareParam.split(',').map(s => decodeURIComponent(s.trim())).filter(Boolean);
+          const matched = names.map(n => speakerStats.find(s => s.speaker === n)).filter(Boolean);
+          if (matched.length > 0) setCompareList(matched);
+        }
       } else {
         setIsCompareView(false);
       }
-    } else if (!compareParam) {
-      setIsCompareView(false);
-    }
+
+      if (speakerParam) {
+        internalSpeakerClick(speakerParam);
+      } else {
+        clearSpeakerAndCompare();
+      }
+    };
+
+    onLocationChange();
+
+    window.addEventListener('popstate', onLocationChange);
+    window.addEventListener('hashchange', onLocationChange);
+    return () => {
+      window.removeEventListener('popstate', onLocationChange);
+      window.removeEventListener('hashchange', onLocationChange);
+    };
   }, [speakerStats, internalSpeakerClick, clearSpeakerAndCompare, setCompareList, setSearchQuery, setSubmittedQuery]);
 
-  // popstate・hashchange の監視
-  useEffect(() => {
-    syncStateFromUrl();
-    window.addEventListener('popstate', syncStateFromUrl);
-    window.addEventListener('hashchange', syncStateFromUrl);
-    return () => {
-      window.removeEventListener('popstate', syncStateFromUrl);
-      window.removeEventListener('hashchange', syncStateFromUrl);
-    };
-  }, [syncStateFromUrl]);
-
-  // 💡 一覧・ホームに戻る（URLを / に戻して全画面を完全リセット）
+  // 💡 一覧・ホームに戻る
   const handleGoHome = useCallback(() => {
     clearSpeakerAndCompare();
     setIsCompareView(false);
@@ -187,68 +189,93 @@ export default function App() {
     setSelectedTopicId(null);
     setSelectedCategoryPage(null);
 
-    const url = new URL(window.location.origin);
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.hash = '';
     window.history.pushState({}, '', url);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [clearSpeakerAndCompare, setCompareList, setSubmittedQuery, setSearchQuery]);
 
-  // 議員クリック時（URLを更新して詳細へ）
+  // 💡 議員詳細へ遷移
   const handleSpeakerClick = useCallback((speakerName) => {
     internalSpeakerClick(speakerName);
     setIsCompareView(false);
-    const url = new URL(window.location.origin);
+    setIsGuideOpen(false);
+    setIsAboutOpen(false);
+    setIsMethodologyOpen(false);
+    setIsContestedViewOpen(false);
+    setSelectedTopicId(null);
+    setSelectedCategoryPage(null);
+
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.hash = '';
     url.searchParams.set('speaker', speakerName);
     window.history.pushState({}, '', url);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [internalSpeakerClick]);
 
-  // 比較画面オープン
+  // 💡 議員比較画面オープン（確実に遷移）
   const handleOpenCompare = useCallback((initialSpeaker) => {
-    clearSpeakerAndCompare();
-    const list = initialSpeaker ? [initialSpeaker] : [];
+    const spkObj = resolveSpeaker(initialSpeaker);
+    const list = spkObj ? [spkObj] : (compareList.length > 0 ? compareList : []);
+    
     setCompareList(list);
     setIsCompareView(true);
+    setIsGuideOpen(false);
+    setIsAboutOpen(false);
+    setIsMethodologyOpen(false);
+    setIsContestedViewOpen(false);
+    setSelectedTopicId(null);
+    setSelectedCategoryPage(null);
 
-    const url = new URL(window.location.origin);
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.hash = '';
     if (list.length > 0) {
       url.searchParams.set('compare', list.map(s => s.speaker).join(','));
+    } else {
+      url.searchParams.set('compare', 'open');
     }
     window.history.pushState({}, '', url);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [clearSpeakerAndCompare, setCompareList]);
+  }, [resolveSpeaker, compareList, setCompareList]);
 
   // 比較リストの更新
   const handleAddSpeakerToCompare = useCallback((spkOrList) => {
     setCompareList(prev => {
-      const toAdd = Array.isArray(spkOrList) ? spkOrList : [spkOrList];
-      const unique = toAdd.filter(item => item && !prev.some(p => p.speaker === item.speaker));
+      const rawAdd = Array.isArray(spkOrList) ? spkOrList : [spkOrList];
+      const resolved = rawAdd.map(s => resolveSpeaker(s)).filter(Boolean);
+      const unique = resolved.filter(item => !prev.some(p => p.speaker === item.speaker));
       const nextList = [...prev, ...unique].slice(0, 12);
 
-      const url = new URL(window.location);
+      const url = new URL(window.location.href);
       url.searchParams.set('compare', nextList.map(s => s.speaker).join(','));
       window.history.replaceState({}, '', url);
       return nextList;
     });
-  }, [setCompareList]);
+  }, [resolveSpeaker, setCompareList]);
 
   const handleRemoveSpeakerFromCompare = useCallback((spk) => {
     setCompareList(prev => {
       const nextList = prev.filter(s => s.speaker !== spk.speaker);
-      const url = new URL(window.location);
+      const url = new URL(window.location.href);
       if (nextList.length > 0) {
         url.searchParams.set('compare', nextList.map(s => s.speaker).join(','));
       } else {
-        url.searchParams.delete('compare');
+        url.searchParams.set('compare', 'open');
       }
       window.history.replaceState({}, '', url);
       return nextList;
     });
   }, [setCompareList]);
 
-  // 静的ナビゲーション
+  // 静的ビュー遷移
   const navigateToView = useCallback((viewName) => {
     handleGoHome();
-    const url = new URL(window.location.origin);
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.hash = '';
     url.searchParams.set('view', viewName);
     window.history.pushState({}, '', url);
 
@@ -277,7 +304,9 @@ export default function App() {
     if (!searchQuery.trim()) return;
     handleGoHome();
     setSubmittedQuery(searchQuery);
-    const url = new URL(window.location.origin);
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.hash = '';
     url.searchParams.set('q', searchQuery);
     window.history.pushState({}, '', url);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -287,7 +316,9 @@ export default function App() {
     handleGoHome();
     setSearchQuery(keyword);
     setSubmittedQuery(keyword);
-    const url = new URL(window.location.origin);
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.hash = '';
     url.searchParams.set('q', keyword);
     window.history.pushState({}, '', url);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -335,7 +366,7 @@ export default function App() {
     );
   }
 
-  // --- サブビュー表示ルーティング ---
+  // --- 画面表示ルーティング ---
   if (isGuideOpen) return <GuidePage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />;
   if (selectedTopicId) return <TopicDetailPage topicId={selectedTopicId} onBack={handleGoHome} />;
   if (selectedCategoryPage) {
@@ -371,11 +402,11 @@ export default function App() {
     );
   }
 
-  // 💡 議員比較ダッシュボード（伏見区12名対応・一覧復帰連動）
+  // 💡 議員比較ダッシュボード
   if (isCompareView) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
-        <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => {}} isCompareMode={true} />
+        <Navbar onLogoClick={handleGoHome} onOpenGuide={() => navigateToView('guide')} onOpenAbout={() => navigateToView('about')} onOpenMethodology={() => navigateToView('methodology')} onOpenCompare={() => handleOpenCompare()} isCompareMode={true} />
         <CompareDashboard
           compareList={compareList}
           allSpeakers={speakerStats}
