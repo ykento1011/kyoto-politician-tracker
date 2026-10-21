@@ -84,15 +84,11 @@ export default function App() {
     setSortPerspective,
     viewMode,
     setViewMode,
-    selectedSpeaker,
     speakerCategory,
     setSpeakerCategory,
     speakerSort,
     setSpeakerSort,
-    speakerFilteredThreads,
     compareList,
-    setCompareList,
-    handleSpeakerClick: internalSpeakerClick,
     handleViewContext,
     selectedContext,
     isPanelOpen,
@@ -134,18 +130,11 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // 💡【最重要】ブラウザ戻るボタン（popstate）発火時に詳細状態を完全クリアする
+  // 💡 ブラウザの「戻る・進む」イベント検知（内部関数を一切呼ばず純粋にURLのみで状態を切り替える）
   useEffect(() => {
     const onLocationChange = () => {
       const nextRoute = parseCurrentRoute();
       setCurrentRoute(nextRoute);
-
-      // 💡 もしURLから ?speaker= が消えていれば強制的に null にリセットする（これが抜けていました）
-      if (nextRoute.type === 'speaker' && nextRoute.speakerName) {
-        if (internalSpeakerClick) internalSpeakerClick(nextRoute.speakerName);
-      } else {
-        if (internalSpeakerClick) internalSpeakerClick(null);
-      }
 
       if (nextRoute.type === 'search') {
         setSearchQuery(nextRoute.query);
@@ -163,7 +152,7 @@ export default function App() {
       window.removeEventListener('hashchange', onLocationChange);
       window.removeEventListener('app-navigate', onLocationChange);
     };
-  }, [setSearchQuery, setSubmittedQuery, internalSpeakerClick]);
+  }, [setSearchQuery, setSubmittedQuery]);
 
   const navigate = useCallback((url, replace = false) => {
     if (replace) {
@@ -177,21 +166,22 @@ export default function App() {
 
   const resolveSpeaker = useCallback((spk) => {
     if (!spk) return null;
-    const name = typeof spk === 'string' ? spk.replace(/\s+/g, '') : spk.speaker.replace(/\s+/g, '');
+    const name = typeof spk === 'string' ? spk.replace(/\s+/g, '') : spk.speaker?.replace(/\s+/g, '');
     return (speakerStats || []).find(s => s.speaker.replace(/\s+/g, '') === name) || null;
   }, [speakerStats]);
 
   const handleGoHome = useCallback(() => {
     setSearchQuery('');
     setSubmittedQuery('');
-    if (internalSpeakerClick) internalSpeakerClick(null);
     navigate('/');
-  }, [navigate, setSearchQuery, setSubmittedQuery, internalSpeakerClick]);
+  }, [navigate, setSearchQuery, setSubmittedQuery]);
 
-  const handleSpeakerClick = useCallback((speakerName) => {
-    if (internalSpeakerClick) internalSpeakerClick(speakerName);
+  // 💡 議員カードクリック時は純粋にURL遷移のみを行う
+  const handleSpeakerClick = useCallback((speakerInput) => {
+    const speakerName = typeof speakerInput === 'string' ? speakerInput : speakerInput?.speaker;
+    if (!speakerName) return;
     navigate(`/?speaker=${encodeURIComponent(speakerName)}`);
-  }, [internalSpeakerClick, navigate]);
+  }, [navigate]);
 
   const handleOpenCompare = useCallback((initialSpeaker) => {
     let names = [];
@@ -257,11 +247,32 @@ export default function App() {
     return currentRoute.names.map(name => resolveSpeaker(name)).filter(Boolean);
   }, [currentRoute, compareList, resolveSpeaker]);
 
-  // 💡【重要】URLが speaker でない時は「絶対に null」を返す
+  // 💡 URLの ?speaker= から議員オブジェクトを直接解決（戻るボタンでURLが変われば確実に null になる）
   const activeSpeaker = useMemo(() => {
     if (currentRoute.type !== 'speaker' || !currentRoute.speakerName) return null;
-    return resolveSpeaker(currentRoute.speakerName) || selectedSpeaker;
-  }, [currentRoute, selectedSpeaker, resolveSpeaker]);
+    return resolveSpeaker(currentRoute.speakerName);
+  }, [currentRoute, resolveSpeaker]);
+
+  // 💡 当該議員の質疑ログ一覧を確実に生成
+  const threadsForSpeaker = useMemo(() => {
+    if (!activeSpeaker) return [];
+    let list = activeSpeaker.statements ? [...activeSpeaker.statements] : [];
+    if (speakerCategory) {
+      list = list.filter(s => s.category === speakerCategory || (s.category && s.category.includes(speakerCategory)));
+    }
+    if (speakerSort === 'recent') {
+      list.sort((a, b) => new Date(b.meeting_date || 0) - new Date(a.meeting_date || 0));
+    } else if (speakerSort === 'solution') {
+      list.sort((a, b) => (b.solution_score || 0) - (a.solution_score || 0));
+    } else if (speakerSort === 'local_focus') {
+      list.sort((a, b) => (b.local_focus_score || 0) - (a.local_focus_score || 0));
+    } else if (speakerSort === 'constructive') {
+      list.sort((a, b) => (b.constructive_score || 0) - (a.constructive_score || 0));
+    } else if (speakerSort === 'evidence') {
+      list.sort((a, b) => (b.evidence_score || 0) - (a.evidence_score || 0));
+    }
+    return list;
+  }, [activeSpeaker, speakerCategory, speakerSort]);
 
   const getIssueCountForCategory = useMemo(() => {
     const counts = {};
@@ -431,12 +442,8 @@ export default function App() {
     );
   }
 
-  // 💡 ここで activeSpeaker が null になるため、ブラウザ戻るボタンで確実に一覧画面へ復帰します
+  // 💡【重要】URLが ?speaker= の時のみ詳細画面を表示（ブラウザ戻るボタンで確実に一覧へ復帰）
   if (currentRoute.type === 'speaker' && activeSpeaker) {
-    const threadsForSpeaker = (speakerFilteredThreads && speakerFilteredThreads.length > 0)
-      ? speakerFilteredThreads
-      : (activeSpeaker.statements || []);
-
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
