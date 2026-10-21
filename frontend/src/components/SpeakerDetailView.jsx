@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import ThreadCard from './ThreadCard';
 
-// 💡 異体字・旧字体エイリアス辞書
+// 異体字・旧字体エイリアス辞書
 const ALIAS_MAP = {
   '井崎敦子': '井﨑敦子',
   '井﨑敦子': '井崎敦子',
@@ -70,8 +70,32 @@ export default function SpeakerDetailView({
       .slice(0, 3);
   }, [selectedSpeaker]);
 
+  // 💡 質疑ログの自律復旧＆フィルタ・ソート処理
+  // 親の speakerFilteredThreads が空でも、selectedSpeaker.statements から直接自律抽出・ソートする
+  const actualThreads = useMemo(() => {
+    if (speakerFilteredThreads && speakerFilteredThreads.length > 0) {
+      return speakerFilteredThreads;
+    }
+    let list = selectedSpeaker?.statements ? [...selectedSpeaker.statements] : [];
+    if (speakerCategory) {
+      list = list.filter(s => s.category === speakerCategory || (s.category && s.category.includes(speakerCategory)));
+    }
+    if (speakerSort === 'recent') {
+      list.sort((a, b) => new Date(b.meeting_date || 0) - new Date(a.meeting_date || 0));
+    } else if (speakerSort === 'solution') {
+      list.sort((a, b) => (b.solution_score || 0) - (a.solution_score || 0));
+    } else if (speakerSort === 'local_focus') {
+      list.sort((a, b) => (b.local_focus_score || 0) - (a.local_focus_score || 0));
+    } else if (speakerSort === 'constructive') {
+      list.sort((a, b) => (b.constructive_score || 0) - (a.constructive_score || 0));
+    } else if (speakerSort === 'evidence') {
+      list.sort((a, b) => (b.evidence_score || 0) - (a.evidence_score || 0));
+    }
+    return list;
+  }, [speakerFilteredThreads, selectedSpeaker, speakerCategory, speakerSort]);
+
   const featuredThread = useMemo(() => {
-    const stmts = selectedSpeaker?.statements || speakerFilteredThreads;
+    const stmts = selectedSpeaker?.statements || actualThreads;
     if (!stmts || stmts.length === 0) return null;
 
     return [...stmts].sort((a, b) => {
@@ -80,7 +104,7 @@ export default function SpeakerDetailView({
       if (scoreB !== scoreA) return scoreB - scoreA;
       return new Date(b.meeting_date) - new Date(a.meeting_date);
     })[0];
-  }, [selectedSpeaker, speakerFilteredThreads]);
+  }, [selectedSpeaker, actualThreads]);
 
   const generateCouncilorProfileSummary = (speaker) => {
     if (!speaker) return "";
@@ -111,13 +135,11 @@ export default function SpeakerDetailView({
     return speakerStats.filter(s => s.partyGroup === selectedSpeaker.partyGroup && s.speaker !== selectedSpeaker.speaker);
   }, [selectedSpeaker, speakerStats]);
 
-  // 💡 議案判定の修正部分
   const selectedSpeakerBills = useMemo(() => {
     if (!selectedSpeaker || !votesData.length) return [];
     const isIndependent = !selectedSpeaker.partyGroup || selectedSpeaker.partyGroup === '無所属';
     const party = selectedSpeaker.partyGroup || '';
     
-    // 現在の議員名と、もしあれば異体字のエイリアス名を取得
     const baseName = selectedSpeaker.speaker;
     const aliasName = ALIAS_MAP[baseName];
 
@@ -125,7 +147,6 @@ export default function SpeakerDetailView({
       const votes = bill.votes || {};
       let myVote = null;
 
-      // 1. 会派による一括照合
       if (!isIndependent) {
         for (const [groupName, voteVal] of Object.entries(votes)) {
           if (groupName.includes(party) || party.includes(groupName)) {
@@ -135,7 +156,6 @@ export default function SpeakerDetailView({
         }
       }
       
-      // 2. 個人名（無所属など）による照合（異体字もカバー）
       if (!myVote) {
         for (const [key, voteVal] of Object.entries(votes)) {
           if (key.includes(baseName) || (aliasName && key.includes(aliasName))) {
@@ -319,7 +339,8 @@ export default function SpeakerDetailView({
             }`}
           >
             <MessageCircle className="w-4 h-4 mr-1.5" />
-            質疑ログ ({speakerFilteredThreads.length}件)
+            {/* 💡 actualThreads の件数を参照 */}
+            質疑ログ ({actualThreads.length}件)
           </button>
           <button
             onClick={() => setSpeakerDetailTab('votes')}
@@ -359,7 +380,8 @@ export default function SpeakerDetailView({
           )}
 
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/80 p-3 rounded-xl border border-slate-200">
-            <div className="text-xs font-bold text-slate-500">{selectedSpeaker.speaker} 議員の質疑一覧 ({speakerFilteredThreads.length}件)</div>
+            {/* 💡 actualThreads の件数を参照 */}
+            <div className="text-xs font-bold text-slate-500">{selectedSpeaker.speaker} 議員の質疑一覧 ({actualThreads.length}件)</div>
             <div className="flex flex-wrap gap-2 w-full sm:w-auto">
               <div className="flex items-center bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 flex-grow sm:flex-grow-0">
                 <PieChart className="w-3.5 h-3.5 text-indigo-500 mr-1.5 shrink-0" />
@@ -382,7 +404,8 @@ export default function SpeakerDetailView({
           </div>
 
           <div className="space-y-6">
-            {speakerFilteredThreads.length > 0 ? speakerFilteredThreads.map((stmt) => (
+            {/* 💡 actualThreads をレンダリング */}
+            {actualThreads.length > 0 ? actualThreads.map((stmt) => (
               <ThreadCard
                 key={stmt.id}
                 stmt={stmt}
