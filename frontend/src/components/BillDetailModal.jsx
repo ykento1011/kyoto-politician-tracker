@@ -4,6 +4,14 @@ import {
   Flame, Tag, Scale, ArrowRight, AlertTriangle 
 } from 'lucide-react';
 
+// 異体字・旧字体のエイリアス辞書
+const ALIAS_MAP = {
+  '井崎敦子': '井﨑敦子',
+  '井﨑敦子': '井崎敦子',
+  '繁隆夫': '繁隆夫',
+  '繁隆夫': '繁隆夫'
+};
+
 export default function BillDetailModal({
   isOpen,
   onClose,
@@ -24,7 +32,8 @@ export default function BillDetailModal({
       const isIndependent = !spk.partyGroup || spk.partyGroup === '無所属';
       let voteVal = null;
 
-      if (!isIndependent) {
+      // 1. 会派による一括照合
+      if (!isIndependent && spk.partyGroup) {
         for (const [groupName, v] of Object.entries(votes)) {
           if (groupName.includes(spk.partyGroup) || spk.partyGroup.includes(groupName)) {
             voteVal = v;
@@ -32,9 +41,19 @@ export default function BillDetailModal({
           }
         }
       }
+
+      // 2. 個人名（無所属など）による照合（異体字・空白揺らぎも自動吸収）
       if (!voteVal) {
+        const rawName = spk.speaker || '';
+        const cleanSpkName = rawName.replace(/\s+/g, '');
+        const aliasName = ALIAS_MAP[cleanSpkName] || ALIAS_MAP[rawName];
+
         for (const [key, v] of Object.entries(votes)) {
-          if (key.includes(spk.speaker) || spk.speaker.includes(key)) {
+          const cleanKey = key.replace(/\s+/g, '');
+          if (
+            cleanKey.includes(cleanSpkName) || cleanSpkName.includes(cleanKey) ||
+            (aliasName && (cleanKey.includes(aliasName) || aliasName.includes(cleanKey)))
+          ) {
             voteVal = v;
             break;
           }
@@ -95,14 +114,14 @@ export default function BillDetailModal({
 
           <button 
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-400 hover:text-slate-700 flex items-center justify-center transition-colors shrink-0"
+            className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-400 hover:text-slate-700 flex items-center justify-center transition-colors shrink-0 cursor-pointer"
             title="閉じる"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* モーダルコンテンツ（スクロール可能） */}
+        {/* モーダルコンテンツ */}
         <div className="p-6 overflow-y-auto space-y-6">
           
           {/* AI争点解説 */}
@@ -139,7 +158,7 @@ export default function BillDetailModal({
             </div>
           )}
 
-          {/* 賛成議員・反対議員一覧（クリックで議員詳細へジャンプ） */}
+          {/* 賛否議員一覧 */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-extrabold text-slate-900 flex items-center gap-1.5">
@@ -169,7 +188,7 @@ export default function BillDetailModal({
                         onClose();
                         onSpeakerClick(c.speaker);
                       }}
-                      className="px-2.5 py-1 bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 rounded-lg border border-slate-200 hover:border-emerald-300 text-xs font-bold transition-all flex items-center gap-1 shadow-2xs group"
+                      className="px-2.5 py-1 bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 rounded-lg border border-slate-200 hover:border-emerald-300 text-xs font-bold transition-all flex items-center gap-1 shadow-2xs group cursor-pointer"
                       title={`${c.district} / ${c.partyGroup}`}
                     >
                       <span>{c.speaker}</span>
@@ -198,7 +217,7 @@ export default function BillDetailModal({
                         onClose();
                         onSpeakerClick(c.speaker);
                       }}
-                      className="px-2.5 py-1 bg-white hover:bg-rose-50 text-slate-700 hover:text-rose-700 rounded-lg border border-slate-200 hover:border-rose-300 text-xs font-bold transition-all flex items-center gap-1 shadow-2xs group"
+                      className="px-2.5 py-1 bg-white hover:bg-rose-50 text-slate-700 hover:text-rose-700 rounded-lg border border-slate-200 hover:border-rose-300 text-xs font-bold transition-all flex items-center gap-1 shadow-2xs group cursor-pointer"
                       title={`${c.district} / ${c.partyGroup}`}
                     >
                       <span>{c.speaker}</span>
@@ -214,7 +233,7 @@ export default function BillDetailModal({
             </div>
           </div>
 
-          {/* 会派別投票態度一覧 */}
+          {/* 会派・無所属別投票態度一覧 */}
           {Object.keys(votes).length > 0 && (
             <div className="space-y-2 pt-2 border-t border-slate-100">
               <span className="text-[11px] font-bold text-slate-500 block">会派・無所属別の評決結果</span>
