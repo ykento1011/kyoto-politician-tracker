@@ -45,7 +45,7 @@ export default function SpeakerDetailView({
       { key: 'local_focus', label: '生活現場や地域課題への解像度', val: speaker.avg_local_focus },
       { key: 'constructive', label: '鋭い行政監視と議論の進展力', val: speaker.avg_constructive },
     ].sort((a, b) => b.val - a.val);
-    
+
     let narrative = "";
     if (metrics[0].key === 'solution') narrative = `課題指摘にとどまらず「${metrics[0].label}」に強い特徴があり、実現可能性を見据えた制度改善をリードする傾向`;
     else if (metrics[0].key === 'local_focus') narrative = `生活現場の実態に根ざした「${metrics[0].label}」が際立っており、市民や当事者の切実な声を的確に議場へ持ち込む傾向`;
@@ -115,8 +115,8 @@ export default function SpeakerDetailView({
           <ArrowLeft className="w-3.5 h-3.5 mr-1.5" />一覧に戻る
         </button>
         {/* 💡 ボタンクリックで即座に比較画面へ直接遷移 */}
-        <button 
-          onClick={() => onOpenCompare(selectedSpeaker)} 
+        <button
+          onClick={() => onOpenCompare(selectedSpeaker)}
           className="px-3.5 py-2 rounded-lg text-xs font-black transition-all flex items-center gap-1.5 border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 shadow-sm cursor-pointer"
         >
           <GitCompare className="w-3.5 h-3.5" />この議員を比較する
@@ -126,8 +126,18 @@ export default function SpeakerDetailView({
       <header className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 mb-6 space-y-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-6 border-b border-slate-100">
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 border border-indigo-100 shrink-0">
-              <User className="w-7 h-7" />
+            {/* 修正前: <div className="w-14 h-14 rounded-full bg-indigo-50..."> */}
+            <div className="w-16 h-20 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center shadow-xs">
+              <img
+                src={`/councilors/${selectedSpeaker.speaker.replace(/\s+/g, '')}.jpg`}
+                alt={selectedSpeaker.speaker}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // 画像が存在しない場合は親を丸型アイコンにフォールバック
+                  e.target.style.display = 'none';
+                  e.target.parentNode.className = "w-14 h-14 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 border border-indigo-100 shrink-0";
+                }}
+              />
             </div>
             <div>
               <div className="flex items-center gap-3 flex-wrap mb-1">
@@ -191,9 +201,9 @@ export default function SpeakerDetailView({
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
             {(relatedTab === 'district' ? sameDistrictSpeakers : samePartySpeakers).map((rel) => (
-              <button 
-                key={rel.speaker} 
-                onClick={() => onSpeakerClick(rel.speaker)} 
+              <button
+                key={rel.speaker}
+                onClick={() => onSpeakerClick(rel.speaker)}
                 className="p-3 rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/30 transition-all text-left flex flex-col justify-between group shadow-2xs bg-white cursor-pointer"
               >
                 <div>
@@ -214,18 +224,16 @@ export default function SpeakerDetailView({
         <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200">
           <button
             onClick={() => setSpeakerDetailTab('threads')}
-            className={`flex items-center px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
-              speakerDetailTab === 'threads' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'
-            }`}
+            className={`flex items-center px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${speakerDetailTab === 'threads' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'
+              }`}
           >
             <MessageCircle className="w-4 h-4 mr-1.5" />
             質疑ログ ({speakerFilteredThreads.length}件)
           </button>
           <button
             onClick={() => setSpeakerDetailTab('votes')}
-            className={`flex items-center px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
-              speakerDetailTab === 'votes' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'
-            }`}
+            className={`flex items-center px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${speakerDetailTab === 'votes' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'
+              }`}
           >
             <Scale className="w-4 h-4 mr-1.5" />
             議決・賛否の記録 ({selectedSpeakerBills.length}件)
@@ -256,11 +264,11 @@ export default function SpeakerDetailView({
 
           <div className="space-y-6">
             {speakerFilteredThreads.length > 0 ? speakerFilteredThreads.map((stmt) => (
-              <ThreadCard 
-                key={stmt.id} 
-                stmt={stmt} 
-                onViewContext={onViewContext} 
-                showSpeakerHeader={false} 
+              <ThreadCard
+                key={stmt.id}
+                stmt={stmt}
+                onViewContext={onViewContext}
+                showSpeakerHeader={false}
                 onOpenMethodology={onOpenMethodology}
               />
             )) : (
@@ -284,11 +292,10 @@ export default function SpeakerDetailView({
                 <button
                   key={btn.key}
                   onClick={() => setSpeakerVoteFilter(btn.key)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
-                    speakerVoteFilter === btn.key 
-                      ? 'bg-indigo-50 text-indigo-700 border-indigo-300 shadow-2xs' 
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all cursor-pointer ${speakerVoteFilter === btn.key
+                      ? 'bg-indigo-50 text-indigo-700 border-indigo-300 shadow-2xs'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
-                  }`}
+                    }`}
                 >
                   {btn.label}
                 </button>
@@ -335,9 +342,8 @@ export default function SpeakerDetailView({
                     <div className="shrink-0 self-start sm:self-auto flex items-center gap-2">
                       <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
                         <span className="text-xs font-bold text-slate-500">投票態度:</span>
-                        <span className={`text-xs font-black inline-flex items-center gap-1 ${
-                          isAgree ? 'text-emerald-600' : 'text-rose-600'
-                        }`}>
+                        <span className={`text-xs font-black inline-flex items-center gap-1 ${isAgree ? 'text-emerald-600' : 'text-rose-600'
+                          }`}>
                           {isAgree ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
                           {bill.myVote}
                         </span>
@@ -366,11 +372,10 @@ export default function SpeakerDetailView({
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 pt-1">
-                        <div className={`p-3 rounded-lg border leading-relaxed text-xs ${
-                          isAgree 
-                            ? 'bg-emerald-50/90 border-emerald-300 ring-2 ring-emerald-500/20' 
+                        <div className={`p-3 rounded-lg border leading-relaxed text-xs ${isAgree
+                            ? 'bg-emerald-50/90 border-emerald-300 ring-2 ring-emerald-500/20'
                             : 'bg-emerald-50/50 border-emerald-100 opacity-80'
-                        }`}>
+                          }`}>
                           <span className="text-[11px] font-black text-emerald-800 flex items-center justify-between mb-1">
                             <span>賛成派の論理</span>
                             {isAgree && <span className="text-[9px] bg-emerald-600 text-white px-1.5 py-0.2 rounded font-bold">当該議員の立場</span>}
@@ -378,11 +383,10 @@ export default function SpeakerDetailView({
                           <p className="text-slate-700">{issue.agree_logic}</p>
                         </div>
 
-                        <div className={`p-3 rounded-lg border leading-relaxed text-xs ${
-                          !isAgree 
-                            ? 'bg-rose-50/90 border-rose-300 ring-2 ring-rose-500/20' 
+                        <div className={`p-3 rounded-lg border leading-relaxed text-xs ${!isAgree
+                            ? 'bg-rose-50/90 border-rose-300 ring-2 ring-rose-500/20'
                             : 'bg-rose-50/50 border-rose-100 opacity-80'
-                        }`}>
+                          }`}>
                           <span className="text-[11px] font-black text-rose-800 flex items-center justify-between mb-1">
                             <span>反対派の論理</span>
                             {!isAgree && <span className="text-[9px] bg-rose-600 text-white px-1.5 py-0.2 rounded font-bold">当該議員の立場</span>}
