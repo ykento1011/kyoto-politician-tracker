@@ -134,12 +134,13 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // 💡 ブラウザの「戻る・進む」完全連動リスナー
+  // 💡【最重要】ブラウザ戻るボタン（popstate）発火時に詳細状態を完全クリアする
   useEffect(() => {
     const onLocationChange = () => {
       const nextRoute = parseCurrentRoute();
       setCurrentRoute(nextRoute);
 
+      // 💡 もしURLから ?speaker= が消えていれば強制的に null にリセットする（これが抜けていました）
       if (nextRoute.type === 'speaker' && nextRoute.speakerName) {
         if (internalSpeakerClick) internalSpeakerClick(nextRoute.speakerName);
       } else {
@@ -256,7 +257,7 @@ export default function App() {
     return currentRoute.names.map(name => resolveSpeaker(name)).filter(Boolean);
   }, [currentRoute, compareList, resolveSpeaker]);
 
-  // 💡【最重要】URLが speaker でない時は「絶対に null」を返す
+  // 💡【重要】URLが speaker でない時は「絶対に null」を返す
   const activeSpeaker = useMemo(() => {
     if (currentRoute.type !== 'speaker' || !currentRoute.speakerName) return null;
     return resolveSpeaker(currentRoute.speakerName) || selectedSpeaker;
@@ -430,7 +431,7 @@ export default function App() {
     );
   }
 
-  // 💡【重要】URLが ?speaker= の時のみ詳細画面を表示（戻るボタンでURLが変われば確実にトップ画面へ抜ける）
+  // 💡 ここで activeSpeaker が null になるため、ブラウザ戻るボタンで確実に一覧画面へ復帰します
   if (currentRoute.type === 'speaker' && activeSpeaker) {
     const threadsForSpeaker = (speakerFilteredThreads && speakerFilteredThreads.length > 0)
       ? speakerFilteredThreads
