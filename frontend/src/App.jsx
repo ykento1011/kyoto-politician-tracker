@@ -11,6 +11,7 @@ import MacroTopicMap from './components/MacroTopicMap';
 import ContestedBillsView from './components/ContestedBillsView';
 import TopicDetailPage from './components/TopicDetailPage';
 import CategoryDetailPage from './components/CategoryDetailPage';
+import MayorTrackerView from './components/MayorTrackerView';
 import TimelineModal from './components/TimelineModal';
 import BillDetailModal from './components/BillDetailModal';
 import AboutPage from './components/AboutPage';
@@ -44,6 +45,7 @@ function parseCurrentRoute() {
   }
 
   const view = params.get('view');
+  if (view === 'mayor' || pathname === '/mayor') return { type: 'mayor' };
   if (view === 'guide' || pathname === '/guide') return { type: 'guide' };
   if (view === 'about' || pathname === '/about') return { type: 'about' };
   if (view === 'methodology' || pathname === '/methodology') return { type: 'methodology' };
@@ -103,6 +105,7 @@ export default function App() {
   const [votesData, setVotesData] = useState([]);
   const [billIssuesList, setBillIssuesList] = useState([]);
   const [issuesMap, setIssuesMap] = useState({});
+  const [mayorTrackerData, setMayorTrackerData] = useState(null);
   const [selectedBillForModal, setSelectedBillForModal] = useState(null);
   const [onlyContestedBills, setOnlyContestedBills] = useState(true);
 
@@ -128,9 +131,14 @@ export default function App() {
         setIssuesMap(map);
       })
       .catch(err => console.error('Failed to load bill issues:', err));
+
+    fetch('/data/mayor_tracker.json')
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => setMayorTrackerData(data))
+      .catch(err => console.error('Failed to load mayor tracker:', err));
   }, []);
 
-  // 💡 ブラウザの「戻る・進む」イベント検知（内部関数を一切呼ばず純粋にURLのみで状態を切り替える）
+  // 💡 ブラウザ「戻る・進む」同期リスナー
   useEffect(() => {
     const onLocationChange = () => {
       const nextRoute = parseCurrentRoute();
@@ -176,7 +184,6 @@ export default function App() {
     navigate('/');
   }, [navigate, setSearchQuery, setSubmittedQuery]);
 
-  // 💡 議員カードクリック時は純粋にURL遷移のみを行う
   const handleSpeakerClick = useCallback((speakerInput) => {
     const speakerName = typeof speakerInput === 'string' ? speakerInput : speakerInput?.speaker;
     if (!speakerName) return;
@@ -247,13 +254,11 @@ export default function App() {
     return currentRoute.names.map(name => resolveSpeaker(name)).filter(Boolean);
   }, [currentRoute, compareList, resolveSpeaker]);
 
-  // 💡 URLの ?speaker= から議員オブジェクトを直接解決（戻るボタンでURLが変われば確実に null になる）
   const activeSpeaker = useMemo(() => {
     if (currentRoute.type !== 'speaker' || !currentRoute.speakerName) return null;
     return resolveSpeaker(currentRoute.speakerName);
   }, [currentRoute, resolveSpeaker]);
 
-  // 💡 当該議員の質疑ログ一覧を確実に生成
   const threadsForSpeaker = useMemo(() => {
     if (!activeSpeaker) return [];
     let list = activeSpeaker.statements ? [...activeSpeaker.statements] : [];
@@ -323,11 +328,38 @@ export default function App() {
       onOpenAbout={() => navigateToView('about')}
       onOpenMethodology={() => navigateToView('methodology')}
       onOpenCompare={() => handleOpenCompare()}
+      onOpenMayor={() => navigateToView('mayor')}
       isCompareMode={isCompare}
     />
   );
 
   // --- 排他的画面ルーティング ---
+
+  // 💡 市長政策トラッカー
+  if (currentRoute.type === 'mayor') {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
+        {renderNavbar(false)}
+        <div className="flex-grow">
+          <MayorTrackerView
+            data={mayorTrackerData}
+            onBack={handleGoHome}
+            onSelectBill={setSelectedBillForModal}
+            onOpenMethodology={() => navigateToView('methodology')}
+          />
+        </div>
+        <BillDetailModal
+          isOpen={Boolean(selectedBillForModal)}
+          onClose={() => setSelectedBillForModal(null)}
+          bill={selectedBillForModal}
+          issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
+          speakerStats={speakerStats}
+          onSpeakerClick={handleSpeakerClick}
+        />
+        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+      </div>
+    );
+  }
 
   if (currentRoute.type === 'guide') {
     return (
@@ -442,7 +474,6 @@ export default function App() {
     );
   }
 
-  // 💡【重要】URLが ?speaker= の時のみ詳細画面を表示（ブラウザ戻るボタンで確実に一覧へ復帰）
   if (currentRoute.type === 'speaker' && activeSpeaker) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -504,7 +535,6 @@ export default function App() {
     );
   }
 
-  // メインポータル（トップ画面）
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
       {renderNavbar(false)}

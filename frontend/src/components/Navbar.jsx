@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, GitCompare, Landmark, Info, Compass } from 'lucide-react';
+import { Landmark, Compass, HelpCircle, GitCompare, BookOpen, Layers } from 'lucide-react';
 
 export default function Navbar({
   onLogoClick,
@@ -7,69 +7,79 @@ export default function Navbar({
   onOpenAbout,
   onOpenMethodology,
   onOpenCompare,
+  onOpenMayor,
   isCompareMode = false
 }) {
   return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-2xs">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         {/* ロゴ */}
         <button
           onClick={onLogoClick}
-          className="flex items-center gap-2.5 text-left cursor-pointer group"
+          className="flex items-center gap-2.5 text-left group cursor-pointer focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-sm group-hover:bg-indigo-700 transition-colors">
+          <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-sm group-hover:bg-indigo-700 transition-colors shrink-0">
             <Landmark className="w-5 h-5" />
           </div>
           <div>
-            <div className="font-black text-base text-slate-900 tracking-tight leading-none group-hover:text-indigo-600 transition-colors">
-              議会のミカタ <span className="text-indigo-600 text-xs font-extrabold bg-indigo-50 px-1.5 py-0.5 rounded ml-1 border border-indigo-100">京都</span>
+            <div className="text-base font-black text-slate-900 tracking-tight leading-none group-hover:text-indigo-600 transition-colors">
+              議会のミカタ
             </div>
-            <div className="text-[10px] text-slate-400 font-bold tracking-wider mt-0.5">
-              KYOTO CITY COUNCIL TRACKER
+            <div className="text-[10px] font-bold text-slate-400 tracking-wider mt-0.5">
+              京都市議会・市政客観可視化ポータル
             </div>
           </div>
         </button>
 
         {/* ナビゲーションメニュー */}
         <nav className="flex items-center gap-1.5 sm:gap-2">
-          {/* できること（Guide） */}
+          {/* 💡 松井市長 政策進捗ボタン */}
           <button
-            onClick={onOpenGuide}
-            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50/60 transition-colors cursor-pointer"
+            onClick={onOpenMayor}
+            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-black text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 transition-all cursor-pointer shadow-2xs"
           >
-            <Compass className="w-3.5 h-3.5 text-indigo-600" />
-            <span>できること</span>
-          </button>
-
-          {/* 当サイトについて（About） */}
-          <button
-            onClick={onOpenAbout}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition-colors cursor-pointer"
-          >
-            <Info className="w-3.5 h-3.5 text-slate-400" />
-            <span>当サイトについて</span>
-          </button>
-
-          {/* AI採点基準（Methodology） */}
-          <button
-            onClick={onOpenMethodology}
-            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-indigo-600 hover:bg-slate-50 transition-colors cursor-pointer"
-          >
-            <BookOpen className="w-3.5 h-3.5 text-slate-400" />
-            <span className="hidden md:inline">AI採点基準</span>
+            <Layers className="w-3.5 h-3.5 text-indigo-600" />
+            <span>松井市長 政策進捗</span>
           </button>
 
           {/* 議員比較 */}
           <button
             onClick={onOpenCompare}
-            className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+            className={`hidden md:flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               isCompareMode
-                ? 'bg-indigo-50 text-indigo-700 border border-indigo-200'
-                : 'bg-white border border-slate-200 hover:border-indigo-300 text-slate-700 hover:text-indigo-600 shadow-2xs'
+                ? 'bg-indigo-600 text-white shadow-2xs'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            <GitCompare className="w-3.5 h-3.5 text-indigo-500" />
+            <GitCompare className="w-3.5 h-3.5 text-slate-500" />
             <span>議員比較</span>
+          </button>
+
+          {/* ガイド */}
+          <button
+            onClick={onOpenGuide}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer"
+          >
+            <Compass className="w-3.5 h-3.5 text-slate-500" />
+            <span className="hidden sm:inline">できること</span>
+          </button>
+
+          {/* AI基準 */}
+          <button
+            onClick={onOpenMethodology}
+            className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-slate-500" />
+            <span>AI評価基準</span>
+          </button>
+
+          {/* 当サイトについて */}
+          <button
+            onClick={onOpenAbout}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer"
+          >
+            <HelpCircle className="w-3.5 h-3.5 text-slate-500" />
+            <span className="hidden sm:inline">サイトについて</span>
           </button>
         </nav>
       </div>

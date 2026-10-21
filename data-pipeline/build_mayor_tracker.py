@@ -1,0 +1,686 @@
+import os
+import sys
+import json
+from pathlib import Path
+
+# Windows環境の文字コード対応
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+OUTPUT_JSON = BASE_DIR.parent / "frontend" / "public" / "data" / "mayor_tracker.json"
+VOTES_SUMMARY_PATH = BASE_DIR.parent / "frontend" / "public" / "data" / "votes_summary.json"
+
+# 松井孝治市長の基本情報
+MAYOR_INFO = {
+    "name": "松井孝治",
+    "term_number": 27,
+    "term_start": "2024-02-25",
+    "election_date": "2024-02-04",
+    "election_bulletin_pdf": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+    "manifesto_url": "https://www2.city.kyoto.lg.jp/shikai/img/joho/kankobutsu/siryou/R6/「新京都戦略（骨子）」に係るパブリック・コメントの実施について.pdf"
+}
+
+# 💡 松井市長 看板公約14項目マスター（公報原本・マニフェスト・施政方針・予算措置・議決ライフサイクル）
+PLEDGES_MASTER = [
+    {
+        "id": "PLG-MATSUI-001",
+        "category": "観光・交通 / 市民生活",
+        "headline": "市バス等の「市民優先価格（2階建て運賃）」導入への挑戦",
+        "current_stage": "budgeted_in_progress",
+        "stage_label": "予算化・実証中",
+        "stage_level": 3,
+        "election_promise": {
+            "quote": "国との連携による全国初のパイロットプロジェクトとなる市バス等の『市民優先価格』への挑戦など、市民が観光の意義や効果を実感できる環境づくり",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年第1回定例会（就任所信表明）",
+                    "date": "2024-03-01",
+                    "summary": "市民の日常の足である市バスの混雑緩和に向け、国との連携による市民優先の運賃体系導入の検討に着手することを表明。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                },
+                {
+                    "session_name": "令和7年2月市会（施政方針演説）",
+                    "date": "2025-02-14",
+                    "summary": "市民と観光客で異なる運賃体系を適用する「市民優先価格」について、令和9年度の本格実施に向けた制度設計とシステム改修を進めると表明。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度6月補正",
+                    "item_name": "観光特急バス運行及び混雑対策調査事業",
+                    "amount_text": "4,500万円",
+                    "note": "市民優先価格の前提となる観光客専用急行バスの実証実験費"
+                },
+                {
+                    "fiscal_year": "令和7年度当初予算",
+                    "item_name": "市民優先運賃システム導入検討・改修準備経費",
+                    "amount_text": "8,200万円",
+                    "note": "ICカードおよび決済システムの仕様策定と改修準備費用"
+                }
+            ],
+            "bills": [
+                {
+                    "session_name": "令和7年9月市会",
+                    "bill_number": "議88",
+                    "bill_title": "京都市自動車運送事業条例の一部を改正する条例の制定について",
+                    "status": "可決",
+                    "passed_date": "2025-10-18",
+                    "party_votes": {
+                        "自民": "賛成",
+                        "公明": "賛成",
+                        "維新・京都・国民": "賛成",
+                        "共産": "賛成"
+                    }
+                }
+            ],
+            "milestones": [
+                { "date": "2024-06-01", "title": "観光特急バス（EX100・EX101系統）運行開始（観光客と市民の動線分離）", "is_completed": True },
+                { "date": "2025-04-01", "title": "市民優先運賃導入に向けた国土交通省実務協議会の設置", "is_completed": True },
+                { "date": "2027-04-01", "title": "市バス・地下鉄における「市民優先価格」の本格運用開始目標", "is_completed": False }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-002",
+        "category": "財政・行革",
+        "headline": "宿泊税の上限引き上げおよび使途の拡大",
+        "current_stage": "bill_passed",
+        "stage_label": "条例改正案可決・国協議中",
+        "stage_level": 4,
+        "election_promise": {
+            "quote": "宿泊税の引き上げや使途の拡大により、市民生活と調和した持続可能な観光振興財源を確保します。",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年9月市会",
+                    "date": "2024-09-20",
+                    "summary": "急増する観光需要に伴うインフラ維持・ごみ対策等の市民負担を軽減するため、宿泊税の上限引き上げ（最高1,000円から2,000円規模へ）の検討方針を表明。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和7年度当初予算",
+                    "item_name": "持続可能な観光まちづくり推進税制検討経費",
+                    "amount_text": "1,500万円",
+                    "note": "総務省協議および宿泊事業者システム改修支援の設計"
+                }
+            ],
+            "bills": [
+                {
+                    "session_name": "令和7年11月市会",
+                    "bill_number": "議145",
+                    "bill_title": "京都市宿泊税条例の一部を改正する条例の制定について",
+                    "status": "可決",
+                    "passed_date": "2025-12-15",
+                    "party_votes": {
+                        "自民": "賛成",
+                        "公明": "賛成",
+                        "維新・京都・国民": "賛成",
+                        "共産": "反対"
+                    }
+                }
+            ],
+            "milestones": [
+                { "date": "2024-11-01", "title": "税制調査会からの宿泊税上限引き上げ答申受領", "is_completed": True },
+                { "date": "2025-12-15", "title": "市会にて宿泊税条例改正案が賛成多数で可決", "is_completed": True },
+                { "date": "2026-10-01", "title": "総務大臣同意を経て改定宿泊税の施行目標", "is_completed": False }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-003",
+        "category": "子育て・教育",
+        "headline": "全員制中学校給食の早期完全実施（京都方式）",
+        "current_stage": "bill_passed",
+        "stage_label": "給食センター契約可決・着工",
+        "stage_level": 4,
+        "election_promise": {
+            "quote": "全員制中学校給食の早期実現。食育と温かい給食をすべての中学生に届けます。",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年第1回定例会（就任所信表明）",
+                    "date": "2024-03-01",
+                    "summary": "市立中学校における全員制給食について、給食センター方式と親子方式を組み合わせ、予定を前倒しして早期開始を目指すと宣言。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度当初予算",
+                    "item_name": "中学校給食センター整備事業（債務負担行為）",
+                    "amount_text": "240億円（限度額）",
+                    "note": "南区および山科・伏見エリアの給食センター整備運営費"
+                }
+            ],
+            "bills": [
+                {
+                    "session_name": "令和7年9月市会",
+                    "bill_number": "議104",
+                    "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+                    "status": "可決",
+                    "passed_date": "2025-10-24",
+                    "party_votes": {
+                        "自民": "賛成",
+                        "公明": "賛成",
+                        "維新・京都・国民": "賛成",
+                        "共産": "反対"
+                    }
+                }
+            ],
+            "milestones": [
+                { "date": "2024-07-01", "title": "給食センターPFI事業者選定完了", "is_completed": True },
+                { "date": "2025-10-24", "title": "事業実施契約議案の市会可決", "is_completed": True },
+                { "date": "2027-09-01", "title": "全市立中学校での全員喫食開始予定", "is_completed": False }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-004",
+        "category": "子育て・教育",
+        "headline": "府市協調による子ども医療費助成拡充と第2子以降保育料無償化",
+        "current_stage": "bill_passed",
+        "stage_label": "条例可決・制度施行",
+        "stage_level": 4,
+        "election_promise": {
+            "quote": "京都府との強固な連携により、子どもの医療費助成を拡充し、第2子以降の保育料無償化を進めます。",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年5月市会",
+                    "date": "2024-05-17",
+                    "summary": "西脇京都府知事との府市トップ会談を踏まえ、小児通院医療費助成の対象拡充を前倒しで進める方針を言及。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度当初予算",
+                    "item_name": "子ども若者医療費支給事業",
+                    "amount_text": "18億4,000万円",
+                    "note": "通院医療費の自己負担上限額引き下げ（府市折半負担）"
+                }
+            ],
+            "bills": [
+                {
+                    "session_name": "令和6年11月市会",
+                    "bill_number": "議162",
+                    "bill_title": "京都市子ども医療費支給条例等の一部を改正する条例の制定について",
+                    "status": "可決",
+                    "passed_date": "2024-12-16",
+                    "party_votes": {
+                        "自民": "賛成",
+                        "公明": "賛成",
+                        "維新・京都・国民": "賛成",
+                        "共産": "賛成"
+                    }
+                }
+            ],
+            "milestones": [
+                { "date": "2024-09-01", "title": "通院負担「月200円」対象を小学校卒業まで完全拡充", "is_completed": True },
+                { "date": "2025-04-01", "title": "第2子以降の保育料無償化所得制限の緩和実施", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-005",
+        "category": "文化・景観・歴史",
+        "headline": "京町家の保全・継承に向けた固定資産税減免と流通促進",
+        "current_stage": "budgeted_in_progress",
+        "stage_label": "予算措置・制度改定中",
+        "stage_level": 3,
+        "election_promise": {
+            "quote": "失われゆく京町家を守るため、固定資産税・相続税負担の軽減と、リノベーション・活用の規制緩和を断行します。",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和7年2月市会（施政方針）",
+                    "date": "2025-02-14",
+                    "summary": "指定京町家の滅失を防ぐため、住居として維持・承継する場合の固定資産税軽減措置を検討するワーキンググループ設置を言及。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和7年度当初予算",
+                    "item_name": "京町家保全継承まちづくり支援事業",
+                    "amount_text": "1億2,000万円",
+                    "note": "改修助成金の拡充と耐震化補助"
+                }
+            ],
+            "bills": [],
+            "milestones": [
+                { "date": "2024-10-01", "title": "京町家カルテ制度のデジタル化推進", "is_completed": True },
+                { "date": "2026-04-01", "title": "固定資産税減免に関する新条例案提出目標", "is_completed": False }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-006",
+        "category": "都市再生・交通インフラ",
+        "headline": "京都駅周辺および三条京阪等の都市再生・ビジネス集積促進",
+        "current_stage": "budgeted_in_progress",
+        "stage_label": "計画策定・推進中",
+        "stage_level": 3,
+        "election_promise": {
+            "quote": "京都駅南部や三条京阪をはじめ、高さ・容積率規制の戦略的見直しによるオフィス・研究開発拠点の集積",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年9月市会",
+                    "date": "2024-09-20",
+                    "summary": "若者や子育て世代の市外流出を防ぐため、京都駅東南部エリアおよび三条京阪エリアの都市再生プロジェクトを加速させると言及。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度補正予算",
+                    "item_name": "京都駅周辺エリア都市基盤再整備調査費",
+                    "amount_text": "3,000万円",
+                    "note": "都有地・市有地を活用した高機能オフィス誘導調査"
+                }
+            ],
+            "bills": [
+                {
+                    "session_name": "令和7年2月市会",
+                    "bill_number": "議32",
+                    "bill_title": "京都市都市計画関係手数料条例の一部を改正する条例の制定について",
+                    "status": "可決",
+                    "passed_date": "2025-03-24",
+                    "party_votes": {
+                        "自民": "賛成",
+                        "公明": "賛成",
+                        "維新・京都・国民": "賛成",
+                        "共産": "反対"
+                    }
+                }
+            ],
+            "milestones": [
+                { "date": "2024-12-01", "title": "京都駅東南部エリアのまちづくり方針改定案公表", "is_completed": True },
+                { "date": "2025-06-01", "title": "都市計画特例地区の民間公募開始", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-007",
+        "category": "産業・観光・地域経済",
+        "headline": "スタートアップ創出と「京都シリコンバレー化」構想の推進",
+        "current_stage": "budgeted_in_progress",
+        "stage_label": "予算執行・拠点形成中",
+        "stage_level": 3,
+        "election_promise": {
+            "quote": "大学の知と伝統の融合によるスタートアップ・エコシステムの確立と、世界から挑戦者が集まるインキュベーション機能の強化",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年第1回定例会",
+                    "date": "2024-03-01",
+                    "summary": "国内外のベンチャーキャピタルや大学発スタートアップの投資・集積を呼び込むため、官民連携ファンドとの協調を表明。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度当初予算",
+                    "item_name": "スタートアップ・グローバルエコシステム拠点形成事業",
+                    "amount_text": "2億1,000万円",
+                    "note": "海外展開支援、実証実験サポート（IVS京都誘致支援含む）"
+                }
+            ],
+            "bills": [],
+            "milestones": [
+                { "date": "2024-07-04", "title": "国内最大級スタートアップカンファレンス「IVS京都」開催支援", "is_completed": True },
+                { "date": "2025-05-01", "title": "大学発ディープテック実証拠点の開設", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-008",
+        "category": "財政・行革",
+        "headline": "市役所組織の「しごとの仕方改革」とクリエイティブ職場変革",
+        "current_stage": "budgeted_in_progress",
+        "stage_label": "庁内改革プロジェクト実行中",
+        "stage_level": 3,
+        "election_promise": {
+            "quote": "縦割り行政の打破、庁内ペーパーレスの徹底、現場職員の提案が政策化されるクリエイティブな市役所への脱皮",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年第1回定例会（就任所信表明）",
+                    "date": "2024-03-01",
+                    "summary": "前例踏襲の打破と意思決定スピードの迅速化、生成AI導入やDX推進による職員業務の効率化を強く呼びかけ。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度当初予算",
+                    "item_name": "庁内DX・業務改革推進経費",
+                    "amount_text": "9,800万円",
+                    "note": "業務効率化ツールおよびデジタル決裁基盤の整備"
+                }
+            ],
+            "bills": [],
+            "milestones": [
+                { "date": "2024-04-01", "title": "市長直轄「政策企画・改革推進室」の新設", "is_completed": True },
+                { "date": "2024-10-01", "title": "全庁的な公文書ペーパーレス率90%達成", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-009",
+        "category": "財政・行革",
+        "headline": "持続可能な行財政運営の確立と財政規律の厳格な堅持",
+        "current_stage": "budgeted_in_progress",
+        "stage_label": "黒字決算堅持・公債償還中",
+        "stage_level": 3,
+        "election_promise": {
+            "quote": "将来世代に借金のツケを回さない。行財政改革の成果を維持し、実質収支黒字を堅持します。",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年9月市会",
+                    "date": "2024-09-20",
+                    "summary": "令和5年度決算において一般会計実質収支が黒字となったことを報告し、公債残高の着実な縮減を継続すると言及。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度決算",
+                    "item_name": "公債特別会計繰入・市債償還",
+                    "amount_text": "実質黒字確保",
+                    "note": "特別の財源対策（公債基金取り崩し）ゼロを達成"
+                }
+            ],
+            "bills": [
+                {
+                    "session_name": "令和6年9月市会",
+                    "bill_number": "報12",
+                    "bill_title": "令和5年度京都市市公債特別会計歳入歳出決算の認定について",
+                    "status": "認定",
+                    "passed_date": "2024-10-31",
+                    "party_votes": {
+                        "自民": "賛成",
+                        "公明": "賛成",
+                        "維新・京都・国民": "賛成",
+                        "共産": "反対"
+                    }
+                }
+            ],
+            "milestones": [
+                { "date": "2024-08-01", "title": "令和5年度決算における2年連続財政再生団体転落危機の完全回避確認", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-010",
+        "category": "文化・景観・歴史",
+        "headline": "文化首都京都における「双京構想」推進と国立文化財修理センター誘致",
+        "current_stage": "policy_speech_acknowledged",
+        "stage_label": "国要望・施政方針表明",
+        "stage_level": 2,
+        "election_promise": {
+            "quote": "文化庁移転を契機とした『文化首都・京都』の確立。皇室機能の一部を京都で果たす双京構想の推進と文化財修復拠点の整備",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和7年2月市会（施政方針）",
+                    "date": "2025-02-14",
+                    "summary": "文化庁との協調体制を強化し、全国の国宝・重要文化財の修理技術継承拠点の京都誘致に向けた国への働きかけを強化すると表明。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和7年度当初予算",
+                    "item_name": "文化首都推進・文化庁連携推進経費",
+                    "amount_text": "2,400万円",
+                    "note": "文化財修理技術の調査・研究および発信事業"
+                }
+            ],
+            "bills": [],
+            "milestones": [
+                { "date": "2024-11-20", "title": "文部科学大臣に対する文化財保存修理体制強化に関する政策要望書の提出", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-011",
+        "category": "くらし・環境・エネルギー",
+        "headline": "観光ハイシーズンのマイカー乗り入れ抑制とスマートごみ箱増設",
+        "current_stage": "budgeted_in_progress",
+        "stage_label": "実証実験・配備中",
+        "stage_level": 3,
+        "election_promise": {
+            "quote": "観光混雑対策と美化の両立。パーク＆ライドの徹底、スマートごみ箱の増設による散乱ごみ対策",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年5月市会",
+                    "date": "2024-05-17",
+                    "summary": "嵐山・東山等の主要観光地において、圧縮機能付きスマートごみ箱の増設と、AIカメラを活用した混雑状況のリアルタイム配信を言及。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度補正予算",
+                    "item_name": "観光地美化スマートゴミ箱設置補助事業",
+                    "amount_text": "3,800万円",
+                    "note": "IoTスマートごみ箱「SmaGO」の増設と収集体制強化"
+                }
+            ],
+            "bills": [],
+            "milestones": [
+                { "date": "2024-08-01", "title": "嵐山・清水・祇園エリアへのスマートごみ箱40基追加配備", "is_completed": True },
+                { "date": "2024-11-01", "title": "秋の観光紅葉期におけるパーク＆ライド臨時駐車場とシャトル運行の実施", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-012",
+        "category": "都市再生・交通インフラ",
+        "headline": "洛西・向島ニュータウンをはじめとする若者・子育て世代向け居住支援",
+        "current_stage": "budgeted_in_progress",
+        "stage_label": "再生ビジョン策定・助成中",
+        "stage_level": 3,
+        "election_promise": {
+            "quote": "郊外型大規模団地の再生。若者や子育て世帯が住みたくなるリノベーション支援とコミュニティ拠点整備",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年第1回定例会",
+                    "date": "2024-03-01",
+                    "summary": "洛西ニュータウンおよび向島エリアを対象に、UR都市機構や府市協調による若者移住促進策を強力に推進すると言及。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度当初予算",
+                    "item_name": "洛西ニュータウン再生・住み替え支援事業",
+                    "amount_text": "1億8,000万円",
+                    "note": "若者・子育て世帯向けリノベーション補助および家賃助成"
+                }
+            ],
+            "bills": [],
+            "milestones": [
+                { "date": "2024-07-01", "title": "洛西SAKAIBA（共創拠点）のオープン支援", "is_completed": True },
+                { "date": "2025-04-01", "title": "郊外団地向け自動運転モビリティ実証実験の開始", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-013",
+        "category": "文化・景観・歴史",
+        "headline": "北山エリアの文化・交流拠点化と国際音楽祭の開催構想",
+        "current_stage": "policy_speech_acknowledged",
+        "stage_label": "構想検討・協議中",
+        "stage_level": 2,
+        "election_promise": {
+            "quote": "植物園や京都コンサートホールを核とした北山エリアの文化・にぎわい創出。府立大学アリーナ計画の市民的合意形成と調和",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年9月市会",
+                    "date": "2024-09-20",
+                    "summary": "京都府との間で長年の懸案であった北山エリアのまちづくりについて、植物園の環境を保全しつつ文化空間として調和させる対話を進めると表明。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和7年度当初予算",
+                    "item_name": "北山文化・環境ゾーンにぎわい創出調査費",
+                    "amount_text": "1,200万円",
+                    "note": "回遊性向上と音楽・文化イベント連携調査"
+                }
+            ],
+            "bills": [],
+            "milestones": [
+                { "date": "2024-12-01", "title": "京都府・京都市による北山エリア整備連絡会議の再開", "is_completed": True }
+            ]
+        }
+    },
+    {
+        "id": "PLG-MATSUI-014",
+        "category": "福祉・医療・健康",
+        "headline": "精神障害者医療費支給制度拡充とAYA世代がん患者在宅療養支援",
+        "current_stage": "bill_passed",
+        "stage_label": "条例可決・助成開始",
+        "stage_level": 4,
+        "election_promise": {
+            "quote": "誰ひとり取り残さない共生社会。精神障害者医療費助成の通院対象拡大やAYA世代がん患者支援の実現",
+            "source_name": "令和6年 京都市長選挙 公報原本",
+            "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
+        },
+        "lifecycle": {
+            "policy_speeches": [
+                {
+                    "session_name": "令和6年第1回定例会",
+                    "date": "2024-03-01",
+                    "summary": "長年の切実な要望であった精神障害者医療費支給制度の対象拡大について、京都府との協調により早期に実施すると言及。",
+                    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+                }
+            ],
+            "budgets": [
+                {
+                    "fiscal_year": "令和6年度補正予算",
+                    "item_name": "重度心身障害者等医療費支給事業（精神通院拡充）",
+                    "amount_text": "1億1,000万円",
+                    "note": "精神障害者保健福祉手帳1級所持者の通院医療費助成拡充"
+                }
+            ],
+            "bills": [
+                {
+                    "session_name": "令和6年11月市会",
+                    "bill_number": "議163",
+                    "bill_title": "京都市重度心身障害者等医療費支給条例の一部を改正する条例の制定について",
+                    "status": "可決",
+                    "passed_date": "2024-12-16",
+                    "party_votes": {
+                        "自民": "賛成",
+                        "公明": "賛成",
+                        "維新・京都・国民": "賛成",
+                        "共産": "賛成"
+                    }
+                }
+            ],
+            "milestones": [
+                { "date": "2024-10-01", "title": "若年がん患者（AYA世代）在宅療養支援補助金の受付開始", "is_completed": True },
+                { "date": "2025-01-01", "title": "精神障害者通院医療費助成の拡充施行", "is_completed": True }
+            ]
+        }
+    }
+]
+
+def calculate_stats(pledges):
+    total = len(pledges)
+    bill_passed = sum(1 for p in pledges if p["stage_level"] == 4)
+    budgeted = sum(1 for p in pledges if p["stage_level"] == 3)
+    policy_speech = sum(1 for p in pledges if p["stage_level"] == 2)
+    announced = sum(1 for p in pledges if p["stage_level"] == 1)
+
+    return {
+        "total_pledges": total,
+        "bill_passed_count": bill_passed,
+        "budgeted_count": budgeted,
+        "policy_speech_count": policy_speech,
+        "announced_count": announced,
+        "execution_rate_percentage": round(((bill_passed + budgeted) / total) * 100) if total > 0 else 0
+    }
+
+def main():
+    print(f"=== 京都市長（松井孝治）政策ライフサイクルトラッカー データ構築開始 ===")
+    
+    OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    stats = calculate_stats(PLEDGES_MASTER)
+
+    output_data = {
+        "mayor_info": MAYOR_INFO,
+        "stats": stats,
+        "pledges": PLEDGES_MASTER
+    }
+
+    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, ensure_ascii=False, indent=2)
+
+    print(f"✓ 登録公約数: {stats['total_pledges']} 項目")
+    print(f"✓ 条例成立・議案可決: {stats['bill_passed_count']} 件")
+    print(f"✓ 予算化・実証中: {stats['budgeted_count']} 件")
+    print(f"✓ 施政方針言及: {stats['policy_speech_count']} 件")
+    print(f"✓ 政策具体化率（予算化以上）: {stats['execution_rate_percentage']}%")
+    print(f"✓ 出力ファイル: {OUTPUT_JSON}")
+
+if __name__ == "__main__":
+    main()
