@@ -3,7 +3,7 @@ import {
   Landmark, ArrowLeft, ExternalLink, ShieldCheck, BookmarkCheck,
   CheckCircle2, Clock, FileText, Scale, Sparkles,
   PieChart, Filter, AlertCircle, ArrowRight, Layers, Coins, Calendar,
-  TrendingUp, Award
+  TrendingUp, Award, BookCheck
 } from 'lucide-react';
 
 export default function MayorTrackerView({
@@ -35,12 +35,13 @@ export default function MayorTrackerView({
     });
   }, [pledges, selectedCategory, selectedStageLevel]);
 
+  // 💡【要件定義】5段階政策ライフサイクルの新定義（公式計画化に格上げ）
   const STAGES = [
-    { level: 1, label: '1.公約表明', desc: '市長選公報・マニフェスト' },
-    { level: 2, label: '2.施政方針', desc: '本会議演説・所信表明' },
-    { level: 3, label: '3.予算措置', desc: '当初・補正予算計上' },
+    { level: 1, label: '1.公約表明', desc: '市長選公報原本' },
+    { level: 2, label: '2.市公式計画化', desc: '新京都戦略 政策集（確定版）' },
+    { level: 3, label: '3.予算措置', desc: '主要事業説明書（計上額・財源）' },
     { level: 4, label: '4.条例提出', desc: '市会での審議・可決' },
-    { level: 5, label: '5.成立・執行', desc: '目標完了・制度運用' },
+    { level: 5, label: '5.成立・執行', desc: '制度運用・目標完了' },
   ];
 
   const handleImageError = () => {
@@ -54,7 +55,7 @@ export default function MayorTrackerView({
   return (
     <main className="max-w-6xl mx-auto py-8 px-4 sm:px-6 animate-in fade-in duration-300 w-full space-y-8">
       {/* ナビゲーション上部 */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-2">
         <button
           onClick={onBack}
           className="inline-flex items-center text-xs font-bold text-slate-500 hover:text-indigo-600 transition-colors bg-white px-3 py-2 rounded-lg border border-slate-200 shadow-xs cursor-pointer"
@@ -62,7 +63,8 @@ export default function MayorTrackerView({
           <ArrowLeft className="w-3.5 h-3.5 mr-1.5" />ポータルに戻る
         </button>
 
-        <div className="flex items-center gap-2">
+        {/* 確定版公文書への外部リンク群 */}
+        <div className="flex items-center gap-2 flex-wrap">
           {mayorInfo.bulletin_pdf && (
             <a
               href={mayorInfo.bulletin_pdf}
@@ -75,22 +77,34 @@ export default function MayorTrackerView({
               <ExternalLink className="w-3 h-3 opacity-60" />
             </a>
           )}
-          {mayorInfo.manifesto_pdf && (
+          {mayorInfo.strategy_main_pdf && (
             <a
-              href={mayorInfo.manifesto_pdf}
+              href={mayorInfo.strategy_main_pdf}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-xs transition-colors shadow-2xs"
             >
               <FileText className="w-3.5 h-3.5 text-slate-500" />
-              <span>新京都戦略（骨子）</span>
+              <span>新京都戦略（本編PDF）</span>
+              <ExternalLink className="w-3 h-3 opacity-60" />
+            </a>
+          )}
+          {mayorInfo.strategy_policy_pdf && (
+            <a
+              href={mayorInfo.strategy_policy_pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-200 text-indigo-700 hover:bg-indigo-100 font-bold text-xs transition-colors shadow-2xs"
+            >
+              <BookCheck className="w-3.5 h-3.5 text-indigo-600" />
+              <span>新京都戦略 政策集（確定版PDF）</span>
               <ExternalLink className="w-3 h-3 opacity-60" />
             </a>
           )}
         </div>
       </div>
 
-      {/* 💡 ヘッダーエリア：市長通信簿サマリー（崩れを解消した新デザイン） */}
+      {/* ヘッダーエリア：市長通信簿サマリー */}
       <header className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-6 border-b border-slate-100">
           
@@ -122,7 +136,6 @@ export default function MayorTrackerView({
                 </h1>
               </div>
 
-              {/* 就任日・任期タグ（独立バッジ形式で改行崩れ防止） */}
               <div className="flex items-center gap-2 text-xs font-bold text-slate-500 flex-wrap">
                 <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md border border-slate-200/70">
                   <Calendar className="w-3 h-3 text-slate-400" />
@@ -135,9 +148,8 @@ export default function MayorTrackerView({
             </div>
           </div>
 
-          {/* 💡 右側：財政ハイライトカード（長い文字の折り返しを防止した3連パネル） */}
+          {/* 右側：財政ハイライトカード */}
           <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-3 gap-3 bg-slate-50/80 p-3 sm:p-4 rounded-2xl border border-slate-200/80">
-            {/* 指標1: 公約投入予算 */}
             <div className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[150px]">
               <span className="text-[11px] font-black text-indigo-700 block tracking-tight">
                 公約投入予算総額
@@ -153,7 +165,6 @@ export default function MayorTrackerView({
               </span>
             </div>
 
-            {/* 指標2: 宿泊税収 */}
             <div className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[150px]">
               <div className="flex items-center justify-center gap-1">
                 <span className="text-[11px] font-black text-emerald-700 block tracking-tight">
@@ -174,7 +185,6 @@ export default function MayorTrackerView({
               </span>
             </div>
 
-            {/* 指標3: 過去負債返済 */}
             <div className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[150px]">
               <span className="text-[11px] font-black text-slate-600 block tracking-tight">
                 過去負債返済ペース
@@ -193,15 +203,15 @@ export default function MayorTrackerView({
           </div>
         </div>
 
-        {/* 💡 政策ライフサイクルの検証原則バナー */}
+        {/* 政策ライフサイクルの検証原則バナー */}
         <div className="bg-indigo-50/40 p-4 sm:p-4.5 rounded-2xl border border-indigo-100 flex items-start gap-3">
           <ShieldCheck className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
           <div className="space-y-1">
             <h2 className="text-xs font-black text-indigo-950">
-              政策ライフサイクル×予算定量検証の原則
+              新京都戦略（確定版）× 政策ライフサイクル検証の原則
             </h2>
             <p className="text-[11px] text-slate-600 leading-relaxed font-medium">
-              市長は議案提出権と予算編成権を独占しています。本トラッカーは、単なるテキスト要約にとどまらず「①公約表明 ➔ ②施政方針演説 ➔ ③予算措置（計上額・財源内訳） ➔ ④条例提出と可決」という一次公文書の足跡を定量的に追跡します。
+              市長公約が単なるスローガンにとどまらず「①公約表明 ➔ ②市公式計画化（新京都戦略 政策集） ➔ ③予算措置（主要事業説明書） ➔ ④条例提出・可決」へと法制化・具現化されたかを客観的な公文書原本のみに基づいて定量追跡します。
             </p>
           </div>
         </div>
@@ -217,7 +227,7 @@ export default function MayorTrackerView({
             { level: 0, label: 'すべて' },
             { level: 4, label: '条例可決・成立' },
             { level: 3, label: '予算計上・実証中' },
-            { level: 2, label: '施政方針表明' },
+            { level: 2, label: '市公式計画化' },
           ].map(s => (
             <button
               key={s.level}
@@ -251,9 +261,9 @@ export default function MayorTrackerView({
       {/* 看板公約カード一覧（14項目） */}
       <div className="space-y-8">
         {filteredPledges.map((pledge) => {
+          const plan = pledge.official_plan;
           const budgets = pledge.budget_records || [];
           const bill = pledge.legislative_bill;
-          const speech = pledge.policy_address;
           const milestone = pledge.milestone;
 
           return (
@@ -284,7 +294,7 @@ export default function MayorTrackerView({
                 </div>
               </div>
 
-              {/* 5段階 政策ライフサイクル・プログレスバー */}
+              {/* 5段階 政策ライフサイクル・プログレスバー（新定義） */}
               <div className="px-6 py-4 bg-slate-50/40 border-b border-slate-100">
                 <div className="grid grid-cols-5 gap-1 sm:gap-2">
                   {STAGES.map((st) => {
@@ -307,7 +317,7 @@ export default function MayorTrackerView({
                 </div>
               </div>
 
-              {/* 2カラム対比グリッド（左: 選挙公約原本 ⇄ 右: 執行・予算定量・議決） */}
+              {/* 2カラム対比グリッド（左: 選挙公約原本 ⇄ 右: 執行・計画化・予算定量・議決） */}
               <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
                 {/* 左側: 選挙公報原本引用 (4列) */}
                 <div className="lg:col-span-4 p-6 bg-indigo-50/15 space-y-4 flex flex-col justify-between">
@@ -315,7 +325,7 @@ export default function MayorTrackerView({
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-black text-indigo-950 flex items-center gap-1.5 uppercase tracking-wider">
                         <BookmarkCheck className="w-4 h-4 text-indigo-600" />
-                        選挙公報 原本引用
+                        選挙公約 原本引用
                       </span>
                       <span className="text-[10px] font-bold text-slate-400">公式選挙公報</span>
                     </div>
@@ -344,45 +354,56 @@ export default function MayorTrackerView({
                   )}
                 </div>
 
-                {/* 右側: 市政での具体的執行アクション（定量データ連動） (8列) */}
+                {/* 右側: 市政での具体的執行アクション（確定計画・定量予算・議決） (8列) */}
                 <div className="lg:col-span-8 p-6 space-y-6 bg-white">
-                  {/* ① 施政方針・所信表明演説 */}
-                  {speech && (
+                  
+                  {/* 💡【要件定義】① 新京都戦略（確定版）への明記ブロック（最上部に配置） */}
+                  {plan && (
                     <div className="space-y-2">
-                      <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
-                        <FileText className="w-3.5 h-3.5 text-indigo-500" />
-                        市会本会議での施政方針・所信表明
-                      </span>
-                      <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
-                        <div className="flex items-center justify-between text-[10px] font-bold text-slate-500">
-                          <span className="font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-700">
-                            {speech.date} / {speech.session}
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-black text-indigo-950 flex items-center gap-1.5">
+                          <BookCheck className="w-3.5 h-3.5 text-indigo-600" />
+                          新京都戦略（市公式確定計画）に明記
+                        </span>
+                        <span className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                          法定計画化完了
+                        </span>
+                      </div>
+
+                      <div className="p-4 rounded-2xl bg-indigo-50/25 border border-indigo-100/80 space-y-2">
+                        <div className="flex items-center justify-between flex-wrap gap-1 text-[10px] font-bold text-slate-500">
+                          <span className="font-mono bg-white text-indigo-900 px-2 py-0.5 rounded border border-indigo-100 font-extrabold">
+                            {plan.plan_name}
                           </span>
-                          {speech.speech_url && (
+                          <span className="text-slate-400">{plan.date} 策定</span>
+                        </div>
+                        <p className="text-xs text-slate-800 leading-relaxed font-medium">
+                          {plan.summary}
+                        </p>
+                        {plan.doc_url && (
+                          <div className="pt-1.5 text-right">
                             <a
-                              href={speech.speech_url}
+                              href={plan.doc_url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-indigo-600 hover:underline inline-flex items-center gap-0.5 font-bold"
+                              className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 hover:underline"
                             >
-                              会議録原本 <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                              <span>新京都戦略 政策集（公式PDF）で確認</span>
+                              <ExternalLink className="w-3 h-3 opacity-60" />
                             </a>
-                          )}
-                        </div>
-                        <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                          {speech.summary}
-                        </p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
 
-                  {/* ② 予算定量データカード（最重要） */}
+                  {/* ② 予算定量データカード（主要事業説明書） */}
                   {budgets.length > 0 && (
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-black text-slate-700 flex items-center gap-1.5">
                           <Coins className="w-3.5 h-3.5 text-emerald-600" />
-                          予算措置・計上実績（定量エビデンス）
+                          予算措置・計上実績（主要事業説明書 定量データ）
                         </span>
                         <span className="text-[10px] text-slate-400 font-bold">
                           計 {budgets.length} 事業
@@ -484,7 +505,6 @@ export default function MayorTrackerView({
                               ))}
                             </div>
 
-                            {/* モーダル連携ボタン */}
                             {onSelectBill && (
                               <button
                                 onClick={() => onSelectBill(bill)}

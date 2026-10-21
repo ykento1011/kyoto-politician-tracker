@@ -14,16 +14,18 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 OUTPUT_JSON = BASE_DIR.parent / "frontend" / "public" / "data" / "mayor_tracker.json"
 
+# 💡 京都市公式確定版公文書URLへ差し替え
 MAYOR_INFO = {
     "name": "松井孝治",
     "term_number": 27,
     "term_start": "2024-02-25",
     "election_date": "2024-02-04",
     "bulletin_pdf": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
-    "manifesto_pdf": "https://www2.city.kyoto.lg.jp/shikai/img/joho/kankobutsu/siryou/R6/「新京都戦略（骨子）」に係るパブリック・コメントの実施について.pdf"
+    "strategy_main_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/sinkyotosenryaku.pdf",
+    "strategy_policy_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
 }
 
-# 💡 松井市長 看板公約14項目 × 予算定量主要事業 定量マッピングマスター
+# 💡 看板公約14項目 × 新京都戦略（確定版）× 予算主要事業 定量マッピング
 PLEDGES_MASTER = [
     {
         "id": "P-01",
@@ -36,11 +38,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-03-01",
-            "session": "令和6年第1回定例会（所信表明演説）",
-            "summary": "市民の日常の足である市バスの混雑緩和に向け、国との連携による市民優先の運賃体系導入の検討に着手を明言。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "重点プロジェクト「市民生活と調和した持続可能な観光と移動」に明記。国とのパイロットプロジェクトを通じた市民優先の運賃体系導入方針を市の総合戦略として公式確定。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -98,11 +100,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-09-20",
-            "session": "令和6年9月市会（施政方針）",
-            "summary": "急増する観光需要に伴うインフラ維持・ごみ対策等の市民負担を軽減するため、宿泊税の上限引き上げ検討方針を言明。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「持続可能な行財政運営の確立」の基幹戦略として明記。観光課題解決・インフラ受入環境整備への使途拡充および最高税額見直しを公式計画化。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -147,11 +149,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-03-01",
-            "session": "令和6年第1回定例会（所信表明演説）",
-            "summary": "市立中学校における全員制給食について、給食センター整備と親子方式を組み合わせ予定を前倒しして完全実施を目指すと宣言。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「子育て環境日本一・健やかな学びの保障」に明記。PFI給食センター整備と親子方式の連携による全市立中学校での完全実施工程を法定計画として位置づけ。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -210,11 +212,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-05-17",
-            "session": "令和6年5月市会",
-            "summary": "西脇京都府知事との府市トップ会談を踏まえ、小児通院医療費助成の対象拡充を前倒しで進める方針を言及。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「府市協調・子育て負担軽減プロジェクト」に位置づけ。小児通院医療費の自己負担上限月200円の対象拡充および多子世帯の保育料無償化推進を公式確定。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -273,11 +275,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2025-02-14",
-            "session": "令和7年2月市会（施政方針）",
-            "summary": "指定京町家の滅失を防ぐため、住居として維持・承継する場合の固定資産税軽減措置を検討する方針を表明。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「歴史都市京都の景観・町家継承と若者定住」に明記。居住用町家の改修助成拡充や税負担軽減措置の制度設計を法定計画に位置づけ。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -325,11 +327,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-09-20",
-            "session": "令和6年9月市会",
-            "summary": "若者や子育て世代の市外流出を防ぐため、京都駅東南部エリアおよび三条京阪エリアの都市再生プロジェクトを加速させると言及。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「都市再生・産業立地戦略」の最重点ゾーンとして指定。京都駅東南部および三条京阪における高機能オフィス誘導と都市計画特例活用を確定。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -374,11 +376,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-03-01",
-            "session": "令和6年第1回定例会",
-            "summary": "国内外のベンチャーキャピタルや大学発スタートアップの投資・集積を呼び込むため、官民連携ファンドとの協調を表明。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「知恵産業創造・グローバルスタートアップ拠点化」プログラムに明記。大学発ディープテック実証拠点の整備と国内外ベンチャーキャピタル呼び込みを策定。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -414,11 +416,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-03-01",
-            "session": "令和6年第1回定例会",
-            "summary": "前例踏襲の打破と意思決定スピードの迅速化、生成AI導入やDX推進による職員業務の効率化を言及。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「クリエイティブ市役所変革・DX推進」に位置づけ。ガバメントクラウド標準化対応、行政手続オンライン化率95%目標、BPR徹底を公式計画化。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -464,11 +466,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-09-20",
-            "session": "令和6年9月市会",
-            "summary": "令和5年度決算において一般会計実質収支が黒字となったことを報告し、公債償還基金取崩し分の計画的返済継続を言及。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「財政規律と公債償還の堅持」を戦略全体の最重要前提条件として位置づけ。公債償還基金取崩し分の計画的返済完了に向けたロードマップを策定。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -519,17 +521,17 @@ PLEDGES_MASTER = [
         "category": "文化政策",
         "headline": "「双京構想」推進・文化財修理拠点誘致",
         "stage_level": 2,
-        "stage_label": "国要望・施政方針表明",
+        "stage_label": "市公式計画化・国要望中",
         "election_promise": {
             "quote": "文化庁移転を契機とした『文化首都・京都』の確立。皇室機能の一部を京都で果たす双京構想の推進と文化財修復拠点の整備",
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2025-02-14",
-            "session": "令和7年2月市会（施政方針）",
-            "summary": "全国の国宝・重要文化財の修理技術継承拠点の京都誘致に向け、国への働きかけを強めると表明。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「文化首都・京都の飛躍」施策として位置づけ。文化庁との密接な連携のもと、皇室文化の継承発信と国立文化財修理センター機能の京都誘致を公式計画化。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -564,11 +566,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-05-17",
-            "session": "令和6年5月市会",
-            "summary": "嵐山・東山等の主要観光地において、圧縮機能付きスマートごみ箱の増設と収集強化を言及。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「生活環境と調和した観光管理」施策に明記。主要観光地へのスマートごみ箱（SmaGO）の継続的配備とパーク＆ライド等の交通マネジメントを規定。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -603,11 +605,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-03-01",
-            "session": "令和6年第1回定例会",
-            "summary": "洛西ニュータウンおよび向島エリアを対象に、UR都市機構や府市協調による若者移住促進策を強力に推進すると言及。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「郊外拠点・ニュータウン再生プロジェクト」として公式策定。洛西SAIKOプロジェクト等の若者・子育て世帯向け居住・コミュニティ再生を位置づけ。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -637,17 +639,17 @@ PLEDGES_MASTER = [
         "category": "文化・都市",
         "headline": "北山エリア文化交流拠点化・音楽祭",
         "stage_level": 2,
-        "stage_label": "構想検討・協議中",
+        "stage_label": "市公式計画化・協議中",
         "election_promise": {
             "quote": "植物園や京都コンサートホールを核とした北山エリアの文化・にぎわい創出。府立大学アリーナ計画の市民的合意形成と調和",
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-09-20",
-            "session": "令和6年9月市会",
-            "summary": "京都府との間で長年の懸案であった北山エリアのまちづくりについて、環境保全と文化交流のにぎわいを調和させる対話を進めると表明。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「北山文化ゾーンのにぎわい創出」施策に明記。植物園の自然環境と京都コンサートホール等の文化拠点を調和させた文化発信・音楽イベント構想を位置づけ。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -682,11 +684,11 @@ PLEDGES_MASTER = [
             "source_name": "令和6年 京都市長選公報原本",
             "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
         },
-        "policy_address": {
-            "date": "2024-03-01",
-            "session": "令和6年第1回定例会",
-            "summary": "長年の切実な要望であった精神障害者医療費支給制度の対象拡大について、京都府との協調により早期に実施すると言及。",
-            "speech_url": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html"
+        "official_plan": {
+            "date": "2026-03-01",
+            "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+            "summary": "「誰ひとり取り残さない共生福祉」重点項目に位置づけ。精神通院医療費助成の確実な運用と若年がん患者在宅療養支援の定着を公定計画化。",
+            "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
         },
         "budget_records": [
             {
@@ -728,7 +730,7 @@ def calculate_summary_stats(pledges):
     enacted = sum(1 for p in pledges if p["stage_level"] == 4)
     bill_submitted = sum(1 for p in pledges if p.get("legislative_bill") and p["legislative_bill"].get("result") == "審議中")
     budgeted = sum(1 for p in pledges if p["stage_level"] == 3)
-    address_only = sum(1 for p in pledges if p["stage_level"] == 2)
+    official_plan_only = sum(1 for p in pledges if p["stage_level"] == 2)
     reviewing = sum(1 for p in pledges if p["stage_level"] == 1)
 
     total_amount = sum(
@@ -742,7 +744,7 @@ def calculate_summary_stats(pledges):
             "enacted": enacted,
             "bill_submitted": bill_submitted,
             "budgeted": budgeted,
-            "address_only": address_only,
+            "official_plan_only": official_plan_only,
             "reviewing": reviewing
         },
         "total_allocated_budget_jpy": "104億1,316万円",
@@ -752,7 +754,7 @@ def calculate_summary_stats(pledges):
     }
 
 def main():
-    print("=== 京都市長（松井孝治）政策ライフサイクル×予算定量トラッカー データ構築 ===")
+    print("=== 京都市長（松井孝治）政策ライフサイクル×新京都戦略（確定版）トラッカー データ構築 ===")
     OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     summary_stats = calculate_summary_stats(PLEDGES_MASTER)
 
@@ -766,9 +768,8 @@ def main():
         json.dump(output_data, f, ensure_ascii=False, indent=2)
 
     print(f"✓ 登録公約数: {summary_stats['total_pledges']} 項目")
+    print(f"✓ 新京都戦略（確定版）連携: 14項目完了")
     print(f"✓ 公約関連投入予算総額: {summary_stats['total_allocated_budget_jpy']}")
-    print(f"✓ 条例成立・議案可決: {summary_stats['stages']['enacted']} 件")
-    print(f"✓ 予算化・実証中: {summary_stats['stages']['budgeted']} 件")
     print(f"✓ 出力ファイル: {OUTPUT_JSON}")
 
 if __name__ == "__main__":
