@@ -3,7 +3,6 @@ import re
 import sys
 from pathlib import Path
 
-# Windowsコンソールの文字化け防止
 if sys.platform == "win32":
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -17,14 +16,11 @@ PLEDGES_JSON = DATA_DIR / "councilor_pledges.json"
 VOTES_JSON = BASE_DIR.parent / "frontend" / "public" / "data" / "votes_summary.json"
 OUTPUT_TRACKER_JSON = BASE_DIR.parent / "frontend" / "public" / "data" / "pledge_tracker.json"
 
-# 候補となる質疑ログファイルパス（両方チェック）
 POSSIBLE_STATEMENT_PATHS = [
     BASE_DIR.parent / "frontend" / "public" / "data" / "statements_summary.json",
     BASE_DIR.parent / "frontend" / "public" / "data" / "statements.json",
-    DATA_DIR / "statements_summary.json",
 ]
 
-# 💡 GeminiのOCR文字揺らぎ（毛筆・手書き文字）を完全吸収する名寄せ辞書
 ALIAS_MAP = {
     "井﨑敦子": "井崎敦子",
     "繁隆夫": "繁隆夫",
@@ -39,7 +35,6 @@ ALIAS_MAP = {
     "森本英情": "もりもと英靖",
 }
 
-# 💡 精密マッチング辞書（ポジティブ単語 ＋ 誤爆防止のネガティブ除外単語）
 TOPIC_RULES = {
     "北陸新幹線": {
         "positive": ["北陸新幹線", "新幹線"],
@@ -58,7 +53,7 @@ TOPIC_RULES = {
     },
     "子どもの医療費": {
         "positive": ["子ども医療", "子ども医療費", "小児医療", "乳幼児医療"],
-        "negative": ["老人", "高齢者"], # 💡 老人医療費条例の誤爆を完全排除！
+        "negative": ["老人", "高齢者"],
         "context": "子どもの医療費助成拡充（通院自己負担軽減・対象年齢引き上げ）に関する関連施策です。"
     },
     "議員定数・報酬": {
@@ -152,10 +147,10 @@ def find_related_bill(pledge, votes_data, speaker_name, party_name):
         "context_note": best["context_note"]
     }
 
-def find_related_statement(pledge, speaker_stmts):
-    """その議員の全質疑スレッドから、公約に合致する最も鋭い発言ログを抽出"""
+def find_related_statements(pledge, speaker_stmts, max_count=2):
+    """その議員の発言ログから合致する質疑をスコア順に最大2件取得"""
     if not speaker_stmts:
-        return None
+        return []
 
     target_text = f"{pledge.get('target_issue', '')} {pledge.get('headline', '')} {pledge.get('exact_quote', '')}"
 
@@ -188,21 +183,28 @@ def find_related_statement(pledge, speaker_stmts):
             matched_stmts.append((score, stmt))
 
     if not matched_stmts:
-        return None
+        return []
 
     matched_stmts.sort(key=lambda x: x[0], reverse=True)
-    best_stmt = matched_stmts[0][1]
-
-    return {
-        "date": best_stmt.get("meeting_date", ""),
-        "committee": best_stmt.get("committee_name", "") or best_stmt.get("meeting_name", "本会議"),
-        "summary": best_stmt.get("summary", ""),
-        "speech_id": best_stmt.get("id", ""),
-        "official_url": best_stmt.get("minute_url", "") or best_stmt.get("url", "")
-    }
+    
+    results = []
+    for _, best_stmt in matched_stmts[:max_count]:
+        official_url = (
+            best_stmt.get("minute_url") or 
+            best_stmt.get("url") or 
+            best_stmt.get("source_url") or 
+            ""
+        )
+        results.append({
+            "date": best_stmt.get("meeting_date", ""),
+            "committee": best_stmt.get("committee_name", "") or best_stmt.get("meeting_name", "本会議"),
+            "summary": best_stmt.get("summary", ""),
+            "speech_id": best_stmt.get("id", ""),
+            "official_url": official_url
+        })
+    return results
 
 def load_speaker_statements_map():
-    """質疑ログファイルを自動検出して議員ごとの質疑辞書を作成"""
     for path in POSSIBLE_STATEMENT_PATHS:
         if path.exists():
             try:
@@ -210,7 +212,6 @@ def load_speaker_statements_map():
                     data = json.load(f)
                 
                 mapping = {}
-                # パターンA: [{"speaker": "...", "statements": [...]}, ...]
                 if isinstance(data, list) and len(data) > 0 and "statements" in data[0]:
                     for item in data:
                         spk = clean_name(item.get("speaker", ""))
@@ -218,7 +219,6 @@ def load_speaker_statements_map():
                     print(f"[成功] 質疑ログ検出: {path.name} (議員数: {len(mapping)}名)")
                     return mapping
 
-                # パターンB: [{"speaker": "...", "summary": "...", ...}, ...] フラットリスト
                 elif isinstance(data, list) and len(data) > 0 and "summary" in data[0]:
                     for stmt in data:
                         spk = clean_name(stmt.get("speaker", ""))
@@ -231,7 +231,6 @@ def load_speaker_statements_map():
                 print(f"[警告] {path.name} の読み込みエラー: {e}")
                 continue
 
-    print("[警告] 質疑ログファイルが見つかりませんでした。")
     return {}
 
 def main():
@@ -247,7 +246,6 @@ def main():
         with open(VOTES_JSON, "r", encoding="utf-8") as f:
             votes_data = json.load(f)
 
-    # 💡 質疑ログマップの取得
     speaker_statements_map = load_speaker_statements_map()
 
     tracker_result = {}
@@ -266,12 +264,12 @@ def main():
         tracked_items = []
         for p in pledges:
             vote_record = find_related_bill(p, votes_data, norm_speaker, party)
-            stmt_record = find_related_statement(p, speaker_stmts)
+            stmt_records = find_related_statements(p, speaker_stmts, max_count=2)
 
             if vote_record:
                 matched_vote_count += 1
-            if stmt_record:
-                matched_stmt_count += 1
+            if stmt_records:
+                matched_stmt_count += len(stmt_records)
 
             tracked_items.append({
                 "id": p.get("id", ""),
@@ -285,7 +283,9 @@ def main():
                     "bulletin_url": bulletin_pdf
                 },
                 "council_vote": vote_record,
-                "council_statement": stmt_record
+                # 複数件に対応（後方互換用として単数も保持）
+                "council_statement": stmt_records[0] if stmt_records else None,
+                "council_statements": stmt_records
             })
 
         tracker_result[norm_speaker] = {
@@ -302,8 +302,8 @@ def main():
     print(f"\n=== 看板公約トラッカー結合完了 ===")
     print(f"出力先: {OUTPUT_TRACKER_JSON}")
     print(f"追跡対象議員数: {len(tracker_result)} 名")
-    print(f"議決マッチング総数: {matched_vote_count} 件 (老人医療費等の誤爆を完全排除)")
-    print(f"質疑発言マッチング総数: {matched_stmt_count} 件 (議場での生発言を完全結合)")
+    print(f"議決マッチング総数: {matched_vote_count} 件")
+    print(f"質疑発言マッチング総数: {matched_stmt_count} 件")
 
 if __name__ == "__main__":
     main()
