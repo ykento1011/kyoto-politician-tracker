@@ -134,17 +134,16 @@ export default function App() {
       .catch(err => console.error('Failed to load bill issues:', err));
   }, []);
 
-  // 💡【重要】ブラウザ戻るボタン（popstate）発火時の完全同期処理
+  // 💡 ブラウザの「戻る・進む」完全連動リスナー
   useEffect(() => {
     const onLocationChange = () => {
       const nextRoute = parseCurrentRoute();
       setCurrentRoute(nextRoute);
 
-      // 💡 もしURLから ?speaker が消えていたら、強制的に selectedSpeaker を null にする
       if (nextRoute.type === 'speaker' && nextRoute.speakerName) {
-        internalSpeakerClick(nextRoute.speakerName);
+        if (internalSpeakerClick) internalSpeakerClick(nextRoute.speakerName);
       } else {
-        internalSpeakerClick(null); // ← これが抜けていたため一覧に戻れませんでした
+        if (internalSpeakerClick) internalSpeakerClick(null);
       }
 
       if (nextRoute.type === 'search') {
@@ -177,19 +176,19 @@ export default function App() {
 
   const resolveSpeaker = useCallback((spk) => {
     if (!spk) return null;
-    const name = typeof spk === 'string' ? spk : spk.speaker;
-    return (speakerStats || []).find(s => s.speaker === name) || { speaker: name, district: '京都', partyGroup: '京都市会' };
+    const name = typeof spk === 'string' ? spk.replace(/\s+/g, '') : spk.speaker.replace(/\s+/g, '');
+    return (speakerStats || []).find(s => s.speaker.replace(/\s+/g, '') === name) || null;
   }, [speakerStats]);
 
   const handleGoHome = useCallback(() => {
     setSearchQuery('');
     setSubmittedQuery('');
-    internalSpeakerClick(null); // UIボタンで戻る時も状態をクリア
+    if (internalSpeakerClick) internalSpeakerClick(null);
     navigate('/');
   }, [navigate, setSearchQuery, setSubmittedQuery, internalSpeakerClick]);
 
   const handleSpeakerClick = useCallback((speakerName) => {
-    internalSpeakerClick(speakerName);
+    if (internalSpeakerClick) internalSpeakerClick(speakerName);
     navigate(`/?speaker=${encodeURIComponent(speakerName)}`);
   }, [internalSpeakerClick, navigate]);
 
@@ -257,9 +256,9 @@ export default function App() {
     return currentRoute.names.map(name => resolveSpeaker(name)).filter(Boolean);
   }, [currentRoute, compareList, resolveSpeaker]);
 
-  // 💡【重要】URLが speaker 以外の時は強制的に activeSpeaker を null にする
+  // 💡【最重要】URLが speaker でない時は「絶対に null」を返す
   const activeSpeaker = useMemo(() => {
-    if (currentRoute.type !== 'speaker') return null;
+    if (currentRoute.type !== 'speaker' || !currentRoute.speakerName) return null;
     return resolveSpeaker(currentRoute.speakerName) || selectedSpeaker;
   }, [currentRoute, selectedSpeaker, resolveSpeaker]);
 
@@ -431,7 +430,7 @@ export default function App() {
     );
   }
 
-  // 💡 ここで activeSpeaker が null になるため、ブラウザ戻るボタンで確実に一覧画面へ復帰します
+  // 💡【重要】URLが ?speaker= の時のみ詳細画面を表示（戻るボタンでURLが変われば確実にトップ画面へ抜ける）
   if (currentRoute.type === 'speaker' && activeSpeaker) {
     const threadsForSpeaker = (speakerFilteredThreads && speakerFilteredThreads.length > 0)
       ? speakerFilteredThreads
@@ -497,6 +496,7 @@ export default function App() {
     );
   }
 
+  // メインポータル（トップ画面）
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
       {renderNavbar(false)}
