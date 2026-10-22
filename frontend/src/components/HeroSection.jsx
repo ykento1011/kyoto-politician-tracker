@@ -22,15 +22,20 @@ export default function HeroSection({
       {/* サービスバッジ */}
       <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-black shadow-2xs">
         <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
-        京都市議会 公開データ × 生成AI客観分析
+        京都市議会 公開データ × 生成AI分析
       </div>
 
       <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
         対話がわかる。政策が見える。
       </h1>
-      <p className="text-xs md:text-sm text-slate-500 max-w-xl mx-auto leading-relaxed">
-        12万件超の発言記録を構造化。文字数や登壇回数では見えない「政策提言の密度と個性」を中立なAIルーブリック評価で可視化します。
-      </p>
+      <div className="space-y-2 max-w-xl mx-auto">
+        <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-medium">
+          12万件超の発言記録を構造化し、5,100超の質疑スレッドを横断検索。文字数や登壇回数だけでは見えない議員それぞれの政策対話の特徴を、統一ルーブリックによるAI評価で可視化します。
+        </p>
+        <p className="text-xs md:text-sm font-black text-indigo-950">
+          AIは入口。判断するのは市民です。
+        </p>
+      </div>
 
       {/* 分析対象バッジ */}
       <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-100/80 border border-slate-200 text-[11px] text-slate-600 font-bold">
@@ -40,7 +45,7 @@ export default function HeroSection({
         </span>
         <span>現任期（2023年5月〜最新公開分）</span>
         <span className="text-slate-300">|</span>
-        <span>本会議・全常任委員会・特別委員会（全12万発言・5,100超の質疑スレッド）</span>
+        <span>本会議・全常任委員会・特別委員会（12万件超の発言・5,100超の質疑・全67議員・300件の議案賛否）</span>
       </div>
 
       {/* できることページへの直通バナー */}
