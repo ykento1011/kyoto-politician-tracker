@@ -35,7 +35,7 @@ export default function MayorTrackerView({
     });
   }, [pledges, selectedCategory, selectedStageLevel]);
 
-  // 💡【要件定義】5段階政策ライフサイクルの新定義（公式計画化に格上げ）
+  // 💡 5段階政策ライフサイクルの定義（市公式計画化）
   const STAGES = [
     { level: 1, label: '1.公約表明', desc: '市長選公報原本' },
     { level: 2, label: '2.市公式計画化', desc: '新京都戦略 政策集（確定版）' },
@@ -104,7 +104,7 @@ export default function MayorTrackerView({
         </div>
       </div>
 
-      {/* ヘッダーエリア：市長通信簿サマリー */}
+      {/* ヘッダーエリア：市長サマリー */}
       <header className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-6 border-b border-slate-100">
           
@@ -152,7 +152,7 @@ export default function MayorTrackerView({
           <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-3 gap-3 bg-slate-50/80 p-3 sm:p-4 rounded-2xl border border-slate-200/80">
             <div className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[150px]">
               <span className="text-[11px] font-black text-indigo-700 block tracking-tight">
-                公約投入予算総額
+                公約関連予算総額
               </span>
               <div className="my-1">
                 <span className="text-xl sm:text-2xl font-black text-slate-900 font-mono tracking-tight">
@@ -203,15 +203,15 @@ export default function MayorTrackerView({
           </div>
         </div>
 
-        {/* 政策ライフサイクルの検証原則バナー */}
+        {/* 政策ライフサイクルの追跡バナー */}
         <div className="bg-indigo-50/40 p-4 sm:p-4.5 rounded-2xl border border-indigo-100 flex items-start gap-3">
           <ShieldCheck className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
           <div className="space-y-1">
             <h2 className="text-xs font-black text-indigo-950">
-              新京都戦略（確定版）× 政策ライフサイクル検証の原則
+              新京都戦略（確定版）× 政策ライフサイクル追跡
             </h2>
             <p className="text-[11px] text-slate-600 leading-relaxed font-medium">
-              市長公約が単なるスローガンにとどまらず「①公約表明 ➔ ②市公式計画化（新京都戦略 政策集） ➔ ③予算措置（主要事業説明書） ➔ ④条例提出・可決」へと法制化・具現化されたかを客観的な公文書原本のみに基づいて定量追跡します。
+              市長公約が単なるスローガンにとどまらず「①公約表明 ➔ ②市公式計画化（新京都戦略 政策集） ➔ ③予算措置（主要事業説明書） ➔ ④条例提出・可決」へと法制化・具現化されたかを公式に公開された一次資料に基づいて追跡します。
             </p>
           </div>
         </div>
@@ -294,7 +294,7 @@ export default function MayorTrackerView({
                 </div>
               </div>
 
-              {/* 5段階 政策ライフサイクル・プログレスバー（新定義） */}
+              {/* 5段階 政策ライフサイクル・プログレスバー */}
               <div className="px-6 py-4 bg-slate-50/40 border-b border-slate-100">
                 <div className="grid grid-cols-5 gap-1 sm:gap-2">
                   {STAGES.map((st) => {
@@ -357,7 +357,7 @@ export default function MayorTrackerView({
                 {/* 右側: 市政での具体的執行アクション（確定計画・定量予算・議決） (8列) */}
                 <div className="lg:col-span-8 p-6 space-y-6 bg-white">
                   
-                  {/* 💡【要件定義】① 新京都戦略（確定版）への明記ブロック（最上部に配置） */}
+                  {/* ① 新京都戦略（確定版）への明記ブロック */}
                   {plan && (
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
@@ -366,7 +366,7 @@ export default function MayorTrackerView({
                           新京都戦略（市公式確定計画）に明記
                         </span>
                         <span className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
-                          法定計画化完了
+                          市公式計画化完了
                         </span>
                       </div>
 
@@ -524,7 +524,7 @@ export default function MayorTrackerView({
                   {milestone && (
                     <div className="space-y-1.5 pl-3 border-l-2 border-indigo-200">
                       <span className="text-[10px] font-black text-slate-400 block uppercase">
-                        直近の達成マイルストーン
+                        主な政策マイルストーン
                       </span>
                       <div className="flex items-center gap-2 text-xs">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />

@@ -109,7 +109,7 @@ export default function Methodology({ onBack }) {
               </ul>
             </div>
 
-            {/* 💡 議員看板公約トラッカーのデータ仕様 */}
+            {/* 議員看板公約トラッカーのデータ仕様 */}
             <div className="bg-indigo-50/50 p-4.5 rounded-2xl border border-indigo-100 space-y-2.5">
               <h3 className="font-bold text-indigo-950 text-xs flex items-center gap-1.5">
                 <BookmarkCheck className="w-4 h-4 text-indigo-600" /> 議員看板公約トラッカーのデータ仕様と照合ロジック
@@ -122,7 +122,7 @@ export default function Methodology({ onBack }) {
               </p>
             </div>
 
-            {/* 💡 市長政策ライフサイクル×予算定量のデータ仕様 */}
+            {/* 市長政策ライフサイクル×予算定量のデータ仕様 */}
             <div className="bg-emerald-50/50 p-4.5 rounded-2xl border border-emerald-200/80 space-y-2.5">
               <h3 className="font-bold text-emerald-950 text-xs flex items-center gap-1.5">
                 <Coins className="w-4 h-4 text-emerald-700" /> 市長政策トラッカーのデータ仕様と定量の完全性
@@ -131,17 +131,17 @@ export default function Methodology({ onBack }) {
                 松井孝治市長の看板公約14項目を対象に、「①公約表明 ➔ ②市公式確定計画（新京都戦略 政策集） ➔ ③予算措置 ➔ ④条例提出・可決 ➔ ⑤成立・執行」の5段階を追跡しています。
               </p>
               <p className="text-xs text-emerald-950/90 leading-relaxed">
-                予算データに関してはAIの推論を完全に排除し、京都市発行の『主要事業説明書』PDF原本から直接抽出した「千円単位の計上額」および「特定財源内訳（宿泊税充当額、国費、市債、一般財源）」を紐付けています。各公約カードから主要事業説明書PDF原本への直接リンクを完備し、改ざんや誤認のない完全な検証可能性を担保しています。
+                予算データに関しては、AIの推論を経由せず、京都市発行の『主要事業説明書』PDF原本から直接抽出した「千円単位の計上額」および「特定財源内訳（宿泊税充当額、国費、市債、一般財源）」を紐付けています。各公約カードから主要事業説明書PDF原本への直接リンクを完備し、原資料を確認できる状態で掲載し検証可能性を担保しています。
               </p>
             </div>
 
             {/* 原本トレーサビリティ仕様 */}
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
               <h3 className="font-bold text-slate-900 text-xs flex items-center gap-1.5">
-                <Landmark className="w-4 h-4 text-slate-700" /> 公的原本への完全トレーサビリティ（監査可能性の技術仕様）
+                <Landmark className="w-4 h-4 text-slate-700" /> 公的原本へのトレーサビリティ（監査可能性の技術仕様）
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                全5,100件以上の質疑スレッドに対して、京都市会公式サーバー上の原本ページ（MinuteView）へ直接遷移する固有URL（council_id / schedule_id / view_years）を1対1で結合。利用者はボタン1つで公的機関の一次情報に直接アクセスし、文脈の確認を行えます。
+                全5,100件以上の質疑スレッドに対して、京都市会公式サーバー上の原本ページ（MinuteView）へ直接遷移する固有URL（council_id / schedule_id / view_years）を結合。利用者はボタン1つで公的機関の一次情報に直接アクセスし、文脈の確認を行えます。
               </p>
             </div>
 
@@ -167,10 +167,10 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* ④ セクション3：4軸の客観的ルーブリック（評価基準表） */}
+        {/* ④ セクション3：4軸の統一ルーブリック（評価基準表） */}
         <section className="space-y-5">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
-            <span>3. 政策対話の「密度」を測る4つの評価軸</span>
+            <span>3. 政策対話の「密度」を測る4軸の統一ルーブリック</span>
           </h2>
           <p className="text-sm text-slate-600 pl-4">
             各質疑スレッドは、党派性や政策の賛否・イデオロギーから完全に独立した以下の4つの指標（各0〜5点）で採点されます。
@@ -246,7 +246,7 @@ export default function Methodology({ onBack }) {
                 採用する8大政策分野と分類ルール
               </div>
               <p className="text-slate-600 leading-relaxed">
-                常任委員会（産業交通水道、総務消防等）の所管構造および専門キーワード辞書（伝統産業・宿泊税・市バス・財政行革・京町家景観等）を組み合わせた階層的ルールベース・アルゴリズムにより、客観的かつ再現性の高い分類を行っています。
+                常任委員会（産業交通水道、総務消防等）の所管構造および専門キーワード辞書（伝統産業・宿泊税・市バス・財政行革・京町家景観等）を組み合わせた階層的ルールベース・アルゴリズムにより、再現性の高い分類を行っています。
               </p>
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {['子育て・教育', '都市再生・交通インフラ', '産業・観光・地域経済', '福祉・医療・健康', '財政・行革', 'くらし・環境・エネルギー', '防災・減災・治安', '文化・景観・歴史'].map(cat => (
@@ -273,7 +273,7 @@ export default function Methodology({ onBack }) {
                 <strong>決定論的出力の固定:</strong> 評価モデル（Google Gemini）の生成パラメータ <code>temperature</code> を <strong>0.0</strong> に設定し、同一の質疑スレッドを入力した際には常に同一の採点結果が出力される決定論的挙動（再現性）を担保しています。
               </li>
               <li>
-                <strong>完全単一プロンプトの適用:</strong> 議員の所属会派、当選回数、年齢、性別などの属性情報は評価用プロンプトから完全に遮断され、全議員・全スレッドに対して単一の同一プロンプトのみが機械的に適用されています。
+                <strong>完全単一プロンプトの適用:</strong> 議員の所属会派、当選回数、年齢、性別などの属性情報は評価用プロンプトの評価要素から除外され、全議員・全スレッドに対して単一の同一プロンプトのみが機械的に適用されています。
               </li>
               <li>
                 <strong>パイプラインの自動化と公開:</strong> データスクレイピングから評価、原本URL結合に至る全ソースコードおよびプロンプト文面はオープンソースとして公開しています。

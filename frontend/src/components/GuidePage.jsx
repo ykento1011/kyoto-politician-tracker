@@ -33,7 +33,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
             当サイトでできること
           </h1>
           <p className="text-sm md:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-            選挙時の公約原本を起点に、市議会の全議決・質疑ログから市長の予算執行・条例化までを完全連動。「言行一致」と「政策ライフサイクル」を客観検証できる主要機能を紹介します。
+            選挙時の公約原本を起点に、市議会の全議決・質疑ログから市長の予算執行・条例化までを横断して追跡。「言行一致」と「政策ライフサイクル」を同一基準で比較・検証できる主要機能を紹介します。
           </p>
         </header>
 
@@ -45,7 +45,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               本プラットフォームの基本理念：主観的ラベリングを排した「一次公文書ファクト対比」
             </div>
             <p className="text-slate-600 text-xs leading-relaxed">
-              「公約違反」や「点数付け（通信簿）」といった恣意的な合否判定は行いません。選挙管理委員会発行の選挙公報原本、市会公式の採決結果・会議録原本、京都市の予算書（主要事業説明書）という改ざん不能な公文書ファクトを直接突き合わせ、有権者自身が客観的に判断できる情報環境を提供します。
+              「公約違反」や「点数付け（通信簿）」といった恣意的な合否判定は行いません。選挙管理委員会発行の選挙公報原本、市会公式の採決結果・会議録原本、京都市の予算書（主要事業説明書）という公式に公開された一次資料を直接突き合わせ、有権者自身が判断できる情報環境を提供します。
             </p>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               選挙時の看板公約に対し、「実際の採決や議場質疑でどう行動したか」がわかる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              2023年京都市議会議員選挙の公式選挙公報原本（PDF）から各議員の看板政策を抽出し、市会での実際の投票態度（賛成/反対）や関連質疑ログを客観的に並列提示します。包括予算で執行される政策についても、議場で市側にどのような是正や拡充を迫ったかの質疑要旨と公式会議録直リンクを1対1で突き合わせることができます。
+              2023年京都市議会議員選挙の公式選挙公報原本（PDF）から各議員の看板政策を抽出し、市会での実際の投票態度（賛成/反対）や関連質疑ログを並列提示します。包括予算で執行される政策についても、議場で市側にどのような是正や拡充を迫ったかの質疑要旨と公式会議録直リンクを1対1で突き合わせることができます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -88,7 +88,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               松井市長の公約が「公式計画」や「予算」にどう具体化されたかを追う
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              予算編成権と議案提出権を持つ市長の公約14項目を対象に、「①公約表明 ➔ ②市公式確定計画（新京都戦略 政策集） ➔ ③予算措置（主要事業説明書の計上額・財源内訳） ➔ ④条例提出・市会可決 ➔ ⑤成立・執行」という5段階の政策ライフサイクルを追跡します。テキスト要約だけでなく、京都市発行の主要事業説明書から抽出した「千円単位の計上額」や「宿泊税・国費・一般財源の内訳」、各会派の賛否態度まで完全に網羅しています。
+              予算編成権と議案提出権を持つ市長の公約14項目を対象に、「①公約表明 ➔ ②市公式確定計画（新京都戦略 政策集） ➔ ③予算措置（主要事業説明書の計上額・財源内訳） ➔ ④条例提出・市会可決 ➔ ⑤成立・執行」という5段階の政策ライフサイクルを追跡します。テキスト要約だけでなく、京都市発行の主要事業説明書から抽出した「千円単位の計上額」や「宿泊税・国費・一般財源の内訳」、各会派の賛否態度まで幅広く収録しています。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -113,7 +113,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               発言回数ではなく「提言の密度」と「得意分野」がわかる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              単なる文字数や登壇数では測れない議員の活動を、客観的なAIルーブリック評価（具体的対案・データ活用・地域解像度・議論の進展）で分析。個別の詳細カルテに加え、同じ行政区の議員全員など、最大12名までワンクリックで並べて政策スタンスや注力ポートフォリオを横断比較できます。
+              単なる文字数や登壇数では測れない議員の活動を、公開された統一ルーブリック評価（具体的対案・データ活用・地域解像度・議論の進展）で分析。個別の詳細カルテに加え、同じ行政区の議員全員など、最大12名までワンクリックで並べて政策スタンスや注力ポートフォリオを横断比較できます。
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
@@ -184,7 +184,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               どの議案で「誰が賛成し、誰が反対したのか」がわかる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              市議会に提出された全議案の賛否結果を網羅。全会一致で可決された議案だけでなく、<strong>「賛否が分かれた激論議案（Contested Bills）」</strong>に絞り込み、なぜ反対意見が出たのか、対立の背景にある争点をAI解説とともに確認できます。各議案をクリックすると、無所属議員を含む全議員の個別の投票態度も一目で確認できます。
+              市議会に提出された全議案の賛否結果を網羅。全会一致で可決された議案だけでなく、<strong>「賛否が分かれた議案（Contested Bills）」</strong>に絞り込み、なぜ反対意見が出たのか、対立の背景にある争点をAI解説とともに確認できます。各議案をクリックすると、無所属議員を含む全議員の個別の投票態度も一目で確認できます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -193,7 +193,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               </div>
               <ul className="list-disc list-inside space-y-1 pl-1 text-slate-600">
                 <li>条例や予算案に対する各政党・会派・無所属議員の実際の投票行動をチェックしたい時</li>
-                <li>議場が紛糾した重要案件の対立構図と双方の論理を短時間で把握したい時</li>
+                <li>議場で議論が分かれた重要案件の対立構図と双方の論理を短時間で把握したい時</li>
               </ul>
             </div>
           </section>
@@ -240,7 +240,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
                 信頼性の担保：
               </div>
               <p className="text-slate-600">
-                AIによる解釈のブレ（ハルシネーション）を疑う余地を残さないため、すべてのデータが公的な一次公文書に直接紐づいています。
+                AIの解釈を一次資料から検証できるよう、すべてのデータが公的な一次公文書に直接紐づいています。
               </p>
             </div>
           </section>

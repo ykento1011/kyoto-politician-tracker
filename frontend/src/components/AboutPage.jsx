@@ -32,7 +32,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
             「議会のミカタ」について
           </h1>
           <p className="text-sm md:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-            選挙公報原本から議事録、予算書まで。地方自治の「公約・議決・予算執行」を完全連動させ、二元代表制を客観可視化する独立系シビックテック基盤です。
+            選挙公報原本から議事録、予算書まで。地方自治の「公約・議決・予算・執行」を横断して追跡し、二元代表制の政策プロセスを可視化する独立系シビックテックプロジェクトです。
           </p>
         </header>
 
@@ -53,7 +53,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
               公開されているのは、数万ページに及ぶ議事録PDF、膨大で難解な主要事業説明書、公報画像データの断片です。これらがバラバラに存在しているため、市民が「言行一致」や「公約の現在地」を確かめるには莫大な時間と専門知識が必要でした。
             </p>
             <div className="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100 text-indigo-950 text-sm font-medium leading-relaxed">
-              「選挙公報の原本から議決、予算執行までを1本のデータパイプラインで結べば、市民誰もが市政を客観検証できるのではないか？」
+              「選挙公報の原本から議決、予算執行までを1本のデータパイプラインで結べば、市民誰もが市政を同一基準で検証できるのではないか？」
             </div>
             <p>
               この問題意識から、単なる議事録検索ツールを超え、公約を起点とした政策トレーサビリティ基盤の開発をスタートしました。
@@ -83,10 +83,10 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
           <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
             <div className="flex items-center gap-2 text-xs font-black text-slate-900">
               <Landmark className="w-4 h-4 text-indigo-600 shrink-0" />
-              <span>一次公文書への完全な接続性とトレーサビリティ</span>
+              <span>一次公文書への接続性とトレーサビリティ</span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
-              AIによる要約やスコアリングは入口を広げるための補助線です。私たちはハルシネーション（誤生成）や文脈の断絶を排除するため、すべての質疑スレッド、公約引用カード、予算定量データに、<strong>選挙管理委員会・京都市会・京都市行財政局の公式原本（PDF／Web）への直リンク</strong>を完備しています。
+              AIによる要約やスコアリングは入口を広げるための補助線です。私たちはAIによる要約や評価に誤りが生じる可能性を考慮し、すべての質疑スレッド、公約引用カード、予算定量データに、<strong>選挙管理委員会・京都市会・京都市行財政局の公式原本（PDF／Web）への直リンク</strong>を完備しています。
             </p>
             <p className="text-xs text-slate-600 leading-relaxed">
               疑わしい点があればいつでも原本を開き、直接数字や前後の発言を確認できるよう設計しています。
@@ -99,7 +99,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
                 onClick={onOpenMethodology}
                 className="text-xs font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-4 inline-flex items-center cursor-pointer transition-colors"
               >
-                AIの客観的評価基準および公約・予算データ仕様書を見る →
+                公開された統一ルーブリック評価基準および公約・予算データ仕様書を見る →
               </button>
             </div>
           )}
@@ -114,7 +114,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
 
           <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs font-bold text-slate-600 flex items-center gap-2">
             <Shield className="w-4 h-4 text-indigo-500 shrink-0" />
-            <span>本プロジェクトは、特定の政党・団体等とは一切関係のない、個人の関心に基づく独立した取り組みです。</span>
+            <span>本プロジェクトは、特定の政党・会派等から独立して運営するシビックテックプロジェクトです。</span>
           </div>
 
           <div className="space-y-4 pt-1">
@@ -169,7 +169,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
           </div>
           <div>
             <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-              公約・議決・予算執行を一体で洗う「二元代表制の完全可視化基盤」へ到達。
+              公約・議決・予算執行を一体で洗う「二元代表制の政策プロセスを追う可視化基盤」へ到達。
             </h2>
             <p className="text-xs md:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
               本サービスは単なる議事録の要約からスタートしましたが、今回のアップデートにより、地方自治の二大主役である「議会」と「首長」の言行一致および行政執行プロセスを一体的に追跡する基盤へと進化しました。
