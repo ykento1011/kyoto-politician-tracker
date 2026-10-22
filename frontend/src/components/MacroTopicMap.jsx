@@ -4,7 +4,7 @@ import { PieChart, Flame, Info, ChevronDown, Sparkles, ArrowRight } from 'lucide
 const CATEGORY_TOPICS_MAP = {
   '都市再生・交通インフラ': [
     { id: 'bus_fare_priority', title: '市バス混雑・市民優先価格' },
-    { id: 'hokuriku_shinkansen_extension', title: '北陸新幹線延伸・地下水と財政負担' }, // 💡 追加
+    { id: 'hokuriku_shinkansen_extension', title: '北陸新幹線延伸・地下水と財政負担' },
     { id: 'vacant_house_tax', title: '空き家税・若者定住' },
     { id: 'urban_planning_height_relax', title: '高さ規制緩和・産業用地' }
   ],
@@ -55,7 +55,7 @@ const CATEGORY_TOPICS_MAP = {
 export default function MacroTopicMap({
   topicStats,
   selectedCategory,
-  onOpenCategoryDetail, // 💡 カテゴリー詳細ページを開くハンドラー
+  onOpenCategoryDetail,
   getIssueCountForCategory,
   onOpenTopicDetail
 }) {
@@ -89,7 +89,7 @@ export default function MacroTopicMap({
               onClick={() => onOpenCategoryDetail && onOpenCategoryDetail(topic.name)}
               className="flex flex-col justify-between p-3.5 rounded-xl border bg-white border-slate-200 hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group"
             >
-              {/* カード上部：カテゴリ名と激論バッジ */}
+              {/* カード上部：カテゴリ名と激論議案バッジ */}
               <div>
                 <div className="flex items-center justify-between w-full mb-1">
                   <span className="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors truncate">
@@ -98,7 +98,7 @@ export default function MacroTopicMap({
                   {issueCount > 0 ? (
                     <span className="text-[9px] font-black px-1.5 py-0.5 rounded bg-rose-50 text-rose-600 border border-rose-200 shrink-0 flex items-center gap-0.5">
                       <Flame className="w-2.5 h-2.5 fill-rose-500 text-rose-500" />
-                      激論 {issueCount}
+                      激論議案 {issueCount}
                     </span>
                   ) : (
                     <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-50 text-slate-400 border border-slate-200 shrink-0">
@@ -129,7 +129,7 @@ export default function MacroTopicMap({
                     <button
                       key={ct.id}
                       onClick={(e) => {
-                        e.stopPropagation(); // 親のカードクリックを阻止して論点へ直行
+                        e.stopPropagation();
                         onOpenTopicDetail(ct.id);
                       }}
                       className="text-left text-[11px] font-bold text-slate-700 hover:text-indigo-600 bg-slate-50 hover:bg-indigo-50/80 px-2 py-1 rounded-md border border-slate-200 hover:border-indigo-200 transition-colors flex items-center justify-between group/btn cursor-pointer"

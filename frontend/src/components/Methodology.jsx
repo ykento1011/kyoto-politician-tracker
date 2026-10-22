@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   ArrowLeft, ShieldCheck, Database, Sliders, Scale, 
-  AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText, Calendar, Landmark, Layers, BookmarkCheck, Coins, BookCheck
+  AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText, Calendar, Landmark, Layers, BookmarkCheck, Coins, BookCheck, Flame
 } from 'lucide-react';
 
 export default function Methodology({ onBack }) {
@@ -293,10 +293,25 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* ⑦ セクション6：評価の限界と免責事項 */}
+        {/* 💡 ⑦ セクション6：政策マップ・議案一覧における「激論（賛否対立議案）」の定義（新規追加） */}
+        <section className="space-y-4">
+          <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
+            <span>6. 政策マップにおける「激論（賛否対立議案）」の定義</span>
+          </h2>
+          <div className="text-sm leading-relaxed text-slate-700 space-y-3 pl-4">
+            <p>
+              マクロ論戦マップ等で表示される「激論議案 ○件」という数値は、議論の感情的な激しさや主観的な紛糾度を表すものではありません。
+            </p>
+            <p>
+              京都市会に提出された全議案のうち、全会一致で可決されたものを除き、<strong>会派・議員間で「賛成」と「反対」に投票態度が分かれた議案（Contested Bills）の総数</strong>を機械的に集計した客観的ファクトです。対立の背景にある政策的争点や双方の論理を比較・検証するための重要指標として抽出しています。
+            </p>
+          </div>
+        </section>
+
+        {/* ⑧ セクション7：評価の限界と免責事項 */}
         <section className="space-y-4 pb-8 border-b border-slate-200">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
-            <span>6. 本データが示さないもの（免責事項）</span>
+            <span>7. 本データが示さないもの（免責事項）</span>
           </h2>
           <div className="bg-amber-50/70 border border-amber-200/90 rounded-2xl p-5 text-xs md:text-sm leading-relaxed text-amber-950 space-y-2.5">
             <div className="flex items-center gap-2 font-bold text-amber-900">
