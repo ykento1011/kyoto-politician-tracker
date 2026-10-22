@@ -1,5 +1,5 @@
-import React from 'react';
-import { FileText, Lightbulb, MessageCircle, User, Landmark, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { FileText, Lightbulb, MessageCircle, User, Landmark, ExternalLink, ChevronDown } from 'lucide-react';
 import { cleanName, cleanAuditorNote } from '../utils/styleHelpers';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
@@ -10,6 +10,9 @@ export default function ThreadCard({
   onViewContext,
   showSpeakerHeader = true
 }) {
+  // 💡 AI Auditor Note の全文表示・省略状態を管理する state
+  const [isNoteExpanded, setIsNoteExpanded] = useState(false);
+
   const activeMetrics = [
     { label: '根拠・データ', val: stmt.evidence_score, color: 'bg-indigo-500' },
     { label: '対案・是正策', val: stmt.solution_score, color: 'bg-emerald-500' },
@@ -17,9 +20,12 @@ export default function ThreadCard({
     { label: '議論の進展', val: stmt.constructive_score, color: 'bg-purple-500' }
   ].filter((m) => m.val > 0);
 
+  const auditorNoteText = stmt.scoring_reasoning ? cleanAuditorNote(stmt.scoring_reasoning) : "";
+
   return (
     <article className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
       
+      {/* 上部ヘッダー（議員情報・日付・カテゴリ） */}
       {showSpeakerHeader ? (
         <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
           <button
@@ -94,14 +100,36 @@ export default function ThreadCard({
             <div className="text-center py-2 text-slate-400 text-xs font-medium">初期確認・状況整理の質疑</div>
           )}
 
-          {activeMetrics.length > 0 && stmt.scoring_reasoning && (
-            <div className="mt-4 pt-3 border-t border-slate-200/60">
-              <h5 className="text-[10px] font-bold text-slate-400 uppercase mb-1.5 flex items-center">
-                <Lightbulb className="w-3 h-3 text-amber-500 mr-1 shrink-0" /> AI Auditor Note
-              </h5>
-              <p className="text-[11px] text-slate-600 line-clamp-3 leading-relaxed">
-                {cleanAuditorNote(stmt.scoring_reasoning)}
+          {/* 💡 AI Auditor Note 表示（トグル対応） */}
+          {activeMetrics.length > 0 && auditorNoteText && (
+            <div className="mt-4 pt-3 border-t border-slate-200/60 transition-all">
+              <div className="flex items-center justify-between mb-1.5">
+                <h5 className="text-[10px] font-bold text-slate-400 uppercase flex items-center">
+                  <Lightbulb className="w-3 h-3 text-amber-500 mr-1 shrink-0" /> AI Auditor Note
+                </h5>
+              </div>
+              
+              {/* テキスト部分：isNoteExpanded が false ならば line-clamp-3 を適用 */}
+              <p className={`text-[11px] text-slate-600 leading-relaxed transition-all ${
+                isNoteExpanded ? '' : 'line-clamp-3'
+              }`}>
+                {auditorNoteText}
               </p>
+
+              {/* 💡 文字数が一定以上（例: 70文字超）の場合のみ「全文を表示」ボタンを描画 */}
+              {auditorNoteText.length > 70 && (
+                <div className="pt-1 mt-0.5">
+                  <button
+                    onClick={() => setIsNoteExpanded(!isNoteExpanded)}
+                    className="inline-flex items-center text-[10px] font-bold text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer select-none"
+                  >
+                    <span>{isNoteExpanded ? '閉じる' : '全文を表示'}</span>
+                    <ChevronDown className={`w-3 h-3 ml-0.5 transition-transform duration-200 ${
+                      isNoteExpanded ? 'rotate-180' : ''
+                    }`} />
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
