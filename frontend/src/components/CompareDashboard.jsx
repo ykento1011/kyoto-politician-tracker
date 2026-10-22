@@ -3,7 +3,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 import { 
   ArrowLeft, GitCompare, Share2, Target, BarChart3, MessageCircle, User, 
   Plus, X, Users, Scale, AlertCircle, UserPlus, ArrowUpDown, ArrowUp, ArrowDown, 
-  Table, Sparkles, BookOpen, Layers, ShieldCheck, ExternalLink
+  Table, Sparkles, BookOpen, Layers, ShieldCheck, ExternalLink, Info
 } from 'lucide-react';
 import ThreadCard from './ThreadCard';
 
@@ -243,7 +243,7 @@ export default function CompareDashboard({
     }
   };
 
-  // 💡 ポートフォリオ表用データ（8大政策分野のマトリクス）
+  // ポートフォリオ表用データ（8大政策分野のマトリクス）
   const portfolioMatrixRows = useMemo(() => {
     const rows = compareList.map((spk, idx) => {
       const total = spk.count || 1;
@@ -545,7 +545,7 @@ export default function CompareDashboard({
               {activeTab === 'style' && (
                 <div className="space-y-6 animate-in fade-in">
                   
-                  {/* 💡 炎上防止・中立性宣言バナー（白書連携） */}
+                  {/* 炎上防止・中立性宣言バナー（白書連携） */}
                   <div className="bg-slate-100/90 rounded-2xl p-4 sm:p-5 border border-slate-200/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs leading-relaxed">
                     <div className="space-y-1">
                       <div className="flex items-center gap-1.5 font-bold text-slate-800 text-xs">
@@ -703,6 +703,23 @@ export default function CompareDashboard({
                           </tbody>
                         </table>
                       </div>
+
+                      {/* 💡 マトリクス計算ロジック注記 */}
+                      <div className="p-4 bg-slate-50/90 border-t border-slate-200 text-xs text-slate-600 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+                        <div className="space-y-1">
+                          <div className="font-bold text-slate-800 flex items-center gap-1.5">
+                            <Info className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                            <span>指標の計算ロジック</span>
+                          </div>
+                          <div className="text-[11px] text-slate-500 leading-relaxed space-y-0.5 pl-5">
+                            <p>・<strong>平均スコア（上段）</strong>：対象議員の全質疑スレッドの合計点 ÷ 総登壇件数（0.00〜5.00点）</p>
+                            <p>・<strong>強み発揮率（下段）</strong>：当該指標で「4点以上（高水準）」を獲得した質疑件数 ÷ 総登壇件数 × 100</p>
+                          </div>
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-medium shrink-0 self-start sm:self-auto pl-5 sm:pl-0">
+                          ※優劣ではなく論戦スタイルの特色を示す指標です
+                        </span>
+                      </div>
                     </div>
                   )}
 
@@ -813,7 +830,7 @@ export default function CompareDashboard({
                     </div>
                   </div>
 
-                  {/* 💡 8大政策分野マトリクス表 */}
+                  {/* 8大政策分野マトリクス表 */}
                   {portfolioViewMode === 'table' && (
                     <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                       <div className="overflow-x-auto">
@@ -898,6 +915,23 @@ export default function CompareDashboard({
                             ))}
                           </tbody>
                         </table>
+                      </div>
+
+                      {/* 💡 ポートフォリオ計算ロジック注記 */}
+                      <div className="p-4 bg-slate-50/90 border-t border-slate-200 text-xs text-slate-600 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
+                        <div className="space-y-1">
+                          <div className="font-bold text-slate-800 flex items-center gap-1.5">
+                            <Info className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                            <span>構成比（%）の計算ロジック</span>
+                          </div>
+                          <p className="text-[11px] text-slate-500 leading-relaxed pl-5">
+                            ・<strong>注力比率（%）</strong>：当該政策分野の質疑件数 ÷ 総登壇件数 × 100（四捨五入）<br />
+                            各議員が任期中にどの政策テーマへ登壇機会（リソース）を優先配分したかのポートフォリオを示します。
+                          </p>
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-medium shrink-0 self-start sm:self-auto pl-5 sm:pl-0">
+                          ※列ヘッダーをクリックすると注力順にソートできます
+                        </span>
                       </div>
                     </div>
                   )}
