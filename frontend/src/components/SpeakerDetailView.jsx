@@ -4,7 +4,7 @@ import {
   ArrowLeft, GitCompare, User, Landmark, ExternalLink, Globe,
   Sparkles, TrendingUp, Users, ChevronDown, ArrowRight,
   MessageCircle, Scale, PieChart, BarChart3, Flame, CheckCircle2, XCircle,
-  Trophy, Award, Layers, BookmarkCheck, FileText, Check, AlertCircle, ShieldCheck
+  Layers, BookmarkCheck, FileText, Check, AlertCircle, ShieldCheck, BookOpen
 } from 'lucide-react';
 import ThreadCard from './ThreadCard';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
@@ -55,21 +55,18 @@ export default function SpeakerDetailView({
     return pledgeTrackerMap[name] || (alias ? pledgeTrackerMap[alias] : null) || null;
   }, [selectedSpeaker, pledgeTrackerMap]);
 
-  // 💡 公約カードの質疑から完全な質疑オブジェクトを逆引きして詳細モーダルを開く
+  // 公約カードの質疑から完全な質疑オブジェクトを逆引きして詳細モーダルを開く
   const handleViewStatementContext = (stmtRecord) => {
     if (!stmtRecord || !onViewContext) return;
     const allStmts = selectedSpeaker?.statements || actualThreads || [];
     const targetId = stmtRecord.speech_id || stmtRecord.id;
     
-    // 1. IDで完全一致する質疑を検索
     let target = allStmts.find(s => s.id === targetId);
     
-    // 2. 日付と要約内容でのマッチング救済
     if (!target) {
       target = allStmts.find(s => s.meeting_date === stmtRecord.date && (s.summary === stmtRecord.summary || s.summary?.includes(stmtRecord.summary?.slice(0, 15))));
     }
     
-    // 3. 救済用オブジェクトのフォールバック
     if (!target) {
       target = {
         ...stmtRecord,
@@ -152,23 +149,29 @@ export default function SpeakerDetailView({
     })[0];
   }, [selectedSpeaker, actualThreads]);
 
+  // 💡 要件7：人物評価・ラベリングを排し、質疑データ上の傾向を客観的に要約
   const generateCouncilorProfileSummary = (speaker) => {
     if (!speaker) return "";
     const categoriesStr = speaker.topCategories && speaker.topCategories.length > 0 ? speaker.topCategories.join("・") : "市政全般";
     const metrics = [
-      { key: 'solution', label: '具体的対案や是正策の提示', val: speaker.avg_solution },
-      { key: 'local_focus', label: '生活現場や地域課題への解像度', val: speaker.avg_local_focus },
-      { key: 'evidence', label: '客観的な根拠・データ活用', val: speaker.avg_evidence },
-      { key: 'constructive', label: '鋭い行政監視と議論の進展力', val: speaker.avg_constructive },
+      { key: 'solution', val: speaker.avg_solution },
+      { key: 'local_focus', val: speaker.avg_local_focus },
+      { key: 'evidence', val: speaker.avg_evidence },
+      { key: 'constructive', val: speaker.avg_constructive },
     ].sort((a, b) => b.val - a.val);
 
     let narrative = "";
-    if (metrics[0].key === 'solution') narrative = `単なる課題指摘にとどまらず「${metrics[0].label}」に際立った強みがあり、実現可能性を見据えた制度改善・対案提起をリードする政策志向`;
-    else if (metrics[0].key === 'local_focus') narrative = `市民生活の実態や地域現場に根ざした「${metrics[0].label}」が際立っており、当事者の切実な声を的確に議場へ届ける現場主義`;
-    else if (metrics[0].key === 'evidence') narrative = `公的統計や実証事例など「${metrics[0].label}」を手堅く組み立て、客観的ファクトに基づき論理的整合性の高い質疑を展開するデータ重視`;
-    else narrative = `行政答弁の不備や論理破綻を的確に突く「${metrics[0].label}」に長けており、市側から明確な見解や方針転換を果敢に引き出す監視志向`;
+    if (metrics[0].key === 'solution') {
+      narrative = "具体的な対案や是正策に関する質疑が多く確認されています";
+    } else if (metrics[0].key === 'local_focus') {
+      narrative = "地域課題や市民の生活現場に言及する質疑が多く確認されています";
+    } else if (metrics[0].key === 'evidence') {
+      narrative = "統計・数値・資料などの客観的根拠を用いた質疑が多く確認されています";
+    } else {
+      narrative = "行政答弁や制度運用に関する確認・追及を含む質疑が多く確認されています";
+    }
 
-    return `主に【${categoriesStr}】の分野で精力的に登壇。全${speaker.count}件の実質政策質疑ログからは、${narrative}が顕著に読み取れます。`;
+    return `主に【${categoriesStr}】の分野で登壇。全${speaker.count}件の実質政策質疑ログからは、${narrative}。`;
   };
 
   const sameDistrictSpeakers = useMemo(() => {
@@ -271,20 +274,22 @@ export default function SpeakerDetailView({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           <div className="lg:col-span-7 space-y-4">
+            {/* 💡 要件4-1：「AI活動分析」➔「質疑データ分析：政策分野と特徴」 */}
             <div className="bg-gradient-to-br from-indigo-50/50 to-slate-50 p-4 rounded-xl border border-indigo-100/70">
               <div className="flex items-center gap-1.5 text-xs font-extrabold text-indigo-900 mb-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                AI活動分析：政策アプローチと特徴
+                質疑データ分析：政策分野と特徴
               </div>
               <p className="text-xs text-slate-700 leading-relaxed font-medium">{generateCouncilorProfileSummary(selectedSpeaker)}</p>
               <p className="text-[11px] text-slate-500 mt-2 pt-2 border-t border-indigo-100/60 leading-normal">{selectedSpeaker.style?.desc}</p>
             </div>
 
+            {/* 💡 要件6：「注力政策分野TOP3」➔「質疑の多い政策分野TOP3」 */}
             <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-2.5 shadow-2xs">
               <div className="flex items-center justify-between text-xs font-bold text-slate-700">
                 <span className="flex items-center gap-1.5 text-indigo-900 font-extrabold">
                   <Layers className="w-3.5 h-3.5 text-indigo-600" />
-                  注力政策分野TOP3（質疑構成比）
+                  質疑の多い政策分野TOP3
                 </span>
                 <span className="text-[10px] text-slate-400 font-medium">全 {selectedSpeaker.count} 質疑</span>
               </div>
@@ -314,30 +319,47 @@ export default function SpeakerDetailView({
             </div>
           </div>
 
+          {/* 💡 要件5 & 要件10：「AI客観評価」➔「4軸による質疑分析」＆ 分析注記・導線追加 */}
           <div className="lg:col-span-5 bg-slate-50/80 p-4 rounded-xl border border-slate-100 flex flex-col justify-between">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-[11px] font-extrabold text-slate-700 flex items-center">
-                <TrendingUp className="w-3.5 h-3.5 mr-1 text-indigo-600" />
-                4軸ポリシーパラメータ
-              </span>
-              <span className="text-[10px] font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-100">
-                AI客観評価
-              </span>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[11px] font-extrabold text-slate-700 flex items-center">
+                  <TrendingUp className="w-3.5 h-3.5 mr-1 text-indigo-600" />
+                  4軸ポリシーパラメータ
+                </span>
+                <span className="text-[10px] font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-100">
+                  4軸による質疑分析
+                </span>
+              </div>
+              <div className="w-full h-44">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadarChart cx="50%" cy="50%" outerRadius="68%" data={formatSummaryRadar(selectedSpeaker)}>
+                    <PolarGrid stroke="#e2e8f0" />
+                    <PolarAngleAxis dataKey="subject" tick={{ fill: '#475569', fontSize: 10, fontWeight: 700 }} />
+                    <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
+                    <Radar dataKey="A" stroke="#6366f1" strokeWidth={2} fill="#818cf8" fillOpacity={0.4} />
+                  </RadarChart>
+                </ResponsiveContainer>
+              </div>
             </div>
-            <div className="w-full h-44">
-              <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="68%" data={formatSummaryRadar(selectedSpeaker)}>
-                  <PolarGrid stroke="#e2e8f0" />
-                  <PolarAngleAxis dataKey="subject" tick={{ fill: '#475569', fontSize: 10, fontWeight: 700 }} />
-                  <PolarRadiusAxis domain={[0, 5]} tick={false} axisLine={false} />
-                  <Radar dataKey="A" stroke="#6366f1" strokeWidth={2} fill="#818cf8" fillOpacity={0.4} />
-                </RadarChart>
-              </ResponsiveContainer>
+
+            <div className="pt-2 border-t border-slate-200/60 mt-1 flex items-center justify-between text-[10px] text-slate-400">
+              <span>※質疑データを4軸から整理した分析値です</span>
+              {onOpenMethodology && (
+                <button
+                  onClick={onOpenMethodology}
+                  className="text-indigo-600 hover:text-indigo-800 font-bold hover:underline cursor-pointer inline-flex items-center gap-0.5"
+                >
+                  <BookOpen className="w-2.5 h-2.5" />
+                  <span>分析方法を見る</span>
+                </button>
+              )}
             </div>
           </div>
         </div>
       </header>
 
+      {/* 関連する議員を探す */}
       <details className="bg-white rounded-2xl shadow-sm border border-slate-200 mb-8 group overflow-hidden">
         <summary className="p-5 flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-slate-50 transition-colors">
           <div className="flex items-center gap-2 font-extrabold text-slate-800 text-sm">
@@ -372,7 +394,7 @@ export default function SpeakerDetailView({
         </div>
       </details>
 
-      {/* 💡 3つのタブナビゲーション */}
+      {/* 3つのタブナビゲーション */}
       <div className="flex items-center justify-between mb-4 border-b border-slate-200 pb-2">
         <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200 flex-wrap gap-1">
           <button
@@ -408,16 +430,17 @@ export default function SpeakerDetailView({
       {/* ① 質疑ログタブ */}
       {speakerDetailTab === 'threads' && (
         <div className="space-y-6 animate-in fade-in">
+          {/* 💡 要件8：「象徴的な代表質疑（総合最高評価）」➔「代表的な質疑」 */}
           {featuredThread && !speakerCategory && speakerSort === 'recent' && (
             <div className="relative rounded-2xl bg-gradient-to-r from-amber-500/10 via-indigo-500/5 to-transparent p-0.5 border border-amber-200/80 shadow-xs">
               <div className="bg-white rounded-[14px] p-5 space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-black">
-                    <Trophy className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
-                    象徴的な代表質疑（総合最高評価）
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-900 text-[11px] font-black">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                    代表的な質疑
                   </div>
                   <span className="text-[11px] font-bold text-slate-400">
-                    具体的対案 × データ活用
+                    対案・根拠に関する分析項目
                   </span>
                 </div>
 
@@ -431,6 +454,7 @@ export default function SpeakerDetailView({
             </div>
           )}
 
+          {/* 💡 要件9：質疑ソートUIの選択肢を「〜順」に変更 */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/80 p-3 rounded-xl border border-slate-200">
             <div className="text-xs font-bold text-slate-500">{selectedSpeaker.speaker} 議員の質疑一覧 ({actualThreads.length}件)</div>
             <div className="flex flex-wrap gap-2 w-full sm:w-auto">
@@ -445,10 +469,10 @@ export default function SpeakerDetailView({
                 <BarChart3 className="w-3.5 h-3.5 text-indigo-500 mr-1.5 shrink-0" />
                 <select value={speakerSort} onChange={(e) => setSpeakerSort(e.target.value)} className="bg-transparent text-slate-700 text-xs font-bold outline-none cursor-pointer w-full">
                   <option value="recent">新着順</option>
-                  <option value="solution">具体的対案を重視</option>
-                  <option value="local_focus">現場解像度を重視</option>
-                  <option value="constructive">議論の進展を重視</option>
-                  <option value="evidence">客観データを重視</option>
+                  <option value="solution">対案・是正順</option>
+                  <option value="local_focus">地域解像度順</option>
+                  <option value="constructive">議論の進展順</option>
+                  <option value="evidence">根拠・データ順</option>
                 </select>
               </div>
             </div>
@@ -608,10 +632,9 @@ export default function SpeakerDetailView({
         </div>
       )}
 
-      {/* 💡 ③ 公約と議会活動の照合タブ */}
+      {/* ③ 公約と議会活動の照合タブ */}
       {speakerDetailTab === 'pledges' && (
         <div className="space-y-6 animate-in fade-in">
-          {/* 中立性・エビデンス宣言バナー */}
           <div className="bg-slate-100/90 rounded-2xl p-5 border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs leading-relaxed">
             <div className="space-y-1">
               <div className="flex items-center gap-1.5 font-black text-slate-800 text-xs">
@@ -636,12 +659,10 @@ export default function SpeakerDetailView({
             )}
           </div>
 
-          {/* 看板公約対比カード一覧 */}
           {currentSpeakerTracker && currentSpeakerTracker.tracked_items && currentSpeakerTracker.tracked_items.length > 0 ? (
             <div className="space-y-6">
               {currentSpeakerTracker.tracked_items.map((item, idx) => (
                 <div key={idx} className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden space-y-0">
-                  {/* カードヘッダー */}
                   <div className="bg-slate-50/80 px-6 py-3.5 border-b border-slate-100 flex items-center justify-between flex-wrap gap-2">
                     <div className="flex items-center gap-2">
                       <span className="px-2 py-0.5 rounded text-[10px] font-black bg-indigo-50 text-indigo-700 border border-indigo-200">
@@ -658,9 +679,7 @@ export default function SpeakerDetailView({
                     )}
                   </div>
 
-                  {/* 2カラム対比グリッド */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
-                    {/* 左側：選挙公報での約束 */}
                     <div className="p-6 space-y-4 bg-indigo-50/15 flex flex-col justify-between">
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
@@ -696,7 +715,6 @@ export default function SpeakerDetailView({
                       )}
                     </div>
 
-                    {/* 右側：市会での実際の行動（質疑を主役に配置 ＋ 詳細モーダル連携） */}
                     <div className="p-6 space-y-4 bg-white flex flex-col justify-between">
                       <div className="space-y-3.5">
                         <div className="flex items-center justify-between">
@@ -709,7 +727,6 @@ export default function SpeakerDetailView({
                           </span>
                         </div>
 
-                        {/* 💡 質疑ログ（メイン表示） */}
                         {(item.council_statements && item.council_statements.length > 0) || item.council_statement ? (
                           <div className="space-y-3">
                             {(item.council_statements || [item.council_statement]).map((stmt, sIdx) => (
@@ -727,7 +744,6 @@ export default function SpeakerDetailView({
                                   {stmt.summary}
                                 </p>
 
-                                {/* 💡 アクションボタンエリア：詳細タイムライン表示 ＆ 原本リンク */}
                                 <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 border-t border-indigo-100/70 mt-2">
                                   <button
                                     onClick={() => handleViewStatementContext(stmt)}
@@ -772,7 +788,6 @@ export default function SpeakerDetailView({
                         )}
                       </div>
 
-                      {/* 💡 議案への賛否（補足ファクトとして下部に配置） */}
                       <div className="pt-3 border-t border-slate-100">
                         {item.council_vote ? (
                           <div className="bg-slate-50 p-3 rounded-xl border border-slate-200/80 space-y-1.5">

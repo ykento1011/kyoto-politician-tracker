@@ -73,7 +73,7 @@ export default function SpeakerCard({
           </div>
         </div>
 
-        {/* スタイル判定バッジ・要約 */}
+        {/* 質疑スタイル・要約 */}
         {speaker.style && (
           <div className="mb-3">
             <span className={`px-2 py-0.5 text-[10px] font-black rounded border inline-block mb-1.5 ${speaker.style.badgeClass || 'bg-indigo-50 text-indigo-700 border-indigo-200'}`}>
@@ -106,7 +106,7 @@ export default function SpeakerCard({
           </ResponsiveContainer>
         </div>
 
-        {/* 注力テーマタグ */}
+        {/* 質疑の多いテーマタグ */}
         {speaker.topCategories && speaker.topCategories.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1">
             {speaker.topCategories.slice(0, 3).map((cat) => (
