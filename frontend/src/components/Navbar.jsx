@@ -25,15 +25,16 @@ export default function Navbar({
             <div className="text-base font-black text-slate-900 tracking-tight leading-none group-hover:text-indigo-600 transition-colors">
               議会のミカタ
             </div>
+            {/* 💡 「客観」を排除し、プロセス可視化の位置づけへ修正 */}
             <div className="text-[10px] font-bold text-slate-400 tracking-wider mt-0.5">
-              京都市議会・市政客観可視化ポータル
+              京都市議会・政策プロセス可視化ポータル
             </div>
           </div>
         </button>
 
         {/* ナビゲーションメニュー */}
         <nav className="flex items-center gap-1.5 sm:gap-2">
-          {/* 💡 松井市長 政策進捗ボタン（Newバッジ付き） */}
+          {/* 松井市長 政策進捗ボタン */}
           <button
             onClick={onOpenMayor}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-black text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 transition-all cursor-pointer shadow-2xs"
@@ -65,13 +66,13 @@ export default function Navbar({
             <span className="hidden sm:inline">できること</span>
           </button>
 
-          {/* AI基準 */}
+          {/* 評価基準 */}
           <button
             onClick={onOpenMethodology}
             className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer"
           >
             <BookOpen className="w-3.5 h-3.5 text-slate-500" />
-            <span>AI評価基準</span>
+            <span>評価基準</span>
           </button>
 
           {/* 当サイトについて */}
