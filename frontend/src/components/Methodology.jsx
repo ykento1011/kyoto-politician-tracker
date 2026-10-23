@@ -262,7 +262,7 @@ export default function Methodology({ onBack }) {
               </li>
               <li>
                 <a 
-                  href="https://ndlsearch.ndl.go.jp/search?cs=bib&keyword=%E8%87%AA%E6%B2%BB%E4%BD%93%E8%AD%B0%E5%93%A1%E3%81%8C%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%B9%E3%81%8D%E6%94%BF%E7%AD%96%E8%B2%A1%E5%8B%99%E3%81%AE%E5%9F%BA%E7%84%8E%E7%9F%A5%E8%AD%98" 
+                  href="https://ndlsearch.ndl.go.jp/search?cs=bib&display=panel&from=0&size=20&keyword=%E8%87%AA%E6%B2%BB%E4%BD%93%E8%AD%B0%E5%93%A1%E3%81%8C%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%B9%E3%81%8D%E6%94%BF%E7%AD%96%E8%B2%A1%E5%8B%99%E3%81%AE%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98&f-ht=ndl&f-ht=library" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="hover:text-indigo-600 hover:underline inline-flex items-center gap-1 transition-colors"
