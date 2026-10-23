@@ -21,11 +21,35 @@ POSSIBLE_STATEMENT_PATHS = [
     BASE_DIR.parent / "frontend" / "public" / "data" / "statements.json",
 ]
 
+# 💡 選挙公報原本（ひらがな・通称名・旧字体）から議会公式漢字名への完全エイリアスマップ
 ALIAS_MAP = {
-    "井﨑敦子": "井崎敦子",
+    # 異体字・旧字体
+    "井崎敦子": "井﨑敦子",
     "繁隆夫": "繁隆夫",
     "繫隆夫": "繁隆夫",
-    "兵藤慎一": "兵藤甚一",
+
+    # ひらがな・通称名（選挙公報表記 ➔ 公式名簿漢字名）
+    "しげ隆夫": "繁隆夫",
+    "西山のぶまさ": "西山信昌",
+    "江村りさ": "江村理紗",
+    "青野ひとし": "青野仁志",
+    "宇佐美けんいち": "宇佐美賢一",
+    "大津ゆうた": "大津裕太",
+    "こじま信太郎": "小島信太郎",
+    "島本きょうじ": "しまもと京司",
+    "田中あきひで": "田中明秀",
+    "寺田かずひろ": "寺田一博",
+    "土方りさ": "土方莉紗",
+    "はしむら芳和": "橋村芳和",
+    "ますなり竜治": "増成竜治",
+    "ムクダ隆知": "椋田隆知",
+    "ゆあさ光彦": "湯浅光彦",
+    "吉田たかお": "吉田孝雄",
+    "平田けい": "平田圭",
+    "河村りょう": "河村諒",
+    "きくちかずひで": "きくち一秀",
+    "兵藤甚一": "兵藤しんいち",
+    "兵藤慎一": "兵藤しんいち",
     "津田大造": "津田大三",
     "熊澤昭真": "熊澤昭子",
     "山本じゅうじ": "山本しゅうじ",
@@ -35,6 +59,7 @@ ALIAS_MAP = {
     "森本英情": "もりもと英靖",
 }
 
+# 💡 主要な政策テーマの照合ルールを拡充
 TOPIC_RULES = {
     "北陸新幹線": {
         "positive": ["北陸新幹線", "新幹線"],
@@ -57,24 +82,44 @@ TOPIC_RULES = {
         "context": "子どもの医療費助成拡充（通院自己負担軽減・対象年齢引き上げ）に関する関連施策です。"
     },
     "議員定数・報酬": {
-        "positive": ["議員報酬", "議員定数", "期末手当"],
+        "positive": ["議員報酬", "議員定数", "期末手当", "身を切る改革"],
         "negative": [],
         "context": "議員報酬や定数削減、手当支給基準に関する条例改正案です。"
     },
     "行財政改革": {
-        "positive": ["行財政改革", "公債特別会計", "財政健全化"],
+        "positive": ["行財政改革", "公債特別会計", "財政健全化", "財政再建"],
         "negative": [],
         "context": "市の財政再建計画、市公債管理、行財政改革の進捗に関する決算・予算議案です。"
     },
     "観光・宿泊税": {
-        "positive": ["宿泊税", "観光振興", "オーバーツーリズム"],
+        "positive": ["宿泊税", "観光振興", "オーバーツーリズム", "観光課題"],
         "negative": [],
         "context": "宿泊税の引き上げや使途拡大、観光客対策に関する議案・予算です。"
     },
     "景観・高さ規制": {
-        "positive": ["都市計画", "景観", "高さ規制", "建築基準"],
+        "positive": ["都市計画", "景観", "高さ規制", "建築基準", "タワーマンション"],
         "negative": [],
         "context": "市内各地の高さ規制緩和やタワーマンション・都市再生計画に関する条例案です。"
+    },
+    "中小企業・地場産業": {
+        "positive": ["中小企業", "地場産業", "伝統産業", "商店街", "産業振興", "賃上げ"],
+        "negative": [],
+        "context": "中小企業支援、伝統産業後継者育成、商店街活性化に関する経済施策です。"
+    },
+    "福祉・高齢者支援": {
+        "positive": ["高齢者福祉", "介護保険", "認知症", "障害者", "地域包括ケア", "健康長寿"],
+        "negative": [],
+        "context": "介護保険制度、認知症施策、高齢者・障害者の生活支援に関する福祉施策です。"
+    },
+    "子育て・教育環境": {
+        "positive": ["保育料", "待機児童", "学童保育", "教育環境", "不登校", "子育て支援"],
+        "negative": [],
+        "context": "保育体制の拡充、学童保育支援、学校教育環境の改善に関する施策です。"
+    },
+    "防災・インフラ": {
+        "positive": ["防災", "減災", "避難所", "水害", "雨水幹線", "道路拡幅", "耐震"],
+        "negative": [],
+        "context": "避難所機能の強化、治水・雨水対策、道路等の都市インフラ整備に関する施策です。"
     }
 }
 
@@ -160,15 +205,20 @@ def find_related_statements(pledge, speaker_stmts, max_count=2):
             search_keywords.extend(rule["positive"])
             break
 
+    # 💡 一般キーワード抽出：重複排除し、上位8単語まで幅広く拾う
     if not search_keywords:
         words = re.findall(r"[\u4e00-\u9fa5]{2,}", target_text)
-        search_keywords = words[:3] if words else [target_text[:4]]
+        unique_words = list(dict.fromkeys(words))
+        # 抽象的すぎる語句を除外
+        stop_words = {"推進", "支援", "実現", "対策", "安心", "安全", "向上", "強化", "京都", "伏見", "市民"}
+        filtered = [w for w in unique_words if w not in stop_words]
+        search_keywords = filtered[:8] if filtered else unique_words[:5]
 
     matched_stmts = []
     for stmt in speaker_stmts:
         summary = stmt.get("summary", "") or ""
         category = stmt.get("category", "") or ""
-        text = stmt.get("text", "") or stmt.get("question", "") or ""
+        text = stmt.get("statement_text", "") or stmt.get("text", "") or stmt.get("question", "") or ""
         topic = stmt.get("topic", "") or ""
         full_text = f"{summary} {category} {text} {topic}"
 
@@ -197,7 +247,7 @@ def find_related_statements(pledge, speaker_stmts, max_count=2):
         )
         results.append({
             "date": best_stmt.get("meeting_date", ""),
-            "committee": best_stmt.get("committee_name", "") or best_stmt.get("meeting_name", "本会議"),
+            "committee": best_stmt.get("committee_name", "") or best_stmt.get("meeting_title", "本会議"),
             "summary": best_stmt.get("summary", ""),
             "speech_id": best_stmt.get("id", ""),
             "official_url": official_url
@@ -259,6 +309,7 @@ def main():
         bulletin_pdf = info.get("bulletin_pdf", "")
         pledges = info.get("pledges", [])
 
+        # 💡 正規化された漢字名で議事録マップから質疑を取得
         speaker_stmts = speaker_statements_map.get(norm_speaker, [])
 
         tracked_items = []
@@ -283,17 +334,21 @@ def main():
                     "bulletin_url": bulletin_pdf
                 },
                 "council_vote": vote_record,
-                # 複数件に対応（後方互換用として単数も保持）
                 "council_statement": stmt_records[0] if stmt_records else None,
                 "council_statements": stmt_records
             })
 
-        tracker_result[norm_speaker] = {
+        item_payload = {
             "district": district,
             "party": party,
             "bulletin_url": bulletin_pdf,
             "tracked_items": tracked_items
         }
+
+        # 💡 漢字名（公式）と公報表記（ひらがな）の両方で辞書に登録（100%ヒット保証）
+        tracker_result[norm_speaker] = item_payload
+        if raw_speaker_name != norm_speaker:
+            tracker_result[raw_speaker_name] = item_payload
 
     OUTPUT_TRACKER_JSON.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_TRACKER_JSON, "w", encoding="utf-8") as f:
@@ -301,7 +356,7 @@ def main():
 
     print(f"\n=== 看板公約トラッカー結合完了 ===")
     print(f"出力先: {OUTPUT_TRACKER_JSON}")
-    print(f"追跡対象議員数: {len(tracker_result)} 名")
+    print(f"追跡対象議員エントリ数: {len(tracker_result)} 件")
     print(f"議決マッチング総数: {matched_vote_count} 件")
     print(f"質疑発言マッチング総数: {matched_stmt_count} 件")
 
