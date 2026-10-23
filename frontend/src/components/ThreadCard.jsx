@@ -10,7 +10,6 @@ export default function ThreadCard({
   onViewContext,
   showSpeakerHeader = true
 }) {
-  // 💡 AI Auditor Note の全文表示・省略状態を管理する state
   const [isNoteExpanded, setIsNoteExpanded] = useState(false);
 
   const activeMetrics = [
@@ -25,7 +24,7 @@ export default function ThreadCard({
   return (
     <article className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
       
-      {/* 上部ヘッダー（議員情報・日付・カテゴリ） */}
+      {/* 上部ヘッダー */}
       {showSpeakerHeader ? (
         <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
           <button
@@ -80,7 +79,10 @@ export default function ThreadCard({
         </div>
 
         <div className="md:w-2/5 bg-slate-50 p-4 rounded-xl border border-slate-100 flex flex-col">
-          <span className="text-[10px] font-bold text-slate-400 uppercase mb-3 block">発揮された強み</span>
+          {/* 💡 修正：「発揮された強み」➔「4軸分析結果」 */}
+          <span className="text-[10px] font-bold text-slate-500 uppercase mb-3 block">
+            4軸分析結果
+          </span>
           
           {activeMetrics.length > 0 ? (
             <div className="space-y-2.5">
@@ -100,23 +102,21 @@ export default function ThreadCard({
             <div className="text-center py-2 text-slate-400 text-xs font-medium">初期確認・状況整理の質疑</div>
           )}
 
-          {/* 💡 AI Auditor Note 表示（トグル対応） */}
+          {/* 💡 修正：「AI Auditor Note」➔「分析メモ」 */}
           {activeMetrics.length > 0 && auditorNoteText && (
             <div className="mt-4 pt-3 border-t border-slate-200/60 transition-all">
               <div className="flex items-center justify-between mb-1.5">
-                <h5 className="text-[10px] font-bold text-slate-400 uppercase flex items-center">
-                  <Lightbulb className="w-3 h-3 text-amber-500 mr-1 shrink-0" /> AI Auditor Note
+                <h5 className="text-[10px] font-bold text-slate-500 uppercase flex items-center">
+                  <Lightbulb className="w-3 h-3 text-amber-500 mr-1 shrink-0" /> 分析メモ
                 </h5>
               </div>
               
-              {/* テキスト部分：isNoteExpanded が false ならば line-clamp-3 を適用 */}
               <p className={`text-[11px] text-slate-600 leading-relaxed transition-all ${
                 isNoteExpanded ? '' : 'line-clamp-3'
               }`}>
                 {auditorNoteText}
               </p>
 
-              {/* 💡 文字数が一定以上（例: 70文字超）の場合のみ「全文を表示」ボタンを描画 */}
               {auditorNoteText.length > 70 && (
                 <div className="pt-1 mt-0.5">
                   <button

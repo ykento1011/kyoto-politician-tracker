@@ -25,7 +25,6 @@ export default function Navbar({
             <div className="text-sm sm:text-base font-black text-slate-900 tracking-tight leading-none group-hover:text-indigo-600 transition-colors">
               議会のミカタ
             </div>
-            {/* 💡 スマホ時は非表示にし、PC以上で表示 */}
             <div className="hidden sm:block text-[10px] font-bold text-slate-400 tracking-wider mt-0.5">
               京都市議会・政策プロセス可視化ポータル
             </div>
@@ -34,7 +33,6 @@ export default function Navbar({
 
         {/* ナビゲーションメニュー */}
         <nav className="flex items-center gap-1 sm:gap-2 shrink-0">
-          {/* 松井市長 政策進捗ボタン（スマホでは短縮表示） */}
           <button
             onClick={onOpenMayor}
             className="flex items-center gap-1 sm:gap-1.5 px-2 py-1.5 sm:px-3 sm:py-1.5 rounded-lg text-xs font-black text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 transition-all cursor-pointer shadow-2xs"
@@ -47,7 +45,6 @@ export default function Navbar({
             <span className="bg-indigo-600 text-white text-[9px] px-1.5 py-0.2 rounded-full font-bold shrink-0">New</span>
           </button>
 
-          {/* 議員比較（中画面以上） */}
           <button
             onClick={onOpenCompare}
             className={`hidden md:flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
@@ -60,7 +57,6 @@ export default function Navbar({
             <span>議員比較</span>
           </button>
 
-          {/* ガイド（スマホではアイコンのみ） */}
           <button
             onClick={onOpenGuide}
             className="flex items-center gap-1 p-2 sm:px-2.5 sm:py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer"
@@ -70,16 +66,15 @@ export default function Navbar({
             <span className="hidden sm:inline">できること</span>
           </button>
 
-          {/* 評価基準（スマホでは非表示） */}
+          {/* 💡 修正：「AI評価基準」➔「分析方法」 */}
           <button
             onClick={onOpenMethodology}
             className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer"
           >
             <BookOpen className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            <span>評価基準</span>
+            <span>分析方法</span>
           </button>
 
-          {/* 当サイトについて（スマホではアイコンのみ） */}
           <button
             onClick={onOpenAbout}
             className="flex items-center gap-1 p-2 sm:px-2.5 sm:py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all cursor-pointer"

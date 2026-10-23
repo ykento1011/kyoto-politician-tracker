@@ -9,7 +9,6 @@ import {
 import ThreadCard from './ThreadCard';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
-// 異体字・旧字体エイリアス辞書
 const ALIAS_MAP = {
   '井崎敦子': '井﨑敦子',
   '井﨑敦子': '井崎敦子',
@@ -36,11 +35,10 @@ export default function SpeakerDetailView({
   onSelectBill
 }) {
   const [relatedTab, setRelatedTab] = useState('district');
-  const [speakerDetailTab, setSpeakerDetailTab] = useState('threads'); // 'threads' | 'votes' | 'pledges'
+  const [speakerDetailTab, setSpeakerDetailTab] = useState('threads');
   const [speakerVoteFilter, setSpeakerVoteFilter] = useState('contested');
   const [pledgeTrackerMap, setPledgeTrackerMap] = useState({});
 
-  // 看板公約トラッカーデータの読み込み
   useEffect(() => {
     fetch('/data/pledge_tracker.json')
       .then(res => res.ok ? res.json() : {})
@@ -55,18 +53,15 @@ export default function SpeakerDetailView({
     return pledgeTrackerMap[name] || (alias ? pledgeTrackerMap[alias] : null) || null;
   }, [selectedSpeaker, pledgeTrackerMap]);
 
-  // 公約カードの質疑から完全な質疑オブジェクトを逆引きして詳細モーダルを開く
   const handleViewStatementContext = (stmtRecord) => {
     if (!stmtRecord || !onViewContext) return;
     const allStmts = selectedSpeaker?.statements || actualThreads || [];
     const targetId = stmtRecord.speech_id || stmtRecord.id;
     
     let target = allStmts.find(s => s.id === targetId);
-    
     if (!target) {
       target = allStmts.find(s => s.meeting_date === stmtRecord.date && (s.summary === stmtRecord.summary || s.summary?.includes(stmtRecord.summary?.slice(0, 15))));
     }
-    
     if (!target) {
       target = {
         ...stmtRecord,
@@ -78,11 +73,9 @@ export default function SpeakerDetailView({
         category: selectedSpeaker?.topCategories?.[0] || '市政全般'
       };
     }
-    
     onViewContext(target);
   };
 
-  // 顔写真用のエラー制御
   const cleanName = selectedSpeaker?.speaker ? selectedSpeaker.speaker.replace(/\s+/g, '') : '';
   const [detailPhotoSrc, setDetailPhotoSrc] = useState(`/councilors/${cleanName}.jpg`);
   const [detailFallbackTried, setDetailFallbackTried] = useState(false);
@@ -114,7 +107,6 @@ export default function SpeakerDetailView({
       .slice(0, 3);
   }, [selectedSpeaker]);
 
-  // 質疑ログ自律復旧
   const actualThreads = useMemo(() => {
     if (speakerFilteredThreads && speakerFilteredThreads.length > 0) {
       return speakerFilteredThreads;
@@ -149,7 +141,7 @@ export default function SpeakerDetailView({
     })[0];
   }, [selectedSpeaker, actualThreads]);
 
-  // 💡 要件7：人物評価・ラベリングを排し、質疑データ上の傾向を客観的に要約
+  // 💡 修正：人物評価を完全に排除し、質疑データの事実記述のみに統一
   const generateCouncilorProfileSummary = (speaker) => {
     if (!speaker) return "";
     const categoriesStr = speaker.topCategories && speaker.topCategories.length > 0 ? speaker.topCategories.join("・") : "市政全般";
@@ -164,9 +156,9 @@ export default function SpeakerDetailView({
     if (metrics[0].key === 'solution') {
       narrative = "具体的な対案や是正策に関する質疑が多く確認されています";
     } else if (metrics[0].key === 'local_focus') {
-      narrative = "地域課題や市民の生活現場に言及する質疑が多く確認されています";
+      narrative = "地域課題や市民の生活現場に関する質疑が多く確認されています";
     } else if (metrics[0].key === 'evidence') {
-      narrative = "統計・数値・資料などの客観的根拠を用いた質疑が多く確認されています";
+      narrative = "統計・数値・資料などの根拠を用いた質疑が多く確認されています";
     } else {
       narrative = "行政答弁や制度運用に関する確認・追及を含む質疑が多く確認されています";
     }
@@ -258,7 +250,10 @@ export default function SpeakerDetailView({
             <div>
               <div className="flex items-center gap-3 flex-wrap mb-1">
                 <h2 className="text-2xl font-black text-slate-900 tracking-tight">{selectedSpeaker.speaker}</h2>
-                <span className={`px-2.5 py-0.5 text-xs font-extrabold rounded border ${selectedSpeaker.style?.badgeClass || 'bg-slate-100'}`}>{selectedSpeaker.style?.label}</span>
+                {/* 💡 修正：「質疑の特徴」ラベル */}
+                <span className={`px-2.5 py-0.5 text-xs font-extrabold rounded border ${selectedSpeaker.style?.badgeClass || 'bg-slate-100'}`}>
+                  {selectedSpeaker.style?.label || '質疑の特徴'}
+                </span>
               </div>
               <div className="flex items-center gap-2 text-xs font-bold text-slate-600 mt-1">
                 <span className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">{selectedSpeaker.district}</span>
@@ -274,17 +269,17 @@ export default function SpeakerDetailView({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           <div className="lg:col-span-7 space-y-4">
-            {/* 💡 要件4-1：「AI活動分析」➔「質疑データ分析：政策分野と特徴」 */}
+            {/* 💡 修正：「AI活動分析」➔「質疑データ分析：政策分野と特徴」 */}
             <div className="bg-gradient-to-br from-indigo-50/50 to-slate-50 p-4 rounded-xl border border-indigo-100/70">
               <div className="flex items-center gap-1.5 text-xs font-extrabold text-indigo-900 mb-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
                 質疑データ分析：政策分野と特徴
               </div>
               <p className="text-xs text-slate-700 leading-relaxed font-medium">{generateCouncilorProfileSummary(selectedSpeaker)}</p>
               <p className="text-[11px] text-slate-500 mt-2 pt-2 border-t border-indigo-100/60 leading-normal">{selectedSpeaker.style?.desc}</p>
             </div>
 
-            {/* 💡 要件6：「注力政策分野TOP3」➔「質疑の多い政策分野TOP3」 */}
+            {/* 💡 修正：「注力政策分野TOP3」➔「質疑の多い政策分野TOP3」 */}
             <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-2.5 shadow-2xs">
               <div className="flex items-center justify-between text-xs font-bold text-slate-700">
                 <span className="flex items-center gap-1.5 text-indigo-900 font-extrabold">
@@ -319,15 +314,15 @@ export default function SpeakerDetailView({
             </div>
           </div>
 
-          {/* 💡 要件5 & 要件10：「AI客観評価」➔「4軸による質疑分析」＆ 分析注記・導線追加 */}
+          {/* 💡 修正：「4軸ポリシーパラメータ」「AI客観評価」➔「4軸による質疑分析」 ＋ 必須注記＆分析方法リンク */}
           <div className="lg:col-span-5 bg-slate-50/80 p-4 rounded-xl border border-slate-100 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[11px] font-extrabold text-slate-700 flex items-center">
                   <TrendingUp className="w-3.5 h-3.5 mr-1 text-indigo-600" />
-                  4軸ポリシーパラメータ
+                  4軸による質疑分析
                 </span>
-                <span className="text-[10px] font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-100">
+                <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-100">
                   4軸による質疑分析
                 </span>
               </div>
@@ -343,12 +338,13 @@ export default function SpeakerDetailView({
               </div>
             </div>
 
-            <div className="pt-2 border-t border-slate-200/60 mt-1 flex items-center justify-between text-[10px] text-slate-400">
-              <span>※質疑データを4軸から整理した分析値です</span>
+            {/* 💡 必須注記ブロック */}
+            <div className="pt-2 border-t border-slate-200/60 mt-1 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 text-[10px] text-slate-400 leading-normal">
+              <span>※質疑データを4つの分析軸から整理した分析値です。議員の優劣や公式評価を示すものではありません。</span>
               {onOpenMethodology && (
                 <button
                   onClick={onOpenMethodology}
-                  className="text-indigo-600 hover:text-indigo-800 font-bold hover:underline cursor-pointer inline-flex items-center gap-0.5"
+                  className="text-indigo-600 hover:text-indigo-800 font-bold hover:underline cursor-pointer inline-flex items-center gap-0.5 shrink-0"
                 >
                   <BookOpen className="w-2.5 h-2.5" />
                   <span>分析方法を見る</span>
@@ -430,17 +426,17 @@ export default function SpeakerDetailView({
       {/* ① 質疑ログタブ */}
       {speakerDetailTab === 'threads' && (
         <div className="space-y-6 animate-in fade-in">
-          {/* 💡 要件8：「象徴的な代表質疑（総合最高評価）」➔「代表的な質疑」 */}
+          {/* 💡 修正：「象徴的な代表質疑（総合最高評価）」➔「代表的な質疑」 */}
           {featuredThread && !speakerCategory && speakerSort === 'recent' && (
-            <div className="relative rounded-2xl bg-gradient-to-r from-amber-500/10 via-indigo-500/5 to-transparent p-0.5 border border-amber-200/80 shadow-xs">
+            <div className="relative rounded-2xl bg-gradient-to-r from-indigo-500/10 via-slate-500/5 to-transparent p-0.5 border border-indigo-200/80 shadow-xs">
               <div className="bg-white rounded-[14px] p-5 space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-900 text-[11px] font-black">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                    <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
                     代表的な質疑
                   </div>
                   <span className="text-[11px] font-bold text-slate-400">
-                    対案・根拠に関する分析項目
+                    4軸分析における特徴的な質疑
                   </span>
                 </div>
 
@@ -454,7 +450,7 @@ export default function SpeakerDetailView({
             </div>
           )}
 
-          {/* 💡 要件9：質疑ソートUIの選択肢を「〜順」に変更 */}
+          {/* 💡 修正：ソート選択肢を「〜順」へ変更 */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50/80 p-3 rounded-xl border border-slate-200">
             <div className="text-xs font-bold text-slate-500">{selectedSpeaker.speaker} 議員の質疑一覧 ({actualThreads.length}件)</div>
             <div className="flex flex-wrap gap-2 w-full sm:w-auto">
@@ -503,7 +499,7 @@ export default function SpeakerDetailView({
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-xs font-bold text-slate-500">絞り込み:</span>
               {[
-                { key: 'contested', label: '激論議案のみ' },
+                { key: 'contested', label: '賛否が分かれた議案のみ' },
                 { key: 'all', label: '全議案' },
                 { key: 'agree', label: '賛成した議案' },
                 { key: 'disagree', label: '反対した議案' }
@@ -539,9 +535,10 @@ export default function SpeakerDetailView({
                         <span className="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded font-mono">
                           {bill.session_name} ({bill.bill_number})
                         </span>
+                        {/* 💡 修正：「激論議案」➔「賛否が分かれた議案」 */}
                         {bill.isContested ? (
                           <span className="text-[10px] font-black px-2 py-0.5 rounded bg-rose-50 text-rose-600 border border-rose-200 flex items-center gap-1">
-                            <Flame className="w-2.5 h-2.5 fill-rose-500 text-rose-500" />激論議案
+                            <Scale className="w-2.5 h-2.5 text-rose-500" />賛否が分かれた議案
                           </span>
                         ) : (
                           <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-50 text-slate-400 border border-slate-200">
@@ -584,8 +581,8 @@ export default function SpeakerDetailView({
                     <div className="bg-indigo-50/40 p-4 rounded-xl border border-indigo-100 space-y-3">
                       <div>
                         <div className="flex items-center gap-1.5 text-xs font-black text-indigo-900 mb-1">
-                          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                          対立の核心: {issue.key_conflict}
+                          <Scale className="w-3.5 h-3.5 text-indigo-600" />
+                          対立の論点: {issue.key_conflict}
                         </div>
                         <p className="text-xs text-slate-600 leading-relaxed">
                           {issue.background}
@@ -599,7 +596,7 @@ export default function SpeakerDetailView({
                             : 'bg-emerald-50/50 border-emerald-100 opacity-80'
                         }`}>
                           <span className="text-[11px] font-black text-emerald-800 flex items-center justify-between mb-1">
-                            <span>賛成派の論理</span>
+                            <span>賛成側の主な論理</span>
                             {isAgree && <span className="text-[9px] bg-emerald-600 text-white px-1.5 py-0.2 rounded font-bold">当該議員の立場</span>}
                           </span>
                           <p className="text-slate-700">{issue.agree_logic}</p>
@@ -611,7 +608,7 @@ export default function SpeakerDetailView({
                             : 'bg-rose-50/50 border-rose-100 opacity-80'
                         }`}>
                           <span className="text-[11px] font-black text-rose-800 flex items-center justify-between mb-1">
-                            <span>反対派の論理</span>
+                            <span>反対側の主な論理</span>
                             {!isAgree && <span className="text-[9px] bg-rose-600 text-white px-1.5 py-0.2 rounded font-bold">当該議員の立場</span>}
                           </span>
                           <p className="text-slate-700">{issue.disagree_logic}</p>
