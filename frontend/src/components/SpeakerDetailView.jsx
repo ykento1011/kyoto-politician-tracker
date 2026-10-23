@@ -10,11 +10,53 @@ import ThreadCard from './ThreadCard';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 import { cleanStyleLabel, cleanStyleDesc } from '../utils/styleHelpers';
 
+// 異体字・旧字体・選挙公報通称名（ひらがな）エイリアス辞書
 const ALIAS_MAP = {
+  // 異体字・旧字体
   '井崎敦子': '井﨑敦子',
   '井﨑敦子': '井崎敦子',
   '繁隆夫': '繁隆夫',
-  '繁隆夫': '繁隆夫'
+  '繁隆夫': '繁隆夫',
+
+  // 💡 選挙公報原本（ひらがな・通称名）との完全マッピング
+  '西山信昌': '西山のぶまさ',
+  '西山のぶまさ': '西山信昌',
+  '青野仁志': '青野ひとし',
+  '青野ひとし': '青野仁志',
+  '宇佐美賢一': '宇佐美けんいち',
+  '宇佐美けんいち': '宇佐美賢一',
+  '江村理紗': '江村りさ',
+  '江村りさ': '江村理紗',
+  '大津裕太': '大津ゆうた',
+  '大津ゆうた': '大津裕太',
+  '河村諒': '河村りょう',
+  '河村りょう': '河村諒',
+  'きくち一秀': 'きくちかずひで',
+  'きくちかずひで': 'きくち一秀',
+  '小島信太郎': 'こじま信太郎',
+  'こじま信太郎': '小島信太郎',
+  '繁隆夫': 'しげ隆夫',
+  'しげ隆夫': '繁隆夫',
+  'しまもと京司': '島本きょうじ',
+  '島本きょうじ': 'しまもと京司',
+  '田中明秀': '田中あきひで',
+  '田中あきひで': '田中明秀',
+  '寺田一博': '寺田かずひろ',
+  '寺田かずひろ': '寺田一博',
+  '土方莉紗': '土方りさ',
+  '土方りさ': '土方莉紗',
+  '橋村芳和': 'はしむら芳和',
+  'はしむら芳和': '橋村芳和',
+  '平田圭': '平田けい',
+  '平田けい': '平田圭',
+  '増成竜治': 'ますなり竜治',
+  'ますなり竜治': '増成竜治',
+  '椋田隆知': 'ムクダ隆知',
+  'ムクダ隆知': '椋田隆知',
+  '湯浅光彦': 'ゆあさ光彦',
+  'ゆあさ光彦': '湯浅光彦',
+  '吉田孝雄': '吉田たかお',
+  '吉田たかお': '吉田孝雄',
 };
 
 export default function SpeakerDetailView({
@@ -47,9 +89,9 @@ export default function SpeakerDetailView({
       .catch(err => console.error("Failed to load pledge tracker data:", err));
   }, []);
 
-  const currentSpeakerTracker = useMemo(() => {
+const currentSpeakerTracker = useMemo(() => {
     if (!selectedSpeaker || !selectedSpeaker.speaker) return null;
-    const name = selectedSpeaker.speaker.replace(/\s+/g, '');
+    const name = selectedSpeaker.speaker.replace(/[\s ]+/g, '');
     const alias = ALIAS_MAP[name];
     return pledgeTrackerMap[name] || (alias ? pledgeTrackerMap[alias] : null) || null;
   }, [selectedSpeaker, pledgeTrackerMap]);
