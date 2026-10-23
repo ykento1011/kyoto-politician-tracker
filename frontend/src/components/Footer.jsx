@@ -8,10 +8,10 @@ export default function Footer({ onOpenMethodology }) {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="space-y-4">
           <h3 className="text-white font-extrabold text-sm flex items-center">
-            <Scale className="w-4 h-4 mr-2" />運営ポリシー・中立性の宣誓
+            <Scale className="w-4 h-4 mr-2" />運営ポリシーとプロセスの透明性
           </h3>
           <p className="text-xs leading-relaxed">
-            本プラットフォームは特定の政党・政治団体を支持または批判するものではありません。AI（Gemini）による客観的ルーブリック評価は、全議員に対して完全に同一のプロンプトと基準で機械的に適用されています。
+            本プラットフォームは特定の政党・政治団体を支持または批判するものではありません。学術研究に基づく統一ルーブリックを用い、全議員に対して同一のプロンプトおよび生成パラメータ（temperature: 0.0）で機械的な処理を行っています。AIによる抽出や評価は一次資料へ効率的にアクセスするための補助ツールであり、最終的な判断は利用者に委ねられます。
           </p>
 
           <div className="text-[11px] text-slate-400 bg-slate-800/60 p-3 rounded-lg border border-slate-700/60 space-y-1">
@@ -30,7 +30,7 @@ export default function Footer({ onOpenMethodology }) {
               onClick={onOpenMethodology}
               className="text-xs font-bold text-indigo-400 hover:text-indigo-300 hover:underline inline-flex items-center cursor-pointer"
             >
-              評価基準・AIプロンプト仕様書（Methodology）を詳しく確認する →
+              評価基準・技術仕様書（Methodology）を確認する →
             </button>
           </div>
         </div>
