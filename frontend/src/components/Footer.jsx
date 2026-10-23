@@ -11,7 +11,7 @@ export default function Footer({ onOpenMethodology }) {
             <Scale className="w-4 h-4 mr-2" />運営ポリシーとプロセスの透明性
           </h3>
           <p className="text-xs leading-relaxed">
-            本プラットフォームは特定の政党・政治団体を支持または批判するものではありません。学術研究に基づく統一ルーブリックを用い、全議員に対して同一のプロンプトおよび生成パラメータ（temperature: 0.0）で機械的な処理を行っています。AIによる抽出や評価は一次資料へ効率的にアクセスするための補助ツールであり、最終的な判断は利用者に委ねられます。
+            本プラットフォームは特定の政党・政治団体を支持または批判するものではありません。先行研究を参照して設計した統一ルーブリックを用い、全議員に対して同一のプロンプトおよび生成パラメータ（temperature: 0.0）で機械的な処理を行っています。AIによる抽出や評価は一次資料へ効率的にアクセスするための補助ツールであり、最終的な判断は利用者に委ねられます。
           </p>
 
           <div className="text-[11px] text-slate-400 bg-slate-800/60 p-3 rounded-lg border border-slate-700/60 space-y-1">

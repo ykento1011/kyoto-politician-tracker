@@ -172,8 +172,9 @@ export default function Methodology({ onBack }) {
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
             <span>3. 政策対話の「密度」を測る4軸の統一ルーブリック</span>
           </h2>
-          <p className="text-sm text-slate-600 pl-4">
-            各質疑スレッドは、党派性や政策の賛否・イデオロギーから完全に独立した以下の4つの指標（各0〜5点）で採点されます。
+          {/* 💡 先行研究を参照して設計した点と、評価の機械的実施を明記 */}
+          <p className="text-sm text-slate-600 pl-4 leading-relaxed">
+            各質疑スレッドは、党派性や政策の賛否・イデオロギーから独立し、政治・議会研究の先行研究を参照して設計された以下の4つの統一評価指標（各0〜5点）によって機械的に評価されます。
           </p>
 
           <div className="overflow-x-auto border border-slate-200 rounded-xl shadow-2xs">
