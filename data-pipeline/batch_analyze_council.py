@@ -38,7 +38,6 @@ VALID_COUNCILORS = [
 def clean_name(name):
     if not name:
         return ""
-    # 半角・全角スペースの両方を確実に除去
     return str(name).replace(" ", "").replace(" ", "")
 
 def find_meeting_chair(stmts):
@@ -131,14 +130,38 @@ def build_debate_threads(statements_list):
     return threads
 
 def is_procedural_or_voting(thread):
+    """
+    議事進行・単なる挨拶・採決・討論発言を徹底排除し、実質的な政策質疑のみを通過させる
+    """
     if not thread.get("has_admin_response", False):
         return True
 
     conversation_text = "\n\n".join(thread["context_log"])
 
-    if len(conversation_text) < 150 and not re.search(r"(?:か[。？\?]|いかが|お聞かせ|お答え|伺い|求め|確認|提案)", conversation_text):
+    # 1. 議員本人の発言部分のみを抽出して実質質問の有無を検証
+    councilor_texts = [text for text in thread["context_log"] if "【議員" in text]
+    joined_councilor = " ".join(councilor_texts).strip()
+
+    # 議員の発言が極端に短く、かつ具体的な質問・提案キーワードを含まない場合は除外
+    if len(joined_councilor) < 120 and not re.search(r"(?:か[。？\?]|伺い|お尋ね|どうでしょうか|いかがでしょうか|確認|提案|見解|求め|教え)", joined_councilor):
         return True
-        
+
+    # 2. 挨拶・御礼・就任・日程調整の定型パターン
+    greeting_patterns = [
+        r"よろしくお願いい?たします[。]?$",
+        r"一言ご挨拶を?申し上げます",
+        r"以上をもちまして.*?質疑を終了",
+        r"日程の順序について",
+        r"本件に対する質疑はこの程度に留め",
+        r"質疑の終結を決定することに御異議",
+        r"ご静聴ありがとうございました",
+        r"質問を留保いたします",
+        r"留保で(?:お願いします|。)"
+    ]
+    if any(re.search(p, conversation_text) for p in greeting_patterns) and len(conversation_text) < 350:
+        return True
+
+    # 3. 採決・討論・意見書の手続きパターン
     procedural_patterns = [
         r"慎重に?(?:審議|検討)した結果",
         r"(?:原案|修正案)(?:のとおり|に)?(?:賛成|反対)(?:いたします|します|いたします。)",
@@ -151,9 +174,9 @@ def is_procedural_or_voting(thread):
         r"これより表決を採ります",
         r"挙手を求めます",
         r"可決すべきものと決定",
-        r"本日の(?:委員会|分科会|本会議|会議)を散会いたします",
-        r"留保で(?:お願いします|。)"
+        r"本日の(?:委員会|分科会|本会議|会議)を散会いたします"
     ]
+    # 💡 修正箇所：第2引数を conversation_text に修正
     has_procedural = any(re.search(p, conversation_text) for p in procedural_patterns)
     has_substantive_question = bool(re.search(r"(?:伺いたい|お聞かせいただきたい|どうでしょうか|いかがでしょうか|教えていただきたい|求めて、?終わります|質問を終わります)", conversation_text))
     
@@ -174,41 +197,51 @@ def evaluate_thread_with_gemini(thread):
 
     speaker = thread["speaker"]
     
+    # 💡 指摘1・2を反映：constructiveを「質疑の展開」に改変、solutionから「行政の不備」を排除
     prompt = f"""
-あなたは京都市議会の政策質疑を客観的・中立的に評価するCivic Tech監査AIです。
-以下のテキストは、ある議員（{speaker}）と行政側による「一連の質疑応答スレッド」です。
-行政側の答弁やそれを受けた議員の再質問など、やり取り全体を通じて質疑の質を以下の厳格な客観的ルーブリックに基づき、各項目0〜5点の整数で厳格に採点してください。
+あなたは京都市議会の政策質疑データを構造化・整理するCivic Tech分析AIです。
+以下のテキストは、議員（{speaker}）と行政側による質疑応答スレッドです。
+この質疑の内容を、4つの分析軸（各0〜5点）で整理し、観察された客観的事実のみをJSON形式で出力してください。
 
-【評価ルーブリック】
+【厳格な禁止事項（重要）】
+・議員や質疑に対する「講評」「評価」「良し悪しの判断」は一切行わないこと。
+・「前向き」「建設的」「鋭い」「引き出した」「迫った」「強く求めた」などの成果強調表現は禁止。
+・「至らなかった」「乏しい」「終始した」「低得点となる」「評価できる/できない」「要望の域に留まった」などの減点理由・評価語は禁止。
+・分析メモ（reasoning）には、点数の理由や合否を書くのではなく、「何を参照し、何を尋ね、行政がどう答えたか」という客観的事実のみを記述すること。
+
+【4軸の分析基準（整理用の物差し）】
 1. evidence (0-5: 根拠・データ):
-   - 0点: 主観や感情的な主張、伝聞のみ。客観的根拠が皆無。
-   - 3点: 京都市の過去の施策実績、予算額、他都市の類似事例などのファクトを引用。
-   - 5点: 条例条文、公的統計データ、公式答弁ログ、公文書等の一次資料・具体的数値を明示して論理を構築。
-
+   - 0-2: 一般的な状況確認、意見表明中心
+   - 3: 過去の実績、予算額、他都市事例等の言及
+   - 4-5: 条例条文、公的統計、公文書、具体的数値データの明示
 2. solution (0-5: 対案・是正策):
-   ※重要（行政監視機能の正当評価）：
-   政策立案型（与党・是々非々型）の具体的対案提示だけでなく、行政監視型（追及型・野党型）の質疑において「行政の瑕疵・不正・怠慢・制度不備・税金無駄遣いを論理的に暴き、是正や見直し・再調査・改善を約束させた質疑」も最高水準の是正策（5点）として同等に高く評価すること。
-   - 0点: 単なる批判・感情的反発・具体性のない抽象的な要望・不満のみ。
-   - 3点: 行政手続きの改善や民間連携など、具体的かつ実現可能な改善策・選択肢を提示。
-   - 5点: 財源の裏付けや制度設計を含む抜本的対案を提示、または行政の瑕疵・不正・不備を明確に特定し、是正・調査・見直し・改善を約束させた質疑。
-
+   - 0-2: 現状確認、一般的な要望
+   - 3: 実務的な改善策や運用の選択肢の提示
+   - 4-5: 制度設計・財源を含む対案、または具体的な改善・見直しについて質問・提案した内容
 3. local_focus (0-5: 地域解像度):
-   - 0点: 国政レベルの抽象論や、京都市に特有でない一般論に終始。
-   - 3点: 特定の行政区、担当局・事業名、京都市制度の個別運用課題にフォーカス。
-   - 5点: 具体的な町名、学区、商店街、公共施設、道路・バス路線名など生活現場の具体名に深く言及。
+   - 0-2: 国政論や一般的な総論
+   - 3: 特定の行政区、担当部局、個別事業・制度への言及
+   - 4-5: 町名、学区、商店街、公共施設、交差点、路線名など生活現場の具体名
+4. constructive (0-5: 質疑の展開):
+   - 0-2: 冒頭質問のみ、または単発の確認
+   - 3: 答弁内容を踏まえた論点の絞り込み・再質問
+   - 4-5: 答弁内容を踏まえ、制度の運用実態や今後の方向性について掘り下げて確認・質問した展開
 
-4. constructive (0-5: 議論の進展):
-   - 0点: 原稿の棒読み、行政答弁を無視した独り言、一方的な主張の繰り返し。
-   - 3点: 行政答弁の内容（理由や現状説明）を踏まえ、論点を絞り込んで再質問。
-   - 5点: 行政答弁の論理破綻や課題の核心を的確に突き、行政側の見解変化や前向きな答弁を引き出すなど議論を前進させた展開。
+【分析メモ（reasoning）の記述フォーマット】
+以下の構成で、事実のみを簡潔に（120〜150文字程度で）記述してください：
+「[参照した資料・公的データ・数値] を参照した質疑。[質問・提案・要望した論点] について質問・提案し、行政側から [説明・答弁の要点] について説明・答弁があった質疑として整理されています。」
+※点数が低い場合でも「〜が不足していた」とは書かず、「〜について質問し、行政側から〜と説明があった質疑として整理されています」と淡々と事実のみを書いてください。
+
+【要旨（summary）の記述フォーマット】
+「議員の質問・提案 ➔ 行政側の答弁」の事実関係のみを客観的に記述してください（80〜100文字程度）。「引き出した」「迫った」などの評価語は使用しないでください。
 
 【質疑スレッド ログ】
 {conversation_text}
 
 出力は以下のJSONスキーマのみとしてください。
 {{
-  "category": "都市計画, 防災・減災, 福祉・医療, 子育て・教育, 財政・行革, 環境・エネルギー の中から適切なもの（複数可）",
-  "summary": "この質疑セッション全体の要旨（100文字程度）",
+  "category": "子育て・教育, 都市再生・交通インフラ, 産業・観光・地域経済, 福祉・医療・健康, 財政・行革, くらし・環境・エネルギー, 防災・減災・治安, 文化・景観・歴史 の中から最も適切なものを1つ",
+  "summary": "質問と答弁の事実要旨（客観的事実のみ）",
   "keywords": ["キーワード1", "キーワード2", "キーワード3"],
   "scores": {{
     "evidence": 0,
@@ -216,7 +249,7 @@ def evaluate_thread_with_gemini(thread):
     "local_focus": 0,
     "constructive": 0
   }},
-  "reasoning": "なぜそのスコアになったのか、ルーブリックに照らした根拠を簡潔に（150文字程度）"
+  "reasoning": "事実ベースの分析メモ（フォーマット遵守）"
 }}
 """
     max_retries = 4
@@ -266,9 +299,10 @@ def process_single_thread(thread, index, total, eval_cache, checkpoint_file):
             "reasoning": result.get("reasoning", "")
         }
     else:
+        # 💡 指摘3：エラー時の文言を「分析」に統一
         eval_data = {
             "is_evaluated": False,
-            "reasoning": "Gemini API評価スキップまたはエラー",
+            "reasoning": "Gemini API分析スキップまたはエラー",
             "scores": {"evidence": 0, "solution": 0, "local_focus": 0, "constructive": 0},
             "category": "質疑外発言"
         }
@@ -311,7 +345,7 @@ def main():
             target_threads.append(th)
 
     print(f"⏩ 非質疑スキップ数: {skipped_count:,} スレッド")
-    print(f"🎯 AI評価対象スレッド数: {len(target_threads):,} スレッド")
+    print(f"🎯 AI分析対象スレッド数: {len(target_threads):,} スレッド")
     print(f"⚡ 並列ワーカー数: {MAX_WORKERS} スレッド並行処理 (gemini-3.5-flash-lite)")
     print("==================================================")
 
@@ -321,7 +355,8 @@ def main():
         try:
             with open(checkpoint_file, "r", encoding="utf-8") as f:
                 eval_cache = json.load(f)
-            print(f"🔄 チェックポイント検出: 評価済み {len(eval_cache):,} 件をスキップして再開します。")
+            # 💡 指摘3：ログを「分析済み」に統一
+            print(f"🔄 チェックポイント検出: 分析済み {len(eval_cache):,} 件をスキップして再開します。")
         except Exception:
             eval_cache = {}
 
@@ -354,7 +389,8 @@ def main():
         json.dump(eval_cache, f, ensure_ascii=False, indent=2)
 
     elapsed = int(time.time() - start_time)
-    print(f"\n🎉 全スレッドの並列評価が完了しました！（所要時間: {elapsed//60}分{elapsed%60}秒）")
+    # 💡 指摘3：ログを「並列分析」に統一
+    print(f"\n🎉 全スレッドの並列分析が完了しました！（所要時間: {elapsed//60}分{elapsed%60}秒）")
 
     # 6. 全発言データへのマッピングと最終保存
     print("📦 最終JSONへのデータ結合中...")
@@ -378,9 +414,10 @@ def main():
                 if rel_stmt["sequence_number"] != main_stmt["sequence_number"]:
                     rel_key = f"{rel_stmt['meeting_id']}_{rel_stmt['sequence_number']}"
                     if rel_key in stmt_dict:
+                        # 💡 指摘3：「代表発言に統合分析済み」に統一
                         stmt_dict[rel_key]["analysis"] = {
                             "is_evaluated": False,
-                            "reasoning": "スレッド内の関連発言（代表発言に統合評価済み）",
+                            "reasoning": "スレッド内の関連発言（代表発言に統合分析済み）",
                             "scores": {"evidence": 0, "solution": 0, "local_focus": 0, "constructive": 0},
                             "category": "質疑外発言（統合済み）"
                         }
