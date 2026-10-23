@@ -262,12 +262,12 @@ export default function Methodology({ onBack }) {
               </li>
               <li>
                 <a 
-                  href="https://ci.nii.ac.jp/ncid/BB28308475" 
+                  href="https://ndlsearch.ndl.go.jp/search?cs=bib&keyword=%E8%87%AA%E6%B2%BB%E4%BD%93%E8%AD%B0%E5%93%A1%E3%81%8C%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%B9%E3%81%8D%E6%94%BF%E7%AD%96%E8%B2%A1%E5%8B%99%E3%81%AE%E5%9F%BA%E7%84%8E%E7%9F%A5%E8%AD%98" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="hover:text-indigo-600 hover:underline inline-flex items-center gap-1 transition-colors"
                 >
-                  江藤俊昭 編著 (2019). 『自治体議員が知っておくべき政策財務の基礎知識』（二元代表制・議会の政策立案機能） <ExternalLink className="w-2.5 h-2.5 opacity-60 shrink-0" />
+                  国立国会図書館サーチ: 江藤俊昭 編著 (2019). 『自治体議員が知っておくべき政策財務の基礎知識』（二元代表制・議会の政策立案機能 / 第一法規） <ExternalLink className="w-2.5 h-2.5 opacity-60 shrink-0" />
                 </a>
               </li>
             </ul>
