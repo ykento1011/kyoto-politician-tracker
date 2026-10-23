@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import { ChevronRight, User } from 'lucide-react';
+import { cleanStyleLabel, cleanStyleDesc } from '../utils/styleHelpers';
 
-// 異体字・旧字体エイリアス辞書
 const ALIAS_MAP = {
   '井崎敦子': '井﨑敦子',
   '井﨑敦子': '井崎敦子',
@@ -73,14 +73,14 @@ export default function SpeakerCard({
           </div>
         </div>
 
-        {/* 質疑スタイル・要約 */}
+        {/* 💡 修正：質疑傾向ラベル・要約のサニタイズ */}
         {speaker.style && (
           <div className="mb-3">
             <span className={`px-2 py-0.5 text-[10px] font-black rounded border inline-block mb-1.5 ${speaker.style.badgeClass || 'bg-indigo-50 text-indigo-700 border-indigo-200'}`}>
-              {speaker.style.label}
+              {cleanStyleLabel(speaker.style.label)}
             </span>
             <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
-              {speaker.style.desc}
+              {cleanStyleDesc(speaker.style.desc)}
             </p>
           </div>
         )}

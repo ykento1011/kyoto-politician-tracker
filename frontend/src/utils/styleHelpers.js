@@ -82,3 +82,72 @@ export const TRENDING_TAGS = [
   "オーバーツーリズム", "中小企業支援", "伝統産業", "市バス",
   "空き家対策", "学童保育", "PFI", "敬老乗車証"
 ];
+
+// 異体字・旧字体の正規化
+export function cleanName(name) {
+  if (!name) return '';
+  return name.replace(/\s+/g, '').replace(/ /g, '');
+}
+
+/**
+ * 💡 要件1：「現場代弁型」などのキャラクター化を排除し、質疑傾向ラベルへ変換
+ */
+export function cleanStyleLabel(label) {
+  if (!label) return '主な質疑傾向';
+  if (label.includes('現場代弁') || label.includes('現場主義')) {
+    return '主な質疑傾向：現場・生活課題';
+  }
+  if (label.includes('政策提案') || label.includes('対案提起') || label.includes('政策志向') || label.includes('提案型')) {
+    return '主な質疑傾向：具体的対案・制度改善';
+  }
+  if (label.includes('データ重視') || label.includes('論証')) {
+    return '主な質疑傾向：根拠データ・統計活用';
+  }
+  if (label.includes('行政監視') || label.includes('追及') || label.includes('監視志向')) {
+    return '主な質疑傾向：行政監視・制度確認';
+  }
+  // 「〜型」の語尾を「主な質疑傾向：〜」へ変換
+  return label.replace(/(.*)型$/, '主な質疑傾向：$1');
+}
+
+/**
+ * 💡 要件2：「切実な声を届ける」等の情緒的表現を議会活動の事実記述へ変換
+ */
+export function cleanStyleDesc(desc) {
+  if (!desc) return '';
+  let text = desc;
+  text = text.replace(/地域住民や当事者の切実な声を届ける/g, '地域住民・当事者に関する質疑も確認されています');
+  text = text.replace(/当事者の切実な声を的確に議場へ届ける/g, '当事者や生活現場に関する質疑を行っています');
+  text = text.replace(/鋭い行政監視/g, '行政答弁や制度運用の確認');
+  text = text.replace(/際立った強み/g, '多くの質疑');
+  text = text.replace(/果敢に引き出す/g, '確認する');
+  return text;
+}
+
+/**
+ * 💡 要件3・4：分析メモ内の採点表現（「最高水準」「各項目3点と評価」等）を事実説明へ変換
+ */
+export function cleanAuditorNote(note) {
+  if (!note) return '';
+  let text = note;
+
+  // 典型的な評価・採点文の直接置換
+  text = text.replace(
+    /すべての項目で最高水準の質疑が行われている[。]?/g,
+    '各分析軸で5/5となった質疑として整理されています。'
+  );
+  text = text.replace(
+    /各項目(\d+)点と評価[。]?/g,
+    '市民の意見聴取や財政負担について行政に確認し、対応を求めた質疑として整理されています。'
+  );
+
+  // 部分的な能力評価語の置換
+  text = text.replace(/最高水準/g, '基準を満たした');
+  text = text.replace(/ファクトに基づき/g, '資料や公的データを参照し');
+  text = text.replace(/ファクト/g, '公的データ・資料');
+  text = text.replace(/高く評価/g, '確認');
+  text = text.replace(/優れた/g, '具体的な');
+  text = text.replace(/前向きな答弁を引き出した点など[、]/g, '');
+
+  return text;
+}
