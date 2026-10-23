@@ -229,6 +229,49 @@ export default function Methodology({ onBack }) {
               </tbody>
             </table>
           </div>
+
+          {/* 💡 学術的裏付けの一次資料（参考文献）リンク */}
+          <div className="pt-4 border-t border-slate-200 space-y-2">
+            <div className="flex items-center gap-1.5 font-bold text-indigo-950 text-[11px]">
+              <Landmark className="w-3.5 h-3.5 text-indigo-600" />
+              <span>主要な依拠論文・学術リファレンス（一次資料検証）</span>
+            </div>
+            <p className="text-[10px] text-slate-500">
+              本ルーブリックの理論的基盤となった主要な先行研究です。リンク先から実際の学術論文や事典の一次情報をご確認いただけます。
+            </p>
+            <ul className="space-y-1.5 text-[10px] text-slate-600 pl-1">
+              <li>
+                <a 
+                  href="https://doi.org/10.1057/palgrave.cep.6110002" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-indigo-600 hover:underline inline-flex items-center gap-1 transition-colors"
+                >
+                  Steenbergen, M. R., et al. (2003). "Measuring Political Deliberation: A Discourse Quality Index" (DQIの提唱論文) <ExternalLink className="w-2.5 h-2.5 opacity-60 shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://plato.stanford.edu/entries/political-representation/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-indigo-600 hover:underline inline-flex items-center gap-1 transition-colors"
+                >
+                  Stanford Encyclopedia of Philosophy: "Political Representation" (H.F. Pitkin「実質的代表」理論の解説) <ExternalLink className="w-2.5 h-2.5 opacity-60 shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://ci.nii.ac.jp/ncid/BB28308475" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-indigo-600 hover:underline inline-flex items-center gap-1 transition-colors"
+                >
+                  江藤俊昭 編著 (2019). 『自治体議員が知っておくべき政策財務の基礎知識』（二元代表制・議会の政策立案機能） <ExternalLink className="w-2.5 h-2.5 opacity-60 shrink-0" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </section>
 
         {/* ⑤ セクション4：政策カテゴリーの統一分類アルゴリズム */}
@@ -293,7 +336,7 @@ export default function Methodology({ onBack }) {
           </div>
         </section>
 
-        {/* 💡 ⑦ セクション6：政策マップ・議案一覧における「激論（賛否対立議案）」の定義（新規追加） */}
+        {/* ⑦ セクション6：政策マップ・議案一覧における「激論（賛否対立議案）」の定義 */}
         <section className="space-y-4">
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2 border-l-4 border-indigo-600 pl-3">
             <span>6. 政策マップにおける「激論（賛否対立議案）」の定義</span>
