@@ -49,7 +49,7 @@ function parseCurrentRoute() {
   if (view === 'guide' || pathname === '/guide') return { type: 'guide' };
   if (view === 'about' || pathname === '/about') return { type: 'about' };
   if (view === 'methodology' || pathname === '/methodology') return { type: 'methodology' };
-  if (view === 'contested') return { type: 'contested', category: params.get('cat') || '' };
+  if (view === 'contested' || pathname === '/contested') return { type: 'contested', category: params.get('cat') || '' };
 
   const compareParam = params.get('compare');
   if (compareParam !== null) {
@@ -295,7 +295,7 @@ export default function App() {
     let list = votesData || [];
     if (submittedQuery.trim() !== '') {
       const q = submittedQuery.toLowerCase();
-      list = list.filter(b => 
+      list = list.filter(b =>
         (b.title && b.title.toLowerCase().includes(q)) ||
         (b.bill_number && b.bill_number.toLowerCase().includes(q)) ||
         (b.session_name && b.session_name.toLowerCase().includes(q))
