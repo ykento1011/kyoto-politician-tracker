@@ -66,6 +66,11 @@ export function useStatements(cityCode = 'kyoto') {
   );
 
   useEffect(() => {
+    if (!cityCode) {
+      setStatements([]);
+      setIsLoading(false);
+      return;
+    }
     fetchStatements();
   }, [cityCode]);
 

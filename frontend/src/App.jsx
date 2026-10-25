@@ -159,7 +159,13 @@ export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => parseCurrentRoute());
 
   useEffect(() => {
-    // 💡 都市に応じたデータをフェッチするように修正（将来的にosaka_votes_summary.json等に対応できるよう）
+    if (!cityCode) {
+      setVotesData([]);
+      setBillIssuesList([]);
+      setIssuesMap({});
+      setMayorTrackerData(null);
+      return;
+    }
     const prefix = cityCode === 'kyoto' ? '' : `${cityCode}_`;
 
     fetch(`/data/${prefix}votes_summary.json`)

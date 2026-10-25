@@ -21,6 +21,9 @@ async def main():
         f"{BASE_URL}/osaka/#methodology",
         f"{BASE_URL}/osaka/#guide",
         f"{BASE_URL}/osaka/#mayor-tracker",
+        f"{BASE_URL}/?view=mayor",
+        f"{BASE_URL}/kyoto/?view=mayor",
+        f"{BASE_URL}/osaka/?view=mayor",
     ]
 
     # データファイルから全カテゴリー名を抽出
@@ -69,7 +72,7 @@ async def main():
             current_errors.clear()
             resp_status = None
             try:
-                resp = await page.goto(url, wait_until="networkidle", timeout=12000)
+                resp = await page.goto(url, wait_until="load", timeout=12000)
                 if resp:
                     resp_status = resp.status
                 await page.wait_for_timeout(400)
@@ -94,7 +97,7 @@ async def main():
         print("\n🚀 【Phase 2】ボタンクリック・モーダル開閉・タブ切り替えテストを開始します...\n")
 
         # 1. メイン画面のタブ切り替え操作
-        await page.goto(f"{BASE_URL}/", wait_until="networkidle")
+        await page.goto(f"{BASE_URL}/", wait_until="load")
         tabs = ["会派・選挙区", "政策分野", "賛否が分かれた議案", "議員一覧"]
         for tab_name in tabs:
             current_errors.clear()
