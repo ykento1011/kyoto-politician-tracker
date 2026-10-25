@@ -1,6 +1,7 @@
 ﻿import os
 import sys
 import json
+import shutil
 import subprocess
 import time
 from datetime import datetime
@@ -10,22 +11,28 @@ import requests
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 ENV_FILE = os.path.join(BASE_DIR, ".env")
+FRONTEND_DATA_DIR = os.path.join(PROJECT_ROOT, "frontend", "public", "data")
 
-# スクリプトのパス
+# スクリプトのパス（京都）
 FETCH_SCRIPT = os.path.join(BASE_DIR, "fetch_sagebase.py")
 ANALYZE_SCRIPT = os.path.join(BASE_DIR, "batch_analyze_council.py")
 TIMELINE_SCRIPT = os.path.join(BASE_DIR, "build_timeline_contexts.py")
 STATIC_DATA_SCRIPT = os.path.join(BASE_DIR, "generate_static_data.py")
-REMAP_SCRIPT = os.path.join(BASE_DIR, "remap_categories.py")
 SCRAPE_VOTES_SCRIPT = os.path.join(BASE_DIR, "scrape_kyoto_votes.py")
 GENERATE_ISSUES_SCRIPT = os.path.join(BASE_DIR, "generate_bill_issues.py")
 TOPIC_TIMELINES_SCRIPT = os.path.join(BASE_DIR, "generate_topic_timelines.py")
 BUILD_PLEDGE_TRACKER_SCRIPT = os.path.join(BASE_DIR, "build_pledge_tracker.py")
 BUILD_MAYOR_TRACKER_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker.py")
 
+# スクリプトのパス（大阪）
+BUILD_PLEDGE_TRACKER_OSAKA_SCRIPT = os.path.join(BASE_DIR, "build_pledge_tracker_with_extracted_osaka.py")
+BUILD_MAYOR_TRACKER_OSAKA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_osaka.py")
+
+# 自動テストスクリプト（ルート直下）
+COMPREHENSIVE_TEST_SCRIPT = os.path.join(PROJECT_ROOT, "run_comprehensive_test.py")
+
 # 出力・監視対象のファイル
 CRAWLED_FILE = os.path.join(BASE_DIR, "sagebase_crawled_data.json")
-VOTES_FILE = os.path.join(PROJECT_ROOT, "frontend", "public", "data", "votes_summary.json")
 
 def load_webhook_url():
     """data-pipeline/.env から DISCORD_WEBHOOK_URL を安全に読み込む"""
@@ -104,6 +111,17 @@ def run_script(script_path, description):
         print("--------------------")
         return False, e.stderr
 
+def sync_osaka_mayor_files():
+    """大阪市長トラッカーの出力ファイル名をフロントエンド参照名と同期"""
+    src_a = os.path.join(FRONTEND_DATA_DIR, "mayor_tracker_osaka.json")
+    dst_a = os.path.join(FRONTEND_DATA_DIR, "osaka_mayor_tracker.json")
+    if os.path.exists(src_a):
+        try:
+            shutil.copy2(src_a, dst_a)
+            log("大阪市長トラッカーファイル名同期完了 (osaka_mayor_tracker.json)")
+        except Exception as e:
+            log(f"ファイル同期中に警告: {e}", "WARN")
+
 def load_crawled_ids():
     if os.path.exists(CRAWLED_FILE):
         try:
@@ -144,6 +162,25 @@ def check_for_changes():
         log("Git の状態確認に失敗しました", "ERROR")
         return False
 
+def run_pre_deploy_test():
+    """デプロイ直前の自動ヘルスチェック（Playwright自動巡回）"""
+    if not os.path.exists(COMPREHENSIVE_TEST_SCRIPT):
+        log("自動巡回テストスクリプトが見つかりません。テストをスキップします。", "WARN")
+        return True, ""
+    log("🛡️ デプロイ前の自動健全性テスト（Playwright全画面巡回）を実行中...")
+    try:
+        python_exe = sys.executable
+        res = subprocess.run([python_exe, COMPREHENSIVE_TEST_SCRIPT], capture_output=True, text=True, check=True)
+        if "全画面・全モーダル・全タブ正常" in res.stdout or "全ページ正常" in res.stdout:
+            log("✅ 自動健全性テスト合格（UIクラッシュ・404・コンソールエラーなし）")
+            return True, ""
+        else:
+            log("❌ 自動テストでUIエラーが検知されました", "ERROR")
+            return False, res.stdout
+    except subprocess.CalledProcessError as e:
+        log("❌ 自動健全性テスト実行中にエラーが発生しました", "ERROR")
+        return False, e.stderr
+
 def push_to_github(custom_detail=""):
     log("GitHub への自動デプロイを開始...")
     try:
@@ -154,7 +191,7 @@ def push_to_github(custom_detail=""):
         if custom_detail:
             commit_msg = f"Auto-update: {custom_detail} を追加・反映 ({now_str})"
         else:
-            commit_msg = f"Auto-update: 議決・公約・政策タイムラインデータの最新化 ({now_str})"
+            commit_msg = f"Auto-update: 京都・大阪 議決・公約・政策タイムライン最新化 ({now_str})"
             
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push", "origin", "main"], check=True)
@@ -168,7 +205,7 @@ def main():
     is_dry_run = "--dry-run" in sys.argv or "--no-push" in sys.argv
 
     print("\n" + "="*60)
-    log("定期監視・全自動データ更新パイプラインを開始")
+    log("定期監視・全自動データ更新パイプライン（京都・大阪 統合版）を開始")
     if is_dry_run:
         log("🧪 ドライランモード: GitHub へのデプロイ（commit/push）は行われません")
     print("="*60)
@@ -186,7 +223,7 @@ def main():
 
     # 3. 議決・賛否データの更新
     log("--- [議決・賛否データの更新チェック] ---")
-    scrape_ok, _ = run_script(SCRAPE_VOTES_SCRIPT, "議会公式HPからの議案・賛否スクレイピング")
+    scrape_ok, _ = run_script(SCRAPE_VOTES_SCRIPT, "議会公式HPからの議案・賛否スクレイピング（京都）")
     if scrape_ok:
         issues_ok, _ = run_script(GENERATE_ISSUES_SCRIPT, "Geminiによる新規対立議案の争点分析")
         if not issues_ok:
@@ -230,30 +267,50 @@ def main():
     else:
         log("✅ 新しい議事録はありませんでした。")
 
-    # 7.7 議員看板公約トラッカーの最新化
-    log("--- [公約・政策トラッカーの最新化] ---")
-    p_ok, _ = run_script(BUILD_PLEDGE_TRACKER_SCRIPT, "議員看板公約トラッカーの再結合（質疑・採決リンク更新）")
+    # 7.7 議員看板公約トラッカーの最新化（京都・大阪）
+    log("--- [議員公約トラッカーの最新化] ---")
+    p_ok, _ = run_script(BUILD_PLEDGE_TRACKER_SCRIPT, "京都市議 看板公約トラッカーの再結合")
     if not p_ok:
-        log("議員公約トラッカー更新で警告が出ましたが続行します", "WARN")
+        log("京都市議公約トラッカー更新で警告が出ましたが続行します", "WARN")
 
-    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化
-    m_ok, _ = run_script(BUILD_MAYOR_TRACKER_SCRIPT, "首長 政策ライフサイクル・予算トラッカーの更新")
+    p_osaka_ok, _ = run_script(BUILD_PLEDGE_TRACKER_OSAKA_SCRIPT, "大阪市議 看板公約トラッカーの再結合")
+    if not p_osaka_ok:
+        log("大阪市議公約トラッカー更新で警告が出ましたが続行します", "WARN")
+
+    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（京都・大阪）
+    log("--- [首長政策トラッカーの最新化] ---")
+    m_ok, _ = run_script(BUILD_MAYOR_TRACKER_SCRIPT, "京都市長（松井市長）政策・予算トラッカーの更新")
     if not m_ok:
-        log("首長政策トラッカー更新で警告が出ましたが続行します", "WARN")
+        log("京都市長政策トラッカー更新で警告が出ましたが続行します", "WARN")
+
+    m_osaka_ok, _ = run_script(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT, "大阪市長（横山市長）政策・予算トラッカーの更新")
+    if not m_osaka_ok:
+        log("大阪市長政策トラッカー更新で警告が出ましたが続行します", "WARN")
+    
+    # 大阪首長トラッカーのファイル名同期
+    sync_osaka_mayor_files()
     log("--- [公約・政策トラッカーの最新化完了] ---")
 
-    # 8. Git差分チェックとデプロイ
+    # 8. Git差分チェックと安全なデプロイ
     has_changes = check_for_changes()
     if has_changes:
         log("データファイルに変更があります。")
+
+        # 🛡️ プッシュ前の自動健全性検証
+        test_passed, test_err = run_pre_deploy_test()
+        if not test_passed:
+            log("❌ 自動健全性テストに失敗したため、安全のため GitHub デプロイを中止しました。", "ERROR")
+            notify_discord("❌ 定期更新中断: 画面健全性チェック不合格", "データ生成後に実施した全画面巡回テストで異常が検知されたため、本番サイトの破壊を防ぐためデプロイを中断しました。", status="error", error_detail=test_err)
+            return
+
         if is_dry_run:
             log("🧪 ドライランのため、GitHub へのコミット・プッシュはスキップしました。", "WARN")
             notify_discord("🧪 テスト実行完了: 新着データあり（未デプロイ）", "ドライランモードで実行されたため、GitHub へのプッシュは保留されました。", status="info")
         else:
             push_ok, push_msg = push_to_github(new_detail_str)
             if push_ok:
-                detail_desc = f"**更新内容:** {new_detail_str}\nGitHub (`main`) への自動デプロイが完了しました。" if new_detail_str else "議決・公約・政策トラッカーの更新を反映し、GitHub へデプロイしました。"
-                notify_discord("🎉 定期更新完了: 新着データを反映しました", detail_desc, status="success")
+                detail_desc = f"**更新内容:** {new_detail_str}\n京都・大阪の最新データを自動検証の上、GitHub (`main`) へ安全にデプロイしました。" if new_detail_str else "京都・大阪の議決・公約・首長トラッカーを自動検証の上、GitHub へデプロイしました。"
+                notify_discord("🎉 定期更新完了: 京都・大阪の最新データを反映", detail_desc, status="success")
             else:
                 notify_discord("⚠️ 定期更新警告: Gitプッシュ失敗", f"データ生成は成功しましたが、GitHub へのプッシュに失敗しました。\n`{push_msg}`", status="warn")
     else:
