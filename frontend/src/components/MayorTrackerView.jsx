@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import ReportIssueButton from './ReportIssueButton';
 import {
   Landmark, ArrowLeft, ExternalLink, ShieldCheck, BookmarkCheck,
   CheckCircle2, Clock, FileText, Scale, Sparkles, MessageSquare,
@@ -74,18 +75,36 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
         </button>
         <div className="flex items-center gap-2 flex-wrap">
           {mayorInfo.bulletin_pdf && (
-            <a href={mayorInfo.bulletin_pdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-indigo-600 hover:bg-indigo-50 font-bold text-xs transition-colors shadow-2xs">
-              <Landmark className="w-3.5 h-3.5 text-indigo-500" />
-              <span>{mayorInfo.bulletin_label || '公約集'}</span>
-              <ExternalLink className="w-3 h-3 opacity-60" />
-            </a>
+            <div className="inline-flex items-center gap-1">
+              <a href={mayorInfo.bulletin_pdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-indigo-600 hover:bg-indigo-50 font-bold text-xs transition-colors shadow-2xs">
+                <Landmark className="w-3.5 h-3.5 text-indigo-500" />
+                <span>{mayorInfo.bulletin_label || '公約集'}</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
+              </a>
+              <ReportIssueButton
+                targetUrl={mayorInfo.bulletin_pdf}
+                speaker={mayorInfo.name}
+                meetingDate={mayorInfo.term || ''}
+                targetId="mayor_bulletin_pdf"
+                municipality={mayorInfo.city_label || '京都市'}
+              />
+            </div>
           )}
           {mayorInfo.strategy_main_pdf && (
-            <a href={mayorInfo.strategy_main_pdf} target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-xs transition-colors shadow-2xs">
-              <FileText className="w-3.5 h-3.5 text-slate-500" />
-              <span>{mayorInfo.strategy_main_label || '市公式 総合計画'}</span>
-              <ExternalLink className="w-3 h-3 opacity-60" />
-            </a>
+            <div className="hidden sm:inline-flex items-center gap-1">
+              <a href={mayorInfo.strategy_main_pdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-xs transition-colors shadow-2xs">
+                <FileText className="w-3.5 h-3.5 text-slate-500" />
+                <span>{mayorInfo.strategy_main_label || '市公式 総合計画'}</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
+              </a>
+              <ReportIssueButton
+                targetUrl={mayorInfo.strategy_main_pdf}
+                speaker={mayorInfo.name}
+                meetingDate=""
+                targetId="mayor_strategy_main_pdf"
+                municipality={mayorInfo.city_label || '京都市'}
+              />
+            </div>
           )}
         </div>
       </div>
@@ -230,10 +249,17 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                     </div>
                   </div>
                   {pledge.election_promise?.bulletin_url && (
-                    <div className="pt-2">
+                    <div className="pt-2 flex items-center gap-1">
                       <a href={pledge.election_promise.bulletin_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 hover:underline">
                         <Landmark className="w-3.5 h-3.5" /><span>公式公約原本（PDF）で確認</span><ExternalLink className="w-3 h-3 opacity-60 ml-0.5" />
                       </a>
+                      <ReportIssueButton
+                        targetUrl={pledge.election_promise.bulletin_url}
+                        speaker={mayorInfo.name}
+                        meetingDate={pledge.title || ''}
+                        targetId={`pledge_${pledge.pledge_id}`}
+                        municipality={mayorInfo.city_label || '京都市'}
+                      />
                     </div>
                   )}
                 </div>
@@ -249,9 +275,18 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                       <div className="p-4 rounded-2xl bg-indigo-50/25 border border-indigo-100/80 space-y-2">
                         <div className="flex items-center justify-between flex-wrap gap-1 text-[10px] font-bold text-slate-500">
                           {plan.doc_url ? (
-                            <a href={plan.doc_url} target="_blank" rel="noopener noreferrer" className="font-mono bg-white text-indigo-900 px-2 py-0.5 rounded border border-indigo-200 font-extrabold hover:bg-indigo-100 hover:underline inline-flex items-center gap-1 transition-colors">
-                              <span>{plan.plan_name}</span><ExternalLink className="w-3 h-3 opacity-60" />
-                            </a>
+                            <div className="inline-flex items-center gap-1">
+                              <a href={plan.doc_url} target="_blank" rel="noopener noreferrer" className="font-mono bg-white text-indigo-900 px-2 py-0.5 rounded border border-indigo-200 font-extrabold hover:bg-indigo-100 hover:underline inline-flex items-center gap-1 transition-colors">
+                                <span>{plan.plan_name}</span><ExternalLink className="w-3 h-3 opacity-60" />
+                              </a>
+                              <ReportIssueButton
+                                targetUrl={plan.doc_url}
+                                speaker={mayorInfo.name}
+                                meetingDate={plan.date || ''}
+                                targetId={plan.plan_name || 'plan_doc'}
+                                municipality={mayorInfo.city_label || '京都市'}
+                              />
+                            </div>
                           ) : (
                             <span className="font-mono bg-white text-indigo-900 px-2 py-0.5 rounded border border-indigo-100 font-extrabold">{plan.plan_name}</span>
                           )}
@@ -291,12 +326,19 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                             )}
                             {/* 💡ここが修正したクリッカブル出典リンク */}
                             {b.doc_url && (
-                              <div className="pt-2 mt-1.5 border-t border-emerald-100/60 flex items-start justify-end gap-1.5 text-[10.5px]">
+                              <div className="pt-2 mt-1.5 border-t border-emerald-100/60 flex items-center justify-end gap-1 text-[10.5px]">
                                 <span className="text-slate-400 font-medium shrink-0 mt-[1px]">出典:</span>
                                 <a href={b.doc_url} target="_blank" rel="noopener noreferrer" className="text-emerald-700 hover:text-emerald-900 font-bold inline-flex items-start gap-1 hover:underline text-right group">
                                   <span className="leading-tight group-hover:underline">{b.doc_source}</span>
                                   <ExternalLink className="w-3 h-3 opacity-60 shrink-0 mt-[1px]" />
                                 </a>
+                                <ReportIssueButton
+                                  targetUrl={b.doc_url}
+                                  speaker={mayorInfo.name}
+                                  meetingDate={b.fiscal_year || ''}
+                                  targetId={b.item_name || b.doc_source || 'budget_doc'}
+                                  municipality={mayorInfo.city_label || '京都市'}
+                                />
                               </div>
                             )}
                           </div>
@@ -315,10 +357,19 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                           <span className={`px-2 py-0.5 rounded text-[11px] font-black border ${bill.result === '可決' ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : 'bg-amber-100 text-amber-800 border-amber-200'}`}>結果: {bill.result}</span>
                         </div>
                         {bill.doc_url ? (
-                          <a href={bill.doc_url} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-indigo-700 hover:text-indigo-900 hover:underline leading-snug inline-flex items-start gap-1.5">
-                            <span>{bill.bill_title}</span>
-                            <ExternalLink className="w-3.5 h-3.5 opacity-60 shrink-0 mt-0.5" />
-                          </a>
+                          <div className="flex items-start justify-between gap-1.5">
+                            <a href={bill.doc_url} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-indigo-700 hover:text-indigo-900 hover:underline leading-snug inline-flex items-start gap-1.5 flex-1">
+                              <span>{bill.bill_title}</span>
+                              <ExternalLink className="w-3.5 h-3.5 opacity-60 shrink-0 mt-0.5" />
+                            </a>
+                            <ReportIssueButton
+                              targetUrl={bill.doc_url}
+                              speaker={mayorInfo.name}
+                              meetingDate={bill.session_name || ''}
+                              targetId={bill.bill_number || bill.bill_title || 'bill_doc'}
+                              municipality={mayorInfo.city_label || '京都市'}
+                            />
+                          </div>
                         ) : (
                           <h4 className="text-xs font-bold text-slate-900 leading-snug">{bill.bill_title}</h4>
                         )}
@@ -352,10 +403,19 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                         <span className="font-mono text-slate-500 font-bold shrink-0 mt-[2px]">{milestone.date}</span>
                         {/* 💡ここが修正したクリッカブルマイルストーンリンク */}
                         {milestone.evidence_url ? (
-                          <a href={milestone.evidence_url} target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-700 hover:text-indigo-900 hover:underline inline-flex items-start gap-1">
-                            <span className="leading-tight">{milestone.title}</span>
-                            <ExternalLink className="w-3 h-3 opacity-60 shrink-0 mt-[2px]" />
-                          </a>
+                          <div className="inline-flex items-center gap-1">
+                            <a href={milestone.evidence_url} target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-700 hover:text-indigo-900 hover:underline inline-flex items-start gap-1">
+                              <span className="leading-tight">{milestone.title}</span>
+                              <ExternalLink className="w-3 h-3 opacity-60 shrink-0 mt-[2px]" />
+                            </a>
+                            <ReportIssueButton
+                              targetUrl={milestone.evidence_url}
+                              speaker={mayorInfo.name}
+                              meetingDate={milestone.date || ''}
+                              targetId={milestone.title || 'milestone_evidence'}
+                              municipality={mayorInfo.city_label || '京都市'}
+                            />
+                          </div>
                         ) : (
                           <span className="font-bold text-slate-800 leading-tight">{milestone.title}</span>
                         )}
