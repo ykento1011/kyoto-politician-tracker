@@ -143,6 +143,12 @@ export default function Methodology({ onBack }) {
               <p className="text-xs text-slate-600 leading-relaxed">
                 全5,100件以上の質疑スレッドに対して、各議会公式サーバー上の原本ページ（MinuteView）へ直接遷移する固有URL（council_id / schedule_id / view_years）を結合。利用者はボタン1つで公的機関の一次情報に直接アクセスし、文脈の確認を行えます。
               </p>
+              <div className="mt-3 p-3 bg-white rounded-lg border border-slate-200">
+                <p className="text-[11px] font-bold text-slate-700 mb-1 flex items-center gap-1.5"><AlertCircle className="w-3.5 h-3.5 text-rose-500" /> データ健全性を担保するユーザー参加型監査システム</p>
+                <p className="text-[11px] text-slate-600 leading-normal">
+                  データ・リンクの不備報告パイプラインとして、Cloudflare Pages Functions および Discord Webhooks を統合したフィードバックシステムを実装しています。利用者が資料横の旗アイコン（⚑）をクリックすると、対象の「自治体・発言ID・現在URL」等のメタデータがバックエンドで自動収集され、運営側へ即時通知・修正される自律的なデータクレンジング基盤を構築しています。
+                </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
