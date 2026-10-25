@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, Sparkles, Compass, ArrowRight, ExternalLink, AlertCircle } from "lucide-react";
+import { Search, Sparkles, Compass, ArrowRight, ExternalLink, AlertCircle, Flag } from "lucide-react";
 
 const KYOTO_HOT_TOPICS = [
   "オーバーツーリズム",
@@ -80,18 +80,20 @@ export default function HeroSection({
         </button>
       </div>
 
-      {/* 💡 一次資料の検証・修正協力バナー（Googleフォーム直通） */}
+      {/* 💡 一次資料の検証・不備報告バナー（旗マーク案内） */}
       <div className="max-w-xl mx-auto pt-2 text-left">
         <div className="bg-amber-50/90 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-start gap-2.5">
-            <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+            <div className="w-7 h-7 rounded-xl bg-amber-100/90 border border-amber-200 flex items-center justify-center shrink-0 mt-0.5">
+              <Flag className="w-3.5 h-3.5 text-rose-500 fill-rose-500/20" />
+            </div>
             <div className="space-y-0.5">
-              <div className="text-xs font-black text-amber-950 flex items-center gap-1.5">
-                <span>一次資料の検証・修正にご協力ください</span>
-                <span className="text-[10px] font-bold text-amber-700 bg-amber-100 px-1.5 py-0.2 rounded">オープン監査</span>
+              <div className="text-xs font-black text-amber-950 flex items-center gap-1.5 flex-wrap">
+                <span>一次資料のリンク切れ・誤記は「旗マーク（⚑）」から</span>
+                <span className="text-[10px] font-bold text-amber-700 bg-amber-100 px-1.5 py-0.2 rounded">自動取得</span>
               </div>
               <p className="text-[11px] text-amber-900/80 leading-relaxed font-medium">
-                公約や予算の公式原本との照合に努めていますが、リンク切れや誤り、より新しい公表資料をご存知の場合はお知らせください。
+                各カードの公式原本リンク横にある <strong className="text-rose-600 font-bold">⚑</strong> を押すと、発言IDやURLが自動添付され1タップで報告できます。
               </p>
             </div>
           </div>
@@ -100,8 +102,9 @@ export default function HeroSection({
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold transition-colors shadow-2xs cursor-pointer text-center"
+            title="一般的なご意見や改善要望フォームを開く"
           >
-            <span>修正・情報を報告</span>
+            <span>その他のご意見</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
