@@ -3,137 +3,165 @@ import { FileText, Lightbulb, MessageCircle, User, Landmark, ExternalLink, Chevr
 import { cleanName, cleanAuditorNote } from '../utils/styleHelpers';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
-export default function ThreadCard({
-  stmt,
-  statement,
-  thread,
-  speakerInfo,
-  onSpeakerClick,
-  onViewContext,
-  showSpeakerHeader = true,
-  cityCode
-}) {
-  // どの引数名(stmt, statement, thread)で渡されても確実に安全に取得
-  const target = stmt || statement || thread || {};
-
-  // URLパス または props/データから大阪を判定
+export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpeakerClick, onViewContext, showSpeakerHeader = true, cityCode}) {
+  const actualStmt = stmt || statement || thread || {};
+  stmt = actualStmt;
+    // statement または thread のいずれかが渡されても受け取れるように防御的処理
+      // URLパス または props/データから大阪を直接判定
   const isOsakaUrl = typeof window !== 'undefined' && window.location.pathname.startsWith('/osaka');
   const isOsakaThread = isOsakaUrl || 
                         cityCode === 'osaka' || 
-                        target?.council === '大阪市会' || 
-                        target?.council === '大阪市' ||
-                        (typeof target?.meeting_name === 'string' && target.meeting_name.includes('大阪市')) ||
-                        (typeof target?.committee_name === 'string' && target.committee_name.includes('大阪市'));
-
+                        stmt?.council === '大阪市会' || 
+                        stmt?.council === '大阪市' ||
+                        actualStmt?.council === '大阪市会' ||
+                        (typeof stmt?.meeting_name === 'string' && stmt.meeting_name.includes('大阪市')) ||
+                        (typeof actualStmt?.meeting_name === 'string' && thread.meeting_name.includes('大阪市')) ||
+                        (typeof stmt?.committee_name === 'string' && stmt.committee_name.includes('大阪市')) ||
+                        (typeof actualStmt?.committee_name === 'string' && thread.committee_name.includes('大阪市'));
   const councilOriginalLabel = isOsakaThread ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認';
 
   const [isNoteExpanded, setIsNoteExpanded] = useState(false);
 
-  // 4軸スコア
   const activeMetrics = [
-    { label: '根拠・データ', val: target.evidence_score, color: 'bg-indigo-500' },
-    { label: '対案・是正策', val: target.solution_score, color: 'bg-emerald-500' },
-    { label: '地域解像度', val: target.local_focus_score, color: 'bg-amber-500' },
-    { label: '議論の進展', val: target.constructive_score, color: 'bg-purple-500' }
+    { label: '根拠・データ', val: stmt.evidence_score, color: 'bg-indigo-500' },
+    { label: '対案・是正策', val: stmt.solution_score, color: 'bg-emerald-500' },
+    { label: '地域解像度', val: stmt.local_focus_score, color: 'bg-amber-500' },
+    { label: '議論の進展', val: stmt.constructive_score, color: 'bg-purple-500' }
   ].filter((m) => m.val > 0);
 
-  // AI評価理由メモ
-  const auditorNoteText = target.scoring_reasoning ? cleanAuditorNote(target.scoring_reasoning) : "";
-
-  // タイトルと本文の正確なマッピング
-  const displayTitle = target.topic || target.meeting_title || `${target.category || '政策'}に関する質疑`;
-  const displaySummary = target.summary || target.statement_snippet || target.statement_text || target.question_summary || '';
+  const auditorNoteText = stmt.scoring_reasoning ? cleanAuditorNote(stmt.scoring_reasoning) : "";
 
   return (
-    <article className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-4">
-      <div className="space-y-3">
-        {/* 発言者ヘッダー */}
-        {showSpeakerHeader && (
-          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 font-bold text-xs shrink-0">
-                <User className="w-4 h-4 text-slate-500" />
-              </div>
-              <div>
-                <button
-                  onClick={() => onSpeakerClick && onSpeakerClick(target.speaker)}
-                  className="font-bold text-sm text-slate-900 hover:text-indigo-600 transition-colors text-left cursor-pointer flex items-center gap-1.5"
-                >
-                  <span>{cleanName(target.speaker || '議員')}</span>
-                </button>
-                <div className="text-[10px] text-slate-400 font-medium">
-                  {target.meeting_date || ''} {target.meeting_name || target.meeting_title || ''}
-                </div>
-              </div>
+    <article className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+      
+      {/* 上部ヘッダー */}
+      {showSpeakerHeader ? (
+        <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
+          <button
+            onClick={() => onSpeakerClick && onSpeakerClick(cleanName(stmt.speaker))}
+            className="flex items-start text-left hover:bg-slate-100 p-1.5 -ml-1.5 rounded-lg transition-colors group cursor-pointer"
+          >
+            <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-2.5 shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors mt-0.5">
+              <User className="w-4 h-4" />
             </div>
-            {target.category && (
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600">
-                {target.category}
-              </span>
-            )}
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-black text-slate-900 group-hover:text-indigo-700 transition-colors">
+                  {stmt.speaker} <span className="text-[10px] font-medium text-slate-500 font-normal">議員</span>
+                </span>
+                {speakerInfo && (
+                  <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border inline-block ${speakerInfo.style.badgeClass}`}>
+                    {speakerInfo.style.label}
+                  </span>
+                )}
+              </div>
+              {speakerInfo && (
+                <div className="text-[10px] font-bold text-slate-500 mt-0.5">
+                  <span className="text-slate-600 mr-1">{speakerInfo.district}</span>/
+                  <span className="ml-1 opacity-80">{speakerInfo.partyGroup}</span>
+                </div>
+              )}
+            </div>
+          </button>
+          <div className="flex items-center gap-2 text-right">
+            <span className="px-2 py-0.5 bg-white text-slate-600 text-[10px] font-bold rounded border border-slate-200 shrink-0">
+              {stmt.category}
+            </span>
+            <span className="text-slate-400 text-xs font-medium shrink-0">{stmt.meeting_date}</span>
           </div>
-        )}
+        </div>
+      ) : (
+        <div className="p-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50/50">
+          <span className="px-2 py-0.5 bg-white text-slate-600 text-[10px] font-bold rounded border border-slate-200">
+            {stmt.category}
+          </span>
+          <span className="text-slate-400 text-xs font-medium">{stmt.meeting_date}</span>
+        </div>
+      )}
 
-        {/* 質疑タイトル・要約本文 */}
-        <div className="space-y-1.5">
-          <h3 className="font-bold text-sm text-slate-900 leading-snug">
-            {displayTitle}
-          </h3>
-          <p className="text-xs text-slate-600 leading-relaxed">
-            {displaySummary}
-          </p>
+      <div className="p-5 flex flex-col md:flex-row gap-6">
+        <div className="md:w-3/5 flex flex-col gap-2">
+          <h3 className="text-xs font-bold text-slate-500 mb-1 leading-snug">{stmt.meeting_title}</h3>
+          <h4 className="text-[10px] font-bold text-slate-400 uppercase flex items-center">
+            <FileText className="w-3 h-3 mr-1" />質疑スレッド要旨
+          </h4>
+          <p className="text-sm leading-relaxed text-slate-700 mt-1">{stmt.summary}</p>
         </div>
 
-        {/* スコア指標 */}
-        {activeMetrics.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 pt-1">
-            {activeMetrics.map((m, idx) => (
-              <span key={idx} className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/60 text-slate-600">
-                <span className={`w-1.5 h-1.5 rounded-full ${m.color}`} />
-                {m.label} <span className="font-mono text-slate-800">{m.val}</span>
-              </span>
-            ))}
-          </div>
-        )}
+        <div className="md:w-2/5 bg-slate-50 p-4 rounded-xl border border-slate-100 flex flex-col">
+          {/* 💡 修正：「発揮された強み」➔「4軸分析結果」 */}
+          <span className="text-[10px] font-bold text-slate-500 uppercase mb-3 block">
+            4軸分析結果
+          </span>
+          
+          {activeMetrics.length > 0 ? (
+            <div className="space-y-2.5">
+              {activeMetrics.map((metric) => (
+                <div key={metric.label}>
+                  <div className="flex justify-between text-xs font-bold text-slate-600 mb-1">
+                    <span>{metric.label}</span>
+                    <span className="font-mono text-slate-400">{metric.val}/5</span>
+                  </div>
+                  <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                    <div className={`h-full ${metric.color}`} style={{ width: `${(metric.val / 5) * 100}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-2 text-slate-400 text-xs font-medium">初期確認・状況整理の質疑</div>
+          )}
 
-        {/* AI評価理由 (折りたたみ) */}
-        {auditorNoteText && (
-          <div className="pt-1">
-            <button
-              onClick={() => setIsNoteExpanded(!isNoteExpanded)}
-              className="text-[11px] font-bold text-slate-500 hover:text-indigo-600 flex items-center gap-1 transition-colors cursor-pointer"
-            >
-              <Lightbulb className="w-3 h-3 text-amber-500" />
-              <span>評価理由・分析メモ</span>
-              <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isNoteExpanded ? 'rotate-180' : ''}`} />
-            </button>
-            {isNoteExpanded && (
-              <div className="mt-2 p-3 bg-amber-50/50 rounded-xl border border-amber-200/60 text-[11px] text-amber-950/80 leading-relaxed">
-                {auditorNoteText}
+          {/* 💡 修正：「AI Auditor Note」➔「分析メモ」 */}
+          {activeMetrics.length > 0 && auditorNoteText && (
+            <div className="mt-4 pt-3 border-t border-slate-200/60 transition-all">
+              <div className="flex items-center justify-between mb-1.5">
+                <h5 className="text-[10px] font-bold text-slate-500 uppercase flex items-center">
+                  <Lightbulb className="w-3 h-3 text-amber-500 mr-1 shrink-0" /> 分析メモ
+                </h5>
               </div>
-            )}
-          </div>
-        )}
+              
+              <p className={`text-[11px] text-slate-600 leading-relaxed transition-all ${
+                isNoteExpanded ? '' : 'line-clamp-3'
+              }`}>
+                {auditorNoteText}
+              </p>
+
+              {auditorNoteText.length > 70 && (
+                <div className="pt-1 mt-0.5">
+                  <button
+                    onClick={() => setIsNoteExpanded(!isNoteExpanded)}
+                    className="inline-flex items-center text-[10px] font-bold text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer select-none"
+                  >
+                    <span>{isNoteExpanded ? '閉じる' : '全文を表示'}</span>
+                    <ChevronDown className={`w-3 h-3 ml-0.5 transition-transform duration-200 ${
+                      isNoteExpanded ? 'rotate-180' : ''
+                    }`} />
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* フッターアクション */}
-      <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
+      {/* アクションボタンエリア */}
+      <div className="bg-white p-3 sm:p-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
         <button
-          onClick={() => onViewContext && onViewContext(target)}
-          className="inline-flex items-center gap-1 text-xs font-bold text-indigo-600 hover:text-indigo-700 transition-colors cursor-pointer"
+          onClick={() => openOfficialMinute(stmt)}
+          title={getOfficialLinkTooltip(stmt)}
+          className="px-3.5 py-2 flex items-center justify-center text-xs font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 rounded-lg transition-colors cursor-pointer group shrink-0"
         >
-          <MessageCircle className="w-3.5 h-3.5" />
-          <span>前後の対話を見る</span>
+          <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600 group-hover:text-indigo-700" />
+          <span>{councilOriginalLabel}</span>
+          <ExternalLink className="w-3 h-3 ml-1.5 text-slate-400 group-hover:text-slate-600" />
         </button>
 
         <button
-          onClick={() => openOfficialMinute(target, isOsakaThread ? 'osaka' : 'kyoto')}
-          title={getOfficialLinkTooltip(target, isOsakaThread ? 'osaka' : 'kyoto')}
-          className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+          onClick={() => onViewContext(stmt)}
+          className="flex-1 py-2 flex items-center justify-center text-xs font-bold text-indigo-600 bg-indigo-50/50 hover:bg-indigo-100/80 border border-indigo-200/70 hover:border-indigo-300 rounded-lg transition-colors cursor-pointer"
         >
-          <Landmark className="w-3 h-3" />
-          <span>{councilOriginalLabel}</span>
-          <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+          <MessageCircle className="w-3.5 h-3.5 mr-1.5" />市側答弁を含む一連のタイムラインを表示
         </button>
       </div>
     </article>
