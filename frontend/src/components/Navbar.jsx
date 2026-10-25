@@ -16,8 +16,8 @@ export default function Navbar({
   const dropdownRef = useRef(null);
 
   const CITIES = {
-    kyoto: { label: '京都市', prefix: '' },
-    osaka: { label: '大阪市', prefix: '/osaka' }
+    kyoto: { label: '京都市', path: '/kyoto/' },
+    osaka: { label: '大阪市', path: '/osaka/' }
   };
 
   // 枠外クリックでドロップダウンを閉じる処理
@@ -33,14 +33,12 @@ export default function Navbar({
 
   const handleCityChange = (newCity) => {
     setIsCityDropdownOpen(false);
-    if (newCity === cityCode) return;
-    
-    // 都市切り替えのルーティング処理
-    if (newCity === 'kyoto') {
+    if (newCity === 'portal') {
       window.location.href = '/';
-    } else {
-      window.location.href = CITIES[newCity].prefix;
+      return;
     }
+    if (newCity === cityCode) return;
+    window.location.href = CITIES[newCity]?.path || `/${newCity}/`;
   };
 
   return (

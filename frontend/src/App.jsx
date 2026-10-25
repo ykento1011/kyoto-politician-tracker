@@ -13,6 +13,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HeroSection from './components/HeroSection';
+import PortalTopView from './components/PortalTopView';
 import MainTabView from './components/MainTabView';
 import SpeakerDetailView from './components/SpeakerDetailView';
 import SearchResultsView from './components/SearchResultsView';
@@ -83,17 +84,35 @@ function parseCurrentRoute() {
 }
 
 export default function App() {
-  // 💡 URLのパスから初期都市を判定（デフォルトはkyoto）
-  const [cityCode] = useState(() => {
+  // 💡 URLのパスから都市を判定（/ はポータル、/kyoto は京都、/osaka は大阪）
+  const [cityCode, setCityCode] = useState(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
       const params = new URLSearchParams(window.location.search);
+      const hash = window.location.hash || '';
+
       if (path.startsWith('/osaka') || params.get('city') === 'osaka') {
         return 'osaka';
       }
-      return 'kyoto';
+      if (path.startsWith('/kyoto') || params.get('city') === 'kyoto') {
+        return 'kyoto';
+      }
+
+      // 💡 後方互換性保護：ルート(/)なのに古いクエリがある場合は /kyoto/ へ自動リダイレクト
+      const hasOldKyotoQuery = Boolean(
+        params.get('speaker') || params.get('view') || params.get('compare') || 
+        params.get('q') || params.get('cat') || hash.startsWith('#topic=') || hash.startsWith('#category=')
+      );
+      if (hasOldKyotoQuery) {
+        const target = '/kyoto/' + window.location.search + window.location.hash;
+        window.history.replaceState({}, '', target);
+        return 'kyoto';
+      }
+
+      // クエリのない純粋な / は総合ポータル
+      return null;
     }
-    return 'kyoto';
+    return null;
   });
 
   const {
@@ -168,6 +187,17 @@ export default function App() {
 
   useEffect(() => {
     const onLocationChange = () => {
+      // 💡 ブラウザの戻る・進む時に URL パスから cityCode を再同期
+      const currentPath = window.location.pathname;
+      const currentParams = new URLSearchParams(window.location.search);
+      let detectedCity = null;
+      if (currentPath.startsWith('/osaka') || currentParams.get('city') === 'osaka') {
+        detectedCity = 'osaka';
+      } else if (currentPath.startsWith('/kyoto') || currentParams.get('city') === 'kyoto') {
+        detectedCity = 'kyoto';
+      }
+      setCityCode(detectedCity);
+
       const nextRoute = parseCurrentRoute();
       setCurrentRoute(nextRoute);
 
@@ -235,8 +265,19 @@ export default function App() {
   }, [cityCode]);
 
   const navigate = useCallback((url, replace = false) => {
-    const basePath = cityCode === 'kyoto' ? '' : `/${cityCode}`; // basePathを考慮
-    const finalUrl = url.startsWith('/') ? `${basePath}${url}` : `${basePath}/${url}`;
+    let finalUrl = url;
+    if (cityCode) {
+      const basePath = `/${cityCode}`;
+      if (url.startsWith('/kyoto') || url.startsWith('/osaka')) {
+        finalUrl = url;
+      } else if (url === '/') {
+        finalUrl = `${basePath}/`;
+      } else if (url.startsWith('/?')) {
+        finalUrl = `${basePath}/${url.slice(1)}`;
+      } else {
+        finalUrl = url.startsWith('/') ? `${basePath}${url}` : `${basePath}/${url}`;
+      }
+    }
 
     if (replace) {
       window.history.replaceState({}, '', finalUrl);
@@ -258,6 +299,13 @@ export default function App() {
     setSubmittedQuery('');
     navigate('/');
   }, [navigate, setSearchQuery, setSubmittedQuery]);
+
+  const handleGoPortal = useCallback(() => {
+    setCityCode(null);
+    window.history.pushState({}, '', '/');
+    window.dispatchEvent(new Event('app-navigate'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const handleSpeakerClick = useCallback((speakerInput) => {
     const speakerName = typeof speakerInput === 'string' ? speakerInput : speakerInput?.speaker;
@@ -393,6 +441,35 @@ export default function App() {
         <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin" />
         <p className="text-sm font-black text-slate-500 tracking-wider">議会データを読み込み中...</p>
       </div>
+    );
+  }
+
+  // 💡 総合ポータル画面（/ アクセス時）のレンダリング
+  if (!cityCode) {
+    return (
+      <PortalTopView
+        onSelectCity={(targetCity) => {
+          window.history.pushState({}, '', `/${targetCity}/`);
+          setCityCode(targetCity);
+          window.dispatchEvent(new Event('app-navigate'));
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        onOpenAbout={() => {
+          setCityCode('kyoto');
+          window.history.pushState({}, '', '/kyoto/?view=about');
+          window.dispatchEvent(new Event('app-navigate'));
+        }}
+        onOpenMethodology={() => {
+          setCityCode('kyoto');
+          window.history.pushState({}, '', '/kyoto/?view=methodology');
+          window.dispatchEvent(new Event('app-navigate'));
+        }}
+        onOpenGuide={() => {
+          setCityCode('kyoto');
+          window.history.pushState({}, '', '/kyoto/?view=guide');
+          window.dispatchEvent(new Event('app-navigate'));
+        }}
+      />
     );
   }
 
