@@ -141,8 +141,9 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
 
   const filteredPledges = useMemo(() => {
     return pledges.filter(p => {
+      const lvl = p.stage_level ?? p.current_stage ?? 2;
       if (selectedCategory && p.category !== selectedCategory) return false;
-      if (selectedStageLevel > 0 && p.stage_level !== selectedStageLevel) return false;
+      if (selectedStageLevel > 0 && lvl !== selectedStageLevel) return false;
       return true;
     });
   }, [pledges, selectedCategory, selectedStageLevel]);

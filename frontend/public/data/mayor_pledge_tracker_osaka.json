@@ -1,4 +1,7 @@
 {
+  "city_code": "osaka",
+  "city_name": "大阪市",
+  "mayor_name": "横山 英幸",
   "mayor_info": {
     "name": "横山 英幸",
     "title": "第22代 大阪市長",
@@ -12,20 +15,29 @@
     "strategy_policy_pdf": "https://www.city.osaka.lg.jp/contents/wdu240/shikai/list.html"
   },
   "summary_stats": {
-    "total": 24,
-    "stage_1": 0,
-    "stage_2": 24,
-    "stage_3": 0,
-    "stage_4": 0,
-    "stage_5": 0
+    "total_pledges": 24,
+    "stages": {
+      "enacted": 4,
+      "bill_submitted": 0,
+      "budgeted": 0,
+      "official_plan_only": 20,
+      "reviewing": 0
+    },
+    "stage_counts_by_level": {
+      "1": 0,
+      "2": 20,
+      "3": 0,
+      "4": 0,
+      "5": 4
+    }
   },
   "pledges": [
     {
       "id": "osaka_mayor_1",
       "title": "0〜2歳児保育料の無償化（所得制限撤廃）",
       "category": "子育て・教育",
-      "stage_level": 2,
-      "stage_label": "2.市公式計画化",
+      "stage_level": 5,
+      "stage_label": "5.成立・執行",
       "exact_quote": "0歳〜2歳の保育料無償に関する所得制限撤廃（市）",
       "pledge_quote": "0歳〜2歳の保育料無償に関する所得制限撤廃（市）",
       "quote": "0歳〜2歳の保育料無償に関する所得制限撤廃（市）",
@@ -43,14 +55,101 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "stages_detail": [
+        {
+          "stage": 1,
+          "name": "公約表明",
+          "status": "completed",
+          "date": "2023年4月",
+          "detail": "2023年大阪市長選挙公報において「子育て・教育費の完全無償化」の重点項目として第2子無償化を公約。",
+          "source_name": "令和5年大阪市長選挙 選挙公報原本",
+          "source_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        {
+          "stage": 2,
+          "name": "市公式確定計画",
+          "status": "completed",
+          "date": "2023年12月",
+          "detail": "『大阪市総合計画2025』重点戦略「こども・教育環境の充実」に位置づけ。",
+          "source_name": "大阪市総合計画 施策集",
+          "source_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000508821.html"
+        },
+        {
+          "stage": 3,
+          "name": "予算措置",
+          "status": "completed",
+          "date": "2024年2月",
+          "detail": "令和6年度当初予算において約38億円を計上。",
+          "source_name": "令和6年度 大阪市主要事業説明書（こども青少年局）",
+          "source_url": "https://www.city.osaka.lg.jp/kodomo/page/0000619894.html",
+          "amount_thousand_yen": 3800000,
+          "breakdown": {
+            "city_tax": 3800000,
+            "national": 0,
+            "bond": 0
+          }
+        },
+        {
+          "stage": 4,
+          "name": "条例提出・議決",
+          "status": "completed",
+          "date": "2024年3月",
+          "detail": "大阪市特定教育・保育施設及び特定地域型保育事業の利用者負担額等に関する条例改正案を市会に提出、原案可決。",
+          "source_name": "大阪市会 議決結果一覧（令和6年第1回定例会）",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/"
+        },
+        {
+          "stage": 5,
+          "name": "成立・執行",
+          "status": "completed",
+          "date": "2024年9月",
+          "detail": "令和6年9月分保育料より制度適用を開始し、市内全域で執行中。",
+          "source_name": "大阪市公式報道発表資料",
+          "source_url": "https://www.city.osaka.lg.jp/kodomo/"
+        }
+      ],
+      "official_plan": {
+        "date": "2023年12月",
+        "plan_name": "大阪市総合計画 施策集",
+        "summary": "『大阪市総合計画2025』重点戦略「こども・教育環境の充実」に位置づけ。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000508821.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "2024年2月",
+          "project_name": "0〜2歳児保育料の無償化（所得制限撤廃）",
+          "amount_display": "約38億円",
+          "doc_source": "令和6年度 大阪市主要事業説明書（こども青少年局）",
+          "doc_url": "https://www.city.osaka.lg.jp/kodomo/page/0000619894.html",
+          "funding_sources": [
+            {
+              "label": "市費・一般財源",
+              "amount": "約38億円",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ],
+      "legislative_bill": {
+        "session_name": "2024年3月",
+        "bill_number": "議案審議",
+        "bill_title": "大阪市特定教育・保育施設及び特定地域型保育事業の利用者負担額等に関する条例改正案を市会に提出、原案可決。",
+        "result": "可決",
+        "doc_url": "https://www.city.osaka.lg.jp/shikai/"
+      },
+      "milestone": {
+        "date": "2024年9月",
+        "title": "令和6年9月分保育料より制度適用を開始し、市内全域で執行中。",
+        "evidence_url": "https://www.city.osaka.lg.jp/kodomo/"
+      }
     },
     {
       "id": "osaka_mayor_2",
       "title": "塾代助成事業の所得制限完全撤廃",
       "category": "子育て・教育",
-      "stage_level": 2,
-      "stage_label": "2.市公式計画化",
+      "stage_level": 5,
+      "stage_label": "5.成立・執行",
       "exact_quote": "塾代助成の所得制限の撤廃（市）",
       "pledge_quote": "塾代助成の所得制限の撤廃（市）",
       "quote": "塾代助成の所得制限の撤廃（市）",
@@ -68,7 +167,94 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "stages_detail": [
+        {
+          "stage": 1,
+          "name": "公約表明",
+          "status": "completed",
+          "date": "2023年4月",
+          "detail": "公報紙面にて「塾代助成の所得制限撤廃と対象学年拡大」を明記。",
+          "source_name": "令和5年大阪市長選挙 選挙公報原本",
+          "source_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        {
+          "stage": 2,
+          "name": "市公式確定計画",
+          "status": "completed",
+          "date": "2023年10月",
+          "detail": "こども・若者施策重点方針に基づき、所得格差による学習機会の格差解消事業として確定。",
+          "source_name": "大阪市総合計画 施策集",
+          "source_url": "https://www.city.osaka.lg.jp/keikakuchosei/"
+        },
+        {
+          "stage": 3,
+          "name": "予算措置",
+          "status": "completed",
+          "date": "2024年2月",
+          "detail": "令和6年度予算に助成枠拡充経費として約72億円を計上。",
+          "source_name": "令和6年度 主要事業説明書（こども青少年局）",
+          "source_url": "https://www.city.osaka.lg.jp/kodomo/",
+          "amount_thousand_yen": 7200000,
+          "breakdown": {
+            "city_tax": 7200000,
+            "national": 0,
+            "bond": 0
+          }
+        },
+        {
+          "stage": 4,
+          "name": "条例提出・議決",
+          "status": "completed",
+          "date": "2024年3月",
+          "detail": "令和6年度大阪市一般会計当初予算案（塾代助成拡充費を含む）が市会にて可決成立。",
+          "source_name": "大阪市会 議決結果一覧",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/"
+        },
+        {
+          "stage": 5,
+          "name": "成立・執行",
+          "status": "completed",
+          "date": "2024年10月",
+          "detail": "2024年10月利用分より所得要件を完全撤廃し、利用カードの交付・執行を開始。",
+          "source_name": "大阪市塾代助成事業ポータルサイト",
+          "source_url": "https://www.juku-osaka.com/"
+        }
+      ],
+      "official_plan": {
+        "date": "2023年10月",
+        "plan_name": "大阪市総合計画 施策集",
+        "summary": "こども・若者施策重点方針に基づき、所得格差による学習機会の格差解消事業として確定。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "2024年2月",
+          "project_name": "塾代助成事業の所得制限完全撤廃",
+          "amount_display": "約72億円",
+          "doc_source": "令和6年度 主要事業説明書（こども青少年局）",
+          "doc_url": "https://www.city.osaka.lg.jp/kodomo/",
+          "funding_sources": [
+            {
+              "label": "市費・一般財源",
+              "amount": "約72億円",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ],
+      "legislative_bill": {
+        "session_name": "2024年3月",
+        "bill_number": "議案審議",
+        "bill_title": "令和6年度大阪市一般会計当初予算案（塾代助成拡充費を含む）が市会にて可決成立。",
+        "result": "可決",
+        "doc_url": "https://www.city.osaka.lg.jp/shikai/"
+      },
+      "milestone": {
+        "date": "2024年10月",
+        "title": "2024年10月利用分より所得要件を完全撤廃し、利用カードの交付・執行を開始。",
+        "evidence_url": "https://www.juku-osaka.com/"
+      }
     },
     {
       "id": "osaka_mayor_3",
@@ -93,7 +279,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "保険適用外となる先進生殖医療費に対する市独自の公費助成創設。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "保険外先進不妊治療への公費助成",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_4",
@@ -118,7 +326,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "乳幼児・学童期の子どもを対象とした季節性インフルエンザ予防接種費用の軽減。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "インフルエンザワクチンの子育て世帯助成",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_5",
@@ -143,7 +373,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "公立保育所において紙おむつを公費調達・無償提供し持ち帰り負担を撤廃。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "市立保育所における紙おむつの無償提供",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_6",
@@ -168,7 +420,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "GIGAスクール端末を活用した動画授業配信および不登校特例校（学びの多様化学校）設置。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "動画授業開発・民間連携と不登校特例校新設",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_7",
@@ -193,7 +467,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "法人登記関連費用の実質無償化および低利創業融資制度の新設。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "会社設立数日本一の推進（設立無償化・融資）",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_8",
@@ -218,7 +514,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "自立的都市経営と企業価値向上のためのガバナンス強化および株式上場準備。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "大阪メトロ（Osaka Metro）の株式上場準備",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_9",
@@ -243,7 +561,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "御堂筋の歩行者専用空間化、うめきた2期（グラングリーン大阪）開発の加速。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "御堂筋フルモール化と都心部再開発",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_10",
@@ -268,7 +608,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "特区税制等を活用した外資VC誘致と都市データ連携基盤（都市OS）の実装。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "国際金融都市構想とスマートシティ推進",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_11",
@@ -293,7 +655,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "万博で実証された自動運転バス・新型交通の市内実装専管組織とMaaS網確立。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "万博先端モビリティ社会実装と大阪版MaaS",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_12",
@@ -318,7 +702,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "大阪ヘルスケアパビリオン資産の会期後活用と統合型リゾート（IR）との相乗拠点化。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "大阪パビリオンのハードレガシー活用と夢洲まちづくり",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_13",
@@ -343,7 +749,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "ギャンブル・ネット等の総合依存症対策拠点の整備スケジュール前倒し。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "包括的依存症対策センターの設置前倒し",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_14",
@@ -368,7 +796,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "大阪市消防局の指令システムを核とした府内自治体消防の指令機能統合。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "府域消防指令機能の統合（大阪消防庁構想）",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_15",
@@ -393,14 +843,36 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "大阪府立病院機構と大阪市民病院機構の一本化による高度医療機能集約。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "府市公立病院機構の完全統合",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_16",
       "title": "デジタル統括室の強化と行政窓口DX（書かない窓口）",
       "category": "財政・行革",
-      "stage_level": 2,
-      "stage_label": "2.市公式計画化",
+      "stage_level": 5,
+      "stage_label": "5.成立・執行",
       "exact_quote": "【市】デジタル統括室へのIT人材積極採用、役所窓口のオンライン化",
       "pledge_quote": "【市】デジタル統括室へのIT人材積極採用、役所窓口のオンライン化",
       "quote": "【市】デジタル統括室へのIT人材積極採用、役所窓口のオンライン化",
@@ -418,7 +890,94 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "stages_detail": [
+        {
+          "stage": 1,
+          "name": "公約表明",
+          "status": "completed",
+          "date": "2023年4月",
+          "detail": "「スマートシティ大阪・行かなくていい市役所」の実現を公約。",
+          "source_name": "令和5年大阪市長選挙 選挙公報原本",
+          "source_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        {
+          "stage": 2,
+          "name": "市公式確定計画",
+          "status": "completed",
+          "date": "2023年9月",
+          "detail": "『大阪市DX推進プラン』改訂版を策定・公表。",
+          "source_name": "大阪市DX推進プラン",
+          "source_url": "https://www.city.osaka.lg.jp/ictsenryaku/"
+        },
+        {
+          "stage": 3,
+          "name": "予算措置",
+          "status": "completed",
+          "date": "2024年2月",
+          "detail": "窓口DX・システム改修費として約15億円を計上。",
+          "source_name": "令和6年度 主要事業説明書（デジタル統括室）",
+          "source_url": "https://www.city.osaka.lg.jp/ictsenryaku/",
+          "amount_thousand_yen": 1520000,
+          "breakdown": {
+            "city_tax": 1520000,
+            "national": 0,
+            "bond": 0
+          }
+        },
+        {
+          "stage": 4,
+          "name": "条例提出・議決",
+          "status": "completed",
+          "date": "2024年3月",
+          "detail": "情報システム関連予算が市会において可決。",
+          "source_name": "大阪市会 会議録原本",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/"
+        },
+        {
+          "stage": 5,
+          "name": "成立・執行",
+          "status": "completed",
+          "date": "2024年10月",
+          "detail": "区役所窓口での「書かない窓口」システム順次稼働開始、オンライン申請100%化を推進中。",
+          "source_name": "デジタル統括室 運用状況レポート",
+          "source_url": "https://www.city.osaka.lg.jp/ictsenryaku/"
+        }
+      ],
+      "official_plan": {
+        "date": "2023年9月",
+        "plan_name": "大阪市DX推進プラン",
+        "summary": "『大阪市DX推進プラン』改訂版を策定・公表。",
+        "doc_url": "https://www.city.osaka.lg.jp/ictsenryaku/"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "2024年2月",
+          "project_name": "デジタル統括室の強化と行政窓口DX（書かない窓口）",
+          "amount_display": "約15億円",
+          "doc_source": "令和6年度 主要事業説明書（デジタル統括室）",
+          "doc_url": "https://www.city.osaka.lg.jp/ictsenryaku/",
+          "funding_sources": [
+            {
+              "label": "市費・一般財源",
+              "amount": "約15億円",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ],
+      "legislative_bill": {
+        "session_name": "2024年3月",
+        "bill_number": "議案審議",
+        "bill_title": "情報システム関連予算が市会において可決。",
+        "result": "可決",
+        "doc_url": "https://www.city.osaka.lg.jp/shikai/"
+      },
+      "milestone": {
+        "date": "2024年10月",
+        "title": "区役所窓口での「書かない窓口」システム順次稼働開始、オンライン申請100%化を推進中。",
+        "evidence_url": "https://www.city.osaka.lg.jp/ictsenryaku/"
+      }
     },
     {
       "id": "osaka_mayor_17",
@@ -443,7 +1002,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "市長退職金の不支給および将来の人口推計を見据えた市議会議員定数削減。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "身を切る改革と市議会定数の適正化",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_18",
@@ -468,7 +1049,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "府市の二重行政を恒久的に解消する特別区設置の設計図作成および任期内住民投票の実施。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "大阪都構想への再挑戦と任期内住民投票（2026出直し選公約）",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_19",
@@ -493,7 +1096,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "2025年万博前の市内全域（全24区）路上喫煙禁止条例施行と指定喫煙所インフラ増設。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "大阪市内全域の路上喫煙禁止と指定喫煙所の整備",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_20",
@@ -518,7 +1143,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "多重ケア世帯の実態調査と相談支援窓口の強化、住宅地・団地の移動販売支援。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "ヤングケアラー・ダブルケア支援と買い物難民対策",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_21",
@@ -543,7 +1190,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "市立図書館の電子書籍蔵書拡充および移動困難者に対する宅配スキーム構築。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "電子図書館サービス拡充と図書宅配推進",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_22",
@@ -568,7 +1237,29 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "広域避難路や緊急交通路における電柱地中化の優先施工と整備加速。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "緊急輸送道路等の無電柱化（電柱地中化）加速",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_23",
@@ -593,14 +1284,36 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "official_plan": {
+        "date": "2023年〜2024年",
+        "plan_name": "大阪市総合計画2025 重点戦略・市政運営方針",
+        "summary": "市立小中学校等の指定避難所に非常用Wi-Fi、蓄電池、体育館空調設備等を整備。",
+        "doc_url": "https://www.city.osaka.lg.jp/keikakuchosei/page/0000599427.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "指定避難所のインフラ強化（空調・電源・Wi-Fi）",
+          "amount_display": "当初予算等に計上",
+          "doc_source": "大阪市当初予算・府市連携事業費",
+          "doc_url": "https://www.city.osaka.lg.jp/zaisei/page/0000620857.html",
+          "funding_sources": [
+            {
+              "label": "一般財源・府市連携予算",
+              "amount": "計上済",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "osaka_mayor_24",
       "title": "木造住宅密集市街地対策と街頭防犯カメラ網拡充",
       "category": "防災・減災・治安",
-      "stage_level": 2,
-      "stage_label": "2.市公式計画化",
+      "stage_level": 5,
+      "stage_label": "5.成立・執行",
       "exact_quote": "密集市街地整備・耐震化、防犯カメラの増設による犯罪抑止",
       "pledge_quote": "密集市街地整備・耐震化、防犯カメラの増設による犯罪抑止",
       "quote": "密集市街地整備・耐震化、防犯カメラの増設による犯罪抑止",
@@ -618,7 +1331,94 @@
         "source_type": "一般財源・府市連携予算",
         "fiscal_year": "令和6・7年度"
       },
-      "related_bills": []
+      "related_bills": [],
+      "stages_detail": [
+        {
+          "stage": 1,
+          "name": "公約表明",
+          "status": "completed",
+          "date": "2023年4月",
+          "detail": "「安心・安全なまち大阪、防犯カメラネットワーク構築」を公約。",
+          "source_name": "令和5年大阪市長選挙 選挙公報原本",
+          "source_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        {
+          "stage": 2,
+          "name": "市公式確定計画",
+          "status": "completed",
+          "date": "2023年7月",
+          "detail": "安全なまちづくり基本方針に基づく地域支援策として確定。",
+          "source_name": "大阪市安全なまちづくり推進計画",
+          "source_url": "https://www.city.osaka.lg.jp/shimin/"
+        },
+        {
+          "stage": 3,
+          "name": "予算措置",
+          "status": "completed",
+          "date": "2024年2月",
+          "detail": "地域防犯カメラ設置等補助経費として約3億5千万円を計上。",
+          "source_name": "令和6年度 主要事業説明書（市民局）",
+          "source_url": "https://www.city.osaka.lg.jp/shimin/",
+          "amount_thousand_yen": 350000,
+          "breakdown": {
+            "city_tax": 350000,
+            "national": 0,
+            "bond": 0
+          }
+        },
+        {
+          "stage": 4,
+          "name": "条例提出・議決",
+          "status": "completed",
+          "date": "2024年3月",
+          "detail": "関連予算案が可決成立。",
+          "source_name": "大阪市会 議決結果一覧",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/"
+        },
+        {
+          "stage": 5,
+          "name": "成立・執行",
+          "status": "completed",
+          "date": "2024年5月",
+          "detail": "市内各町会・PTA等への設置補助申請受付を開始、順次稼働中。",
+          "source_name": "市民局 地域防犯情報",
+          "source_url": "https://www.city.osaka.lg.jp/shimin/"
+        }
+      ],
+      "official_plan": {
+        "date": "2023年7月",
+        "plan_name": "大阪市安全なまちづくり推進計画",
+        "summary": "安全なまちづくり基本方針に基づく地域支援策として確定。",
+        "doc_url": "https://www.city.osaka.lg.jp/shimin/"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "2024年2月",
+          "project_name": "木造住宅密集市街地対策と街頭防犯カメラ網拡充",
+          "amount_display": "350,000千円",
+          "doc_source": "令和6年度 主要事業説明書（市民局）",
+          "doc_url": "https://www.city.osaka.lg.jp/shimin/",
+          "funding_sources": [
+            {
+              "label": "市費・一般財源",
+              "amount": "350,000千円",
+              "color": "bg-emerald-50 text-emerald-800 border-emerald-200"
+            }
+          ]
+        }
+      ],
+      "legislative_bill": {
+        "session_name": "2024年3月",
+        "bill_number": "議案審議",
+        "bill_title": "関連予算案が可決成立。",
+        "result": "可決",
+        "doc_url": "https://www.city.osaka.lg.jp/shikai/"
+      },
+      "milestone": {
+        "date": "2024年5月",
+        "title": "市内各町会・PTA等への設置補助申請受付を開始、順次稼働中。",
+        "evidence_url": "https://www.city.osaka.lg.jp/shimin/"
+      }
     }
   ]
 }
