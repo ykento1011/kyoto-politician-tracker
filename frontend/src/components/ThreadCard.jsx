@@ -3,31 +3,31 @@ import { FileText, Lightbulb, MessageCircle, User, Landmark, ExternalLink, Chevr
 import { cleanName, cleanAuditorNote } from '../utils/styleHelpers';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
-export default function ThreadCard({stmt, speakerInfo, onSpeakerClick, onViewContext, showSpeakerHeader = true, cityCode}) {
+export default function ThreadCard({thread, statement, stmt, speakerInfo, onSpeakerClick, onViewContext, showSpeakerHeader = true, cityCode}) {
     // statement または thread のいずれかが渡されても受け取れるように防御的処理
       // URLパス または props/データから大阪を直接判定
   const isOsakaUrl = typeof window !== 'undefined' && window.location.pathname.startsWith('/osaka');
   const isOsakaThread = isOsakaUrl || 
                         cityCode === 'osaka' || 
-                        stmt?.council === '大阪市会' || 
-                        stmt?.council === '大阪市' ||
-                        thread?.council === '大阪市会' ||
-                        (typeof stmt?.meeting_name === 'string' && stmt.meeting_name.includes('大阪市')) ||
-                        (typeof thread?.meeting_name === 'string' && thread.meeting_name.includes('大阪市')) ||
-                        (typeof stmt?.committee_name === 'string' && stmt.committee_name.includes('大阪市')) ||
-                        (typeof thread?.committee_name === 'string' && thread.committee_name.includes('大阪市'));
+                        actualStmt?.council === '大阪市会' || 
+                        actualStmt?.council === '大阪市' ||
+                        safeThread?.council === '大阪市会' ||
+                        (typeof actualStmt?.meeting_name === 'string' && actualStmt.meeting_name.includes('大阪市')) ||
+                        (typeof safeThread?.meeting_name === 'string' && thread.meeting_name.includes('大阪市')) ||
+                        (typeof actualStmt?.committee_name === 'string' && actualStmt.committee_name.includes('大阪市')) ||
+                        (typeof safeThread?.committee_name === 'string' && thread.committee_name.includes('大阪市'));
   const councilOriginalLabel = isOsakaThread ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認';
 
   const [isNoteExpanded, setIsNoteExpanded] = useState(false);
 
   const activeMetrics = [
-    { label: '根拠・データ', val: stmt.evidence_score, color: 'bg-indigo-500' },
-    { label: '対案・是正策', val: stmt.solution_score, color: 'bg-emerald-500' },
-    { label: '地域解像度', val: stmt.local_focus_score, color: 'bg-amber-500' },
-    { label: '議論の進展', val: stmt.constructive_score, color: 'bg-purple-500' }
+    { label: '根拠・データ', val: actualStmt.evidence_score, color: 'bg-indigo-500' },
+    { label: '対案・是正策', val: actualStmt.solution_score, color: 'bg-emerald-500' },
+    { label: '地域解像度', val: actualStmt.local_focus_score, color: 'bg-amber-500' },
+    { label: '議論の進展', val: actualStmt.constructive_score, color: 'bg-purple-500' }
   ].filter((m) => m.val > 0);
 
-  const auditorNoteText = stmt.scoring_reasoning ? cleanAuditorNote(stmt.scoring_reasoning) : "";
+  const auditorNoteText = actualStmt.scoring_reasoning ? cleanAuditorNote(actualStmt.scoring_reasoning) : "";
 
   return (
     <article className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
@@ -36,7 +36,7 @@ export default function ThreadCard({stmt, speakerInfo, onSpeakerClick, onViewCon
       {showSpeakerHeader ? (
         <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
           <button
-            onClick={() => onSpeakerClick && onSpeakerClick(cleanName(stmt.speaker))}
+            onClick={() => onSpeakerClick && onSpeakerClick(cleanName(actualStmt.speaker))}
             className="flex items-start text-left hover:bg-slate-100 p-1.5 -ml-1.5 rounded-lg transition-colors group cursor-pointer"
           >
             <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-2.5 shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors mt-0.5">
@@ -45,7 +45,7 @@ export default function ThreadCard({stmt, speakerInfo, onSpeakerClick, onViewCon
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-sm font-black text-slate-900 group-hover:text-indigo-700 transition-colors">
-                  {stmt.speaker} <span className="text-[10px] font-medium text-slate-500 font-normal">議員</span>
+                  {actualStmt.speaker} <span className="text-[10px] font-medium text-slate-500 font-normal">議員</span>
                 </span>
                 {speakerInfo && (
                   <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border inline-block ${speakerInfo.style.badgeClass}`}>
@@ -63,27 +63,27 @@ export default function ThreadCard({stmt, speakerInfo, onSpeakerClick, onViewCon
           </button>
           <div className="flex items-center gap-2 text-right">
             <span className="px-2 py-0.5 bg-white text-slate-600 text-[10px] font-bold rounded border border-slate-200 shrink-0">
-              {stmt.category}
+              {actualStmt.category}
             </span>
-            <span className="text-slate-400 text-xs font-medium shrink-0">{stmt.meeting_date}</span>
+            <span className="text-slate-400 text-xs font-medium shrink-0">{actualStmt.meeting_date}</span>
           </div>
         </div>
       ) : (
         <div className="p-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50/50">
           <span className="px-2 py-0.5 bg-white text-slate-600 text-[10px] font-bold rounded border border-slate-200">
-            {stmt.category}
+            {actualStmt.category}
           </span>
-          <span className="text-slate-400 text-xs font-medium">{stmt.meeting_date}</span>
+          <span className="text-slate-400 text-xs font-medium">{actualStmt.meeting_date}</span>
         </div>
       )}
 
       <div className="p-5 flex flex-col md:flex-row gap-6">
         <div className="md:w-3/5 flex flex-col gap-2">
-          <h3 className="text-xs font-bold text-slate-500 mb-1 leading-snug">{stmt.meeting_title}</h3>
+          <h3 className="text-xs font-bold text-slate-500 mb-1 leading-snug">{actualStmt.meeting_title}</h3>
           <h4 className="text-[10px] font-bold text-slate-400 uppercase flex items-center">
             <FileText className="w-3 h-3 mr-1" />質疑スレッド要旨
           </h4>
-          <p className="text-sm leading-relaxed text-slate-700 mt-1">{stmt.summary}</p>
+          <p className="text-sm leading-relaxed text-slate-700 mt-1">{actualStmt.summary}</p>
         </div>
 
         <div className="md:w-2/5 bg-slate-50 p-4 rounded-xl border border-slate-100 flex flex-col">
