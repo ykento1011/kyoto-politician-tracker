@@ -16,7 +16,6 @@ const OSAKA_HOT_TOPICS = [
   "特区民泊",
   "路上喫煙禁止",
   "学校 熱中症",
-  "国民健康保険 統一",
 ];
 
 export default function HeroSection({

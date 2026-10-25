@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-  ArrowLeft, Compass, Search, Milestone, Users, 
+  ArrowLeft, Compass, Search, Milestone, Users, Flag, 
   Scale, Landmark, CheckCircle2, ArrowRight, ShieldCheck,
   Layers, Table, BarChart3, BookOpen, BookmarkCheck, Coins, BookCheck
 } from 'lucide-react';
@@ -234,14 +234,26 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
               AI要約やスコアは議論を広く見渡すための補助線に過ぎません。当サイトでは、選挙管理委員会の<strong>選挙公報PDF</strong>、京都市会の<strong>会議録原本</strong>、行財政担当部局の<strong>主要事業説明書PDF</strong>への直リンクを完備。気になる点があればいつでも公的な一次公文書を開いて裏取りを行えます。
             </p>
-            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
-              <div className="font-black text-slate-900 flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                信頼性の担保：
+            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-2.5">
+              <div>
+                <div className="font-black text-slate-900 flex items-center gap-1.5 mb-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  一次資料の正確性と信頼性の担保：
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  AIの要約や解釈を自ら検証できるよう、すべての発言スレッド・公約・予算データが公的な一次公文書に直接紐づいています。
+                </p>
               </div>
-              <p className="text-slate-600">
-                AIの解釈を一次資料から検証できるよう、すべてのデータが公的な一次公文書に直接紐づいています。
-              </p>
+
+              <div className="pt-2 border-t border-slate-200/80">
+                <div className="font-bold text-slate-800 flex items-center gap-1.5 mb-1">
+                  <Flag className="w-3.5 h-3.5 text-rose-500" />
+                  リンク切れや資料の誤りを発見した場合（ワンクリック報告）：
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  各資料リンクの右隣にある「旗マーク（⚑）」をクリックすると、該当の発言やURL情報が自動入力された状態で報告フォームが開きます。URLのコピー＆ペースト等は不要で、選択肢を選ぶだけで数秒で運営へ不備を通知できます。
+                </p>
+              </div>
             </div>
           </section>
 
