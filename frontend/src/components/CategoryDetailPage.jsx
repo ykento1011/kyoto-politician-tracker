@@ -475,7 +475,7 @@ export default function CategoryDetailPage({
                     <div className="space-y-6">
                         {displayedThreads.length > 0 ? (
                             displayedThreads.map((stmt) => (
-                                <ThreadCard
+                                <ThreadCard cityCode={cityCode}
                                     key={stmt.id}
                                     stmt={stmt}
                                     speakerInfo={speakerStats.find(s => s.speaker === cleanName(stmt.speaker))}

@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import MiniSearch from 'minisearch';
 import { VALID_COUNCILORS, cleanName, determineCouncilorStyle } from '../utils/styleHelpers';
 import { getCouncilorMasterInfo } from '../utils/councilorMaster';
+import { getOsakaCouncilorMasterInfo, OSAKA_VALID_COUNCILORS } from '../utils/osakaCouncilorMaster';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
@@ -31,7 +32,7 @@ function shuffleWithDailySeed(array) {
   return arr;
 }
 
-export function useStatements() {
+export function useStatements(cityCode = 'kyoto') {
   const [statements, setStatements] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -66,7 +67,7 @@ export function useStatements() {
 
   useEffect(() => {
     fetchStatements();
-  }, []);
+  }, [cityCode]);
 
   const fetchStatements = async () => {
     setIsLoading(true);
@@ -74,7 +75,8 @@ export function useStatements() {
 
     try {
       try {
-        const res = await fetch('/data/statements_summary.json');
+        const prefix = cityCode === 'kyoto' ? '' : `${cityCode}_`;
+        const res = await fetch(`/data/${prefix}statements_summary.json`);
         if (res.ok) {
           const text = await res.text();
           if (text.trim().startsWith('[') || text.trim().startsWith('{')) {
@@ -118,8 +120,11 @@ export function useStatements() {
         const rawSpeaker = stmt.speaker || '';
         const speakerName = cleanName ? cleanName(rawSpeaker) : rawSpeaker;
 
-        if (VALID_COUNCILORS && Array.isArray(VALID_COUNCILORS)) {
+        if (cityCode === 'kyoto' && VALID_COUNCILORS && Array.isArray(VALID_COUNCILORS)) {
           if (!VALID_COUNCILORS.includes(speakerName) && !VALID_COUNCILORS.includes(rawSpeaker)) return;
+        }
+        if (cityCode === 'osaka' && OSAKA_VALID_COUNCILORS && Array.isArray(OSAKA_VALID_COUNCILORS)) {
+          if (!OSAKA_VALID_COUNCILORS.includes(speakerName) && !OSAKA_VALID_COUNCILORS.includes(rawSpeaker)) return;
         }
 
         const ev = Number(stmt.evidence_score || 0);
@@ -173,14 +178,14 @@ export function useStatements() {
       .map(([name, count]) => ({ name, count, percentage: total > 0 ? ((count / total) * 100).toFixed(1) : 0 }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 8);
-  }, [statements]);
+  }, [statements, cityCode]);
 
   const speakerStats = useMemo(() => {
     const stats = {};
     statements.forEach((stmt) => {
       const spk = stmt.speaker;
       if (!stats[spk]) {
-        const masterInfo = getCouncilorMasterInfo ? getCouncilorMasterInfo(spk) : {};
+        const masterInfo = cityCode === 'kyoto' ? (getCouncilorMasterInfo ? getCouncilorMasterInfo(spk) : {}) : (getOsakaCouncilorMasterInfo ? getOsakaCouncilorMasterInfo(spk) : {});
         stats[spk] = {
           speaker: spk, count: 0,
           evidence_score: 0, solution_score: 0, local_focus_score: 0, constructive_score: 0,
@@ -216,7 +221,7 @@ export function useStatements() {
         };
       })
       .sort((a, b) => b.count - a.count);
-  }, [statements]);
+  }, [statements, cityCode]);
 
   useEffect(() => {
     if (!initialRouteSet && speakerStats.length > 0) {
@@ -359,7 +364,7 @@ export function useStatements() {
     }
     if (selectedDistrict) {
       list = list.filter((s) => {
-        const info = getCouncilorMasterInfo ? getCouncilorMasterInfo(s.speaker) : {};
+        const info = cityCode === 'kyoto' ? (getCouncilorMasterInfo ? getCouncilorMasterInfo(s.speaker) : {}) : (getOsakaCouncilorMasterInfo ? getOsakaCouncilorMasterInfo(s.speaker) : {});
         return info.district === selectedDistrict;
       });
     }
@@ -373,7 +378,7 @@ export function useStatements() {
 
     // 💡 100件制限（.slice(0, 100)）を解除し、全件を返す
     return list;
-  }, [statements, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch]);
+  }, [statements, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch, cityCode]);
 
   const speakerFilteredThreads = useMemo(() => {
     if (!selectedSpeaker) return [];
@@ -404,7 +409,8 @@ export function useStatements() {
 
         if (!meetingTimelines) {
           try {
-            const res = await fetch(`/data/timelines/${meetingId}.json`);
+            const prefix = cityCode === 'kyoto' ? '' : `${cityCode}_`;
+            const res = await fetch(`/data/${prefix}timelines/${meetingId}.json`);
             if (res.ok) {
               meetingTimelines = await res.json();
               timelineCache.set(meetingId, meetingTimelines);

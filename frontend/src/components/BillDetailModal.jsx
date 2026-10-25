@@ -19,7 +19,7 @@ export default function BillDetailModal({
   issue,
   speakerStats = [],
   onSpeakerClick
-}) {
+, cityCode = 'kyoto'}) {
   if (!isOpen || !bill) return null;
 
   // 各議員の所属会派・無所属ステータスに基づき、賛成議員・反対議員を特定
@@ -154,7 +154,7 @@ export default function BillDetailModal({
             </div>
           ) : (
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 text-xs text-slate-500">
-              全会一致で可決・認定された議案のため、会派間の対立論点は生じていません。
+              {Object.values(bill.votes || {}).includes('反対') ? '会派間で賛否が分かれた重要議案です。' : '全会一致で可決・認定された議案です。会派間の対立論点は生じていません。'}
             </div>
           )}
 
@@ -260,12 +260,12 @@ export default function BillDetailModal({
           {bill.source_url && (
             <div className="pt-2 text-right">
               <a 
-                href={bill.source_url} 
+                href={bill.source_url || (cityCode === "osaka" ? "https://www.city.osaka.lg.jp/shikai/page/0000001592.html" : "https://www.city.kyoto.lg.jp/shikai/")} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-flex items-center text-xs font-bold text-indigo-600 hover:underline"
               >
-                京都市会 公式審議結果ページを開く <ExternalLink className="w-3 h-3 ml-1" />
+                {cityCode === 'osaka' ? '大阪市会 公式審議結果ページを開く' : '京都市会 公式審議結果ページを開く'} <ExternalLink className="w-3 h-3 ml-1" />
               </a>
             </div>
           )}

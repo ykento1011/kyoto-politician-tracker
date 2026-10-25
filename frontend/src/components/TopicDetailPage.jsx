@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
-export default function TopicDetailPage({ topicId, onBack }) {
+export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto' }) {
   const [topic, setTopic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [copiedShare, setCopiedShare] = useState(false);
@@ -15,10 +15,12 @@ export default function TopicDetailPage({ topicId, onBack }) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    fetch('/data/topic_summaries.json')
+    const dataUrl = cityCode === 'osaka' ? '/data/osaka_topic_summaries.json' : '/data/topic_summaries.json';
+    fetch(dataUrl)
       .then((res) => res.json())
       .then((data) => {
-        const found = data.find((t) => t.topic_id === topicId) || data[0];
+        const found = data.find((t) => t.topic_id === topicId);
+        setTopic(found || data[0]);
         setTopic(found);
         setIsLoading(false);
       })
@@ -26,7 +28,7 @@ export default function TopicDetailPage({ topicId, onBack }) {
         console.error('Failed to load topic:', err);
         setIsLoading(false);
       });
-  }, [topicId]);
+  }, [topicId, cityCode]);
 
   const handleShare = () => {
     if (navigator.clipboard) {
@@ -243,7 +245,7 @@ export default function TopicDetailPage({ topicId, onBack }) {
                             className="inline-flex items-center text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors cursor-pointer group shadow-2xs"
                           >
                             <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600 group-hover:text-indigo-700" />
-                            <span>京都市会 公式原本で確認</span>
+                              <span>{cityCode === 'osaka' ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認'}</span>
                             <ExternalLink className="w-3 h-3 ml-1.5 text-slate-400 group-hover:text-slate-600" />
                           </button>
                         </div>

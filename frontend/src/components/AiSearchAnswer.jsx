@@ -37,7 +37,7 @@ export default function AiSearchAnswer({ query, filteredThreads, onOpenTopicDeta
           if (filteredThreads && filteredThreads.length > 0) {
             const topThreads = filteredThreads.slice(0, 3);
             setDynamicSummary({
-              lead: `京都市議会において「${query}」に関連する質疑が計${filteredThreads.length}件記録されています。直近では主に以下の委員会・会議体で議論が行われています。`,
+              lead: `本議会において「${query}」に関連する質疑が計${filteredThreads.length}件記録されています。直近では主に以下の委員会・会議体で議論が行われています。`,
               points: topThreads.map(t => ({
                 text: t.summary || (t.statement_text || '').slice(0, 100) + '...',
                 speaker: t.speaker,
@@ -151,7 +151,7 @@ export default function AiSearchAnswer({ query, filteredThreads, onOpenTopicDeta
                       className="inline-flex items-center text-[11px] font-bold text-slate-700 hover:text-indigo-600 bg-white hover:bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg transition-colors cursor-pointer shrink-0 shadow-2xs"
                     >
                       <Landmark className="w-3 h-3 mr-1 text-indigo-600" />
-                      <span>京都市会 原本で確認</span>
+                      <span>本議会 原本で確認</span>
                       <ExternalLink className="w-2.5 h-2.5 ml-1 text-slate-400" />
                     </button>
                   </div>

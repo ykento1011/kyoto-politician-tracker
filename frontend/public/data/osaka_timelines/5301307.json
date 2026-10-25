@@ -1,0 +1,20 @@
+{
+  "7": [
+    {
+      "sequence_number": 6,
+      "speaker": "竹下隆",
+      "statement_text": "御異議なしと認めます。よって、木下誠君が満場一致をもって委員長に当選されました。\nそれでは、委員長とこの席を交代いたします。",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "木下誠",
+      "statement_text": "一言御挨拶申し上げます。\nただいま皆様の御推挙を得まして、決算特別委員長に就任させていただきました木下でございます。今後、委員の皆様の御協力をいただきながら、円滑な委員会運営に努めてまいりたいと存じますので、よろしくお願い申し上げます。\nこれより大阪市会委員会条例第７条第４項の規定により、副委員長２人の互選を行います。\n互選の方法はいかがいたしましょうか。",
+      "is_target": true,
+      "is_admin": false,
+      "is_short_procedural": false
+    }
+  ]
+}

@@ -45,7 +45,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               本プラットフォームの基本理念：主観的ラベリングを排した「一次公文書ファクト対比」
             </div>
             <p className="text-slate-600 text-xs leading-relaxed">
-              「公約違反」や「点数付け（通信簿）」といった恣意的な合否判定は行いません。選挙管理委員会発行の選挙公報原本、市会公式の採決結果・会議録原本、京都市の予算書（主要事業説明書）という公式に公開された一次資料を直接突き合わせ、有権者自身が判断できる情報環境を提供します。
+              「公約違反」や「点数付け（通信簿）」といった恣意的な合否判定は行いません。選挙管理委員会発行の選挙公報原本、市会公式の採決結果・会議録原本、自治体の予算書（主要事業説明書）という公式に公開された一次資料を直接突き合わせ、有権者自身が判断できる情報環境を提供します。
             </p>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               選挙時の看板公約に対し、「実際の採決や議場質疑でどう行動したか」がわかる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              2023年京都市議会議員選挙の公式選挙公報原本（PDF）から各議員の看板政策を抽出し、市会での実際の投票態度（賛成/反対）や関連質疑ログを並列提示します。包括予算で執行される政策についても、議場で市側にどのような是正や拡充を迫ったかの質疑要旨と公式会議録直リンクを1対1で突き合わせることができます。
+              直近の地方議員選挙の公式選挙公報原本（PDF）から各議員の看板政策を抽出し、議会での実際の投票態度（賛成/反対）や関連質疑ログを並列提示します。包括予算で執行される政策についても、議場で市側にどのような是正や拡充を迫ったかの質疑要旨と公式会議録直リンクを1対1で突き合わせることができます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -85,10 +85,10 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               機能 02 / 市長政策ライフサイクル×予算定量トラッカー
             </div>
             <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-              松井市長の公約が「公式計画」や「予算」にどう具体化されたかを追う
+              首長の公約が「公式計画」や「予算」にどう具体化されたかを追う
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              予算編成権と議案提出権を持つ市長の公約14項目を対象に、「①公約表明 ➔ ②市公式確定計画（新京都戦略 政策集） ➔ ③予算措置（主要事業説明書の計上額・財源内訳） ➔ ④条例提出・市会可決 ➔ ⑤成立・執行」という5段階の政策ライフサイクルを追跡します。テキスト要約だけでなく、京都市発行の主要事業説明書から抽出した「千円単位の計上額」や「宿泊税・国費・一般財源の内訳」、各会派の賛否態度まで幅広く収録しています。
+              予算編成権と議案提出権を持つ首長の主要公約を対象に、「①公約表明 ➔ ②市公式確定計画（自治体公式確定計画） ➔ ③予算措置（主要事業説明書の計上額・財源内訳） ➔ ④条例提出・市会可決 ➔ ⑤成立・執行」という5段階の政策ライフサイクルを追跡します。テキスト要約だけでなく、自治体発行の主要事業説明書から抽出した「千円単位の計上額」や「宿泊税・国費・一般財源の内訳」、各会派の賛否態度まで幅広く収録しています。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -97,8 +97,8 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               </div>
               <ul className="list-disc list-inside space-y-1 pl-1 text-slate-600">
                 <li>市長の公約が単なる口約束で終わらず、実際にいくらの予算がつき、どの財源（宿泊税充当など）で賄われているのかを数字で検証したい時</li>
-                <li>市長公約が市の最上位計画である『新京都戦略』に正式に位置づけられているかを確認したい時</li>
-                <li>市長が提出した条例案に対して、市会の各会派（自民・公明・維新京都国民・共産など）がどう採決したかを確認したい時</li>
+                <li>首長公約が自治体の最上位計画に正式に位置づけられているかを確認したい時</li>
+                <li>市長が提出した条例案に対して、議会の各政党・会派がどう採決したかを確認したい時</li>
               </ul>
             </div>
           </section>
@@ -160,7 +160,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               重要政策の「これまでの経緯と現在の着地点」がわかる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              「市バスの混雑対策」「空き家税」「北陸新幹線延伸」「全員制中学校給食」など、京都市の重要政策32論点を厳選。複数年度にまたがる議場の議論をAIがフェーズごとに整理し、<strong>「行政のスタンスがどう変わり、今どこまで進んでいるか」</strong>を時系列で把握できます。
+              対象自治体の重要政策論点を厳選。複数年度にまたがる議場の議論をAIがフェーズごとに整理し、<strong>「行政のスタンスがどう変わり、今どこまで進んでいるか」</strong>を時系列で把握できます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -184,7 +184,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               どの議案で「誰が賛成し、誰が反対したのか」がわかる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              市議会に提出された全議案の賛否結果を網羅。全会一致で可決された議案だけでなく、<strong>「賛否が分かれた議案（Contested Bills）」</strong>に絞り込み、なぜ反対意見が出たのか、対立の背景にある争点をAI解説とともに確認できます。各議案をクリックすると、無所属議員を含む全議員の個別の投票態度も一目で確認できます。
+              市議会に提出された全議案の賛否結果を網羅。全会一致で可決された議案だけでなく、<strong>「賛否が分かれた議案」</strong>に絞り込み、なぜ反対意見が出たのか、対立の背景にある争点をAI解説とともに確認できます。各議案をクリックすると、無所属議員を含む全議員の個別の投票態度も一目で確認できます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -232,7 +232,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               公報・会議録・予算書原本をワンクリックで直接検証できる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              AI要約やスコアは議論を広く見渡すための補助線に過ぎません。当サイトでは、選挙管理委員会の<strong>選挙公報PDF</strong>、京都市会の<strong>会議録原本</strong>、行財政局の<strong>主要事業説明書PDF</strong>への直リンクを完備。気になる点があればいつでも公的な一次公文書を開いて裏取りを行えます。
+              AI要約やスコアは議論を広く見渡すための補助線に過ぎません。当サイトでは、選挙管理委員会の<strong>選挙公報PDF</strong>、京都市会の<strong>会議録原本</strong>、行財政担当部局の<strong>主要事業説明書PDF</strong>への直リンクを完備。気になる点があればいつでも公的な一次公文書を開いて裏取りを行えます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">

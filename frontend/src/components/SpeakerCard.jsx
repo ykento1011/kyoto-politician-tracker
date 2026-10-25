@@ -43,7 +43,7 @@ export default function SpeakerCard({
       <div className="p-6">
         {/* 上段：顔写真・議員名・選挙区・会派 */}
         <div className="flex items-center gap-3.5 mb-3.5">
-          <div className="w-13 h-15 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center shadow-2xs">
+          <div className="w-14 h-18 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center shadow-2xs">
             {!imgError ? (
               <img
                 src={currentSrc}
@@ -51,7 +51,7 @@ export default function SpeakerCard({
                 loading="lazy"
                 decoding="async"
                 onError={handleImageError}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             ) : (
               <User className="w-6 h-6 text-slate-300" />

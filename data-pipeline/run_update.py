@@ -48,7 +48,6 @@ def notify_discord(title, description="", status="info", error_detail=""):
     if not webhook_url:
         return
 
-    # ステータス別カラー (16進数RGB)
     colors = {
         "success": 0x2ecc71,  # 緑
         "info": 0x3498db,     # 青
@@ -58,7 +57,7 @@ def notify_discord(title, description="", status="info", error_detail=""):
     color = colors.get(status, 0x3498db)
 
     fields = [
-        {"name": "実行環境", "value": "Windows タスクスケジューラ (ローカル)", "inline": True},
+        {"name": "実行環境", "value": "タスクスケジューラ / 手動実行", "inline": True},
         {"name": "実行時刻", "value": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "inline": True}
     ]
 
@@ -74,7 +73,7 @@ def notify_discord(title, description="", status="info", error_detail=""):
             "description": description,
             "color": color,
             "fields": fields,
-            "footer": {"text": "議会のミカタ 京都 パイプライン監視"}
+            "footer": {"text": "議会のミカタ パイプライン監視"}
         }]
     }
 
@@ -129,7 +128,8 @@ def summarize_new_minutes(before_ids):
         count = len(new_items)
         sample = new_items[-1]
         sample_date = sample.get("meeting_date", "")
-        sample_title = sample.get("meeting_title", "").replace("京都市会", "").strip()[:18]
+        raw_title = sample.get("meeting_title", "").strip()
+        sample_title = raw_title[:20]
         
         return f"【{sample_date} {sample_title} など新着{count}件】"
     except Exception:
@@ -165,8 +165,12 @@ def push_to_github(custom_detail=""):
         return False, str(e)
 
 def main():
+    is_dry_run = "--dry-run" in sys.argv or "--no-push" in sys.argv
+
     print("\n" + "="*60)
-    log("Sagebase 定期監視・全自動データ更新パイプラインを開始")
+    log("定期監視・全自動データ更新パイプラインを開始")
+    if is_dry_run:
+        log("🧪 ドライランモード: GitHub へのデプロイ（commit/push）は行われません")
     print("="*60)
 
     # 1. 取得前の議事録 ID を控える
@@ -174,15 +178,15 @@ def main():
     before_count = len(before_ids)
 
     # 2. 議事録データの取得 (fetch_sagebase)
-    success, output = run_script(FETCH_SCRIPT, "Sagebaseからの新着議事録取得")
+    success, output = run_script(FETCH_SCRIPT, "新着議事録データの取得")
     if not success:
         log("データ取得で致命的エラー。パイプラインを中断します。", "ERROR")
-        notify_discord("❌ 定期更新エラー: 議事録取得失敗", "Sagebaseからのデータ取得中にエラーが発生しました。", status="error", error_detail=output)
+        notify_discord("❌ 定期更新エラー: 議事録取得失敗", "データ取得スクリプトの実行中にエラーが発生しました。", status="error", error_detail=output)
         return
 
     # 3. 議決・賛否データの更新
     log("--- [議決・賛否データの更新チェック] ---")
-    scrape_ok, _ = run_script(SCRAPE_VOTES_SCRIPT, "京都市会HPからの議案・賛否スクレイピング")
+    scrape_ok, _ = run_script(SCRAPE_VOTES_SCRIPT, "議会公式HPからの議案・賛否スクレイピング")
     if scrape_ok:
         issues_ok, _ = run_script(GENERATE_ISSUES_SCRIPT, "Geminiによる新規対立議案の争点分析")
         if not issues_ok:
@@ -212,42 +216,46 @@ def main():
             notify_discord("❌ 定期更新エラー: タイムライン生成失敗", "タイムラインJSONの分割処理中にエラーが発生しました。", status="error", error_detail=err)
             return
 
-        # 7. フロントエンド用 サマリー生成（カテゴリー精査・原本URL統合版）
+        # 7. フロントエンド用 サマリー生成
         ok, err = run_script(STATIC_DATA_SCRIPT, "フロントエンド用 サマリーJSON生成")
         if not ok:
             notify_discord("❌ 定期更新エラー: サマリー生成失敗", "statements_summary.json の生成中にエラーが発生しました。", status="error", error_detail=err)
             return
 
-        # 7.6 政策タイムライン（topic_summaries.json）の最新化
-        ok, _ = run_script(TOPIC_TIMELINES_SCRIPT, "32大政策論点タイムラインの差分更新")
+        # 7.6 政策タイムラインの最新化
+        ok, _ = run_script(TOPIC_TIMELINES_SCRIPT, "主要政策論点タイムラインの差分更新")
         if not ok:
             log("政策タイムライン更新で警告が出ましたがパイプラインは続行します", "WARN")
 
     else:
         log("✅ 新しい議事録はありませんでした。")
 
-    # 7.7 看板公約トラッカー（pledge_tracker.json）の最新化
+    # 7.7 議員看板公約トラッカーの最新化
     log("--- [公約・政策トラッカーの最新化] ---")
     p_ok, _ = run_script(BUILD_PLEDGE_TRACKER_SCRIPT, "議員看板公約トラッカーの再結合（質疑・採決リンク更新）")
     if not p_ok:
         log("議員公約トラッカー更新で警告が出ましたが続行します", "WARN")
 
-    # 7.8 松井市長 政策ライフサイクル×予算トラッカー（mayor_tracker.json）の最新化
-    m_ok, _ = run_script(BUILD_MAYOR_TRACKER_SCRIPT, "松井市長 政策ライフサイクル・予算トラッカーの更新")
+    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化
+    m_ok, _ = run_script(BUILD_MAYOR_TRACKER_SCRIPT, "首長 政策ライフサイクル・予算トラッカーの更新")
     if not m_ok:
-        log("市長政策トラッカー更新で警告が出ましたが続行します", "WARN")
+        log("首長政策トラッカー更新で警告が出ましたが続行します", "WARN")
     log("--- [公約・政策トラッカーの最新化完了] ---")
 
     # 8. Git差分チェックとデプロイ
     has_changes = check_for_changes()
     if has_changes:
-        log("データファイルに変更があります。デプロイ処理へ進みます。")
-        push_ok, push_msg = push_to_github(new_detail_str)
-        if push_ok:
-            detail_desc = f"**更新内容:** {new_detail_str}\nGitHub (`main`) への自動デプロイが完了しました。" if new_detail_str else "議決・公約・政策トラッカーの更新を反映し、GitHub へデプロイしました。"
-            notify_discord("🎉 定期更新完了: 新着データを反映しました", detail_desc, status="success")
+        log("データファイルに変更があります。")
+        if is_dry_run:
+            log("🧪 ドライランのため、GitHub へのコミット・プッシュはスキップしました。", "WARN")
+            notify_discord("🧪 テスト実行完了: 新着データあり（未デプロイ）", "ドライランモードで実行されたため、GitHub へのプッシュは保留されました。", status="info")
         else:
-            notify_discord("⚠️ 定期更新警告: Gitプッシュ失敗", f"データ生成は成功しましたが、GitHub へのプッシュに失敗しました。\n`{push_msg}`", status="warn")
+            push_ok, push_msg = push_to_github(new_detail_str)
+            if push_ok:
+                detail_desc = f"**更新内容:** {new_detail_str}\nGitHub (`main`) への自動デプロイが完了しました。" if new_detail_str else "議決・公約・政策トラッカーの更新を反映し、GitHub へデプロイしました。"
+                notify_discord("🎉 定期更新完了: 新着データを反映しました", detail_desc, status="success")
+            else:
+                notify_discord("⚠️ 定期更新警告: Gitプッシュ失敗", f"データ生成は成功しましたが、GitHub へのプッシュに失敗しました。\n`{push_msg}`", status="warn")
     else:
         log("✅ 変更されたデータはありませんでした（手元のデータは最新です）。")
         notify_discord("✅ 定期チェック完了: 新着データなし", "議事録・議決データの定期巡回を実施しました。更新対象の差分はありませんでした。", status="info")

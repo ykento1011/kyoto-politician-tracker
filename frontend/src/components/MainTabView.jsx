@@ -9,10 +9,16 @@ import BillsSection from './BillsSection';
 
 const INITIAL_SPEAKERS_LIMIT = 12;
 const INITIAL_THREADS_LIMIT = 10;
-const DISTRICTS = ['北区', '上京区', '左京区', '中京区', '東山区', '下京区', '南区', '右京区', '西京区', '伏見区', '山科区'];
+const KYOTO_DISTRICTS = ['北区', '上京区', '左京区', '中京区', '東山区', '下京区', '南区', '右京区', '西京区', '伏見区', '山科区'];
+const OSAKA_DISTRICTS = [
+  '北区', '都島区', '福島区', '此花区', '中央区', '西区', '港区', '大正区', 
+  '天王寺区', '浪速区', '西淀川区', '淀川区', '東淀川区', '東成区', '生野区', 
+  '旭区', '城東区', '鶴見区', '阿倍野区', '住之江区', '住吉区', '東住吉区', '平野区', '西成区'
+];
 
 export default function MainTabView({
-  viewMode,
+  cityCode = 'kyoto',
+viewMode,
   setViewMode,
   filteredSpeakers = [],
   filteredThreads = [],
@@ -40,6 +46,9 @@ export default function MainTabView({
   onSelectBill,
   onOpenMethodology
 }) {
+  const activeDistricts = React.useMemo(() => {
+    return cityCode === 'osaka' ? OSAKA_DISTRICTS : KYOTO_DISTRICTS;
+  }, [cityCode]);
   const [visibleSpeakersCount, setVisibleSpeakersCount] = useState(INITIAL_SPEAKERS_LIMIT);
   const [visibleThreadsCount, setVisibleThreadsCount] = useState(INITIAL_THREADS_LIMIT);
 
@@ -108,7 +117,7 @@ export default function MainTabView({
               className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 outline-none cursor-pointer"
             >
               <option value="">すべての選挙区（行政区）</option>
-              {DISTRICTS.map(d => (
+              {activeDistricts.map(d => (
                 <option key={d} value={d}>{d}</option>
               ))}
             </select>
@@ -229,7 +238,7 @@ export default function MainTabView({
         <div className="space-y-6">
           <div className="space-y-6">
             {displayedThreads.map((stmt) => (
-              <ThreadCard
+              <ThreadCard cityCode={cityCode} 
                 key={stmt.id}
                 stmt={stmt}
                 speakerInfo={speakerStats.find(s => s.speaker === stmt.speaker)}

@@ -1,0 +1,52 @@
+{
+  "4": [
+    {
+      "sequence_number": 3,
+      "speaker": "吉見みさこ",
+      "statement_text": "説明は以上であります。\n質疑なり意見のある方はお願いいたします。",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "山田はじめ",
+      "statement_text": "維新の山田はじめでございます。\n今ほど消防局長さんから御説明もありましたが、今回発生した事案について、改めてこの概要と経緯について詳しくお聞きをできればと思います。お願いします。",
+      "is_target": true,
+      "is_admin": false,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "土肥消防局総務部総務課長",
+      "statement_text": "お答え申し上げます。\n条例改正の手続に当たり、総務局から送付されてまいりました決裁済みの条例案を基に、市会提出用の議案となります条例案と公報掲載データを作成しておりましたが、昨日、総務局より公報掲載データに誤りがあるとの指摘を受けまして、市会提出用の議案となります条例案を確認したところ、健康増進法で規定しております喫煙専用室標識が設置されている場合は火災予防条例で定めます標識を設置しなくてもよい旨の規定につきまして、内容の一部に誤りがあることが発覚したものでございます。\n附則第３項中の「健康増進法の一部を改正する法律」で御承認をいただいておりましたが、正しくは、「喫煙専用室標識又は健康増進法の一部を改正する法律」でございまして、「喫煙専用室標識又は」の文言が欠落していたものでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "山田はじめ",
+      "statement_text": "ということでございました。\nそれでは、この再発防止についてどのように取り組まれようとお考えなのか、教えていただければと思います。",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "土肥消防局総務部総務課長",
+      "statement_text": "お答え申し上げます。\n総務局から送付されました決裁済みの条例案と市会提出用の議案となります条例案との確認を徹底いたしますとともに、議案として提出する際には、必ず複数回の読み合わせを励行してまいりたいと思います。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "山田はじめ",
+      "statement_text": "消防局さんの再発防止策については、一定の理解をさせていただいたところでございます。\n今回の件について、消防局に限らず全庁的に起こり得る問題かなとも思いますので、必要な対策については関係局でしっかりと対応していただくようにお願いしたいと思います。私からは以上でございます。",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": false
+    }
+  ]
+}

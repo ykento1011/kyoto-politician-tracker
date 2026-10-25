@@ -9,6 +9,7 @@ import BillsSection from './BillsSection';
 import AiSearchAnswer from './AiSearchAnswer';
 import { cleanName } from '../utils/styleHelpers';
 
+// activeCityCode フォールバック
 export default function SearchResultsView({
   submittedQuery,
   onClearSearch,
@@ -26,6 +27,7 @@ export default function SearchResultsView({
   onOpenMethodology,
   onOpenTopicDetail
 }) {
+  const activeCityCode = typeof cityCode !== 'undefined' ? cityCode : (typeof window !== 'undefined' && window.location.pathname.startsWith('/osaka') ? 'osaka' : 'kyoto');
   const [activeTab, setActiveTab] = useState('threads');
 
   // 💡 検索結果が完全に0件かどうかの判定
@@ -66,7 +68,7 @@ export default function SearchResultsView({
       </header>
 
       {/* 論点の要旨・ポイント解説 ＆ 一次情報位置カード（0件時は自動で非表示になります） */}
-      <AiSearchAnswer
+      <AiSearchAnswer cityCode={activeCityCode}
         query={submittedQuery}
         filteredThreads={filteredThreads}
         onOpenTopicDetail={onOpenTopicDetail}
@@ -86,7 +88,7 @@ export default function SearchResultsView({
                 「{submittedQuery}」に関する議論は見つかりませんでした
               </h2>
               <p className="text-sm font-medium text-slate-500 leading-relaxed">
-                京都市議会の現任期（2023年5月〜）の議事録ログには、このキーワードに直接一致する質疑は記録されていません。
+                本議会の現任期（2023年5月〜）の議事録ログには、このキーワードに直接一致する質疑は記録されていません。
               </p>
             </div>
 
@@ -98,7 +100,7 @@ export default function SearchResultsView({
                 </h3>
                 <p className="text-xs text-slate-700 leading-relaxed font-medium">
                   当サイトは<strong>「議会の公式記録（ファクト）」</strong>のみを根拠とするシステムです。<br />
-                  例えば「京都御所」や「京都御苑」は環境省など国の管轄であり、<strong>京都市の予算や権限が直接及ばないテーマは、市議会で取り上げられにくい傾向</strong>があります。<br /><br />
+                  例えば、国や都道府県の管轄であり、<strong>本市の予算や権限が直接及ばないテーマは、市議会で取り上げられにくい傾向</strong>があります。<br /><br />
                   一般的なAIのように事実に基づかない推測（ハルシネーション）で適当な回答をすることを防ぐため、議事録に一次情報が存在しない場合は、意図的に「0件」としてご案内する安全設計としています。
                 </p>
               </div>
@@ -175,7 +177,7 @@ export default function SearchResultsView({
               <div className="space-y-6">
                 {filteredThreads.length > 0 ? (
                   filteredThreads.map((stmt) => (
-                    <ThreadCard 
+                    <ThreadCard cityCode={activeCityCode} 
                       key={stmt.id} 
                       stmt={stmt} 
                       speakerInfo={speakerStats.find(s => s.speaker === cleanName(stmt.speaker))} 

@@ -1,7 +1,7 @@
 /**
- * 京都市会 公式会議録システム原本への完全ダイレクト遷移処理
+ * 自治体公式会議録システム原本への完全ダイレクト遷移処理
  */
-export function openOfficialMinute(stmt) {
+export function openOfficialMinute(stmt, cityCode = 'kyoto') {
   if (!stmt) return;
 
   let targetUrl = stmt.source_url || '';
@@ -12,7 +12,7 @@ export function openOfficialMinute(stmt) {
 
   // 1. source_url が存在する場合（最優先・1クリック原本直行）
   if (targetUrl && targetUrl.startsWith('http')) {
-    // 動作確認された安定パラメータ（is_search=false と view_years）を補完
+    // kaigiroku.net 共通のパラメータ補正
     if (!targetUrl.includes('is_search=')) {
       targetUrl += (targetUrl.includes('?') ? '&' : '?') + 'is_search=false';
     }
@@ -24,22 +24,25 @@ export function openOfficialMinute(stmt) {
   }
 
   // 2. council_id と schedule_id が個別にある場合
+  const tenant = cityCode === 'osaka' ? 'cityosaka' : 'kyoto';
   if (stmt.council_id && stmt.schedule_id) {
-    const directUrl = `https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=${stmt.council_id}&schedule_id=${stmt.schedule_id}&is_search=false${viewYear ? `&view_years=${viewYear}` : ''}`;
+    const directUrl = `https://ssp.kaigiroku.net/tenant/${tenant}/MinuteView.html?council_id=${stmt.council_id}&schedule_id=${stmt.schedule_id}&is_search=false${viewYear ? `&view_years=${viewYear}` : ''}`;
     window.open(directUrl, '_blank', 'noopener,noreferrer');
     return;
   }
 
-  // 3. 完全なフォールバック（公式検索システムトップ）
-  window.open('https://ssp.kaigiroku.net/tenant/kyoto/MinuteSearch.html', '_blank', 'noopener,noreferrer');
+  // 3. フォールバック（各都市の公式検索トップ）
+  const fallbackUrl = `https://ssp.kaigiroku.net/tenant/${tenant}/MinuteSearch.html`;
+  window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
 }
 
 /**
  * ツールチップ文言
  */
-export function getOfficialLinkTooltip(stmt) {
+export function getOfficialLinkTooltip(stmt, cityCode = 'kyoto') {
+  const cityName = cityCode === 'osaka' ? '大阪市会' : '京都市会';
   if (stmt?.source_url) {
-    return '京都市会公式サーバー上の会議録原本を直接開きます';
+    return `${cityName}公式サーバー上の会議録原本を直接開きます`;
   }
-  return '京都市会公式の会議録システムを開きます';
+  return `${cityName}公式の会議録システムを開きます`;
 }

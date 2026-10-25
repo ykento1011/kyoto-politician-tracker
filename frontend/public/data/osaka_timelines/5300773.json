@@ -1,0 +1,28 @@
+{
+  "85": [
+    {
+      "sequence_number": 84,
+      "speaker": "土岐恭生",
+      "statement_text": "杉田忠裕君。\n（81番杉田忠裕君登壇）",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 85,
+      "speaker": "杉田忠裕",
+      "statement_text": "昨年度実施のプレミアム付商品券が、市内経済の活性化や市民生活の下支えにも寄与したとの御答弁でした。\n市長の選挙戦を通して、前市長がプレミアム付商品券夏版について言及されていました。\nまた、高槻市においては、既に第５弾まで実施し、さらにプレミアム率を50％まで上げております。\n物価の高騰により、逼迫している事業者の経営、市民の生活を何とか下支えするため、プレミアム付商品券第２弾を実施していただきたいと考えますが、再度市長の認識をお伺いいたします。",
+      "is_target": true,
+      "is_admin": false,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 86,
+      "speaker": "土岐恭生",
+      "statement_text": "横山市長。\n（市長横山英幸君登壇）",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": true
+    }
+  ]
+}

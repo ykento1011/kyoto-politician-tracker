@@ -1,26 +1,80 @@
 {
-  "mayor_info": {
-    "name": "松井孝治",
-    "term_number": 27,
-    "term_start": "2024-02-25",
-    "election_date": "2024-02-04",
-    "bulletin_pdf": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
-    "strategy_main_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/sinkyotosenryaku.pdf",
-    "strategy_policy_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+  "city": {
+    "id": "kyoto",
+    "name": "京都市",
+    "council_name": "京都市会"
   },
-  "summary_stats": {
-    "total_pledges": 14,
-    "stages": {
-      "enacted": 4,
-      "bill_submitted": 0,
-      "budgeted": 8,
-      "official_plan_only": 2,
-      "reviewing": 0
+  "mayor_info": {
+    "name": "松井 孝治",
+    "title": "第27代 京都市長",
+    "party": "無所属",
+    "term": "就任: 2024年2月25日 / 任期: 2024年2月25日 〜 2028年2月24日",
+    "profile_image": "/councilors/matsui_koji.jpg",
+    "fallback_image": "/councilors/matsui_koji.jpg",
+    "primary_documents": [
+      {
+        "label": "市長選公報 原本PDF",
+        "url": "https://www.city.kyoto.lg.jp/senkan/cmsfiles/contents/0000321/321853/kouhou.pdf",
+        "type": "manifesto"
+      },
+      {
+        "label": "新京都戦略 政策集（確定版）",
+        "url": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html",
+        "type": "strategy"
+      }
+    ]
+  },
+  "kpis": [
+    {
+      "label": "公約関連予算総額",
+      "value": "104.1億円",
+      "subtext": "主要事業説明書 定量計上",
+      "theme": "indigo"
     },
-    "total_allocated_budget_jpy": "104億1,316万円",
-    "total_allocated_budget_raw": 10413158000,
-    "accommodation_tax_revenue_jpy": "132億円（令和8年度見込）",
-    "debt_repayment_jpy": "年間35億円ペース堅持"
+    {
+      "label": "宿泊税収見込",
+      "value": "132億円",
+      "subtext": "財源エンジン化推進",
+      "badge": "R8見込",
+      "theme": "emerald"
+    },
+    {
+      "label": "過去負債返済ペース",
+      "value": "年間35億円",
+      "subtext": "公債基金償還を堅持",
+      "theme": "blue"
+    }
+  ],
+  "lifecycle_definition": {
+    "title": "新京都戦略（確定版）× 政策ライフサイクル追跡",
+    "description": "市長公約が単なるスローガンにとどまらず「①公約表明 ➔ ②市公式計画化（新京都戦略 政策集） ➔ ③予算措置（主要事業説明書） ➔ ④条例提出・可決 ➔ ⑤成立・執行」へと法制化・具現化されたかを公式に公開された一次資料に基づいて追跡します。",
+    "stages": [
+      {
+        "level": 1,
+        "label": "1.公約表明",
+        "desc": "市長選公報原本"
+      },
+      {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "desc": "新京都戦略 政策集（確定版）"
+      },
+      {
+        "level": 3,
+        "label": "3.予算措置",
+        "desc": "主要事業説明書（計上額・財源）"
+      },
+      {
+        "level": 4,
+        "label": "4.条例提出",
+        "desc": "市会での審議・可決"
+      },
+      {
+        "level": 5,
+        "label": "5.成立・執行",
+        "desc": "制度運用・目標完了"
+      }
+    ]
   },
   "pledges": [
     {
@@ -38,7 +92,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "重点プロジェクト「市民生活と調和した持続可能な観光と移動」に明記。国とのパイロットプロジェクトを通じた市民優先の運賃体系導入方針を市の総合戦略として公式確定。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/templates/pubcomment/cmsfiles/contents/0000335/335143/seisakushuu.pdf"
       },
       "budget_records": [
         {
@@ -56,7 +110,7 @@
             }
           ],
           "doc_source": "令和8年度予算案記者会見資料 p.15",
-          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf"
+          "doc_url": ""
         },
         {
           "fiscal_year": "令和8年度 当初予算",
@@ -79,7 +133,7 @@
             }
           ],
           "doc_source": "令和8年度予算案記者会見資料 p.15",
-          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": {
@@ -92,12 +146,14 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "賛成"
-        }
+        },
+        "doc_url": ""
       },
       "milestone": {
         "date": "2024-06-01",
         "title": "観光特急バス（EX100・EX101系統）運行開始",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/kotsu/page/0000358942.html"
       }
     },
     {
@@ -115,7 +171,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「持続可能な行財政運営の確立」の基幹戦略として明記。観光課題解決・インフラ受入環境整備への使途拡充および最高税額見直しを公式計画化。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/templates/pubcomment/cmsfiles/contents/0000335/335143/seisakushuu.pdf"
       },
       "budget_records": [
         {
@@ -133,7 +189,7 @@
             }
           ],
           "doc_source": "令和8年度主要事業説明書（観光政策室分）",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000348/348991/R8_jigyo_kanko.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": {
@@ -146,12 +202,14 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "反対"
-        }
+        },
+        "doc_url": "https://www.city.kyoto.lg.jp/templates/shingikai_kekka/cmsfiles/contents/0000331/331667/hosoku.pdf"
       },
       "milestone": {
         "date": "2025-12-15",
         "title": "市会本会議にて宿泊税条例改正案が賛成多数で可決",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000336570.html"
       }
     },
     {
@@ -169,7 +227,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「子育て環境日本一・健やかな学びの保障」に明記。PFI給食センター整備と親子方式の連携による全市立中学校での完全実施工程を法定計画として位置づけ。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/kyoiku/cmsfiles/contents/0000332/332819/seibi.pdf"
       },
       "budget_records": [
         {
@@ -199,7 +257,7 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（教育委員会分） p.8",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000336/336421/R7_jigyo_kyoiku.pdf"
+          "doc_url": ""
         },
         {
           "fiscal_year": "令和8年度 当初予算",
@@ -216,7 +274,7 @@
             }
           ],
           "doc_source": "令和8年度予算案主要事業説明書 p.12",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000348/348991/R8_jigyo_kyoiku.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": {
@@ -229,12 +287,14 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "反対"
-        }
+        },
+        "doc_url": ""
       },
       "milestone": {
         "date": "2025-10-24",
         "title": "給食センター事業実施契約議案が市会で可決・着工",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000331783.html"
       }
     },
     {
@@ -252,7 +312,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「府市協調・子育て負担軽減プロジェクト」に位置づけ。小児通院医療費の自己負担上限月200円の対象拡充および多子世帯の保育料無償化推進を公式確定。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/page/0000353316.html"
       },
       "budget_records": [
         {
@@ -276,7 +336,7 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（はぐくみ局分） p.14",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000336/336421/R7_jigyo_hagukumi.pdf"
+          "doc_url": ""
         },
         {
           "fiscal_year": "令和7年度 当初予算",
@@ -299,7 +359,7 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（はぐくみ局分） p.16",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000336/336421/R7_jigyo_hagukumi.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": {
@@ -312,12 +372,14 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "賛成"
-        }
+        },
+        "doc_url": "https://www2.city.kyoto.lg.jp/shikai/img/iinkai/soumushoubou/R06/date/060926gyozai3.pdf"
       },
       "milestone": {
         "date": "2024-09-01",
         "title": "通院医療費月200円上限の対象を小学校卒業まで完全拡充",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/hagukumi/page/0000179571.html"
       }
     },
     {
@@ -335,7 +397,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「歴史都市京都の景観・町家継承と若者定住」に明記。居住用町家の改修助成拡充や税負担軽減措置の制度設計を法定計画に位置づけ。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/tokei/page/0000348082.html"
       },
       "budget_records": [
         {
@@ -359,7 +421,7 @@
             }
           ],
           "doc_source": "令和8年度予算案主要事業説明書（都市計画局）",
-          "doc_url": "https://www.city.kyoto.lg.jp/tokei/cmsfiles/contents/0000348/348991/R8_tokei_machiya.pdf"
+          "doc_url": ""
         },
         {
           "fiscal_year": "令和7年度 当初予算",
@@ -382,14 +444,15 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（都市計画局） p.22",
-          "doc_url": "https://www.city.kyoto.lg.jp/tokei/cmsfiles/contents/0000336/336421/R7_tokei_sumai.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": null,
       "milestone": {
         "date": "2024-10-01",
         "title": "京町家カルテ制度のデジタル化・流通プラットフォーム運用開始",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/tokei/page/0000330039.html"
       }
     },
     {
@@ -407,7 +470,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「都市再生・産業立地戦略」の最重点ゾーンとして指定。京都駅東南部および三条京阪における高機能オフィス誘導と都市計画特例活用を確定。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
       },
       "budget_records": [
         {
@@ -425,7 +488,7 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（総合企画局） p.5",
-          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000336/336421/R7_sogo_project.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": {
@@ -438,12 +501,14 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "反対"
-        }
+        },
+        "doc_url": ""
       },
       "milestone": {
         "date": "2024-12-01",
         "title": "京都駅東南部エリアのまちづくり方針改定案公表",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": ""
       }
     },
     {
@@ -461,7 +526,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「知恵産業創造・グローバルスタートアップ拠点化」プログラムに明記。大学発ディープテック実証拠点の整備と国内外ベンチャーキャピタル呼び込みを策定。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
       },
       "budget_records": [
         {
@@ -491,14 +556,15 @@
             }
           ],
           "doc_source": "令和8年度予算案主要事業説明書（産業観光局）",
-          "doc_url": "https://www.city.kyoto.lg.jp/sankan/cmsfiles/contents/0000348/348991/R8_sankan_startup.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": null,
       "milestone": {
         "date": "2024-07-04",
         "title": "国内最大級スタートアップカンファレンス「IVS京都」開催支援",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": ""
       }
     },
     {
@@ -516,7 +582,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「クリエイティブ市役所変革・DX推進」に位置づけ。ガバメントクラウド標準化対応、行政手続オンライン化率95%目標、BPR徹底を公式計画化。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000335/335405/siryou1.pdf"
       },
       "budget_records": [
         {
@@ -534,7 +600,7 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（総合企画局デジタル化推進室）",
-          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000336/336421/R7_sogo_digital.pdf"
+          "doc_url": ""
         },
         {
           "fiscal_year": "令和7年度 9月補正",
@@ -551,14 +617,15 @@
             }
           ],
           "doc_source": "令和7年度9月補正予算概要 p.3",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000341/341201/R7_09hosei_gaiyo.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": null,
       "milestone": {
         "date": "2024-04-01",
         "title": "市長直轄「政策企画・改革推進室」の新設",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": ""
       }
     },
     {
@@ -576,7 +643,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「財政規律と公債償還の堅持」を戦略全体の最重要前提条件として位置づけ。公債償還基金取崩し分の計画的返済完了に向けたロードマップを策定。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000335/335405/siryou1.pdf"
       },
       "budget_records": [
         {
@@ -594,7 +661,7 @@
             }
           ],
           "doc_source": "令和7年度9月補正予算概要 p.1",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000341/341201/R7_09hosei_gaiyo.pdf"
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000356/356936/11gyozaisei.pdf"
         },
         {
           "fiscal_year": "令和8年度 当初予算",
@@ -611,7 +678,7 @@
             }
           ],
           "doc_source": "令和8年度予算案概要 p.4",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000348/348991/R8_yosan_gaiyo.pdf"
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000356/356936/11gyozaisei.pdf"
         }
       ],
       "legislative_bill": {
@@ -624,12 +691,14 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "反対"
-        }
+        },
+        "doc_url": ""
       },
       "milestone": {
         "date": "2024-08-01",
         "title": "2年連続の財政再生団体転落危機の完全回避確認",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000356933.html"
       }
     },
     {
@@ -647,7 +716,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「文化首都・京都の飛躍」施策として位置づけ。文化庁との密接な連携のもと、皇室文化の継承発信と国立文化財修理センター機能の京都誘致を公式計画化。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000358/358269/sinkyoutosennryaku.pdf"
       },
       "budget_records": [
         {
@@ -671,14 +740,15 @@
             }
           ],
           "doc_source": "令和8年度予算案主要事業説明書（文化市民局）",
-          "doc_url": "https://www.city.kyoto.lg.jp/bunshi/cmsfiles/contents/0000348/348991/R8_bunka_shuri.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": null,
       "milestone": {
         "date": "2024-11-20",
         "title": "文部科学大臣に対する文化財保存修理体制強化に関する政策要望書の提出",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000134557.html"
       }
     },
     {
@@ -696,7 +766,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「生活環境と調和した観光管理」施策に明記。主要観光地へのスマートごみ箱（SmaGO）の継続的配備とパーク＆ライド等の交通マネジメントを規定。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
       },
       "budget_records": [
         {
@@ -720,14 +790,15 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（環境政策局） p.9",
-          "doc_url": "https://www.city.kyoto.lg.jp/kankyo/cmsfiles/contents/0000336/336421/R7_kankyo_smago.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": null,
       "milestone": {
         "date": "2024-08-01",
         "title": "嵐山・清水・祇園エリアへのスマートごみ箱40基配備",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/kankyo/page/0000354131.html"
       }
     },
     {
@@ -745,7 +816,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「郊外拠点・ニュータウン再生プロジェクト」として公式策定。洛西SAIKOプロジェクト等の若者・子育て世帯向け居住・コミュニティ再生を位置づけ。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/digitalbook/page/0000002399.html"
       },
       "budget_records": [
         {
@@ -775,14 +846,15 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（建設局） p.18",
-          "doc_url": "https://www.city.kyoto.lg.jp/kensetu/cmsfiles/contents/0000336/336421/R7_kensetu_rakusai.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": null,
       "milestone": {
         "date": "2024-07-01",
         "title": "洛西SAKAIBA共創拠点オープン",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/tokei/page/0000312065.html"
       }
     },
     {
@@ -800,7 +872,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「北山文化ゾーンのにぎわい創出」施策に明記。植物園の自然環境と京都コンサートホール等の文化拠点を調和させた文化発信・音楽イベント構想を位置づけ。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
       },
       "budget_records": [
         {
@@ -824,14 +896,15 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（文化市民局） p.11",
-          "doc_url": "https://www.city.kyoto.lg.jp/bunshi/cmsfiles/contents/0000336/336421/R7_bunshi_kitayama.pdf"
+          "doc_url": ""
         }
       ],
       "legislative_bill": null,
       "milestone": {
         "date": "2024-12-01",
         "title": "府市北山エリア整備連絡会議の再開",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": ""
       }
     },
     {
@@ -849,7 +922,7 @@
         "date": "2026-03-01",
         "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
         "summary": "「誰ひとり取り残さない共生福祉」重点項目に位置づけ。精神通院医療費助成の確実な運用と若年がん患者在宅療養支援の定着を公定計画化。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+        "doc_url": "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000181039.html"
       },
       "budget_records": [
         {
@@ -873,7 +946,7 @@
             }
           ],
           "doc_source": "令和7年度主要事業説明書（保健福祉局） p.27",
-          "doc_url": "https://www.city.kyoto.lg.jp/hokenfukushi/cmsfiles/contents/0000336/336421/R7_fukushi_seishin.pdf"
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000323/323068/08_hokenhukushi.pdf"
         }
       ],
       "legislative_bill": {
@@ -886,13 +959,29 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "賛成"
-        }
+        },
+        "doc_url": ""
       },
       "milestone": {
         "date": "2025-01-01",
         "title": "精神障害者通院医療費助成の拡充施行",
-        "status": "achieved"
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000323924.html"
       }
     }
-  ]
+  ],
+  "summary_stats": {
+    "total_pledges": 14,
+    "stages": {
+      "enacted": 4,
+      "bill_submitted": 0,
+      "budgeted": 8,
+      "official_plan_only": 2,
+      "reviewing": 0
+    },
+    "total_allocated_budget_jpy": "104億1,316万円",
+    "total_allocated_budget_raw": 10413158000,
+    "accommodation_tax_revenue_jpy": "132億円（令和8年度見込）",
+    "debt_repayment_jpy": "年間35億円ペース堅持"
+  }
 }

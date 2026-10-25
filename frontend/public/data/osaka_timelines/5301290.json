@@ -1,0 +1,20 @@
+{
+  "2": [
+    {
+      "sequence_number": 1,
+      "speaker": "野上らん",
+      "statement_text": "ただいまから建設港湾委員会を開会いたします。\n本日の記録署名者を金子委員にお願いいたします。\n議事に入るに先立ち、10月28日付で清水こう君が本委員会委員に就任されておりますので御紹介申し上げます。",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "清水こう",
+      "statement_text": "御紹介いただきました大阪維新の会の清水こうでございます。\n今回から建設港湾委員会の所属になりました。皆様、どうぞよろしくお願いいたします。",
+      "is_target": true,
+      "is_admin": false,
+      "is_short_procedural": false
+    }
+  ]
+}

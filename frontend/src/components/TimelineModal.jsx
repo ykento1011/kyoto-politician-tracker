@@ -6,7 +6,8 @@ export default function TimelineModal({
   isOpen,
   onClose,
   selectedContext,
-  isLoading
+  isLoading,
+  cityCode = 'kyoto'
 }) {
   const [showPrevious, setShowPrevious] = useState(false);
 
@@ -46,12 +47,12 @@ export default function TimelineModal({
           <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0">
             {targetStatement && (
               <button
-                onClick={() => openOfficialMinute(targetStatement)}
-                title={getOfficialLinkTooltip(targetStatement)}
+                onClick={() => openOfficialMinute(targetStatement, cityCode)}
+                title={getOfficialLinkTooltip(targetStatement, cityCode)}
                 className="inline-flex items-center text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer group"
               >
                 <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600" />
-                <span>京都市会 公式原本で確認</span>
+                <span>{cityCode === 'osaka' ? '大阪市会' : '京都市会'} 公式原本で確認</span>
                 <ExternalLink className="w-3 h-3 ml-1 text-indigo-400 group-hover:text-indigo-600" />
               </button>
             )}

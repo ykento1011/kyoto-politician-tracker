@@ -48,13 +48,13 @@ function SpeakerAvatar({ speakerName }) {
   };
 
   return (
-    <div className="w-12 h-14 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center shadow-2xs">
+    <div className="w-12 h-16 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 flex items-center justify-center shadow-2xs">
       {!error ? (
         <img
           src={src}
           alt={speakerName}
           onError={handleError}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
           loading="lazy"
         />
       ) : (
@@ -653,7 +653,7 @@ export default function CompareDashboard({
                                       <img
                                         src={`/councilors/${(row.speaker || '').replace(/\s+/g, '')}.jpg`}
                                         alt={row.speaker}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover object-top"
                                         onError={(e) => { e.target.style.display = 'none'; }}
                                       />
                                     </div>
@@ -875,7 +875,7 @@ export default function CompareDashboard({
                                       <img
                                         src={`/councilors/${(row.speaker || '').replace(/\s+/g, '')}.jpg`}
                                         alt={row.speaker}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover object-top"
                                         onError={(e) => { e.target.style.display = 'none'; }}
                                       />
                                     </div>
@@ -997,7 +997,7 @@ export default function CompareDashboard({
                             </div>
                             {item.thread ? (
                               <div className="flex-1 border-2 rounded-2xl rounded-tl-none overflow-hidden bg-white shadow-sm" style={{ borderColor: COMPARE_COLORS[idx % COMPARE_COLORS.length] }}>
-                                <ThreadCard stmt={item.thread} onSpeakerClick={() => { }} onViewContext={onViewContext} showSpeakerHeader={false} />
+                                <ThreadCard cityCode={cityCode} stmt={item.thread} onSpeakerClick={() => { }} onViewContext={onViewContext} showSpeakerHeader={false} />
                               </div>
                             ) : (
                               <div className="flex-1 border-2 border-slate-200 border-dashed rounded-2xl rounded-tl-none bg-white p-6 text-center text-slate-400 text-xs">該当データなし</div>

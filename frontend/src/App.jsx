@@ -1,3 +1,14 @@
+const safeFetchJson = async (url) => {
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const text = await res.text();
+    if (text.trim().startsWith('<')) return null; // HTMLフォールバック防止
+    return JSON.parse(text);
+  } catch (e) {
+    return null;
+  }
+};
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -18,6 +29,7 @@ import AboutPage from './components/AboutPage';
 import Methodology from './components/Methodology';
 import GuidePage from './components/GuidePage';
 import { useStatements } from './hooks/useStatements';
+import FeedbackButton from './components/FeedbackButton';
 
 function getCategoryForBill(b) {
   const text = `${b.title || ''} ${b.key_conflict || ''} ${b.background || ''}`;
@@ -71,6 +83,19 @@ function parseCurrentRoute() {
 }
 
 export default function App() {
+  // 💡 URLのパスから初期都市を判定（デフォルトはkyoto）
+  const [cityCode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      const params = new URLSearchParams(window.location.search);
+      if (path.startsWith('/osaka') || params.get('city') === 'osaka') {
+        return 'osaka';
+      }
+      return 'kyoto';
+    }
+    return 'kyoto';
+  });
+
   const {
     statements,
     isLoading,
@@ -100,7 +125,7 @@ export default function App() {
     speakerStats,
     filteredSpeakers,
     filteredThreads
-  } = useStatements();
+  } = useStatements(cityCode); // 💡 cityCode をフックに渡す
 
   const [votesData, setVotesData] = useState([]);
   const [billIssuesList, setBillIssuesList] = useState([]);
@@ -115,12 +140,15 @@ export default function App() {
   const [currentRoute, setCurrentRoute] = useState(() => parseCurrentRoute());
 
   useEffect(() => {
-    fetch('/data/votes_summary.json')
+    // 💡 都市に応じたデータをフェッチするように修正（将来的にosaka_votes_summary.json等に対応できるよう）
+    const prefix = cityCode === 'kyoto' ? '' : `${cityCode}_`;
+
+    fetch(`/data/${prefix}votes_summary.json`)
       .then(res => (res.ok ? res.json() : []))
       .then(data => setVotesData(data))
       .catch(err => console.error('Failed to load votes:', err));
 
-    fetch('/data/bill_issues.json')
+    fetch(`/data/${prefix}bill_issues.json`)
       .then(res => (res.ok ? res.json() : []))
       .then(data => {
         setBillIssuesList(data);
@@ -132,13 +160,12 @@ export default function App() {
       })
       .catch(err => console.error('Failed to load bill issues:', err));
 
-    fetch('/data/mayor_tracker.json')
+    fetch(`/data/${prefix}mayor_tracker.json`)
       .then(res => (res.ok ? res.json() : null))
       .then(data => setMayorTrackerData(data))
       .catch(err => console.error('Failed to load mayor tracker:', err));
-  }, []);
+  }, [cityCode]);
 
-  // 💡 URLとブラウザ戻るボタン（popstate）の同期
   useEffect(() => {
     const onLocationChange = () => {
       const nextRoute = parseCurrentRoute();
@@ -162,15 +189,63 @@ export default function App() {
     };
   }, [setSearchQuery, setSubmittedQuery]);
 
+  // 💡 都市に応じたSEOメタタグの動的書き換え
+  useEffect(() => {
+    const isOsaka = cityCode === 'osaka';
+
+    const title = isOsaka
+      ? "議会のミカタ 大阪 ｜ AIは入口。判断するのは市民です。"
+      : "議会のミカタ 京都 ｜ AIは入口。判断するのは市民です。";
+
+    const description = isOsaka
+      ? "大阪市会公式会議録と議決データを客観的に構造化。現職81議員・1,260超の質疑スレッド分析、賛否が分かれた議案の記録、横山市長政策進捗トラッカー（一次資料・予算照合）により、市民が自ら確認・判断できるオープンデータ基盤。"
+      : "京都市会公式会議録12万発言と議決データを客観的に構造化。4軸による質疑分析、賛否が分かれた議案の記録、選挙公報原本に基づく看板公約の照合により、市民が自ら一次情報で確認・判断できるオープンデータ・プラットフォーム。";
+
+    const canonicalUrl = isOsaka
+      ? "https://gikai-mikata.jp/osaka"
+      : "https://gikai-mikata.jp/";
+
+    // document.title
+    document.title = title;
+
+    // メタタグ更新ヘルパー
+    const setMeta = (selector, attr, value) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        const [attrName, attrVal] = selector.replace(/[\[\]'"]/g, '').split('=');
+        el.setAttribute(attrName, attrVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+
+    setMeta("meta[name='description']", "content", description);
+    setMeta("meta[property='og:title']", "content", title);
+    setMeta("meta[property='og:description']", "content", description);
+    setMeta("meta[property='og:url']", "content", canonicalUrl);
+    setMeta("meta[name='twitter:title']", "content", title);
+    setMeta("meta[name='twitter:description']", "content", description);
+
+    // Canonical
+    let linkCanonical = document.querySelector("link[rel='canonical']");
+    if (linkCanonical) {
+      linkCanonical.setAttribute("href", canonicalUrl);
+    }
+  }, [cityCode]);
+
   const navigate = useCallback((url, replace = false) => {
+    const basePath = cityCode === 'kyoto' ? '' : `/${cityCode}`; // basePathを考慮
+    const finalUrl = url.startsWith('/') ? `${basePath}${url}` : `${basePath}/${url}`;
+
     if (replace) {
-      window.history.replaceState({}, '', url);
+      window.history.replaceState({}, '', finalUrl);
     } else {
-      window.history.pushState({}, '', url);
+      window.history.pushState({}, '', finalUrl);
     }
     window.dispatchEvent(new Event('app-navigate'));
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+  }, [cityCode]);
 
   const resolveSpeaker = useCallback((spk) => {
     if (!spk) return null;
@@ -316,7 +391,7 @@ export default function App() {
     return (
       <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center space-y-4">
         <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin" />
-        <p className="text-sm font-black text-slate-500 tracking-wider">京都市議会データを読み込み中...</p>
+        <p className="text-sm font-black text-slate-500 tracking-wider">議会データを読み込み中...</p>
       </div>
     );
   }
@@ -330,12 +405,12 @@ export default function App() {
       onOpenCompare={() => handleOpenCompare()}
       onOpenMayor={() => navigateToView('mayor')}
       isCompareMode={isCompare}
+      cityCode={cityCode} // 💡 NavbarにcityCodeを渡す
     />
   );
 
   // --- 排他的画面ルーティング ---
 
-  // 💡 市長政策ライフサイクル×予算定量トラッカー
   if (currentRoute.type === 'mayor') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
@@ -349,6 +424,7 @@ export default function App() {
           />
         </div>
         <BillDetailModal
+          cityCode={cityCode}
           isOpen={Boolean(selectedBillForModal)}
           onClose={() => setSelectedBillForModal(null)}
           bill={selectedBillForModal}
@@ -356,7 +432,8 @@ export default function App() {
           speakerStats={speakerStats}
           onSpeakerClick={handleSpeakerClick}
         />
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -368,7 +445,8 @@ export default function App() {
         <div className="flex-grow">
           <GuidePage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />
         </div>
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -380,7 +458,7 @@ export default function App() {
         <div className="flex-grow">
           <AboutPage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} />
         </div>
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -392,7 +470,8 @@ export default function App() {
         <div className="flex-grow">
           <Methodology onBack={handleGoHome} />
         </div>
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -402,9 +481,10 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <TopicDetailPage topicId={currentRoute.topicId} onBack={handleGoHome} />
+          <TopicDetailPage topicId={currentRoute.topicId} cityCode={cityCode} onBack={handleGoHome} />
         </div>
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -431,7 +511,8 @@ export default function App() {
             onOpenTopicDetail={handleOpenTopicDetail}
           />
         </div>
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -443,7 +524,8 @@ export default function App() {
         <div className="flex-grow">
           <ContestedBillsView initialCategory={currentRoute.category} billIssues={billIssuesList} votesData={votesData} onClose={handleGoHome} onSpeakerClick={handleSpeakerClick} />
         </div>
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -467,9 +549,13 @@ export default function App() {
             onOpenMethodology={() => navigateToView('methodology')}
           />
         </div>
-        <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={(spk) => { setSelectedBillForModal(null); handleSpeakerClick(spk); }} />
-        <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <BillDetailModal
+          cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={(spk) => { setSelectedBillForModal(null); handleSpeakerClick(spk); }} />
+        <TimelineModal
+          cityCode={cityCode}
+          isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -480,6 +566,7 @@ export default function App() {
         {renderNavbar(false)}
         <div className="flex-grow">
           <SpeakerDetailView
+            cityCode={cityCode}
             selectedSpeaker={activeSpeaker}
             speakerStats={speakerStats}
             speakerFilteredThreads={threadsForSpeaker}
@@ -498,9 +585,13 @@ export default function App() {
             onSelectBill={setSelectedBillForModal}
           />
         </div>
-        <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
-        <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <TimelineModal
+          cityCode={cityCode}
+          isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        <BillDetailModal
+          cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -510,7 +601,7 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <SearchResultsView
+          <SearchResultsView cityCode={cityCode}
             submittedQuery={currentRoute.query}
             onClearSearch={handleGoHome}
             filteredThreads={filteredThreads}
@@ -528,9 +619,13 @@ export default function App() {
             onOpenTopicDetail={handleOpenTopicDetail}
           />
         </div>
-        <BillDetailModal isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
-        <TimelineModal isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
-        <Footer onOpenMethodology={() => navigateToView('methodology')} />
+        <BillDetailModal
+          cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
+        <TimelineModal
+          cityCode={cityCode}
+          isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        <FeedbackButton />
+        <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
   }
@@ -541,6 +636,7 @@ export default function App() {
 
       <main className="max-w-6xl mx-auto py-8 px-6 w-full flex-grow space-y-10">
         <HeroSection
+          cityCode={cityCode}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           onSearchSubmit={handleSearchSubmit}
@@ -549,6 +645,7 @@ export default function App() {
         />
 
         <MacroTopicMap
+          cityCode={cityCode}
           topicStats={topicStats}
           selectedCategory={selectedCategory}
           onOpenCategoryDetail={handleOpenCategoryDetail}
@@ -564,6 +661,7 @@ export default function App() {
         />
 
         <MainTabView
+          cityCode={cityCode}
           viewMode={viewMode}
           setViewMode={setViewMode}
           filteredSpeakers={filteredSpeakers}
@@ -595,6 +693,7 @@ export default function App() {
       </main>
 
       <BillDetailModal
+        cityCode={cityCode}
         isOpen={Boolean(selectedBillForModal)}
         onClose={() => setSelectedBillForModal(null)}
         bill={selectedBillForModal}
@@ -604,13 +703,14 @@ export default function App() {
       />
 
       <TimelineModal
+        cityCode={cityCode}
         isOpen={isPanelOpen}
         onClose={() => setIsPanelOpen(false)}
         selectedContext={selectedContext}
         isLoading={isLoadingContext}
       />
-
-      <Footer onOpenMethodology={() => navigateToView('methodology')} />
+      <FeedbackButton />
+      <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
     </div>
   );
 }

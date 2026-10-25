@@ -1,0 +1,20 @@
+{
+  "6": [
+    {
+      "sequence_number": 5,
+      "speaker": "杉村幸太郎",
+      "statement_text": "御異議なしと認めます。よって、梅園周君が満場一致をもって委員長に当選されました。\nそれでは、委員長とこの席を交代いたします。",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "梅園周",
+      "statement_text": "一言御挨拶を申し上げます。\nただいま皆様の御推挙を得まして、決算特別委員長に就任させていただきました梅園でございます。今後、委員の皆様の御協力をいただきながら、円滑な委員会運営に努めてまいりたいと存じますので、よろしくお願いいたします。\nこれより大阪市会委員会条例第７条第４項の規定により、副委員長２人の互選を行います。\n互選の方法はいかがいたしましょうか。",
+      "is_target": true,
+      "is_admin": false,
+      "is_short_procedural": false
+    }
+  ]
+}

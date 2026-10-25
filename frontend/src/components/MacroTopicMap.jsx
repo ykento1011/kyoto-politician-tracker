@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { PieChart, Flame, Info, ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
+import { PieChart, Flame, ArrowRight } from 'lucide-react';
 
-const CATEGORY_TOPICS_MAP = {
+const KYOTO_CATEGORY_TOPICS = {
   '都市再生・交通インフラ': [
     { id: 'bus_fare_priority', title: '市バス混雑・市民優先価格' },
     { id: 'hokuriku_shinkansen_extension', title: '北陸新幹線延伸・地下水と財政負担' },
@@ -52,8 +52,36 @@ const CATEGORY_TOPICS_MAP = {
   ]
 };
 
+const OSAKA_CATEGORY_TOPICS = {
+  '財政・行革': [
+    { id: 'fukushuto_daitoshi_seido', title: '副首都ビジョン・法定協議会・特別区' }
+  ],
+  '都市再生・交通インフラ': [
+    { id: 'osaka_expo_legacy_yumeshima', title: '夢洲第2期マスタープラン・万博跡地活用' }
+  ],
+  '産業・観光・地域経済': [
+    { id: 'special_minpaku_regulation', title: '特区民泊の立入検査・違法民泊対策' }
+  ],
+  'くらし・環境・エネルギー': [
+    { id: 'street_smoking_ban_spread', title: '市内全域路上喫煙禁止・喫煙所整備' }
+  ],
+  '子育て・教育': [
+    { id: 'school_heatstroke_ssr_support', title: '学校 熱中症・校内SSR拡充' }
+  ],
+  '福祉・医療・健康': [
+    { id: 'kokuho_kaigo_premium_burden', title: '国民健康保険 統一・第9期介護保険料' }
+  ],
+  '防災・減災・治安': [
+    { id: 'sewage_accident_disaster_digital', title: '下水道工事事故・防災デジタル計画' }
+  ],
+  '文化・景観・歴史': [
+    { id: 'traditional_culture_outdoor_ad', title: '上方伝統芸能継承・屋外広告景観' }
+  ]
+};
+
 export default function MacroTopicMap({
-  topicStats,
+  topicStats = [],
+  cityCode = 'kyoto',
   selectedCategory,
   onOpenCategoryDetail,
   getIssueCountForCategory,
@@ -62,6 +90,8 @@ export default function MacroTopicMap({
   const totalThreadsCount = useMemo(() => {
     return topicStats.reduce((sum, t) => sum + (t.count || 0), 0);
   }, [topicStats]);
+
+  const activeCategoryTopicsMap = cityCode === 'osaka' ? OSAKA_CATEGORY_TOPICS : KYOTO_CATEGORY_TOPICS;
 
   return (
     <section className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
@@ -80,8 +110,8 @@ export default function MacroTopicMap({
       {/* 8大カテゴリーのグリッド */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
         {topicStats.map(topic => {
-          const issueCount = getIssueCountForCategory(topic.name);
-          const coreTopics = CATEGORY_TOPICS_MAP[topic.name] || [];
+          const issueCount = getIssueCountForCategory ? getIssueCountForCategory(topic.name) : 0;
+          const coreTopics = activeCategoryTopicsMap[topic.name] || [];
 
           return (
             <div 
@@ -119,45 +149,26 @@ export default function MacroTopicMap({
                 </div>
               </div>
 
-              {/* カード下部：注目の重要論点バッジ */}
-              {coreTopics.length > 0 && onOpenTopicDetail && (
-                <div className="mt-3 pt-2.5 border-t border-slate-100 flex flex-col gap-1.5">
-                  <span className="text-[9px] font-black text-indigo-900/60 uppercase tracking-wider flex items-center gap-1">
-                    <Sparkles className="w-2.5 h-2.5 text-indigo-500" /> 注目の政策タイムライン
-                  </span>
-                  {coreTopics.map(ct => (
-                    <button
-                      key={ct.id}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onOpenTopicDetail(ct.id);
-                      }}
-                      className="text-left text-[11px] font-bold text-slate-700 hover:text-indigo-600 bg-slate-50 hover:bg-indigo-50/80 px-2 py-1 rounded-md border border-slate-200 hover:border-indigo-200 transition-colors flex items-center justify-between group/btn cursor-pointer"
-                    >
-                      <span className="truncate">{ct.title}</span>
-                      <ArrowRight className="w-3 h-3 text-slate-400 group-hover/btn:text-indigo-600 shrink-0 ml-1" />
-                    </button>
-                  ))}
-                </div>
-              )}
+              {/* カード下部：代表トピックのリンク */}
+              <div className="mt-3 pt-2.5 border-t border-slate-100 space-y-1">
+                {coreTopics.map((ct, idx) => (
+                  <div
+                    key={idx}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (onOpenTopicDetail) onOpenTopicDetail(ct.id);
+                    }}
+                    className="text-[11px] text-slate-600 hover:text-indigo-600 flex items-center justify-between group/link py-0.5 transition-colors"
+                  >
+                    <span className="truncate pr-1">• {ct.title}</span>
+                    <ArrowRight className="w-3 h-3 text-slate-300 group-hover/link:text-indigo-500 shrink-0 transition-transform group-hover/link:translate-x-0.5" />
+                  </div>
+                ))}
+              </div>
             </div>
           );
         })}
       </div>
-
-      <details className="text-xs text-slate-500 bg-slate-50 rounded-lg border border-slate-200/80 p-2.5 group">
-        <summary className="flex items-center gap-1.5 font-bold text-slate-700 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-          <Info className="w-4 h-4 text-indigo-500 shrink-0" />
-          <span>対象データとAI分類の特性について</span>
-          <ChevronDown className="w-3.5 h-3.5 ml-auto text-slate-400 group-open:rotate-180 transition-transform" />
-        </summary>
-        <div className="mt-2.5 pl-1 pt-2 border-t border-slate-200">
-          <ul className="list-disc list-inside space-y-1.5 leading-relaxed">
-            <li><strong className="text-slate-600">質疑データ:</strong> 現任期（2023年5月〜2026年）の本会議・常任委員会・特別委員会の会議録からAI抽出した実質質疑スレッド</li>
-            <li><strong className="text-slate-600">分野カードのクリック:</strong> カードをクリックすると、その政策分野の任期内総括（包括解説）と関連質疑を閲覧できます。</li>
-          </ul>
-        </div>
-      </details>
     </section>
   );
 }

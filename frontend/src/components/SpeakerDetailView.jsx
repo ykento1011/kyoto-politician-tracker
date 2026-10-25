@@ -11,6 +11,23 @@ import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLin
 import { cleanStyleLabel, cleanStyleDesc } from '../utils/styleHelpers';
 
 // 異体字・旧字体・選挙公報通称名（ひらがな）エイリアス辞書
+
+// 会派名のゆらぎ・正式名称・改称に対応するコアキーワード照合関数
+const isSamePartyGroup = (p1 = '', p2 = '') => {
+  if (!p1 || !p2) return false;
+  if (p1 === p2) return true;
+  if (p1.includes(p2) || p2.includes(p1)) return true;
+
+  // 主要な政党コアキーワードの共通含有判定
+  const coreKeywords = ['維新', '公明', '共産', '自民', '自由民主', '立憲', '国民民主', 'れいわ', '社民', '京都党', 'くらしが第一', '大阪にし', '福島クラブ', '大阪平野', '総活躍'];
+  for (const kw of coreKeywords) {
+    if (p1.includes(kw) && p2.includes(kw)) {
+      return true;
+    }
+  }
+  return false;
+};
+
 const ALIAS_MAP = {
   // 異体字・旧字体
   '井崎敦子': '井﨑敦子',
@@ -76,18 +93,19 @@ export default function SpeakerDetailView({
   onViewContext,
   onOpenMethodology,
   onSelectBill
-}) {
+, cityCode = 'kyoto'}) {
   const [relatedTab, setRelatedTab] = useState('district');
   const [speakerDetailTab, setSpeakerDetailTab] = useState('threads');
   const [speakerVoteFilter, setSpeakerVoteFilter] = useState('contested');
   const [pledgeTrackerMap, setPledgeTrackerMap] = useState({});
 
   useEffect(() => {
-    fetch('/data/pledge_tracker.json')
+    const pledgePath = cityCode === 'osaka' ? '/data/pledge_tracker_osaka.json' : '/data/pledge_tracker.json';
+    fetch(pledgePath)
       .then(res => res.ok ? res.json() : {})
       .then(data => setPledgeTrackerMap(data))
       .catch(err => console.error("Failed to load pledge tracker data:", err));
-  }, []);
+  }, [cityCode]);
 
 const currentSpeakerTracker = useMemo(() => {
     if (!selectedSpeaker || !selectedSpeaker.speaker) return null;
@@ -219,10 +237,17 @@ const currentSpeakerTracker = useMemo(() => {
     return speakerStats.filter(s => s.partyGroup === selectedSpeaker.partyGroup && s.speaker !== selectedSpeaker.speaker);
   }, [selectedSpeaker, speakerStats]);
 
-  const selectedSpeakerBills = useMemo(() => {
+    const selectedSpeakerBills = useMemo(() => {
     if (!selectedSpeaker || !votesData.length) return [];
-    const isIndependent = !selectedSpeaker.partyGroup || selectedSpeaker.partyGroup === '無所属';
-    const party = selectedSpeaker.partyGroup || '';
+    
+    // 'None' や 'null' 文字列を除外し、正規の会派名を特定
+    const sanitizeParty = (p) => (p && p !== 'None' && p !== 'null' && p !== 'undefined') ? p.trim() : '';
+    const currentParty = sanitizeParty(selectedSpeaker.partyGroup) || 
+                         sanitizeParty(selectedSpeaker.party) || 
+                         sanitizeParty(currentSpeakerTracker?.party) || '';
+                         
+    const isIndependent = !currentParty || currentParty === '無所属';
+    const party = currentParty;
     
     const baseName = selectedSpeaker.speaker;
     const aliasName = ALIAS_MAP[baseName];
@@ -233,7 +258,7 @@ const currentSpeakerTracker = useMemo(() => {
 
       if (!isIndependent) {
         for (const [groupName, voteVal] of Object.entries(votes)) {
-          if (groupName.includes(party) || party.includes(groupName)) {
+          if (isSamePartyGroup(groupName, party)) {
             myVote = voteVal;
             break;
           }
@@ -258,9 +283,12 @@ const currentSpeakerTracker = useMemo(() => {
 
   const filteredSpeakerBills = useMemo(() => {
     return selectedSpeakerBills.filter(bill => {
-      if (speakerVoteFilter === 'contested' && !bill.isContested) return false;
-      if (speakerVoteFilter === 'agree' && bill.myVote !== '賛成') return false;
-      if (speakerVoteFilter === 'disagree' && bill.myVote !== '反対') return false;
+      if (speakerVoteFilter === 'contested') {
+        const vVals = Object.values(bill.votes || {});
+        return vVals.includes('賛成') && vVals.includes('反対');
+      }
+      if (speakerVoteFilter === 'agree') return bill.myVote === '賛成';
+      if (speakerVoteFilter === 'disagree') return bill.myVote === '反対';
       return true;
     });
   }, [selectedSpeakerBills, speakerVoteFilter]);
@@ -286,7 +314,7 @@ const currentSpeakerTracker = useMemo(() => {
               <img
                 src={detailPhotoSrc}
                 alt={selectedSpeaker.speaker}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 onError={handleDetailPhotoError}
               />
             </div>
@@ -482,6 +510,7 @@ const currentSpeakerTracker = useMemo(() => {
                 </div>
 
                 <ThreadCard
+                          cityCode={cityCode}
                   stmt={featuredThread}
                   onViewContext={onViewContext}
                   showSpeakerHeader={false}
@@ -517,6 +546,7 @@ const currentSpeakerTracker = useMemo(() => {
           <div className="space-y-6">
             {actualThreads.length > 0 ? actualThreads.map((stmt) => (
               <ThreadCard
+                          cityCode={cityCode}
                 key={stmt.id}
                 stmt={stmt}
                 onViewContext={onViewContext}
@@ -721,7 +751,7 @@ const currentSpeakerTracker = useMemo(() => {
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-black text-indigo-900 flex items-center gap-1.5 uppercase tracking-wider">
                             <BookmarkCheck className="w-4 h-4 text-indigo-600" />
-                            2023年 選挙公報での訴え
+                            選挙公報での訴え
                           </span>
                           <span className="text-[10px] font-bold text-slate-400">
                             公式選挙公報 原本
@@ -744,7 +774,7 @@ const currentSpeakerTracker = useMemo(() => {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 hover:underline"
                           >
-                            <span>京都市選管 公式公報原本（PDF）で紙面を確認</span>
+                            <span>{cityCode === 'osaka' ? '大阪市選管 公式公報原本（PDF）で紙面を確認' : '京都市選管 公式公報原本（PDF）で紙面を確認'}</span>
                             <ExternalLink className="w-3 h-3 opacity-60" />
                           </a>
                         </div>

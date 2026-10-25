@@ -221,7 +221,7 @@ export default function HighlightedThreads({
               </div>
             </div>
 
-            <ThreadCard
+            <ThreadCard cityCode={cityCode}
               stmt={activeStatement}
               onSpeakerClick={onSpeakerClick}
               onViewContext={onViewContext}

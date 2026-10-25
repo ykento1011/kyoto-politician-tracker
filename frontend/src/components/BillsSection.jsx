@@ -78,7 +78,7 @@ export default function BillsSection({ filteredBills, onlyContestedBills, setOnl
                   </button>
                   {bill.source_url && (
                     <a 
-                      href={bill.source_url} 
+                      href={bill.source_url || (cityCode === "osaka" ? "https://www.city.osaka.lg.jp/shikai/page/0000001592.html" : "https://www.city.kyoto.lg.jp/shikai/")} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="text-[11px] font-bold text-slate-400 hover:text-indigo-600 inline-flex items-center gap-1 bg-slate-50 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg border border-slate-200 transition-colors"
