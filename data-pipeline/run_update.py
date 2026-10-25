@@ -11,6 +11,11 @@ import requests
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 ENV_FILE = os.path.join(BASE_DIR, ".env")
+# サービスアカウント認証の自動設定（完全無人実行用）
+SA_KEY_FILE = os.path.join(BASE_DIR, "service_account.json")
+if os.path.exists(SA_KEY_FILE):
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = SA_KEY_FILE
+
 FRONTEND_DATA_DIR = os.path.join(PROJECT_ROOT, "frontend", "public", "data")
 
 # スクリプトのパス（京都）
