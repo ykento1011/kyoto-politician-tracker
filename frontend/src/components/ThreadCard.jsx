@@ -29,6 +29,7 @@ export default function ThreadCard({
 
   const [isNoteExpanded, setIsNoteExpanded] = useState(false);
 
+  // 4軸スコア
   const activeMetrics = [
     { label: '根拠・データ', val: target.evidence_score, color: 'bg-indigo-500' },
     { label: '対案・是正策', val: target.solution_score, color: 'bg-emerald-500' },
@@ -36,7 +37,12 @@ export default function ThreadCard({
     { label: '議論の進展', val: target.constructive_score, color: 'bg-purple-500' }
   ].filter((m) => m.val > 0);
 
+  // AI評価理由メモ
   const auditorNoteText = target.scoring_reasoning ? cleanAuditorNote(target.scoring_reasoning) : "";
+
+  // タイトルと本文の正確なマッピング
+  const displayTitle = target.topic || target.meeting_title || `${target.category || '政策'}に関する質疑`;
+  const displaySummary = target.summary || target.statement_snippet || target.statement_text || target.question_summary || '';
 
   return (
     <article className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-4">
@@ -56,7 +62,7 @@ export default function ThreadCard({
                   <span>{cleanName(target.speaker || '議員')}</span>
                 </button>
                 <div className="text-[10px] text-slate-400 font-medium">
-                  {target.meeting_date || ''} {target.meeting_name || ''}
+                  {target.meeting_date || ''} {target.meeting_name || target.meeting_title || ''}
                 </div>
               </div>
             </div>
@@ -68,13 +74,13 @@ export default function ThreadCard({
           </div>
         )}
 
-        {/* 質疑タイトル・要約 */}
+        {/* 質疑タイトル・要約本文 */}
         <div className="space-y-1.5">
           <h3 className="font-bold text-sm text-slate-900 leading-snug">
-            {target.topic || target.summary_topic || '政策質疑'}
+            {displayTitle}
           </h3>
-          <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
-            {target.question_summary || target.content || ''}
+          <p className="text-xs text-slate-600 leading-relaxed">
+            {displaySummary}
           </p>
         </div>
 
