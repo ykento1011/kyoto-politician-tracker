@@ -160,7 +160,7 @@ export default function CategoryDetailPage({
     onViewContext,
     onSelectBill,
     onOpenMethodology,
-    onOpenTopicDetail
+    onOpenTopicDetail, cityCode = 'kyoto'
 }) {
     const stat = topicStats.find(t => t.name === categoryName) || { count: filteredThreads.length, percentage: 0 };
     const overview = CATEGORY_OVERVIEWS[categoryName] || {
