@@ -1,3 +1,4 @@
+import { getCityDataUrl } from '../config/cities';
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   ArrowLeft, Milestone, Calendar, Landmark, ExternalLink, 
@@ -15,7 +16,7 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto' })
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    const dataUrl = cityCode === 'osaka' ? '/data/osaka_topic_summaries.json' : '/data/topic_summaries.json';
+    const dataUrl = getCityDataUrl(cityCode, 'topicSummaries') || '/data/topic_summaries.json';
     fetch(dataUrl)
       .then((res) => res.json())
       .then((data) => {

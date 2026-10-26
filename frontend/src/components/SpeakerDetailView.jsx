@@ -1,3 +1,4 @@
+import { getCityDataUrl } from '../config/cities';
 import React, { useState, useMemo, useEffect } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import {
@@ -100,7 +101,7 @@ export default function SpeakerDetailView({
   const [pledgeTrackerMap, setPledgeTrackerMap] = useState({});
 
   useEffect(() => {
-    const pledgePath = cityCode === 'osaka' ? '/data/pledge_tracker_osaka.json' : '/data/pledge_tracker.json';
+    const pledgePath = getCityDataUrl(cityCode, 'pledgeTracker') || '/data/pledge_tracker.json';
     fetch(pledgePath)
       .then(res => res.ok ? res.json() : {})
       .then(data => setPledgeTrackerMap(data))

@@ -1,9 +1,9 @@
+import { getValidCouncilors, getCouncilorInfo } from '../utils/councilorMasterAdapter';
+import { getCityDataUrl } from '../config/cities';
 import { useState, useEffect, useMemo } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import MiniSearch from 'minisearch';
 import { VALID_COUNCILORS, cleanName, determineCouncilorStyle } from '../utils/styleHelpers';
-import { getCouncilorMasterInfo } from '../utils/councilorMaster';
-import { getOsakaCouncilorMasterInfo, OSAKA_VALID_COUNCILORS } from '../utils/osakaCouncilorMaster';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
@@ -190,7 +190,7 @@ export function useStatements(cityCode = 'kyoto') {
     statements.forEach((stmt) => {
       const spk = stmt.speaker;
       if (!stats[spk]) {
-        const masterInfo = cityCode === 'kyoto' ? (getCouncilorMasterInfo ? getCouncilorMasterInfo(spk) : {}) : (getOsakaCouncilorMasterInfo ? getOsakaCouncilorMasterInfo(spk) : {});
+        const masterInfo = getCouncilorInfo(cityCode, spk);
         stats[spk] = {
           speaker: spk, count: 0,
           evidence_score: 0, solution_score: 0, local_focus_score: 0, constructive_score: 0,
@@ -369,7 +369,7 @@ export function useStatements(cityCode = 'kyoto') {
     }
     if (selectedDistrict) {
       list = list.filter((s) => {
-        const info = cityCode === 'kyoto' ? (getCouncilorMasterInfo ? getCouncilorMasterInfo(s.speaker) : {}) : (getOsakaCouncilorMasterInfo ? getOsakaCouncilorMasterInfo(s.speaker) : {});
+        const info = getCouncilorInfo(cityCode, s.speaker);
         return info.district === selectedDistrict;
       });
     }

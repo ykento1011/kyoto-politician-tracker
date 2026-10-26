@@ -1,3 +1,4 @@
+import { getCityConfig, getCityDataUrl, PORTAL_CONFIG } from './config/cities';
 const safeFetchJson = async (url) => {
   try {
     const res = await fetch(url);
@@ -168,12 +169,12 @@ export default function App() {
     }
     const prefix = cityCode === 'kyoto' ? '' : `${cityCode}_`;
 
-    fetch(`/data/${prefix}votes_summary.json`)
+    fetch(getCityDataUrl(cityCode, 'votesSummary') || `/data/${prefix}votes_summary.json`)
       .then(res => (res.ok ? res.json() : []))
       .then(data => setVotesData(data))
       .catch(err => console.error('Failed to load votes:', err));
 
-    fetch(`/data/${prefix}bill_issues.json`)
+    fetch(getCityDataUrl(cityCode, 'billIssues') || `/data/${prefix}bill_issues.json`)
       .then(res => (res.ok ? res.json() : []))
       .then(data => {
         setBillIssuesList(data);
@@ -185,7 +186,7 @@ export default function App() {
       })
       .catch(err => console.error('Failed to load bill issues:', err));
 
-    fetch(`/data/${prefix}mayor_tracker.json`)
+    fetch(getCityDataUrl(cityCode, 'mayorTracker') || `/data/${prefix}mayor_tracker.json`)
       .then(res => (res.ok ? res.json() : null))
       .then(data => setMayorTrackerData(data))
       .catch(err => console.error('Failed to load mayor tracker:', err));
