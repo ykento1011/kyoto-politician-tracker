@@ -227,19 +227,19 @@ export default function App() {
 
   // 💡 都市に応じたSEOメタタグの動的書き換え
   useEffect(() => {
-    const isOsaka = cityCode === 'osaka';
+    let title = "議会のミカタ ｜ AIは入口。判断するのは市民です。";
+    let description = "京都・大阪の市会公式会議録と議決データを客観的に構造化。4軸による議員質疑分析、賛否が分かれた議案ログ、市長公約の予算措置・条例可決・執行進捗を一次情報で確認・判断できるオープンデータ・プラットフォーム。";
+    let canonicalUrl = "https://gikai-mikata.jp/";
 
-    const title = isOsaka
-      ? "議会のミカタ 大阪 ｜ AIは入口。判断するのは市民です。"
-      : "議会のミカタ 京都 ｜ AIは入口。判断するのは市民です。";
-
-    const description = isOsaka
-      ? "大阪市会公式会議録と議決データを客観的に構造化。現職81議員・1,260超の質疑スレッド分析、賛否が分かれた議案の記録、横山市長政策進捗トラッカー（一次資料・予算照合）により、市民が自ら確認・判断できるオープンデータ基盤。"
-      : "京都市会公式会議録12万発言と議決データを客観的に構造化。4軸による質疑分析、賛否が分かれた議案の記録、選挙公報原本に基づく看板公約の照合により、市民が自ら一次情報で確認・判断できるオープンデータ・プラットフォーム。";
-
-    const canonicalUrl = isOsaka
-      ? "https://gikai-mikata.jp/osaka"
-      : "https://gikai-mikata.jp/";
+    if (cityCode === 'osaka') {
+      title = "議会のミカタ 大阪 ｜ AIは入口。判断するのは市民です。";
+      description = "大阪市会公式会議録と議決データを客観的に構造化。現職81議員・1,260超の質疑スレッド分析、賛否が分かれた議案の記録、横山市長政策進捗トラッカー（一次資料・予算照合）により、市民が自ら確認・判断できるオープンデータ基盤。";
+      canonicalUrl = "https://gikai-mikata.jp/osaka/";
+    } else if (cityCode === 'kyoto') {
+      title = "議会のミカタ 京都 ｜ AIは入口。判断するのは市民です。";
+      description = "京都市会公式会議録12万発言と議決データを客観的に構造化。4軸による質疑分析、賛否が分かれた議案の記録、選挙公報原本に基づく看板公約の照合により、市民が自ら一次情報で確認・判断できるオープンデータ・プラットフォーム。";
+      canonicalUrl = "https://gikai-mikata.jp/kyoto/";
+    }
 
     // document.title
     document.title = title;
