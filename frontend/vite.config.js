@@ -26,6 +26,8 @@ function cloudflareMultiCityPlugin() {
         .replace(/<title>.*?<\/title>/g, '<title>議会のミカタ 京都 ｜ AIは入口。判断するのは市民です。<\/title>')
         .replace(/<link\s+rel="canonical"\s+href=".*?"\s*\/?>/g, '<link rel="canonical" href="https://gikai-mikata.jp/kyoto/" />')
         .replace(/<meta\s+property="og:url"\s+content=".*?"\s*\/?>/g, '<meta property="og:url" content="https://gikai-mikata.jp/kyoto/" />')
+        .replace(/<meta\s+property="og:image"\s+content=".*?"\s*\/?>/g, '<meta property="og:image" content="https://gikai-mikata.jp/ogp-kyoto.png" />')
+        .replace(/<meta\s+name="twitter:image"\s+content=".*?"\s*\/?>/g, '<meta name="twitter:image" content="https://gikai-mikata.jp/ogp-kyoto.png" />')
       fs.writeFileSync(path.join(kyotoDir, 'index.html'), kyotoHtml, 'utf-8')
 
       // 3. /osaka/ 直アクセス用の dist/osaka/index.html
