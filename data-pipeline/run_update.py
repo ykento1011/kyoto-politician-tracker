@@ -31,6 +31,7 @@ BUILD_MAYOR_TRACKER_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker.py")
 
 # スクリプトのパス（大阪）
 BUILD_PLEDGE_TRACKER_OSAKA_SCRIPT = os.path.join(BASE_DIR, "build_pledge_tracker_with_extracted_osaka.py")
+BUILD_PLEDGE_TRACKER_NAGOYA_SCRIPT = os.path.join(BASE_DIR, "build_pledge_tracker_nagoya.py")
 BUILD_MAYOR_TRACKER_OSAKA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_osaka.py")
 
 # スクリプトのパス（名古屋）
@@ -289,6 +290,11 @@ def main():
     p_osaka_ok, _ = run_script(BUILD_PLEDGE_TRACKER_OSAKA_SCRIPT, "大阪市議 看板公約トラッカーの再結合")
     if not p_osaka_ok:
         log("大阪市議公約トラッカー更新で警告が出ましたが続行します", "WARN")
+
+    if os.path.exists(BUILD_PLEDGE_TRACKER_NAGOYA_SCRIPT):
+        p_nagoya_ok, _ = run_script(BUILD_PLEDGE_TRACKER_NAGOYA_SCRIPT, "名古屋市議 看板公約トラッカーの再結合")
+        if not p_nagoya_ok:
+            log("名古屋市議公約トラッカー更新で警告が出ましたが続行します", "WARN")
 
     # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（京都・大阪・名古屋）
     log("--- [首長政策トラッカーの最新化] ---")

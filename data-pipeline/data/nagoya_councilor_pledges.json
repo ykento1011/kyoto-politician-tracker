@@ -1,0 +1,3718 @@
+[
+  {
+    "speaker": "神ひろし",
+    "raw_name": "神ひろし",
+    "district": "千種区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf",
+    "pledges": [
+      {
+        "id": "pledge_crime_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "凶悪犯罪抑止",
+        "stance": "強化",
+        "headline": "凶悪犯罪抑止体制を強化",
+        "exact_quote": "強盗や詐欺などの凶悪犯罪抑止の体制を強化"
+      },
+      {
+        "id": "pledge_elderly_transport",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者交通費援助",
+        "stance": "増額",
+        "headline": "高齢者バス・タクシー利用費援助増額",
+        "exact_quote": "高齢者に対するバス・タクシーの利用費援助を増額"
+      },
+      {
+        "id": "pledge_childcare_waitinglist",
+        "category": "子育て・教育",
+        "target_issue": "待機児童解消",
+        "stance": "解消",
+        "headline": "待機児童問題の解消",
+        "exact_quote": "働きたいお母さんのために隠れ待機児童の問題を解消"
+      }
+    ]
+  },
+  {
+    "speaker": "酒井ケンタロー",
+    "raw_name": "酒井ケンタロー",
+    "district": "千種区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "無償化",
+        "headline": "小中学校の給食を無償化",
+        "exact_quote": "小学校給食を無償に中学校は全員制給食に転換し無償化へ"
+      },
+      {
+        "id": "pledge_insurance_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料",
+        "stance": "引き下げ",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_scholarship_support",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返還支援",
+        "stance": "支援",
+        "headline": "奨学金返還を月額最大3万円支援",
+        "exact_quote": "月額最大3万円の奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "北角嘉幸",
+    "raw_name": "北角よしゆき",
+    "district": "千種区",
+    "party": "減税日本",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "継続・推進",
+        "headline": "市民税減税12年継続を推進",
+        "exact_quote": "今こそ減税!日本で名古屋だけ!市民税減税12年継続中!!"
+      },
+      {
+        "id": "pledge_nagoya_castle",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城木造復元",
+        "stance": "推進",
+        "headline": "名古屋城の完全木造復元を推進",
+        "exact_quote": "名古屋城の完全木造復元 (100年で再度国宝に!)"
+      },
+      {
+        "id": "pledge_elderly_pass",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス",
+        "stance": "拡充",
+        "headline": "敬老パスの利便性を向上",
+        "exact_quote": "敬老パスをさらに使いやすく!"
+      }
+    ]
+  },
+  {
+    "speaker": "山田昌弘",
+    "raw_name": "山田昌弘",
+    "district": "千種区",
+    "party": "国民民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf",
+    "pledges": [
+      {
+        "id": "pledge_compulsory_education_free",
+        "category": "子育て・教育",
+        "target_issue": "義務教育無償化",
+        "stance": "推進",
+        "headline": "義務教育の無償化を推進",
+        "exact_quote": "義務教育の無償化"
+      },
+      {
+        "id": "pledge_scholarship_repayment",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返済支援",
+        "stance": "支援",
+        "headline": "奨学金の返済を支援",
+        "exact_quote": "奨学金の返済支援"
+      },
+      {
+        "id": "pledge_elderly_pass_unlimited",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス回数制限",
+        "stance": "廃止",
+        "headline": "敬老パスの回数制限を廃止",
+        "exact_quote": "敬老パスの回数制限を廃止"
+      }
+    ]
+  },
+  {
+    "speaker": "伊神邦彦",
+    "raw_name": "伊神くにひこ",
+    "district": "千種区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_toilet",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化・トイレ洋式化",
+        "stance": "促進",
+        "headline": "小中学校給食無償化とトイレ洋式化",
+        "exact_quote": "小中学校 給食費無料化/トイレ洋式化の促進"
+      },
+      {
+        "id": "pledge_subway_convenience",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地下鉄駅利便性向上",
+        "stance": "推進",
+        "headline": "地下鉄駅の利便性・快適化を促進",
+        "exact_quote": "千種区内地下鉄駅の利便化、快適化▷本山駅EV設置、トイレの洋式化"
+      },
+      {
+        "id": "pledge_library_development",
+        "category": "文化・景観・歴史",
+        "target_issue": "千種図書館移転整備",
+        "stance": "推進",
+        "headline": "千種図書館の移転整備を推進",
+        "exact_quote": "なごやアクティブライブラリー構想による千種図書館の移転整備"
+      }
+    ]
+  },
+  {
+    "speaker": "田辺雄一",
+    "raw_name": "たなべゆういち",
+    "district": "千種区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_support",
+        "category": "子育て・教育",
+        "target_issue": "教育費負担軽減",
+        "stance": "推進",
+        "headline": "教育費負担軽減と学習支援を推進",
+        "exact_quote": "高校教科書 無償配布、小学校給食の無償化、通学定期代助成制度(市内在住小学生~大学生)"
+      },
+      {
+        "id": "pledge_disaster_transport_safety",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "交通・防災インフラ整備",
+        "stance": "実現",
+        "headline": "交通・防災インフラの安全対策を推進",
+        "exact_quote": "地下鉄ホーム柵の全線全駅設置(2026年完成予定)災害避難所となる中学校体育館のエアコン設置"
+      },
+      {
+        "id": "pledge_elderly_care_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "介護者支援",
+        "stance": "創設",
+        "headline": "介護者への支援制度を創設",
+        "exact_quote": "介護者への紙オムツ購入費助成制度を創ります!ご家族を対象にリフレッシュ制度を創設"
+      }
+    ]
+  },
+  {
+    "speaker": "手塚まさゆき",
+    "raw_name": "手塚まさゆき",
+    "district": "千種区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_reform_salary",
+        "category": "財政・行革",
+        "target_issue": "議員報酬削減",
+        "stance": "継続",
+        "headline": "議員報酬削減と被災地寄付を継続",
+        "exact_quote": "議員報酬1,455万円→継続して身を切り、毎年被災地等に寄付を続けます"
+      },
+      {
+        "id": "pledge_child_support_education",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育支援",
+        "stance": "推進",
+        "headline": "次世代への積極的な予算措置を推進",
+        "exact_quote": "次世代への積極的な予算措置(出産費用の軽減、小学校給食の無償化、通学路の安全対策)"
+      },
+      {
+        "id": "pledge_economy_covid_support",
+        "category": "産業・観光・地域経済",
+        "target_issue": "コロナ対策事業継続資金",
+        "stance": "継続",
+        "headline": "コロナ対策事業継続資金支援を継続",
+        "exact_quote": "コロナ対策事業継続資金の利子補給及び貸付利率の引き下げの継続"
+      }
+    ]
+  },
+  {
+    "speaker": "かねしげ政宝",
+    "raw_name": "かねしげ政宝",
+    "district": "千種区",
+    "party": "れいわ新選組",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf",
+    "pledges": [
+      {
+        "id": "pledge_defense_budget_oppose",
+        "category": "財政・行革",
+        "target_issue": "防衛費増額",
+        "stance": "反対",
+        "headline": "国の防衛費増額に反対",
+        "exact_quote": "国の防衛費増額に反対"
+      },
+      {
+        "id": "pledge_utility_subsidy",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "光熱費負担",
+        "stance": "補助",
+        "headline": "光熱費負担増への補助",
+        "exact_quote": "光熱費の負担増に補助"
+      },
+      {
+        "id": "pledge_nagoya_castle_barrier_free",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城バリアフリー化",
+        "stance": "推進",
+        "headline": "名古屋城天守閣EV設置でバリアフリー化",
+        "exact_quote": "名古屋城木造天守にEVを設置し、介護誰もが楽しめる名古屋城に!"
+      }
+    ]
+  },
+  {
+    "speaker": "むらせ和弘",
+    "raw_name": "むらせ和弘",
+    "district": "東区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小中学校の給食を無償化へ",
+        "exact_quote": "小学校給食を無償に中学校は全員制給食に転換し無償化へ日本共産党は市民のみなさんと一緒に2012年から学校給食を無償にと要求し続けてきました。こうした奮闘により他覚も要求するように。一方で減税日本の河村市長は「金持ち優遇になる」と拒否。無償化へ一貫して奮闘してきた日本共産党の躍進で実現させてください。"
+      },
+      {
+        "id": "pledge_insurance_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料引き下げ",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "◎国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_nagoya_castle_wood",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "反対・見直し",
+        "headline": "名古屋城天守閣木造化は中止を",
+        "exact_quote": "名古屋城天守閣木造化は中止の決断を"
+      }
+    ]
+  },
+  {
+    "speaker": "佐藤ゆうこ",
+    "raw_name": "佐藤ゆうこ",
+    "district": "東区",
+    "party": "減税日本",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf",
+    "pledges": [
+      {
+        "id": "pledge_district_office",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "東区役所等複合庁舎整備",
+        "stance": "推進・拡充",
+        "headline": "東区役所等複合庁舎の整備を推進",
+        "exact_quote": "身近で便利な東区役所等複合庁舎の整備!"
+      },
+      {
+        "id": "pledge_nagoya_castle_wood_restore",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "推進・拡充",
+        "headline": "名古屋城木造復元の早期実現を推進",
+        "exact_quote": "名古屋城木造復元の早期実現!"
+      },
+      {
+        "id": "pledge_city_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "制度維持",
+        "headline": "市民税減税の継続を支持",
+        "exact_quote": "●市民税減税の継続"
+      }
+    ]
+  },
+  {
+    "speaker": "今津ふみこ",
+    "raw_name": "今津ふみこ",
+    "district": "東区",
+    "party": "名古屋をもっと健康にする会",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf",
+    "pledges": [
+      {
+        "id": "pledge_oral_health",
+        "category": "福祉・医療・健康",
+        "target_issue": "口腔ケア・健康維持",
+        "stance": "推進・拡充",
+        "headline": "全年代の口腔ケア・健康維持を推進",
+        "exact_quote": "■口の中の健康維持を全年代で実施できる社会"
+      },
+      {
+        "id": "pledge_children_future",
+        "category": "子育て・教育",
+        "target_issue": "子どもの未来支援",
+        "stance": "推進・拡充",
+        "headline": "子どもたちの明るい未来を支援",
+        "exact_quote": "■子供たちの未来が明るい社会"
+      },
+      {
+        "id": "pledge_women_work",
+        "category": "産業・観光・地域経済",
+        "target_issue": "女性の社会進出支援",
+        "stance": "推進・拡充",
+        "headline": "女性が働きやすい社会進出を支援",
+        "exact_quote": "●女性が働きやすく社会進出できる社会"
+      }
+    ]
+  },
+  {
+    "speaker": "上村みちよ",
+    "raw_name": "上村みちよ",
+    "district": "東区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf",
+    "pledges": [
+      {
+        "id": "pledge_inclusive_city",
+        "category": "福祉・医療・健康",
+        "target_issue": "弱者に優しい街づくり",
+        "stance": "推進・拡充",
+        "headline": "弱者に優しい街づくりを推進",
+        "exact_quote": "「女性やお年寄り、障がい者の方に優しい街づくり"
+      },
+      {
+        "id": "pledge_child_centered",
+        "category": "子育て・教育",
+        "target_issue": "子ども中心の政策",
+        "stance": "推進・拡充",
+        "headline": "子ども中心の政策を推進",
+        "exact_quote": "いつもこどもをまんなかに!"
+      },
+      {
+        "id": "pledge_higashi_ku_development",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "東区の発展",
+        "stance": "推進・拡充",
+        "headline": "東区の更なる発展に挑戦",
+        "exact_quote": "東区の更なる発展にに向けた挑戦"
+      }
+    ]
+  },
+  {
+    "speaker": "日沖おさむ",
+    "raw_name": "日沖おさむ",
+    "district": "東区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf",
+    "pledges": [
+      {
+        "id": "pledge_political_reform",
+        "category": "財政・行革",
+        "target_issue": "政治改革・行財政改革",
+        "stance": "推進・拡充",
+        "headline": "政治家自ら身を切る改革を推進",
+        "exact_quote": "政治家自ら身を切る改革!"
+      },
+      {
+        "id": "pledge_economic_growth",
+        "category": "産業・観光・地域経済",
+        "target_issue": "景気対策・成長戦略",
+        "stance": "推進・拡充",
+        "headline": "景気対策と成長戦略を推進",
+        "exact_quote": "景気対策と成長戦略"
+      },
+      {
+        "id": "pledge_safe_city",
+        "category": "防災・減災・治安",
+        "target_issue": "安心安全な街づくり",
+        "stance": "推進・拡充",
+        "headline": "市民が安心・安全に暮らせる街づくり",
+        "exact_quote": "市民の皆さんが安心・安全に暮らしやすい街作り"
+      }
+    ]
+  },
+  {
+    "speaker": "田山宏之",
+    "raw_name": "田山ひろゆき",
+    "district": "北区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "継続・推進",
+        "headline": "市民税減税12年継続を推進",
+        "exact_quote": "市民税減税の継続。"
+      },
+      {
+        "id": "pledge_nagoya_castle",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "推進",
+        "headline": "名古屋城天守閣の木造復元を推進",
+        "exact_quote": "名古屋城天守閣本物木造復元。"
+      },
+      {
+        "id": "pledge_councillor_salary",
+        "category": "財政・行革",
+        "target_issue": "議員報酬",
+        "stance": "削減・制度化",
+        "headline": "議員報酬800万円の制度化を推進",
+        "exact_quote": "議員報酬800万円を制度化。"
+      }
+    ]
+  },
+  {
+    "speaker": "石井とも子",
+    "raw_name": "石井とも子",
+    "district": "北区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf",
+    "pledges": [
+      {
+        "id": "pledge_organic_lunch",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "学校給食のオーガニック化を推進",
+        "exact_quote": "学校給食からもっと健康に! オーガニック給食"
+      },
+      {
+        "id": "pledge_child_space",
+        "category": "子育て・教育",
+        "target_issue": "子どもの居場所",
+        "stance": "推進・拡充",
+        "headline": "子どもの学べる居場所を増やす",
+        "exact_quote": "学べる場所・子どもの居場所を増やす!"
+      },
+      {
+        "id": "pledge_school_reform",
+        "category": "子育て・教育",
+        "target_issue": "学校教育",
+        "stance": "改革・見直し",
+        "headline": "学校の常識を変える教育改革を推進",
+        "exact_quote": "学校の\"常識\"を変える!"
+      }
+    ]
+  },
+  {
+    "speaker": "服部将也",
+    "raw_name": "はっとり将也",
+    "district": "北区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "小学校給食費",
+        "stance": "無償化推進",
+        "headline": "小学校給食費の無償化を推進",
+        "exact_quote": "小学校給食費の助成、そして無償化を"
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "複合災害対策",
+        "stance": "推進・強化",
+        "headline": "複合災害対策と治水機能向上を推進",
+        "exact_quote": "複合災害対策、治水機能の向上"
+      },
+      {
+        "id": "pledge_vulnerable_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障害者福祉",
+        "stance": "推進・充実",
+        "headline": "高齢者・障害者福祉の充実を推進",
+        "exact_quote": "高齢者・障害者福祉、介護・認知症対策の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "長谷川由美子",
+    "raw_name": "はせがわ由美子",
+    "district": "北区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_women",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "強化・推進",
+        "headline": "女性視点での防災・減災対策を強化",
+        "exact_quote": "防災・減災対策を女性の視点で強化します!"
+      },
+      {
+        "id": "pledge_elderly_welfare",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者福祉",
+        "stance": "充実・推進",
+        "headline": "超高齢化社会に対応する福祉を充実",
+        "exact_quote": "超高齢化社会に対応する福祉を充実させます!"
+      },
+      {
+        "id": "pledge_child_support_system",
+        "category": "子育て・教育",
+        "target_issue": "地域子育て支援",
+        "stance": "拡充・推進",
+        "headline": "地域全体の子育て支援仕組みを拡充",
+        "exact_quote": "地域全体で子育てを支援する仕組みを拡充します!"
+      }
+    ]
+  },
+  {
+    "speaker": "渡辺やすのり",
+    "raw_name": "渡辺やすのり",
+    "district": "北区",
+    "party": "自民党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf",
+    "pledges": [
+      {
+        "id": "pledge_health_welfare",
+        "category": "福祉・医療・健康",
+        "target_issue": "保健・医療・介護・障がい施策",
+        "stance": "充実・推進",
+        "headline": "保健医療・介護障がい施策を推進",
+        "exact_quote": "保健、医療施策の充実・介護、障がい施策の推進"
+      },
+      {
+        "id": "pledge_child_abuse_waiting_children",
+        "category": "子育て・教育",
+        "target_issue": "児童虐待・待機児童・子どもの貧困",
+        "stance": "強化・推進",
+        "headline": "児童虐待・待機児童・貧困対策を強化",
+        "exact_quote": "児童虐待対策の強化・待機児童対策、子どもの貧困対策の推進"
+      },
+      {
+        "id": "pledge_disaster_prevention_education",
+        "category": "防災・減災・治安",
+        "target_issue": "風水害・震災対策・防災教育",
+        "stance": "強化・推進",
+        "headline": "風水害・震災対策と防災教育を推進",
+        "exact_quote": "風水害、震災対策の強化・防災教育のさらなる推進"
+      }
+    ]
+  },
+  {
+    "speaker": "山本やすなり",
+    "raw_name": "山本やすなり",
+    "district": "北区",
+    "party": "自民党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free_yamamoto",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "無償化推進",
+        "headline": "学校給食の無償化を推進",
+        "exact_quote": "学校給食無償化"
+      },
+      {
+        "id": "pledge_elderly_wisdom",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者活躍",
+        "stance": "推進・創出",
+        "headline": "高齢者の知恵を活かせる社会を創出",
+        "exact_quote": "高齢者の知恵や経験を活かせる社会の創出"
+      },
+      {
+        "id": "pledge_disaster_infrastructure",
+        "category": "防災・減災・治安",
+        "target_issue": "防災インフラ整備",
+        "stance": "推進",
+        "headline": "防災拠点・防災道路のインフラ整備",
+        "exact_quote": "防災拠点(避難施設)フラ整備、防災道路となる広域幹線道路などのインフラ整備"
+      }
+    ]
+  },
+  {
+    "speaker": "いながき幸男",
+    "raw_name": "いながき幸男",
+    "district": "北区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf",
+    "pledges": [
+      {
+        "id": "pledge_new_industry_tax",
+        "category": "産業・観光・地域経済",
+        "target_issue": "新産業創出・市税増収",
+        "stance": "推進・増加",
+        "headline": "新産業創出と地元名物活用で市税増",
+        "exact_quote": "新産業創出と地元名物を活用した市税の激増!"
+      },
+      {
+        "id": "pledge_women_allowance",
+        "category": "福祉・医療・健康",
+        "target_issue": "女性手当",
+        "stance": "創設・推進",
+        "headline": "全国初の「女性手当」創設を推進",
+        "exact_quote": "全国初「女性手当」の創設!"
+      },
+      {
+        "id": "pledge_empty_store_revitalization",
+        "category": "産業・観光・地域経済",
+        "target_issue": "空き店舗活用・新店増加",
+        "stance": "推進・活性化",
+        "headline": "空き店舗活用と新店増加で地域活性化",
+        "exact_quote": "ドンドン活性化!空き店舗の活用と新店の増加"
+      }
+    ]
+  },
+  {
+    "speaker": "岡田ゆき子",
+    "raw_name": "岡田ゆき子",
+    "district": "北区",
+    "party": "日本共産党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free_okada",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "無償化推進",
+        "headline": "学校給食の無償化を推進",
+        "exact_quote": "学校給食を無償に一くらしの願い、実現するまでがんばります"
+      },
+      {
+        "id": "pledge_anti_military_expansion",
+        "category": "防災・減災・治安",
+        "target_issue": "軍事費・軍拡",
+        "stance": "反対・見直し",
+        "headline": "岸田政権の大軍拡に断固反対",
+        "exact_quote": "岸田自公政権の大軍拡にストップ"
+      },
+      {
+        "id": "pledge_fee_reduction",
+        "category": "財政・行革",
+        "target_issue": "国保料・介護保険料・補聴器・奨学金",
+        "stance": "負担軽減・助成",
+        "headline": "国保料・介護保険料引き下げ等負担軽減",
+        "exact_quote": "■国保料引き下げ ■介護保険料引き下げ ■補聴器購入に助成■奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "うえぞの晋介",
+    "raw_name": "うえぞの晋介",
+    "district": "西区",
+    "party": "国民民主党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_cost_free",
+        "category": "子育て・教育",
+        "target_issue": "義務教育費用無償化, 奨学金制度",
+        "stance": "推進・拡充",
+        "headline": "義務教育費用無償化と奨学金制度充実",
+        "exact_quote": "2児の子を持つ親の立場から、義務教育にかかる費用 の無償化!奨学金制度の充実、返還不要制度の創設を!"
+      },
+      {
+        "id": "pledge_elderly_welfare",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス, 買い物弱者対策, 認知症支援",
+        "stance": "推進・拡充",
+        "headline": "敬老パス利用促進、買い物弱者・認知症支援",
+        "exact_quote": "地域包括ケアの推進! 敬老パス上限回数の見直しで、 さらなる利用促進を図る。買い物弱者対策。認知症診 断費用の無料化とサポート給付金の支給等。"
+      },
+      {
+        "id": "pledge_river_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "庄内川治水・護岸・橋改築",
+        "stance": "推進・拡充",
+        "headline": "庄内川治水・護岸・橋改築工事推進",
+        "exact_quote": "消防団の経験より、市民の生命・財産を守るための、 防災 庄内川流域のさらなる治水・護岸・橋改築工事・枇杷 島地区狭窄部対策の推進。"
+      }
+    ]
+  },
+  {
+    "speaker": "大田とみひこ",
+    "raw_name": "大田とみひこ",
+    "district": "西区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "継続・負担軽減",
+        "headline": "市民税減税の継続と負担軽減",
+        "exact_quote": "①市民税減税を継続し、市民の皆様の負担を軽減します。"
+      },
+      {
+        "id": "pledge_child_medical_free",
+        "category": "子育て・教育",
+        "target_issue": "子ども医療費無償化",
+        "stance": "継続・拡充",
+        "headline": "子ども医療費18歳まで無料化継続",
+        "exact_quote": "②子ども医療費18歳まで通院・入院無料化を継続します。"
+      },
+      {
+        "id": "pledge_elderly_pass_expand",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス",
+        "stance": "継続・拡充",
+        "headline": "敬老パス利用拡大で高齢者の外出支援",
+        "exact_quote": "③敬老パスの利用拡大を継続し、高齢者の皆様の外出を支援します。"
+      }
+    ]
+  },
+  {
+    "speaker": "浅野有",
+    "raw_name": "浅野たもつ",
+    "district": "西区",
+    "party": "自民党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf",
+    "pledges": [
+      {
+        "id": "pledge_linear_economy",
+        "category": "産業・観光・地域経済",
+        "target_issue": "リニア中央新幹線開業, 観光施設・インフラ充実, 商店街振興",
+        "stance": "推進・促進",
+        "headline": "リニア開業に向けた観光・インフラ充実",
+        "exact_quote": "リニア中央新幹線の開業に向けて 魅力ある名古屋にするため、 観光施設・インフラなどの充実、 商店街の振興を促進"
+      },
+      {
+        "id": "pledge_elderly_welfare_asano",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者福祉",
+        "stance": "拡充",
+        "headline": "高齢者社会における高齢者福祉拡充",
+        "exact_quote": "高齢者社会における実践を重視した 高齢者福祉の拡充"
+      },
+      {
+        "id": "pledge_safe_childbirth_rearing",
+        "category": "子育て・教育",
+        "target_issue": "出産・子育て環境",
+        "stance": "整備・推進",
+        "headline": "安心・安全な出産・子育て環境整備",
+        "exact_quote": "安心・安全に出産、子育てができる 環境の整備"
+      }
+    ]
+  },
+  {
+    "speaker": "さわだ晃一",
+    "raw_name": "さわだ晃一",
+    "district": "西区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_facility_improve",
+        "category": "子育て・教育",
+        "target_issue": "学校トイレ改修, 普通教室エアコン設置",
+        "stance": "推進・設置",
+        "headline": "学校トイレ洋式化・全教室エアコン設置",
+        "exact_quote": "学校のトイレをキレイに改修し洋式化も推進 (西区内226箇所、市全体で2,640箇所) 小中学校の全普通教室にエアコンを設置"
+      },
+      {
+        "id": "pledge_subway_safety",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地下鉄ホーム柵設置, 段差・隙間解消",
+        "stance": "推進・前進",
+        "headline": "地下鉄ホーム柵設置・段差隙間解消推進",
+        "exact_quote": "地下鉄ホーム柵の設置を推進 (2026年までに全路線で完了) 地下鉄ホームと電車の段差・隙間の解消が前進"
+      },
+      {
+        "id": "pledge_heavy_rain_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "集中豪雨対策, 雨水貯留施設",
+        "stance": "整備",
+        "headline": "集中豪雨対策の雨水貯留施設整備",
+        "exact_quote": "頻発する集中豪雨の被害を防ぐために雨水貯留施設を整備"
+      }
+    ]
+  },
+  {
+    "speaker": "鹿島としあき",
+    "raw_name": "鹿島としあき",
+    "district": "西区",
+    "party": "日本維新の会公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "小中学校給食費無償化, 教育費負担軽減",
+        "stance": "推進・軽減",
+        "headline": "小中学校給食費無償化で教育費負担軽減",
+        "exact_quote": "小中学校の給食費無償化 教育費の負担軽減"
+      }
+    ]
+  },
+  {
+    "speaker": "加藤ゆうき",
+    "raw_name": "加藤ゆうき",
+    "district": "西区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free_kato",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "推進・実現",
+        "headline": "学校給食無償化の実現",
+        "exact_quote": "日本共産党は2012年から 一貫して学校給食無償化を提案。 多くの他党も要求するように。 しかし、減税・河村市 長は金持ち優遇になる性 と拒否。加藤ゆうきへ の1票で無償化を実現 させてください。 学校給食を無償に"
+      },
+      {
+        "id": "pledge_social_security_education",
+        "category": "財政・行革",
+        "target_issue": "国保料・介護保険料引き下げ, 少人数学級, 正規教員増, 奨学金返還支援",
+        "stance": "推進・引き下げ・実現",
+        "headline": "国保・介護保険料引き下げ、少人数学級実現",
+        "exact_quote": "国保料・介護保険料 引き下げ 少人数学級の実現 正規教員を増やし、 奨学金返還支援 月額最大3万円の"
+      },
+      {
+        "id": "pledge_anti_military_expansion",
+        "category": "防災・減災・治安",
+        "target_issue": "大軍拡反対, 平和主義, 憲法九条維持",
+        "stance": "反対・維持",
+        "headline": "岸田政権の大軍拡反対、平和な社会実現",
+        "exact_quote": "岸田自公政権の大軍拡 NO! 福祉を自己責任にさせない 他国に攻め込むための大軍拡 は、決して許しません。 豊かさと幸せの土台は平和 です。憲法九条をふみにじり、 世界でした。子どもたちの未 来に希望の持てる社会をつく りたい。"
+      }
+    ]
+  },
+  {
+    "speaker": "うかい春美",
+    "raw_name": "うかい春美",
+    "district": "中村区",
+    "party": "記載なし",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/05.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_education",
+        "category": "子育て・教育",
+        "target_issue": "教育・子育て支援",
+        "stance": "推進・拡充",
+        "headline": "豊かな教育と子育て支援を充実",
+        "exact_quote": "未来を担う子どもたちのために豊かな教育と子育て支援の充実を! ・いじめ・不登校など教育課題の解決や環境整備など、教育の充実を進めます! ・安心して子育てできる環境や支援の充実を進めます!"
+      },
+      {
+        "id": "pledge_disaster_welfare",
+        "category": "防災・減災・治安, 福祉・医療・健康",
+        "target_issue": "防災体制・高齢者障害者支援",
+        "stance": "推進・拡充",
+        "headline": "防災体制強化と高齢者障害者支援",
+        "exact_quote": "だれもが安心して暮らせる街づくりを! ・自然災害に備え、防災体制の充実を進めます! ・ヘルプマークの普及啓発など、高齢者や障害のある方にもやさしい街にします!"
+      },
+      {
+        "id": "pledge_economy_community",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済活性化・コミュニティ再生",
+        "stance": "推進・拡充",
+        "headline": "地域経済活性化とコミュニティ再生",
+        "exact_quote": "活力ある街、中村区を! ・リニア開業を見据え、商店街や中小企業の活性化と発展をめざします! ・地域コミュニティを再生し、つながりの輪を広げます!"
+      }
+    ]
+  },
+  {
+    "speaker": "藤井しげる",
+    "raw_name": "藤井しげる",
+    "district": "中村区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/05.pdf",
+    "pledges": [
+      {
+        "id": "pledge_peace_anti_military",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "軍拡反対・平和維持",
+        "stance": "反対・見直し",
+        "headline": "大軍拡ストップ！平和な社会を",
+        "exact_quote": "平和がいちばん 名古屋から大軍拡ストップ! こどもたちに笑顔と夢と平和を おとしよりに明日と希望を 岸田政権の大軍拡にはっきりNOと言えるのは中村区では藤井しげるだけです。地域のみなさんの願いを市議会へ届けます。"
+      },
+      {
+        "id": "pledge_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小中学校の給食費を無償化",
+        "exact_quote": "小学校給食を無償に 中学校は全員制給食に転換し無償化へ"
+      },
+      {
+        "id": "pledge_insurance_scholarship",
+        "category": "福祉・医療・健康, 財政・行革",
+        "target_issue": "国保・介護保険料、奨学金",
+        "stance": "負担軽減, 推進・拡充",
+        "headline": "国保・介護保険料引き下げ、奨学金支援",
+        "exact_quote": "●国保料・介護保険料引き下げ ●月額最大3万円の奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "おか千恵",
+    "raw_name": "おか穂 千恵",
+    "district": "中村区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/05.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援・出産費用増額",
+        "stance": "推進・拡充",
+        "headline": "出産費用増額など子育て支援",
+        "exact_quote": "子育てしやすい社会を目指します! ●切れ目のない「子育て応援トータルプラン」 (出産費用一時金を現在の42万円から50万円に増額等) を実現! ●幼稚園などの通園バス事故防止の対策推進!"
+      },
+      {
+        "id": "pledge_cost_of_living",
+        "category": "くらし・環境・エネルギー, 財政・行革",
+        "target_issue": "物価高騰対策・生活費負担軽減",
+        "stance": "負担軽減",
+        "headline": "物価高騰対策で生活費負担軽減",
+        "exact_quote": "誰もが安心・快適な街を目指します! 「地方創生臨時交付金」を活用し、物価高騰による生活費の負担軽減を推進!"
+      },
+      {
+        "id": "pledge_elderly_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症対策・介護支援",
+        "stance": "推進・拡充",
+        "headline": "認知症対策と介護支援の充実",
+        "exact_quote": "暮らしやすい社会を目指します! ●認知症対策(「認知症サポーター」の拡充)など さらなる介護支援の充実!"
+      }
+    ]
+  },
+  {
+    "speaker": "村瀬きよみ",
+    "raw_name": "村瀬きよみ",
+    "district": "中村区",
+    "party": "減税日本",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/05.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "推進・拡充",
+        "headline": "市民税減税12年継続を推進",
+        "exact_quote": "今こそ減税!日本で名古屋だけ! 市民税減税12年継続中!!"
+      },
+      {
+        "id": "pledge_nagoya_castle",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城木造復元",
+        "stance": "推進・拡充",
+        "headline": "名古屋城天守閣の木造復元",
+        "exact_quote": "河村たかし名古屋城の完全木造復元 (100年で再度国宝に!)"
+      },
+      {
+        "id": "pledge_child_elderly_support",
+        "category": "子育て・教育, 福祉・医療・健康",
+        "target_issue": "子ども支援・敬老パス拡充",
+        "stance": "推進・拡充",
+        "headline": "子ども支援と敬老パスの拡充",
+        "exact_quote": "・1人の子も死なせないナゴヤ (日本一子どもを応援 常勤スクールカウンセラー) ・敬老パスをさらに使いやすく! ・日本一の就学援助を拡大 入学準備金支給、修学旅行費支給、給食費無料拡大 対象家庭の年収基準、約508万円以下 →約650万円以下に引き上げ!"
+      }
+    ]
+  },
+  {
+    "speaker": "斉藤たかお",
+    "raw_name": "斉藤たかお",
+    "district": "中村区",
+    "party": "自民党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/05.pdf",
+    "pledges": [
+      {
+        "id": "pledge_elderly_transport_medical",
+        "category": "福祉・医療・健康, 都市再生・交通インフラ",
+        "target_issue": "敬老パス拡充・救急医療",
+        "stance": "推進・拡充",
+        "headline": "敬老パス拡充と救急医療体制強化",
+        "exact_quote": "●敬老パス名鉄バス利用拡大 ●救急現場医師出動システム"
+      },
+      {
+        "id": "pledge_tourism_promotion",
+        "category": "産業・観光・地域経済",
+        "target_issue": "観光振興 (戦国武将観光ロード)",
+        "stance": "推進・拡充",
+        "headline": "戦国武将観光ロードで観光振興",
+        "exact_quote": "●戦国武将観光ロード"
+      },
+      {
+        "id": "pledge_community_wifi",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "コミセンWi-Fi設置",
+        "stance": "推進・拡充",
+        "headline": "コミセンWi-Fi設置を推進",
+        "exact_quote": "●コミセン Wi-Fi 設置"
+      }
+    ]
+  },
+  {
+    "speaker": "小出昭司",
+    "raw_name": "小出昭司",
+    "district": "中村区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/05.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "小中学校給食費無償化",
+        "stance": "推進・拡充",
+        "headline": "小中学校の給食費無償化を目指す",
+        "exact_quote": "小中学校の「給食費無料化」を目指します!"
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災危機管理・雨水対策",
+        "stance": "推進・拡充",
+        "headline": "防災危機管理と雨水対策を強化",
+        "exact_quote": "絶対的な防災危機管理 ゲリラ豪雨に対応する雨水対策の実現!(降雨量1時間60mm 対応) 道路や都市公園の防災機能拡充を目指します!"
+      },
+      {
+        "id": "pledge_elderly_pass",
+        "category": "福祉・医療・健康, 都市再生・交通インフラ",
+        "target_issue": "敬老パス利便性向上",
+        "stance": "推進・拡充",
+        "headline": "敬老パスの利便性向上を推進",
+        "exact_quote": "敬老パスの継続・利便性向上 「高齢者は社会の恩人」です。高齢者の皆さんが楽しく生き生きと暮らせるために気軽で便利な敬老パスを目指します!"
+      }
+    ]
+  },
+  {
+    "speaker": "内田恒洋",
+    "raw_name": "内田恒洋",
+    "district": "中区",
+    "party": "参政党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/06.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_culture",
+        "category": "子育て・教育",
+        "target_issue": "郷土の誇りを持てる教育",
+        "stance": "推進・拡充",
+        "headline": "郷土の誇り育む教育を推進",
+        "exact_quote": "自ら考え自ら学ぶ力を育むと共に、地域の文化や歴史に触れて、郷土の誇りを持てる教育を行う"
+      },
+      {
+        "id": "pledge_food_health",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "食の安全・健康",
+        "stance": "推進・拡充",
+        "headline": "化学物質に依存しない食と健康",
+        "exact_quote": "生産者に思いを馳せ、化学物質に依存せず、自らの血肉となるにふさわしい食材を選ぶ力を養う"
+      },
+      {
+        "id": "pledge_national_security_economy",
+        "category": "産業・観光・地域経済",
+        "target_issue": "外国資本による土地・企業買収",
+        "stance": "反対・見直し",
+        "headline": "外国資本による土地・企業買収を防ぐ",
+        "exact_quote": "日本全国で、土地や建物、会社の株式などが外国資本に買われています。名古屋も例外ではありません。名古屋の発展に寄与してくださる外国人は大歓迎ですが、侵略を目論む外国資本の流入は防がなくてはなりません。"
+      }
+    ]
+  },
+  {
+    "speaker": "今枝きよみ",
+    "raw_name": "今枝きよみ",
+    "district": "中区",
+    "party": "自民党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/06.pdf",
+    "pledges": [
+      {
+        "id": "pledge_elderly_dignity",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者の尊厳ある暮らし",
+        "stance": "推進・拡充",
+        "headline": "高齢者が尊厳をもって暮らせる街へ",
+        "exact_quote": "人生最後まで尊厳をもって自分らしく暮らすことができる"
+      },
+      {
+        "id": "pledge_diversity_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "多様性尊重と共助社会",
+        "stance": "推進・拡充",
+        "headline": "多様性を尊重し支えあう街づくり",
+        "exact_quote": "多様性を尊重し支えあうまちづくり"
+      },
+      {
+        "id": "pledge_disaster_crime",
+        "category": "防災・減災・治安",
+        "target_issue": "災害・防犯対策",
+        "stance": "推進・拡充",
+        "headline": "災害・防犯に強い安全な街づくり",
+        "exact_quote": "災害、防犯に強いまちづくり"
+      }
+    ]
+  },
+  {
+    "speaker": "豊田かおる",
+    "raw_name": "豊田かおる",
+    "district": "中区",
+    "party": "減税日本",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/06.pdf",
+    "pledges": [
+      {
+        "id": "pledge_covid_vaccine_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "コロナワクチン副反応相談",
+        "stance": "推進・拡充",
+        "headline": "コロナワクチン副反応相談窓口設置",
+        "exact_quote": "コロナワクチン長期的副反応相談窓口設置。"
+      },
+      {
+        "id": "pledge_welfare_nagoya",
+        "category": "福祉・医療・健康",
+        "target_issue": "福祉の充実",
+        "stance": "推進・拡充",
+        "headline": "日本一の温かい福祉の名古屋へ",
+        "exact_quote": "日本一の福祉でぬくといナゴヤ。"
+      },
+      {
+        "id": "pledge_nagoyacastle_wood",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "推進・拡充",
+        "headline": "名古屋城天守閣木造化を実現",
+        "exact_quote": "いよいよ実現!名古屋城天守木造化。"
+      }
+    ]
+  },
+  {
+    "speaker": "中田ちづこ",
+    "raw_name": "中田ちづこ",
+    "district": "中区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/06.pdf",
+    "pledges": [
+      {
+        "id": "pledge_schoollunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食費無償化",
+        "stance": "推進・拡充",
+        "headline": "小中学校の給食費無償化へ",
+        "exact_quote": "小・中学校の学校給食費の無償化に取り組みます"
+      },
+      {
+        "id": "pledge_urban_redevelopment",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "都心部再整備",
+        "stance": "推進・拡充",
+        "headline": "都心部再整備を推進",
+        "exact_quote": "都心部再整備を行ないます"
+      },
+      {
+        "id": "pledge_water_treatment",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "堀留水処理センター廃止",
+        "stance": "反対・見直し",
+        "headline": "堀留水処理センター廃止と浄化",
+        "exact_quote": "堀留水処理センターを廃止します"
+      }
+    ]
+  },
+  {
+    "speaker": "塚本つよし",
+    "raw_name": "塚本つよし",
+    "district": "中区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/06.pdf",
+    "pledges": [
+      {
+        "id": "pledge_subway_elevator",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地下鉄駅エレベーター設置",
+        "stance": "推進・拡充",
+        "headline": "地下鉄駅エレベーター複数設置",
+        "exact_quote": "地下鉄駅のエレベーター複数設置の推進!"
+      },
+      {
+        "id": "pledge_security_camera",
+        "category": "防災・減災・治安",
+        "target_issue": "防犯カメラ設置",
+        "stance": "推進・拡充",
+        "headline": "公設防犯カメラの導入を推進",
+        "exact_quote": "公設の防犯カメラの導入!"
+      },
+      {
+        "id": "pledge_child_education_support",
+        "category": "子育て・教育",
+        "target_issue": "ひとり親・困窮世帯学習支援",
+        "stance": "推進・拡充",
+        "headline": "ひとり親・困窮世帯の学習支援拡大",
+        "exact_quote": "ひとり親・生活困窮世帯中学生の学習支援事業を拡大!"
+      }
+    ]
+  },
+  {
+    "speaker": "石原あいこ",
+    "raw_name": "石原あいこ",
+    "district": "中区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/06.pdf",
+    "pledges": [
+      {
+        "id": "pledge_insurance_premium_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保・介護保険料値下げ",
+        "stance": "負担軽減",
+        "headline": "国保・介護保険料の値下げ",
+        "exact_quote": "国保・介護保険料値下げ 18 歳以下の子どもへの国保料の均等割を全額免除して子育て支援を行います。介護保険料は愛知県内の自治体で一番高く2021年の水準に戻します。"
+      },
+      {
+        "id": "pledge_schoollunch_free_ishihara",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "学校給食の無償化を推進",
+        "exact_quote": "学校給食無償化 学校給食の無償化は全国の流れ。小学校給食費(4,400円/月)を無償化。中学校のスクールランチを給食制度にしてさらに無償化をめざします。"
+      },
+      {
+        "id": "pledge_scholarship_support",
+        "category": "産業・観光・地域経済",
+        "target_issue": "奨学金返済支援",
+        "stance": "推進・拡充",
+        "headline": "奨学金返済支援で若者定着",
+        "exact_quote": "奨学金の返済支援 市内中小企業に就職した方(35歳以下)に月額最大3万円を3年間支援。若者が安心して学び、働けるようにします。地域の産業を支える人材確保にも有効です。"
+      }
+    ]
+  },
+  {
+    "speaker": "おくむら文悟",
+    "raw_name": "奥村文悟",
+    "district": "昭和区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/07.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_edu_okumura",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育環境",
+        "stance": "推進・拡充",
+        "headline": "子育て・教育環境の一層の充実",
+        "exact_quote": "◆子育て・教育環境の一層の充実"
+      },
+      {
+        "id": "pledge_safety_okumura",
+        "category": "防災・減災・治安",
+        "target_issue": "くらしの安心・安全対策",
+        "stance": "推進・強化",
+        "headline": "くらしの安心・安全対策を強化",
+        "exact_quote": "◆くらしの安心・安全対策の強化"
+      },
+      {
+        "id": "pledge_economy_okumura",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済活性化",
+        "stance": "推進・支援",
+        "headline": "地域経済の活性化へ育成と支援",
+        "exact_quote": "◆地域経済の活性化へ育成と支援"
+      }
+    ]
+  },
+  {
+    "speaker": "西田ひろたか",
+    "raw_name": "西田ひろたか",
+    "district": "昭和区",
+    "party": "自民党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/07.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tuition_nishida",
+        "category": "子育て・教育",
+        "target_issue": "学費",
+        "stance": "負担軽減",
+        "headline": "学費無料化を推進",
+        "exact_quote": "・学費無料化"
+      },
+      {
+        "id": "pledge_aircon_nishida",
+        "category": "子育て・教育",
+        "target_issue": "学校体育館エアコン",
+        "stance": "推進・拡充",
+        "headline": "小中学校体育館エアコン設置を実現",
+        "exact_quote": "自民 全国政令市初!!小中学校体育館へのエアコン設置をついに実現しました!"
+      },
+      {
+        "id": "pledge_elderly_nishida",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者を大切にするまちづくり",
+        "exact_quote": "・おじいちゃん、おばあちゃんを大切にするまち"
+      }
+    ]
+  },
+  {
+    "speaker": "大村光子",
+    "raw_name": "大村光子",
+    "district": "昭和区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/07.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tax_omura",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "制度維持",
+        "headline": "恒久的市民税減税の継続",
+        "exact_quote": "●日本で唯一の恒久的市民税減税の継続。"
+      },
+      {
+        "id": "pledge_elderly_bus_omura",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老バス",
+        "stance": "推進・拡充",
+        "headline": "ナゴヤ敬老バスの日本一を維持",
+        "exact_quote": "◎ナゴヤ敬老バス圧倒的日本1。"
+      },
+      {
+        "id": "pledge_nagoyacastle_omura",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城木造復元",
+        "stance": "推進・実現",
+        "headline": "名古屋城木造本物復元を実現",
+        "exact_quote": "④いよいよ実現!名古屋城木造本物復元。"
+      }
+    ]
+  },
+  {
+    "speaker": "柴田たみお",
+    "raw_name": "柴田たみお",
+    "district": "昭和区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/07.pdf",
+    "pledges": [
+      {
+        "id": "pledge_schoollunch_shibata",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "推進・無償化",
+        "headline": "小中学校給食の無償化を推進",
+        "exact_quote": "小学校給食を無償に中学校は全員制給食に転換し無償化へ"
+      },
+      {
+        "id": "pledge_insurance_shibata",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "●国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_scholarship_shibata",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返還支援",
+        "stance": "推進・拡充",
+        "headline": "奨学金返還支援（月額最大3万円）",
+        "exact_quote": "●月額最大3万円の奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "ふじた和秀",
+    "raw_name": "ふじた 和秀",
+    "district": "瑞穂区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/08.pdf",
+    "pledges": [
+      {
+        "id": "pledge_emergency_medical",
+        "category": "福祉・医療・健康",
+        "target_issue": "救急医療体制",
+        "stance": "推進・拡充",
+        "headline": "市大病院の救急医療体制を強化",
+        "exact_quote": "市大病院 救急医療強化を更に進めます!!! 市大病院にドクターカー・救急車両の早期配備を直ちに実現します!!! 総合リハビリテーションセンターの機能拡充を更に進めます!!!"
+      },
+      {
+        "id": "pledge_mizuho_urban_renewal",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "瑞穂区の都市インフラ整備",
+        "stance": "推進・拡充",
+        "headline": "アジア大会に向け瑞穂区を再整備",
+        "exact_quote": "パロマ瑞穂スポーツパーク(陸上競技場、瑞穂運動公園、区民の広場等)・博物館・市大(田辺・滝子キャンパス)の各再整備とバリアフリー対策を更に進めます!! 地下鉄地上エレベーター(新瑞橋交差点・瑞穂運動場西交差点=30人乗り)増設を直ちに実現します!!!!"
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食費無償化・子育て負担軽減",
+        "stance": "推進・拡充",
+        "headline": "給食費無償化と子育て負担軽減",
+        "exact_quote": "学校給食費無償を視野にした公費化他、教育・子育ての保護者負担軽減に取組みます!!"
+      }
+    ]
+  },
+  {
+    "speaker": "前田えみ子",
+    "raw_name": "前田えみ子",
+    "district": "瑞穂区",
+    "party": "日本維新の会 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/08.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_reform",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進・見直し",
+        "headline": "身を切る改革で既得権益を打破",
+        "exact_quote": "身を切る改革で既得権益の打破、若い力の活用、そして成長をめざす!!!!!"
+      },
+      {
+        "id": "pledge_childcare_elderly_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "子育て・介護支援",
+        "stance": "推進・拡充",
+        "headline": "子育て・介護支援で福祉先進都市へ",
+        "exact_quote": "子育て支援と介護施策を着実に実行して日本一の福祉先進都市名古屋の実現"
+      },
+      {
+        "id": "pledge_inflation_premium_coupon",
+        "category": "産業・観光・地域経済",
+        "target_issue": "物価高騰対策・商品券",
+        "stance": "推進・拡充",
+        "headline": "物価高騰対策にプレミアム商品券",
+        "exact_quote": "コロナ禍の物価高騰対策として、プレミアム商品券の増額と継続"
+      }
+    ]
+  },
+  {
+    "speaker": "久田邦博",
+    "raw_name": "久田くにひろ",
+    "district": "瑞穂区",
+    "party": "立憲民主党 公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/08.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_free",
+        "category": "子育て・教育",
+        "target_issue": "教育無償化",
+        "stance": "推進・拡充",
+        "headline": "給食費・学用品等の教育無償化",
+        "exact_quote": "給食費や学用品等教育無償化"
+      },
+      {
+        "id": "pledge_scholarship_support",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返済支援",
+        "stance": "推進・拡充",
+        "headline": "奨学金返済支援制度を創設",
+        "exact_quote": "奨学金返済支援制度の創設"
+      },
+      {
+        "id": "pledge_dementia_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症支援",
+        "stance": "推進・拡充",
+        "headline": "認知症診断費用全額補助と家族支援",
+        "exact_quote": "認知症診断費用の全額補助と家族支援"
+      }
+    ]
+  },
+  {
+    "speaker": "金城ゆたか",
+    "raw_name": "金城ゆたか",
+    "district": "瑞穂区",
+    "party": "地域政党 減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/08.pdf",
+    "pledges": [
+      {
+        "id": "pledge_citizen_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "推進・継続",
+        "headline": "市民税減税を継続",
+        "exact_quote": "市民税減税の継続!"
+      },
+      {
+        "id": "pledge_nagoya_castle_reconstruction",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "推進",
+        "headline": "名古屋城天守閣の木造復元",
+        "exact_quote": "名古屋城木造本物復元"
+      },
+      {
+        "id": "pledge_education_environment",
+        "category": "子育て・教育",
+        "target_issue": "教育環境の充実",
+        "stance": "推進・拡充",
+        "headline": "子供を守る教育環境の充実",
+        "exact_quote": "子供たちを守る為、教育環境の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "土居よしもと",
+    "raw_name": "土居よしもと",
+    "district": "瑞穂区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/08.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_crime_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・防犯対策",
+        "stance": "推進・強化",
+        "headline": "瑞穂の防災・防犯体制を強化",
+        "exact_quote": "瑞穂のまちの「防災、防犯を強化」します! 耐震化支援制度の推進により地震に強いまちを目指すとともに、住宅地への防犯カメラ設置を進め、犯罪の未然防止を図ります。"
+      },
+      {
+        "id": "pledge_community_revitalization",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "地域コミュニティ活性化",
+        "stance": "推進・活性化",
+        "headline": "地域コミュニティ活性化で安心なまち",
+        "exact_quote": "瑞穂を「世代を超えつながるまち」にします! 地域コミュニティの活性化を支援し、地域が人とのつながりにより、安心して暮らせるまちづくりを推進します。"
+      },
+      {
+        "id": "pledge_sports_culture_lifelong_learning",
+        "category": "文化・景観・歴史",
+        "target_issue": "スポーツ・文化・生涯学習",
+        "stance": "推進・機会創出",
+        "headline": "スポーツ・文化活動で笑顔あふれるまち",
+        "exact_quote": "瑞穂を「誰もが笑顔になるまち」にします! 「スポーツ・文化・ボランティア活動」などの機会の創出および生涯学習の取り組みを推進し、楽しめるまちづくりを推進します。"
+      }
+    ]
+  },
+  {
+    "speaker": "田中ともみち",
+    "raw_name": "田中ともみち",
+    "district": "瑞穂区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/08.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free_tanaka",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "推進・無償化",
+        "headline": "小中学校の給食費を無償化",
+        "exact_quote": "小学校給食を無償に 中学校は全員制給食に転換し無償化へ 日本共産党は市民のみなさんと一緒に2012年から学校給食を無償にと要求し続けてきました。こうした奮闘により他党も要求するように。一方で減税日本の河村市長は「金持ち優遇になる」と拒否。無償化へ一貫して奮闘してきた日本共産党の躍進で実現させてください。"
+      },
+      {
+        "id": "pledge_insurance_fee_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_scholarship_repayment_support",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返還支援",
+        "stance": "推進・拡充",
+        "headline": "奨学金返還を月額最大3万円支援",
+        "exact_quote": "月額最大3万円の奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "榎沢利彦",
+    "raw_name": "榎沢利彦",
+    "district": "熱田区",
+    "party": "減税日本",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/09.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "推進・継続",
+        "headline": "日本唯一の市民税減税を継続",
+        "exact_quote": "日本で唯一恒久的 市民税減税の継続"
+      },
+      {
+        "id": "pledge_nagoya_castle",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "推進",
+        "headline": "名古屋城木造本物復元を推進",
+        "exact_quote": "名古屋城木造本物復元"
+      },
+      {
+        "id": "pledge_vaccine_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "ワクチン副反応相談窓口",
+        "stance": "設置",
+        "headline": "ワクチン副反応相談窓口を設置",
+        "exact_quote": "ワクチン長期的副反応相談窓口、日本に先駆けて設置"
+      }
+    ]
+  },
+  {
+    "speaker": "たかなみかよこ",
+    "raw_name": "たかなみかよこ",
+    "district": "熱田区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/09.pdf",
+    "pledges": [
+      {
+        "id": "pledge_women_support",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "女性の社会参画・生活支援",
+        "stance": "推進",
+        "headline": "女性が生きやすい社会を目指す",
+        "exact_quote": "女性が生きやすく過ごしやすい世の中を目指します"
+      },
+      {
+        "id": "pledge_education_curriculum",
+        "category": "子育て・教育",
+        "target_issue": "教育カリキュラム改善",
+        "stance": "導入推進",
+        "headline": "子どもの社会順応性向上カリキュラム",
+        "exact_quote": "子どもたちの社会順応性を向上させるカリキュラムの導入を目指します"
+      },
+      {
+        "id": "pledge_atsuta_revitalization",
+        "category": "産業・観光・地域経済",
+        "target_issue": "熱田地域活性化",
+        "stance": "推進",
+        "headline": "熱田神宮周辺地域の活性化",
+        "exact_quote": "熱田神宮を含む周辺地域の活性化を目指します"
+      }
+    ]
+  },
+  {
+    "speaker": "森ともお",
+    "raw_name": "森ともお",
+    "district": "熱田区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/09.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て環境整備・給食無償化",
+        "stance": "推進・無償化",
+        "headline": "子育て環境整備と給食費無償化",
+        "exact_quote": "子どもを見守り、育てていくための環境整備。給食費の無償化。"
+      },
+      {
+        "id": "pledge_healthcare_welfare",
+        "category": "福祉・医療・健康",
+        "target_issue": "感染症対策・医療介護福祉",
+        "stance": "拡充",
+        "headline": "感染症対策と医療介護福祉の拡充",
+        "exact_quote": "感染症対策及び、医療・介護・福祉に関わる施策の拡充。"
+      },
+      {
+        "id": "pledge_atsuta_station_revitalization",
+        "category": "産業・観光・地域経済",
+        "target_issue": "熱田区主要駅周辺活性化",
+        "stance": "推進",
+        "headline": "熱田区主要駅周辺の活性化",
+        "exact_quote": "熱田神宮・宮の渡し (旧東海道)・金山総合駅 日比野駅・六番町駅周辺の活性化。"
+      }
+    ]
+  },
+  {
+    "speaker": "高木よしこ",
+    "raw_name": "高木よしこ",
+    "district": "熱田区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/09.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "小中学校給食無償化",
+        "stance": "無償化推進",
+        "headline": "小中学校給食の無償化を推進",
+        "exact_quote": "小学校給食を無償に 中学校は全員制給食に転換し無償化へ"
+      },
+      {
+        "id": "pledge_insurance_fee_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料",
+        "stance": "引き下げ",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_scholarship_support",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返還支援",
+        "stance": "支援拡充",
+        "headline": "奨学金返還支援を拡充",
+        "exact_quote": "月額最大3万円の奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "服部しんのすけ",
+    "raw_name": "服部しんのすけ",
+    "district": "熱田区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/09.pdf",
+    "pledges": [
+      {
+        "id": "pledge_sports_center",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "スポーツセンター整備",
+        "stance": "整備推進",
+        "headline": "スポーツセンターを必ず整備",
+        "exact_quote": "必ずスポーツセンターを整備します!"
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災減災",
+        "stance": "推進",
+        "headline": "災害に強いまちづくりを推進",
+        "exact_quote": "災害に強い町づくりで生命・財産を守ります!"
+      },
+      {
+        "id": "pledge_school_air_conditioning",
+        "category": "子育て・教育",
+        "target_issue": "小学校体育館空調整備",
+        "stance": "早期整備",
+        "headline": "小学校体育館に空調を早期整備",
+        "exact_quote": "小学校体育館に空調を早期に整備します!"
+      }
+    ]
+  },
+  {
+    "speaker": "中川あつし",
+    "raw_name": "中川あつし",
+    "district": "中川区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "推進・拡充",
+        "headline": "市民税1世帯平均8千円減税を推進",
+        "exact_quote": "市民税減税1世帯・平均8千円、日本で名古屋だけ"
+      },
+      {
+        "id": "pledge_elderly_transport_pass",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス",
+        "stance": "制度維持・拡充",
+        "headline": "敬老パス値上げせず乗継ぎ回数拡充",
+        "exact_quote": "敬老パス値上げせず、乗継ぎ(市営交通)2回→1回へ。"
+      },
+      {
+        "id": "pledge_childcare_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "給食費無償化",
+        "stance": "推進・拡充",
+        "headline": "小学校給食費の無償化を目指す",
+        "exact_quote": "給食費無償化を目指す"
+      }
+    ]
+  },
+  {
+    "speaker": "赤松哲次",
+    "raw_name": "赤松てつじ",
+    "district": "中川区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_medical",
+        "category": "子育て・教育",
+        "target_issue": "子ども医療費",
+        "stance": "推進・拡充",
+        "headline": "子ども医療費18歳まで無料化を推進",
+        "exact_quote": "子ども医療費18歳まで通院・入院無料化!"
+      },
+      {
+        "id": "pledge_elderly_transport_pass_expansion",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス",
+        "stance": "推進・拡充",
+        "headline": "敬老パスの利用範囲をJR等へ拡大",
+        "exact_quote": "敬老パスの利用拡大! JR、名鉄、近鉄も利用可能に!"
+      },
+      {
+        "id": "pledge_childcare_education_free",
+        "category": "子育て・教育",
+        "target_issue": "義務教育無償化",
+        "stance": "推進・拡充",
+        "headline": "義務教育の無償化を推進",
+        "exact_quote": "義務教育の無償化(給食費や学用品、修学旅行費など)"
+      }
+    ]
+  },
+  {
+    "speaker": "久野美穂",
+    "raw_name": "久の美穂",
+    "district": "中川区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_school_lunch_kuno",
+        "category": "子育て・教育",
+        "target_issue": "小学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小学校給食費の無償化をめざす",
+        "exact_quote": "小学校の給食無償化をめざす"
+      },
+      {
+        "id": "pledge_childcare_support_women",
+        "category": "子育て・教育",
+        "target_issue": "保育制度充実",
+        "stance": "推進・拡充",
+        "headline": "女性が働きやすい保育制度の充実化",
+        "exact_quote": "女性が外に出て働きやすいように、一時保育、病児・病後児保育、夜間保育など、様々な形で保育制度の充実化"
+      },
+      {
+        "id": "pledge_elderly_transport_pass_kuno",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス制度",
+        "stance": "制度維持",
+        "headline": "敬老パス制度の堅持を主張",
+        "exact_quote": "敬老パス制度の堅持"
+      }
+    ]
+  },
+  {
+    "speaker": "浅井正仁",
+    "raw_name": "あさいまさひと",
+    "district": "中川区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_school_lunch_asai",
+        "category": "子育て・教育",
+        "target_issue": "小学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小学校給食費の無償化を実現",
+        "exact_quote": "小学校給食の無償化の実現します!!"
+      },
+      {
+        "id": "pledge_elderly_transport_pass_asai",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス乗車回数",
+        "stance": "制度維持・拡充",
+        "headline": "敬老パス乗車回数を確保し利便性向上",
+        "exact_quote": "JRや名鉄に乗り継ぎをする方が不利にならないよう敬老パスの乗車回数を確保します!!"
+      },
+      {
+        "id": "pledge_urban_transport_traffic",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "戸田荒子線開通・踏切渋滞解消",
+        "stance": "推進・解消",
+        "headline": "戸田荒子線開通と踏切渋滞の解消",
+        "exact_quote": "戸田荒子線開通と戸田駅周辺の踏切渋滞を解消し、中川区を安心・安全で住みやすい地域にします!!"
+      }
+    ]
+  },
+  {
+    "speaker": "木下優",
+    "raw_name": "木下まさる",
+    "district": "中川区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf",
+    "pledges": [
+      {
+        "id": "pledge_welfare_disability_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "発達障がい者支援センター",
+        "stance": "推進・拡充",
+        "headline": "発達障がい者支援センター設置を推進",
+        "exact_quote": "名古屋市発達障がい者支援センターの設置を推進!"
+      },
+      {
+        "id": "pledge_welfare_adult_guardianship",
+        "category": "福祉・医療・健康",
+        "target_issue": "成年後見あんしんセンター",
+        "stance": "推進・開設",
+        "headline": "成年後見あんしんセンターの開設を推進",
+        "exact_quote": "名古屋市成年後見あんしんセンターを開設!"
+      },
+      {
+        "id": "pledge_education_cancer_learning",
+        "category": "子育て・教育",
+        "target_issue": "がん学習",
+        "stance": "推進・実現",
+        "headline": "小中学校での「がん学習」を実現",
+        "exact_quote": "政令市初の試みとなる、小・中学校で副教材を使った「がん学習」を実現!"
+      }
+    ]
+  },
+  {
+    "speaker": "月森たくや",
+    "raw_name": "月森たくや",
+    "district": "中川区",
+    "party": "公明党公認(新人)",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_education_cost",
+        "category": "子育て・教育",
+        "target_issue": "教育関連費負担軽減",
+        "stance": "負担軽減",
+        "headline": "教育関連費の負担軽減に取り組む",
+        "exact_quote": "学校教材、給食費、高校の教科書代など教育関連費の負担軽減に取り組みます"
+      },
+      {
+        "id": "pledge_childcare_economic_support",
+        "category": "子育て・教育",
+        "target_issue": "出産・育児経済的支援",
+        "stance": "推進・拡充",
+        "headline": "出産・育児の経済的支援を強化",
+        "exact_quote": "出産・育児用品や家事・育児サービスの提供など、経済的支援強化を進めます"
+      },
+      {
+        "id": "pledge_disaster_prevention_tsukimori",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "推進・拡充",
+        "headline": "ハード・ソフト両面での防災・減災対策推進",
+        "exact_quote": "東日本大震災での復興支援の経験を活かし、ハード・ソフト両面での防災・減災対策を進めます"
+      }
+    ]
+  },
+  {
+    "speaker": "えがみ博之",
+    "raw_name": "えがみ博之",
+    "district": "中川区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_school_lunch_egami",
+        "category": "子育て・教育",
+        "target_issue": "小学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小学校給食費の無償化を推進",
+        "exact_quote": "小学校給食を無償に"
+      },
+      {
+        "id": "pledge_childcare_junior_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の全員制・無償化へ転換",
+        "exact_quote": "中学校は全員制給食に転換し無償化へ"
+      },
+      {
+        "id": "pledge_welfare_insurance_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "国保料・介護保険料引き下げ"
+      }
+    ]
+  },
+  {
+    "speaker": "岡本よしひろ",
+    "raw_name": "岡本よしひろ",
+    "district": "中川区",
+    "party": "自民党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_air_conditioning",
+        "category": "子育て・教育",
+        "target_issue": "小学校体育館空調整備",
+        "stance": "推進・実現",
+        "headline": "全小学校体育館への空調整備を実現",
+        "exact_quote": "名古屋市立全小学校体育館空調整備"
+      },
+      {
+        "id": "pledge_welfare_cancer_screening",
+        "category": "福祉・医療・健康",
+        "target_issue": "がん検診無料クーポン",
+        "stance": "推進・拡充",
+        "headline": "がん検診無料クーポンの対象拡大",
+        "exact_quote": "がん検診無料クーポン対象種類拡大"
+      },
+      {
+        "id": "pledge_urban_river_regeneration",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "中川運河再生構想",
+        "stance": "推進",
+        "headline": "中川運河再生構想を推進",
+        "exact_quote": "中川運河再生構想"
+      }
+    ]
+  },
+  {
+    "speaker": "加藤一登",
+    "raw_name": "加藤かずと",
+    "district": "港区",
+    "party": "立憲民主党公認 新政あいち推せん",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_seawall",
+        "category": "防災・減災・治安",
+        "target_issue": "防潮壁整備",
+        "stance": "推進・拡充",
+        "headline": "名古屋港防潮壁の早期完成",
+        "exact_quote": "名古屋港の防潮壁の延伸(全26.4kmの内、残7.1km)の早期完成"
+      },
+      {
+        "id": "pledge_education_free",
+        "category": "子育て・教育",
+        "target_issue": "教育費無償化",
+        "stance": "推進・拡充",
+        "headline": "給食費・学用品・修学旅行費の無償化",
+        "exact_quote": "給食費や学用品、修学旅行費など教育無償化"
+      },
+      {
+        "id": "pledge_childcare_free",
+        "category": "子育て・教育",
+        "target_issue": "幼児教育無償化",
+        "stance": "推進・拡充",
+        "headline": "3歳未満児保育料の無償化",
+        "exact_quote": "保育所、認定こども園等における3歳未満児の利用料を無償化"
+      }
+    ]
+  },
+  {
+    "speaker": "山口きよあき",
+    "raw_name": "山口きよあき",
+    "district": "港区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_military",
+        "category": "財政・行革",
+        "target_issue": "軍事費削減",
+        "stance": "反対・見直し",
+        "headline": "大軍拡を止め命と暮らし平和を守る",
+        "exact_quote": "名古屋から大軍拡ストップ！命・くらし・平和を守る防波堤"
+      },
+      {
+        "id": "pledge_education_lunch",
+        "category": "子育て・教育",
+        "target_issue": "給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小中学校給食の無償化を推進",
+        "exact_quote": "小学校給食を無償に 中学校も全員制給食に転換し無償化へ"
+      },
+      {
+        "id": "pledge_education_scholarship",
+        "category": "子育て・教育",
+        "target_issue": "奨学金支援",
+        "stance": "推進・拡充",
+        "headline": "月額最大3万円の奨学金返還支援",
+        "exact_quote": "月額最大3万円の奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "吉田茂",
+    "raw_name": "吉田茂",
+    "district": "港区",
+    "party": "自民党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_safety",
+        "category": "防災・減災・治安",
+        "target_issue": "防災減災・交通安全",
+        "stance": "推進・拡充",
+        "headline": "地震・津波・交通事故対策で安心安全な街へ",
+        "exact_quote": "安心安全な街づくり! 地震・津波災害の対策・交通事故防止に努めます"
+      },
+      {
+        "id": "pledge_transport_platform_screen_doors",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "交通安全対策",
+        "stance": "推進・拡充",
+        "headline": "市営地下鉄へのホーム柵設置を推進",
+        "exact_quote": "市営地下鉄にホーム柵を設置"
+      },
+      {
+        "id": "pledge_education_english",
+        "category": "子育て・教育",
+        "target_issue": "英語教育",
+        "stance": "推進・拡充",
+        "headline": "小学校への英語指導員配置を推進",
+        "exact_quote": "小学校に英語のネイティブスピーカーの指導員の配備を推進"
+      }
+    ]
+  },
+  {
+    "speaker": "吉岡正修",
+    "raw_name": "吉岡まさのぶ",
+    "district": "港区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf",
+    "pledges": [
+      {
+        "id": "pledge_transport_platform_screen_doors_yoshioka",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "交通安全対策",
+        "stance": "推進・拡充",
+        "headline": "市営地下鉄へのホーム柵設置を推進",
+        "exact_quote": "市営地下鉄にホーム柵を設置"
+      },
+      {
+        "id": "pledge_disaster_tsunami_rain",
+        "category": "防災・減災・治安",
+        "target_issue": "防災減災",
+        "stance": "推進・拡充",
+        "headline": "津波・豪雨対策の強化を推進",
+        "exact_quote": "津波・豪雨対策を強化"
+      },
+      {
+        "id": "pledge_education_lunch_yoshioka",
+        "category": "子育て・教育",
+        "target_issue": "給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小学校給食の無償化を推進",
+        "exact_quote": "小学校給食の無償化"
+      }
+    ]
+  },
+  {
+    "speaker": "沢田ひとみ",
+    "raw_name": "沢田ひとみ",
+    "district": "港区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "制度維持",
+        "headline": "恒久的市民税減税の継続を推進",
+        "exact_quote": "日本で唯一恒久的市民税減税の継続"
+      },
+      {
+        "id": "pledge_fiscal_salary_reform",
+        "category": "財政・行革",
+        "target_issue": "議員報酬見直し",
+        "stance": "推進・拡充",
+        "headline": "議員報酬800万円の制度化",
+        "exact_quote": "議員報酬800万円を制度化"
+      },
+      {
+        "id": "pledge_culture_nagoyacastle",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "推進・拡充",
+        "headline": "名古屋城天守閣の木造復元を推進",
+        "exact_quote": "いよいよ実現!名古屋城天守閣木造復元"
+      }
+    ]
+  },
+  {
+    "speaker": "高橋ゆうすけ",
+    "raw_name": "高橋ゆうすけ",
+    "district": "南区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小学校給食無償化と中学校全員制給食",
+        "exact_quote": "小学校給食を無償に中学校は全員制給食に転換し無償化へ日本共産党は市民のみなさんと一緒に 2012 年から学校給食を無償にと要求し続けてきました。こうした奮闘により他覚も要求するように。一方で減税日本の河村市長は「金持ち優遇になる」と拒否。無償化へ一貫して奮闘してきた日本共産党の躍進で実現させてください。"
+      },
+      {
+        "id": "pledge_insurance_fee_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料負担軽減",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "●国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_elderly_pass_expansion",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス制度見直し",
+        "stance": "制度見直し・拡充",
+        "headline": "敬老パスの利用制限を廃止",
+        "exact_quote": "●敬老パス利用制限廃止"
+      }
+    ]
+  },
+  {
+    "speaker": "大河内げんき",
+    "raw_name": "大河内げんき",
+    "district": "南区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "制度維持",
+        "headline": "日本で唯一の恒久的市民税減税を継続",
+        "exact_quote": "①日本で唯一 恒久的市民税減税の継続"
+      },
+      {
+        "id": "pledge_nagoya_castle_restoration",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "推進",
+        "headline": "いよいよ実現！名古屋城木造本物復元",
+        "exact_quote": "③いよいよ実現!名古屋城木造本物復元"
+      },
+      {
+        "id": "pledge_disaster_recovery_system",
+        "category": "防災・減災・治安",
+        "target_issue": "災害復旧システム刷新",
+        "stance": "推進",
+        "headline": "大災害に備え行政システムの刷新を！",
+        "exact_quote": "大災害に備えて行政システムの刷新を!災害に見舞われる前に!心な災害復旧システムを構築します。全国の被災地で災害復旧支援ボランティアを行ってきた経験を活かし、被災しても安線状降水帯による豪雨や来るべき「南海トラフ大地震」など自然災害が甚大化してい ます。"
+      }
+    ]
+  },
+  {
+    "speaker": "橋本ひろき",
+    "raw_name": "橋本ひろき",
+    "district": "南区",
+    "party": "立憲民主党公認 新政あいち推薦",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf",
+    "pledges": [
+      {
+        "id": "pledge_elderly_pass_expansion_transport",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス対象交通機関拡充",
+        "stance": "推進・拡充",
+        "headline": "敬老パスの対象交通機関を拡大",
+        "exact_quote": "敬老パスの対象交通拡大"
+      },
+      {
+        "id": "pledge_child_medical_free",
+        "category": "福祉・医療・健康",
+        "target_issue": "子ども医療費無償化",
+        "stance": "推進・拡充",
+        "headline": "子ども医療費を18歳まで完全無料化",
+        "exact_quote": "子ども医療費18歳まで完全無料"
+      },
+      {
+        "id": "pledge_dementia_test_free",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症精密検査費用無償化",
+        "stance": "推進・拡充",
+        "headline": "認知症精密検査費用を無償化へ",
+        "exact_quote": "認知症の精密検査費用を無償化"
+      }
+    ]
+  },
+  {
+    "speaker": "横井利明",
+    "raw_name": "よこい利明",
+    "district": "南区",
+    "party": "自民党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tsunami_tide_protection",
+        "category": "防災・減災・治安",
+        "target_issue": "津波・高潮対策",
+        "stance": "推進",
+        "headline": "津波・高潮被害ゼロの街を実現へ",
+        "exact_quote": "● 山崎川・天白川に鋼矢板二重締切工を全国初導入。津波・高潮による被害のない街を実現へ。"
+      },
+      {
+        "id": "pledge_elderly_pass_convenience",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス利便性向上",
+        "stance": "推進・拡充",
+        "headline": "敬老パスの利便性を向上させる",
+        "exact_quote": "●名鉄もJRも敬老パスで、よこいの提案で実現。"
+      },
+      {
+        "id": "pledge_school_lunch_free_yokoi",
+        "category": "子育て・教育",
+        "target_issue": "給食費無償化",
+        "stance": "推進・拡充",
+        "headline": "給食費の無料化を推進する",
+        "exact_quote": "●給食費の無料化。"
+      }
+    ]
+  },
+  {
+    "speaker": "さかい大輔",
+    "raw_name": "さかい大輔",
+    "district": "南区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf",
+    "pledges": [
+      {
+        "id": "pledge_hospital_online_meeting",
+        "category": "福祉・医療・健康",
+        "target_issue": "市立病院オンライン面会",
+        "stance": "推進",
+        "headline": "市立病院でのオンライン面会を実現",
+        "exact_quote": "●市立病院での「オンライン面会」を実現!"
+      },
+      {
+        "id": "pledge_covid_sequelae_consultation",
+        "category": "福祉・医療・健康",
+        "target_issue": "コロナ後遺症相談窓口",
+        "stance": "推進",
+        "headline": "コロナ後遺症24時間相談窓口を設置",
+        "exact_quote": "●コロナ後遺症24時間相談窓口の設置!"
+      },
+      {
+        "id": "pledge_male_toilet_sanitary_box",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "男性用トイレサニタリーボックス",
+        "stance": "推進",
+        "headline": "男性用トイレにサニタリーボックス設置",
+        "exact_quote": "●男性用トイレに「サニタリーボックス」設置の実現!"
+      }
+    ]
+  },
+  {
+    "speaker": "藤沢ちあき",
+    "raw_name": "藤沢ちあき",
+    "district": "南区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_rearing_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "安心して生み育てる支援を推進する",
+        "exact_quote": "安心して生み育てる支援を推進"
+      },
+      {
+        "id": "pledge_meitetsu_elevated_rail",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "名鉄本線高架化",
+        "stance": "推進",
+        "headline": "名鉄本線高架化（呼続~鳴海間）の早期完成",
+        "exact_quote": "名鉄本線高架化(呼続~鳴海間)の早期完成"
+      },
+      {
+        "id": "pledge_disaster_prevention_fujisawa",
+        "category": "防災・減災・治安",
+        "target_issue": "豪雨・南海トラフ地震対策",
+        "stance": "推進",
+        "headline": "豪雨や南海トラフ巨大地震への対策",
+        "exact_quote": "近年多発する豪雨や南海トラフ巨大地震への対策"
+      }
+    ]
+  },
+  {
+    "speaker": "安藤のぶあき",
+    "raw_name": "安藤のぶあき",
+    "district": "南区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf",
+    "pledges": [
+      {
+        "id": "pledge_elderly_security",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者支援",
+        "stance": "推進",
+        "headline": "誰もが安心できる老後の生活を推進",
+        "exact_quote": "◎誰もが安心できる老後の生活!"
+      },
+      {
+        "id": "pledge_tax_reduction_consumption_tax_abolition",
+        "category": "財政・行革",
+        "target_issue": "減税・消費税廃止",
+        "stance": "推進・見直し",
+        "headline": "減税政策実行と消費税の廃止",
+        "exact_quote": "②減税政策の実行と消費税は廃止!"
+      },
+      {
+        "id": "pledge_art_town_minami",
+        "category": "文化・景観・歴史",
+        "target_issue": "芸術文化振興",
+        "stance": "推進",
+        "headline": "南区を芸術の町として活性化",
+        "exact_quote": "南区を芸術の町にする!"
+      }
+    ]
+  },
+  {
+    "speaker": "松井よしのり",
+    "raw_name": "松井よしのり",
+    "district": "守山区",
+    "party": "自由民主党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_matsui",
+        "category": "子育て・教育",
+        "target_issue": "給食無償化",
+        "stance": "推進・拡充",
+        "headline": "給食費の無料化を目指す",
+        "exact_quote": "給食費の無料化を目指します。"
+      },
+      {
+        "id": "pledge_disaster_matsui",
+        "category": "防災・減災・治安",
+        "target_issue": "防災減災",
+        "stance": "推進・拡充",
+        "headline": "最大規模の風水害に備えた取り組み",
+        "exact_quote": "最大規模の風水害に備えた取り組み"
+      },
+      {
+        "id": "pledge_welfare_matsui",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス拡充",
+        "stance": "推進・拡充",
+        "headline": "敬老パス制度の更なる拡充",
+        "exact_quote": "敬老パス制度の更なる拡充"
+      }
+    ]
+  },
+  {
+    "speaker": "金庭宜雄",
+    "raw_name": "こんばのぶお",
+    "district": "守山区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_digital_konba",
+        "category": "財政・行革",
+        "target_issue": "行政デジタル化",
+        "stance": "推進・拡充",
+        "headline": "誰でも簡単に市民サービスを実現",
+        "exact_quote": "誰でも簡単に市民サービスを受けられる名古屋へ!!"
+      },
+      {
+        "id": "pledge_urban_konba",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "公園整備",
+        "stance": "推進・拡充",
+        "headline": "しだみ古墳公園整備と時計台設置",
+        "exact_quote": "しだみ古墳ミュージアム公園を 利用しやすいように整備し時計台を設置!"
+      },
+      {
+        "id": "pledge_welfare_konba",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者エアコン助成",
+        "stance": "推進・拡充",
+        "headline": "高齢者世帯へのエアコン設置助成",
+        "exact_quote": "高齢者世帯へのエアコン設置助成を実現!"
+      }
+    ]
+  },
+  {
+    "speaker": "はせがわ圭亮",
+    "raw_name": "はせがわ圭亮",
+    "district": "守山区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_hasegawa",
+        "category": "財政・行革",
+        "target_issue": "市政改革",
+        "stance": "反対・見直し",
+        "headline": "既得権益や古い常識に縛られない市政改革",
+        "exact_quote": "「虫の目」「鳥の目」「魚の目」の視点で市政をチェック"
+      },
+      {
+        "id": "pledge_education_hasegawa",
+        "category": "子育て・教育",
+        "target_issue": "教育無償化",
+        "stance": "推進・拡充",
+        "headline": "教育無償化の促進で誰もが挑戦できる社会へ",
+        "exact_quote": "生まれ育った環境にかかわらず誰もが挑戦できる社会を 一教育無償化の促進一"
+      },
+      {
+        "id": "pledge_welfare_hasegawa",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス拡充",
+        "stance": "推進・拡充",
+        "headline": "敬老パスの乗り継ぎカウント見直し",
+        "exact_quote": "敬老パスは乗り継ぎも1回のカウントに カウント数を気にすることなく気軽に移動"
+      }
+    ]
+  },
+  {
+    "speaker": "北野よしはる",
+    "raw_name": "北野よしはる",
+    "district": "守山区",
+    "party": "自由民主党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economy_kitano",
+        "category": "産業・観光・地域経済",
+        "target_issue": "雇用・物価高対策",
+        "stance": "推進・拡充",
+        "headline": "雇用を守り物価高に対応した行政支援",
+        "exact_quote": "雇用を守り、物価高に対応した行政支援!"
+      },
+      {
+        "id": "pledge_disaster_kitano",
+        "category": "防災・減災・治安",
+        "target_issue": "防災減災",
+        "stance": "推進・拡充",
+        "headline": "自然災害ゼロ守山を目指す",
+        "exact_quote": "自然災害ゼロ守山!"
+      },
+      {
+        "id": "pledge_welfare_kitano",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者が安心・安全・元気に暮らせるまち",
+        "exact_quote": "高齢者が安心・安全・元気に暮らせるまち!"
+      }
+    ]
+  },
+  {
+    "speaker": "野田留美",
+    "raw_name": "野田るみ",
+    "district": "守山区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tax_noda",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "推進・拡充",
+        "headline": "市民税減税12年継続を推進",
+        "exact_quote": "市民税減税を継続"
+      },
+      {
+        "id": "pledge_salary_noda",
+        "category": "財政・行革",
+        "target_issue": "議員報酬削減",
+        "stance": "推進・拡充",
+        "headline": "議員報酬800万円を貫く",
+        "exact_quote": "議員報酬800万円貫く!"
+      },
+      {
+        "id": "pledge_childcare_noda",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "働く女性の子育てを徹底支援",
+        "exact_quote": "働く女性の子育て徹底支援!"
+      }
+    ]
+  },
+  {
+    "speaker": "小川としゆき",
+    "raw_name": "小川としゆき",
+    "district": "守山区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_transport_ogawa",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス拡充",
+        "stance": "推進・拡充",
+        "headline": "敬老パスの私鉄への利用拡大",
+        "exact_quote": "敬老バスの私鉄への利用拡大"
+      },
+      {
+        "id": "pledge_medical_ogawa",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療費無償化",
+        "stance": "推進・拡充",
+        "headline": "18歳までの医療費無料化",
+        "exact_quote": "18歳までの医療費無料"
+      },
+      {
+        "id": "pledge_safety_ogawa",
+        "category": "防災・減災・治安",
+        "target_issue": "施設整備・防犯",
+        "stance": "推進・拡充",
+        "headline": "体育館エアコン設置と防犯カメラ",
+        "exact_quote": "体育館へのエアコン設置や防犯カメラによる犯罪抑止"
+      }
+    ]
+  },
+  {
+    "speaker": "くれまつ順子",
+    "raw_name": "くれまつ順子",
+    "district": "守山区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_kurematsu",
+        "category": "子育て・教育",
+        "target_issue": "給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小中学校給食の無償化を推進",
+        "exact_quote": "小学校給食を無償に 中学校は全員制給食に転換し無償化へ"
+      },
+      {
+        "id": "pledge_welfare_kurematsu",
+        "category": "福祉・医療・健康",
+        "target_issue": "保険料引き下げ",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_education_kurematsu",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返還支援",
+        "stance": "推進・拡充",
+        "headline": "月額最大3万円の奨学金返還支援",
+        "exact_quote": "月額最大3万円の奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "河本ゆうこ",
+    "raw_name": "河本ゆうこ",
+    "district": "守山区",
+    "party": "日本維新の会 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_koumoto",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進・拡充",
+        "headline": "身を切る改革で時代に即した仕組みへ",
+        "exact_quote": "身を切る改革で慣例を見直し時代に即した仕組みに"
+      },
+      {
+        "id": "pledge_education_koumoto",
+        "category": "子育て・教育",
+        "target_issue": "教育・福祉投資",
+        "stance": "推進・拡充",
+        "headline": "教育と福祉の一体化、未来への投資",
+        "exact_quote": "子どもの教育と福祉の一体化、未来への投資を徹底"
+      },
+      {
+        "id": "pledge_transport_koumoto",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "公共交通機関充実",
+        "stance": "推進・拡充",
+        "headline": "守山区公共交通機関の充実",
+        "exact_quote": "守山区の公共交通機関、市バス路線の充実を求め続ける"
+      }
+    ]
+  },
+  {
+    "speaker": "加藤高文",
+    "raw_name": "加藤高文",
+    "district": "守山区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/13.pdf",
+    "pledges": [
+      {
+        "id": "pledge_environment_kato",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "自然環境保護",
+        "stance": "推進・拡充",
+        "headline": "外来生物種駆除で自然環境を保護",
+        "exact_quote": "私は外来生物種を駆除して、自然環境の保護・保全につとめます。"
+      },
+      {
+        "id": "pledge_welfare_kato",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・子育て支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者や子どもが安心安全な町づくり",
+        "exact_quote": "私は高齢者や子どもにとっても安心・安全な町づくりをすすめます。"
+      },
+      {
+        "id": "pledge_economy_kato",
+        "category": "産業・観光・地域経済",
+        "target_issue": "雇用創出・少子化対策",
+        "stance": "推進・拡充",
+        "headline": "正規雇用増で少子化を防ぐ",
+        "exact_quote": "私は正規雇用者を増やせば結婚できる若者が増え、少子化を防ぐと考えます。"
+      }
+    ]
+  },
+  {
+    "speaker": "岩本たかひろ",
+    "raw_name": "岩本たかひろ",
+    "district": "緑区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_health_elderly",
+        "category": "福祉・医療・健康",
+        "target_issue": "みどり市民病院の建て替え、敬老パス活用、地域交流事業",
+        "stance": "推進・拡充",
+        "headline": "市民病院建て替え、敬老パス活用推進",
+        "exact_quote": "みどり市民病院の建て替え、さらに便利になった敬老パスの活用、地域交流事業など、健康寿命を延伸。"
+      },
+      {
+        "id": "pledge_childcare_education",
+        "category": "子育て・教育",
+        "target_issue": "給食費無償化、放課後児童クラブ拡充、子育て支援",
+        "stance": "推進・拡充",
+        "headline": "給食費無償化と放課後児童クラブ拡充",
+        "exact_quote": "給食費無償化や放課後児童クラブの量的拡大、妊娠・出産から成人まで切れ目のない子育て支援の充実など、次世代を育成。"
+      },
+      {
+        "id": "pledge_economy_support",
+        "category": "産業・観光・地域経済",
+        "target_issue": "プレミアム商品券、物価高騰対策、家計・地域経済支援",
+        "stance": "推進・拡充",
+        "headline": "プレミアム商品券と物価高騰対策",
+        "exact_quote": "プレミアム商品券、エネルギーや物価高騰対策など、家計・地域経済を応援。"
+      }
+    ]
+  },
+  {
+    "speaker": "永井ゆり",
+    "raw_name": "永井ゆり",
+    "district": "緑区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "恒久的市民税減税の継続",
+        "stance": "制度維持",
+        "headline": "恒久的市民税減税12年継続",
+        "exact_quote": "日本で唯一恒久的市民税減税の継続"
+      },
+      {
+        "id": "pledge_fiscal_salary_reduction",
+        "category": "財政・行革",
+        "target_issue": "議員報酬800万円",
+        "stance": "推進・拡充",
+        "headline": "議員報酬800万円を貫く",
+        "exact_quote": "議員報酬800万円貫きます!"
+      },
+      {
+        "id": "pledge_childcare_working",
+        "category": "子育て・教育",
+        "target_issue": "働きながら子育てしやすい環境づくり",
+        "stance": "推進・拡充",
+        "headline": "働きながら子育てしやすい環境づくり",
+        "exact_quote": "働きながら子育てしやすい環境づくり"
+      }
+    ]
+  },
+  {
+    "speaker": "大谷ともひろ",
+    "raw_name": "大谷ともひろ",
+    "district": "緑区",
+    "party": "減税日本 公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_tax_reduction_otani",
+        "category": "財政・行革",
+        "target_issue": "恒久的市民税減税の継続",
+        "stance": "制度維持",
+        "headline": "恒久的市民税減税12年継続",
+        "exact_quote": "日本で名古屋だけ! 市民税減税12年継続中!!"
+      },
+      {
+        "id": "pledge_education_highschool",
+        "category": "子育て・教育",
+        "target_issue": "高校入試廃止",
+        "stance": "推進・拡充",
+        "headline": "高校入試廃止の実現",
+        "exact_quote": "いよいよ実現! 高校入試廃止へ"
+      },
+      {
+        "id": "pledge_culture_nagoyacastle",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城木造本物復元",
+        "stance": "推進・拡充",
+        "headline": "名古屋城木造本物復元を推進",
+        "exact_quote": "名古屋城木造本物復元"
+      }
+    ]
+  },
+  {
+    "speaker": "近藤和博",
+    "raw_name": "近藤かずひろ",
+    "district": "緑区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_cost_of_living_support",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "電気・ガス料金等の高騰対策、児童手当の大幅な拡充、学校給食費の無償化",
+        "stance": "推進・拡充",
+        "headline": "高騰対策、児童手当拡充、給食費無償化",
+        "exact_quote": "電気・ガス料金等の高騰対策児童手当の大幅な拡充学校給食費の無償化"
+      },
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "公園の充実、妊娠・出産支援、幼児教育無償化、教育費軽減、こころのサポート",
+        "stance": "推進・拡充",
+        "headline": "公園充実、出産支援、幼児教育無償化",
+        "exact_quote": "●公園の充実●妊娠・出産時に計10万円相当の支援を継続●0歳児から2歳児までの幼児教育の無償化●高校生・大学生の教育費の軽減●“こころのサポート”を充実(SNS相談体制等の拡充)"
+      },
+      {
+        "id": "pledge_elderly_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者の熱中症対策、認知症・フレイル予防、移動手段確保、信号・案内板改善、駅ホームドア増設、生涯スポーツ環境整備",
+        "stance": "推進・拡充",
+        "headline": "高齢者支援、移動手段確保、駅ホームドア増設",
+        "exact_quote": "●高齢者の熱中症対策、認知症・フレイル予防の推進●高齢者の移動手段の確保(敬老パスやサポカーの充実とデマンドバスの普及)●見やすい信号・案内板、駅のホームドアの増設●高齢者が憩うことのできる生涯スポーツ環境の整備"
+      }
+    ]
+  },
+  {
+    "speaker": "中里高之",
+    "raw_name": "中里高之",
+    "district": "緑区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economy_employment",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済の再生と雇用の安定化、中小企業支援",
+        "stance": "推進・拡充",
+        "headline": "地域経済再生と雇用安定化を推進",
+        "exact_quote": "地域経済の再生と雇用の安定化へ・中小企業支援"
+      },
+      {
+        "id": "pledge_disaster_resilience",
+        "category": "防災・減災・治安",
+        "target_issue": "災害に強い生活基盤づくり、防災減災",
+        "stance": "推進・拡充",
+        "headline": "災害に強い生活基盤づくりを推進",
+        "exact_quote": "災害に強い生活基盤づくりへ・防災減災"
+      },
+      {
+        "id": "pledge_culture_heritage",
+        "category": "文化・景観・歴史",
+        "target_issue": "絆を未来へつなぐ文化支援、歴史、文化の継承",
+        "stance": "推進・拡充",
+        "headline": "未来へつなぐ文化支援と歴史継承",
+        "exact_quote": "絆を未来へつなぐ文化支援を歴史、文化の継承"
+      }
+    ]
+  },
+  {
+    "speaker": "たどう直樹",
+    "raw_name": "たどう直樹",
+    "district": "緑区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_friendly_city",
+        "category": "子育て・教育",
+        "target_issue": "通学路の安全対策、見守るしくみ、学童保育所の木造施設建設、親の経済負担軽減、教育支援",
+        "stance": "推進・拡充",
+        "headline": "子どもの安全、学童保育、経済負担軽減",
+        "exact_quote": "●通学路の安全対策、見守るしくみ●学童保育所の木造施設建設にクラウドファンディングを使って取り組む●保育園、学童保育、在宅子育てなどの親の経済負担軽減●経済的理由で進学を断念させない、こどもの夢、将来を支援するしくみ"
+      },
+      {
+        "id": "pledge_inclusive_city",
+        "category": "福祉・医療・健康",
+        "target_issue": "バリアフリー、地域で支えあうしくみ、高齢者移動支援、出産・育児総合支援、多様性尊重",
+        "stance": "推進・拡充",
+        "headline": "バリアフリー、高齢者移動、出産育児支援",
+        "exact_quote": "●全ての人に優しいバリアフリー●住み慣れた地域の中で支えあうしくみ●免許返納後の移動支援(公共交通網の充実)●出産・育児に寄り添う総合支援●年齢、性別、障害、国籍に関わらず安心して暮らせる指針の制定"
+      },
+      {
+        "id": "pledge_worker_friendly_city",
+        "category": "産業・観光・地域経済",
+        "target_issue": "疲弊企業の事業支援、生活・雇用を守り経済の好循環創出、SDGs未来都市、環境保護、災害対策",
+        "stance": "推進・拡充",
+        "headline": "企業支援、雇用創出、SDGs推進",
+        "exact_quote": "●コロナ禍で疲弊企業の事業支援●生活や雇用を守り経済の好循環創出を実現●SDGs未来都市として持続可能な社会●環境を守り災害対策を進める"
+      }
+    ]
+  },
+  {
+    "speaker": "みつなか美由紀",
+    "raw_name": "みつなか美由紀",
+    "district": "緑区",
+    "party": "日本共産党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "小学校給食無償化、中学校全員制給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小中学校給食の無償化を推進",
+        "exact_quote": "小学校給食を無償に中学校は全員制給食に転換し無償化へ"
+      },
+      {
+        "id": "pledge_insurance_fee_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料引き下げ",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の負担軽減",
+        "exact_quote": "●国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_childcare_worker_support",
+        "category": "子育て・教育",
+        "target_issue": "保育士の定員増と待遇向上",
+        "stance": "推進・拡充",
+        "headline": "保育士の定員増と待遇向上を",
+        "exact_quote": "●保育士の定員増と待遇向上を"
+      }
+    ]
+  },
+  {
+    "speaker": "浜岸ひろし",
+    "raw_name": "浜岸ひろし",
+    "district": "緑区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_administrative_reform",
+        "category": "財政・行革",
+        "target_issue": "聖域なき行政改革、市政改革",
+        "stance": "反対・見直し",
+        "headline": "聖域なき行政改革と市政改革を",
+        "exact_quote": "◆聖域なき行政改革身を切る改革・市政改革を名古屋でも実現。"
+      },
+      {
+        "id": "pledge_welfare_policy",
+        "category": "福祉・医療・健康",
+        "target_issue": "きめ細かく力強い介護・福祉政策",
+        "stance": "推進・拡充",
+        "headline": "きめ細かく力強い介護・福祉政策",
+        "exact_quote": "◆きめ細かく力強い介護・福祉政策"
+      },
+      {
+        "id": "pledge_digital_government",
+        "category": "財政・行革",
+        "target_issue": "デジタルを活かした新しい行政",
+        "stance": "推進・拡充",
+        "headline": "デジタル活用による新しい行政",
+        "exact_quote": "◆デジタルを活かした新しい行政"
+      }
+    ]
+  },
+  {
+    "speaker": "岡本やすひろ",
+    "raw_name": "岡本やすひろ",
+    "district": "緑区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf",
+    "pledges": [
+      {
+        "id": "pledge_district_office",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "緑区総合庁舎の早期実現",
+        "stance": "推進・拡充",
+        "headline": "緑区総合庁舎の早期実現を推進",
+        "exact_quote": "●緑区総合庁舎の早期実現"
+      },
+      {
+        "id": "pledge_compulsory_education_free",
+        "category": "子育て・教育",
+        "target_issue": "義務教育にかかる費用の無償化 (学校給食など)",
+        "stance": "推進・拡充",
+        "headline": "義務教育費用の無償化を推進",
+        "exact_quote": "●義務教育にかかる費用の無償化(学校給食など)"
+      },
+      {
+        "id": "pledge_bus_route_review",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "緑区の市バス路線の見直し",
+        "stance": "推進・拡充",
+        "headline": "緑区の市バス路線の見直しを推進",
+        "exact_quote": "●緑区の市バス路線の見直し"
+      }
+    ]
+  },
+  {
+    "speaker": "中村しゅうへい",
+    "raw_name": "中村しゅうへい",
+    "district": "名東区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf",
+    "pledges": [
+      {
+        "id": "pledge_cost_of_living",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高騰対策",
+        "stance": "負担軽減",
+        "headline": "物価高騰対策、光熱費補助など継続",
+        "exact_quote": "公明党がリードした経済的な支援策の「光熱費補助など家計の負担軽減策を切れ目なく実施。更に地方創生臨時交付金を活用し、福祉施設への支援、給食費の負担軽減等を継続します。"
+      },
+      {
+        "id": "pledge_child_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援拡充",
+        "stance": "推進・拡充",
+        "headline": "子育て支援拡充、男性産休・育休支援",
+        "exact_quote": "経済的な支援策の拡充とともに「質」も充実させます。男性の産休・育休取得を支援。また専業主婦の家庭も保育所等を定期的に利用できる制度を創設します。"
+      },
+      {
+        "id": "pledge_elderly_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者支援・地域見守り",
+        "stance": "推進・拡充",
+        "headline": "高齢者詐欺対策、地域見守り強化",
+        "exact_quote": "高齢者を狙った詐欺対策、防犯を強化。地域の見守り・交流の場づくりを支援し、誰もが健康で生き生きと年齢を重ねる“幸齢社会”を築きます。"
+      }
+    ]
+  },
+  {
+    "speaker": "丹羽ひろし",
+    "raw_name": "丹羽ひろし",
+    "district": "名東区",
+    "party": "自民党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf",
+    "pledges": [
+      {
+        "id": "pledge_regional_cooperation",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "県市連携強化",
+        "stance": "推進・拡充",
+        "headline": "県市連携強化、ジブリパーク玄関口整備",
+        "exact_quote": "愛・地球博記念公園に「ジブリパーク」がオープンしました。「ジブリパーク」の玄関口として、大村知事とともに藤が丘駅周辺を夢あるまちへと整備します。今こそ県と市の連携が必要です!"
+      },
+      {
+        "id": "pledge_fiscal_reform_salary",
+        "category": "財政・行革",
+        "target_issue": "議員報酬見直し",
+        "stance": "推進・拡充",
+        "headline": "市会議員報酬800万円制度化に努力",
+        "exact_quote": "①市会議員報酬八百万円を制度化に努めます。"
+      },
+      {
+        "id": "pledge_fiscal_reform_expenses",
+        "category": "財政・行革",
+        "target_issue": "政務活動費公開",
+        "stance": "推進・拡充",
+        "headline": "政務活動費全面公開、黒塗り部分も",
+        "exact_quote": "②政務活動費の全面公開黒塗り部分も公開します。"
+      }
+    ]
+  },
+  {
+    "speaker": "くずや利枝",
+    "raw_name": "くずや 利枝",
+    "district": "名東区",
+    "party": "自民党・公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf",
+    "pledges": [
+      {
+        "id": "pledge_district_office_reconstruction",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "名東区役所建替え",
+        "stance": "推進・拡充",
+        "headline": "老朽化名東区役所の建替えを推進",
+        "exact_quote": "1.「防災・医療・福祉」の拠点である老朽化した名東区役所の「建替え」を推進"
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "家庭負担の「学校給食」を無償化",
+        "exact_quote": "2. 家庭負担の「学校給食」を無償化"
+      },
+      {
+        "id": "pledge_after_school_care",
+        "category": "子育て・教育",
+        "target_issue": "学童保育・トワイライトスクール拡充",
+        "stance": "推進・拡充",
+        "headline": "学童保育・トワイライトスクールの拡充",
+        "exact_quote": "3. 学童保育・トワイライトスクールの拡充"
+      }
+    ]
+  },
+  {
+    "speaker": "あさい康正",
+    "raw_name": "あさい康正",
+    "district": "名東区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_reform_salary_asai",
+        "category": "財政・行革",
+        "target_issue": "議員報酬見直し",
+        "stance": "推進・拡充",
+        "headline": "市会議員報酬800万円を制度化に努める",
+        "exact_quote": "①市会議員報酬八百万円を制度化に努めます。"
+      },
+      {
+        "id": "pledge_fiscal_reform_expenses_asai",
+        "category": "財政・行革",
+        "target_issue": "政務活動費公開",
+        "stance": "推進・拡充",
+        "headline": "政務活動費全面公開、黒塗り部分も",
+        "exact_quote": "②政務活動費の全面公開黒塗り部分も公開します。"
+      },
+      {
+        "id": "pledge_mayoral_policy_continuation",
+        "category": "財政・行革",
+        "target_issue": "河村市政継続",
+        "stance": "推進・拡充",
+        "headline": "河村市政の継続とさらなる発展に尽力",
+        "exact_quote": "③河村市政の継続とさらなる発展に尽力します。"
+      }
+    ]
+  },
+  {
+    "speaker": "鈴木あやこ",
+    "raw_name": "鈴木あやこ",
+    "district": "名東区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free_suzuki",
+        "category": "子育て・教育",
+        "target_issue": "小中学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "小中学校給食を無償化へ転換",
+        "exact_quote": "小学校給食を無償に中学校は全員制給食に転換し無償化へ日本共産党は市民のみなさんと一緒に2012年から学校給食を無償にと要求し続けてきました。こうした奮闘により他党も要求するように。一方で減税日本の河村市長は「金持ち優遇になる」と拒否。無償化へ一貫して奮闘してきた日本共産党の躍進で実現させてください。"
+      },
+      {
+        "id": "pledge_insurance_fee_reduction",
+        "category": "福祉・医療・健康",
+        "target_issue": "国保料・介護保険料",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "●国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_scholarship_support",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返還支援",
+        "stance": "推進・拡充",
+        "headline": "月額最大3万円の奨学金返還支援",
+        "exact_quote": "●月額最大3万円の奨学金返還支援"
+      }
+    ]
+  },
+  {
+    "speaker": "日比美咲",
+    "raw_name": "ひび美咲",
+    "district": "名東区",
+    "party": "国民民主党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf",
+    "pledges": [
+      {
+        "id": "pledge_compulsory_education_free",
+        "category": "子育て・教育",
+        "target_issue": "義務教育費用無償化",
+        "stance": "推進・拡充",
+        "headline": "義務教育費用(給食・制服等)の無償化",
+        "exact_quote": "●義務教育にかかる費用(給食・制服・修学旅行他)の無償化"
+      },
+      {
+        "id": "pledge_scholarship_support_hibi",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返済支援",
+        "stance": "推進・拡充",
+        "headline": "奨学金返済支援、リカレント教育推進",
+        "exact_quote": "●奨学金返済支援 ●リカレント教育(学び直し)の推進"
+      },
+      {
+        "id": "pledge_elderly_pass_review",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス制度見直し",
+        "stance": "反対・見直し",
+        "headline": "敬老パスの回数制限見直し",
+        "exact_quote": "●敬老パスの回数制限の見直し"
+      }
+    ]
+  },
+  {
+    "speaker": "大島英勲",
+    "raw_name": "大島ひでひろ",
+    "district": "名東区",
+    "party": "日本維新の会公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_free_oshima",
+        "category": "子育て・教育",
+        "target_issue": "教育無償化・塾代クーポン",
+        "stance": "推進・拡充",
+        "headline": "私学含む教育無償化、塾代クーポン推進",
+        "exact_quote": "●私学を含めた教育無償化、塾代クーポンなどにより、家庭環境にかかわらずすべての子どもたちに学ぶ機会の平等を。"
+      },
+      {
+        "id": "pledge_maternity_care_free",
+        "category": "福祉・医療・健康",
+        "target_issue": "妊婦健診無償化・出産費用軽減",
+        "stance": "推進・拡充",
+        "headline": "妊婦健診無償化、出産費用軽減を推進",
+        "exact_quote": "・妊婦健診の無償化をはじめとする出産費用の軽減。"
+      },
+      {
+        "id": "pledge_fiscal_reform_oshima",
+        "category": "財政・行革",
+        "target_issue": "行財政改革・デジタル化",
+        "stance": "推進・拡充",
+        "headline": "聖域なき行財政改革、デジタル技術活用",
+        "exact_quote": "前例に捉われない、聖域なき行財政改革。効率的で最高の行政サービスを実現するため、デジタル技術を積極活用。行政手続きのオンライン化、行政情報のビックデータ化・AI活用による分析。"
+      }
+    ]
+  },
+  {
+    "speaker": "松岡まや",
+    "raw_name": "松岡まや",
+    "district": "名東区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf",
+    "pledges": [
+      {
+        "id": "pledge_organic_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "オーガニック給食",
+        "stance": "推進・拡充",
+        "headline": "オーガニック無料給食の実現",
+        "exact_quote": "●健康(ワクチン)に関する正確な情報の発信、オーガニック無料給食の実現"
+      },
+      {
+        "id": "pledge_sdgs_city",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "SDGs推進・環境配慮",
+        "stance": "推進・拡充",
+        "headline": "環境・社会・家計にやさしいSDGs未来都市",
+        "exact_quote": "●環境・社会・家計にやさしい暮らしでSDGs未来都市を目指す"
+      },
+      {
+        "id": "pledge_childbirth_support",
+        "category": "子育て・教育",
+        "target_issue": "少子化対策・出産支援",
+        "stance": "推進・拡充",
+        "headline": "異次元の少子化対策(出産時500万円等)",
+        "exact_quote": "●異次元の少子化対策(出産時500万円、さらに毎月5万円支給)"
+      }
+    ]
+  },
+  {
+    "speaker": "鈴木孝之",
+    "raw_name": "鈴木たかゆき",
+    "district": "天白区",
+    "party": "減税日本公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_tax_reduction",
+        "category": "財政・行革",
+        "target_issue": "市民税減税",
+        "stance": "継続",
+        "headline": "恒久的市民税減税の継続",
+        "exact_quote": "日本で唯一の恒久的市民税減税の継続。"
+      },
+      {
+        "id": "pledge_welfare_elderly_pass",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス拡充",
+        "stance": "拡充",
+        "headline": "敬老パスを圧倒的日本一に",
+        "exact_quote": "ナゴヤ敬老パス圧倒的日本一。"
+      },
+      {
+        "id": "pledge_culture_nagoyacastle",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "推進",
+        "headline": "名古屋城木造本物復元を実現",
+        "exact_quote": "いよいよ実現!名古屋城木造本物復元。"
+      }
+    ]
+  },
+  {
+    "speaker": "田中里佳",
+    "raw_name": "田中りか",
+    "district": "天白区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_schoollunch",
+        "category": "子育て・教育",
+        "target_issue": "保育料・小学校給食無償化",
+        "stance": "推進",
+        "headline": "保育料・小学校給食の無償化を推進",
+        "exact_quote": "○保育料、小学校給食の無償化を進めます。"
+      },
+      {
+        "id": "pledge_transport_safety",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地下鉄ホーム柵設置, 優先車両導入",
+        "stance": "推進",
+        "headline": "地下鉄ホーム柵完備と優先車両導入",
+        "exact_quote": "○地下鉄鶴舞線のホーム柵は令和8年度の完備を確実に進め、女性や高齢者優先車両の実施を目指します。"
+      },
+      {
+        "id": "pledge_transport_mobility",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "ちょい乗り移動車導入",
+        "stance": "推進",
+        "headline": "天白区に「ちょい乗り移動車」を導入",
+        "exact_quote": "○免許返納やバス停が近くに無い等で、生活に不便を感じている方が、病院やスーパーへ行くときに利用できる「ちょい乗り移動車」を天白区内で走らせます。"
+      }
+    ]
+  },
+  {
+    "speaker": "成田たかゆき",
+    "raw_name": "成田たかゆき",
+    "district": "天白区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災対策強化",
+        "stance": "推進",
+        "headline": "命と暮らしを守る防災のまち天白を構築",
+        "exact_quote": "●YES防災! NO災害! 命と暮らしを守るまち天白の構築!"
+      },
+      {
+        "id": "pledge_childcare_worklife",
+        "category": "子育て・教育",
+        "target_issue": "子育て・仕事両立支援, 大学まで子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育てと仕事の両立支援、大学まで安心",
+        "exact_quote": "●子育てと仕事の両立が無理なくできる街に! 大学まで安心な子育て支援制度を!"
+      },
+      {
+        "id": "pledge_welfare_elderly_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス維持拡充, 認知症対策, 介護施設充実",
+        "stance": "維持・拡充",
+        "headline": "敬老パス維持拡充、認知症対策と介護施設",
+        "exact_quote": "●カウント方法変更で「敬老パス」を堅持拡充! 認知症ゼロ! 医療対応介護施設を充実!"
+      }
+    ]
+  },
+  {
+    "speaker": "田口一登",
+    "raw_name": "田口かずと",
+    "district": "天白区",
+    "party": "日本共産党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_insurance_reduction",
+        "category": "財政・行革",
+        "target_issue": "国保料・介護保険料引き下げ",
+        "stance": "負担軽減",
+        "headline": "国保料・介護保険料の引き下げ",
+        "exact_quote": "◆国保料・介護保険料引き下げ"
+      },
+      {
+        "id": "pledge_education_scholarship",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返還支援",
+        "stance": "推進",
+        "headline": "奨学金返還支援を推進",
+        "exact_quote": "◆奨学金の返還支援"
+      },
+      {
+        "id": "pledge_childcare_schoollunch_free",
+        "category": "子育て・教育",
+        "target_issue": "小学校給食無償化",
+        "stance": "推進",
+        "headline": "小学校給食の無償化を実現",
+        "exact_quote": "小学校給食を無償に"
+      }
+    ]
+  },
+  {
+    "speaker": "堀田太規",
+    "raw_name": "堀田太規",
+    "district": "天白区",
+    "party": "国民民主党 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economy_tourism_childcare",
+        "category": "産業・観光・地域経済, 子育て・教育",
+        "target_issue": "観光振興, 子育て支援拡充",
+        "stance": "推進・拡充",
+        "headline": "観光振興で子育て支援拡充を実現",
+        "exact_quote": "わが街「NAGOYAの魅力」再構築構想 日本の強みクールジャパン「アニメ・映画」コンテンツと名古屋の観光資源をタイアップし再構築させ、名古屋姉妹都市(ロサンゼルス、メキシコ、南京、シドニー、トリノ、ランス)との観光交流を図り、国内外からの集客増を狙います。観光需要で得た税収で「子育て支援の拡充」を達成します!"
+      },
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "妊娠期〜産後ケア, 共働き支援",
+        "stance": "推進・拡充",
+        "headline": "妊娠期から産後までのトータルケア拡充",
+        "exact_quote": "●妊娠期から産後までのトータルケア (産休・育休、一時保育・延長保育、病児・病後児保育、休日保育など) 共働きでも安心できる支援体制の充実"
+      },
+      {
+        "id": "pledge_education_schoollunch_textbook",
+        "category": "子育て・教育",
+        "target_issue": "給食費・教材費無償化, デジタル化",
+        "stance": "推進",
+        "headline": "給食費・教材費無償化と教育デジタル化",
+        "exact_quote": "●学校給食費無償化/教材費の無償化&デジタル化"
+      }
+    ]
+  },
+  {
+    "speaker": "太田敏光",
+    "raw_name": "太田敏光",
+    "district": "天白区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf",
+    "pledges": [
+      {
+        "id": "pledge_culture_nagoyacastle_oppose",
+        "category": "文化・景観・歴史",
+        "target_issue": "名古屋城天守閣木造復元",
+        "stance": "反対・見直し",
+        "headline": "名古屋城天守閣木造化に反対",
+        "exact_quote": "1 祜屋城天守閣木造化反対"
+      },
+      {
+        "id": "pledge_environment_park",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "相生山緑地公園化",
+        "stance": "推進",
+        "headline": "相生山緑地公園化を推進",
+        "exact_quote": "2 相生山緑地公園化推進"
+      }
+    ]
+  },
+  {
+    "speaker": "辻󠄀まさお",
+    "raw_name": "辻まさお",
+    "district": "天白区",
+    "party": "公明党公認",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_sickchildcare",
+        "category": "子育て・教育, 福祉・医療・健康",
+        "target_issue": "病児・病後児デイケア事業拡充",
+        "stance": "拡充",
+        "headline": "病児・病後児デイケア事業を充実",
+        "exact_quote": "■往診型の導入などで「病児・病後児デイケア事業」をさらに充実"
+      },
+      {
+        "id": "pledge_education_schoollunch",
+        "category": "子育て・教育",
+        "target_issue": "小中学校給食無償化・完全給食化",
+        "stance": "推進・実現",
+        "headline": "小中学校給食の無償化・完全給食化",
+        "exact_quote": "■小学校給食の無償化、中学校の完全給食化の実現"
+      },
+      {
+        "id": "pledge_welfare_elderly_pass_expand",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス利用範囲拡大",
+        "stance": "拡充",
+        "headline": "敬老パス利用範囲の拡大を推進",
+        "exact_quote": "■敬老パスの利用範囲の拡大など、住みやすいまちづくり"
+      }
+    ]
+  },
+  {
+    "speaker": "皆川まさかず",
+    "raw_name": "皆川まさかず",
+    "district": "天白区",
+    "party": "日本維新の会公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_childcare_investment",
+        "category": "子育て・教育",
+        "target_issue": "多様な教育, 将来世代への投資",
+        "stance": "推進",
+        "headline": "多様な教育と将来世代への徹底投資",
+        "exact_quote": "◆【教育・子育て】真に多様な価値観を育む教育。名古屋で産み、育てたいと思える、将来世代への徹底投資。"
+      },
+      {
+        "id": "pledge_fiscal_admin_reform",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進",
+        "headline": "聖域なき行財政改革を推進",
+        "exact_quote": "◆【行財政改革】前例に捉われない、聖域なき行財政改革。少子高齢・人口減少時代でも豊かで持続可能な名古屋へ。"
+      },
+      {
+        "id": "pledge_welfare_elderly_care_strong",
+        "category": "福祉・医療・健康",
+        "target_issue": "介護・福祉充実",
+        "stance": "推進",
+        "headline": "真に必要な人に行き届く力強い福祉",
+        "exact_quote": "◆【介護・福祉】真に必要な人に行き届く、力強い福祉。一人ひとりが安心して、「ずっと暮らしていきたい名古屋」づくり。"
+      }
+    ]
+  },
+  {
+    "speaker": "くにまさ直記",
+    "raw_name": "くにまさ直記",
+    "district": "東区",
+    "party": "新政あいち",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf",
+    "pledges": [
+      {
+        "id": "kunimasa_pledge_1",
+        "category": "経済・産業",
+        "target_issue": "国際会議誘致・MICE施設整備",
+        "stance": "推進",
+        "headline": "国際会議誘致でMICE施設整備、国際都市名古屋の発展に貢献",
+        "exact_quote": "① 国際会議誘致の推進により、MICE施設を整備し、国際都市名古屋の発展に貢献します。"
+      },
+      {
+        "id": "kunimasa_pledge_2",
+        "category": "文化・観光",
+        "target_issue": "東区の歴史・文化を活かした観光振興",
+        "stance": "推進",
+        "headline": "東区の歴史・文化を活かし観光振興、地域経済活性化",
+        "exact_quote": "② 東区の歴史・文化を活かした観光振興により、地域経済の活性化と賑わいを創出します。"
+      },
+      {
+        "id": "kunimasa_pledge_3",
+        "category": "防災・安全",
+        "target_issue": "災害に強いまちづくり",
+        "stance": "推進",
+        "headline": "災害に強いまちづくり推進、市民の安全・安心確保",
+        "exact_quote": "③ 災害に強いまちづくりを推進し、市民の安全・安心を確保します。"
+      }
+    ]
+  },
+  {
+    "speaker": "西川学",
+    "raw_name": "西川学",
+    "district": "昭和区",
+    "party": "自民党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/07.pdf",
+    "pledges": [
+      {
+        "id": "nishikawa_hisashi_pledge_1",
+        "category": "福祉・医療",
+        "target_issue": "高齢者福祉",
+        "stance": "高齢者を大切にするまちづくりを推進",
+        "headline": "高齢者を大切にするまちづくり",
+        "exact_quote": "おじいちゃん、おばあちゃんを大切にするまち"
+      },
+      {
+        "id": "nishikawa_hisashi_pledge_2",
+        "category": "環境",
+        "target_issue": "地球環境保護、次世代への継承",
+        "stance": "未来の子どもたちのために地球環境を守る",
+        "headline": "未来の子どもの地球を守るまち",
+        "exact_quote": "未来の子どもの地球をまもるまち"
+      },
+      {
+        "id": "nishikawa_hisashi_pledge_3",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "地域全体で子育てを支えるまちづくりを推進",
+        "headline": "みんなで子育てするまちづくり",
+        "exact_quote": "子育てをみんなでするまち"
+      }
+    ]
+  }
+]
