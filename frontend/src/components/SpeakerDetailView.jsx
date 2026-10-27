@@ -108,7 +108,16 @@ export default function SpeakerDetailView({
     if (!selectedSpeaker || !selectedSpeaker.speaker) return null;
     const name = selectedSpeaker.speaker.replace(/[\s ]+/g, '');
     const alias = ALIAS_MAP[name];
-    return pledgeTrackerMap[name] || (alias ? pledgeTrackerMap[alias] : null) || null;
+    // スペースの有無（全角・半角）を完全に無視して Map から検索する堅牢なルックアップ
+    const cleanStr = (s) => (s || '').replace(/[\s ]+/g, '');
+    const target = cleanStr(name);
+    const targetAlias = cleanStr(alias);
+    
+    const matchedKey = Object.keys(pledgeTrackerMap || {}).find(k => 
+      cleanStr(k) === target || (targetAlias && cleanStr(k) === targetAlias)
+    );
+    
+    return matchedKey ? pledgeTrackerMap[matchedKey] : null;
   }, [selectedSpeaker, pledgeTrackerMap]);
 
   const handleViewStatementContext = (stmtRecord) => {
