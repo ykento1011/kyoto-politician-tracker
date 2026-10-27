@@ -1,4 +1,4 @@
-﻿import os
+import os
 import sys
 import json
 import shutil
@@ -25,13 +25,19 @@ TIMELINE_SCRIPT = os.path.join(BASE_DIR, "build_timeline_contexts.py")
 STATIC_DATA_SCRIPT = os.path.join(BASE_DIR, "generate_static_data.py")
 SCRAPE_VOTES_SCRIPT = os.path.join(BASE_DIR, "scrape_kyoto_votes.py")
 GENERATE_ISSUES_SCRIPT = os.path.join(BASE_DIR, "generate_bill_issues.py")
-TOPIC_TIMELINES_SCRIPT = os.path.join(BASE_DIR, "generate_topic_timelines.py")
+GENERATE_ISSUES_OSAKA_SCRIPT = os.path.join(BASE_DIR, "generate_osaka_bill_issues.py")
 BUILD_PLEDGE_TRACKER_SCRIPT = os.path.join(BASE_DIR, "build_pledge_tracker.py")
 BUILD_MAYOR_TRACKER_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker.py")
 
 # スクリプトのパス（大阪）
 BUILD_PLEDGE_TRACKER_OSAKA_SCRIPT = os.path.join(BASE_DIR, "build_pledge_tracker_with_extracted_osaka.py")
 BUILD_MAYOR_TRACKER_OSAKA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_osaka.py")
+
+# スクリプトのパス（名古屋）
+BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_nagoya.py")
+
+# 3都市共通 統合トピック要約ジェネレーター
+UNIFIED_TOPIC_SCRIPT = os.path.join(BASE_DIR, "generate_unified_topic_summaries.py")
 
 # 自動テストスクリプト（ルート直下）
 COMPREHENSIVE_TEST_SCRIPT = os.path.join(PROJECT_ROOT, "run_comprehensive_test.py")
@@ -99,14 +105,17 @@ def log(msg, level="INFO"):
     emoji = "🚀" if level == "INFO" else "⚠️" if level == "WARN" else "❌"
     print(f"[{ts}] {emoji} {msg}", flush=True)
 
-def run_script(script_path, description):
+def run_script(script_path, description, args=None):
     log(f"{description} を開始...")
     if not os.path.exists(script_path):
-        log(f"スクリプトが見つかりません: {script_path}", "WARN")
+        log(f"スクリプトが見つかりません（スキップ）: {os.path.basename(script_path)}", "WARN")
         return False, "File not found"
     try:
         python_exe = sys.executable
-        result = subprocess.run([python_exe, script_path], capture_output=True, text=True, check=True)
+        cmd = [python_exe, script_path]
+        if args:
+            cmd.extend(args)
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
         log(f"{description} 完了")
         return True, result.stdout
     except subprocess.CalledProcessError as e:
@@ -196,7 +205,7 @@ def push_to_github(custom_detail=""):
         if custom_detail:
             commit_msg = f"Auto-update: {custom_detail} を追加・反映 ({now_str})"
         else:
-            commit_msg = f"Auto-update: 京都・大阪 議決・公約・政策タイムライン最新化 ({now_str})"
+            commit_msg = f"Auto-update: 京都・大阪・名古屋 議決・公約・政策タイムライン最新化 ({now_str})"
             
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push", "origin", "main"], check=True)
@@ -210,7 +219,7 @@ def main():
     is_dry_run = "--dry-run" in sys.argv or "--no-push" in sys.argv
 
     print("\n" + "="*60)
-    log("定期監視・全自動データ更新パイプライン（京都・大阪 統合版）を開始")
+    log("定期監視・全自動データ更新パイプライン（京都・大阪・名古屋 統合版）を開始")
     if is_dry_run:
         log("🧪 ドライランモード: GitHub へのデプロイ（commit/push）は行われません")
     print("="*60)
@@ -226,15 +235,12 @@ def main():
         notify_discord("❌ 定期更新エラー: 議事録取得失敗", "データ取得スクリプトの実行中にエラーが発生しました。", status="error", error_detail=output)
         return
 
-    # 3. 議決・賛否データの更新
+    # 3. 議決・賛否データの更新（3都市共通エンジン）
     log("--- [議決・賛否データの更新チェック] ---")
     scrape_ok, _ = run_script(SCRAPE_VOTES_SCRIPT, "議会公式HPからの議案・賛否スクレイピング（京都）")
-    if scrape_ok:
-        issues_ok, _ = run_script(GENERATE_ISSUES_SCRIPT, "Geminiによる新規対立議案の争点分析")
-        if not issues_ok:
-            log("対立議案分析で警告が発生しましたが、パイプラインは続行します", "WARN")
-    else:
-        log("議案スクレイピングで警告が発生しましたが、パイプラインは続行します", "WARN")
+    if os.path.exists(GENERATE_ISSUES_SCRIPT):
+        for c in ["kyoto", "osaka", "nagoya"]:
+            run_script(GENERATE_ISSUES_SCRIPT, f"Geminiによる対立議案の争点分析（{c.upper()}）", args=["--city", c])
     log("--- [議決・賛否データの更新チェック完了] ---")
 
     # 4. 議事録の差分確認
@@ -264,13 +270,15 @@ def main():
             notify_discord("❌ 定期更新エラー: サマリー生成失敗", "statements_summary.json の生成中にエラーが発生しました。", status="error", error_detail=err)
             return
 
-        # 7.6 政策タイムラインの最新化
-        ok, _ = run_script(TOPIC_TIMELINES_SCRIPT, "主要政策論点タイムラインの差分更新")
-        if not ok:
-            log("政策タイムライン更新で警告が出ましたがパイプラインは続行します", "WARN")
-
     else:
         log("✅ 新しい議事録はありませんでした。")
+
+    # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（3都市統合）
+    log("--- [政策タイムラインの最新化（3都市）] ---")
+    if os.path.exists(UNIFIED_TOPIC_SCRIPT):
+        for city in ["osaka", "nagoya"]:
+            run_script(UNIFIED_TOPIC_SCRIPT, f"政策タイムラインの差分更新（{city.upper()}）", args=["--city", city])
+    log("--- [政策タイムラインの最新化完了] ---")
 
     # 7.7 議員看板公約トラッカーの最新化（京都・大阪）
     log("--- [議員公約トラッカーの最新化] ---")
@@ -282,7 +290,7 @@ def main():
     if not p_osaka_ok:
         log("大阪市議公約トラッカー更新で警告が出ましたが続行します", "WARN")
 
-    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（京都・大阪）
+    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（京都・大阪・名古屋）
     log("--- [首長政策トラッカーの最新化] ---")
     m_ok, _ = run_script(BUILD_MAYOR_TRACKER_SCRIPT, "京都市長（松井市長）政策・予算トラッカーの更新")
     if not m_ok:
@@ -291,6 +299,9 @@ def main():
     m_osaka_ok, _ = run_script(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT, "大阪市長（横山市長）政策・予算トラッカーの更新")
     if not m_osaka_ok:
         log("大阪市長政策トラッカー更新で警告が出ましたが続行します", "WARN")
+
+    if os.path.exists(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT):
+        run_script(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT, "名古屋市長（広沢市長）政策・予算トラッカーの更新")
     
     # 大阪首長トラッカーのファイル名同期
     sync_osaka_mayor_files()
@@ -314,8 +325,8 @@ def main():
         else:
             push_ok, push_msg = push_to_github(new_detail_str)
             if push_ok:
-                detail_desc = f"**更新内容:** {new_detail_str}\n京都・大阪の最新データを自動検証の上、GitHub (`main`) へ安全にデプロイしました。" if new_detail_str else "京都・大阪の議決・公約・首長トラッカーを自動検証の上、GitHub へデプロイしました。"
-                notify_discord("🎉 定期更新完了: 京都・大阪の最新データを反映", detail_desc, status="success")
+                detail_desc = f"**更新内容:** {new_detail_str}\n京都・大阪・名古屋の最新データを自動検証の上、GitHub (`main`) へ安全にデプロイしました。" if new_detail_str else "京都・大阪・名古屋の議決・公約・首長トラッカーを自動検証の上、GitHub へデプロイしました。"
+                notify_discord("🎉 定期更新完了: 京都・大阪・名古屋の最新データを反映", detail_desc, status="success")
             else:
                 notify_discord("⚠️ 定期更新警告: Gitプッシュ失敗", f"データ生成は成功しましたが、GitHub へのプッシュに失敗しました。\n`{push_msg}`", status="warn")
     else:

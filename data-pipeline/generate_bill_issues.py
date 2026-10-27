@@ -1,241 +1,255 @@
 import os
+import sys
 import re
 import json
 import time
+import argparse
 import threading
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from google import genai
 from google.genai import types
 
-# パス設定
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ENV_FILE = os.path.join(BASE_DIR, ".env")
-VOTES_FILE = os.path.join(BASE_DIR, "..", "frontend", "public", "data", "votes_summary.json")
-MINUTES_FILE = os.path.join(BASE_DIR, "sagebase_crawled_data.json")
-OUTPUT_FILE = os.path.join(BASE_DIR, "..", "frontend", "public", "data", "bill_issues.json")
+# --- パス設定 ---
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
+ENV_FILE = BASE_DIR / ".env"
+FRONTEND_DATA = PROJECT_ROOT / "frontend" / "public" / "data"
+FRONTEND_DIST = PROJECT_ROOT / "frontend" / "dist" / "data"
 
-# 並列ワーカー数（Rate Limit と安定性を考慮して 6〜8 を推奨）
-MAX_WORKERS = 6
+# 都市別設定マッピング
+CITY_CONFIG = {
+    "kyoto": {
+        "name": "京都市会",
+        "votes_file": FRONTEND_DATA / "votes_summary.json",
+        "statements_file": FRONTEND_DATA / "statements_summary.json",
+        "output_files": [
+            FRONTEND_DATA / "bill_issues.json",
+            FRONTEND_DIST / "bill_issues.json"
+        ]
+    },
+    "osaka": {
+        "name": "大阪市会",
+        "votes_file": FRONTEND_DATA / "osaka_votes_summary.json",
+        "statements_file": FRONTEND_DATA / "osaka_statements_summary.json",
+        "output_files": [
+            FRONTEND_DATA / "osaka_bill_issues.json",
+            FRONTEND_DIST / "osaka_bill_issues.json",
+            FRONTEND_DATA / "osaka" / "bill_issues.json"
+        ]
+    },
+    "nagoya": {
+        "name": "名古屋市会",
+        "votes_file": FRONTEND_DATA / "nagoya_votes_summary.json",
+        "statements_file": FRONTEND_DATA / "nagoya_statements_summary.json",
+        "output_files": [
+            FRONTEND_DATA / "nagoya_bill_issues.json",
+            FRONTEND_DIST / "nagoya_bill_issues.json"
+        ]
+    }
+}
+
+CATEGORIES = [
+    "財政・行革", "福祉・医療・健康", "子育て・教育",
+    "都市再生・交通インフラ", "産業・観光・地域経済",
+    "くらし・環境・エネルギー", "防災・減災・治安", "文化・景観・歴史"
+]
+
 cache_lock = threading.Lock()
 
-# 💡 .env ファイルから自動ロード
-if os.path.exists(ENV_FILE):
-    with open(ENV_FILE, "r", encoding="utf-8") as f:
-        for line in f:
+def load_env():
+    if ENV_FILE.exists():
+        for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
             line = line.strip()
             if line.startswith("GEMINI_API_KEY="):
-                key = line.split("=", 1)[1].strip().strip("'\"")
-                os.environ["GEMINI_API_KEY"] = key
+                os.environ["GEMINI_API_KEY"] = line.split("=", 1)[1].strip().strip("'"")
 
-api_key = os.environ.get("GEMINI_API_KEY")
-if not api_key:
-    raise ValueError(f"❌ {ENV_FILE} または環境変数に GEMINI_API_KEY が見つかりません。")
-
-# Gemini クライアントの初期化（高速・高品質な 2.5-flash を使用）
-client = genai.Client(api_key=api_key)
-MODEL_NAME = "gemini-2.5-flash"
-
-def load_json(filepath):
-    if os.path.exists(filepath):
+def load_json(p):
+    if p.exists():
         try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                return json.load(f)
+            return json.loads(p.read_text(encoding="utf-8"))
         except Exception:
             return []
     return []
 
-def get_conflicted_bills(votes):
-    """賛成と反対が両方存在する対立議案のみを抽出"""
-    conflicted = []
-    for bill in votes:
-        v_values = list(bill.get("votes", {}).values())
-        if "賛成" in v_values and "反対" in v_values:
-            conflicted.append(bill)
-    return conflicted
-
-def find_related_statements(bill, all_minutes):
-    """会議録データから該当議案に関連する討論・発言を抽出"""
-    if not all_minutes:
-        return []
-
-    bill_num = bill.get("bill_number", "").strip()
+def find_context_stmts(bill, stmts):
+    b_num = bill.get("bill_number", "").strip()
     title = bill.get("title", "").strip()
-    
-    keywords = [bill_num] if bill_num and len(bill_num) > 1 else []
-    cleaned_title = re.sub(r'京都市|に関する|について|の一部を改正する|条例の制定|意見書の提出', '', title)
-    nouns = [w for w in re.split(r'[（）\s、。]', cleaned_title) if len(w) >= 3]
+    clean_title = re.sub(r'京都市|大阪市|名古屋市|に関する|について|の一部を改正する|条例の制定|予算|会計|議案', '', title)
+    nouns = [w for w in re.split(r'[（）\s、。]', clean_title) if len(w) >= 3]
+    keywords = [b_num] if len(b_num) >= 2 else []
     keywords.extend(nouns[:2])
 
-    matched_texts = []
-    for stmt in all_minutes:
-        text = stmt.get("statement_text", "")
-        if any(k in text for k in keywords):
-            speaker = stmt.get("speaker", "議員")
-            matched_texts.append(f"【{speaker}の発言】\n{text[:400]}")
-            if len(matched_texts) >= 4:
-                break
+    hits = []
+    if keywords:
+        for s in stmts:
+            txt = (s.get("question_text", "") or s.get("statement_text", "")) + " " + s.get("answer_text", "")
+            if any(k in txt for k in keywords):
+                spk = s.get("speaker", "議員")
+                hits.append(f"【{spk}の発言ログ】\n{txt[:350]}")
+                if len(hits) >= 3:
+                    break
+    return hits
 
-    return matched_texts
-
-def analyze_bill_issue(bill, related_texts):
-    """Gemini APIを用いて議案の対立軸・双方の論理を構造化（リトライ機構付き）"""
-    title = bill.get("title")
-    bill_number = bill.get("bill_number")
-    session = bill.get("session_name")
-    votes = bill.get("votes", {})
+def analyze_bill(client, model_name, city_name, bill, ctx):
+    session = bill.get("session_name", "")
+    bill_num = bill.get("bill_number", "")
+    title = bill.get("title", "")
     result = bill.get("result", "")
+    votes_dict = bill.get("votes", {})
 
-    agree_groups = [g for g, v in votes.items() if v == "賛成"]
-    disagree_groups = [g for g, v in votes.items() if v == "反対"]
+    agree_gps = [g for g, v in votes_dict.items() if v == "賛成"]
+    disagree_gps = [g for g, v in votes_dict.items() if v == "反対"]
+    ctx_str = "\n\n".join(ctx) if ctx else "（議事録抜粋なし）"
 
-    context_str = "\n\n".join(related_texts) if related_texts else "（該当する詳細な討論発言ログなし）"
-
-    prompt = f"""
-以下の京都市議会の議案について、なぜ各会派の賛否が分かれたのか、その「対立軸」と「双方の政治的論理」を客観的・中立的に整理してください。
+    prompt = f"""以下の{city_name}の議案について、なぜ各会派の賛否が分かれたのか、その「対立軸」と「双方の政治的論理」を客観的・中立的に整理してください。
 
 【議案情報】
 - 定例会: {session}
-- 議案番号: {bill_number}
+- 議案番号: {bill_num}
 - 件名: {title}
 - 議決結果: {result}
-- 賛成会派: {', '.join(agree_groups)}
-- 反対会派: {', '.join(disagree_groups)}
+- 賛成会派: {', '.join(agree_gps)}
+- 反対会派: {', '.join(disagree_gps)}
 
-【会議録からの参考抜粋】
-{context_str}
+【議場発言ログ抜粋】
+{ctx_str}
 
 【分析・出力要件】
 1. 政治的中立性を厳格に維持し、特定の会派に肩入れしないこと。
-2. 「賛成派の論理」と「反対派の論理」の双方が、それぞれの理念や政策的優先順位に基づき合理的であると理解できるように書くこと。
-3. 出力は以下のJSON形式のみとし、Markdownのコードブロック（```json ... ```）で出力してください。
+2. 「賛成派の論理」と「反対派の論理」の双方が、それぞれの理念や政策的優先度に基づき合理的であると理解できるように整理すること。
+3. カテゴリは必ず以下の8大カテゴリから1つのみを選択すること:
+   ［{' / '.join(CATEGORIES)}］
+4. 必ず以下のJSON構造のみを出力してください:
 
 {{
-  "key_conflict": "対立軸の端的な要約（30字以内、例: 防衛費増額に伴う財源確保のあり方）",
+  "category": "上記8大カテゴリから1つ",
+  "key_conflict": "対立軸の端的な要約（30字以内）",
   "background": "この議案が提出された背景と概要（100字前後）",
-  "agree_logic": "賛成派（{', '.join(agree_groups[:3])}など）が賛成した主な理由・政策意図（120字前後）",
-  "disagree_logic": "反対派（{', '.join(disagree_groups[:3])}など）が反対した主な理由・懸念点（120字前後）"
+  "agree_logic": "賛成派（{', '.join(agree_gps[:3])}等）が賛成した主な理由・政策意図（120字前後）",
+  "disagree_logic": "反対派（{', '.join(disagree_gps[:3])}等）が反対した主な理由・懸念点（120字前後）"
 }}
 """
-    max_retries = 4
-    for attempt in range(max_retries):
+    for attempt in range(4):
         try:
-            response = client.models.generate_content(
-                model=MODEL_NAME,
+            res = client.models.generate_content(
+                model=model_name,
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
                     temperature=0.2,
-                ),
+                )
             )
-            return json.loads(response.text)
+            return json.loads(res.text)
         except Exception as e:
-            err_str = str(e)
-            if "429" in err_str or "RESOURCE_EXHAUSTED" in err_str:
-                wait_time = (attempt + 1) * 4
-                time.sleep(wait_time)
+            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                time.sleep((attempt + 1) * 3)
             else:
-                time.sleep(2)
+                time.sleep(1.5)
     return None
 
-def process_single_bill(bill, all_minutes, issues_dict, total_count):
-    """1つの議案を解析し、スレッドセーフにキャッシュ保存"""
-    bill_id = f"{bill.get('session_name')}_{bill.get('bill_number')}_{bill.get('title')[:10]}"
-    title_short = bill.get("title", "")[:20]
-    
-    related_texts = find_related_statements(bill, all_minutes)
-    analysis = analyze_bill_issue(bill, related_texts)
-
-    with cache_lock:
-        if analysis:
-            issues_dict[bill_id] = {
-                "id": bill_id,
-                "session_name": bill.get("session_name"),
-                "bill_number": bill.get("bill_number"),
-                "title": bill.get("title"),
-                "key_conflict": analysis.get("key_conflict", ""),
-                "background": analysis.get("background", ""),
-                "agree_logic": analysis.get("agree_logic", ""),
-                "disagree_logic": analysis.get("disagree_logic", ""),
-                "updated_at": time.strftime("%Y-%m-%d")
-            }
-        completed = len(issues_dict)
-        conflict_label = analysis.get("key_conflict", "解析失敗") if analysis else "エラー"
-        print(f"[{completed}/{total_count}] {bill.get('session_name')} {bill.get('bill_number')} - {title_short} -> {conflict_label}")
-
-        # 3件完了ごと、または全件完了時にチェックポイント保存
-        if completed % 3 == 0 or completed == total_count:
-            os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-            with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-                json.dump(list(issues_dict.values()), f, ensure_ascii=False, indent=2)
-
-    return bill_id
-
 def main():
-    print("==================================================")
-    print("🚀 対立議案 争点分析バッチパイプライン（並列化版）")
-    print(f"⚡ ワーカー並列数: {MAX_WORKERS} / 使用モデル: {MODEL_NAME}")
-    print("==================================================")
+    parser = argparse.ArgumentParser(description="3都市共通 対立議案AI論点解説パイプライン")
+    parser.add_argument("--city", default="kyoto", choices=["kyoto", "osaka", "nagoya"], help="対象都市コード")
+    parser.add_argument("--workers", type=int, default=8, help="並列ワーカー数")
+    parser.add_argument("--model", default="gemini-2.5-flash", help="使用モデル名")
+    args = parser.parse_args()
 
-    votes = load_json(VOTES_FILE)
+    city_cfg = CITY_CONFIG[args.city]
+    city_name = city_cfg["name"]
+
+    print("=" * 60)
+    print(f"🚀 【{city_name}】対立議案AI論点解説パイプライン（統一エンジン）")
+    print(f"⚡ ワーカー並列数: {args.workers} / モデル: {args.model}")
+    print("=" * 60)
+
+    load_env()
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("❌ GEMINI_API_KEY が見つかりません。")
+        sys.exit(1)
+
+    client = genai.Client(api_key=api_key)
+
+    votes = load_json(city_cfg["votes_file"])
+    statements = load_json(city_cfg["statements_file"])
+
     if not votes:
-        print(f"❌ {VOTES_FILE} が見つかりません。")
-        return
+        print(f"⚠️ 議決ファイルが存在しないか空です: {city_cfg['votes_file']}")
+        sys.exit(0)
 
-    all_minutes = load_json(MINUTES_FILE)
-    conflicted_bills = get_conflicted_bills(votes)
-    print(f"📊 全議案数: {len(votes)} 件 / 会議録ログ: {len(all_minutes)} 件")
-    print(f"🎯 賛否が分かれた対立議案: {len(conflicted_bills)} 件")
+    # 賛否分裂（contested）議案の抽出
+    contested_bills = []
+    for b in votes:
+        v_vals = list(b.get("votes", {}).values())
+        if "賛成" in v_vals and "反対" in v_vals:
+            contested_bills.append(b)
 
-    # 既存キャッシュの読み込み
-    existing_issues = load_json(OUTPUT_FILE)
-    if isinstance(existing_issues, list):
-        issues_dict = {item["id"]: item for item in existing_issues if "id" in item}
-    elif isinstance(existing_issues, dict):
-        issues_dict = existing_issues
-    else:
-        issues_dict = {}
+    total_target = len(contested_bills)
+    print(f"🎯 賛否が分かれた対立議案: {total_target} 件 / 総議案数: {len(votes)} 件")
 
-    print(f"🔄 既存解析済み: {len(issues_dict)} 件")
+    # 既存データのキャッシュ復元
+    existing_issues = {}
+    for out_p in city_cfg["output_files"]:
+        if out_p.exists():
+            d = load_json(out_p)
+            if isinstance(d, list):
+                for item in d:
+                    k = f"{item.get('session_name')}_{item.get('bill_number')}"
+                    if k not in existing_issues and item.get("key_conflict"):
+                        existing_issues[k] = item
 
-    # 未処理の議案を抽出
-    unprocessed_bills = []
-    for b in conflicted_bills:
-        b_id = f"{b.get('session_name')}_{b.get('bill_number')}_{b.get('title')[:10]}"
-        if b_id not in issues_dict:
-            unprocessed_bills.append(b)
+    print(f"📦 既存キャッシュ: {len(existing_issues)} 件")
 
-    print(f"⚡ 新規解析対象: {len(unprocessed_bills)} 件")
-    print("==================================================")
+    def process_bill(bill):
+        b_key = f"{bill.get('session_name')}_{bill.get('bill_number')}"
+        with cache_lock:
+            if b_key in existing_issues:
+                return b_key, True
 
-    if not unprocessed_bills:
-        print("✅ すべての対立議案は既に解析済みです。")
-        return
+        ctx = find_context_stmts(bill, statements)
+        res = analyze_bill(client, args.model, city_name, bill, ctx)
 
-    start_time = time.time()
+        with cache_lock:
+            if res:
+                existing_issues[b_key] = {
+                    "id": f"{b_key}_{bill.get('title', '')[:10]}",
+                    "session_name": bill.get("session_name"),
+                    "bill_number": bill.get("bill_number"),
+                    "title": bill.get("title"),
+                    "category": res.get("category", "財政・行革"),
+                    "key_conflict": res.get("key_conflict", ""),
+                    "background": res.get("background", ""),
+                    "agree_logic": res.get("agree_logic", ""),
+                    "disagree_logic": res.get("disagree_logic", ""),
+                    "updated_at": time.strftime("%Y-%m-%d")
+                }
+                curr = len(existing_issues)
+                print(f"[{curr}/{total_target}] ✅ {b_key}: {bill.get('title')[:16]}... -> {res.get('key_conflict')}")
 
-    # マルチスレッド並列実行
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        futures = [
-            executor.submit(process_single_bill, bill, all_minutes, issues_dict, len(conflicted_bills))
-            for bill in unprocessed_bills
-        ]
-        for future in as_completed(futures):
-            try:
-                future.result()
-            except Exception as e:
-                print(f"    ⚠️ ワーカーエラー: {e}")
+                # 5件ごと、または全完了時にチェックポイント保存
+                if curr % 5 == 0 or curr == total_target:
+                    payload = list(existing_issues.values())
+                    for out_p in city_cfg["output_files"]:
+                        out_p.parent.mkdir(parents=True, exist_ok=True)
+                        out_p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+            else:
+                print(f"❌ {b_key} の解析に失敗しました")
 
-    # 最終保存
-    with cache_lock:
-        os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            json.dump(list(issues_dict.values()), f, ensure_ascii=False, indent=2)
+        return b_key, res is not None
 
-    elapsed = int(time.time() - start_time)
-    print("==================================================")
-    print(f"🎉 全対立議案の並列解析が完了しました！（所要時間: {elapsed//60}分{elapsed%60}秒）")
-    print(f"📁 保存先: {os.path.abspath(OUTPUT_FILE)}")
-    print("==================================================")
+    with ThreadPoolExecutor(max_workers=args.workers) as executor:
+        futures = [executor.submit(process_bill, bill) for bill in contested_bills]
+        for f in as_completed(futures):
+            pass
+
+    # 最終同期保存
+    payload = list(existing_issues.values())
+    for out_p in city_cfg["output_files"]:
+        out_p.parent.mkdir(parents=True, exist_ok=True)
+        out_p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    print(f"\n🎉 【{city_name}】全{len(payload)}件 の対立議案AI論点解説を保存完了しました。")
 
 if __name__ == "__main__":
     main()
