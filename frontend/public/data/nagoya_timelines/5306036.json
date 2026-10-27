@@ -1,0 +1,36 @@
+{
+  "10": [
+    {
+      "sequence_number": 9,
+      "speaker": "岡本",
+      "statement_text": "御異議なしと認めます。\nよって、各案はいずれも原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成については、正副一任の取扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "岡本",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局より発言を求められておりますので、お許しをいたします。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "佐藤子ども青少年局長",
+      "statement_text": "おはようございます。\nお許しをいただきましたので、子ども青少年局、教育委員会を代表いたしまして、一言御礼の御挨拶を申し上げます。\nただいま当委員会で御審議いただきました第70号議案関係分はじめ、9議案につきましては、御議決を賜りまして誠にありがとうございました。\n御審議の中でいただきました貴重な御意見などにつきましては、今後、十分に検討してまいりたいと存じます。\n誠に簡単ではございますが、御礼の挨拶とさせていただきます。ありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "岡本",
+      "statement_text": "本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。ありがとうございました。\n散会　午前10時33分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

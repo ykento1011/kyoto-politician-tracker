@@ -1,0 +1,100 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "金城",
+      "statement_text": "ただいまから経済水道委員会を開会いたします。\n本日は、付議議案に対する意思決定を行います。\nそれでは、第76号議案関係分及び第71号議案を一括議題に供し、まず、各派の意向表明をお願いいたします。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "浅井",
+      "statement_text": "（自民）以下の要望を付して原案に賛成いたします。\n観光文化交流局さんに対しましては、かつて「名古屋城天守閣木造復元に係る予算については、文化庁の文化審議会において、正式に木造復元の許可がされた後に執行する」という自由民主党の附帯にもかかわらず、現状に至っております。\nしかしながら、今後のことも考え、もう既に木材等購入された、そして保管費用がますますかさむということもありまして、今後は、削減というものもしっかり努力していただきたいということを要望いたします。\n以上。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "日比",
+      "statement_text": "（民主）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "大谷",
+      "statement_text": "（減税）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "さわだ",
+      "statement_text": "（公明）以下の要望を付して原案に賛成します。\n経済局関係、供給不足による資金繰りを支援するための別枠融資制度を検討すること。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "大島",
+      "statement_text": "（維新）原案に賛成いたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "金城",
+      "statement_text": "それでは、お諮りいたします。\n両案は、いずれも原案どおり可決するものと決して、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "金城",
+      "statement_text": "御異議なしと認めます。\nよって、両案はいずれも原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "金城",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局より発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "吹上経済局長",
+      "statement_text": "お許しをいただきましたので、2局を代表いたしまして御挨拶申し上げます。\n当委員会に付議されました議案につきましては、慎重かつ熱心な御審議をいただき、本日御議決を賜りまして誠にありがとうございました。\n今後につきましては、御審議の中で頂戴いたしました貴重な御意見、御要望にも十分に留意いたしまして、万全の努力をいたす所存でございます。今後とも格別の御指導、御鞭撻を賜りますようよろしくお願い申し上げまして、御礼の御挨拶とさせていただきます。ありがとうございました。\n〔上下水道局入室〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "金城",
+      "statement_text": "次に、閉会中の所管事務調査についてお諮りいたします。\nあらかじめ正副委員長において協議をいたしました結果、お手元に配付の事項につきまして、議長に対し、それぞれ閉会中の継続調査の申出をいたしたいと存じますが、御異議ありませんか。\n〔「異議なし」〕\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "さわだ",
+      "statement_text": "この所管事務調査申出一覧の中に名古屋城についてというふうに書いてありますけれども、当然、今般の経済水道委員会の議論を踏まえた、そうしたことで議長に言ってくださいね。それ、委員長よろしくお願いしますよ。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

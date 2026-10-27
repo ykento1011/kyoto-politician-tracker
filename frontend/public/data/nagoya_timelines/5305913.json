@@ -1,0 +1,68 @@
+{
+  "12": [
+    {
+      "sequence_number": 11,
+      "speaker": "中田",
+      "statement_text": "お許しをいただきましたので、一言御挨拶を申し上げます。\n当都市消防委員会に付議されました議案につきまして、3月11日より慎重なる御審議をいただき、本日ここに御議決賜りましたことに厚く御礼を申し上げます。\n令和6年度の予算の執行に当たりましては、審議の中でいただきました御意見等に十分留意をさせていただきながら、万全の努力をいたす所存でございます。\n今後とも、格別の御指導、御鞭撻を賜りますようお願いを申し上げまして、私の御礼の挨拶とさせていただきます。ありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "木下",
+      "statement_text": "それでは、説明員の入替えをお願いいたします。\n〔防災危機管理局、住宅都市局退室、消防局入替え〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "木下",
+      "statement_text": "それでは、引き続き消防局関係の所管事務調査を行います。\n本日の案件は、「市東庁舎消防指令管制室等改修空調その他工事の工事請負契約の締結について」であります。\nそれでは、まず当局の説明を求めます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "半田消防局長",
+      "statement_text": "本日、お願いいたします案件は、「市東庁舎消防指令管制室等改修空調その他工事の工事請負契約の締結について」でございます。\n本件は、工事請負契約の締結に当たりまして、その契約金額が2億円以上6億円未満のものとなったため御報告させていただくものでございます。\n詳細につきましては、総務部長より御説明させていただきますので、よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "杉本消防局総務部長",
+      "statement_text": "それでは、提出いたしました資料に基づきまして御説明申し上げます。\n恐れ入ります。お手元の資料の裏面をお願いいたします。\n今回締結した契約の概要を掲げさせていただきました。本契約は、市東庁舎における消防指令管制室等を改修するものであり、株式会社中京技研と3億4980万円にて随意契約をしたものでございます。\n以上、簡単ではございますが、説明を終わらせていただきます。よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "木下",
+      "statement_text": "説明が終わりましたので、御質疑等があればお許しいたします。－－特にないようであります。\n以上で本件を終了いたします。\n〔防災危機管理局、住宅都市局入室〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "木下",
+      "statement_text": "次に、閉会中の所管事務調査についてお諮りいたします。\nあらかじめ正副委員長において協議いたしました結果、お手元配付の事項につきまして、議長に対し、それぞれ閉会中の継続調査の申出をいたしたいと存じますが、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "木下",
+      "statement_text": "御異議なしと認め、さよう決定いたします。\n本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。\n散会　午後1時42分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "服部",
+      "statement_text": "ただいまから、総務環境委員会を開会いたします。\n初めに、昨日の本会議で当委員会に付議されました議案は、お手元配付のとおり、第42号議案1件であります。\nその審査日程につきましては、あらかじめ正副委員長で相談し、お手元の案を作成させていただいておりますが、いかがでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "服部",
+      "statement_text": "それでは、この日程に従い、審査を進めさせていただきます。\n本日は、付議議案に対する説明、質疑を行います。\nそれでは、第42号議案を議題に供し、まず当局の説明を求めます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "鳥羽スポーツ市民局長",
+      "statement_text": "失礼いたします。\n今回、スポーツ市民局におきまして御審議をお願いいたします議案は、条例案といたしまして第42号議案「名古屋市手数料条例の一部改正について」でございます。本件は、戸籍法の一部改正に伴い、戸籍（除籍）電子証明書提供用識別符号の発行に係る手数料の追加等の規定を整備するものでございます。\n詳細につきましては、総務課長より説明させていただきますので、よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "橋本スポーツ市民局総務課長",
+      "statement_text": "それでは、お手元の「令和6年度当初予算に関係のない議案の概要（スポーツ市民局）」を御覧賜りたいと存じます。\n第42号議案「名古屋市手数料条例の一部改正について」でございます。本件は、戸籍法の一部改正に伴い、行政機関等が戸籍（除籍）電子証明書を提供するサーバーにアクセスする際に必要となる戸籍（除籍）電子証明書提供用識別符号の発行事務が新たに発生することから、発行に係る手数料を追加するなどの規定整備を行うものでございます。主な内容といたしましては、戸籍電子証明書提供用識別符号の発行に係る手数料として400円、除籍電子証明書提供用識別符号の発行に係る手数料として700円を追加するものでございます。施行期日は、改正後の戸籍法の施行期日に併せ、令和6年3月1日でございます。なお、戸籍法の改正につきましては、令和5年11月下旬に施行期日が令和6年3月1日と示され、令和5年12月上旬に手数料額の標準が国から示されたことから、大変恐縮ではございますが、条例案につきまして早期の御議決をいただきたく御審議をお願い申し上げます。\n以上、簡単ではございますが、説明を終わらせていただきます。よろしく御審議賜りますようお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "服部",
+      "statement_text": "それでは、説明が終わりましたので、御質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "うえぞの",
+      "statement_text": "簡単に。主な内容のところで戸籍電子証明、こちらのほうが400円、除籍電子証明が700円と、金額の違いというか何か、内容が違うとは思うんですが、そこら辺を少し詳しく教えていただけますか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "二谷スポーツ市民局地域振興部住民課長",
+      "statement_text": "金額につきましては、先ほど御説明させていただきました全国的に統一して定めることが特に必要と認められるものといたしまして、地方公共団体の手数料の標準に関する政令で定められております。同政令で定められた金額の手数料を標準として条例を定めております。\nそれにつきましては、現在、戸籍の紙の証明書につきましては450円で、除籍の紙の証明書につきましては750円ということになっております。\n今回、電子証明書の提供用の識別符号ということで、通常の紙の戸籍の証明書に比べますと、窓口でのやり取り等で効率化が図られる部分がございますので、その金額から50円のほうを国のほうが引いて算定したものでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "うえぞの",
+      "statement_text": "よく分かりました。ありがとうございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "服部",
+      "statement_text": "ほかによろしいでしょうか。－－他にないようであります。\n以上で付議議案に対する質疑を終了いたします。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "近藤",
+      "statement_text": "それでは、明日予定されております付議議案に対する意思決定につきましてですが、各派とも差し支えがないようであれば、本日行ってはどうかと思いますので、正副委員長においてはお取り計らいをお願いします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "服部",
+      "statement_text": "ただいま近藤委員より、付議議案に対する意思決定を本日行ってはどうかという御意見がございましたが、委員の皆様、何か御意見はよろしいでしょうか。－－それでは、特にないようでございますので、正副委員長で協議をいたしますので、しばらくお待ちください。－－お待たせしました。先ほどの近藤委員の意見につきまして正副委員長で協議いたしました結果、本日、付議議案に対する意思決定を行うことといたしたいと存じますが、よろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "服部",
+      "statement_text": "それでは、この後、付議議案に対する意思決定を行うことといたします。\nなお、これに伴い、本日の委員会冒頭で決定した審査日程を変更し、明日は委員会を開会しないことといたしますので、よろしくお願いをいたします。\nそれでは、これより付議議案に対する意思決定を行います。\n第42号議案を議題に供し、まず各派の意向表明をお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "6": [
+    {
+      "sequence_number": 5,
+      "speaker": "服部",
+      "statement_text": "それでは、説明が終わりましたので、御質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "うえぞの",
+      "statement_text": "簡単に。主な内容のところで戸籍電子証明、こちらのほうが400円、除籍電子証明が700円と、金額の違いというか何か、内容が違うとは思うんですが、そこら辺を少し詳しく教えていただけますか。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "二谷スポーツ市民局地域振興部住民課長",
+      "statement_text": "金額につきましては、先ほど御説明させていただきました全国的に統一して定めることが特に必要と認められるものといたしまして、地方公共団体の手数料の標準に関する政令で定められております。同政令で定められた金額の手数料を標準として条例を定めております。\nそれにつきましては、現在、戸籍の紙の証明書につきましては450円で、除籍の紙の証明書につきましては750円ということになっております。\n今回、電子証明書の提供用の識別符号ということで、通常の紙の戸籍の証明書に比べますと、窓口でのやり取り等で効率化が図られる部分がございますので、その金額から50円のほうを国のほうが引いて算定したものでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "うえぞの",
+      "statement_text": "よく分かりました。ありがとうございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "服部",
+      "statement_text": "ほかによろしいでしょうか。－－他にないようであります。\n以上で付議議案に対する質疑を終了いたします。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "近藤",
+      "statement_text": "それでは、明日予定されております付議議案に対する意思決定につきましてですが、各派とも差し支えがないようであれば、本日行ってはどうかと思いますので、正副委員長においてはお取り計らいをお願いします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "服部",
+      "statement_text": "ただいま近藤委員より、付議議案に対する意思決定を本日行ってはどうかという御意見がございましたが、委員の皆様、何か御意見はよろしいでしょうか。－－それでは、特にないようでございますので、正副委員長で協議をいたしますので、しばらくお待ちください。－－お待たせしました。先ほどの近藤委員の意見につきまして正副委員長で協議いたしました結果、本日、付議議案に対する意思決定を行うことといたしたいと存じますが、よろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "服部",
+      "statement_text": "それでは、この後、付議議案に対する意思決定を行うことといたします。\nなお、これに伴い、本日の委員会冒頭で決定した審査日程を変更し、明日は委員会を開会しないことといたしますので、よろしくお願いをいたします。\nそれでは、これより付議議案に対する意思決定を行います。\n第42号議案を議題に供し、まず各派の意向表明をお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "くずや",
+      "statement_text": "（自民）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "うえぞの",
+      "statement_text": "（民主）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "辻委員",
+      "statement_text": "（公明）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "北角",
+      "statement_text": "（減税）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    }
+  ]
+}

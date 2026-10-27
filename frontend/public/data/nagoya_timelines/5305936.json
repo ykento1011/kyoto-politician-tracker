@@ -1,0 +1,150 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "長谷川",
+      "statement_text": "それでは、ただいまから都市消防委員会を開会いたします。\n本日は、先ほどの本会議で当委員会に付議されました第170号議案関係分に対する審査を行います。\nなお、日程の都合上、説明、質疑を行った後、意思決定まで行いますので、よろしくお願いいたします。\nそれでは、第170号議案関係分を議題に供し、まず当局の説明を求めます。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "伊藤住宅都市局長",
+      "statement_text": "3局を代表いたしまして、住宅都市局より御説明申し上げます。\n今回、当委員会で御審議をお願いいたしますのは、一般会計の補正予算でございます。これは、給与条例の改正に伴う職員の給与改定等による人件費の増額でございます。つきまして、所要の予算措置を講じるものでございます。\n内容につきましては、一括して住宅都市局総務課長より説明させますので、よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "伊藤住宅都市局総務課長",
+      "statement_text": "それでは、お手元の令和6年11月定例会追加提出議案の概要に基づいて御説明いたします。\n今回、御審議をお願いいたします案件は、一般会計の補正予算でございます。防災危機管理局関係として1600万円余、住宅都市局関係として1億8800万円余、消防局関係として5億8400万円余の増額をお願いしております。内訳につきましては、表右側の概要にお示ししておりますので、御覧賜りたいと存じます。\n以上、大変簡単ではございますが、説明を終わらせていただきます。よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "長谷川",
+      "statement_text": "ありがとうございました。\n説明が終わりましたので、御質疑があれば、お許しいたします。－－特にないようであります。\n以上で、付議議案に対する質疑を終了し、引き続き意思決定を行います。\nそれでは、第170号議案関係分について、各派の意向表明をお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "神委員",
+      "statement_text": "（自民）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "日比",
+      "statement_text": "（民主）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "吉岡",
+      "statement_text": "（公明）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "田山",
+      "statement_text": "（減税）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "北角",
+      "statement_text": "（新生）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "長谷川",
+      "statement_text": "それでは、お諮りいたします。\n本案は、原案どおり可決すべきものと決しまして、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "長谷川",
+      "statement_text": "御質疑なしと認めます。\nよって、本案は原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "長谷川",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局から発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "11": [
+    {
+      "sequence_number": 10,
+      "speaker": "長谷川",
+      "statement_text": "それでは、お諮りいたします。\n本案は、原案どおり可決すべきものと決しまして、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "長谷川",
+      "statement_text": "御質疑なしと認めます。\nよって、本案は原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "長谷川",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局から発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "伊藤住宅都市局長",
+      "statement_text": "お許しをいただきましたので、3局を代表いたしまして、一言御挨拶を申し上げます。\n当委員会に付議されました防災危機管理局、住宅都市局及び消防局関係分の議案につきましては、慎重なる御審議をいただきまして、原案どおりの御議決を賜りまして、厚くお礼を申し上げます。\n今後の事務事業の執行に当たりましては、万全の努力をしてまいる所存でございますので、一層の御指導、御鞭撻のほどよろしくお願い申し上げます。\n以上でございます。ありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "長谷川",
+      "statement_text": "それでは、次に、閉会中の所管事務調査についてお諮りいたします。\nあらかじめ正副委員長において協議いたしました結果、お手元配付の事項につきまして、議長に対し、それぞれ閉会中の継続調査の申出をいたしたいと存じますが、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "長谷川",
+      "statement_text": "御異議なしと認め、さよう決定いたします。\n本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。お疲れさまでございました。\n散会　午後2時38分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

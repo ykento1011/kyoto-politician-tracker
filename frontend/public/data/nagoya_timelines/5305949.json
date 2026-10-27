@@ -1,0 +1,44 @@
+{
+  "6": [
+    {
+      "sequence_number": 5,
+      "speaker": "田中",
+      "statement_text": "御異議なしと認め、さよう決定し、委員長さんと交代させていただきます。\n〔議長退席〕\n〔正副委員長起立〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "沢田",
+      "statement_text": "それでは、正副委員長を代表して一言御挨拶を申し上げます。\nただいま正副委員長に御推挙を賜りまして、就任させていただくことになりました。\nもとより微力ではありますが、両副委員長さん共々、当委員会の円滑かつ適正な運営に努力してまいりたいと存じます。先輩、諸先生方の御指導、御鞭撻をお願い申し上げますとともに、当局の皆様におかれましても、委員会運営に御協力を賜りますようお願いを申し上げまして、簡単ではありますが、御挨拶とさせていただきます。\n1年間よろしくお願いいたします。\n〔正副委員長着席〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "沢田",
+      "statement_text": "なお、副委員長の委員長職務代行順位についてでありますが、申合せによりまして、第1順位、くずや利枝副委員長、第2順位、金庭宜雄副委員長とさせていただきますので、御了承願います。\nこの場合、当局より発言を求められておりますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "吹上経済局長",
+      "statement_text": "お許しをいただきましたので、一言御挨拶を申し上げます。\nただいまは、正副委員長さんの選出が行われたわけでございますが、これから1年間、当委員会におきます所管事項につきまして、委員長さんはじめ両副委員長さん、委員の皆様方には何かと御審議を煩わすこととなろうかと存じます。よろしく御指導、御鞭撻いただきますようお願い申し上げまして、挨拶とさせていただきます。\nどうぞよろしくお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "沢田",
+      "statement_text": "これをもって、本日の委員会を散会いたします。お疲れさまでした。\n散会　午前11時33分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

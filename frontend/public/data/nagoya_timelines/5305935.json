@@ -1,0 +1,452 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "長谷川",
+      "statement_text": "ただいまから、都市消防委員会を開会いたします。\n初めに、昨日の本会議で当委員会に付議されました議案は、お手元配付のとおり、第132号議案関係分をはじめ3件であります。\nその審査日程につきましては、あらかじめ正副委員長で相談し、お手元の案を作成させていただきましたが、いかがでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "長谷川",
+      "statement_text": "それでは、この日程に従い、審査を進めさせていただきます。\n本日は、付議議案に対する説明・質疑を行います。\n第132号議案関係分をはじめ3件を一括議題に供し、まず当局の説明を求めます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "伊藤住宅都市局長",
+      "statement_text": "今回、住宅都市局関係において御審議をお願いいたします案件は、一般案件2件及び一般会計補正予算のうち住宅都市局関係分でございます。\n初めに、一般案件といたしまして、第139号議案「契約の締結について」でございます。これは、東芳野公営住宅の整備等事業契約を締結するものでございます。\n次に、第146号議案「土地の無償貸付について」でございます。これは、東芳野公営住宅の建設及び民間施設等の整備用地の活用のため、土地を無償で貸し付けるものでございます。\n続きまして、一般会計補正予算でございます。\nまず、新たな路面公共交通システム、いわゆるＳＲＴの導入準備に係る経費の繰越しについてでございます。これは、関係機関等との協議及び調整に時間を要したことにより、繰越明許費3億7700万円をお願いするものでございます。\n次に、ＳＲＴに係る連節バスの製造における債務負担行為の期間の変更についてでございます。これは、バスの製造発注に当たり、当初見込みよりも納車時期が遅れることから、債務負担行為の期間として令和7年度と定めていたものを令和7年度から令和8年度までとするものでございます。\n以上、よろしく御審議賜りますようお願い申し上げます。\n以上でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "長谷川",
+      "statement_text": "説明が終わりましたので、付議議案に対する質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "田山",
+      "statement_text": "それでは、東芳野公営住宅に関して質問させていただきます。\nまず、地元からどのような意見が今出ているかを教えていただけますか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "松田住宅都市局担当課長",
+      "statement_text": "東芳野荘の建て替え事業につきまして、地元からの今の御意見でございます。\n地元からの御意見につきまして、私ども事業の進め方につきまして、機会を見て御説明をさせていただいております。\nしかしながら、現在、地元の方から私どもの事業の進め方について御理解、御納得をいただけていないというような御意見をいただいているということでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "田山",
+      "statement_text": "今、地元の方の理解がなかなか得られていないという発言がありましたが、売却を一部されると聞いていますが、その売却について理解が得られていないのかどうか教えてください。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "松田住宅都市局担当課長",
+      "statement_text": "私ども、御説明の中でＰＦＩ事業という形で事業を進めさせていただくに当たりまして、実施方針というものを令和5年12月に公表させていただきました。その中で、売却、または定期借地を事業者の方に御提案をいただくというような事業手法でさせていただいておりますが、その際の説明の中で私ども、両方の案があるかもしれないというような御説明をさせていただきましたけれども、結果としまして、今回、売却ということに提案がございましたので、今回、議案で上げさせていただいておるところでございますが、売却についても、今、御理解をいただけていないというような状況でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "田山",
+      "statement_text": "なかなか厳しい状況ですね。\n私も見せていただきましたが、提案内容を求める際に、用地活用業務、子育て世帯向け住宅とか子育て支援施設のほか、周辺住民の生活サービス向上に資する施設などの提案に期待と書いてあるんですが、この期待というのがなかなか分かりづらかったんですけど、そういう提案ではないということで理解していいんでしょうかね。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "松田住宅都市局担当課長",
+      "statement_text": "今回、御提案いただきましたのは、マンションでございます。こちら、私どもの入札条件といたしましては、子育て住宅、子育て支援施設などを期待すると、そのような表記をさせていただいておりますので、今回、民間事業者から御提案いただいた内容につきましては、私どもの条件を満たしているものということでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "田山",
+      "statement_text": "なかなか住民の理解が得られない状況の中で、拙速に進めることについては、我が会派としてなかなか賛成することが難しいと意見を述べさせていただきます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "北角",
+      "statement_text": "それでは、私のほうから補正予算の第132号議案、新たな路面公共交通システムの導入準備と3億7700万円の繰越明許になっておるんですが、ここのところをもう少し詳しく説明していただけますでしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "5": [
+    {
+      "sequence_number": 4,
+      "speaker": "長谷川",
+      "statement_text": "説明が終わりましたので、付議議案に対する質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "田山",
+      "statement_text": "それでは、東芳野公営住宅に関して質問させていただきます。\nまず、地元からどのような意見が今出ているかを教えていただけますか。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "松田住宅都市局担当課長",
+      "statement_text": "東芳野荘の建て替え事業につきまして、地元からの今の御意見でございます。\n地元からの御意見につきまして、私ども事業の進め方につきまして、機会を見て御説明をさせていただいております。\nしかしながら、現在、地元の方から私どもの事業の進め方について御理解、御納得をいただけていないというような御意見をいただいているということでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "田山",
+      "statement_text": "今、地元の方の理解がなかなか得られていないという発言がありましたが、売却を一部されると聞いていますが、その売却について理解が得られていないのかどうか教えてください。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "松田住宅都市局担当課長",
+      "statement_text": "私ども、御説明の中でＰＦＩ事業という形で事業を進めさせていただくに当たりまして、実施方針というものを令和5年12月に公表させていただきました。その中で、売却、または定期借地を事業者の方に御提案をいただくというような事業手法でさせていただいておりますが、その際の説明の中で私ども、両方の案があるかもしれないというような御説明をさせていただきましたけれども、結果としまして、今回、売却ということに提案がございましたので、今回、議案で上げさせていただいておるところでございますが、売却についても、今、御理解をいただけていないというような状況でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "田山",
+      "statement_text": "なかなか厳しい状況ですね。\n私も見せていただきましたが、提案内容を求める際に、用地活用業務、子育て世帯向け住宅とか子育て支援施設のほか、周辺住民の生活サービス向上に資する施設などの提案に期待と書いてあるんですが、この期待というのがなかなか分かりづらかったんですけど、そういう提案ではないということで理解していいんでしょうかね。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "松田住宅都市局担当課長",
+      "statement_text": "今回、御提案いただきましたのは、マンションでございます。こちら、私どもの入札条件といたしましては、子育て住宅、子育て支援施設などを期待すると、そのような表記をさせていただいておりますので、今回、民間事業者から御提案いただいた内容につきましては、私どもの条件を満たしているものということでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "田山",
+      "statement_text": "なかなか住民の理解が得られない状況の中で、拙速に進めることについては、我が会派としてなかなか賛成することが難しいと意見を述べさせていただきます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "北角",
+      "statement_text": "それでは、私のほうから補正予算の第132号議案、新たな路面公共交通システムの導入準備と3億7700万円の繰越明許になっておるんですが、ここのところをもう少し詳しく説明していただけますでしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "福田住宅都市局交通事業推進課長",
+      "statement_text": "新たな路面公共交通システムＳＲＴでございますが、都心部の回遊性やにぎわい向上を図るために導入の準備を進めておりまして、今年度は、名古屋駅と栄をつなぐ東西ルートでの当初運行に向けまして、乗降待合空間の整備、それから連節バスの製造などを進めております。\n予算の繰越しですが、乗降待合空間の位置ですとか形状など、詳細なところについて関係者との協議に時間を要しましたことや、また先日公表しましたＳＲＴのトータルデザインを反映した車両改造についてメーカー等と調整した結果、連節バス納車後に実施するという流れになりまして、年度内の完了が困難となっているというものでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "北角",
+      "statement_text": "この連節バスのほうもそうなんですけど、繰越明許して、大体いつぐらいまでにできるのかしら。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "福田住宅都市局交通事業推進課長",
+      "statement_text": "東西ルートで当初運行ということで、今、令和7年度の後半を目途に置いているとこでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "12": [
+    {
+      "sequence_number": 11,
+      "speaker": "田山",
+      "statement_text": "なかなか住民の理解が得られない状況の中で、拙速に進めることについては、我が会派としてなかなか賛成することが難しいと意見を述べさせていただきます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "北角",
+      "statement_text": "それでは、私のほうから補正予算の第132号議案、新たな路面公共交通システムの導入準備と3億7700万円の繰越明許になっておるんですが、ここのところをもう少し詳しく説明していただけますでしょうか。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "福田住宅都市局交通事業推進課長",
+      "statement_text": "新たな路面公共交通システムＳＲＴでございますが、都心部の回遊性やにぎわい向上を図るために導入の準備を進めておりまして、今年度は、名古屋駅と栄をつなぐ東西ルートでの当初運行に向けまして、乗降待合空間の整備、それから連節バスの製造などを進めております。\n予算の繰越しですが、乗降待合空間の位置ですとか形状など、詳細なところについて関係者との協議に時間を要しましたことや、また先日公表しましたＳＲＴのトータルデザインを反映した車両改造についてメーカー等と調整した結果、連節バス納車後に実施するという流れになりまして、年度内の完了が困難となっているというものでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "北角",
+      "statement_text": "この連節バスのほうもそうなんですけど、繰越明許して、大体いつぐらいまでにできるのかしら。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "福田住宅都市局交通事業推進課長",
+      "statement_text": "東西ルートで当初運行ということで、今、令和7年度の後半を目途に置いているとこでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "北角",
+      "statement_text": "令和7年度の後半と、なかなかぎりぎりのまた厳しい話だと思うんですけど、当初の見込みが違って繰越明許するということはよくある話なんですが、それが令和7年度になってもできないということになると、やはり当初の見込みと随分違っているんじゃないのかと、こんなことも思えるんです。しかもこれは社会実験もしっかりやられている話ですよね。\nそうすると、社会実験をやった後、きちんと計画を立ててやっていくというところに、やはり少ししっかりと予測が立てられなかったという面があるんでないかというふうに私のほうからは見えてしまうんです。\n新しいことを始めるんですから、予期しないことができるということは構わないんですけど、社会実験までこうやってやるわけですから、もし複数年度にかかるんだったら、最初から複数年度で債務負担を取るなり何なりで複数年度でやればいいし、単年度でできるんだったら単年度でしっかりやっていくと、そこの部分が、いや、繰越明許があるからというふうなことを多分考えているわけではないとは思うんですけど、だけど漫然とやっているように市民から見ると、やはり市民の行政に対する信頼を失うかもしれないと、ちょっとそういう不安があるものですから、細かいことだけど指摘をさせてもらいました。今後しっかりと頑張っていただきたいと思います。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "小川",
+      "statement_text": "先ほどの東芳野の関係でちょっと一つお聞きしたいのは、こういう公営住宅の活用というのは、今回を契機にというか、また今後の計画としてもやっぱりいろいろと考えていくものなのかどうなのか、そこだけちょっと教えてください。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "松田住宅都市局担当課長",
+      "statement_text": "公営住宅の建て替えにつきましては、市内の様々な場所で進めさせていただいております。団地の状況、地域の状況を踏まえまして、団地によっては余剰地を生み出すというようなこともございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 19,
+      "speaker": "小川",
+      "statement_text": "やっぱり今後こういうことはもっとより活用していこうとか、いろんな市として方策を持っていらっしゃるのか、そういった方向性だけちょっとお聞きしたいんですが。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 20,
+      "speaker": "石川住宅都市局住宅部長",
+      "statement_text": "市営住宅ですけども、今後、老朽化に伴って建て替えのほうを進めてまいります。\n建て替えに当たりましては、従来よりも戸数が減ったりとか、そういう場合には余剰地を生み出して、余剰地を有効活用して、財源的な面も含めて活用しながら進めていくということになりますので、また、今、市営住宅、そういったマネジメント方針でも民間の活力導入ですとか、こういうＰＦＩ手法とか、そういったものの積極活用ということを言っておりますので、これからの建て替えに当たりましては、こういった手法も当然活用していくということになるかと思います。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 21,
+      "speaker": "小川",
+      "statement_text": "やっぱりこれは地域のある話だと思うんですよね。やっぱりその地域により丁寧に、こういったことを進めるに当たって、説明も含めてしていってほしいなということを切に要望したいというふうに思います。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 22,
+      "speaker": "長谷川",
+      "statement_text": "他にないようであります。\n以上で、付議議案に対する質疑を終了いたします。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "17": [
+    {
+      "sequence_number": 16,
+      "speaker": "北角",
+      "statement_text": "令和7年度の後半と、なかなかぎりぎりのまた厳しい話だと思うんですけど、当初の見込みが違って繰越明許するということはよくある話なんですが、それが令和7年度になってもできないということになると、やはり当初の見込みと随分違っているんじゃないのかと、こんなことも思えるんです。しかもこれは社会実験もしっかりやられている話ですよね。\nそうすると、社会実験をやった後、きちんと計画を立ててやっていくというところに、やはり少ししっかりと予測が立てられなかったという面があるんでないかというふうに私のほうからは見えてしまうんです。\n新しいことを始めるんですから、予期しないことができるということは構わないんですけど、社会実験までこうやってやるわけですから、もし複数年度にかかるんだったら、最初から複数年度で債務負担を取るなり何なりで複数年度でやればいいし、単年度でできるんだったら単年度でしっかりやっていくと、そこの部分が、いや、繰越明許があるからというふうなことを多分考えているわけではないとは思うんですけど、だけど漫然とやっているように市民から見ると、やはり市民の行政に対する信頼を失うかもしれないと、ちょっとそういう不安があるものですから、細かいことだけど指摘をさせてもらいました。今後しっかりと頑張っていただきたいと思います。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "小川",
+      "statement_text": "先ほどの東芳野の関係でちょっと一つお聞きしたいのは、こういう公営住宅の活用というのは、今回を契機にというか、また今後の計画としてもやっぱりいろいろと考えていくものなのかどうなのか、そこだけちょっと教えてください。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "松田住宅都市局担当課長",
+      "statement_text": "公営住宅の建て替えにつきましては、市内の様々な場所で進めさせていただいております。団地の状況、地域の状況を踏まえまして、団地によっては余剰地を生み出すというようなこともございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 19,
+      "speaker": "小川",
+      "statement_text": "やっぱり今後こういうことはもっとより活用していこうとか、いろんな市として方策を持っていらっしゃるのか、そういった方向性だけちょっとお聞きしたいんですが。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 20,
+      "speaker": "石川住宅都市局住宅部長",
+      "statement_text": "市営住宅ですけども、今後、老朽化に伴って建て替えのほうを進めてまいります。\n建て替えに当たりましては、従来よりも戸数が減ったりとか、そういう場合には余剰地を生み出して、余剰地を有効活用して、財源的な面も含めて活用しながら進めていくということになりますので、また、今、市営住宅、そういったマネジメント方針でも民間の活力導入ですとか、こういうＰＦＩ手法とか、そういったものの積極活用ということを言っておりますので、これからの建て替えに当たりましては、こういった手法も当然活用していくということになるかと思います。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 21,
+      "speaker": "小川",
+      "statement_text": "やっぱりこれは地域のある話だと思うんですよね。やっぱりその地域により丁寧に、こういったことを進めるに当たって、説明も含めてしていってほしいなということを切に要望したいというふうに思います。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 22,
+      "speaker": "長谷川",
+      "statement_text": "他にないようであります。\n以上で、付議議案に対する質疑を終了いたします。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 23,
+      "speaker": "吉岡",
+      "statement_text": "ただいまの状況から、明日予定されております付議議案に対する意思決定につきまして、各会派とも差し支えがないようであれば、本日行ってはどうかと思いますので、正副委員長におかれましては、お取り計らいをいただければと存じます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 24,
+      "speaker": "長谷川",
+      "statement_text": "ただいま吉岡委員より、付議議案に対する意思決定を本日行ってはどうかとの御意見がございましたが、委員の皆様で何か御意見等はございますでしょうか。－－特にないようであります。\nそれでは、正副委員長で協議いたしますので、しばらくお待ちください。\n先ほどの吉岡委員の御意見について正副委員長で協議いたしました結果、本日、付議議案に対する意思決定を行うことといたしたいと存じますが、よろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 25,
+      "speaker": "長谷川",
+      "statement_text": "それでは、この後、付議議案に対する意思決定を行うことといたします。\nなお、これに伴い、本日の委員会冒頭で決定した審査日程を変更し、明日は委員会を開会しないことといたしますので、よろしくお願いいたします。\nそれでは、これより付議議案に対する意思決定を行います。\n第132号議案関係分はじめ3件を議題に供し、まず各派の意向表明をお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 26,
+      "speaker": "神委員",
+      "statement_text": "（自民）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 27,
+      "speaker": "日比",
+      "statement_text": "（民主）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    }
+  ],
+  "31": [
+    {
+      "sequence_number": 30,
+      "speaker": "北角",
+      "statement_text": "（新生）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 31,
+      "speaker": "長谷川",
+      "statement_text": "それでは、これより採決を行います。\n採決は、第139号議案と第132号議案関係分及び第146号議案の2件との2度に分けて行います。\n初めに、第139号議案について、起立により採決をいたします。\n本案を原案どおり可決すべきものと決することに賛成の方の起立を求めます。\n〔賛成者起立〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 32,
+      "speaker": "長谷川",
+      "statement_text": "起立多数であります。\nよって、本案は原案どおり可決すべきものと決しました。\n次に、第132号議案関係分及び第146号議案の2件についてお諮りいたします。\n両案はいずれも原案どおり可決すべきものと決しまして御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 33,
+      "speaker": "長谷川",
+      "statement_text": "御異議なしと認めます。\nよって、両案はいずれも原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 34,
+      "speaker": "長谷川",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局から発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 35,
+      "speaker": "伊藤住宅都市局長",
+      "statement_text": "お許しをいただきましたので、一言御挨拶を申し上げさせていただきます。\n当委員会に付議されました議案につきましては、慎重なる御審議をいただき、原案のとおり御議決を賜りまして、厚くお礼を申し上げます。今回、議決をいただきました案件を含めまして、今後の事務事業の執行には万全を期してまいりたいと考えております。\n委員の皆様方には、なお一層の御指導、御鞭撻のほどよろしくお願い申し上げます。\n以上でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 36,
+      "speaker": "長谷川",
+      "statement_text": "本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。\n散会　午前10時55分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

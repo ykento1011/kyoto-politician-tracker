@@ -1,0 +1,52 @@
+{
+  "8": [
+    {
+      "sequence_number": 7,
+      "speaker": "田口",
+      "statement_text": "（共産）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "浅井",
+      "statement_text": "それではお諮りいたします。\n承認第1号関係分及び同第2号関係分はいずれも承認すべきものと、第101号議案関係分、第97号議案、第102号議案、第106号議案、第109号議案、第110号議案、第111号議案、第112号議案、第113号議案、第117号議案、第121号議案及び第122号議案は、いずれも原案どおり可決すべきものと決しまして、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "浅井",
+      "statement_text": "御異議なしと認めます。\nよって、承認第1号関係分及び同第2号関係分は、いずれも承認すべきものと、第101号議案関係分、第97号議案、第102号議案、第106号議案、第109号議案、第110号議案、第111号議案、第112号議案、第113号議案、第117号議案、第121号議案及び第122号議案は、いずれも原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "浅井",
+      "statement_text": "では、さよう取り扱わせていただきます。\nこの場合、当局より発言を求められておりますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "武田財政局長",
+      "statement_text": "お許しをいただきましたので、健康福祉局及び財政局を代表いたしまして、一言御挨拶を申し上げます。\nただいま当委員会で御審議をいただきました承認第1号関係分をはじめ14件につきまして、御議決を賜りまして誠にありがとうございます。\n御審議の中でいただきました御意見につきましては、今後十分に検討してまいる所存でございますので、一層の御指導、御鞭撻を賜りますようお願い申し上げます。\n甚だ簡単ではございますが、お礼の挨拶とさせていただきます。ありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "浅井",
+      "statement_text": "本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。\n散会　午前11時4分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

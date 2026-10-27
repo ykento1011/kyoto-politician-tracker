@@ -1,0 +1,296 @@
+{
+  "17": [
+    {
+      "sequence_number": 16,
+      "speaker": "吉田",
+      "statement_text": "ありがとうございました。\nそれでは、説明が終わりましたので、御質疑等があればお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "岡田",
+      "statement_text": "お願いします。\n今回28件で大変多いなと思っているんですけども、スポーツ市民局関係が非常にたくさん出ています。これだけたくさんありますが、今年2月の定例会でも所管事務調査がありまして、それ以降のもの、そのときに不調で今回改めて契約になった案件、または今回たくさんありますけども、不調だったという案件があったかどうかちょっとお聞きしたいと思います。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "まず、前回の令和5年2月定例会の所管事務調査におきまして報告対象となり得た案件で、入札不調のため今回の報告となったものはございません。\n次に、今回の報告対象となり得た案件で、入札不調のため今回報告できなかったという案件は1件でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 19,
+      "speaker": "岡田",
+      "statement_text": "不調の案件が1件あったということで、どういうものだったのかということと不調となったその理由、分析分かればお願いします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 20,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "まず、この案件についてでございますけれども、市役所の東庁舎の消防司令管制室におきまして、空調設備等の改修を行う工事でございます。\n不調となった理由といたしましては、庁舎が利用されている中での工事となるため、騒音対策上、工事の時間が限られるといった制約があることや、工期が2年以上と長期にわたるため、その間の技術者の配置が条件的に厳しかったのではないか、また、そういった理由から入札が懸念されたのではないかと考えているところでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 21,
+      "speaker": "岡田",
+      "statement_text": "庁舎内の工事だったということで、やらなければならない工事ではありますが、これまでも不調というと難しい、条件が、環境が厳しかったりとか、あとは2年間という長期にわたるものというのは懸念されるということで、不調が一つ出たのは残念ですけれども、なるべく不調が出ないように、特に市民の緊急に関わるような分野でありますので、そのあたりはよく分析していただいて、不調が出ないようにということで工夫していただきたいというふうに思います。それだけです。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 22,
+      "speaker": "吉田",
+      "statement_text": "その他よろしいでしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 23,
+      "speaker": "伊神",
+      "statement_text": "お願いします。\n今回、この資料を見させていただくと、落札率がかなり高いような気がするんだよね。今、99.9％や99.3％もあるし、この落札率というのは前年度、前々年度、この表を比べてどうなんですか。そんなに高いわけではないですか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 24,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "今回の28件のうち、随意契約を除く26件につきましては、平均して落札率が92.8％というふうになっております。\nただ、一般的に私ども契約部の所管の工事につきましては、大体例年90％前後というのが平均した状況になっておりますので、そういった中からしますと、特に大きな変化といいますか、高いといったことはないかなというふうに思っております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 25,
+      "speaker": "伊神",
+      "statement_text": "そうすると、そんなに高いことはないということなんですが、これ、全部複数で入札に応じてもらったはずなんだけども、1者入札というのはありますか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 26,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "この28件のうち、1者入札であったものは合計4件ございます。順番に御説明させていただきます。\nまず、1ページの1番下にございます9番の総合体育館レインボープールメインプール棟等天井脱落対策その他衛生工事と、それから5ページの中ほどにございます24番の広域河川堀川改修工事（Ｒ4五条橋）（交替制）、それから同じく5ページの下段にございます27番の教育センター空調設備改修工事、それから最後に、その下の28番、中央高空調設備改修工事でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 27,
+      "speaker": "伊神",
+      "statement_text": "ありがとうございました。\n何か教育委員会の二つとも再入札で何か意味があるのかなと思ったりするが、これ1者入札、この比率はどうなんでしょうか。前回、前々回と比べて、これぐらいの比率ですか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "12": [
+    {
+      "sequence_number": 11,
+      "speaker": "平松",
+      "statement_text": "お許しをいただきましたので、財政局及び健康福祉局を代表いたしまして、一言御挨拶を申し上げます。\nただいま当委員会で御審議いただきました第82号議案関係分はじめ9件につきましては、慎重なる御審議の上、御議決を賜りまして、誠にありがとうございました。\n御審議の中でいただきました貴重な御意見、御要望などにつきましては、十分検討してまいる所存でございますので、一層の御指導、御鞭撻を賜りますようお願い申し上げます。\n甚だ簡単ではございますが、お礼の御挨拶とさせていただきます。ありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "吉田",
+      "statement_text": "ありがとうございました。\nそれでは、当局の入替えをお願いいたします。\n〔健康福祉局退室、財政局入替え〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "吉田",
+      "statement_text": "それでは、引き続き財政局関係の所管事務調査を行います。\n本日の案件は、「工事請負契約の締結について」であります。\nそれでは、まず当局の説明を求めます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "太田財政局長",
+      "statement_text": "今回、御報告をさせていただきます案件は、工事請負契約の締結に当たりまして、議会で御議決をいただく金額に至らなかった契約のうち、その契約金額が2億円以上6億円未満のものについてでございます。\n詳細につきましては、総務課長から御説明させていただきますので、よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "矢野財政局総務課長",
+      "statement_text": "失礼いたします。\nそれでは、お手元の財政福祉委員会説明資料「工事請負契約の締結について」に基づきまして御説明申し上げます。\n表紙をはねていただきますと見開きの表になっております。今回、御報告させていただきます2億円以上6億円未満の工事請負契約は、令和5年1月から6月末までの半年分でございます。対象となります契約は、1番の中村スポーツセンター天井脱落対策その他工事はじめ、6ページにわたりまして合計28件でございます。それぞれ左から順に予算所管局、契約の目的、施工場所、契約の内容、契約の方法、落札率等、契約金額、予定価格、契約の相手方及び契約年月日を掲げさせていただきました。予算所管局別では、スポーツ市民局が11件、経済局が2件、環境局が2件、健康福祉局が3件、住宅都市局が4件、緑政土木局が4件、教育委員会が2件となっております。また、契約の方法は、環境局が所管いたします14番の五条川工場焼却炉及び関連機器定期整備工事及びその下、15番の大江破砕工場破砕設備定期整備工事が随意契約でございまして、その他26件につきましては一般競争入札でございます。\n以上、簡単ではございますが、説明を終わらせていただきます。よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "吉田",
+      "statement_text": "ありがとうございました。\nそれでは、説明が終わりましたので、御質疑等があればお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "岡田",
+      "statement_text": "お願いします。\n今回28件で大変多いなと思っているんですけども、スポーツ市民局関係が非常にたくさん出ています。これだけたくさんありますが、今年2月の定例会でも所管事務調査がありまして、それ以降のもの、そのときに不調で今回改めて契約になった案件、または今回たくさんありますけども、不調だったという案件があったかどうかちょっとお聞きしたいと思います。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "まず、前回の令和5年2月定例会の所管事務調査におきまして報告対象となり得た案件で、入札不調のため今回の報告となったものはございません。\n次に、今回の報告対象となり得た案件で、入札不調のため今回報告できなかったという案件は1件でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 19,
+      "speaker": "岡田",
+      "statement_text": "不調の案件が1件あったということで、どういうものだったのかということと不調となったその理由、分析分かればお願いします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 20,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "まず、この案件についてでございますけれども、市役所の東庁舎の消防司令管制室におきまして、空調設備等の改修を行う工事でございます。\n不調となった理由といたしましては、庁舎が利用されている中での工事となるため、騒音対策上、工事の時間が限られるといった制約があることや、工期が2年以上と長期にわたるため、その間の技術者の配置が条件的に厳しかったのではないか、また、そういった理由から入札が懸念されたのではないかと考えているところでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 21,
+      "speaker": "岡田",
+      "statement_text": "庁舎内の工事だったということで、やらなければならない工事ではありますが、これまでも不調というと難しい、条件が、環境が厳しかったりとか、あとは2年間という長期にわたるものというのは懸念されるということで、不調が一つ出たのは残念ですけれども、なるべく不調が出ないように、特に市民の緊急に関わるような分野でありますので、そのあたりはよく分析していただいて、不調が出ないようにということで工夫していただきたいというふうに思います。それだけです。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 22,
+      "speaker": "吉田",
+      "statement_text": "その他よろしいでしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    }
+  ],
+  "23": [
+    {
+      "sequence_number": 22,
+      "speaker": "吉田",
+      "statement_text": "その他よろしいでしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 23,
+      "speaker": "伊神",
+      "statement_text": "お願いします。\n今回、この資料を見させていただくと、落札率がかなり高いような気がするんだよね。今、99.9％や99.3％もあるし、この落札率というのは前年度、前々年度、この表を比べてどうなんですか。そんなに高いわけではないですか。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 24,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "今回の28件のうち、随意契約を除く26件につきましては、平均して落札率が92.8％というふうになっております。\nただ、一般的に私ども契約部の所管の工事につきましては、大体例年90％前後というのが平均した状況になっておりますので、そういった中からしますと、特に大きな変化といいますか、高いといったことはないかなというふうに思っております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 25,
+      "speaker": "伊神",
+      "statement_text": "そうすると、そんなに高いことはないということなんですが、これ、全部複数で入札に応じてもらったはずなんだけども、1者入札というのはありますか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 26,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "この28件のうち、1者入札であったものは合計4件ございます。順番に御説明させていただきます。\nまず、1ページの1番下にございます9番の総合体育館レインボープールメインプール棟等天井脱落対策その他衛生工事と、それから5ページの中ほどにございます24番の広域河川堀川改修工事（Ｒ4五条橋）（交替制）、それから同じく5ページの下段にございます27番の教育センター空調設備改修工事、それから最後に、その下の28番、中央高空調設備改修工事でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 27,
+      "speaker": "伊神",
+      "statement_text": "ありがとうございました。\n何か教育委員会の二つとも再入札で何か意味があるのかなと思ったりするが、これ1者入札、この比率はどうなんでしょうか。前回、前々回と比べて、これぐらいの比率ですか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 28,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "今回、28件のうち4件、1者入札ということでございましたけれども、特に例年と比べて際立って高いといったような認識は持っておりません。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 29,
+      "speaker": "伊神",
+      "statement_text": "分かりました。\nこれ、4件が1者入札になった、その主な理由は何でしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 30,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "これら4件につきましては、工事の施工に当たりまして、現場で複数の他の工事事業者と調整する必要があったり、あるいは学校や住宅が近くにございまして、騒音や振動への配慮が特に必要であったりするなど、いずれも施工条件が厳しかったため入札が敬遠されたのではないかと考えているところでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 31,
+      "speaker": "伊神",
+      "statement_text": "条件がいろいろあったということなんだけども、この条件は初めから分かっていたはずなので、当然そのことは含んで考えた上での価格にする必要があったんじゃないのかなという気がします。\nこの中で、不調は先ほどあったんだけども、結果的にそういう理由で不調になったものもあるんでしょう。今回の中でありませんか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 32,
+      "speaker": "木村財政局契約部契約課長",
+      "statement_text": "1件、今回報告すべき案件で、先ほど岡田委員にも説明させていただいたところであるんですけども、今回の報告になり得た案件で1件、消防局の関係で不調ということで報告できなかった案件がございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 33,
+      "speaker": "伊神",
+      "statement_text": "それは随契で結果的に発注はしたんですよね。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    }
+  ]
+}

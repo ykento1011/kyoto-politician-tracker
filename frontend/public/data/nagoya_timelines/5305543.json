@@ -1,0 +1,44 @@
+{
+  "8": [
+    {
+      "sequence_number": 7,
+      "speaker": "金城",
+      "statement_text": "それでは、お諮りいたします。\n本案は原案どおり可決すべきものと決して御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "金城",
+      "statement_text": "異議なしと認めます。\nよって、本案は原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "金城",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局より発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "吹上経済局長",
+      "statement_text": "お許しをいただきましたので、一言御挨拶を申し上げます。\n当委員会に付議されました議案につきましては、慎重かつ御熱心な御審議をいただき、本日御議決を賜りましたこと、誠にありがとうございます。\n今後につきましては、御審議の中で頂戴いたしました貴重な御意見、御要望にも十分留意いたしまして、万全の努力をいたす所存でございます。\n今後とも格別の御指導、御鞭撻を賜りますようよろしくお願い申し上げまして、御礼の御挨拶とさせていただきます。\nありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "金城",
+      "statement_text": "本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。お疲れさまでした。\n散会　午前10時36分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

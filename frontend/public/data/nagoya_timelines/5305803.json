@@ -1,0 +1,44 @@
+{
+  "10": [
+    {
+      "sequence_number": 9,
+      "speaker": "服部",
+      "statement_text": "それではお諮りいたします。\n各案はいずれも原案どおり可決すべきものと決しまして御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "服部",
+      "statement_text": "異議なしと認めます。\nよって、各案はいずれも原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "服部",
+      "statement_text": "それでは、さよう取り扱わせいただきます。\nこの場合、当局より発言を求められておりますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "杉浦総務局長",
+      "statement_text": "失礼いたします。お許しをいただきましたので、一言御挨拶を申し上げます。\n当委員会で御審議いただきました議案につきましては、適切なる御議決を賜り誠にありがとうございます。\n御審議の中でいただいた御意見や御要望につきましては、十分留意してまいりたいと考えております。今後ともよろしく御指導、御鞭撻のほどお願いを申し上げます。どうもありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "服部",
+      "statement_text": "本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。お疲れさまでございました。\n散会　午前10時35分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

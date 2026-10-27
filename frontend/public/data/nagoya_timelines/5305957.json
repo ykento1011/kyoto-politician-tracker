@@ -1,0 +1,20 @@
+{
+  "35": [
+    {
+      "sequence_number": 34,
+      "speaker": "田中里佳",
+      "statement_text": "最後に、財政福祉委員長の御報告を求めます。",
+      "is_target": false,
+      "is_admin": false,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 35,
+      "speaker": "浅野有",
+      "statement_text": "ただいま議題となっております第115号議案のうち、当委員会に付議されました関係分につきましては、慎重に審査いたしました結果、全会一致原案どおり可決すべきものと議決いたした次第であります。\n以上、御報告申し上げます。（拍手）",
+      "is_target": true,
+      "is_admin": false,
+      "is_short_procedural": false
+    }
+  ]
+}

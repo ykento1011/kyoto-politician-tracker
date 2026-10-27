@@ -1,0 +1,182 @@
+{
+  "4": [
+    {
+      "sequence_number": 3,
+      "speaker": "小出",
+      "statement_text": "それでは、観光文化交流局関係の第128号議案関係分及び第137号議案の2件を一括議題に供し、御質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "大田",
+      "statement_text": "それでは、名古屋城水堀における舟運事業につきまして質問をさせていただきます。\n名古屋城は、私の選挙区であります西区に隣接し、大変地元の皆様にも親しまれている場所で、西区民の多くの皆様にもお堀周りを散策したり、ジョギングしたりと楽しまれておられます。\nその名古屋城のさらなる魅力アップというのは、やはり地元民にとっても大変大きな関心事でありまして、今回の舟運事業、一刻も早く実現できるとよいとは思いますが、今回繰越しになったということでございますが、その理由等について、もう少し詳しくお聞かせいただけますでしょうか。お願いします。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "三谷観光文化交流局名古屋城総合事務所管理活用課長",
+      "statement_text": "失礼いたします。\n名古屋城の水堀における舟運事業につきまして、予算の繰越しの理由についてお尋ねをいただきました。\n新設する船着場におきましては、障害者、それから高齢者、子供など様々な方の利用を想定しておりまして、船着場の構造に関しては、安全性を高める観点から有識者との協議を進めてまいりましたが、協議や調整に想定以上の時間を要することとなりました。\n船着場の工事完了時期につきましては、当初令和7年度末までの計画でしたが、さきに申しました安全性の確保に係る協議や調整を最優先したため、令和7年度末での工事の完了が困難となりまして、工期を令和8年6月完了予定と後ろにずらしたため、繰越しをさせていただくものでございます。\n以上でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "大田",
+      "statement_text": "ありがとうございました。\nやはり安全性の観点というのは大変重要事項でございます。最優先で考えていただいて繰越しということで納得させていただきました。\n確認ですけど、船着場はどの辺りにできるのか教えていただけますでしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "三谷観光文化交流局名古屋城総合事務所管理活用課長",
+      "statement_text": "名古屋城の水堀の南西側にございます辰之口と呼ばれている場所の水堀場に、船着場の設置を予定おります。\n以上でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "大田",
+      "statement_text": "それで、その船着場の形状につきまして、もう少し詳しく教えていただけますでしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "三谷観光文化交流局名古屋城総合事務所管理活用課長",
+      "statement_text": "船着場の形状につきまして、水堀の南西側の歩道に近いところに、デッキ構造の待合所を設置することを予定しております。その待合所から渡り橋を通って、船をロープでつなぎ泊める浮き桟橋から乗船していただくような形状を予定しております。\n以上でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "大田",
+      "statement_text": "ありがとうございました。\nこの10月にエスパシオナゴヤキャッスルもいよいよオープンしまして、インバウンドの富裕層のお客さんもたくさんいらっしゃることになります。名古屋城が世界的にも大きく魅力的になるチャンスでありますし、飛躍することが大変重要なことだと思います。船着場は市民の皆様のレジャーにとっても、また、そのような世界中から集まる観光客にとっても、大変重要な施設になると思いますので、ぜひしっかりと整備して魅力ある事業にしていただきたいと思います。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "小出",
+      "statement_text": "そのほかよろしいですか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "丹羽",
+      "statement_text": "国際会議場の改修についてちょっとお聞きしたいんですけど、物価スライド、インフレスライドということなんですけど、もちろん契約の中でやっているんだけど、どういうような状況なのかな。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "伊藤観光文化交流局観光交流部担当課長",
+      "statement_text": "工事におきまして、スライド条項に該当するようなことが今回ございましたので、それで補正の予算について審議をお願いしているところでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "丹羽",
+      "statement_text": "大体これパーセントでいくと7％から8％ぐらい上げたということで、主に人件費なのか部材なのか大体その辺のことって分かりますか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "12": [
+    {
+      "sequence_number": 11,
+      "speaker": "小出",
+      "statement_text": "そのほかよろしいですか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "丹羽",
+      "statement_text": "国際会議場の改修についてちょっとお聞きしたいんですけど、物価スライド、インフレスライドということなんですけど、もちろん契約の中でやっているんだけど、どういうような状況なのかな。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "伊藤観光文化交流局観光交流部担当課長",
+      "statement_text": "工事におきまして、スライド条項に該当するようなことが今回ございましたので、それで補正の予算について審議をお願いしているところでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "丹羽",
+      "statement_text": "大体これパーセントでいくと7％から8％ぐらい上げたということで、主に人件費なのか部材なのか大体その辺のことって分かりますか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "伊藤観光文化交流局観光交流部担当課長",
+      "statement_text": "スライドの割合について御質問いただきました。\n建築とかそういった材料費につきましては、およそ建築が1.1％ほど伸びておりまして、あと、設備については6.3％伸びております。それで、あと労務費については6.4％伸びておりますので、トータル的には大体それぐらいになるだろうというふうに考えております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "丹羽",
+      "statement_text": "しっかりそういうことを見ていただいているんですけど、本当にこれから全体的な物価高騰だとか人件費だとかというので、恐らくこういったものがしっかりと見直していかなければならないことが、これはこの件だけなんだけど、増えてくると思うので、今内訳を聞いてみたら積算されているようですので、しっかりと対応していただきたいということを申し述べて、この件は終わります。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "小出",
+      "statement_text": "他に。－－他にないようであります。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "長谷川",
+      "statement_text": "本日の質疑の状況から、観光文化交流局関係の質疑は本日で終了してはどうかと思いますので、正副委員長にてお取り計らいをいただければと存じます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 19,
+      "speaker": "小出",
+      "statement_text": "ただいま長谷川委員より、本日の質疑の状況を踏まえ、観光文化交流局関係の付議議案に対する質疑を本日で終了してはどうかとの御意見がございましたが、委員の皆様で何か御意見等はございますでしょうか。－－それでは、正副委員長で協議をいたしますので、しばらくお待ちください。－－お待たせいたしました。\n先ほどの長谷川委員の御意見について、正副委員長で協議いたしました結果、本日で観光文化交流局関係の付議議案に対する質疑を終了いたしたいと存じますが、よろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 20,
+      "speaker": "小出",
+      "statement_text": "それでは、以上で観光文化交流局関係の質疑を終了し、付議議案に対する全ての質疑を終了いたします。\nなお、これに伴い昨日の委員会で決定した審査日程を変更し、9月29日は委員会を開会しないことといたしますので、よろしくお願いいたします。\n本日の予定は以上であります。\n次回は、9月30日火曜日、午前10時30分から、付議議案に対する意思決定を行った後、引き続き経済局関係及び上下水道局関係の所管事務調査を行いますので、よろしくお願いいたします。\nこれにて、本日の委員会を散会いたします。お疲れさまでした。\n散会　午前10時38分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

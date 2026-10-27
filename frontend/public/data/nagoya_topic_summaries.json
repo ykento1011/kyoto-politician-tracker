@@ -1,0 +1,1506 @@
+[
+  {
+    "topic_id": "nagoya_castle_wooden_restoration",
+    "category": "文化・景観・歴史",
+    "title": "名古屋城天守閣木造復元事業とバリアフリー設備（エレベーター）設置",
+    "lead_summary": "特別史跡名古屋城跡における天守閣木造復元事業に関し、史実に忠実な復元と障がい者・高齢者に配慮した昇降設備（エレベーター）設置、石垣保全対策、資金計画を巡る議論。",
+    "current_status": "文化庁の復元検討委員会への申請や垂直昇降設備の仕様協議が進む一方、当事者参画による対話の継続や市民説明会の実施、物価高に伴う資金計画の再検証が焦点となっている。",
+    "conflict_axes": [
+      "史実に忠実な木造復元と誰にでも開かれたバリアフリー（エレベーター等）の両立",
+      "重要文化財としての石垣等遺構の保存と工事に伴う技術的安全性",
+      "資材高騰等を踏まえた総事業費の推移と金シャチ募金を含む資金計画の妥当性"
+    ],
+    "thread_count": 134,
+    "last_updated": "2026-06-26",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「名古屋城天守閣木造復元事業とバリアフリー設備（エレベーター）設置」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-06-06",
+            "meeting_title": "経済水道委員会",
+            "speaker": "田山宏之",
+            "statement_summary": "名古屋城バリアフリーに関する市民討論会の概要や市長定例記者会見の発言、抗議及び回答要求文について当局から説明が行われた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-06-06",
+            "meeting_title": "経済水道委員会",
+            "speaker": "さわだ晃一",
+            "statement_summary": "さわだ議員は名古屋城木造天守閣のバリアフリーに関する市民討論会の位置づけや時期の妥当性について質問し、行政側からこれまでの経緯や市民意見を踏まえた実施であった旨が説明された。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-06-06",
+            "meeting_title": "経済水道委員会",
+            "speaker": "服部将也",
+            "statement_summary": "服部議員は市民討論会における不適切発言への対応や動画公開の是正について質問し、行政側は対応の遅れを陳謝し削除要請の検討を答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「名古屋城天守閣木造復元事業とバリアフリー設備（エレベーター）設置」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-02-16",
+            "meeting_title": "総務環境委員会",
+            "speaker": "横井利明",
+            "statement_summary": "横井議員が職員の労働環境や名古屋城整備における構造の実態について意見を述べ、スポーツ市民局人権施策推進室長が最終報告を踏まえて検討すると答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-02-16",
+            "meeting_title": "総務環境委員会",
+            "speaker": "横井利明",
+            "statement_summary": "横井議員が名古屋城木造復元に伴う分断の発生と対話の必要性を問い、河村市長が合理的配慮や文化財復元に関するこれまでの経緯と対応について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-02-16",
+            "meeting_title": "総務環境委員会",
+            "speaker": "横井利明",
+            "statement_summary": "名古屋城木造復元におけるエレベーター設置の議論や内部構造（鉄骨・RC案）の整合性について議員が質問し、行政側が文化庁の基準や復元方針について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「名古屋城天守閣木造復元事業とバリアフリー設備（エレベーター）設置」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-10",
+            "meeting_title": "定例会",
+            "speaker": "浅井正仁",
+            "statement_summary": "名古屋城天守閣木造復元事業について、復元意義や現天守閣の価値評価、屋根裏に保管されている寄附者芳名板の展示活用など機運醸成策について市長へ質問し、行政側から本質的価値の向上や芳名板活用の検討について答弁があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-11",
+            "meeting_title": "経済水道委員会",
+            "speaker": "みつなか美由紀",
+            "statement_summary": "議員は金シャチ横丁第2期整備の博物館基本計画に係る予算内容と目的を質問し、行政側は整備区域の発掘調査や基本計画策定調査の予定であると説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-11",
+            "meeting_title": "経済水道委員会",
+            "speaker": "みつなか美由紀",
+            "statement_summary": "名古屋城木造天守復元事業の来年度予算の概要と計上理由について質問し、行政側から必要最低限の経費である旨の答弁が行われ、石垣保存対策等の予算内訳と繰越額に関する資料要求がなされた質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "keiro_pass_reform",
+    "category": "福祉・医療・健康",
+    "title": "敬老パス制度の持続可能性と利用料・上限額の見直し",
+    "lead_summary": "70歳以上の高齢者の移動と健康増進を支える敬老パスについて、利用料引き下げの是非や持続可能性、年730回の上限設定、利用実態に応じた複数プラン導入を巡る議論。",
+    "current_status": "市民アンケート結果や健康増進・送迎負担軽減の経済効果が示される一方、福祉総合システムの標準化改修や財政状況を理由とした実施時期、暫定上限額のあり方が審議されている。",
+    "conflict_axes": [
+      "利用料一律引き下げ（マニフェスト）の早期実現と財政負担・暫定上限額の維持",
+      "利用回数に応じた選べる複数プラン導入による受益者負担の公平性",
+      "高齢者の社会参加・健康維持効果と若い現役世代の負担感のバランス"
+    ],
+    "thread_count": 55,
+    "last_updated": "2026-06-26",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「敬老パス制度の持続可能性と利用料・上限額の見直し」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-10-03",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "大田とみひこ",
+            "statement_summary": "大田議員は敬老パスの民間路線バス等の利用状況について質問し、行政側は令和4年度の1日当たり平均利用回数や市営交通との利用動向について説明した。その後、議員は対象交通ごとの延べ利用回数等の資料提出を求め、行政側は提出を了承した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-03",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "岡田ゆき子",
+            "statement_summary": "岡田議員がコロナ前後の敬老パスの利用状況や事業費について質問し、行政側が実利用者数や決算額の推移を説明した。さらに議員は利用回数区分別の利用者数や区ごとの交付率等の資料提供を求めた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-03",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "森ともお",
+            "statement_summary": "森議員は令和4年度の敬老パス交付者数・交付率の推移について質問し、行政側は交付者数が約30万4千人で前年度比増加した旨を説明した。さらに森議員は資料への区別交付者数の追加を求め、行政側が対応方針を示した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「敬老パス制度の持続可能性と利用料・上限額の見直し」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-03-12",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "森ともお",
+            "statement_summary": "森議員は敬老パスの交付率向上のための新キャンペーンの想定参加人数や交通局との連携、広報手法について質問し、行政側は5000人の想定やポスター等の広報予定、民生委員等を通じた周知について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-12",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "小川としゆき",
+            "statement_summary": "議員は敬老パス事業の予算額とプライスキャップ応答額の差額や市境付近の駅への対象拡大について質問し、行政側は予算額や上限額の仕組み、市域外拡大に関する検討状況について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-12",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "大田とみひこ",
+            "statement_summary": "大田議員が敬老パス事業の予算、市営交通の利用状況、利用停止者の推移、未交付の理由とキャンペーンの狙いについて質問し、行政側がそれぞれの現状と見込みについて説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「敬老パス制度の持続可能性と利用料・上限額の見直し」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-05",
+            "meeting_title": "定例会",
+            "speaker": "豊田かおる",
+            "statement_summary": "敬老パス利用料の値下げによる経済効果や女性の活躍推進について質問し、行政側から今後の検証や国際女性デーに合わせた機運醸成の検討について説明・答弁があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "藤沢ちあき",
+            "statement_summary": "藤沢議員は精神障害者の親亡き後問題の普及啓発や、敬老パス検証予算、民生委員の充足率と会費について質問し、行政側は各区での取組や令和7年度予算、会費減額予定について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "橋本ひろき",
+            "statement_summary": "議員は敬老パスの予算増額要因や乗継利用の実績について質問し、行政側は交付率や乗継件数、上位利用者の実績等について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "yatomi_aioiyama_road",
+    "category": "都市再生・交通インフラ",
+    "title": "弥富相生山線道路整備事業とヒメボタル生息地保全（折衷案）",
+    "lead_summary": "昭和32年の都市計画決定以来、相生山緑地の自然環境保護と周辺地域の交通渋滞緩和・防災機能強化の間で長年対立が続いてきた弥富相生山線の道路整備事業。",
+    "current_status": "橋梁構造による環境配慮と一般車通行を認める「折衷案」が提示され、詳細設計とモニタリング計画の策定、地域分断防止に向けた市民説明が進められている。",
+    "conflict_axes": [
+      "ヒメボタル生息地などの貴重な自然環境保全と緊急避難路・生活道路の確保",
+      "折衷案における一般車両通行の可否と通過交通流入による生活環境への影響",
+      "長年にわたる住民間の意見対立に対する行政の丁寧な合意形成と説明責任"
+    ],
+    "thread_count": 32,
+    "last_updated": "2026-03-05",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「弥富相生山線道路整備事業とヒメボタル生息地保全（折衷案）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-08-29",
+            "meeting_title": "土木交通委員会",
+            "speaker": "岡本やすひろ",
+            "statement_summary": "相生山緑地に関する請願審査において、委員長として基礎調査や都市計画決定の経過を踏まえた審議の取扱いを確認し、当局から都市計画や基本計画の検討状況について説明が行われた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-02",
+            "meeting_title": "土木交通委員会",
+            "speaker": "みつなか美由紀",
+            "statement_summary": "みつなか議員が弥富相生山線および相生山緑地周辺の関連決算額について質問し、行政側が各科目の執行額と内訳を説明した。さらに、渋滞対策の工事箇所や令和4年度の効果検証結果について資料請求を行った。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-02",
+            "meeting_title": "土木交通委員会",
+            "speaker": "中里高之",
+            "statement_summary": "中里議員は弥富相生山線の現地保全に係る295万円の経費について質問し、行政側は仮設フェンスの維持管理や砂防施設のしゅんせつ費用が必要であると説明し、議員は平成22年からの毎年度の執行額の資料を要求した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「弥富相生山線道路整備事業とヒメボタル生息地保全（折衷案）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-03-11",
+            "meeting_title": "土木交通委員会",
+            "speaker": "みつなか美由紀",
+            "statement_summary": "みつなか議員は弥富相生山線の調査検討費について質問し、行政側は令和6年度の運用や施設管理の検討方針と3案の提示・意見聴取について答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-11",
+            "meeting_title": "土木交通委員会",
+            "speaker": "中里高之",
+            "statement_summary": "中里議員が都市計画道路弥富相生山線の令和5年度および令和6年度の予算や調査検討状況について質問し、行政側が現地保全や折衷案に関する具体的な経費の内訳と実施内容について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-13",
+            "meeting_title": "土木交通委員会",
+            "speaker": "岡本やすひろ",
+            "statement_summary": "岡本議員が土木交通委員会の開会と緑政土木局関係の提出資料の確認を指示し、行政側がアセットマネジメントやインフラDX、弥冨相生山線の調査検討など7項目の資料内容について説明を行った。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「弥富相生山線道路整備事業とヒメボタル生息地保全（折衷案）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-05-12",
+            "meeting_title": "土木交通委員会",
+            "speaker": "うえぞの晋介",
+            "statement_summary": "相生山緑地や大須観音駅などの請願審査において、緑政土木局及び交通局から各事業の計画や調査状況に関する説明が行われ、委員長として審議の取扱いについて確認を行った。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-09-08",
+            "meeting_title": "土木交通委員会",
+            "speaker": "日比美咲",
+            "statement_summary": "議員が請願の議題を提示し、行政側が地下鉄大須観音駅のエレベーター設置計画や弥富相生山線の事業経緯と今後の検討状況について説明し、委員会で取扱いを協議した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-10-06",
+            "meeting_title": "土木交通委員会",
+            "speaker": "辻󠄀まさお",
+            "statement_summary": "議員は土木事務所への通報状況やLINE通報システムの活用状況、弥富相生山線の折衷案について質問し、行政側は令和6年度の通報件数やLINE通報の件数・周知方法、および折衷案の検討経緯や予算額について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "higashi_ward_office_relocation",
+    "category": "財政・行革",
+    "title": "東区役所等庁舎の老朽化と移転整備方針（愛知大学車道校舎・建中寺）",
+    "lead_summary": "築50年を超え老朽化・狭隘化が進む東区役所庁舎について、保健所や土木事務所との同一庁舎化、愛知大学車道校舎への移転案や現地建て替え案を巡る審議。",
+    "current_status": "愛知大学車道校舎の活用可能性や建中寺隣地の取得・活用交渉を踏まえ、交通利便性やバリアフリー、行政機能集約の観点から総合的な比較検討が行われている。",
+    "conflict_axes": [
+      "愛知大学車道校舎への移転による交通利便性向上・早期整備と現地建て替えの比較",
+      "区民アンケートや住民説明会における賛否の分かれと合意形成プロセス",
+      "他区の老朽区役所・支所整備計画との優先順位と財政負担の平準化"
+    ],
+    "thread_count": 20,
+    "last_updated": "2026-03-05",
+    "timeline_phases": [
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「東区役所等庁舎の老朽化と移転整備方針（愛知大学車道校舎・建中寺）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-06-06",
+            "meeting_title": "総務環境委員会",
+            "speaker": "くにまさ直記",
+            "statement_summary": "議員はスマート窓口の推進プロセスと東区役所整備の基本構想への反映について質問し、行政側は令和4年策定のDX推進方針に基づく検討状況やハード・ソフト両面での連携について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-09-20",
+            "meeting_title": "定例会",
+            "speaker": "佐藤ゆうこ",
+            "statement_summary": "佐藤ゆうこ議員が東区役所の現地建て替えやアスベスト対応、望ましい整備について質問し、市長からショッピングモールの活用やリニューアルによる利便性向上の方針について答弁が行われた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-10-08",
+            "meeting_title": "総務環境委員会",
+            "speaker": "佐藤ゆうこ",
+            "statement_summary": "佐藤議員は候補地の取得費用の内訳や東区役所の調査における外部委託の有無を質問し、行政側は土地建物合わせた価格が64億円であることや外部委託による施設規模の検討結果を説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「東区役所等庁舎の老朽化と移転整備方針（愛知大学車道校舎・建中寺）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-07",
+            "meeting_title": "定例会",
+            "speaker": "佐藤ゆうこ",
+            "statement_summary": "佐藤ゆうこ議員が東区役所整備における愛知大学校舎活用案の費用算出や土木事務所の複合条件について質し、スポーツ市民局長が工事費試算の前提や取得費、今後の住民説明会の方針について説明した質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-07",
+            "meeting_title": "定例会",
+            "speaker": "佐藤ゆうこ",
+            "statement_summary": "佐藤ゆうこ議員は東区役所整備等に関する基礎調査の再試算について疑問を呈し、新築要望に対する広沢市長の受け止めを質問した。これに対し広沢市長は要望を重く受け止めつつ、住民説明会の開催や土木事務所の同一庁舎化の方針、4案の比較検討について答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-06-23",
+            "meeting_title": "定例会",
+            "speaker": "佐藤ゆうこ",
+            "statement_summary": "佐藤ゆうこ議員が東区役所整備における必要面積の算出根拠やアンケートの実施手法について質問し、行政側が算定の考え方やアンケートの意義について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "meieki_redevelopment_srt",
+    "category": "都市再生・交通インフラ",
+    "title": "名古屋駅周辺まちづくりと新たな路面公共交通（SRT）導入",
+    "lead_summary": "リニア中央新幹線開業を見据えた名古屋駅東側・西側の駅前広場再編、名駅南地下公共空間の整備、都心部の回遊性を高める新たな路面公共交通システム（SRT）の導入。",
+    "current_status": "名鉄再開発見直しの影響調整や東側広場デザイン計画の策定、西側の路上駐輪場対策、SRTの本格運行・MaaS連携に向けた検討が加速している。",
+    "conflict_axes": [
+      "民間再開発の見直しに伴う駅前広場・地下公共空間整備のスケジュール調整",
+      "アジア競技大会開催に向けた歩行者空間の確保と駐輪場・一般車動線の機能分担",
+      "SRTの導入採算性とルート選定、都心部の暑さ・ヒートアイランド対策との連動"
+    ],
+    "thread_count": 71,
+    "last_updated": "2025-12-23",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「名古屋駅周辺まちづくりと新たな路面公共交通（SRT）導入」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-10-02",
+            "meeting_title": "都市消防委員会",
+            "speaker": "小出昭司",
+            "statement_summary": "小出議員がSRT導入、沿道・界隈活性化、リニア開業に向けた名古屋駅周辺のまちづくり及び久屋大通再生の令和4年度の取組と今後の計画について質問し、行政側がそれぞれの実施状況や今後の方向性を説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-04",
+            "meeting_title": "都市消防委員会",
+            "speaker": "木下優",
+            "statement_summary": "議員の議事進行発言および要求資料に関する行政側の説明に対する質疑が行われ、行政側から中川運河の水上交通やSRT導入など決算説明資料に基づく各項目について説明が行われた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-04",
+            "meeting_title": "都市消防委員会",
+            "speaker": "小出昭司",
+            "statement_summary": "中川運河のアクセス改善や新たな路面公共交通システム（SRT）の目的と東西ルート・周回ルートの運行方針について質問し、行政側から昨年度の検討状況や今後の見通しについて説明があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「名古屋駅周辺まちづくりと新たな路面公共交通（SRT）導入」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-01-30",
+            "meeting_title": "都市活力向上特別委員会",
+            "speaker": "辻󠄀まさお",
+            "statement_summary": "名古屋駅周辺における案内機能の現状等を参照し、駅前広場の再整備における基本的な考え方、バリアフリーやユニバーサルデザインの具体的整備、案内サインや観光案内所の設置方針について質問し、行政側から各整備計画や関係者との協議状況等について説明があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-01-30",
+            "meeting_title": "都市活力向上特別委員会",
+            "speaker": "金城ゆたか",
+            "statement_summary": "名古屋駅西側エリアの交通混雑緩和策について質問し、行政側から路面表示による整理や案内掲示の方針が示された。さらにリニア開通を見据えた構造再編の計画について尋ね、重層的拠点の形成を目指すとの答弁を得た。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-01-30",
+            "meeting_title": "都市活力向上特別委員会",
+            "speaker": "吉田茂",
+            "statement_summary": "吉田議員がリニア開業後の名古屋駅西側エリアの整備着手時期と見通しについて質問し、行政側からアジア・アジアパラ競技大会後の早期に民間と連携して重層的拠点の形成を目指すと説明があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「名古屋駅周辺まちづくりと新たな路面公共交通（SRT）導入」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-02-18",
+            "meeting_title": "都市活力向上特別委員会",
+            "speaker": "服部しんのすけ",
+            "statement_summary": "服部委員が都市活力向上特別委員会を開会し、当局から名古屋駅周辺のまちづくりや久屋大通南エリアの再整備、新交通システムSRT、金山駅周辺のまちづくり計画等についての説明が行われた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-02-18",
+            "meeting_title": "都市活力向上特別委員会",
+            "speaker": "北野よしはる",
+            "statement_summary": "北野議員が名鉄名駅再開発の現状と市有地周辺の駅前広場再整備における調整状況を質問し、行政側が基本設計の進捗や関係者との協議状況について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-02-18",
+            "meeting_title": "都市活力向上特別委員会",
+            "speaker": "小出昭司",
+            "statement_summary": "名古屋駅西側駅前広場の整備遅延とアジア大会時の暫定対応について質問し、行政側から大会時は既存施設等の改修やオープンスペース確保により対応し、大会終了後に本格整備を進める旨の答弁があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "premium_gift_certificate",
+    "category": "産業・観光・地域経済",
+    "title": "地域経済活性化とプレミアム付商品券事業（電子化・物価高騰対策）",
+    "lead_summary": "物価高騰に直面する市民の家計支援と地域消費喚起を目的としたプレミアム付商品券事業。国の交付金活用、全申込者購入への小口化、完全電子化の是非を巡る議論。",
+    "current_status": "早期利用開始と事務コスト削減のため電子商品券への移行が進められる一方、高齢者などデジタル弱者向けサポート窓口の全区配備や周知方法が審議されている。",
+    "conflict_axes": [
+      "迅速な発行・事務費削減を目指す電子化と高齢者・紙券希望者への配慮",
+      "重点支援地方交付金の活用と市独自財源投入の費用対効果",
+      "大手チェーン店への消費偏重を防ぎ地域商店街・中小店舗へ還元する仕組み作り"
+    ],
+    "thread_count": 20,
+    "last_updated": "2026-06-26",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「地域経済活性化とプレミアム付商品券事業（電子化・物価高騰対策）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-10-04",
+            "meeting_title": "経済水道委員会",
+            "speaker": "日比美咲",
+            "statement_summary": "プレミアム付商品券の紙と電子の発行割合について質問し、行政側から前年度の申込実績に基づき変更したと説明があった。議員はキャッシュレス決済の利便性や推進について意見を述べた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-11-29",
+            "meeting_title": "経済水道委員会",
+            "speaker": "日比美咲",
+            "statement_summary": "日比議員がプレミアム商品券の今年度の電子と紙の参加店舗数について質問し、行政側が8月末時点の数値及び前年度比較を説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-11-29",
+            "meeting_title": "経済水道委員会",
+            "speaker": "浅井正仁",
+            "statement_summary": "浅井議員はプレミアム商品券制度と市長の発言の差異について質問し、行政側から市長の数字が突破口になった旨の答弁が行われた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「地域経済活性化とプレミアム付商品券事業（電子化・物価高騰対策）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-02-27",
+            "meeting_title": "経済水道委員会",
+            "speaker": "木下優",
+            "statement_summary": "プレミアム付商品券の口数変更や予算規模の拡大可能性について質問し、行政側から申込み状況や社会的動向を勘案しつつ検討を進めると説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-02-27",
+            "meeting_title": "経済水道委員会",
+            "speaker": "木下優",
+            "statement_summary": "木下議員がプレミアム付商品券の目的と大規模店舗・中小規模店舗の利用実績について質問し、行政側が売場面積に応じた規模別利用状況のデータを説明して今後の事業者選定での提案に期待すると答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-02-27",
+            "meeting_title": "経済水道委員会",
+            "speaker": "さかい大輔",
+            "statement_summary": "議員が5口で進める場合の発行部数について質問し、行政側が紙117万6000口、電子50万4000口で変更はないと説明し、議員が現状の課題と確認の旨を述べた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "monozukuri_mice_tourism_dmo",
+    "category": "産業・観光・地域経済",
+    "title": "中小企業・モノづくり技術継承支援とMICE・DMO観光誘客",
+    "lead_summary": "名古屋の基幹を成す製造業の技術承継・DX支援と、MICE誘致の強化、観光地域づくり法人（DMO）登録後のマーケティング体制確立に向けた審議。",
+    "current_status": "工業研究所による実践的技術研修の実施や、国際会議誘致に向けた民間連携、人流データを活用した戦略的プロモーションの展開が進められている。",
+    "conflict_axes": [
+      "中小零細企業の人手不足・後継者不在に対するプッシュ型支援の実効性",
+      "アジア競技大会を契機とした国際MICE都市としてのインフラ・受入体制整備",
+      "産業観光と伝統文化資源の融合による滞在型観光・インバウンド消費の拡大"
+    ],
+    "thread_count": 38,
+    "last_updated": "2026-06-25",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「中小企業・モノづくり技術継承支援とMICE・DMO観光誘客」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-09-07",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "服部将也",
+            "statement_summary": "服部議員が文化振興事業団や観光コンベンションビューローの施設管理やインバウンド回復に向けた取組について質問し、行政側がそれぞれの事業方針や今後の計画策定について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-02",
+            "meeting_title": "経済水道委員会",
+            "speaker": "日比美咲",
+            "statement_summary": "新規事業アーバンヘルスツーリズムの事業趣旨や令和4年度の実施内容について質問し、行政側からブランド設定やプロモーション等の実施状況について説明があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-02",
+            "meeting_title": "経済水道委員会",
+            "speaker": "大島英勲",
+            "statement_summary": "大島議員が国際展示場第一展示館の新旧稼働率と目標値について質問し、行政側が目標値や要因、営業活動の変化について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「中小企業・モノづくり技術継承支援とMICE・DMO観光誘客」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-01-31",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "服部将也",
+            "statement_summary": "服部議員は名古屋観光コンベンションビューロー職員の専門性向上策について質問し、浅野専務理事はTOEIC受験費用助成等の現状と旅行業務取扱管理者資格の新設予定について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-13",
+            "meeting_title": "経済水道委員会",
+            "speaker": "服部将也",
+            "statement_summary": "服部議員が宿泊施設数や特区民泊、名古屋城の窓構造、次期観光MICE戦略の策定について質問し、行政側が現状の調査状況や今後の検討方針についてそれぞれ説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-15",
+            "meeting_title": "経済水道委員会",
+            "speaker": "さわだ晃一",
+            "statement_summary": "名古屋市のスタートアップ起業数や地域独自の強みについて質問し、行政側から大学との連携や物づくり分野の優位性について説明があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「中小企業・モノづくり技術継承支援とMICE・DMO観光誘客」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-02-13",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "田邊議員が名古屋飯の観光コンテンツとしての位置づけや発信状況を質問し、名古屋観光コンベンションビューローが協議会を通じたプロモーションや食の多様性対応等の取り組みを説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-02-13",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "横井利明",
+            "statement_summary": "名古屋市の観光客誘致の状況や近隣自治体・経済界との連携組織の必要性について質問し、行政側から観光MICE戦略における広域連携の位置づけや今後の取組について説明があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-11",
+            "meeting_title": "経済水道委員会",
+            "speaker": "みつなか美由紀",
+            "statement_summary": "議員は高級ホテル立地推進事業の補助効果や市民へのメリットについて質問し、行政側は開業実績や経済波及効果、国際MICE誘致の必要性を説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "school_lunch_free_and_reform",
+    "category": "子育て・教育",
+    "title": "学校給食費無償化と中学校スクールランチ（選択制・全員喫食）の展開",
+    "lead_summary": "子育て世代の経済的負担軽減を目指す小・中学校給食費の無償化施策と、市立中学校におけるスクールランチの選択制から全員喫食への移行課題を巡る議論。",
+    "current_status": "小学校給食費無償化に伴う一般財源の投入が進む一方、中学校における供給能力の確保や民間委託方式の課題、国の制度動向を注視した検討が続いている。",
+    "conflict_axes": [
+      "給食費無償化に伴う巨額の一般財源負担と持続可能な財政運営",
+      "中学校スクールランチにおける食育・温かい給食提供と給食センター整備のコスト",
+      "アレルギー対応や民間調理委託における衛生・安全管理体制の維持"
+    ],
+    "thread_count": 42,
+    "last_updated": "2026-03-06",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「学校給食費無償化と中学校スクールランチ（選択制・全員喫食）の展開」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-06-22",
+            "meeting_title": "定例会",
+            "speaker": "みつなか美由紀",
+            "statement_summary": "学校給食費の物価高騰対策に係る補正予算の根拠や無償化について質問し、行政側から消費者物価指数に基づく算定方法や、就学援助制度を重視する方針について答弁があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-06-28",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "中村しゅうへい",
+            "statement_summary": "中村議員が小学校給食の食材調達方法や地産地消・価格高騰への工夫について質問し、教育委員会側から一括調達や青果組合との連携、ブロック別のローテーションなどの対応について説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-06-28",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "渡辺やすのり",
+            "statement_summary": "渡辺議員は補正予算を超える物価高騰時の対応と中学校のお弁当持参家庭への支援について質問し、行政側は必要に応じた再補正の可能性やスクールランチ経費を対象とする補正であると説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「学校給食費無償化と中学校スクールランチ（選択制・全員喫食）の展開」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-01-15",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "不登校児童生徒の給食費負担や中学校給食の実施状況について質問し、行政側から不登校時の給食費負担に関する認識や意見について説明があった質疑として整理されています。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-01-15",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "橋本ひろき",
+            "statement_summary": "小学校給食の無償化及び中学校スクールランチの全員制・無償化等の請願について、行政側が現在の制度や就学援助制度等の状況を説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-12",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "不登校児童生徒向けの校内居場所「スマイルルーム」の設置状況や利用実態、独自の取組について質問し、行政側から実施校数や利用者数、運営状況が説明された。また、小学校給食および中学校スクールランチの物価高騰対策支援の現状と今後の見通しについて質問し、行政側から財源や今後の検討方針が説明された。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「学校給食費無償化と中学校スクールランチ（選択制・全員喫食）の展開」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-05",
+            "meeting_title": "定例会",
+            "speaker": "うえぞの晋介",
+            "statement_summary": "うえぞの晋介議員は放課後児童施策や少子化対策、学校給食費無償化、地域クラブ活動について質問し、行政側から各事業の課題や今後の対応方針について説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "中川あつし",
+            "statement_summary": "中川議員は学校給食における地域ブランド野菜の活用状況について質問し、行政側は「野崎白菜」や「八事五寸にんじん」の使用実績および今後の予定について回答した。あいちの伝統野菜一覧と経緯の資料化について合意した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-14",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "中川あつし",
+            "statement_summary": "中川議員はあいち伝統野菜を活用した給食メニューの提供プロセスと食育について質問し、行政側は試食や学習用指導資料を通じた取り組み状況を説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "futoukou_freeschool_support",
+    "category": "子育て・教育",
+    "title": "不登校児童生徒への支援（学びの多様化学校・フリースクール助成）",
+    "lead_summary": "不登校児童生徒数の増加に伴う多様な学びの機会確保、校内支援室（居場所）の整備、公設フリースクール（学びの多様化学校）設置、民間利用料助成を巡る議論。",
+    "current_status": "フリースクール等への利用料助成制度の検討が進められるとともに、学校外の学びにおける出席扱い指針の周知、保護者の不登校離職対策が審議されている。",
+    "conflict_axes": [
+      "民間のフリースクール等への公費助成の基準と教育の質・安全性の確保",
+      "市立の学びの多様化学校の設置場所選定と教員配置・専門人材の確保",
+      "学校復帰を前提としない多様な社会的自立支援と学校現場の負担軽減"
+    ],
+    "thread_count": 97,
+    "last_updated": "2026-06-25",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「不登校児童生徒への支援（学びの多様化学校・フリースクール助成）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-06-26",
+            "meeting_title": "定例会",
+            "speaker": "日比美咲",
+            "statement_summary": "議員が令和4年度の不登校児童生徒数や今後の支援策について質問し、行政側が人数や校内の居場所づくり等の取組について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-06-26",
+            "meeting_title": "定例会",
+            "speaker": "日比美咲",
+            "statement_summary": "日比美咲議員は、不登校児童生徒数や他都市の不登校特例校の設置状況を参照し、不登校特例校の設置も含めた今後の支援策について質問した。これに対し行政側は、不特例校に係る調査も含めて幅広い視点で検討してまいりたいと答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-09-19",
+            "meeting_title": "定例会",
+            "speaker": "岩本たかひろ",
+            "statement_summary": "不登校児童生徒やひきこもり支援へのメタバース活用について質問し、行政側から他都市事例の調査や令和6年度の実証事業・導入に向けた検討を進める旨の答弁があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「不登校児童生徒への支援（学びの多様化学校・フリースクール助成）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-01-15",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "不登校児童生徒の給食費負担や中学校給食の実施状況について質問し、行政側から不登校時の給食費負担に関する認識や意見について説明があった質疑として整理されています。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-05",
+            "meeting_title": "定例会",
+            "speaker": "さかい大輔",
+            "statement_summary": "さかい大輔議員は、東京都等の他都市事例を挙げ、不登校児童生徒のフリースクール利用料補助に関する保護者支援の検討を質問し、行政側から他都市の取組や課題を調査し有識者会議で検討する旨の答弁があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-12",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "田辺議員はメタバースを活用したオンライン授業の導入や内容・担い手について質問し、行政側は民間団体と連携し興味関心を高める授業を行うと答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「不登校児童生徒への支援（学びの多様化学校・フリースクール助成）」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-05",
+            "meeting_title": "定例会",
+            "speaker": "さかい大輔",
+            "statement_summary": "フリースクール等の利用料補助について、議員はマニフェストに基づく早期の事業化を求め、市長は活動実態の調査や認定要件等の課題を踏まえ、引き続き対応を検討していくと答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-11",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "田邊議員は子育て支援企業認定制度の基準項目や不登校児童の保護者への企業支援について質問し、行政側は認定基準の改正状況や不登校を巡る企業の現状認識について答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "辻󠄀まさお",
+            "statement_summary": "辻議員が不登校児童生徒支援における民間フリースクール等への経済的支援やガイドライン運用について質問し、教育委員会がガイドラインの概要や連絡会の開催状況、他都市調査資料の提出について答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "nagoya_shiminzei_genzei",
+    "category": "財政・行革",
+    "title": "市民税減税政策の堅持と財政規律・行財政改革の推進",
+    "lead_summary": "長年堅持されてきた市民税減税政策の維持と、社会保障費増大・大規模事業推進に伴う将来的な財政健全性・財政規律の指標見直しを巡る議論。",
+    "current_status": "市民税減税堅持の方針が示される一方、基金残高の推移や市債発行額の抑制、限られた財源の中でのマニフェスト施策優先順位づけが厳しく検証されている。",
+    "conflict_axes": [
+      "市民税減税10％堅持による市民還元と公共施設老朽化・更新財源の確保",
+      "平成22年に策定された財政規律指標の遵守と社会経済情勢に応じた見直し",
+      "徹底した行財政改革・民間委託の推進と行政サービス水準・公の責任の維持"
+    ],
+    "thread_count": 123,
+    "last_updated": "2026-03-04",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「市民税減税政策の堅持と財政規律・行財政改革の推進」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-07-03",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "吉田茂",
+            "statement_summary": "議員は令和4年度一般会計収支見込みに関する所管事務調査の実施を宣言し、行政側が歳入歳出の概要及び市税収入の見込みについて説明を行った。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-07-10",
+            "meeting_title": "大都市制度・広域連携促進特別委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "議員は指定都市の共同要望と名古屋市の市民税減税政策との間にある状況の違いについて指摘し認識を確認した。行政側は、政令市全体の理想的な自主財源確立と各自治体の政策判断のあり方について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-02",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "小川としゆき",
+            "statement_summary": "横浜市の将来の財政ビジョンを参考に持続可能な財政運営方針の策定を求めた議員に対し、行政側は令和4年度決算における基金や市債等の財政指標の状況と、今後の安定的な財政運営への取り組みについて説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「市民税減税政策の堅持と財政規律・行財政改革の推進」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-03-11",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "岡田ゆき子",
+            "statement_summary": "岡田議員は市債残高や財政調整基金の取り崩し理由、災害対応予算について質問し、行政側は競技大会への投資や義務的経費の増加等を理由として挙げた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-11",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "岩本たかひろ",
+            "statement_summary": "議員は令和6年度市税収入の見込みや名古屋城整備の財政スキームについて質問し、行政側は税目別の増減要因や当時の収支計画の現状について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-11",
+            "meeting_title": "総務環境委員会",
+            "speaker": "横井利明",
+            "statement_summary": "横井議員が行政改革の浸透状況やみどり市民病院の実施主体変更について見解を質し、総務局が職員の意識改革や研修の実施、各施設の特性に応じた判断であると説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「市民税減税政策の堅持と財政規律・行財政改革の推進」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-02-27",
+            "meeting_title": "総務環境委員会",
+            "speaker": "くにまさ直記",
+            "statement_summary": "市長給与とセットで語られる議員報酬の見直しに関して、過去の条例提案回数や市長から所属議員への働きかけ状況について質問し、行政側からこれまでの経緯と現在の検討状況について説明が行われた質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-02-27",
+            "meeting_title": "総務環境委員会",
+            "speaker": "渡辺やすのり",
+            "statement_summary": "議員が過去の県議会議員時代の議員報酬寄附の経緯と方針の一貫性について質問し、行政側が当時の選挙公約や党内調整の状況について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-02-27",
+            "meeting_title": "総務環境委員会",
+            "speaker": "服部しんのすけ",
+            "statement_summary": "服部議員が市長給与に関する政治姿勢や過去の経緯について質問し、広沢市長が副市長時代や県議時代の対応や説明責任について答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "waste_carry_out_prevention_ordinance",
+    "category": "くらし・環境・エネルギー",
+    "title": "家庭廃棄物・資源ごみ持ち去り防止条例の制定と生活困窮者支援",
+    "lead_summary": "ごみ集積所からの資源ごみ（アルミ缶・古紙等）の無断持ち去りによる騒音・散乱トラブル防止条例の制定と、持ち去り行為者に対する自立支援を巡る議論。",
+    "current_status": "勧告・命令・過料・公表を含む防止条例が制定され、直営職員によるパトロール体制が整えられる一方、生活困窮者への福祉施策との連携が図られている。",
+    "conflict_axes": [
+      "罰則を伴う厳格な持ち去り規制と生活困窮者・高齢収集者への自立・福祉支援の両立",
+      "市民による通報時の安全確保・トラブル回避と効率的なパトロール体制",
+      "買取り業者側への適正取引要請や流通ルートへの対策の実効性"
+    ],
+    "thread_count": 29,
+    "last_updated": "2025-12-03",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「家庭廃棄物・資源ごみ持ち去り防止条例の制定と生活困窮者支援」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-10-03",
+            "meeting_title": "総務環境委員会",
+            "speaker": "うかい春美",
+            "statement_summary": "環境デーなごやの実施状況と参加者・出展者の声について質問し、行政側からコロナ禍での開催工夫やアンケート結果が説明された。また、集団資源回収の回収量減少の要因や補助金の状況について質疑を行った。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-03",
+            "meeting_title": "総務環境委員会",
+            "speaker": "横井利明",
+            "statement_summary": "横井議員が令和4年度の空き缶持ち去り量や条例制定状況を質問し、行政側が推計値や条例化の課題を説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-05",
+            "meeting_title": "総務環境委員会",
+            "speaker": "うかい春美",
+            "statement_summary": "集団資源回収の実施状況や事業協力金の単価設定の理由、無人回収所の拠点数の内訳について質問し、行政側から古紙市況に応じた単価改定の経緯や組合・店舗ごとの設置状況について説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「家庭廃棄物・資源ごみ持ち去り防止条例の制定と生活困窮者支援」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-03-12",
+            "meeting_title": "総務環境委員会",
+            "speaker": "くずや利枝",
+            "statement_summary": "くずや議員がアルミ缶の持ち去り実態と通報件数について質問し、行政側が令和2年度からの件数推移や市況高騰を要因として挙げた。さらに議員はモデル事業の概要や他都市の条例状況等の資料提出を求め、行政側が提出を快諾した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-14",
+            "meeting_title": "総務環境委員会",
+            "speaker": "くずや利枝",
+            "statement_summary": "議員はアルミ缶持ち去り防止のモデル事業や他都市の条例化状況について質問し、行政側は緑区での実施経緯や一律規制の課題について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-10-10",
+            "meeting_title": "総務環境委員会",
+            "speaker": "服部しんのすけ",
+            "statement_summary": "資源ステーションに排出された資源の所有権の法的な解釈や、資源持ち去り禁止条例制定に向けた検討状況について質問し、行政側から他都市の事例等を踏まえて引き続き整理・検討する旨の答弁があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「家庭廃棄物・資源ごみ持ち去り防止条例の制定と生活困窮者支援」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "総務環境委員会",
+            "speaker": "中村しゅうへい",
+            "statement_summary": "中村議員が資源ごみ持ち去り防止対策におけるパトロールや回収ボックスの展開状況について質問し、行政側が実施状況や回収量、通報件数の動向について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "総務環境委員会",
+            "speaker": "渡辺やすのり",
+            "statement_summary": "議員はラムサール条約認証や大規模水素ステーション整備、資源ごみ持ち去り防止について質問し、行政側はCOP15での成果発信や市有地適地調査の計画、通報件数の把握状況についてそれぞれ説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "総務環境委員会",
+            "speaker": "岡田ゆき子",
+            "statement_summary": "岡田議員は市施設再生可能エネルギー100％化の計画と集団資源回収事業費の見直しについて質問し、行政側は導入目標や古紙価格安定に伴う補助単価の調整について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "nagoya_heatstroke_climate_action",
+    "category": "くらし・環境・エネルギー",
+    "title": "猛暑・熱中症対策の全庁横断推進と脱炭素・環境学習プラン2030",
+    "lead_summary": "近年の記録的猛暑を受けた学校・公共施設の熱中症対策、省エネ型エアコン買換え支援、なごや環境学習プラン2030に基づく脱炭素社会の実現。",
+    "current_status": "全庁横断的な熱中症対策会議の設置やエアコン買換え補助の検討が進むとともに、藤前干潟の湿地都市認証を契機とした環境教育の拡充が審議されている。",
+    "conflict_axes": [
+      "省エネ型家電買換え補助の予算規模と低所得世帯・高齢者世帯への重点化",
+      "学校体育館空調のLPガス併用など災害避難所バックアップ機能の全校整備",
+      "2030年削減目標に向けた市民・事業者の行動変容と市役所自らの脱炭素化"
+    ],
+    "thread_count": 32,
+    "last_updated": "2026-06-25",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「猛暑・熱中症対策の全庁横断推進と脱炭素・環境学習プラン2030」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-07-03",
+            "meeting_title": "総務環境委員会",
+            "speaker": "うかい春美",
+            "statement_summary": "議員は総合計画におけるカーボンニュートラル施策の庁内認識やゼロカーボンシティ宣言の有無について質問し、行政側は宣言の有無に関わらず全庁的に脱炭素型のまちづくりを推進していくと説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-09-05",
+            "meeting_title": "安心・安全なまちづくり対策特別委員会",
+            "speaker": "うえぞの晋介",
+            "statement_summary": "環境局施設や愛岐処分場におけるリアルな環境学習や藤前干潟の保全活用事業の実施状況について質問し、行政側から里山体験ツアーやふれあい事業、国内湿地交流事業の取り組みについて説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-09-05",
+            "meeting_title": "安心・安全なまちづくり対策特別委員会",
+            "speaker": "金庭宜雄",
+            "statement_summary": "委員長である金庭議員が環境局関係の「環境教育について」の委員会運営を開始し、行政側から環境学習センター運営や次世代環境学習等の取組状況について説明が行われた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「猛暑・熱中症対策の全庁横断推進と脱炭素・環境学習プラン2030」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-03-12",
+            "meeting_title": "財政福祉委員会",
+            "speaker": "森ともお",
+            "statement_summary": "八事霊園における園内移動の課題や熱中症等の事例について質問し、行政側から関係者への聞き取り等の予備的調査を実施し詳細な調査の準備を進めると説明があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-05-08",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "生涯学習センター体育室における熱中症での救急搬送事例の有無と今後の空調設置の道筋について質問し、行政側から過去の搬送事例や学校体育館を優先する理由を交えた説明があった。さらにトイレの洋式化の方針について質問し、福祉都市環境整備指針に基づく今後の対応方針について説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-06-06",
+            "meeting_title": "総務環境委員会",
+            "speaker": "服部しんのすけ",
+            "statement_summary": "服部議員はアメリカ大統領選の結果が脱炭素施策に与える影響と名古屋市の対応について質問し、環境局担当課長は地球温暖化対策実行計画2030の策定経緯と市長の意向について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「猛暑・熱中症対策の全庁横断推進と脱炭素・環境学習プラン2030」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "総務環境委員会",
+            "speaker": "渡辺やすのり",
+            "statement_summary": "議員はラムサール条約認証や大規模水素ステーション整備、資源ごみ持ち去り防止について質問し、行政側はCOP15での成果発信や市有地適地調査の計画、通報件数の把握状況についてそれぞれ説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-12",
+            "meeting_title": "総務環境委員会",
+            "speaker": "岡田ゆき子",
+            "statement_summary": "岡田議員は市施設再生可能エネルギー100％化の計画と集団資源回収事業費の見直しについて質問し、行政側は導入目標や古紙価格安定に伴う補助単価の調整について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-17",
+            "meeting_title": "総務環境委員会",
+            "speaker": "服部しんのすけ",
+            "statement_summary": "服部議員が職員の熱中症対策や規則改正の動向について質問し、山本安全衛生課長及び舘職員部長が国の検討状況や今後の庁内での未然防止に向けた取組について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "minato_disaster_prevention_center",
+    "category": "防災・減災・治安",
+    "title": "港防災センター移転改築と南海トラフ地震・避難所対策の強化",
+    "lead_summary": "伊勢湾台風の教訓を伝える港防災センターの野跡小学校跡地への移転改築計画と、南海トラフ巨大地震を見据えた臨海部・全市の防災拠点機能の強化。",
+    "current_status": "新センターの基本計画・展示体験手法の具体化が進むとともに、津波避難ビルの指定拡充や地域独自物資の保管、避難所口腔ケアなど災害関連死防止が審議されている。",
+    "conflict_axes": [
+      "臨海部浸水想定区域への防災センター整備における耐震・津波安全性の確保",
+      "伊勢湾台風の記憶継承と最新デジタル技術を用いた体感型防災教育の融合",
+      "広域避難所となる学校施設等の環境整備と地域主体の避難所運営体制"
+    ],
+    "thread_count": 71,
+    "last_updated": "2026-06-24",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「港防災センター移転改築と南海トラフ地震・避難所対策の強化」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-06-26",
+            "meeting_title": "定例会",
+            "speaker": "月森たくや",
+            "statement_summary": "指定避難所への防犯ブザー配備や中学校入学時の全生徒への防犯ブザー配付、多子世帯支援の方針について質問し、行政側から来年度の配備検討や次期計画での支援検討などについて答弁があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-03",
+            "meeting_title": "経済水道委員会",
+            "speaker": "大谷ともひろ",
+            "statement_summary": "大谷議員が下水管の耐震化の定義や総延長、耐震化率および年度別資料の提出を求め、行政側が避難所や緊急輸送道路等を結ぶ管路の定義や延長約1370キロ、耐震化率約92％と答弁し、資料提出に応じた。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-10-03",
+            "meeting_title": "教育子ども委員会",
+            "speaker": "田辺雄一",
+            "statement_summary": "学校体育館の空調整備に関し、避難所機能の観点からLPガス活用等によるエネルギー源の多様化について質問し、行政側から小学校の一部にLPガス稼働装置を導入する予定であると説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「港防災センター移転改築と南海トラフ地震・避難所対策の強化」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-03-05",
+            "meeting_title": "定例会",
+            "speaker": "さかい大輔",
+            "statement_summary": "さかい大輔議員は、能登半島地震を踏まえた分散避難の推進や通信インフラ確保について質問し、酒井雄一防災危機管理局長は、避難所外避難者への支援周知や地区防災カルテを活用したルールづくり、通信インフラのバックアップ体制の検証について答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-05",
+            "meeting_title": "定例会",
+            "speaker": "豊田かおる",
+            "statement_summary": "豊田かおる議員は地域防災力の向上やキャリア教育等の推進について質問し、行政側から全学区での実践型訓練の実施や小学校におけるキャリア教育の取組などについて説明・答弁があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-03-06",
+            "meeting_title": "定例会",
+            "speaker": "岡田ゆき子",
+            "statement_summary": "岡田ゆき子議員が女性視点の避難所レイアウトの見える化や給食室等の活用などを質問し、行政側から他自治体の取組も参考にしながら避難所運営に必要な機能やスペースの整理とレイアウトへの明示を進めると説明があった質疑。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「港防災センター移転改築と南海トラフ地震・避難所対策の強化」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-05",
+            "meeting_title": "定例会",
+            "speaker": "さかい大輔",
+            "statement_summary": "さかい大輔議員は避難所機能の強化やDX化等について質問し、行政側からスフィア基準の考慮や備蓄計画の作成、デジタル技術を活用した運営訓練等を進める旨の説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-07",
+            "meeting_title": "定例会",
+            "speaker": "おか千恵",
+            "statement_summary": "おか千恵議員がし尿処理計画、宅地内給排水設備の早期復旧、避難所のキッズスペース確保について質問し、各局長が計画改定や覚書締結、地域防災計画への位置づけについてそれぞれ答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-03-07",
+            "meeting_title": "定例会",
+            "speaker": "大島英勲",
+            "statement_summary": "在宅医療的ケア者向けの非常用電源確保に関し、実態把握の状況や補助対象拡大について質問し、行政側から他都市事例も参考に実態調査や対象拡大の検討を進めると説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "nagoya_city_univ_hospitals_dx",
+    "category": "福祉・医療・健康",
+    "title": "名市大附属病院群（東部・西部医療センター等）の機能強化と医療DX",
+    "lead_summary": "名古屋市立大学附属病院化した東部・西部医療センター等を含む6病院体制のスケールメリット発揮、電子カルテ統一などの医療DX、高度周産期・小児医療体制の強化。",
+    "current_status": "共通電子カルテ導入や医薬品共同調達による経営効率化が進む一方、医師・看護師の確保処遇改善や病室Wi-Fi整備など患者アメニティ向上が審議されている。",
+    "conflict_axes": [
+      "病院群統合による経営健全化と地域密着型急性期医療・救急受入機能の維持",
+      "電子カルテ統一・AI要約等DX投資の費用対効果とセキュリティ確保",
+      "周産期医療・小児医療における公的医療機関としての不採算特殊医療の役割"
+    ],
+    "thread_count": 28,
+    "last_updated": "2026-01-22",
+    "timeline_phases": [
+      {
+        "period": "2023年（令和5年）以前",
+        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
+        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "key_points": [
+          "議員による「名市大附属病院群（東部・西部医療センター等）の機能強化と医療DX」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2023-07-11",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "岡田ゆき子",
+            "statement_summary": "岡田議員が市立病院群の第四期目標における位置づけや世界レベルの研究体制の財源確保について質問し、行政側が附属病院群の役割や長期的な研究基盤の整備に向けた大学との協議について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-07-11",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "服部将也",
+            "statement_summary": "服部議員が第四期中期目標へのコロナ禍の反映や公衆衛生医師の育成について質問し、行政側が病院群の連携やDX、公衆衛生のドクター育成を含む医療人育成について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2023-09-07",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "浅野有",
+            "statement_summary": "浅野議員が名古屋市立大学病院に新設されたこころの発達診療研究センターの設置経緯や目的、今後の取組について質問し、行政側が医療提供体制や調査研究の計画について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2024年（令和6年）",
+        "phase_title": "具体策の審議・実施計画への反映",
+        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "key_points": [
+          "議員による「名市大附属病院群（東部・西部医療センター等）の機能強化と医療DX」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2024-02-09",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "さわだ晃一",
+            "statement_summary": "さわだ議員は市立大学病院の痛み外来の待ち期間と能登半島地震におけるDＭＡＴ・DＰＡＴ等の派遣状況および知見の共有について質問し、行政側から最新の待ち期間や派遣実績、病院間の報告共有について説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-02-09",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "服部将也",
+            "statement_summary": "服部議員が附属病院の診療体制や職員数の現状認識と今後の対応について質問し、行政側が3病院の職種別職員数の推移や病院間の応援体制、現場の意見反映について説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2024-02-09",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "岡田ゆき子",
+            "statement_summary": "岡田議員は総合リハビリテーションセンター附属病院の市大病院化に伴う医療と福祉の連携について質問し、行政側は1月に決定した病院長予定者を中心に今後の運営準備を詰めていくと答弁した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      },
+      {
+        "period": "2025年〜2026年（令和7・8年）",
+        "phase_title": "本格実施・制度拡充と持続可能性の検証",
+        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "key_points": [
+          "議員による「名市大附属病院群（東部・西部医療センター等）の機能強化と医療DX」に関する論点指摘と行政答弁の確認",
+          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+        ],
+        "exchanges": [
+          {
+            "meeting_date": "2025-03-13",
+            "meeting_title": "総務環境委員会",
+            "speaker": "さわだ晃一",
+            "statement_summary": "さわだ議員は名市大の「こころの発達診療研究センター」の待ち時間や令和7年度の研修プログラムについて質問し、行政側から約8か月待ちであることや診療医研修の開始予定について説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-09-09",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "吉岡正修",
+            "statement_summary": "市立大学病院などの入院時個室料金改定について物価高騰の影響や経費削減の取組を質し、行政側から委託料や人件費の高騰、収入増と支出削減の両輪による経営努力について説明があった。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          },
+          {
+            "meeting_date": "2025-09-09",
+            "meeting_title": "公社対策特別委員会",
+            "speaker": "辻󠄀まさお",
+            "statement_summary": "辻議員が名古屋市立大学病院の外来患者数や未受診者の現状と対応、病院群のシステム統合について質問し、行政側が外来実績や未受診者への個別連絡、電子カルテ統一とスマホアプリによる予約リマインド導入検討を説明した。",
+            "source_url": "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html"
+          }
+        ]
+      }
+    ]
+  }
+]

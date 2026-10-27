@@ -1,0 +1,100 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "うえぞの",
+      "statement_text": "おはようございます。\nただいまから、土木交通委員会を開会いたします。\n初めに、昨日の本会議で当委員会に付議されました議案は、お手元配付のとおり、第147号議案1件であります。\nその審査日程につきましては、あらかじめ正副委員長で相談し、お手元の案を作成させていただきましたが、いかがでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "うえぞの",
+      "statement_text": "それでは、この日程に従い、審査を進めさせていただきます。\n本日は、付議議案に対する説明、質疑を行います。\nそれでは、第147号議案を議題に供し、まず当局の説明を求めます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "山田緑政土木",
+      "statement_text": "今回、緑政土木局分で御審議をお願いいたします案件は、第147号議案「損害賠償の額の決定について」でございます。\n概要につきましては、総務課長より説明をさせていただきますので、よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "高尾緑政土木局総務課長",
+      "statement_text": "それでは、緑政土木局関係の議案につきまして御説明申し上げます。\nお手元にございます資料の令和6年11月定例会提出議案の概要（緑政土木局）を御覧いただきたいと存じます。\n第147号議案「損害賠償の額の決定について」でございます。本件は、令和6年4月に名古屋市昭和区南山町地内の市道におきまして、特殊用途自動車が走行中、がたついていた側溝の蓋を跳ね上げ、当該自動車が破損した事件に関し、当該自動車の破損等に対する損害賠償の額を決定するものでございます。損害賠償額は、自動車修繕費及び証明書取得費用の合計236万4348円でございます。\n以上、誠に簡単ではございますが、緑政土木局関係の御説明を終わらせていただきます。よろしくお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "うえぞの",
+      "statement_text": "説明が終わりましたので、付議議案に対する御質疑をお許しいたします。－－特にないようであります。\n以上で、付議議案に対する質疑を終了いたします。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "加藤",
+      "statement_text": "付議議案に対する意思決定につきまして、各派とも差し支えがないようであれば、意思決定を本日行ってどうかと思いますので、正副委員長においてお取り計らいをいただけたらと存じます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "うえぞの",
+      "statement_text": "ただいま加藤委員より、付議議案に対する意思決定を本日行ってはどうかとの御意見がございましたが、委員の皆様で何か御意見等はございますでしょうか。－－特にないようであります。\nそれでは、正副委員長で協議いたしますので、しばらくお待ちください。－－お待たせいたしました。先ほどの加藤委員の御意見について正副委員長で協議いたしました結果、本日、付議議案に対する意思決定を行うこととしたいと存じますが、よろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "うえぞの",
+      "statement_text": "それでは、この後、付議議案に対する意思決定を行うことといたします。\nなお、これに伴い、本日の委員会冒頭で決定した審査日程を変更し、明日の委員会を開会しないことといたしますので、よろしくお願いいたします。\nそれでは、これより付議議案に対する意思決定を行います。\n第147号議案を議題に供し、まず各派の意向表明をお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "上村",
+      "statement_text": "（自民）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "森委員",
+      "statement_text": "（民主）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "おか委員",
+      "statement_text": "（公明）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "鈴木",
+      "statement_text": "（減税）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    }
+  ]
+}

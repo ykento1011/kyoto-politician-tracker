@@ -1,0 +1,60 @@
+{
+  "8": [
+    {
+      "sequence_number": 7,
+      "speaker": "金城",
+      "statement_text": "委員（陽向）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "北野",
+      "statement_text": "それでは、これより採決を行います。\n採決は、第66号議案1件とその他の6件との二度に分けて行います。\n初めに、第66号議案について、起立により採決をいたします。\n本案を原案どおり可決すべきものと決することに賛成の方の起立を求めます。\n〔賛成者起立〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "北野",
+      "statement_text": "起立多数であります。\nよって、本案は原案どおり可決すべきものと決しました。\n次に、その他の6件についてお諮りをいたします。\n第70号議案関係分、第65号議案、第67号議案、第73号議案及び第76号議案については、いずれも原案どおり可決すべきものと、諮問第1号につきましては、異議なき旨の答申をすべきものと決しまして御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "北野",
+      "statement_text": "御異議なしと認めます。\nよって、第70号議案関係分、第65号議案、第67号議案、第73号議案及び第76号議案については、いずれも原案どおり可決すべきものと、諮問第1号につきましては、異議なき旨の答申をすべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "北野",
+      "statement_text": "では、さよう取り扱わせていただきます。\nこの場合、当局より発言を求めておられますので、お許しをいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "吹上経済局長",
+      "statement_text": "お許しをいただきましたので、一言御挨拶を申し上げます。\n当委員会に付議されました議案につきましては、慎重かつ熱心な御審議をいただき、本日御議決を賜りまして誠にありがとうございました。\n今後につきましては、御審議の中で頂戴いたしました貴重な御意見、御要望にも十分に留意いたしまして、万全の努力をいたす所存でございます。\n今後とも委員の皆様方はじめ議会の格別の御指導、御鞭撻を賜りますようよろしくお願い申し上げまして、御礼の御挨拶とさせていただきます。\nありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "北野",
+      "statement_text": "本日の予定は以上であります。\nこれにて、本日の委員会を散会をいたします。お疲れさまでした。\n散会　午前10時36分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

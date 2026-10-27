@@ -1,0 +1,100 @@
+{
+  "4": [
+    {
+      "sequence_number": 3,
+      "speaker": "小出",
+      "statement_text": "それでは、第115号議案を議題に供し、御質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "村瀬",
+      "statement_text": "下水道事業会計の補正予算についてお伺いいたします。\n今回の補正予算は、下水道事業において約16億円の事業費の増額ということなんですが、具体的にどんなことをするのか教えていただけますか。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "田中上下水道局技術本部計画部下水道計画課長",
+      "statement_text": "今回の補正予算でございますが、浸水対策事業といたしまして、六条ポンプ所をはじめといたしまして、3件の雨水ポンプの排水能力の増強を行います。また、下水道施設のリフレッシュ事業といたしまして、富田ポンプ所をはじめといたしまして、6件の老朽化した設備の改築と、重要な下水管の改築を6件行ってまいります。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "村瀬",
+      "statement_text": "それらの事業は、今回の国庫補助の増額を受けて、当初予算では予定になかった事業を新たに実施するんでしょうか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "田中上下水道局技術本部計画部下水道計画課長",
+      "statement_text": "今回の補正予算でございますが、実施する事業につきましては、今後実施する予定の工事の中から、事前準備等も含め早期に発注が可能と判断したものを実施するものでございます。このうち、下水道施設のリフレッシュ事業といたしまして、先ほど申しました富田ポンプ所等で実施する6件の設備の改築につきましては、令和8年度に発注予定をしておったものを今年度、令和7年度になりますが、前倒しをして実施するものでございます。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "村瀬",
+      "statement_text": "来年度に予定していた事業を前倒しするとのことなんですけれども、それによって進捗状況はどれぐらい早まりますか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "田中上下水道局技術本部計画部下水道計画課長",
+      "statement_text": "ポンプ所等の設備の改築では、先ほど申しましたように老朽化した設備の改築工事を令和8年度の発注から令和7年度に発注を前倒しすることによりまして、おおむねでございますが、半年程度早まる見込みでございます。\n以上でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "村瀬",
+      "statement_text": "分かりました。\nやはり、昨今各地で水道事故が多発しています。本市におきまして、老朽化によりやっぱり上下水道施設による大規模な事故が発生していないというのは、日頃から上下水道局が計画的に点検調査、それから改築、更新を実施しているおかげだと思います。ありがとうございます。\n今回、閣議決定されました経済財政運営と改革の基本方針2025、いわゆる骨太方針2025においても、上下水道などのインフラ老朽化対策、耐震化加速化についてうたわれておりますけれども、引き続き国庫補助金などの財源を活用して、強靱なインフラ整備をしっかり進めていただくことで、安心・安全な上下水道のサービスに努めていただきたいと思います。ありがとうございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "小出",
+      "statement_text": "他に。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "長谷川",
+      "statement_text": "本日の質疑の状況から、上下水道局関係の付議議案に対する質疑は、本日で終了してはどうかと思いますので、正副委員長においてお取り計らいをいただければと存じます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "小出",
+      "statement_text": "ただいま長谷川委員より、本日の質疑の状況を踏まえ、上下水道局関係の付議議案に対する質疑を本日で終了してはどうかとの御意見がございましたが、委員の皆様で何か御意見等はございますでしょうか。－－それでは、正副委員長で協議いたしますので、しばらくお待ちください。－－お待たせをいたしました。\n先ほどの長谷川委員の御発言について、正副委員長で協議いたしました結果、上下水道局関係の付議議案に対する質疑を本日で終了いたしたいと存じますが、よろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "小出",
+      "statement_text": "御異議なしと認め、さよう決定いたします。\nそれでは、以上で上下水道局関係の質疑を終了し、付議議案に対する全ての質疑を終了いたします。\nなお、これに伴い、昨日の委員会で決定した審査日程を変更し、6月30日は委員会を開会しないことといたしますので、よろしくお願いをいたします。\n本日の予定は以上であります。\n次回は、7月1日火曜日、午前10時30分から、付議議案に対する意思決定を行った後、引き続き観光文化交流局関係の所管事務調査を行いますので、よろしくお願いをいたします。\nこれにて、本日の委員会を散会いたします。\nお疲れさまでした。\n散会　午前10時36分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

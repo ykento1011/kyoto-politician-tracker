@@ -1,0 +1,100 @@
+{
+  "9": [
+    {
+      "sequence_number": 8,
+      "speaker": "大谷",
+      "statement_text": "ただいま御推挙賜りました大谷ともひろと申します。\n当委員会の円滑かつ適正な運営の一助となれるよう副委員長として誠心誠意努めてまいります。どうぞよろしくお願いいたします。\n〔大谷副委員長着席〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "岡本",
+      "statement_text": "なお、副委員長の委員長職務代行順位についてでありますが、申合せによりまして、第1順位、服部しんのすけ副委員長、第2順位、大谷ともひろ副委員長とさせていただきますので、御了承願います。\nそれでは、本日の日程に入ります。\n本日は、先ほど本会議で当委員会に付議されました第170号議案関係分に対する審査を行います。\nなお、日程の都合上、説明、質疑を行った後、意思決定まで行いたいと思いますので、よろしくお願いいたします。\nそれでは、第170号議案関係分を議題に供し、まず、当局の説明を求めます。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "佐藤子ども青少年局長",
+      "statement_text": "今回、委員会で御審議をお願いいたしますのは、一般会計補正予算第170号議案のうち、子ども青少年局、教育委員会関係分でございます。\n内容といたしましては、令和6年の人事委員会勧告を踏まえ、職員の給与改定等に伴う増額分を補正するものでございます。\n詳細につきましては、総務課長より御説明させていただきますので、よろしく御審議賜りますようお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "松岡子ども青少年局総務課長",
+      "statement_text": "それでは、人件費関係補正予算の議案につきまして、2局－－子ども青少年局、教育委員会関係分を一括して御説明させていただきますので、よろしくお願い申し上げます。\n恐れ入りますが、「令和6年11月定例会追加提出議案の概要」を御覧いただきたいと存じます。\n今回、御審議をお願いいたしますのは、一般会計補正予算第170号議案のうち、子ども青少年局、教育委員会関係分でございます。内容といたしましては、令和6年の人事委員会勧告を踏まえ、給与条例の改正に伴う給与改定等を行うものでございます。給与改定の施行は、条例の公布日となっておりますが、適用につきましては令和6年4月1日としております。\nその改定に伴う増額といたしまして、第13款職員費のうち、第6項子ども青少年職員費を御覧いただきますと、補正額は全体で5億2275万円となったところでございます。第14項教育職員費を御覧いただきますと、補正額は全体で35億1524万2000円となったところでございます。\n以上、簡単ではございますが、説明を終わらせていただきます。よろしく御審議賜りますようお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "岡本",
+      "statement_text": "説明が終わりましたので、御質疑がればお許しいたします。－－特にないようであります。\n以上で、付議議案に対する質疑を終了し、引き続き意思決定を行いたいと思います。\nそれでは、第170号議案関係分につきまして、各会派の意向表明をお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "くずや",
+      "statement_text": "（自民）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "塚本",
+      "statement_text": "（民主）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "辻委員",
+      "statement_text": "（公明）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "大谷",
+      "statement_text": "（減税）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "中川",
+      "statement_text": "（創政）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "大島",
+      "statement_text": "（維新）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 19,
+      "speaker": "岡本",
+      "statement_text": "それでは、お諮りいたします。\n本案は、原案どおり可決すべきものと決して御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "岡本",
+      "statement_text": "おはようございます。\nただいまから土木交通委員会を開会いたします。\n初めに、11月17日の本会議で当委員会に付議されました議案は、お手元配付のとおり、第95号議案関係分1件であります。\nその審査日程につきましては、あらかじめ正副委員長で相談し、お手元の案を作成しましたが、いかがでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "岡本",
+      "statement_text": "それでは、この日程に従い、審査を進めさせていただきます。\n本日は付議議案に対する説明・質疑を行います。\nそれでは、第95号議案関係分を議題に供し、まずは当局の説明を求めます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "河田緑政土木",
+      "statement_text": "今回、給与関係補正予算のうち、緑政土木局分として御審議をお願いいたします案件は、第95号議案「令和5年度名古屋市一般会計補正予算」のうち、第11項緑政土木職員費に係るものでございます。\n概要につきましては、総務課長より説明をさせていただきますので、よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "高尾緑政土木局総務課長",
+      "statement_text": "今回、御審議をお願いします案件は、第94号議案「職員の給与に関する条例の一部改正について」に基づきます給与改定による人件費の増額につきまして、所要の予算措置を講ずるものでございます。\nそれでは、第95号議案「令和5年度名古屋市一般会計補正予算」につきまして、令和5年度名古屋市各会計補正予算名古屋市各会計補正予算に関する説明書（人件費関係分）に基づき、緑政土木局関係分について御説明させていただきます。\n恐れ入りますが、3ページをお開きください。第11項緑政土木職員費といたしまして、1億5300余万円の増額をお願いするものでございます。目ごとの補正額につきましては、18ページの第1目土木管理職員費から19ページの第10目農業振興職員費にかけまして、記載のとおりとなっております。\n以上、誠に簡単ではございますが、緑政土木局関係の御説明を終わらせていただきます。よろしくお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "岡本",
+      "statement_text": "説明が終わりましたので、付議議案に対する御質疑をお許しいたします。よろしいでしょうか。－－特にないようであります。\n以上で、付議議案に対する質疑を終了いたします。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "加藤",
+      "statement_text": "明日予定されております付議議案に対する意思決定につきまして、各派とも差し支えがないようであれば、本日行ってはどうかと思いますので、正副委員長においてお取り計らいをよろしくお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "岡本",
+      "statement_text": "ただいま加藤委員より、付議議案に対する意思決定を本日行ってはどうかとの御意見がございましたが、委員の皆様、何か御意見等はございますでしょうか。よろしいでしょうか。－－特にないようであります。\nそれでは、正副委員長で協議いたしますので、しばらくお待ちください。－－お待たせいたしました。\n先ほどの加藤委員の御意見について正副委員長で協議いたしました結果、本日、付議議案に対する意思決定を行うことといたしたいと存じますが、よろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "岡本",
+      "statement_text": "それでは、この後、付議議案に対する意思決定を行うことにいたします。\nなお、これに伴い、本日の委員会冒頭で決定した審査日程を変更し、明日は委員会を開会しないことといたしますので、よろしくお願いいたします。\nそれでは、これより付議議案に対する意思決定を行います。\n第95号議案関係分を議題に供し、まずは各派の意向表明をお願いします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "北野",
+      "statement_text": "（自民）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "くにまさ",
+      "statement_text": "（民主）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "沢田",
+      "statement_text": "（減税）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "月森",
+      "statement_text": "（公明）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    }
+  ],
+  "16": [
+    {
+      "sequence_number": 15,
+      "speaker": "岡本",
+      "statement_text": "御異議なしと認めます。\nよって、本案は原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成については、正副委員長一任の取扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "岡本",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局より発言を求められておりますので、お許しをいたします。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "河田緑政土木",
+      "statement_text": "ただいま慎重なる御審議をいただきまして、大変ありがとうございました。\n今後の事務執行に当たりましては、万全の努力をいたす所存でございますので、今後とも御指導、御鞭撻のほど、どうぞよろしくお願い申し上げます。ありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "岡本",
+      "statement_text": "本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。ありがとうございました。\n散会　午前10時34分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

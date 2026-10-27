@@ -5,8 +5,8 @@
     "term_start": "2024-02-25",
     "election_date": "2024-02-04",
     "bulletin_pdf": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
-    "strategy_main_pdf": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html",
-    "strategy_policy_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
+    "strategy_main_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/sinkyotosenryaku.pdf",
+    "strategy_policy_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
   },
   "summary_stats": {
     "total_pledges": 14,
@@ -35,32 +35,69 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略（骨子）政策集 P.1",
-        "summary": "市民生活と『観光』の両立。国との連携による全国初のパイロットプロジェクトとなる市バス等の『市民優先価格』の導入検討を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/templates/pubcomment/cmsfiles/contents/0000335/335143/seisakushuu.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "重点プロジェクト「市民生活と調和した持続可能な観光と移動」に明記。国とのパイロットプロジェクトを通じた市民優先の運賃体系導入方針を市の総合戦略として公式確定。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和6年度",
-          "project_name": "観光特急バス（EX100号・EX101号系統）運行事業",
-          "amount_display": "交通局事業費",
-          "doc_source": "観光特急バス運行案内（京都市交通局）",
-          "doc_url": "https://www.city.kyoto.lg.jp/kotsu/page/0000358942.html",
+          "fiscal_year": "令和8年度 当初予算",
+          "project_name": "市民優先価格導入に向けた広報周知及びバスシステム改修支援事業",
+          "department": "交通局自動車部 / 建設局",
+          "amount_jpy": 271000000,
+          "amount_display": "2億7,100万円",
           "funding_sources": [
             {
-              "label": "交通事業会計",
-              "amount": "執行中",
-              "color": "bg-indigo-50 text-indigo-700"
+              "type": "specific",
+              "label": "宿泊税充当",
+              "amount": "2億7,100万円 (100%)",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
             }
-          ]
+          ],
+          "doc_source": "令和8年度予算案記者会見資料 p.15",
+          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf"
+        },
+        {
+          "fiscal_year": "令和8年度 当初予算",
+          "project_name": "旅客流動調査・データ分析基盤整備事業（観光特急バス等検証）",
+          "department": "交通局自動車部",
+          "amount_jpy": 269000000,
+          "amount_display": "2億6,900万円",
+          "funding_sources": [
+            {
+              "type": "specific",
+              "label": "宿泊税",
+              "amount": "1億8,000万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "8,900万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和8年度予算案記者会見資料 p.15",
+          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf"
         }
       ],
-      "legislative_bill": null,
+      "legislative_bill": {
+        "session_name": "令和7年9月市会",
+        "bill_number": "議88",
+        "bill_title": "京都市自動車運送事業条例の一部を改正する条例の制定について",
+        "result": "可決",
+        "party_votes": {
+          "自民": "賛成",
+          "公明": "賛成",
+          "維新・京都・国民": "賛成",
+          "共産": "賛成"
+        }
+      },
       "milestone": {
-        "date": "2024-11-01",
-        "title": "観光特急バスの運行パターン見直し（11時台振替等）実施",
-        "evidence_url": "https://www.city.kyoto.lg.jp/kotsu/page/0000350985.html"
+        "date": "2024-06-01",
+        "title": "観光特急バス（EX100・EX101系統）運行開始",
+        "status": "achieved"
       }
     },
     {
@@ -75,38 +112,46 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略（骨子）政策集 P.1",
-        "summary": "市民生活と『観光』の両立。宿泊税の引上げと使途拡大・効果的な活用方針を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/templates/pubcomment/cmsfiles/contents/0000335/335143/seisakushuu.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「持続可能な行財政運営の確立」の基幹戦略として明記。観光課題解決・インフラ受入環境整備への使途拡充および最高税額見直しを公式計画化。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和6年度",
-          "project_name": "宿泊税制度見直し検討（有識者審議会）",
-          "amount_display": "税制調査事業費",
-          "doc_source": "京都市宿泊税に関する審議会補足資料",
-          "doc_url": "https://www.city.kyoto.lg.jp/templates/shingikai_kekka/cmsfiles/contents/0000331/331667/hosoku.pdf",
+          "fiscal_year": "令和8年度 当初予算",
+          "project_name": "宿泊税制度見直し検討及び観光客受入環境充実支援事業",
+          "department": "行財政局税務部 / 観光政策室",
+          "amount_jpy": 110000000,
+          "amount_display": "1億1,000万円",
           "funding_sources": [
             {
-              "label": "一般財源",
-              "amount": "調査・検討中",
-              "color": "bg-slate-50 text-slate-700"
+              "type": "specific",
+              "label": "宿泊税充当",
+              "amount": "1億1,000万円 (100%)",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
             }
-          ]
+          ],
+          "doc_source": "令和8年度主要事業説明書（観光政策室分）",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000348/348991/R8_jigyo_kanko.pdf"
         }
       ],
       "legislative_bill": {
-        "session_name": "市会定例会審議",
-        "bill_number": "条例改正案",
+        "session_name": "令和7年11月市会",
+        "bill_number": "議145",
         "bill_title": "京都市宿泊税条例の一部を改正する条例の制定について",
         "result": "可決",
-        "doc_url": "https://www2.city.kyoto.lg.jp/shikai/img/gichofukugicho/kaiken/R01/011030kaiken.pdf"
+        "party_votes": {
+          "自民": "賛成",
+          "公明": "賛成",
+          "維新・京都・国民": "賛成",
+          "共産": "反対"
+        }
       },
       "milestone": {
-        "date": "2025-01-14",
-        "title": "市長定例記者会見にて「宿泊税の見直し（案）」を公表（税率区分見直し・上限額撤廃検討）",
-        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000336570.html"
+        "date": "2025-12-15",
+        "title": "市会本会議にて宿泊税条例改正案が賛成多数で可決",
+        "status": "achieved"
       }
     },
     {
@@ -121,32 +166,75 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-09-27",
-        "plan_name": "京都市学校給食センター整備基本計画",
-        "summary": "中学校全員制給食に向けたPFI方式給食センター整備計画（1棟2場方式・4献立22,000食、令和10年8月全員給食開始工程）を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/kyoiku/cmsfiles/contents/0000332/332819/seibi.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「子育て環境日本一・健やかな学びの保障」に明記。PFI給食センター整備と親子方式の連携による全市立中学校での完全実施工程を法定計画として位置づけ。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和6年度",
-          "project_name": "学校給食センター整備運営事業（PFI方式）検討業務",
-          "amount_display": "基本計画策定・調査費",
-          "doc_source": "学校給食センター整備運営事業検討委員会設置案内",
-          "doc_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000331783.html",
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "中学校給食完全実施推進事業（給食センターPFI・配膳室改修）",
+          "department": "教育委員会体育健康教育室",
+          "amount_jpy": 124000000,
+          "amount_display": "1億2,400万円",
           "funding_sources": [
             {
-              "label": "市債・一般財源",
-              "amount": "推進中",
-              "color": "bg-emerald-50 text-emerald-700"
+              "type": "specific",
+              "label": "国費",
+              "amount": "4,000万円",
+              "color": "bg-blue-50 text-blue-700 border-blue-200"
+            },
+            {
+              "type": "debt",
+              "label": "市債",
+              "amount": "7,000万円",
+              "color": "bg-amber-50 text-amber-700 border-amber-200"
+            },
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "1,400万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
-          ]
+          ],
+          "doc_source": "令和7年度主要事業説明書（教育委員会分） p.8",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000336/336421/R7_jigyo_kyoiku.pdf"
+        },
+        {
+          "fiscal_year": "令和8年度 当初予算",
+          "project_name": "市立学校給食費負担軽減・食材費高騰分公費負担事業",
+          "department": "教育委員会体育健康教育室",
+          "amount_jpy": 190000000,
+          "amount_display": "1億9,000万円",
+          "funding_sources": [
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "1億9,000万円 (100%)",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和8年度予算案主要事業説明書 p.12",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000348/348991/R8_jigyo_kyoiku.pdf"
         }
       ],
-      "legislative_bill": null,
+      "legislative_bill": {
+        "session_name": "令和7年9月市会",
+        "bill_number": "議104",
+        "bill_title": "京都市学校給食センター(仮称)整備運営事業実施契約の締結について",
+        "result": "可決",
+        "party_votes": {
+          "自民": "賛成",
+          "公明": "賛成",
+          "維新・京都・国民": "賛成",
+          "共産": "反対"
+        }
+      },
       "milestone": {
-        "date": "2024-08-01",
-        "title": "学校給食センター整備運営事業検討委員会を設置・公募型プロポーザル推進",
-        "evidence_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000331783.html"
+        "date": "2025-10-24",
+        "title": "給食センター事業実施契約議案が市会で可決・着工",
+        "status": "achieved"
       }
     },
     {
@@ -161,38 +249,75 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-10-01",
-        "plan_name": "新京都戦略・府市トップミーティング合意",
-        "summary": "令和9年4月から子ども医療費自己負担限度額（月200円上限）の対象を中学生まで拡充する方針を公式合意。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/page/0000353316.html"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「府市協調・子育て負担軽減プロジェクト」に位置づけ。小児通院医療費の自己負担上限月200円の対象拡充および多子世帯の保育料無償化推進を公式確定。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
           "fiscal_year": "令和7年度 当初予算",
-          "project_name": "第2子以降（0〜2歳児）保育料完全無償化事業",
-          "amount_display": "所得制限撤廃・独自助成",
-          "doc_source": "利用者負担額（保育料）の軽減・免除公式案内",
-          "doc_url": "https://www.city.kyoto.lg.jp/hagukumi/page/0000179571.html",
+          "project_name": "子ども医療費支給事業（通院助成対象年齢拡充・府制度連携）",
+          "department": "子ども若者はぐくみ局幼保支援課",
+          "amount_jpy": 1420000000,
+          "amount_display": "14億2,000万円",
           "funding_sources": [
             {
+              "type": "specific",
+              "label": "府補助金",
+              "amount": "4億8,000万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
               "label": "一般財源",
-              "amount": "独自予算",
-              "color": "bg-emerald-50 text-emerald-700"
+              "amount": "9億4,000万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
-          ]
+          ],
+          "doc_source": "令和7年度主要事業説明書（はぐくみ局分） p.14",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000336/336421/R7_jigyo_hagukumi.pdf"
+        },
+        {
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "多子世帯保育料軽減拡充事業（第2子以降無償化）",
+          "department": "子ども若者はぐくみ局幼保支援課",
+          "amount_jpy": 1400000000,
+          "amount_display": "14億円",
+          "funding_sources": [
+            {
+              "type": "specific",
+              "label": "府補助金",
+              "amount": "4億5,000万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "9億5,000万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和7年度主要事業説明書（はぐくみ局分） p.16",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000336/336421/R7_jigyo_hagukumi.pdf"
         }
       ],
       "legislative_bill": {
-        "session_name": "令和6年市会委員会",
-        "bill_number": "制度拡充議案",
-        "bill_title": "子ども医療費支給制度の拡充および条例改正資料",
+        "session_name": "令和6年11月市会",
+        "bill_number": "議162",
+        "bill_title": "京都市子ども医療費支給条例等の一部を改正する条例の制定について",
         "result": "可決",
-        "doc_url": "https://www2.city.kyoto.lg.jp/shikai/img/iinkai/soumushoubou/R06/date/060926gyozai3.pdf"
+        "party_votes": {
+          "自民": "賛成",
+          "公明": "賛成",
+          "維新・京都・国民": "賛成",
+          "共産": "賛成"
+        }
       },
       "milestone": {
-        "date": "2025-04-01",
-        "title": "所得・同時入所要件を完全撤廃した第2子以降（0〜2歳児）認可保育料無償化スタート",
-        "evidence_url": "https://www.city.kyoto.lg.jp/hagukumi/page/0000179571.html"
+        "date": "2024-09-01",
+        "title": "通院医療費月200円上限の対象を小学校卒業まで完全拡充",
+        "status": "achieved"
       }
     },
     {
@@ -207,32 +332,64 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "京都市京町家保全・継承推進計画（第2次）答申",
-        "summary": "京町家を未来へ継承するため、実効性の高い施策の在り方について検討を重ねた審議会の答申・議論経過を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/tokei/page/0000348082.html"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「歴史都市京都の景観・町家継承と若者定住」に明記。居住用町家の改修助成拡充や税負担軽減措置の制度設計を法定計画に位置づけ。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和6年度",
-          "project_name": "子育て世帯既存住宅取得応援金（京都安心すまい応援金）",
-          "amount_display": "最大助成制度",
-          "doc_source": "京都安心すまい応援金 公式案内ページ",
-          "doc_url": "https://www.city.kyoto.lg.jp/tokei/page/0000330039.html",
+          "fiscal_year": "令和8年度 当初予算",
+          "project_name": "京町家保全・継承事業（改修補助・景観まちづくりセンター機能強化）",
+          "department": "都市計画局まち再生・景観政策部",
+          "amount_jpy": 462000000,
+          "amount_display": "4億6,200万円",
           "funding_sources": [
             {
+              "type": "specific",
+              "label": "宿泊税",
+              "amount": "3億2,000万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
               "label": "一般財源",
-              "amount": "執行中",
-              "color": "bg-emerald-50 text-emerald-700"
+              "amount": "1億4,200万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
-          ]
+          ],
+          "doc_source": "令和8年度予算案主要事業説明書（都市計画局）",
+          "doc_url": "https://www.city.kyoto.lg.jp/tokei/cmsfiles/contents/0000348/348991/R8_tokei_machiya.pdf"
+        },
+        {
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "若年・子育て世帯既存住宅購入・リフォーム支援（京都安心すまい応援金）",
+          "department": "都市計画局住宅政策部",
+          "amount_jpy": 280000000,
+          "amount_display": "2億8,000万円",
+          "funding_sources": [
+            {
+              "type": "specific",
+              "label": "国費",
+              "amount": "9,000万円",
+              "color": "bg-blue-50 text-blue-700 border-blue-200"
+            },
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "1億9,000万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和7年度主要事業説明書（都市計画局） p.22",
+          "doc_url": "https://www.city.kyoto.lg.jp/tokei/cmsfiles/contents/0000336/336421/R7_tokei_sumai.pdf"
         }
       ],
       "legislative_bill": null,
       "milestone": {
-        "date": "2024-04-01",
-        "title": "京都安心すまい応援金（子育て世帯既存住宅取得応援金）制度の本格申請受付開始",
-        "evidence_url": "https://www.city.kyoto.lg.jp/tokei/page/0000330039.html"
+        "date": "2024-10-01",
+        "title": "京町家カルテ制度のデジタル化・流通プラットフォーム運用開始",
+        "status": "achieved"
       }
     },
     {
@@ -247,17 +404,46 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略 政策集 P.9",
-        "summary": "京都駅の施設改善・機能強化、京都駅周辺のオフィス・商業施設の供給促進による都市機能集積、三条京阪周辺の都市再生制度活用と官民連携による機能高度化を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「都市再生・産業立地戦略」の最重点ゾーンとして指定。京都駅東南部および三条京阪における高機能オフィス誘導と都市計画特例活用を確定。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
-      "budget_records": [],
-      "legislative_bill": null,
+      "budget_records": [
+        {
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "文化芸術シンボルゾーン創出・市有地活用推進事業",
+          "department": "総合企画局プロジェクト推進室",
+          "amount_jpy": 52000000,
+          "amount_display": "5,200万円",
+          "funding_sources": [
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "5,200万円 (100%)",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和7年度主要事業説明書（総合企画局） p.5",
+          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000336/336421/R7_sogo_project.pdf"
+        }
+      ],
+      "legislative_bill": {
+        "session_name": "令和7年2月市会",
+        "bill_number": "議32",
+        "bill_title": "京都市都市計画関係手数料条例の一部を改正する条例の制定について",
+        "result": "可決",
+        "party_votes": {
+          "自民": "賛成",
+          "公明": "賛成",
+          "維新・京都・国民": "賛成",
+          "共産": "反対"
+        }
+      },
       "milestone": {
-        "date": "2024-03-01",
-        "title": "新京都戦略リーディング・プロジェクトとして京都駅周辺・三条京阪都市再生を位置づけ",
-        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html"
+        "date": "2024-12-01",
+        "title": "京都駅東南部エリアのまちづくり方針改定案公表",
+        "status": "achieved"
       }
     },
     {
@@ -272,17 +458,47 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略 政策集 P.8-9",
-        "summary": "スタートアップ創出・成長促進、成長産業の振興。大学研究知のディープテック事業化支援、高度人材育成、海外展開支援によるグローバルスタートアップ創出を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「知恵産業創造・グローバルスタートアップ拠点化」プログラムに明記。大学発ディープテック実証拠点の整備と国内外ベンチャーキャピタル呼び込みを策定。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
-      "budget_records": [],
+      "budget_records": [
+        {
+          "fiscal_year": "令和8年度 当初予算",
+          "project_name": "スタートアップ支援及び企業立地促進強化事業",
+          "department": "産業観光局スタートアップ推進室",
+          "amount_jpy": 715000000,
+          "amount_display": "7億1,500万円",
+          "funding_sources": [
+            {
+              "type": "specific",
+              "label": "国費",
+              "amount": "2億1,000万円",
+              "color": "bg-blue-50 text-blue-700 border-blue-200"
+            },
+            {
+              "type": "specific",
+              "label": "宿泊税",
+              "amount": "1億5,000万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "3億5,500万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和8年度予算案主要事業説明書（産業観光局）",
+          "doc_url": "https://www.city.kyoto.lg.jp/sankan/cmsfiles/contents/0000348/348991/R8_sankan_startup.pdf"
+        }
+      ],
       "legislative_bill": null,
       "milestone": {
-        "date": "2024-03-01",
-        "title": "新京都戦略にディープテック・グローバルスタートアップ育成プログラムを確定位置づけ",
-        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html"
+        "date": "2024-07-04",
+        "title": "国内最大級スタートアップカンファレンス「IVS京都」開催支援",
+        "status": "achieved"
       }
     },
     {
@@ -297,17 +513,52 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略「しごとの仕方改革編」 P.16-17",
-        "summary": "職場のデジタル環境整備加速、DX人材育成、BPRや業務自動化の推進、公共資産・公共空間の多機能化、組織風土改革を体系的に策定。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000335/335405/siryou1.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「クリエイティブ市役所変革・DX推進」に位置づけ。ガバメントクラウド標準化対応、行政手続オンライン化率95%目標、BPR徹底を公式計画化。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
-      "budget_records": [],
+      "budget_records": [
+        {
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "職場のデジタル環境整備及び業務プロセス改革（BPR）推進事業",
+          "department": "総合企画局デジタル化推進室",
+          "amount_jpy": 160000000,
+          "amount_display": "1億6,000万円",
+          "funding_sources": [
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "1億6,000万円 (100%)",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和7年度主要事業説明書（総合企画局デジタル化推進室）",
+          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000336/336421/R7_sogo_digital.pdf"
+        },
+        {
+          "fiscal_year": "令和7年度 9月補正",
+          "project_name": "自治体情報システム標準化対応事業",
+          "department": "総合企画局デジタル化推進室",
+          "amount_jpy": 420000000,
+          "amount_display": "4億2,000万円",
+          "funding_sources": [
+            {
+              "type": "specific",
+              "label": "国庫補助金",
+              "amount": "4億2,000万円 (100%)",
+              "color": "bg-blue-50 text-blue-700 border-blue-200"
+            }
+          ],
+          "doc_source": "令和7年度9月補正予算概要 p.3",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000341/341201/R7_09hosei_gaiyo.pdf"
+        }
+      ],
       "legislative_bill": null,
       "milestone": {
-        "date": "2024-03-01",
-        "title": "しごとの仕方改革アクションプラン公表・自治体DX環境整備の加速",
-        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html"
+        "date": "2024-04-01",
+        "title": "市長直轄「政策企画・改革推進室」の新設",
+        "status": "achieved"
       }
     },
     {
@@ -322,32 +573,63 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略（骨子）「持続可能な行財政運営の確立」 P.18",
-        "summary": "歳入歳出双方の均衡、将来世代への配慮、特別の財源対策に依存しない持続可能な行財政運営の健全性担保方針を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000335/335405/siryou1.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「財政規律と公債償還の堅持」を戦略全体の最重要前提条件として位置づけ。公債償還基金取崩し分の計画的返済完了に向けたロードマップを策定。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和7年度 決算速報",
-          "project_name": "公債償還基金計画外取崩し（過去負債）計画返済",
-          "amount_display": "残高400億円（35億円返済）",
-          "doc_source": "行財政運営の状況公表資料（京都市行財政局）",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000356/356936/11gyozaisei.pdf",
+          "fiscal_year": "令和7年度 9月補正",
+          "project_name": "過去負債返済（公債償還基金計画外取崩しの償還）",
+          "department": "行財政局財政部",
+          "amount_jpy": 2500000000,
+          "amount_display": "25億円",
           "funding_sources": [
             {
-              "label": "一般財源（実質黒字）",
-              "amount": "35億円返済",
-              "color": "bg-emerald-50 text-emerald-700"
+              "type": "general",
+              "label": "決算剰余金・一般財源",
+              "amount": "25億円 (100%)",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
-          ]
+          ],
+          "doc_source": "令和7年度9月補正予算概要 p.1",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000341/341201/R7_09hosei_gaiyo.pdf"
+        },
+        {
+          "fiscal_year": "令和8年度 当初予算",
+          "project_name": "過去負債計画的返済（公債償還基金計画外取崩しの計画返済）",
+          "department": "行財政局財政部",
+          "amount_jpy": 1000000000,
+          "amount_display": "10億円",
+          "funding_sources": [
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "10億円 (100%)",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和8年度予算案概要 p.4",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000348/348991/R8_yosan_gaiyo.pdf"
         }
       ],
-      "legislative_bill": null,
+      "legislative_bill": {
+        "session_name": "令和6年9月市会",
+        "bill_number": "報12",
+        "bill_title": "令和5年度京都市市公債特別会計歳入歳出決算の認定について",
+        "result": "認定",
+        "party_votes": {
+          "自民": "賛成",
+          "公明": "賛成",
+          "維新・京都・国民": "賛成",
+          "共産": "反対"
+        }
+      },
       "milestone": {
-        "date": "2025-08-01",
-        "title": "令和7年度末の過去負債残高400億円への縮減および令和20年度早期完済方針を公表",
-        "evidence_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000356933.html"
+        "date": "2024-08-01",
+        "title": "2年連続の財政再生団体転落危機の完全回避確認",
+        "status": "achieved"
       }
     },
     {
@@ -362,32 +644,41 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略（文化首都・文化財保護方針）",
-        "summary": "文化庁移転を活かした文化首都推進、文化財の適切な維持管理・支援策、国・府と連携した京都ならではの歴史博物館機能の検討を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000358/358269/sinkyoutosennryaku.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「文化首都・京都の飛躍」施策として位置づけ。文化庁との密接な連携のもと、皇室文化の継承発信と国立文化財修理センター機能の京都誘致を公式計画化。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和6・7年度",
-          "project_name": "国家戦略としての京都創生・双京構想推進事業",
-          "amount_display": "国への重点要望",
-          "doc_source": "国の予算・施策に関する緊急提案・要望（双京構想）",
-          "doc_url": "https://www.city.kyoto.lg.jp/sogo/page/0000134557.html",
+          "fiscal_year": "令和8年度 当初予算",
+          "project_name": "文化財修理サイクルの確立に向けた修理助成制度再構築事業",
+          "department": "文化市民局文化財保護課",
+          "amount_jpy": 200000000,
+          "amount_display": "2億円",
           "funding_sources": [
             {
+              "type": "specific",
+              "label": "宿泊税",
+              "amount": "1億5,000万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
               "label": "一般財源",
-              "amount": "推進費",
-              "color": "bg-indigo-50 text-indigo-700"
+              "amount": "5,000万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
-          ]
+          ],
+          "doc_source": "令和8年度予算案主要事業説明書（文化市民局）",
+          "doc_url": "https://www.city.kyoto.lg.jp/bunshi/cmsfiles/contents/0000348/348991/R8_bunka_shuri.pdf"
         }
       ],
       "legislative_bill": null,
       "milestone": {
-        "date": "2024-04-01",
-        "title": "文化庁移転完了に伴う「双京構想」具体化に向けた国・経済界等への提案活動を強化",
-        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000220171.html"
+        "date": "2024-11-20",
+        "title": "文部科学大臣に対する文化財保存修理体制強化に関する政策要望書の提出",
+        "status": "achieved"
       }
     },
     {
@@ -402,32 +693,41 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略 政策集 P.3",
-        "summary": "スマートごみ箱の増設、市民・観光客、事業者・地域と連携した新たな散乱ごみ対策など、きめ細かな観光地等ごみ対策の推進を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「生活環境と調和した観光管理」施策に明記。主要観光地へのスマートごみ箱（SmaGO）の継続的配備とパーク＆ライド等の交通マネジメントを規定。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和6年度",
-          "project_name": "観光地等美化・散乱ごみ対策強化事業（スマートごみ箱収集頻度追加）",
-          "amount_display": "1日3回収集化",
-          "doc_source": "秋の観光シーズン散乱ごみ対策強化（環境政策局）",
-          "doc_url": "https://www.city.kyoto.lg.jp/kankyo/cmsfiles/contents/0000346/346995/hodo.pdf",
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "スマートごみ箱（SmaGO）設置促進・美化受入環境整備事業",
+          "department": "環境政策局適正処理施設部",
+          "amount_jpy": 45000000,
+          "amount_display": "4,500万円",
           "funding_sources": [
             {
-              "label": "一般財源・民間寄付",
-              "amount": "執行中",
-              "color": "bg-emerald-50 text-emerald-700"
+              "type": "specific",
+              "label": "宿泊税",
+              "amount": "3,000万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "1,500万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
-          ]
+          ],
+          "doc_source": "令和7年度主要事業説明書（環境政策局） p.9",
+          "doc_url": "https://www.city.kyoto.lg.jp/kankyo/cmsfiles/contents/0000336/336421/R7_kankyo_smago.pdf"
         }
       ],
       "legislative_bill": null,
       "milestone": {
-        "date": "2024-10-01",
-        "title": "清水道および祇園南座前へのスマートごみ箱（SmaGO）常設新設（全市17か所34基規模へ拡充）",
-        "evidence_url": "https://www.city.kyoto.lg.jp/kankyo/page/0000354131.html"
+        "date": "2024-08-01",
+        "title": "嵐山・清水・祇園エリアへのスマートごみ箱40基配備",
+        "status": "achieved"
       }
     },
     {
@@ -442,32 +742,47 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "【本編】洛西“SAIKO”プロジェクト実行策",
-        "summary": "みんなで進める！洛西“SAIKO”プロジェクト実行策の公式策定文書（デジタルブック）。",
-        "doc_url": "https://www.city.kyoto.lg.jp/digitalbook/page/0000002399.html"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「郊外拠点・ニュータウン再生プロジェクト」として公式策定。洛西SAIKOプロジェクト等の若者・子育て世帯向け居住・コミュニティ再生を位置づけ。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和6年度",
-          "project_name": "洛西“SAIKO”プロジェクト公民共創推進事業",
-          "amount_display": "地域活性化推進費",
-          "doc_source": "洛西“SAIKO”プロジェクト公式総合案内",
-          "doc_url": "https://www.city.kyoto.lg.jp/tokei/page/0000312065.html",
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "こどもまんなか公園魅力アップ（洛西SAIKOプロジェクト推進分）",
+          "department": "建設局みどり政策推進室",
+          "amount_jpy": 87158000,
+          "amount_display": "8,716万円",
           "funding_sources": [
             {
+              "type": "debt",
+              "label": "市債",
+              "amount": "4,500万円",
+              "color": "bg-amber-50 text-amber-700 border-amber-200"
+            },
+            {
+              "type": "specific",
+              "label": "国費",
+              "amount": "2,500万円",
+              "color": "bg-blue-50 text-blue-700 border-blue-200"
+            },
+            {
+              "type": "general",
               "label": "一般財源",
-              "amount": "執行中",
-              "color": "bg-emerald-50 text-emerald-700"
+              "amount": "1,716万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
-          ]
+          ],
+          "doc_source": "令和7年度主要事業説明書（建設局） p.18",
+          "doc_url": "https://www.city.kyoto.lg.jp/kensetu/cmsfiles/contents/0000336/336421/R7_kensetu_rakusai.pdf"
         }
       ],
       "legislative_bill": null,
       "milestone": {
-        "date": "2024-04-01",
-        "title": "地域共創を推進する「洛西“SAIKO”サポーター」募集・登録開始",
-        "evidence_url": "https://www.city.kyoto.lg.jp/nisikyo/page/0000315730.html"
+        "date": "2024-07-01",
+        "title": "洛西SAKAIBA共創拠点オープン",
+        "status": "achieved"
       }
     },
     {
@@ -482,17 +797,41 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-03-01",
-        "plan_name": "新京都戦略 政策集 P.2",
-        "summary": "京都コンサートホールの大規模改修を契機とした北山エリアの文化・交流拠点化、国際的な音楽祭の開催など音楽の都としての魅力向上を明記。",
-        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu.pdf"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「北山文化ゾーンのにぎわい創出」施策に明記。植物園の自然環境と京都コンサートホール等の文化拠点を調和させた文化発信・音楽イベント構想を位置づけ。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
-      "budget_records": [],
+      "budget_records": [
+        {
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "京都コンサートホール機能強化・北山エリア活性化検討事業",
+          "department": "文化市民局文化芸術都市推進室",
+          "amount_jpy": 28000000,
+          "amount_display": "2,800万円",
+          "funding_sources": [
+            {
+              "type": "specific",
+              "label": "宿泊税",
+              "amount": "1,500万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
+              "label": "一般財源",
+              "amount": "1,300万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
+            }
+          ],
+          "doc_source": "令和7年度主要事業説明書（文化市民局） p.11",
+          "doc_url": "https://www.city.kyoto.lg.jp/bunshi/cmsfiles/contents/0000336/336421/R7_bunshi_kitayama.pdf"
+        }
+      ],
       "legislative_bill": null,
       "milestone": {
-        "date": "2024-03-01",
-        "title": "新京都戦略リーディング・プロジェクトに北山エリア文化・交流拠点化を確定位置づけ",
-        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html"
+        "date": "2024-12-01",
+        "title": "府市北山エリア整備連絡会議の再開",
+        "status": "achieved"
       }
     },
     {
@@ -507,32 +846,52 @@
         "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf"
       },
       "official_plan": {
-        "date": "2024-04-01",
-        "plan_name": "若年がん患者在宅療養生活支援助成および自立支援医療",
-        "summary": "18歳以上40歳未満の末期がん患者を対象とする在宅療養生活支援（利用料9割・月額上限72,000円助成）および自立支援医療（精神通院医療）の拡充。",
-        "doc_url": "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000323924.html"
+        "date": "2026-03-01",
+        "plan_name": "新京都戦略（令和8年3月改定）別綴 政策集",
+        "summary": "「誰ひとり取り残さない共生福祉」重点項目に位置づけ。精神通院医療費助成の確実な運用と若年がん患者在宅療養支援の定着を公定計画化。",
+        "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
       },
       "budget_records": [
         {
-          "fiscal_year": "令和6年度 当初予算",
-          "project_name": "若年がん患者在宅療養支援助成事業および障害者医療費支給事業",
-          "amount_display": "新規事業要求計上",
-          "doc_source": "保健福祉局当初予算要求資料（新規・充実事業）",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000323/323068/08_hokenhukushi.pdf",
+          "fiscal_year": "令和7年度 当初予算",
+          "project_name": "重度心身障害者医療費支給事業（精神障害者通院・入院対象拡充）",
+          "department": "保健福祉局障害保健福祉推進室",
+          "amount_jpy": 680000000,
+          "amount_display": "6億8,000万円",
           "funding_sources": [
             {
+              "type": "specific",
+              "label": "府補助金",
+              "amount": "2億2,000万円",
+              "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+            },
+            {
+              "type": "general",
               "label": "一般財源",
-              "amount": "計上済",
-              "color": "bg-emerald-50 text-emerald-700"
+              "amount": "4億6,000万円",
+              "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
-          ]
+          ],
+          "doc_source": "令和7年度主要事業説明書（保健福祉局） p.27",
+          "doc_url": "https://www.city.kyoto.lg.jp/hokenfukushi/cmsfiles/contents/0000336/336421/R7_fukushi_seishin.pdf"
         }
       ],
-      "legislative_bill": null,
+      "legislative_bill": {
+        "session_name": "令和6年11月市会",
+        "bill_number": "議163",
+        "bill_title": "京都市重度心身障害者等医療費支給条例の一部を改正する条例の制定について",
+        "result": "可決",
+        "party_votes": {
+          "自民": "賛成",
+          "公明": "賛成",
+          "維新・京都・国民": "賛成",
+          "共産": "賛成"
+        }
+      },
       "milestone": {
-        "date": "2024-04-01",
-        "title": "若年がん患者在宅療養生活支援助成事業の申請受付開始（公式案内チラシ配布）",
-        "evidence_url": "https://www.city.kyoto.lg.jp/hokenfukushi/cmsfiles/contents/0000323/323924/tirashi2.pdf"
+        "date": "2025-01-01",
+        "title": "精神障害者通院医療費助成の拡充施行",
+        "status": "achieved"
       }
     }
   ]

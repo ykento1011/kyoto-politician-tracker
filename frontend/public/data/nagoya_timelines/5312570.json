@@ -1,0 +1,198 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "小出",
+      "statement_text": "おはようございます。\nただいまから経済水道委員会を開会いたします。\nこの場合、御報告いたします。\n当委員会に陳情第17号及び第27号の送付がありましたので、よろしくお願いをいたします。\nそれでは、本日の日程に入ります。\n初めに、6月20日の本会議で当委員会に付議されました議案は、お手元配付のとおり、第108号議案はじめ4件であります。\nその審査日程につきましては、あらかじめ正副委員長で相談し、お手元の案を作成させていただきましたが、いかがでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "小出",
+      "statement_text": "それでは、この日程に従い、審査を進めさせていただきます。\nなお、7月1日火曜日には、観光文化交流局関係の所管事務調査を予定いたしておりますので、よろしくお願いをいたします。\n次に、当委員会における委員間討議についてでありますが、御要望があった場合には、委員の皆様の御意見をお聞きした上で、必要に応じ、判断、実施してまいりたいと存じますので、よろしくお願いをいたします。\n本日は、観光文化交流局関係の付議議案に対する質疑を行います。\nこの場合、当局より発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "佐治観光文化交流局長",
+      "statement_text": "今回、観光文化交流局におきまして御審議をお願いいたします議案は、一般案件といたしまして、第108号議案から第110号議案までの「契約の一部変更について」の3件でございます。よろしく御審議賜りますようお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "小出",
+      "statement_text": "それでは、第108号議案はじめ3件を一括議題に供し、御質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "丹羽",
+      "statement_text": "久しぶりの経水なもんで、ちょっと確認だけしておきたいんですけど、第108号議案の天守閣の先行工事ということで木材の調達ということなんですけど、毎年、この時期に契約の変更というか、議案が出されていると思うんですけど、念のためその内容を確認しておきたいんですが、そもそも現在、何本契約して、そのうちどのぐらいの調達ができているのか、お答え願います。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "細川観光文化交流局名古屋城総合事務所担当課長",
+      "statement_text": "当初、平成30年度に契約いたしました本数は2323本でありますが、現在、実際に調達済みの本数は2071本であります。契約本数の約9割となっております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "丹羽",
+      "statement_text": "ほぼ契約しているという状況なんですけど、よくテレビなんかでやっている大径木だとか、そういったいろいろな材木があると思います。9割というと、ほとんどだと思いますが、どんなような材料を調達しているのか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "細川観光文化交流局名古屋城総合事務所担当課長",
+      "statement_text": "ありがとうございます。\n9割は、復元される天守閣の柱、はりといった主加工部材の部分でございます。\n先ほどお答えいたしましたとおり、2071本を調達しているところでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "丹羽",
+      "statement_text": "金額ベースは。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "細川観光文化交流局名古屋城総合事務所担当課長",
+      "statement_text": "契約金額といたしましては、約95億円となっております。そのうち令和5年度決算ベースで約40億円、約4割を支払っている状況でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "丹羽",
+      "statement_text": "今、建築費の高騰ということで、逆に早く仕入れていて、これはプラスになっているのかも分からないけど、使える予定がどういう状況か別として、今、年間1億円ぐらいの保管料がかかるというようなことをちょっとマスコミなんかでも聞いているんだけど、いわゆる材木を調達して大分たった木もあるよね。状況的には、傷みがないとか、そういう状況なのかな。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "細川観光文化交流局名古屋城総合事務所担当課長",
+      "statement_text": "保管のほうにつきましては、適切に保管しておりまして、傷み等はございません。\n当初、機械乾燥であったのが自然乾燥という形で乾燥しておりますので、適切な形で保管をされている状況でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "5": [
+    {
+      "sequence_number": 4,
+      "speaker": "小出",
+      "statement_text": "それでは、第108号議案はじめ3件を一括議題に供し、御質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "丹羽",
+      "statement_text": "久しぶりの経水なもんで、ちょっと確認だけしておきたいんですけど、第108号議案の天守閣の先行工事ということで木材の調達ということなんですけど、毎年、この時期に契約の変更というか、議案が出されていると思うんですけど、念のためその内容を確認しておきたいんですが、そもそも現在、何本契約して、そのうちどのぐらいの調達ができているのか、お答え願います。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "細川観光文化交流局名古屋城総合事務所担当課長",
+      "statement_text": "当初、平成30年度に契約いたしました本数は2323本でありますが、現在、実際に調達済みの本数は2071本であります。契約本数の約9割となっております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "丹羽",
+      "statement_text": "ほぼ契約しているという状況なんですけど、よくテレビなんかでやっている大径木だとか、そういったいろいろな材木があると思います。9割というと、ほとんどだと思いますが、どんなような材料を調達しているのか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "細川観光文化交流局名古屋城総合事務所担当課長",
+      "statement_text": "ありがとうございます。\n9割は、復元される天守閣の柱、はりといった主加工部材の部分でございます。\n先ほどお答えいたしましたとおり、2071本を調達しているところでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "丹羽",
+      "statement_text": "金額ベースは。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "細川観光文化交流局名古屋城総合事務所担当課長",
+      "statement_text": "契約金額といたしましては、約95億円となっております。そのうち令和5年度決算ベースで約40億円、約4割を支払っている状況でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "丹羽",
+      "statement_text": "今、建築費の高騰ということで、逆に早く仕入れていて、これはプラスになっているのかも分からないけど、使える予定がどういう状況か別として、今、年間1億円ぐらいの保管料がかかるというようなことをちょっとマスコミなんかでも聞いているんだけど、いわゆる材木を調達して大分たった木もあるよね。状況的には、傷みがないとか、そういう状況なのかな。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "細川観光文化交流局名古屋城総合事務所担当課長",
+      "statement_text": "保管のほうにつきましては、適切に保管しておりまして、傷み等はございません。\n当初、機械乾燥であったのが自然乾燥という形で乾燥しておりますので、適切な形で保管をされている状況でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "丹羽",
+      "statement_text": "意見だけ。\n今、申し上げたように、1億円の保管料がずっとかかってくるというのは、やっぱり結構な負担になってくると思うので、皆さんも早く計画どおりやりたいというような考えもあるけど、しっかりと前へ進めるように意見を申し上げて、以上で終わります。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "小出",
+      "statement_text": "他にないようであります。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "小川",
+      "statement_text": "本日の質疑の状況から、観光文化交流局関係の付議議案に対する質疑は終了してはどうかと思いますので、正副委員長においてお取り計らいをよろしくお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

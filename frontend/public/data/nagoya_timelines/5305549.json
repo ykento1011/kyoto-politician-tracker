@@ -1,0 +1,52 @@
+{
+  "8": [
+    {
+      "sequence_number": 7,
+      "speaker": "金城",
+      "statement_text": "それでは、お諮りいたします。\n認定案第1号関係分、同第6号及び同第7号は認定すべきものと、同第13号、同第14号及び第15号は可決及び認定すべきものと決しまして、御異議ございませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "金城",
+      "statement_text": "御異議なしと認めます。\nよって、認定案第1号関係分、同第6号及び同第7号は認定すべきものと、同第13号、同第14号及び第15号は可決及び認定すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "金城",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局から発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "佐治観光文化交流局長",
+      "statement_text": "お許しをいただきましたので、3局を代表いたしまして一言御挨拶を申し上げます。\n当委員会に付議されました決算認定案につきましては、慎重かつ熱心な御審議を賜りまして、誠にありがとうございました。ただいま当委員会の御認定をいただきましたことに厚く御礼申し上げます。\n御審議の中で頂戴いたしました御意見、御要望等につきましては、今後の事業運営に生かしてまいりたいと考えておりますので、よろしくお願いいたします。ありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "金城",
+      "statement_text": "次に、閉会中の所管事務調査についてお諮りいたします。\nあらかじめ正副委員長において協議をいたしました結果、お手元に配付の事項につきまして、議長に対し、それぞれの閉会中の継続調査の申出をいたしたいと存じますが、御異議ございませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "金城",
+      "statement_text": "御異議なしと認め、さよう決定いたします。\n本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。お疲れさまでした。\n散会　午前11時11分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

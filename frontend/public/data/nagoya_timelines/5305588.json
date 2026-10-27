@@ -1,0 +1,60 @@
+{
+  "11": [
+    {
+      "sequence_number": 10,
+      "speaker": "服部",
+      "statement_text": "御異議なしと認めます。\nよって、本修正案は可決されました。\n次に、ただいま可決されました修正部分を除く原案についてお諮りいたします。\n修正部分を除く原案について可決すべきものと決しまして御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "服部",
+      "statement_text": "御異議なしと認めます。\nよって、修正部分を除く原案は可決されました。\n以上により、第98号議案は、お手元配付の修正案により修正可決すべきものと決しました。\n次に、第103号議案関係分、第99号議案、第114号議案、第115号議案及び諮問第2号の5件についてお諮りいたします。\n第103号議案関係分、第99号議案、第114号議案及び第115号議案については、いずれも原案どおり可決すべきものと、諮問第2号については異議なき旨の答申をすべきものと決しまして御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "服部",
+      "statement_text": "御異議なしと認めます。\nよって、第103号議案関係分、第99号議案、第114号議案及び第115号議案については、いずれも原案どおり可決すべきものと、諮問第2号については異議なき旨の答申をすべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "服部",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局から発言を求められておりますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "杉浦総務局長",
+      "statement_text": "お許しをいただきましたので、一言御挨拶を申し上げます。\n当委員会で御審議をいただきました議案につきましては、適切なる御議決を賜り、誠にありがとうございました。\n御審議の中でいただいた御意見や御要望につきましては、十分留意してまいりたいと存じます。\n今後ともよろしく御指導、御鞭撻のほどお願い申し上げます。ありがとうございました。\n〔市長室、環境局入室〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "服部",
+      "statement_text": "次に、閉会中の所管事務調査についてお諮りいたします。\nあらかじめ正副委員長において協議いたしました結果、お手元配付の事項につきまして、議長に対してそれぞれ閉会中の継続調査の申出をいたしたいと存じますが、御異議ありますか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "服部",
+      "statement_text": "御異議なしと認め、さよう決定いたします。\n本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。\n皆様、大変お疲れさまでした。\n散会　午前11時13分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

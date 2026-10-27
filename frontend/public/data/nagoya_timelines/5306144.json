@@ -1,0 +1,52 @@
+{
+  "8": [
+    {
+      "sequence_number": 7,
+      "speaker": "田口",
+      "statement_text": "委員（共産）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "浅野",
+      "statement_text": "それでは、お諮りいたします。\n第70号議案関係分、第60号議案、第61号議案、第62号議案、第71号議案、第72号議案、第75号議案、第77号議案、第78号議案、第79号議案、第80号議案、第81号議案、第82号議案、第83号議案、第84号議案、第85号議案、第86号議案及び第93号議案はいずれも原案どおり可決すべきものと、承認第1号議案は承認すべきものと決しまして、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "浅野",
+      "statement_text": "御異議なしと認めます。\nよって、第70号議案関係分、第60号議案、第61号議案、第62号議案、第71号議案、第72号議案、第75号議案、第77号議案、第78号議案、第79号議案、第80号議案、第81号議案、第82号議案、第83号議案、第84号議案、第85号議案、第86号議案及び第93号議案はいずれも原案どおり可決すべきものと、承認第1号は承認すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長の一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "浅野",
+      "statement_text": "では、さよう取り扱わせていただきます。\nこの場合、当局より発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "太田財政局長",
+      "statement_text": "お許しをいただきましたので、健康福祉局及び財政局を代表いたしまして、一言お礼の御挨拶を申し上げます。\nただいま当委員会で御審議いただきました第70号議案関係分はじめ19件につきまして、御議決を賜りまして、誠にありがとうございます。\n御審議の中でいただきました御意見、御要望につきましては、今後十分検討してまいる所存でございますので、一層の御指導、御鞭撻を賜りますようお願い申し上げます。\n甚だ簡単ではございますが、お礼の御挨拶とさせていただきます。どうもありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "浅野",
+      "statement_text": "本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。お疲れさまでした。\n散会　午前11時4分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

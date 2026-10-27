@@ -1,0 +1,100 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "木下",
+      "statement_text": "ただいまから都市消防委員会を開会いたします。\n初めに、11月17日の本会議で当委員会に付議されました議案は、お手元配付のとおり、第95号議案関係分1件であります。\nその審査日程につきましては、あらかじめ正副委員長で相談し、お手元の案を作成させていただきましたが、いかがでしょうか。\n〔「異議なし」〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "木下",
+      "statement_text": "それでは、この日程に従い、審査を進めさせていただきます。\n本日は、付議議案に対する説明・質疑を行います。\nそれでは、第95号議案関係分を議題に供し、まず当局の説明を求めます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "日下住宅都市局長",
+      "statement_text": "3局を代表いたしまして、住宅都市局より御説明申し上げます。\n今回、当委員会で御審議をお願いいたしますのは、一般会計の補正予算でございます。\nこれは、職員の給与に関する条例の一部を改正する条例案に基づきまして、所要の措置を講じるものでございます。\n詳細につきましては、一括して住宅都市局総務課長より説明させますので、よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "永原住宅都市局総務課長",
+      "statement_text": "それでは、3局を代表いたしまして、御説明申し上げます。\n今回、御審議をお願いいたします補正予算は、職員の給与に関する条例の一部を改正する条例案に基づく給与改定などによります人件費の増額につきまして、所要の予算措置を講じるものでございます。改正の内容といたしましては、本市人事委員会勧告に基づき、職員の月例給及び期末・勤勉手当の引上げを行うものです。\nそれでは、名古屋市各会計補正予算に関する説明書（人件費関係分）に基づきまして、その概要を御説明申し上げます。\n12ページをお開きください。\n12ページから13ページにかけまして、第13款職員費のうち、第4項防災危機管理職員費を掲げております。第1目防災危機管理職員費といたしまして700万円余の増額をお願いしております。\n続きまして、19ページをお開きください。\n第12項住宅都市職員費を掲げております。第1目都市計画総務職員費をはじめといたしまして8500万円余の増額をお願いしております。\n20ページをお開きください。\n第13項消防職員費でございます。第1目消防職員費といたしまして、2億7800万円余の増額をお願いしております。\nなお、これらの補正額につきましては、給与改定に伴う所要額などを、費目ごとに精査いたしましたものでございます。\n以上、大変簡単ではございますが、説明を終わらせていただきます。よろしく御審議賜りますよう、お願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "木下",
+      "statement_text": "説明が終わりましたので、付議議案に対する質疑をお許しいたします。－－特にないようであります。\n以上で、付議議案に対する質疑を終了いたします。\n〔「委員長」と呼ぶ者あり〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "さかい",
+      "statement_text": "明日予定されております付議議案に対する意思決定につきまして、各派とも差し支えがないようであれば、本日行ってはどうかと思いますので、正副委員長においてお取り計らいをいただければと存じます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "木下",
+      "statement_text": "ただいまさかい委員より、付議議案に対する意思決定を本日行ってはどうかとの御意見がございましたが、委員の皆様、何か御意見等はございますでしょうか。－－特にないようであります。それでは、正副委員長で協議いたしますので、しばらくお待ちください。－－お待たせしました。\n先ほどのさかい委員の御意見について、正副委員長で協議いたしました結果、本日、付議議案に対する意思決定を行うことといたしたいと存じますが、よろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "木下",
+      "statement_text": "それでは、この後、付議議案に対する意思決定を行うことといたします。\nなお、これに伴い、本日の委員会冒頭で決定した審査日程を変更し、明日は委員会を開会しないことといたしますので、よろしくお願いいたします。\nそれでは、これより付議議案に対する意思決定を行います。\n第95号議案関係分を議題に供し、まず、各派の意向表明をお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "藤沢",
+      "statement_text": "（自民）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "久野",
+      "statement_text": "（民主）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "野田",
+      "statement_text": "（減税）原案に賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "さかい",
+      "statement_text": "（公明）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    }
+  ]
+}

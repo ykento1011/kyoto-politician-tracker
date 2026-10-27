@@ -1,0 +1,68 @@
+{
+  "5": [
+    {
+      "sequence_number": 4,
+      "speaker": "村瀬",
+      "statement_text": "（減税）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "中村",
+      "statement_text": "（公明）以下の要望を付して原案に賛成します。\nまず、子ども青少年局関係。子育て家庭が物価高騰の影響を受けて大変な状況を鑑みて、保育所等給食費に係る物価高騰対応支援については、着実に実施するとともに、今後も新型コロナウイルス感染症対応地方創生臨時交付金を活用した本市独自のさらなる子育て家庭への支援策を検討し、実施すること。\n続きまして、教育委員会関係。学校給食費に係る物価高騰対応支援については、物価高騰の影響から、給食の質の安定と、保護者の負担増を回避する上では重要な施策であることから、着実に実施すること。また、学校教育に係る学用品等の物価高騰により、家庭の負担が増大していることから、教育委員会として教育費の負担軽減の観点から、教育のことは市長ではなく、独立した機関である教育委員会が決めるとの基本的姿勢に立ち返り、教育委員の方たちの御意見を聞きながら、給食費の無償化も含むさらなる物価高騰対策を検討し、推進すること。\n以上です。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "橋本",
+      "statement_text": "それでは、お諮りいたします。\n両案はいずれも原案どおり可決すべきものと決しまして御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "橋本",
+      "statement_text": "御異議なしと認めます。\nよって、両案はいずれも原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "橋本",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局より発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "佐藤子ども青少年局長",
+      "statement_text": "お許しをいただきましたので、子ども青少年局、教育委員会を代表いたしまして、一言御礼の御挨拶を申し上げます。\nただいま、当委員会で御審議いただきました第76号議案関係分及び第67号議案につきまして、御議決を賜りまして、誠にありがとうございました。\n御審議の中でいただきました貴重な御意見などにつきましては、今後、十分に検討してまいりたいと存じます。\n誠に簡単ではございますが、お礼の御挨拶とさせていただきます。\nありがとうございました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "橋本",
+      "statement_text": "次に閉会中の所管事務調査についてお諮りいたします。\nあらかじめ、正副委員長において協議いたしました結果、お手元に配付の事項につきまして、議長に対し、それぞれ閉会中の継続調査の申出をいたしたいと存じますが、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "橋本",
+      "statement_text": "御異議なしと認め、さよう決定いたします。\n本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。\n散会　午前10時34分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

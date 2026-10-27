@@ -1,0 +1,296 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "金城",
+      "statement_text": "ただいまから経済水道委員会を開会いたします。\nこの場合、御報告いたします。\n昨日の委員会でさわだ委員から御要望のありました件につきまして、正副委員長で協議いたしました結果、6月30日金曜日に予定している「本丸搦手馬出周辺石垣の修復について」の所管事務調査を行った後に、引き続き「名古屋城バリアフリーに関する市民討論会での市民の発言に対する当局の対応について」の所管事務調査を行うことといたしましたので、よろしくお願いいたします。\nそれでは、本日の日程に入ります。\n本日は、観光文化交流局関係の付議議案に対する質疑を行います。\nこの場合、当局より発言を求めておられますので、お許しいたします。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "佐治観光文化交流局長",
+      "statement_text": "今回、観光文化交流局におきまして御審議をお願いいたします議案は、一般案件といたしまして第71号議案「契約の一部変更について」の1件でございます。\nよろしく御審議賜りますようお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "金城",
+      "statement_text": "それでは、第71号議案を議題に供し、御質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "浅井",
+      "statement_text": "おはようございます。\n材木の話なんですけども、これって昨年度から505億円外のいわゆる税金で払っとるという。去年から、それとも今年から約1億円が支出するという、どっちでしたっけ。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "お金の支出は、昨年度から引き続き、今年度2年目になります。（「指名されるまでしゃべっちゃ駄目だよ」と呼ぶ者あり）",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "金城",
+      "statement_text": "すみません、失礼しました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "昨年度から引き続きまして、2回目でございます。505億円のうちの中での支出でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "浅井",
+      "statement_text": "505億円内。そうすると税金は投入していないということ。竹中さんが面倒見るということ。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "そのとおりでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "浅井",
+      "statement_text": "今、これは倉庫の中にいろんな箇所に分けて保管していると思うんですけど、それは何か所に分散してみえるんですか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "県で申しますと、岐阜、愛知、奈良、高知ということで、4県にまたがって保管をしております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "浅井",
+      "statement_text": "ごめん、岐阜、愛知、奈良……",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "4": [
+    {
+      "sequence_number": 3,
+      "speaker": "金城",
+      "statement_text": "それでは、第71号議案を議題に供し、御質疑をお許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "浅井",
+      "statement_text": "おはようございます。\n材木の話なんですけども、これって昨年度から505億円外のいわゆる税金で払っとるという。去年から、それとも今年から約1億円が支出するという、どっちでしたっけ。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "お金の支出は、昨年度から引き続き、今年度2年目になります。（「指名されるまでしゃべっちゃ駄目だよ」と呼ぶ者あり）",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "金城",
+      "statement_text": "すみません、失礼しました。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "昨年度から引き続きまして、2回目でございます。505億円のうちの中での支出でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "浅井",
+      "statement_text": "505億円内。そうすると税金は投入していないということ。竹中さんが面倒見るということ。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "そのとおりでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "浅井",
+      "statement_text": "今、これは倉庫の中にいろんな箇所に分けて保管していると思うんですけど、それは何か所に分散してみえるんですか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "県で申しますと、岐阜、愛知、奈良、高知ということで、4県にまたがって保管をしております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "浅井",
+      "statement_text": "ごめん、岐阜、愛知、奈良……",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "岐阜、愛知、奈良、高知、この4県でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "浅井",
+      "statement_text": "これ、4か所ですよね。\n今回の件で、これ、もうさらに延びることは明白になりました。となると、この保管料がどんどんかさんでいくというのは、これ、4か所あるならば、1か所に集めたほうが保管料がひょっとしたら安いのかもしれないと思うんだけど、その辺はどんな検討をされるのかな。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ],
+  "8": [
+    {
+      "sequence_number": 7,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "昨年度から引き続きまして、2回目でございます。505億円のうちの中での支出でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "浅井",
+      "statement_text": "505億円内。そうすると税金は投入していないということ。竹中さんが面倒見るということ。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "そのとおりでございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "浅井",
+      "statement_text": "今、これは倉庫の中にいろんな箇所に分けて保管していると思うんですけど、それは何か所に分散してみえるんですか。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "県で申しますと、岐阜、愛知、奈良、高知ということで、4県にまたがって保管をしております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "浅井",
+      "statement_text": "ごめん、岐阜、愛知、奈良……",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "岐阜、愛知、奈良、高知、この4県でございます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "浅井",
+      "statement_text": "これ、4か所ですよね。\n今回の件で、これ、もうさらに延びることは明白になりました。となると、この保管料がどんどんかさんでいくというのは、これ、4か所あるならば、1か所に集めたほうが保管料がひょっとしたら安いのかもしれないと思うんだけど、その辺はどんな検討をされるのかな。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 15,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "今、4県にまたがって倉庫がございますけども、面積的に約4000平米ちょっとの倉庫でございます。これを1か所にまとめるとというお話でございましたけども、倉庫の近いところに木材を手配した木材業者もいるということで、管理上、すぐに駆けつけできるといったようなメリットもあって、いろいろ1か所に集めることによってコスト的なメリットもあるかもしれませんが、一方、管理上のメリットも分散していることによってございますので、これから事業が延伸していくときに、コストのことについては非常に私も重要だというように思っています。\nですので、その辺のコストをどう考えていくかといったところも、委員御指摘のとおり、重要な課題であるというふうに認識しております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 16,
+      "speaker": "浅井",
+      "statement_text": "今、管理上って言ったんだけど、いろんな盗難だとかあるもんで、具体的な場所までは言えないと思うんだけど、これは倉庫、例えばどんな管理をしているのか、例えばセコムつけておるだとか、赤外線で張り巡らしとるとか、どれぐらいの管理をしてみえるの。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 17,
+      "speaker": "山田観光文化交流局名古屋城総合事務所保存整備室主幹",
+      "statement_text": "具体的に申し上げますと、代表例といたしましては、入り口に赤外線センサーをつけてございますし、あと空間で動きを感知する空間センサーですとか、あと委員の御指摘もございました警備会社ですね、警備会社からも何か異常があればすぐに駆けつけできるような体制も整っております。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 18,
+      "speaker": "浅井",
+      "statement_text": "これ、すごいセキュリティーだね。\nすると、これを含めて1億円ということだと思うんだけど、1か所にすると材木業者が近いから、1回その辺をよく整理して、なるべくお金のかからぬ保管をやっぱり検討したほうがいいと思うんですよ。こっちのが安いなら、こっちでいいんだけど、その辺、1回しっかりと検討してください。\n以上です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

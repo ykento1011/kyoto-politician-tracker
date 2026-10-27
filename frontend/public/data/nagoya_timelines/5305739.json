@@ -1,0 +1,100 @@
+{
+  "1": [
+    {
+      "sequence_number": 1,
+      "speaker": "吉田",
+      "statement_text": "ただいまから財政福祉委員会を開会いたします。\n本日は、先ほどの本会議で当委員会に付議されました第89号議案関係分に対する審査を行います。\nなお、日程の都合上、説明・質疑を行った後、意思決定まで行いますので、よろしくお願いいたします。\nそれでは、第89号議案関係分を議題に供し、まず、当局の説明を求めます。",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 2,
+      "speaker": "太田財政局長",
+      "statement_text": "今回、財政局分として当委員会で御審議をお願いいたしておりますのは、第89号議案「令和6年度名古屋市一般会計補正予算（第1号）」のうち、第1条歳入歳出予算の補正中、歳入の全部でございます。\n詳細につきましては総務課長から御説明いたしますので、よろしくお願い申し上げます。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 3,
+      "speaker": "矢野財政局総務課長",
+      "statement_text": "それでは、お手元の「令和6年度補正予算（令和6年3月）の概要」につきまして御説明申し上げます。\n補正予算の規模といたしましては、一般会計で3100万円でございます。補正の内訳でございますが、ナゴヤ新型コロナウイルス感染症対策経営支援資金の貸付利率の引下げを予定いたしました。このほか、債務負担行為1件をお願いするものでございます。詳細は後ほど御説明させていただきます。\n1枚ページをはねていただきまして、右側1ページ、「令和6年2月定例会令和6年度補正予算資料」をお願いいたします。\nここでは、今回の補正予算の規模、現計予算等について、既に提出させていただいております当初予算分と合わせまして、前年度との比較などをお示ししておりますので、御覧いただきたいと存じます。\n裏面2ページをお願いいたします。「令和6年度補正予算（令和6年3月）の概要」でございます。\n総括（歳出）でございますが、一般会計の補正額は、経済費で3100万円となっております。\n次に、歳出でございます。ナゴヤ新型コロナウイルス感染症対策経営支援資金の貸付利率の引下げでございます。これは、国のコロナ資金繰り支援の延長に合わせ、ナゴヤ新型コロナウイルス感染症対策経営支援資金の申込期限を令和6年6月末まで延長することに伴い、貸付利率の引下げに係る経費を増額するものでございます。\n歳入でございますが、財政調整基金繰入金を予定いたしました。\n次に、債務負担行為でございます。歳出予算の補正に伴いまして、債務負担行為の変更を予定しております。\n説明は以上でございます。よろしくお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 4,
+      "speaker": "吉田",
+      "statement_text": "説明が終わりましたので、御質疑があればお許しいたします。－－特にないようであります。\n以上で、付議議案に対する質疑を終了いたします。\nそれでは、この後、付議議案に対する意思決定を行う予定ではございますが、議事の都合上、暫時休憩いたします。\n休憩　午後3時6分\n再会　午後3時12分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 5,
+      "speaker": "吉田",
+      "statement_text": "ただいまから、財政福祉委員会を再開いたします。\nこれより、付議議案に対する意思決定を行います。\nそれでは、第89号議案関係分を議題に供し、まず、各派の意向表明をお願いいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 6,
+      "speaker": "松井",
+      "statement_text": "（自民）賛成。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 7,
+      "speaker": "森委員",
+      "statement_text": "（民主）賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "おか委員",
+      "statement_text": "（公明）賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "大田",
+      "statement_text": "（減税）賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "岡田",
+      "statement_text": "（共産）賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "吉田",
+      "statement_text": "それでは、お諮りいたします。\n本案は、原案どおり可決すべきものと決しまして御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "吉田",
+      "statement_text": "御異議なしと認めます。\nよって、本案は原案どおり可決すべきものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}

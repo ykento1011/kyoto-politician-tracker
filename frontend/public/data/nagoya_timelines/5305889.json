@@ -1,0 +1,68 @@
+{
+  "8": [
+    {
+      "sequence_number": 7,
+      "speaker": "金城",
+      "statement_text": "（陽向）原案賛成です。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": true
+    },
+    {
+      "sequence_number": 8,
+      "speaker": "豊田",
+      "statement_text": "それでは、これより採決を行います。\n採決は、第94号議案1件とその他の4件との二度に分けて行います。\n初めに、第94号議案について、起立により採決をいたします。\n本案を原案どおり可決すべきものと決することに賛成の方の起立を求めます。\n〔賛成者起立〕",
+      "is_target": true,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 9,
+      "speaker": "豊田",
+      "statement_text": "起立多数であります。\nよって、本案は原案どおり可決するものと決しました。\n次に、その他の4件についてお諮りいたします。\n各案は、いずれも原案どおり可決すべきものと決しまして御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 10,
+      "speaker": "豊田",
+      "statement_text": "御異議なしと認めます。\nよって、各案はいずれも原案どおり可決するものと決しました。\nなお、委員長報告文の作成につきましては、正副委員長に一任の扱いでよろしいでしょうか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 11,
+      "speaker": "豊田",
+      "statement_text": "それでは、さよう取り扱わせていただきます。\nこの場合、当局より発言を求めておられますので、お許しいたします。",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 12,
+      "speaker": "佐治観光文化交流局長",
+      "statement_text": "お許しをいただきましたので、2局を代表いたしまして、一言御挨拶を申し上げます。\n当委員会に付議されました議案につきまして、慎重かつ熱心な御審議をいただき、本日、御議決を賜りまして、誠にありがとうございました。\n御審議の中で頂戴いたしました貴重な御意見、御要望にも十分に留意いたしまして、万全の努力をいたす所存でございます。\n今後とも格別の御指導、御鞭撻を賜りますようよろしくお願い申し上げまして、御礼の御挨拶とさせていただきます。ありがとうございました。\n〔経済局入室〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 13,
+      "speaker": "豊田",
+      "statement_text": "次に、閉会中の所管事務調査についてお諮りいたします。\nあらかじめ正副委員長において協議をいたしました結果、お手元に配付の事項につきまして、議長に対し、それぞれ閉会中の継続調査の申出をいたしたいと存じますが、御異議ありませんか。\n〔「異議なし」〕",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    },
+    {
+      "sequence_number": 14,
+      "speaker": "豊田",
+      "statement_text": "御異議なしと認め、さよう決定いたします。\n本日の予定は以上であります。\nこれにて、本日の委員会を散会いたします。お疲れさまでした。\n散会　午前10時36分",
+      "is_target": false,
+      "is_admin": true,
+      "is_short_procedural": false
+    }
+  ]
+}
