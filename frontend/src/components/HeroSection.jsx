@@ -18,6 +18,14 @@ const OSAKA_HOT_TOPICS = [
   "学校 熱中症",
 ];
 
+const NAGOYA_HOT_TOPICS = [
+  "名古屋城木造復元",
+  "市民税減税",
+  "敬老パス",
+  "子ども応援委員会",
+  "アジア競技大会",
+];
+
 export default function HeroSection({
   searchQuery,
   setSearchQuery,
@@ -26,9 +34,20 @@ export default function HeroSection({
   onOpenGuide,
   cityCode = "kyoto"
 }) {
-  const isOsaka = cityCode === "osaka";
-  const cityName = isOsaka ? "大阪市会" : "京都市会";
-  const hotTopics = isOsaka ? OSAKA_HOT_TOPICS : KYOTO_HOT_TOPICS;
+  // 都市ごとの分岐設定
+  let cityName = "京都市会";
+  let hotTopics = KYOTO_HOT_TOPICS;
+  let scopeText = "本会議・全常任委員会・特別委員会（12万件超の発言・5,100超の質疑・全67議員・300件の議案賛否）";
+
+  if (cityCode === "osaka") {
+    cityName = "大阪市会";
+    hotTopics = OSAKA_HOT_TOPICS;
+    scopeText = "本会議および全委員会（現職81議員・1,260超の質疑スレッド・議案賛否）";
+  } else if (cityCode === "nagoya") {
+    cityName = "名古屋市会";
+    hotTopics = NAGOYA_HOT_TOPICS;
+    scopeText = "本会議および各委員会・電子採決ログ（現職68議員の議案賛否・首長トラッカー）";
+  }
 
   return (
     <section className="text-center py-6 md:py-10 space-y-4">
@@ -43,9 +62,7 @@ export default function HeroSection({
       </h1>
       <div className="space-y-2 max-w-xl mx-auto">
         <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-medium">
-          {isOsaka
-            ? "大阪市会の本会議・全委員会における質疑スレッドを横断検索。統一ルーブリックによるAI評価と多角的な政策分析で、議員の政策対話の特徴を可視化します。"
-            : "12万件超の発言記録を構造化し、5,100超の質疑スレッドを横断検索。文字数や登壇回数だけでは見えない議員それぞれの政策対話の特徴を、統一ルーブリックによるAI評価で可視化します。"}
+          公式の会議録データを客観的に構造化し、膨大な質疑スレッドの横断検索を実現。文字数や登壇回数だけでは見えない議員それぞれの政策対話の特徴を、統一ルーブリックによるデータ分析で可視化します。
         </p>
         <p className="text-xs md:text-sm font-black text-indigo-950">
           AIは入口。判断するのは市民です。
@@ -60,11 +77,7 @@ export default function HeroSection({
         </span>
         <span>現任期（2023年5月〜最新公開分）</span>
         <span className="text-slate-300">|</span>
-        <span>
-          {isOsaka
-            ? "本会議・全常任委員会・特別委員会（現職81議員・1,260超の質疑スレッド）"
-            : "本会議・全常任委員会・特別委員会（12万件超の発言・5,100超の質疑・全67議員・300件の議案賛否）"}
-        </span>
+        <span>{scopeText}</span>
       </div>
 
       {/* できることページへの直通バナー */}
@@ -79,7 +92,7 @@ export default function HeroSection({
         </button>
       </div>
 
-      {/* 💡 一次資料の検証・不備報告バナー（旗マーク案内） */}
+      {/* 一次資料の検証・不備報告バナー（旗マーク案内） */}
       <div className="max-w-xl mx-auto pt-2 text-left">
         <div className="bg-amber-50/90 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-start gap-2.5">

@@ -25,7 +25,7 @@ function getDailyRandomGenerator() {
 function shuffleWithDailySeed(array) {
   const rng = getDailyRandomGenerator();
   const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
+  for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(rng() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
@@ -34,6 +34,7 @@ function shuffleWithDailySeed(array) {
 
 export function useStatements(cityCode = 'kyoto') {
   const [statements, setStatements] = useState([]);
+  const [staticSpeakerStats, setStaticSpeakerStats] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -68,6 +69,7 @@ export function useStatements(cityCode = 'kyoto') {
   useEffect(() => {
     if (!cityCode) {
       setStatements([]);
+      setStaticSpeakerStats([]);
       setIsLoading(false);
       return;
     }
@@ -76,11 +78,14 @@ export function useStatements(cityCode = 'kyoto') {
 
   const fetchStatements = async () => {
     setIsLoading(true);
+    setStaticSpeakerStats([]);
     let allRecords = [];
 
     try {
+      const prefix = cityCode === 'kyoto' ? '' : `${cityCode}_`;
+
+      // 1. 静的ステートメントサマリーの取得
       try {
-        const prefix = cityCode === 'kyoto' ? '' : `${cityCode}_`;
         const res = await fetch(`/data/${prefix}statements_summary.json`);
         if (res.ok) {
           const text = await res.text();
@@ -93,7 +98,8 @@ export function useStatements(cityCode = 'kyoto') {
         console.warn('[useStatements] 静的JSON取得エラー:', jsonErr);
       }
 
-      if ((!allRecords || allRecords.length === 0) && supabase) {
+      // 2. Supabaseからの取得（京都のみに厳密制限し、名古屋・大阪への京都混入を防止）
+      if ((!allRecords || allRecords.length === 0) && supabase && cityCode === 'kyoto') {
         console.log('[useStatements] Supabaseからデータ取得を開始...');
         try {
           let page = 0; const pageSize = 1000; let hasMore = true;
@@ -115,6 +121,39 @@ export function useStatements(cityCode = 'kyoto') {
         }
       }
 
+      // 3. 発言データがまだない都市（名古屋等）の場合、生成済みの議員マスタ(speaker_stats.json)を直接読み込む
+      // [修正] 議員マスタ常時読み込み化 (if条件解除)
+        try {
+          const spkRes = await fetch(`/data/${prefix}speaker_stats.json`);
+          if (spkRes.ok) {
+            const spkText = await spkRes.text();
+            if (spkText.trim().startsWith('[')) {
+              const spkData = JSON.parse(spkText);
+              if (Array.isArray(spkData)) {
+                const sanitized = spkData.map(s => ({
+                  speaker: s.speaker || '',
+                  partyGroup: s.partyGroup || s.party || '',
+                  district: s.district || '',
+                  count: s.count || 0,
+                  statements: s.statements || [],
+                  topCategories: s.topCategories || [],
+                  avg_evidence: s.avg_evidence || 0,
+                  avg_solution: s.avg_solution || 0,
+                  avg_local_focus: s.avg_local_focus || 0,
+                  avg_constructive: s.avg_constructive || 0,
+                  style: s.style || null,
+                  latest_date: s.latest_date || ''
+                }));
+                setStaticSpeakerStats(sanitized);
+                console.log(`[useStatements] 議員マスタより ${sanitized.length} 名の議員を読み込みました。`);
+              }
+            }
+          }
+        } catch (spkErr) {
+          console.warn('[useStatements] 議員マスタ取得エラー:', spkErr);
+        }
+      // [修正] (if条件閉じ括弧解除)
+
       if (!Array.isArray(allRecords)) allRecords = [];
 
       const validData = [];
@@ -127,9 +166,6 @@ export function useStatements(cityCode = 'kyoto') {
 
         if (cityCode === 'kyoto' && VALID_COUNCILORS && Array.isArray(VALID_COUNCILORS)) {
           if (!VALID_COUNCILORS.includes(speakerName) && !VALID_COUNCILORS.includes(rawSpeaker)) return;
-        }
-        if (cityCode === 'osaka' && OSAKA_VALID_COUNCILORS && Array.isArray(OSAKA_VALID_COUNCILORS)) {
-          if (!OSAKA_VALID_COUNCILORS.includes(speakerName) && !OSAKA_VALID_COUNCILORS.includes(rawSpeaker)) return;
         }
 
         const ev = Number(stmt.evidence_score || 0);
@@ -185,7 +221,9 @@ export function useStatements(cityCode = 'kyoto') {
       .slice(0, 8);
   }, [statements, cityCode]);
 
-  const speakerStats = useMemo(() => {
+  // 質疑データから集計した議員リスト
+  const computedSpeakerStats = useMemo(() => {
+    if (statements.length === 0) return [];
     const stats = {};
     statements.forEach((stmt) => {
       const spk = stmt.speaker;
@@ -227,6 +265,33 @@ export function useStatements(cityCode = 'kyoto') {
       })
       .sort((a, b) => b.count - a.count);
   }, [statements, cityCode]);
+
+  // 質疑データがあればその集計結果、準備中の自治体（名古屋等）は独立したマスタ（68名）を表示
+  const speakerStats = useMemo(() => {
+    if (!computedSpeakerStats || computedSpeakerStats.length === 0) {
+      return staticSpeakerStats || [];
+    }
+    const masterMap = new Map();
+    (staticSpeakerStats || []).forEach(m => {
+      if (m.speaker) {
+        masterMap.set(m.speaker, m);
+        masterMap.set((m.speaker || '').replace(/\s+/g, ''), m);
+        masterMap.set((m.speaker || '').replace(/\s+/g, ''), m);
+        masterMap.set(m.speaker.replace(/\s+/g, ''), m);
+      }
+    });
+
+    return computedSpeakerStats.map(spk => {
+      const cleanName = (spk.speaker || '').replace(/\s+/g, '');
+      const master = masterMap.get(cleanName) || masterMap.get(spk.speaker) || {};
+      return {
+        ...spk,
+        partyGroup: master.partyGroup || master.party || spk.partyGroup || spk.party || '',
+        party: master.party || master.partyGroup || spk.party || '',
+        district: master.district || spk.district || ''
+      };
+    });
+  }, [computedSpeakerStats, staticSpeakerStats]);
 
   useEffect(() => {
     if (!initialRouteSet && speakerStats.length > 0) {
@@ -336,10 +401,18 @@ export function useStatements(cityCode = 'kyoto') {
       } catch (e) { console.warn(e); }
     }
     let list = speakerStats.filter((s) => targetSpeakers.has(s.speaker));
-    if (selectedCategory) list = list.filter((s) => s.topCategories.includes(selectedCategory) || s.statements.some((st) => st.category.includes(selectedCategory)));
+    if (selectedCategory) {
+      list = list.filter((s) => 
+        (s.topCategories && s.topCategories.includes(selectedCategory)) || 
+        (s.statements && s.statements.some((st) => st.category && st.category.includes(selectedCategory)))
+      );
+    }
     if (selectedCommittee) {
-      if (selectedCommittee === '予算・決算特別委員会') list = list.filter((s) => s.statements.some((st) => st.meeting_title.includes('予算') || st.meeting_title.includes('決算')));
-      else list = list.filter((s) => s.statements.some((st) => st.meeting_title.includes(selectedCommittee)));
+      if (selectedCommittee === '予算・決算特別委員会') {
+        list = list.filter((s) => s.statements && s.statements.some((st) => st.meeting_title && (st.meeting_title.includes('予算') || st.meeting_title.includes('決算'))));
+      } else {
+        list = list.filter((s) => s.statements && s.statements.some((st) => st.meeting_title && st.meeting_title.includes(selectedCommittee)));
+      }
     }
     if (selectedDistrict) list = list.filter((s) => s.district === selectedDistrict);
 
@@ -347,8 +420,8 @@ export function useStatements(cityCode = 'kyoto') {
     else if (sortPerspective === 'local_focus') list.sort((a, b) => b.avg_local_focus - a.avg_local_focus);
     else if (sortPerspective === 'constructive') list.sort((a, b) => b.avg_constructive - a.avg_constructive);
     else if (sortPerspective === 'evidence') list.sort((a, b) => b.avg_evidence - a.avg_evidence);
-    else if (sortPerspective === 'name') list.sort((a, b) => a.speaker.localeCompare(b.speaker, 'ja'));
-    else if (sortPerspective === 'recent') list.sort((a, b) => new Date(b.latest_date) - new Date(a.latest_date));
+    else if (sortPerspective === 'name') list.sort((a, b) => (a.speaker || '').localeCompare(b.speaker || '', 'ja'));
+    else if (sortPerspective === 'recent') list.sort((a, b) => new Date(b.latest_date || 0) - new Date(a.latest_date || 0));
     else list = shuffleWithDailySeed(list);
     return list;
   }, [speakerStats, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch]);
@@ -362,15 +435,15 @@ export function useStatements(cityCode = 'kyoto') {
       } catch (e) { console.warn(e); }
     }
     let list = statements.filter((s) => targetIds.has(s.id));
-    if (selectedCategory) list = list.filter((s) => s.category.includes(selectedCategory));
+    if (selectedCategory) list = list.filter((s) => s.category && s.category.includes(selectedCategory));
     if (selectedCommittee) {
-      if (selectedCommittee === '予算・決算特別委員会') list = list.filter((s) => s.meeting_title.includes('予算') || s.meeting_title.includes('決算'));
-      else list = list.filter((s) => s.meeting_title.includes(selectedCommittee));
+      if (selectedCommittee === '予算・決算特別委員会') list = list.filter((s) => s.meeting_title && (s.meeting_title.includes('予算') || s.meeting_title.includes('決算')));
+      else list = list.filter((s) => s.meeting_title && s.meeting_title.includes(selectedCommittee));
     }
     if (selectedDistrict) {
       list = list.filter((s) => {
         const info = getCouncilorInfo(cityCode, s.speaker);
-        return info.district === selectedDistrict;
+        return info && info.district === selectedDistrict;
       });
     }
 
@@ -381,14 +454,13 @@ export function useStatements(cityCode = 'kyoto') {
     else if (sortPerspective === 'recent') list.sort((a, b) => new Date(b.meeting_date) - new Date(a.meeting_date));
     else list = shuffleWithDailySeed(list);
 
-    // 💡 100件制限（.slice(0, 100)）を解除し、全件を返す
     return list;
   }, [statements, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch, cityCode]);
 
   const speakerFilteredThreads = useMemo(() => {
-    if (!selectedSpeaker) return [];
+    if (!selectedSpeaker || !selectedSpeaker.statements) return [];
     let list = [...selectedSpeaker.statements];
-    if (speakerCategory) list = list.filter((s) => s.category.includes(speakerCategory));
+    if (speakerCategory) list = list.filter((s) => s.category && s.category.includes(speakerCategory));
     if (speakerSort === 'solution') list.sort((a, b) => b.solution_score - a.solution_score || new Date(b.meeting_date) - new Date(a.meeting_date));
     else if (speakerSort === 'local_focus') list.sort((a, b) => b.local_focus_score - a.local_focus_score || new Date(b.meeting_date) - new Date(a.meeting_date));
     else if (speakerSort === 'constructive') list.sort((a, b) => b.constructive_score - a.constructive_score || new Date(b.meeting_date) - new Date(a.meeting_date));
@@ -405,7 +477,11 @@ export function useStatements(cityCode = 'kyoto') {
 
     try {
       const meetingId = stmt.meeting_id;
-      const targetSeq = Number(stmt.sequence_number ?? stmt.speech_order ?? 0);
+      let targetSeq = Number(stmt.sequence_number ?? stmt.speech_order ?? 0);
+      if (!targetSeq && stmt.id) {
+        const match = String(stmt.id).match(/_(\d+)$/);
+        if (match) targetSeq = parseInt(match[1], 10);
+      }
 
       let contextData = [];
 

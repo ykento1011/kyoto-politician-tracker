@@ -12,17 +12,23 @@ const ALIAS_MAP = {
 
 export default function SpeakerCard({
   speaker,
-  onSpeakerClick
+  onSpeakerClick,
+  cityCode = 'kyoto'
 }) {
   const cleanName = speaker.speaker ? speaker.speaker.replace(/\s+/g, '') : '';
-  const [currentSrc, setCurrentSrc] = useState(`/councilors/${cleanName}.jpg`);
+  const [currentSrc, setCurrentSrc] = useState(`/councilors/${cityCode}/${cleanName}.jpg`);
   const [triedFallback, setTriedFallback] = useState(false);
   const [imgError, setImgError] = useState(false);
 
+  const [fallbackStage, setFallbackStage] = useState(0);
+
   const handleImageError = () => {
-    if (!triedFallback && ALIAS_MAP[cleanName]) {
-      setTriedFallback(true);
-      setCurrentSrc(`/councilors/${ALIAS_MAP[cleanName]}.jpg`);
+    if (fallbackStage === 0 && ALIAS_MAP[cleanName]) {
+      setFallbackStage(1);
+      setCurrentSrc(`/councilors/${cityCode}/${ALIAS_MAP[cleanName]}.jpg`);
+    } else if (fallbackStage < 2) {
+      setFallbackStage(2);
+      setCurrentSrc(`/councilors/${cleanName}.jpg`);
     } else {
       setImgError(true);
     }
@@ -34,6 +40,9 @@ export default function SpeakerCard({
     { subject: '地域解像度', A: speaker.avg_local_focus || 0, fullMark: 5 },
     { subject: '議論の進展', A: speaker.avg_constructive || 0, fullMark: 5 },
   ];
+
+  const defaultDistrict = cityCode === 'nagoya' ? '名古屋' : cityCode === 'osaka' ? '大阪' : '京都';
+  const defaultCouncil = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
 
   return (
     <div
@@ -64,16 +73,16 @@ export default function SpeakerCard({
                 {speaker.speaker}
               </h3>
               <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded shrink-0">
-                {speaker.district || '京都'}
+                {speaker.district || defaultDistrict}
               </span>
             </div>
             <p className="text-xs text-slate-400 font-medium mt-0.5 truncate">
-              {speaker.partyGroup || '京都市会'}
+              {speaker.partyGroup || speaker.party || defaultCouncil}
             </p>
           </div>
         </div>
 
-        {/* 💡 修正：質疑傾向ラベル・要約のサニタイズ */}
+        {/* 質疑傾向ラベル・要約 */}
         {speaker.style && (
           <div className="mb-3">
             <span className={`px-2 py-0.5 text-[10px] font-black rounded border inline-block mb-1.5 ${speaker.style.badgeClass || 'bg-indigo-50 text-indigo-700 border-indigo-200'}`}>

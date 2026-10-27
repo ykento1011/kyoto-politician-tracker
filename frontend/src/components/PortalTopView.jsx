@@ -75,10 +75,11 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
               </h2>
               <p className="text-xs text-slate-500 font-medium">現在運用中の議会ダッシュボードへ直接アクセスできます</p>
             </div>
-            <span className="text-[11px] font-mono text-slate-400 font-bold">2 CITIES ONLINE</span>
+            <span className="text-[11px] font-mono text-slate-400 font-bold">3 CITIES ONLINE</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* md:grid-cols-2 から md:grid-cols-3 に変更し、3列レイアウトに対応 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* ① 京都市会カード */}
             <div 
@@ -103,7 +104,7 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
                 </div>
 
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  本会議・全常任委員会・特別委員会の12万発言・5,100超の質疑スレッドを網羅。全67議員の看板公約と議決の照合、松井市長政策トラッカー、宿泊税の使途透明化分析を完備。
+                  本会議・全常任委員会・特別委員会の12万発言・5,100超の質疑スレッドを網羅。全67議員の看板公約と議決の照合、松井市長政策トラッカーを完備。
                 </p>
 
                 <div className="grid grid-cols-3 gap-2 pt-2 text-center">
@@ -180,6 +181,56 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
               </div>
             </div>
 
+            {/* ③ 名古屋市会カード */}
+            <div 
+              onClick={() => onSelectCity('nagoya')}
+              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-amber-500 p-7 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-6 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50/50 rounded-bl-full pointer-events-none -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
+
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-black">
+                    運用中
+                  </span>
+                  <span className="text-xs font-mono font-bold text-slate-400">/nagoya/</span>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-black text-slate-900 group-hover:text-amber-600 transition-colors">
+                    名古屋市会
+                  </h3>
+                  <p className="text-xs text-slate-500 font-bold mt-1">Nagoya City Council</p>
+                </div>
+
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                  電子採決ログ・広沢市長「名古屋城木造復元」等の進捗トラッカー。現職68議員の賛否と質疑をオープンデータとして可視化します。
+                </p>
+
+                <div className="grid grid-cols-3 gap-2 pt-2 text-center">
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">現職議員</span>
+                    <span className="text-base font-black text-slate-900">68名</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">質疑スレッド</span>
+                    <span className="text-base font-black text-slate-900">準備中</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">対立議案分析</span>
+                    <span className="text-base font-black text-slate-900">網羅</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+                <span className="text-xs font-bold text-amber-600 group-hover:underline">名古屋市会ダッシュボードを開く</span>
+                <div className="w-8 h-8 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </div>
+            </div>
+            
           </div>
 
           {/* 順次展開案内 */}

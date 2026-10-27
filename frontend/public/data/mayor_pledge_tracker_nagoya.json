@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1",
+    "category": "経済・財政",
+    "title": "市民税5%減税の継続",
+    "description": "市民負担の軽減と経済活性化のため、長年続く市民税減税を維持します。",
+    "status": "in_progress",
+    "progress_percentage": 80,
+    "timeline": [
+      {
+        "date": "2024-11",
+        "event": "市長選にて減税継続を掲げ初当選"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "都市開発",
+    "title": "名古屋城天守閣木造復元",
+    "description": "歴史的価値の向上と観光拠点化を目指し、木造復元プロジェクトを推進します。バリアフリー化の議論等、課題解決を図ります。",
+    "status": "delayed",
+    "progress_percentage": 30,
+    "timeline": [
+      {
+        "date": "2024-11",
+        "event": "就任後、改めて計画推進の意向を表明"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "子育て・福祉",
+    "title": "徹底した市民寄りサービス",
+    "description": "議員報酬のあり方などを見直し、自ら身を切る改革を進めつつ、子育て世代や高齢者への手厚いサポートを実施します。",
+    "status": "planned",
+    "progress_percentage": 10,
+    "timeline": []
+  }
+]

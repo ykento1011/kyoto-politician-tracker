@@ -22,10 +22,8 @@ export function getOfficialMinuteUrl(stmt, cityCode = 'kyoto') {
     return targetUrl;
   }
 
-  // 2. council_id と schedule_id が個別にある場合
-  const isOsaka = cityCode === 'osaka' || 
-                  (typeof stmt?.committee_name === 'string' && stmt.committee_name.includes('大阪市'));
-  const tenant = isOsaka ? 'cityosaka' : 'kyoto';
+    // 2. council_id と schedule_id が個別にある場合
+  const tenant = cityCode === 'nagoya' ? 'nagoya' : cityCode === 'osaka' ? 'cityosaka' : 'kyoto';
 
   if (stmt.council_id && stmt.schedule_id) {
     return `https://ssp.kaigiroku.net/tenant/${tenant}/MinuteView.html?council_id=${stmt.council_id}&schedule_id=${stmt.schedule_id}&is_search=false${viewYear ? `&view_years=${viewYear}` : ''}`;
@@ -43,9 +41,7 @@ export function openOfficialMinute(stmt, cityCode = 'kyoto') {
 }
 
 export function getOfficialLinkTooltip(stmt, cityCode = 'kyoto') {
-  const isOsaka = cityCode === 'osaka' || 
-                  (typeof stmt?.committee_name === 'string' && stmt.committee_name.includes('大阪市'));
-  const cityName = isOsaka ? '大阪市会' : '京都市会';
+  const cityName = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
   if (stmt?.source_url) {
     return `${cityName}公式サーバー上の会議録原本を直接開きます`;
   }

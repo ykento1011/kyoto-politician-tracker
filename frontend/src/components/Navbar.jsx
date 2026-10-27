@@ -15,9 +15,11 @@ export default function Navbar({
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  // 💡 名古屋を追加
   const CITIES = {
     kyoto: { label: '京都市', path: '/kyoto/' },
-    osaka: { label: '大阪市', path: '/osaka/' }
+    osaka: { label: '大阪市', path: '/osaka/' },
+    nagoya: { label: '名古屋市', path: '/nagoya/' }
   };
 
   // 枠外クリックでドロップダウンを閉じる処理
@@ -41,6 +43,9 @@ export default function Navbar({
     window.location.href = CITIES[newCity]?.path || `/${newCity}/`;
   };
 
+  // 💡 市長名の動的切り替え
+  const mayorName = cityCode === 'osaka' ? '横山市長 ' : cityCode === 'nagoya' ? '広沢市長 ' : '松井市長 ';
+
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs">
       <div className="max-w-6xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
@@ -58,7 +63,7 @@ export default function Navbar({
               議会のミカタ
             </div>
             <div className="hidden sm:block text-[10px] font-bold text-slate-400 tracking-wider mt-0.5">
-              {CITIES[cityCode]?.label}会・政策プロセス可視化ポータル
+              {CITIES[cityCode]?.label || '自治体'}会・政策プロセス可視化ポータル
             </div>
           </div>
         </button>
@@ -76,13 +81,21 @@ export default function Navbar({
                   : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300'
               }`}
             >
-              <span>{CITIES[cityCode]?.label}</span>
+              <span>{CITIES[cityCode]?.label || '都市選択'}</span>
               <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isCityDropdownOpen ? 'rotate-180 text-indigo-600' : 'text-slate-400'}`} />
             </button>
 
             {/* ドロップダウンメニュー本体 */}
             {isCityDropdownOpen && (
-              <div className="absolute top-full right-0 mt-1.5 w-32 bg-white rounded-xl shadow-lg border border-slate-200 py-1.5 z-50 overflow-hidden transform origin-top animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="absolute top-full right-0 mt-1.5 w-40 bg-white rounded-xl shadow-lg border border-slate-200 py-1.5 z-50 overflow-hidden transform origin-top animate-in fade-in slide-in-from-top-2 duration-200">
+                {/* 💡 総合ポータルへ戻るボタンを追加 */}
+                <button
+                  onClick={() => handleCityChange('portal')}
+                  className="w-full flex items-center justify-between px-3 py-2 text-xs font-black text-slate-500 hover:text-indigo-700 hover:bg-indigo-50 border-b border-slate-100 transition-colors text-left cursor-pointer"
+                >
+                  <span>← 総合ポータルへ戻る</span>
+                </button>
+                
                 {Object.entries(CITIES).map(([code, { label }]) => (
                   <button
                     key={code}
@@ -107,7 +120,7 @@ export default function Navbar({
           >
             <Landmark className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
             <span>
-              <span className="hidden sm:inline">{cityCode === 'osaka' ? '横山市長 ' : '松井市長 '}</span>政策進捗
+              <span className="hidden sm:inline">{mayorName}</span>政策進捗
             </span>
             <span className="bg-indigo-600 text-white text-[9px] px-1.5 py-0.2 rounded-full font-bold shrink-0">New</span>
           </button>

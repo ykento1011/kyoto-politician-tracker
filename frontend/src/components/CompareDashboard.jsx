@@ -34,14 +34,14 @@ const ALIAS_MAP = {
 
 function SpeakerAvatar({ speakerName }) {
   const cleanName = speakerName ? speakerName.replace(/\s+/g, '') : '';
-  const [src, setSrc] = useState(`/councilors/${cleanName}.jpg`);
+  const [src, setSrc] = useState(`/councilors/${cityCode}/${cleanName}.jpg`);
   const [tried, setTried] = useState(false);
   const [error, setError] = useState(false);
 
   const handleError = () => {
     if (!tried && ALIAS_MAP[cleanName]) {
       setTried(true);
-      setSrc(`/councilors/${ALIAS_MAP[cleanName]}.jpg`);
+      setSrc(`/councilors/${cityCode}/${cleanName}.jpg`);
     } else {
       setError(true);
     }
@@ -99,6 +99,7 @@ function getVoteForSpeaker(bill, speakerObj) {
 }
 
 export default function CompareDashboard({
+  cityCode = 'kyoto',
   compareList = [],
   allSpeakers = [],
   onAddSpeaker,
@@ -651,7 +652,7 @@ export default function CompareDashboard({
                                     <div className="w-1.5 h-10 rounded-full shrink-0" style={{ backgroundColor: row.color }} />
                                     <div className="w-9 h-11 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                                       <img
-                                        src={`/councilors/${(row.speaker || '').replace(/\s+/g, '')}.jpg`}
+                                        src={`/councilors/${cityCode}/${(row.speaker || '').replace(/\s+/g, '')}.jpg`}
                                         alt={row.speaker}
                                         className="w-full h-full object-cover object-top"
                                         onError={(e) => { e.target.style.display = 'none'; }}
@@ -873,7 +874,7 @@ export default function CompareDashboard({
                                     <div className="w-1.5 h-10 rounded-full shrink-0" style={{ backgroundColor: row.color }} />
                                     <div className="w-9 h-11 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
                                       <img
-                                        src={`/councilors/${(row.speaker || '').replace(/\s+/g, '')}.jpg`}
+                                        src={`/councilors/${cityCode}/${(row.speaker || '').replace(/\s+/g, '')}.jpg`}
                                         alt={row.speaker}
                                         className="w-full h-full object-cover object-top"
                                         onError={(e) => { e.target.style.display = 'none'; }}

@@ -7,6 +7,7 @@ import {
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
 export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto' }) {
+  const cityName = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
   const [topic, setTopic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [copiedShare, setCopiedShare] = useState(false);
@@ -241,12 +242,12 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto' })
 
                         <div className="pt-1 flex justify-end">
                           <button
-                            onClick={() => openOfficialMinute(ex)}
-                            title={getOfficialLinkTooltip(ex)}
+                            onClick={() => openOfficialMinute(ex, cityCode)}
+                            title={getOfficialLinkTooltip(ex, cityCode)}
                             className="inline-flex items-center text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors cursor-pointer group shadow-2xs"
                           >
                             <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600 group-hover:text-indigo-700" />
-                              <span>{cityCode === 'osaka' ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認'}</span>
+                              <span>{cityCode === 'nagoya' ? '名古屋市会 公式原本で確認' : cityCode === 'osaka' ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認'}</span>
                             <ExternalLink className="w-3 h-3 ml-1.5 text-slate-400 group-hover:text-slate-600" />
                           </button>
                         </div>

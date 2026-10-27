@@ -19,7 +19,8 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
                         (typeof actualStmt?.meeting_name === 'string' && thread.meeting_name.includes('大阪市')) ||
                         (typeof stmt?.committee_name === 'string' && stmt.committee_name.includes('大阪市')) ||
                         (typeof actualStmt?.committee_name === 'string' && thread.committee_name.includes('大阪市'));
-  const councilOriginalLabel = isOsakaThread ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認';
+  const isNagoyaThread = stmt.official_url?.includes('nagoya') || stmt.meeting_title?.includes('名古屋') || window.location.pathname.includes('/nagoya');
+  const councilOriginalLabel = isNagoyaThread ? '名古屋市会 公式原本で確認' : isOsakaThread ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認';
 
   const [isNoteExpanded, setIsNoteExpanded] = useState(false);
 
@@ -30,7 +31,7 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
     { label: '議論の進展', val: stmt.constructive_score, color: 'bg-purple-500' }
   ].filter((m) => m.val > 0);
 
-  const auditorNoteText = stmt.scoring_reasoning ? cleanAuditorNote(stmt.scoring_reasoning) : "";
+  const auditorNoteText = (stmt.scoring_reasoning || stmt.reasoning) ? cleanAuditorNote(stmt.scoring_reasoning || stmt.reasoning) : "";
 
   return (
     <article className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
@@ -163,7 +164,7 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
             speaker={stmt?.speaker || speakerInfo?.name || ''}
             meetingDate={stmt?.meeting_date || ''}
             targetId={stmt?.statement_id || stmt?.id || ''}
-            municipality={isOsakaThread ? '大阪市会' : '京都市会'}
+            municipality={isNagoyaThread ? '名古屋市会' : isOsakaThread ? '大阪市会' : '京都市会'}
           />
         </div>
 

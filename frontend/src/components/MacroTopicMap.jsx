@@ -53,31 +53,131 @@ const KYOTO_CATEGORY_TOPICS = {
 };
 
 const OSAKA_CATEGORY_TOPICS = {
-  '財政・行革': [
-    { id: 'fukushuto_daitoshi_seido', title: '副首都ビジョン・法定協議会・特別区' }
+  "財政・行革": [
+    {
+      "id": "fukushuto_daitoshi_seido",
+      "title": "副首都ビジョンと大都市制度（法定協議会・特別区）"
+    }
   ],
-  '都市再生・交通インフラ': [
-    { id: 'osaka_expo_legacy_yumeshima', title: '夢洲第2期マスタープラン・万博跡地活用' }
+  "都市再生・交通インフラ": [
+    {
+      "id": "osaka_expo_legacy_yumeshima",
+      "title": "夢洲まちづくり・第2期区域と万博跡地活用"
+    }
   ],
-  '産業・観光・地域経済': [
-    { id: 'special_minpaku_regulation', title: '特区民泊の立入検査・違法民泊対策' }
+  "産業・観光・地域経済": [
+    {
+      "id": "special_minpaku_regulation",
+      "title": "特区民泊の規制強化と違法民泊・住環境対策"
+    }
   ],
-  'くらし・環境・エネルギー': [
-    { id: 'street_smoking_ban_spread', title: '市内全域路上喫煙禁止・喫煙所整備' }
+  "くらし・環境・エネルギー": [
+    {
+      "id": "street_smoking_ban_spread",
+      "title": "市内全域路上喫煙禁止と喫煙所インフラ整備"
+    }
   ],
-  '子育て・教育': [
-    { id: 'school_heatstroke_ssr_support', title: '学校 熱中症・校内SSR拡充' }
+  "子育て・教育": [
+    {
+      "id": "school_heatstroke_ssr_support",
+      "title": "学校熱中症対策・不登校支援（SSR）の全校拡充"
+    }
   ],
-  '福祉・医療・健康': [
-    { id: 'kokuho_kaigo_premium_burden', title: '国民健康保険 統一・第9期介護保険料' }
+  "福祉・医療・健康": [
+    {
+      "id": "kokuho_kaigo_premium_burden",
+      "title": "国民健康保険料・介護保険料の負担軽減と適正化"
+    }
   ],
-  '防災・減災・治安': [
-    { id: 'sewage_accident_disaster_digital', title: '下水道工事事故・防災デジタル計画' }
+  "防災・減災・治安": [
+    {
+      "id": "bousai_infrastructure_yodogawa",
+      "title": "淀川左岸線延伸と高潮・巨大地震津波対策"
+    }
   ],
-  '文化・景観・歴史': [
-    { id: 'traditional_culture_outdoor_ad', title: '上方伝統芸能継承・屋外広告景観' }
+  "文化・景観・歴史": [
+    {
+      "id": "cultural_heritage_osakajo_naniwagu",
+      "title": "大阪城公園・難波宮跡の歴史遺産保全と賑わい創出"
+    }
   ]
 };
+
+const NAGOYA_CATEGORY_TOPICS = {
+  "文化・景観・歴史": [
+    {
+      "id": "nagoya_castle_wooden_restoration",
+      "title": "名古屋城天守閣木造復元事業とバリアフリー設備（エレベーター）設置"
+    }
+  ],
+  "福祉・医療・健康": [
+    {
+      "id": "keiro_pass_reform",
+      "title": "敬老パス制度の持続可能性と利用料・上限額の見直し"
+    },
+    {
+      "id": "nagoya_city_univ_hospitals_dx",
+      "title": "名市大附属病院群（東部・西部医療センター等）の機能強化と医療DX"
+    }
+  ],
+  "都市再生・交通インフラ": [
+    {
+      "id": "yatomi_aioiyama_road",
+      "title": "弥富相生山線道路整備事業とヒメボタル生息地保全（折衷案）"
+    },
+    {
+      "id": "meieki_redevelopment_srt",
+      "title": "名古屋駅周辺まちづくりと新たな路面公共交通（SRT）導入"
+    }
+  ],
+  "財政・行革": [
+    {
+      "id": "higashi_ward_office_relocation",
+      "title": "東区役所等庁舎の老朽化と移転整備方針（愛知大学車道校舎・建中寺）"
+    },
+    {
+      "id": "nagoya_shiminzei_genzei",
+      "title": "市民税減税政策の堅持と財政規律・行財政改革の推進"
+    }
+  ],
+  "産業・観光・地域経済": [
+    {
+      "id": "premium_gift_certificate",
+      "title": "地域経済活性化とプレミアム付商品券事業（電子化・物価高騰対策）"
+    },
+    {
+      "id": "monozukuri_mice_tourism_dmo",
+      "title": "中小企業・モノづくり技術継承支援とMICE・DMO観光誘客"
+    }
+  ],
+  "子育て・教育": [
+    {
+      "id": "school_lunch_free_and_reform",
+      "title": "学校給食費無償化と中学校スクールランチ（選択制・全員喫食）の展開"
+    },
+    {
+      "id": "futoukou_freeschool_support",
+      "title": "不登校児童生徒への支援（学びの多様化学校・フリースクール助成）"
+    }
+  ],
+  "くらし・環境・エネルギー": [
+    {
+      "id": "waste_carry_out_prevention_ordinance",
+      "title": "家庭廃棄物・資源ごみ持ち去り防止条例の制定と生活困窮者支援"
+    },
+    {
+      "id": "nagoya_heatstroke_climate_action",
+      "title": "猛暑・熱中症対策の全庁横断推進と脱炭素・環境学習プラン2030"
+    }
+  ],
+  "防災・減災・治安": [
+    {
+      "id": "minato_disaster_prevention_center",
+      "title": "港防災センター移転改築と南海トラフ地震・避難所対策の強化"
+    }
+  ]
+};
+
 
 export default function MacroTopicMap({
   topicStats = [],
@@ -91,7 +191,7 @@ export default function MacroTopicMap({
     return topicStats.reduce((sum, t) => sum + (t.count || 0), 0);
   }, [topicStats]);
 
-  const activeCategoryTopicsMap = cityCode === 'osaka' ? OSAKA_CATEGORY_TOPICS : KYOTO_CATEGORY_TOPICS;
+  const activeCategoryTopicsMap = cityCode === 'nagoya' ? NAGOYA_CATEGORY_TOPICS : cityCode === 'osaka' ? OSAKA_CATEGORY_TOPICS : KYOTO_CATEGORY_TOPICS;
 
   return (
     <section className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">

@@ -27,9 +27,17 @@ function renderKpiValue(val, colorClass = "text-slate-900") {
   );
 }
 
-export default function MayorTrackerView({ data, onBack, onSelectBill }) {
-  // 💡 京都・大阪両方のデータスキーマを自動判定・正規化
+export default function MayorTrackerView({ data, onBack, onSelectBill, cityCode = 'kyoto' }) {
+  // 💡 自治体判定（名古屋・大阪・京都）
+  const isNagoya = Boolean(
+    cityCode === 'nagoya' ||
+    data?.city_code === 'nagoya' ||
+    data?.city_name?.includes('名古屋') ||
+    (!data?.mayor_info && data?.mayor_name?.includes('広沢'))
+  );
+
   const isOsaka = Boolean(
+    cityCode === 'osaka' ||
     data?.city_code === 'osaka' ||
     data?.city_name?.includes('大阪') ||
     (!data?.mayor_info && data?.mayor_name?.includes('横山'))
@@ -37,29 +45,83 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
 
   const mayorInfo = useMemo(() => {
     const raw = data?.mayor_info || {};
+    if (isNagoya) {
+      return {
+        name: raw.name || data?.mayor_name || '広沢一郎',
+        title: raw.title || '名古屋市長',
+        city_label: raw.city_label || data?.city_name || '名古屋市',
+        term: raw.term || data?.term || '2024年11月就任〜',
+        party: raw.party || '日本保守党・減税日本 推薦',
+        profile_image: raw.profile_image || data?.profile_image || `/councilors/${cityCode}/hirosawa_ichiro.jpg`,
+        fallback_image: raw.fallback_image || null,
+        bulletin_pdf: raw.bulletin_pdf || data?.bulletin_pdf || 'https://hiro.laborat.net/index/seisaku',
+        bulletin_label: raw.bulletin_label || data?.bulletin_label || '市長選挙マニフェスト原本',
+        strategy_main_pdf: raw.strategy_main_pdf || data?.strategy_main_pdf || 'https://www.city.nagoya.jp/shisei/category/53-10-0-0-0-0-0-0-0-0.html',
+        strategy_main_label: raw.strategy_main_label || data?.strategy_main_label || '名古屋市総合計画'
+      };
+    }
+    if (isOsaka) {
+      return {
+        name: raw.name || data?.mayor_name || '横山英幸',
+        title: raw.title || '大阪市長',
+        city_label: raw.city_label || data?.city_name || '大阪市',
+        term: raw.term || data?.term || '2023年4月就任〜',
+        party: raw.party || '大阪維新の会',
+        profile_image: raw.profile_image || data?.profile_image || `/councilors/${cityCode}/yokoyama_hideyuki.jpg`,
+        fallback_image: raw.fallback_image || null,
+        bulletin_pdf: raw.bulletin_pdf || data?.bulletin_pdf || 'https://www.city.osaka.lg.jp/shicho/page/0000600109.html',
+        bulletin_label: raw.bulletin_label || data?.bulletin_label || '市政基本方針・マニフェスト',
+        strategy_main_pdf: raw.strategy_main_pdf || data?.strategy_main_pdf || 'https://www.city.osaka.lg.jp/keikakuchousei/page/0000527265.html',
+        strategy_main_label: raw.strategy_main_label || data?.strategy_main_label || '大阪市総合計画 2025'
+      };
+    }
     return {
-      name: raw.name || data?.mayor_name || (isOsaka ? '横山英幸' : '松井孝治'),
-      title: raw.title || (isOsaka ? '大阪市長' : '京都市長'),
-      city_label: raw.city_label || data?.city_name || (isOsaka ? '大阪市' : '京都市'),
-      term: raw.term || data?.term || (isOsaka ? '2023年4月就任〜' : (raw.term_start ? `${raw.term_start.slice(0, 4)}年2月就任〜` : '2024年2月就任〜')),
-      party: raw.party || (isOsaka ? '大阪維新の会' : ''),
-      profile_image: raw.profile_image || data?.profile_image || (isOsaka ? '/councilors/yokoyama_hideyuki.jpg' : '/councilors/matsui_koji.jpg'),
-      fallback_image: raw.fallback_image || (isOsaka ? null : '/councilors/matsui_koji.jpg'),
-      bulletin_pdf: raw.bulletin_pdf || data?.bulletin_pdf || (isOsaka ? 'https://www.city.osaka.lg.jp/shicho/page/0000600109.html' : 'https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf'),
-      bulletin_label: raw.bulletin_label || data?.bulletin_label || (isOsaka ? '市政基本方針・マニフェスト' : '公約集（選挙公報原本）'),
-      strategy_main_pdf: raw.strategy_main_pdf || data?.strategy_main_pdf || (isOsaka ? 'https://www.city.osaka.lg.jp/keikakuchousei/page/0000527265.html' : 'https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/sinkyotosenryaku.pdf'),
-      strategy_main_label: raw.strategy_main_label || data?.strategy_main_label || (isOsaka ? '大阪市総合計画 2025' : '市公式 総合計画')
+      name: raw.name || data?.mayor_name || '松井孝治',
+      title: raw.title || '京都市長',
+      city_label: raw.city_label || data?.city_name || '京都市',
+      term: raw.term || data?.term || (raw.term_start ? `${raw.term_start.slice(0, 4)}年2月就任〜` : '2024年2月就任〜'),
+      party: raw.party || '',
+      profile_image: raw.profile_image || data?.profile_image || `/councilors/${cityCode}/matsui_koji.jpg`,
+      fallback_image: raw.fallback_image || `/councilors/${cityCode}/matsui_koji.jpg`,
+      bulletin_pdf: raw.bulletin_pdf || data?.bulletin_pdf || 'https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf',
+      bulletin_label: raw.bulletin_label || data?.bulletin_label || '公約集（選挙公報原本）',
+      strategy_main_pdf: raw.strategy_main_pdf || data?.strategy_main_pdf || 'https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/sinkyotosenryaku.pdf',
+      strategy_main_label: raw.strategy_main_label || data?.strategy_main_label || '市公式 総合計画'
     };
-  }, [data, isOsaka]);
+  }, [data, isNagoya, isOsaka]);
 
   const pledges = useMemo(() => data?.pledges || [], [data]);
 
-  // 💡 主な実績（KPIカード）を自動生成・正規化
+  // 💡 KPIカードの自動正規化（コンパクトな文言・数値表示）
   const kpis = useMemo(() => {
     if (data?.kpis && Array.isArray(data.kpis) && data.kpis.length > 0) {
       return data.kpis;
     }
     const stats = data?.summary_stats || {};
+    if (isNagoya) {
+      const total = stats.total_pledges || pledges.length || 5;
+      const progress = stats.progress_pledges || pledges.filter(p => (p.stage_level || 2) >= 3).length || 3;
+      return [
+        {
+          label: "重点公約追跡",
+          value: `${total}件`,
+          subtext: "選挙公約原本を照合",
+          badge: "全件照合"
+        },
+        {
+          label: "予算化・実証中",
+          value: `${progress}件`,
+          subtext: "当初予算・計画連動",
+          badge: "推進中"
+        },
+        {
+          label: "条例成立・執行",
+          value: "1件",
+          subtext: "市長給与特例条例など",
+          badge: "執行中"
+        }
+      ];
+    }
     if (isOsaka) {
       const enacted = stats.stages?.['5'] ?? pledges.filter(p => p.stage_level === 5).length ?? 6;
       const reviewing = stats.stages?.['4'] ?? pledges.filter(p => p.stage_level === 4).length ?? 2;
@@ -86,43 +148,46 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
           badge: "審議中"
         }
       ];
-    } else {
-      // 京都市
-      return [
-        {
-          label: "看板公約・追跡総数",
-          value: `${stats.total_pledges || pledges.length || 14}件`,
-          subtext: "総合計画・予算書照合",
-          badge: "100%照合"
-        },
-        {
-          label: "予算計上・投入規模",
-          value: stats.total_allocated_budget_jpy || "104億1,316万円",
-          subtext: "令和6・7年度 主要事業説明書",
-          badge: "予算連動"
-        },
-        {
-          label: "財政効果・独自財源",
-          value: stats.accommodation_tax_revenue_jpy || "132億円見込",
-          subtext: stats.debt_repayment_jpy || "宿泊税・市債縮減推進",
-          badge: "公文書根拠"
-        }
-      ];
     }
-  }, [data, pledges, isOsaka]);
+    // 京都市
+    return [
+      {
+        label: "看板公約・追跡総数",
+        value: `${stats.total_pledges || pledges.length || 14}件`,
+        subtext: "総合計画・予算書照合",
+        badge: "100%照合"
+      },
+      {
+        label: "予算計上・投入規模",
+        value: stats.total_allocated_budget_jpy || "104億1,316万円",
+        subtext: "令和6・7年度 主要事業説明書",
+        badge: "予算連動"
+      },
+      {
+        label: "財政効果・独自財源",
+        value: stats.accommodation_tax_revenue_jpy || "132億円見込",
+        subtext: stats.debt_repayment_jpy || "宿泊税・市債縮減推進",
+        badge: "公文書根拠"
+      }
+    ];
+  }, [data, pledges, isNagoya, isOsaka]);
 
-  // 💡 政策ライフサイクルの解説を正規化
+  // 💡 政策ライフサイクルの解説文
   const lifecycle = useMemo(() => {
     if (data?.lifecycle_definition && data.lifecycle_definition.title) {
       return data.lifecycle_definition;
     }
+    let description = "選挙公報の看板公約原本が「市総合計画」に反映され、どれだけの予算（主要事業説明書）が投じられ、市会での「条例提出・議決」を経て「執行」に至ったかを一次資料で客観追跡しています。";
+    if (isNagoya) {
+      description = "市長就任時の重点公約が「名古屋市総合計画」に位置づけられ、名古屋市会での予算措置や条例提出、議決を経て執行に至る過程を客観追跡しています。";
+    } else if (isOsaka) {
+      description = "市長就任時の重点公約が「大阪市総合計画」に位置づけられ、大阪市会での「条例提出・議決」を経て「成立・事業執行」に至ったかを一次資料原本で客観追跡しています。";
+    }
     return {
       title: "公文書・議決・予算書に基づく政策ライフサイクル検証",
-      description: isOsaka
-        ? "市長就任時の重点公約が「大阪市総合計画」に位置づけられ、大阪市会での「条例提出・議決」を経て「成立・事業執行」に至ったかを一次資料原本で客観追跡しています。"
-        : "選挙公報の看板公約原本が「市総合計画」に反映され、どれだけの予算（主要事業説明書）が投じられ、市会での「条例提出・議決」を経て「執行」に至ったかを一次資料で客観追跡しています。"
+      description
     };
-  }, [data, isOsaka]);
+  }, [data, isNagoya, isOsaka]);
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedStageLevel, setSelectedStageLevel] = useState(0);
@@ -152,7 +217,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
     if (!imgError) {
       setImgError(true);
       if (mayorInfo.fallback_image) setImgSrc(mayorInfo.fallback_image);
-      else setImgSrc('/councilors/matsui_koji.jpg');
+      else setImgSrc('');
     }
   };
 
@@ -176,7 +241,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                 speaker={mayorInfo.name}
                 meetingDate={mayorInfo.term || ''}
                 targetId="mayor_bulletin_pdf"
-                municipality={mayorInfo.city_label || '京都市'}
+                municipality={mayorInfo.city_label || '名古屋市'}
               />
             </div>
           )}
@@ -192,7 +257,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                 speaker={mayorInfo.name}
                 meetingDate=""
                 targetId="mayor_strategy_main_pdf"
-                municipality={mayorInfo.city_label || '京都市'}
+                municipality={mayorInfo.city_label || '名古屋市'}
               />
             </div>
           )}
@@ -204,7 +269,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 pb-6 border-b border-slate-100">
           <div className="flex items-start gap-4 sm:gap-5">
             <div className="w-20 h-24 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shrink-0 shadow-xs flex items-center justify-center relative">
-              {!imgError ? (
+              {!imgError && imgSrc ? (
                 <img src={imgSrc} alt={mayorInfo.name} className="w-full h-full object-cover object-top" onError={handleImageError} />
               ) : (
                 <div className="text-center p-2">
@@ -233,24 +298,34 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
               </div>
             </div>
           </div>
-          {/* KPI */}
+
+          {/* KPIカード表示 */}
           {kpis && kpis.length > 0 && (
-            <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-3 gap-3 bg-slate-50/80 p-3 sm:p-4 rounded-2xl border border-slate-200/80">
+            <div className="w-full lg:w-auto grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 bg-slate-50/80 p-3 sm:p-4 rounded-2xl border border-slate-200/80">
               {kpis.map((kpi, idx) => (
-                <div key={idx} className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[150px]">
+                <div key={idx} className="bg-white p-3 sm:p-3.5 rounded-xl border border-slate-200/60 shadow-2xs flex flex-col justify-between text-center min-w-[130px] sm:min-w-[145px]">
                   <div className="flex items-center justify-center gap-1">
-                    <span className={`text-[11px] font-black block tracking-tight ${idx===0 ? 'text-indigo-700' : idx===1 ? 'text-emerald-700' : 'text-slate-600'}`}>{kpi.label}</span>
-                    {kpi.badge && <span className="text-[9px] font-extrabold bg-emerald-100 text-emerald-800 px-1 py-0.2 rounded">{kpi.badge}</span>}
+                    <span className={`text-[11px] font-black block tracking-tight whitespace-nowrap ${idx===0 ? 'text-indigo-700' : idx===1 ? 'text-emerald-700' : 'text-slate-600'}`}>
+                      {kpi.label}
+                    </span>
+                    {kpi.badge && (
+                      <span className="text-[9px] font-extrabold bg-emerald-100 text-emerald-800 px-1 py-0.2 rounded shrink-0">
+                        {kpi.badge}
+                      </span>
+                    )}
                   </div>
                   <div className="my-1 min-h-[32px] flex items-center justify-center">
                     {renderKpiValue(kpi.value, idx===0 ? 'text-slate-900' : idx===1 ? 'text-emerald-600' : 'text-slate-800')}
                   </div>
-                  <span className={`text-[10px] font-bold block ${idx===1 ? 'text-emerald-600' : 'text-slate-400'}`}>{kpi.subtext}</span>
+                  <span className={`text-[10px] font-bold block whitespace-nowrap leading-tight mt-0.5 ${idx===1 ? 'text-emerald-600' : 'text-slate-400'}`}>
+                    {kpi.subtext}
+                  </span>
                 </div>
               ))}
             </div>
           )}
         </div>
+
         <div className="bg-indigo-50/40 p-4 sm:p-4.5 rounded-2xl border border-indigo-100 flex items-start gap-3">
           <ShieldCheck className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
           <div className="space-y-1">
@@ -279,7 +354,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
         </div>
       </div>
 
-      {/* 公約カード */}
+      {/* 公約カード一覧 */}
       <div className="space-y-8">
         {filteredPledges.map((pledge) => {
           const plan = pledge.official_plan;
@@ -341,14 +416,14 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                   {pledge.election_promise?.bulletin_url && (
                     <div className="pt-2 flex items-center gap-1">
                       <a href={pledge.election_promise.bulletin_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 hover:underline">
-                        <Landmark className="w-3.5 h-3.5" /><span>公式公約原本（PDF）で確認</span><ExternalLink className="w-3 h-3 opacity-60 ml-0.5" />
+                        <Landmark className="w-3.5 h-3.5" /><span>公式公約原本で確認</span><ExternalLink className="w-3 h-3 opacity-60 ml-0.5" />
                       </a>
                       <ReportIssueButton
                         targetUrl={pledge.election_promise.bulletin_url}
                         speaker={mayorInfo.name}
                         meetingDate={pledge.title || ''}
                         targetId={`pledge_${pledge.pledge_id}`}
-                        municipality={mayorInfo.city_label || '京都市'}
+                        municipality={mayorInfo.city_label || '名古屋市'}
                       />
                     </div>
                   )}
@@ -359,7 +434,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                   {plan && (
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-black text-indigo-950 flex items-center gap-1.5"><BookCheck className="w-3.5 h-3.5 text-indigo-600" />市公式確定計画・基本方針に明記</span>
+                        <span className="text-xs font-black text-indigo-950 flex items-center gap-1.5"><BookCheck className="w-3.5 h-3.5 text-indigo-600" />市公式計画・方針に明記</span>
                         <span className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">市公式計画化</span>
                       </div>
                       <div className="p-4 rounded-2xl bg-indigo-50/25 border border-indigo-100/80 space-y-2">
@@ -374,7 +449,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                                 speaker={mayorInfo.name}
                                 meetingDate={plan.date || ''}
                                 targetId={plan.plan_name || 'plan_doc'}
-                                municipality={mayorInfo.city_label || '京都市'}
+                                municipality={mayorInfo.city_label || '名古屋市'}
                               />
                             </div>
                           ) : (
@@ -414,7 +489,6 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                                 ))}
                               </div>
                             )}
-                            {/* 💡ここが修正したクリッカブル出典リンク */}
                             {b.doc_url && (
                               <div className="pt-2 mt-1.5 border-t border-emerald-100/60 flex items-center justify-end gap-1 text-[10.5px]">
                                 <span className="text-slate-400 font-medium shrink-0 mt-[1px]">出典:</span>
@@ -427,7 +501,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                                   speaker={mayorInfo.name}
                                   meetingDate={b.fiscal_year || ''}
                                   targetId={b.item_name || b.doc_source || 'budget_doc'}
-                                  municipality={mayorInfo.city_label || '京都市'}
+                                  municipality={mayorInfo.city_label || '名古屋市'}
                                 />
                               </div>
                             )}
@@ -457,7 +531,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                               speaker={mayorInfo.name}
                               meetingDate={bill.session_name || ''}
                               targetId={bill.bill_number || bill.bill_title || 'bill_doc'}
-                              municipality={mayorInfo.city_label || '京都市'}
+                              municipality={mayorInfo.city_label || '名古屋市'}
                             />
                           </div>
                         ) : (
@@ -491,7 +565,6 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                       <div className="flex items-start gap-2 text-xs">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-[1px]" />
                         <span className="font-mono text-slate-500 font-bold shrink-0 mt-[2px]">{milestone.date}</span>
-                        {/* 💡ここが修正したクリッカブルマイルストーンリンク */}
                         {milestone.evidence_url ? (
                           <div className="inline-flex items-center gap-1">
                             <a href={milestone.evidence_url} target="_blank" rel="noopener noreferrer" className="font-bold text-indigo-700 hover:text-indigo-900 hover:underline inline-flex items-start gap-1">
@@ -503,7 +576,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill }) {
                               speaker={mayorInfo.name}
                               meetingDate={milestone.date || ''}
                               targetId={milestone.title || 'milestone_evidence'}
-                              municipality={mayorInfo.city_label || '京都市'}
+                              municipality={mayorInfo.city_label || '名古屋市'}
                             />
                           </div>
                         ) : (

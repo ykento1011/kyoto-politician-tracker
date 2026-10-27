@@ -85,13 +85,16 @@ function parseCurrentRoute() {
 }
 
 export default function App() {
-  // 💡 URLのパスから都市を判定（/ はポータル、/kyoto は京都、/osaka は大阪）
+  // 💡 URLのパスから都市を判定（/ はポータル、/kyoto は京都、/osaka は大阪、/nagoya は名古屋）
   const [cityCode, setCityCode] = useState(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
       const params = new URLSearchParams(window.location.search);
       const hash = window.location.hash || '';
 
+      if (path.startsWith('/nagoya') || params.get('city') === 'nagoya') {
+        return 'nagoya';
+      }
       if (path.startsWith('/osaka') || params.get('city') === 'osaka') {
         return 'osaka';
       }
@@ -145,7 +148,7 @@ export default function App() {
     speakerStats,
     filteredSpeakers,
     filteredThreads
-  } = useStatements(cityCode); // 💡 cityCode をフックに渡す
+  } = useStatements(cityCode);
 
   const [votesData, setVotesData] = useState([]);
   const [billIssuesList, setBillIssuesList] = useState([]);
@@ -169,26 +172,25 @@ export default function App() {
     }
     const prefix = cityCode === 'kyoto' ? '' : `${cityCode}_`;
 
-    fetch(getCityDataUrl(cityCode, 'votesSummary') || `/data/${prefix}votes_summary.json`)
-      .then(res => (res.ok ? res.json() : []))
-      .then(data => setVotesData(data))
+    // 💡 safeFetchJsonを使うことでHTMLフォールバックによるJSONパースエラーを防止
+    safeFetchJson(getCityDataUrl(cityCode, 'votesSummary') || `/data/${prefix}votes_summary.json`)
+      .then(data => setVotesData(data || []))
       .catch(err => console.error('Failed to load votes:', err));
 
-    fetch(getCityDataUrl(cityCode, 'billIssues') || `/data/${prefix}bill_issues.json`)
-      .then(res => (res.ok ? res.json() : []))
+    safeFetchJson(getCityDataUrl(cityCode, 'billIssues') || `/data/${prefix}bill_issues.json`)
       .then(data => {
-        setBillIssuesList(data);
+        const list = data || [];
+        setBillIssuesList(list);
         const map = {};
-        data.forEach(item => {
+        list.forEach(item => {
           map[`${item.session_name}_${item.bill_number}`] = item;
         });
         setIssuesMap(map);
       })
       .catch(err => console.error('Failed to load bill issues:', err));
 
-    fetch(getCityDataUrl(cityCode, 'mayorTracker') || `/data/${prefix}mayor_tracker.json`)
-      .then(res => (res.ok ? res.json() : null))
-      .then(data => setMayorTrackerData(data))
+    safeFetchJson(getCityDataUrl(cityCode, 'mayorTracker') || `/data/${prefix}mayor_tracker.json`)
+      .then(data => setMayorTrackerData(data || null))
       .catch(err => console.error('Failed to load mayor tracker:', err));
   }, [cityCode]);
 
@@ -198,11 +200,15 @@ export default function App() {
       const currentPath = window.location.pathname;
       const currentParams = new URLSearchParams(window.location.search);
       let detectedCity = null;
-      if (currentPath.startsWith('/osaka') || currentParams.get('city') === 'osaka') {
+      
+      if (currentPath.startsWith('/nagoya') || currentParams.get('city') === 'nagoya') {
+        detectedCity = 'nagoya';
+      } else if (currentPath.startsWith('/osaka') || currentParams.get('city') === 'osaka') {
         detectedCity = 'osaka';
       } else if (currentPath.startsWith('/kyoto') || currentParams.get('city') === 'kyoto') {
         detectedCity = 'kyoto';
       }
+      
       setCityCode(detectedCity);
 
       const nextRoute = parseCurrentRoute();
@@ -231,15 +237,23 @@ export default function App() {
     let title = "議会のミカタ ｜ AIは入口。判断するのは市民です。";
     let description = "京都・大阪の市会公式会議録と議決データを客観的に構造化。4軸による議員質疑分析、賛否が分かれた議案ログ、市長公約の予算措置・条例可決・執行進捗を一次情報で確認・判断できるオープンデータ・プラットフォーム。";
     let canonicalUrl = "https://gikai-mikata.jp/";
+    let ogpImage = "https://gikai-mikata.jp/ogp-portal.png";
 
     if (cityCode === 'osaka') {
       title = "議会のミカタ 大阪 ｜ AIは入口。判断するのは市民です。";
       description = "大阪市会公式会議録と議決データを客観的に構造化。現職81議員・1,260超の質疑スレッド分析、賛否が分かれた議案の記録、横山市長政策進捗トラッカー（一次資料・予算照合）により、市民が自ら確認・判断できるオープンデータ基盤。";
       canonicalUrl = "https://gikai-mikata.jp/osaka/";
+      ogpImage = "https://gikai-mikata.jp/ogp-osaka.png";
+    } else if (cityCode === 'nagoya') {
+      title = '議会のミカタ 名古屋 ｜ AIは入口。判断するのは市民です。';
+      description = '名古屋市会公式会議録と電子採決ログを客観的に構造化。広沢市長政策進捗トラッカーを一次情報で確認。';
+      canonicalUrl = 'https://gikai-mikata.jp/nagoya/';
+      ogpImage = 'https://gikai-mikata.jp/ogp-nagoya.png';
     } else if (cityCode === 'kyoto') {
       title = "議会のミカタ 京都 ｜ AIは入口。判断するのは市民です。";
       description = "京都市会公式会議録12万発言と議決データを客観的に構造化。4軸による質疑分析、賛否が分かれた議案の記録、選挙公報原本に基づく看板公約の照合により、市民が自ら一次情報で確認・判断できるオープンデータ・プラットフォーム。";
       canonicalUrl = "https://gikai-mikata.jp/kyoto/";
+      ogpImage = "https://gikai-mikata.jp/ogp-kyoto.png";
     }
 
     // document.title
@@ -261,6 +275,7 @@ export default function App() {
     setMeta("meta[property='og:title']", "content", title);
     setMeta("meta[property='og:description']", "content", description);
     setMeta("meta[property='og:url']", "content", canonicalUrl);
+    setMeta("meta[property='og:image']", "content", ogpImage);
     setMeta("meta[name='twitter:title']", "content", title);
     setMeta("meta[name='twitter:description']", "content", description);
 
@@ -275,7 +290,7 @@ export default function App() {
     let finalUrl = url;
     if (cityCode) {
       const basePath = `/${cityCode}`;
-      if (url.startsWith('/kyoto') || url.startsWith('/osaka')) {
+      if (url.startsWith('/kyoto') || url.startsWith('/osaka') || url.startsWith('/nagoya')) {
         finalUrl = url;
       } else if (url === '/') {
         finalUrl = `${basePath}/`;
@@ -502,6 +517,7 @@ export default function App() {
         <div className="flex-grow">
           <MayorTrackerView
             data={mayorTrackerData}
+            cityCode={cityCode} // 💡 これを追加
             onBack={handleGoHome}
             onSelectBill={setSelectedBillForModal}
             onOpenMethodology={() => navigateToView('methodology')}
@@ -620,6 +636,7 @@ export default function App() {
         {renderNavbar(true)}
         <div className="flex-grow">
           <CompareDashboard
+              cityCode={cityCode}
             compareList={activeCompareList}
             allSpeakers={speakerStats}
             onAddSpeaker={handleAddSpeakerToCompare}

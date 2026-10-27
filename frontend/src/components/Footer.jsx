@@ -20,7 +20,7 @@ export default function Footer({ onOpenMethodology , cityCode = 'kyoto'}) {
               分析対象データと期間
             </div>
             <p className="leading-relaxed">
-              {cityCode === 'osaka' ? '大阪市会 公式' : '京都市会 公式'}会議録（<strong>現任期：2023年5月〜最新公開分</strong>）<br />
+              {cityCode === 'nagoya' ? '名古屋市会 公式' : cityCode === 'osaka' ? '大阪市会 公式' : '京都市会 公式'}会議録（<strong>現任期：2023年5月〜最新公開分</strong>）<br />
               本会議（代表質問・個人質疑）・全常任委員会・特別委員会の全質疑スレッド
             </p>
           </div>

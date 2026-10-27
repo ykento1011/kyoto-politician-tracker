@@ -11,16 +11,13 @@ import ThreadCard from './ThreadCard';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 import { cleanStyleLabel, cleanStyleDesc } from '../utils/styleHelpers';
 
-// 異体字・旧字体・選挙公報通称名（ひらがな）エイリアス辞書
-
 // 会派名のゆらぎ・正式名称・改称に対応するコアキーワード照合関数
 const isSamePartyGroup = (p1 = '', p2 = '') => {
   if (!p1 || !p2) return false;
   if (p1 === p2) return true;
   if (p1.includes(p2) || p2.includes(p1)) return true;
 
-  // 主要な政党コアキーワードの共通含有判定
-  const coreKeywords = ['維新', '公明', '共産', '自民', '自由民主', '立憲', '国民民主', 'れいわ', '社民', '京都党', 'くらしが第一', '大阪にし', '福島クラブ', '大阪平野', '総活躍'];
+  const coreKeywords = ['維新', '公明', '共産', '自民', '自由民主', '減税', '民主', '立憲', '国民民主', 'れいわ', '社民', '京都党', 'くらしが第一', '大阪にし', '福島クラブ', '大阪平野', '総活躍'];
   for (const kw of coreKeywords) {
     if (p1.includes(kw) && p2.includes(kw)) {
       return true;
@@ -30,13 +27,10 @@ const isSamePartyGroup = (p1 = '', p2 = '') => {
 };
 
 const ALIAS_MAP = {
-  // 異体字・旧字体
   '井崎敦子': '井﨑敦子',
   '井﨑敦子': '井崎敦子',
   '繁隆夫': '繁隆夫',
   '繁隆夫': '繁隆夫',
-
-  // 💡 選挙公報原本（ひらがな・通称名）との完全マッピング
   '西山信昌': '西山のぶまさ',
   '西山のぶまさ': '西山信昌',
   '青野仁志': '青野ひとし',
@@ -53,8 +47,6 @@ const ALIAS_MAP = {
   'きくちかずひで': 'きくち一秀',
   '小島信太郎': 'こじま信太郎',
   'こじま信太郎': '小島信太郎',
-  '繁隆夫': 'しげ隆夫',
-  'しげ隆夫': '繁隆夫',
   'しまもと京司': '島本きょうじ',
   '島本きょうじ': 'しまもと京司',
   '田中明秀': '田中あきひで',
@@ -78,6 +70,7 @@ const ALIAS_MAP = {
 };
 
 export default function SpeakerDetailView({
+  cityCode = 'kyoto',
   selectedSpeaker,
   speakerStats,
   speakerFilteredThreads,
@@ -93,12 +86,15 @@ export default function SpeakerDetailView({
   onSpeakerClick,
   onViewContext,
   onOpenMethodology,
-  onSelectBill
-, cityCode = 'kyoto'}) {
+  onSelectBill,
+}) {
   const [relatedTab, setRelatedTab] = useState('district');
   const [speakerDetailTab, setSpeakerDetailTab] = useState('threads');
   const [speakerVoteFilter, setSpeakerVoteFilter] = useState('contested');
   const [pledgeTrackerMap, setPledgeTrackerMap] = useState({});
+
+  const cityName = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
+  const electionAdminName = cityCode === 'nagoya' ? '名古屋市選管' : cityCode === 'osaka' ? '大阪市選管' : '京都市選管';
 
   useEffect(() => {
     const pledgePath = getCityDataUrl(cityCode, 'pledgeTracker') || '/data/pledge_tracker.json';
@@ -108,7 +104,7 @@ export default function SpeakerDetailView({
       .catch(err => console.error("Failed to load pledge tracker data:", err));
   }, [cityCode]);
 
-const currentSpeakerTracker = useMemo(() => {
+  const currentSpeakerTracker = useMemo(() => {
     if (!selectedSpeaker || !selectedSpeaker.speaker) return null;
     const name = selectedSpeaker.speaker.replace(/[\s ]+/g, '');
     const alias = ALIAS_MAP[name];
@@ -139,13 +135,18 @@ const currentSpeakerTracker = useMemo(() => {
   };
 
   const cleanName = selectedSpeaker?.speaker ? selectedSpeaker.speaker.replace(/\s+/g, '') : '';
-  const [detailPhotoSrc, setDetailPhotoSrc] = useState(`/councilors/${cleanName}.jpg`);
+  const [detailPhotoSrc, setDetailPhotoSrc] = useState(`/councilors/${cityCode}/${cleanName}.jpg`);
   const [detailFallbackTried, setDetailFallbackTried] = useState(false);
 
+  const [detailFallbackStage, setDetailFallbackStage] = useState(0);
+
   const handleDetailPhotoError = () => {
-    if (!detailFallbackTried && ALIAS_MAP[cleanName]) {
-      setDetailFallbackTried(true);
-      setDetailPhotoSrc(`/councilors/${ALIAS_MAP[cleanName]}.jpg`);
+    if (detailFallbackStage === 0 && ALIAS_MAP[cleanName]) {
+      setDetailFallbackStage(1);
+      setDetailPhotoSrc(`/councilors/${cityCode}/${ALIAS_MAP[cleanName]}.jpg`);
+    } else if (detailFallbackStage < 2) {
+      setDetailFallbackStage(2);
+      setDetailPhotoSrc(`/councilors/${cleanName}.jpg`);
     }
   };
 
@@ -203,7 +204,6 @@ const currentSpeakerTracker = useMemo(() => {
     })[0];
   }, [selectedSpeaker, actualThreads]);
 
-  // 💡 人物評価を排除し、質疑データの事実記述のみに統一
   const generateCouncilorProfileSummary = (speaker) => {
     if (!speaker) return "";
     const categoriesStr = speaker.topCategories && speaker.topCategories.length > 0 ? speaker.topCategories.join("・") : "市政全般";
@@ -225,7 +225,7 @@ const currentSpeakerTracker = useMemo(() => {
       narrative = "行政答弁や制度運用に関する確認・追及を含む質疑が多く確認されています";
     }
 
-    return `主に【${categoriesStr}】の分野で登壇。全${speaker.count}件の実質政策質疑ログからは、${narrative}。`;
+    return `主に【${categoriesStr}】の分野で登壇。全${speaker.count ?? 0}件の実質政策質疑ログからは、${narrative}。`;
   };
 
   const sameDistrictSpeakers = useMemo(() => {
@@ -235,13 +235,20 @@ const currentSpeakerTracker = useMemo(() => {
 
   const samePartySpeakers = useMemo(() => {
     if (!selectedSpeaker) return [];
-    return speakerStats.filter(s => s.partyGroup === selectedSpeaker.partyGroup && s.speaker !== selectedSpeaker.speaker);
+    const party = selectedSpeaker.partyGroup || selectedSpeaker.party;
+    return speakerStats.filter(s => (s.partyGroup === party || s.party === party) && s.speaker !== selectedSpeaker.speaker);
   }, [selectedSpeaker, speakerStats]);
 
-    const selectedSpeakerBills = useMemo(() => {
+  const selectedSpeakerBills = useMemo(() => {
+    console.log('DEBUG_VOTES:', {
+      speaker: selectedSpeaker?.speaker,
+      partyGroup: selectedSpeaker?.partyGroup,
+      party: selectedSpeaker?.party,
+      votesDataLen: votesData?.length,
+      votesDataSample: votesData?.slice(0, 2)
+    });
     if (!selectedSpeaker || !votesData.length) return [];
     
-    // 'None' や 'null' 文字列を除外し、正規の会派名を特定
     const sanitizeParty = (p) => (p && p !== 'None' && p !== 'null' && p !== 'undefined') ? p.trim() : '';
     const currentParty = sanitizeParty(selectedSpeaker.partyGroup) || 
                          sanitizeParty(selectedSpeaker.party) || 
@@ -280,7 +287,7 @@ const currentSpeakerTracker = useMemo(() => {
 
       return { ...bill, myVote, isContested };
     }).filter(b => b.myVote);
-  }, [selectedSpeaker, votesData]);
+  }, [selectedSpeaker, votesData, currentSpeakerTracker]);
 
   const filteredSpeakerBills = useMemo(() => {
     return selectedSpeakerBills.filter(bill => {
@@ -322,20 +329,27 @@ const currentSpeakerTracker = useMemo(() => {
             <div>
               <div className="flex items-center gap-3 flex-wrap mb-1">
                 <h2 className="text-2xl font-black text-slate-900 tracking-tight">{selectedSpeaker.speaker}</h2>
-                {/* 💡 要件1：「現場代弁型」➔「主な質疑傾向：現場・生活課題」 */}
                 <span className={`px-2.5 py-0.5 text-xs font-extrabold rounded border ${selectedSpeaker.style?.badgeClass || 'bg-slate-100'}`}>
                   {cleanStyleLabel(selectedSpeaker.style?.label)}
                 </span>
               </div>
               <div className="flex items-center gap-2 text-xs font-bold text-slate-600 mt-1">
                 <span className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">{selectedSpeaker.district}</span>
-                <span>{selectedSpeaker.partyGroup}</span>
+                <span>{selectedSpeaker.partyGroup || selectedSpeaker.party || cityName}</span>
               </div>
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-2 self-start md:self-auto">
-            {selectedSpeaker.officialUrl && <a href={selectedSpeaker.officialUrl} target="_blank" rel="noopener noreferrer" className="bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold inline-flex items-center gap-1 transition-colors shadow-2xs"><Landmark className="w-3.5 h-3.5" />京都市会 公式紹介 <ExternalLink className="w-3 h-3 ml-0.5 opacity-50" /></a>}
-            {selectedSpeaker.websiteUrl && <a href={selectedSpeaker.websiteUrl} target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-indigo-50 text-indigo-600 border border-indigo-200 px-3 py-1.5 rounded-lg text-xs font-bold inline-flex items-center gap-1 transition-colors shadow-2xs"><Globe className="w-3.5 h-3.5" />公式Webサイト <ExternalLink className="w-3 h-3 ml-0.5 opacity-50" /></a>}
+            {selectedSpeaker.officialUrl && (
+              <a href={selectedSpeaker.officialUrl} target="_blank" rel="noopener noreferrer" className="bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1.5 rounded-lg text-xs font-bold inline-flex items-center gap-1 transition-colors shadow-2xs">
+                <Landmark className="w-3.5 h-3.5" />{cityName} 公式紹介 <ExternalLink className="w-3 h-3 ml-0.5 opacity-50" />
+              </a>
+            )}
+            {selectedSpeaker.websiteUrl && (
+              <a href={selectedSpeaker.websiteUrl} target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-indigo-50 text-indigo-600 border border-indigo-200 px-3 py-1.5 rounded-lg text-xs font-bold inline-flex items-center gap-1 transition-colors shadow-2xs">
+                <Globe className="w-3.5 h-3.5" />公式Webサイト <ExternalLink className="w-3 h-3 ml-0.5 opacity-50" />
+              </a>
+            )}
           </div>
         </div>
 
@@ -347,7 +361,6 @@ const currentSpeakerTracker = useMemo(() => {
                 質疑データ分析：政策分野と特徴
               </div>
               <p className="text-xs text-slate-700 leading-relaxed font-medium">{generateCouncilorProfileSummary(selectedSpeaker)}</p>
-              {/* 💡 要件2：「切実な声を届ける」等の情緒表現をサニタイズ */}
               <p className="text-[11px] text-slate-500 mt-2 pt-2 border-t border-indigo-100/60 leading-normal">
                 {cleanStyleDesc(selectedSpeaker.style?.desc)}
               </p>
@@ -359,7 +372,7 @@ const currentSpeakerTracker = useMemo(() => {
                   <Layers className="w-3.5 h-3.5 text-indigo-600" />
                   質疑の多い政策分野TOP3
                 </span>
-                <span className="text-[10px] text-slate-400 font-medium">全 {selectedSpeaker.count} 質疑</span>
+                <span className="text-[10px] text-slate-400 font-medium">全 {selectedSpeaker.count ?? 0} 質疑</span>
               </div>
 
               <div className="space-y-2 pt-1">
@@ -387,7 +400,6 @@ const currentSpeakerTracker = useMemo(() => {
             </div>
           </div>
 
-          {/* 💡 要件5：「4軸による質疑分析」の重複を解消し、タイトル1回のみ表示 */}
           <div className="lg:col-span-5 bg-slate-50/80 p-4 rounded-xl border border-slate-100 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-2">
@@ -511,7 +523,7 @@ const currentSpeakerTracker = useMemo(() => {
                 </div>
 
                 <ThreadCard
-                          cityCode={cityCode}
+                  cityCode={cityCode}
                   stmt={featuredThread}
                   onViewContext={onViewContext}
                   showSpeakerHeader={false}
@@ -547,7 +559,7 @@ const currentSpeakerTracker = useMemo(() => {
           <div className="space-y-6">
             {actualThreads.length > 0 ? actualThreads.map((stmt) => (
               <ThreadCard
-                          cityCode={cityCode}
+                cityCode={cityCode}
                 key={stmt.id}
                 stmt={stmt}
                 onViewContext={onViewContext}
@@ -775,7 +787,7 @@ const currentSpeakerTracker = useMemo(() => {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 hover:underline"
                           >
-                            <span>{cityCode === 'osaka' ? '大阪市選管 公式公報原本（PDF）で紙面を確認' : '京都市選管 公式公報原本（PDF）で紙面を確認'}</span>
+                            <span>{electionAdminName} 公式公報原本（PDF）で紙面を確認</span>
                             <ExternalLink className="w-3 h-3 opacity-60" />
                           </a>
                         </div>

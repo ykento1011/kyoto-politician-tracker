@@ -43,6 +43,27 @@ export const CITIES = {
     description: '大阪市会公式会議録と議決データを客観的に構造化。現職81議員の質疑スレッド分析、賛否ログ、横山市長政策進捗トラッカーを一次情報で確認。',
     ogpImage: 'https://gikai-mikata.jp/ogp-osaka.png',
   },
+  nagoya: {
+    code: 'nagoya',
+    name: '名古屋',
+    fullName: '名古屋市',
+    councilName: '名古屋市会',
+    councilType: 'council',
+    mayorName: '広沢市長',
+    accentColor: '#d97706', // アンバー（名古屋城の金鯱イメージ）
+    active: true,
+    dataPathPrefix: 'nagoya_',
+    files: {
+      votesSummary: '/data/nagoya_votes_summary.json',
+      billIssues: '/data/nagoya_bill_issues.json',
+      mayorTracker: '/data/nagoya_mayor_tracker.json',
+      pledgeTracker: '/data/pledge_tracker_nagoya.json',
+      topicSummaries: '/data/nagoya_topic_summaries.json',
+    },
+    title: '議会のミカタ 名古屋 ｜ AIは入口。判断するのは市民です。',
+    description: '名古屋市会公式会議録と電子採決ログを客観的に構造化。現職68議員の質疑スレッド分析、議案賛否ログ、広沢市長政策進捗トラッカーを一次情報で確認。',
+    ogpImage: 'https://gikai-mikata.jp/ogp-nagoya.png',
+  },
 };
 
 export const PORTAL_CONFIG = {

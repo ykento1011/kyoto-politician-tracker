@@ -210,7 +210,7 @@ viewMode,
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayedSpeakers.map((speaker) => (
-              <SpeakerCard
+              <SpeakerCard cityCode={cityCode} 
                 key={speaker.speaker}
                 speaker={speaker}
                 onSpeakerClick={onSpeakerClick}
