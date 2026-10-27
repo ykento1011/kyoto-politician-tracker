@@ -1,1 +1,1906 @@
-[]
+{
+  "伊神邦彦": {
+    "district": "千種区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_伊神邦彦_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-11-14",
+          "meeting_title": "公社対策特別委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=645&schedule_id=11",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "神ひろし": {
+    "district": "名古屋市",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_神ひろし_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-26",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "上村みちよ": {
+    "district": "東区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_上村みちよ_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-05",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "渡辺やすのり": {
+    "district": "北区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_渡辺やすのり_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "浅野有": {
+    "district": "西区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_浅野有_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-26",
+          "meeting_title": "教育子ども委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=34",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "村瀬きよみ": {
+    "district": "名古屋市",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_村瀬きよみ_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "小出昭司": {
+    "district": "中村区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_小出昭司_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-02-26",
+          "meeting_title": "経済水道委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=677&schedule_id=1",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "中田ちづこ": {
+    "district": "中区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_中田ちづこ_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-06",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=6",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "西川学": {
+    "district": "昭和区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_西川学_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-01-27",
+          "meeting_title": "公社対策特別委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=662&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "ふじた和秀": {
+    "district": "瑞穂区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_ふじた和秀_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-09",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=7",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "服部しんのすけ": {
+    "district": "熱田区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_服部しんのすけ_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-09",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=7",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "浅井正仁": {
+    "district": "中川区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_浅井正仁_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-26",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "吉田茂": {
+    "district": "港区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_吉田茂_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-26",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "沢田ひとみ": {
+    "district": "名古屋市",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_沢田ひとみ_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-26",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "横井利明": {
+    "district": "南区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_横井利明_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-26",
+          "meeting_title": "財政福祉委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=35",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "藤沢ちあき": {
+    "district": "南区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_藤沢ちあき_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "松井よしのり": {
+    "district": "守山区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_松井よしのり_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-02-26",
+          "meeting_title": "経済水道委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=677&schedule_id=1",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "北野よしはる": {
+    "district": "守山区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_北野よしはる_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-26",
+          "meeting_title": "財政福祉委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=35",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "中里高之": {
+    "district": "緑区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_中里高之_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-22",
+          "meeting_title": "教育子ども委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=33",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "岩本たかひろ": {
+    "district": "緑区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_岩本たかひろ_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-01-30",
+          "meeting_title": "総務環境委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=672&schedule_id=1",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "くずや利枝": {
+    "district": "名東区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_くずや利枝_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "丹羽ひろし": {
+    "district": "名東区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_丹羽ひろし_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-23",
+          "meeting_title": "経済水道委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=652&schedule_id=34",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "成田たかゆき": {
+    "district": "天白区",
+    "party": "自民",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_成田たかゆき_1",
+        "headline": "【準備中】自民の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-26",
+          "meeting_title": "土木交通委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=651&schedule_id=27",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "山田昌弘": {
+    "district": "千種区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_山田昌弘_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-05",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "くにまさ直記": {
+    "district": "東区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_くにまさ直記_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-09",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=7",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "服部将也": {
+    "district": "北区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_服部将也_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-01-27",
+          "meeting_title": "公社対策特別委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=662&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "うえぞの晋介": {
+    "district": "西区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_うえぞの晋介_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-10-09",
+          "meeting_title": "教育子ども委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=27",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "うかい春美": {
+    "district": "中村区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_うかい春美_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-09",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=7",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "塚本つよし": {
+    "district": "中区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_塚本つよし_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-03",
+          "meeting_title": "都市消防委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=654&schedule_id=28",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "おくむら文悟": {
+    "district": "昭和区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_おくむら文悟_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "久田邦博": {
+    "district": "瑞穂区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_久田邦博_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "森ともお": {
+    "district": "熱田区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_森ともお_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-09",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=7",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "久野美穂": {
+    "district": "中川区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_久野美穂_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-23",
+          "meeting_title": "都市消防委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=654&schedule_id=31",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "赤松哲次": {
+    "district": "中川区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_赤松哲次_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-26",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "加藤一登": {
+    "district": "港区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_加藤一登_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-23",
+          "meeting_title": "都市消防委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=654&schedule_id=31",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "橋本ひろき": {
+    "district": "南区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_橋本ひろき_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-26",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "小川としゆき": {
+    "district": "守山区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_小川としゆき_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-02-26",
+          "meeting_title": "経済水道委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=677&schedule_id=1",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "岡本やすひろ": {
+    "district": "緑区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_岡本やすひろ_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "日比美咲": {
+    "district": "名東区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_日比美咲_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "田中里佳": {
+    "district": "天白区",
+    "party": "民主",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_田中里佳_1",
+        "headline": "【準備中】民主の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-10-08",
+          "meeting_title": "土木交通委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=651&schedule_id=21",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "田辺雄一": {
+    "district": "千種区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_田辺雄一_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-09",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=7",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "長谷川由美子": {
+    "district": "北区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_長谷川由美子_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-02-26",
+          "meeting_title": "経済水道委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=677&schedule_id=1",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "さわだ晃一": {
+    "district": "西区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_さわだ晃一_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "おか千恵": {
+    "district": "中村区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_おか千恵_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-26",
+          "meeting_title": "教育子ども委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=34",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "木下優": {
+    "district": "中川区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_木下優_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-11-21",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=660&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "月森たくや": {
+    "district": "中川区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_月森たくや_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "吉岡正修": {
+    "district": "港区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_吉岡正修_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-06",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=6",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "さかい大輔": {
+    "district": "南区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_さかい大輔_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-04",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "金庭宜雄": {
+    "district": "守山区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_金庭宜雄_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-23",
+          "meeting_title": "都市消防委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=654&schedule_id=31",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "近藤和博": {
+    "district": "緑区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_近藤和博_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-22",
+          "meeting_title": "教育子ども委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=33",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "中村しゅうへい": {
+    "district": "名東区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_中村しゅうへい_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "辻󠄀まさお": {
+    "district": "天白区",
+    "party": "公明",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_辻󠄀まさお_1",
+        "headline": "【準備中】公明の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "佐藤ゆうこ": {
+    "district": "東区",
+    "party": "減税",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_佐藤ゆうこ_1",
+        "headline": "【準備中】減税の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "田山宏之": {
+    "district": "北区",
+    "party": "減税",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_田山宏之_1",
+        "headline": "【準備中】減税の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-04",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "大田とみひこ": {
+    "district": "西区",
+    "party": "減税",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_大田とみひこ_1",
+        "headline": "【準備中】減税の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "豊田かおる": {
+    "district": "中区",
+    "party": "減税",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_豊田かおる_1",
+        "headline": "【準備中】減税の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-01-27",
+          "meeting_title": "公社対策特別委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=662&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "大村光子": {
+    "district": "昭和区",
+    "party": "減税",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_大村光子_1",
+        "headline": "【準備中】減税の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-10-08",
+          "meeting_title": "総務環境委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=639&schedule_id=30",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "大谷ともひろ": {
+    "district": "緑区",
+    "party": "減税",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_大谷ともひろ_1",
+        "headline": "【準備中】減税の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-26",
+          "meeting_title": "土木交通委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=651&schedule_id=27",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "永井ゆり": {
+    "district": "緑区",
+    "party": "減税",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_永井ゆり_1",
+        "headline": "【準備中】減税の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-12-26",
+          "meeting_title": "教育子ども委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=34",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "鈴木孝之": {
+    "district": "天白区",
+    "party": "減税",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_鈴木孝之_1",
+        "headline": "【準備中】減税の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2025-09-18",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=659&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "岡田ゆき子": {
+    "district": "北区",
+    "party": "共産",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_岡田ゆき子_1",
+        "headline": "【準備中】共産の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-26",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "みつなか美由紀": {
+    "district": "緑区",
+    "party": "共産",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_みつなか美由紀_1",
+        "headline": "【準備中】共産の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-02-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "田口一登": {
+    "district": "天白区",
+    "party": "共産",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_田口一登_1",
+        "headline": "【準備中】共産の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-05",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=5",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "金城ゆたか": {
+    "district": "瑞穂区",
+    "party": "陽向",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_金城ゆたか_1",
+        "headline": "【準備中】陽向の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-02-26",
+          "meeting_title": "経済水道委員会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=677&schedule_id=1",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "野田留美": {
+    "district": "守山区",
+    "party": "陽向",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_野田留美_1",
+        "headline": "【準備中】陽向の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-03-09",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=7",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "中川あつし": {
+    "district": "中川区",
+    "party": "創政",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_中川あつし_1",
+        "headline": "【準備中】創政の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "北角嘉幸": {
+    "district": "千種区",
+    "party": "新生",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_北角嘉幸_1",
+        "headline": "【準備中】新生の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-24",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  },
+  "大島英勲": {
+    "district": "名東区",
+    "party": "維新",
+    "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html",
+    "tracked_items": [
+      {
+        "id": "pledge_nagoya_大島英勲_1",
+        "headline": "【準備中】維新の基本政策に基づく地域課題解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民生活の向上",
+        "stance": "推進",
+        "election_promise": {
+          "quote": "現在、令和5年名古屋市議会議員一般選挙の公報原本から公約テキストを抽出中です。",
+          "source_name": "選挙公報原本よりAI抽出予定",
+          "bulletin_url": "https://www.city.nagoya.jp/senkyo/page/0000161476.html"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "thread_id": null,
+          "meeting_date": "2026-06-25",
+          "meeting_title": "定例会",
+          "question_summary": "...",
+          "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=4",
+          "match_reason": "最新の質疑内容に基づく仮抽出（後日アップデート）"
+        }
+      }
+    ]
+  }
+}
