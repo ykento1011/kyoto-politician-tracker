@@ -39,6 +39,7 @@ BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_
 
 # 3都市共通 統合トピック要約ジェネレーター
 UNIFIED_TOPIC_SCRIPT = os.path.join(BASE_DIR, "generate_unified_topic_summaries.py")
+AUDIT_INTEGRITY_SCRIPT = os.path.join(BASE_DIR, "audit_unified_integrity.py")
 
 # 自動テストスクリプト（ルート直下）
 COMPREHENSIVE_TEST_SCRIPT = os.path.join(PROJECT_ROOT, "run_comprehensive_test.py")
@@ -177,6 +178,26 @@ def check_for_changes():
         log("Git の状態確認に失敗しました", "ERROR")
         return False
 
+
+def run_integrity_audit():
+    """デプロイ直前の自動インテグリティ監査（全都市モーダル到達率100%保証）"""
+    if not os.path.exists(AUDIT_INTEGRITY_SCRIPT):
+        log("インテグリティ監査スクリプトが見つかりません。テストをスキップします。", "WARN")
+        return True, ""
+    log("🛡️ デプロイ前の全自動インテグリティ監査（全都市カード到達率検証）を実行中...")
+    try:
+        python_exe = sys.executable
+        res = subprocess.run([python_exe, AUDIT_INTEGRITY_SCRIPT], capture_output=True, text=True, check=True)
+        if "ALL PASS" in res.stdout or "全3都市でモーダル到達率" in res.stdout:
+            log("✅ インテグリティ監査合格（全都市モーダル到達率 98% 以上確認）")
+            return True, ""
+        else:
+            log("❌ インテグリティ監査で未到達・不整合が検知されました", "ERROR")
+            return False, res.stdout
+    except subprocess.CalledProcessError as e:
+        log("❌ インテグリティ監査実行中にエラーが発生しました", "ERROR")
+        return False, e.stderr
+
 def run_pre_deploy_test():
     """デプロイ直前の自動ヘルスチェック（Playwright自動巡回）"""
     if not os.path.exists(COMPREHENSIVE_TEST_SCRIPT):
@@ -277,7 +298,7 @@ def main():
     # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（3都市統合）
     log("--- [政策タイムラインの最新化（3都市）] ---")
     if os.path.exists(UNIFIED_TOPIC_SCRIPT):
-        for city in ["osaka", "nagoya"]:
+        for city in ["kyoto", "osaka", "nagoya"]:
             run_script(UNIFIED_TOPIC_SCRIPT, f"政策タイムラインの差分更新（{city.upper()}）", args=["--city", city])
     log("--- [政策タイムラインの最新化完了] ---")
 
@@ -319,6 +340,13 @@ def main():
         log("データファイルに変更があります。")
 
         # 🛡️ プッシュ前の自動健全性検証
+        audit_passed, audit_err = run_integrity_audit()
+        if not audit_passed:
+            log("❌ 全自動インテグリティ監査に失敗したため、GitHub デプロイを中止しました。", "ERROR")
+            notify_discord("❌ 定期更新中断: データ整合性チェック不合格", "データ生成後に実施したインテグリティ監査（モーダル到達率検証）で異常が検知されたため、本番サイトの破壊を防ぐためデプロイを中断しました。", status="error", error_detail=audit_err)
+            return
+
+        # 🛡️ 続く UI 全画面巡回テスト
         test_passed, test_err = run_pre_deploy_test()
         if not test_passed:
             log("❌ 自動健全性テストに失敗したため、安全のため GitHub デプロイを中止しました。", "ERROR")

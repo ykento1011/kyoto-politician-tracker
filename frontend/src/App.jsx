@@ -581,8 +581,15 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <TopicDetailPage topicId={currentRoute.topicId} cityCode={cityCode} onBack={handleGoHome} />
+          <TopicDetailPage topicId={currentRoute.topicId} cityCode={cityCode} statements={statements} onBack={handleGoHome} onViewContext={handleViewContext} />
         </div>
+        <TimelineModal
+          cityCode={cityCode}
+          isOpen={isPanelOpen}
+          onClose={() => setIsPanelOpen(false)}
+          selectedContext={selectedContext}
+          isLoading={isLoadingContext}
+        />
         <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
@@ -595,6 +602,7 @@ export default function App() {
         {renderNavbar(false)}
         <div className="flex-grow">
           <CategoryDetailPage
+            cityCode={cityCode}
             categoryName={currentRoute.categoryName}
             onBack={handleGoHome}
             topicStats={topicStats}

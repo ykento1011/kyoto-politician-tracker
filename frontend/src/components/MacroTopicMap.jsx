@@ -2,53 +2,153 @@ import React, { useMemo } from 'react';
 import { PieChart, Flame, ArrowRight } from 'lucide-react';
 
 const KYOTO_CATEGORY_TOPICS = {
-  '都市再生・交通インフラ': [
-    { id: 'bus_fare_priority', title: '市バス混雑・市民優先価格' },
-    { id: 'hokuriku_shinkansen_extension', title: '北陸新幹線延伸・地下水と財政負担' },
-    { id: 'vacant_house_tax', title: '空き家税・若者定住' },
-    { id: 'urban_planning_height_relax', title: '高さ規制緩和・産業用地' }
+  "都市再生・交通インフラ": [
+    {
+      "id": "bus_fare_priority",
+      "title": "市バス混雑対策と「市民優先価格（二重運賃）」導入"
+    },
+    {
+      "id": "vacant_house_tax",
+      "title": "空き家税（非居住住宅利活用促進税）の施行と若者定住対策"
+    },
+    {
+      "id": "urban_planning_height_relax",
+      "title": "都市計画・高さ制限緩和（若者居住・産業用地確保）"
+    },
+    {
+      "id": "hokuriku_shinkansen_extension",
+      "title": "北陸新幹線延伸（小浜・京都ルート）の財政負担と地下水・環境影響"
+    },
+    {
+      "id": "subway_tozai_extension_management",
+      "title": "地下鉄東西線・烏丸線の経営改善と可動式ホーム柵整備"
+    }
   ],
-  '産業・観光・地域経済': [
-    { id: 'accommodation_tax_revision', title: '宿泊税引き上げ・使途拡大' },
-    { id: 'overtourism_clean_manners', title: 'オーバーツーリズム・散乱ごみ' },
-    { id: 'traditional_industry_succession', title: '伝統産業・事業承継' },
-    { id: 'central_market_redevelopment', title: '中央卸売市場・食肉市場再整備' }
+  "産業・観光・地域経済": [
+    {
+      "id": "accommodation_tax_revision",
+      "title": "宿泊税の税率引き上げと使途拡大（市民還元）"
+    },
+    {
+      "id": "overtourism_clean_manners",
+      "title": "オーバーツーリズム対策（スマートごみ箱・マナー啓発）"
+    },
+    {
+      "id": "traditional_industry_succession",
+      "title": "伝統産業・地域企業の事業承継と担い手育成"
+    },
+    {
+      "id": "central_market_redevelopment",
+      "title": "中央卸売市場・食肉市場の施設再整備と活性化"
+    }
   ],
-  '子育て・教育': [
-    { id: 'school_lunch_free', title: '全員制中学校給食・無償化' },
-    { id: 'children_medical_subsidy', title: '子ども医療費助成の拡充' },
-    { id: 'teacher_workload_ict', title: '教員の多忙化・学校ICT' },
-    { id: 'nursery_teacher_subsidy_reform', title: '民間保育所独自給与補助見直し' }
+  "子育て・教育": [
+    {
+      "id": "school_lunch_free",
+      "title": "全員制中学校給食の導入と給食無償化の財源論争"
+    },
+    {
+      "id": "children_medical_subsidy",
+      "title": "子ども医療費助成の対象拡充（通院助成の上限引き上げ）"
+    },
+    {
+      "id": "teacher_workload_ict",
+      "title": "教員の多忙化解消・働き方改革と学校ICT・不登校対策"
+    },
+    {
+      "id": "nursery_teacher_subsidy_reform",
+      "title": "民間保育施設への京都市独自給与上乗せ補助の見直し"
+    }
   ],
-  '福祉・医療・健康': [
-    { id: 'senior_bus_pass_reform', title: '敬老乗車証・制度見直し' },
-    { id: 'national_health_insurance_burden', title: '国保料・介護保険料の軽減' },
-    { id: 'vaccine_public_subsidy', title: '帯状疱疹ワクチン公費助成' },
-    { id: 'poverty_hikikomori_support', title: '生活困窮・ひきこもり相談' }
+  "福祉・医療・健康": [
+    {
+      "id": "senior_bus_pass_reform",
+      "title": "敬老乗車証の制度見直し（自己負担割合・交付基準）"
+    },
+    {
+      "id": "national_health_insurance_burden",
+      "title": "国民健康保険料・介護保険料の負担軽減策"
+    },
+    {
+      "id": "vaccine_public_subsidy",
+      "title": "帯状疱疹ワクチン等の任意予防接種公費助成"
+    },
+    {
+      "id": "poverty_hikikomori_support",
+      "title": "生活困窮者自立支援とひきこもり・ヤングケアラー相談体制"
+    }
   ],
-  '財政・行革': [
-    { id: 'fiscal_reform_reconstruction', title: '行財政改革・財政健全化' },
-    { id: 'council_reform_transparency', title: '議員定数・政務活動費公開' },
-    { id: 'public_facility_management_privatization', title: '公共施設包括管理・資産売却' },
-    { id: 'city_hall_reconstruction_cost', title: '市役所新庁舎整備・分庁舎集約' }
+  "財政・行革": [
+    {
+      "id": "fiscal_reform_reconstruction",
+      "title": "行財政改革計画と「特別の財政支援」からの完全脱却"
+    },
+    {
+      "id": "council_reform_transparency",
+      "title": "議員定数・報酬および政務活動費の透明性向上"
+    },
+    {
+      "id": "public_facility_management_privatization",
+      "title": "公共施設等総合管理計画と民間委託・資産売却"
+    },
+    {
+      "id": "city_hall_reconstruction_cost",
+      "title": "市役所新庁舎整備事業と分庁舎集約による執務環境適正化"
+    }
   ],
-  'くらし・環境・エネルギー': [
-    { id: 'waste_charging_recycling', title: '指定ごみ袋・プラ資源循環' },
-    { id: 'water_tariff_earthquake_pipe', title: '水道料金改定・管路耐震化' },
-    { id: 'decarbonization_solar_obligation', title: '脱炭素・太陽光パネル義務化' },
-    { id: 'bike_sharing_illegal_parking', title: '放置自転車対策・シェアサイクル' }
+  "くらし・環境・エネルギー": [
+    {
+      "id": "waste_charging_recycling",
+      "title": "ごみ処理有料化手数料とプラスチック資源循環"
+    },
+    {
+      "id": "water_tariff_earthquake_pipe",
+      "title": "水道料金体系の改定と基幹管路の耐震化更新"
+    },
+    {
+      "id": "decarbonization_solar_obligation",
+      "title": "脱炭素都市・建築物太陽光パネル設置義務化の推進"
+    },
+    {
+      "id": "bike_sharing_illegal_parking",
+      "title": "放置自転車対策とシェアサイクルポートの全市的展開"
+    }
   ],
-  '防災・減災・治安': [
-    { id: 'wooden_houses_earthquake_retrofitting', title: '木密・京町家耐震・路地防災' },
-    { id: 'flood_control_urban_inundation', title: '鴨川・桂川水系の内水氾濫対策' },
-    { id: 'landslide_disaster_prevention', title: '土砂災害警戒区域・砂防対策' },
-    { id: 'evacuation_center_bed_women', title: '避難所段ボールベッド・女性視点防災' }
+  "防災・減災・治安": [
+    {
+      "id": "wooden_houses_earthquake_retrofitting",
+      "title": "木造密集市街地・京町家の耐震改修と路地奥防災"
+    },
+    {
+      "id": "flood_control_urban_inundation",
+      "title": "鴨川・桂川水系の内水氾濫対策と雨水幹線整備"
+    },
+    {
+      "id": "landslide_disaster_prevention",
+      "title": "土砂災害警戒区域の安全対策と急傾斜地崩壊防止事業"
+    },
+    {
+      "id": "evacuation_center_bed_women",
+      "title": "避難所における段ボールベッド等の備蓄と女性視点の防災機能"
+    }
   ],
-  '文化・景観・歴史': [
-    { id: 'culture_agency_relocation_impact', title: '文化庁移転の波及効果創出' },
-    { id: 'townscape_wire_undergrounding', title: '歴史的景観・無電柱化' },
-    { id: 'world_heritage_buffer_zone', title: '世界遺産バッファーゾーン保全' },
-    { id: 'kyoto_arts_univ_sujin_impact', title: '京都芸大崇仁移転・地域活性化' }
+  "文化・景観・歴史": [
+    {
+      "id": "culture_agency_relocation_impact",
+      "title": "文化庁京都移転の波及効果創出と文化芸術支援"
+    },
+    {
+      "id": "townscape_wire_undergrounding",
+      "title": "歴史的景観の保全・無電柱化と屋外広告物対策"
+    },
+    {
+      "id": "world_heritage_buffer_zone",
+      "title": "世界遺産周辺のバッファーゾーン保全と開発の調和"
+    },
+    {
+      "id": "kyoto_arts_univ_sujin_impact",
+      "title": "京都市立芸術大学の崇仁移転と地域活性化・アート振興"
+    }
   ]
 };
 

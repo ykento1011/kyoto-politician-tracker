@@ -1,12 +1,12 @@
 import { getCityDataUrl } from '../config/cities';
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
-  ArrowLeft, Milestone, Calendar, Landmark, ExternalLink, 
+  ArrowLeft, MessageCircle, Milestone, Calendar, Landmark, ExternalLink, 
   Layers, Clock, Share2, Check, ArrowUpDown, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
-export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto' }) {
+export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', onViewContext, statements = [] }) {
   const cityName = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
   const [topic, setTopic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +31,51 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto' })
         setIsLoading(false);
       });
   }, [topicId, cityCode]);
+
+  // 💡 SpeakerDetailView と完全同一の質疑原本レコード解決ロジック
+  
+
+  // 💡 議員詳細・一覧と完全共通の質疑原本レコード解決・モーダル呼び出し
+  const handleViewExchangeContext = (ex) => {
+    if (!ex) return;
+    if (typeof onViewContext !== 'function') {
+      console.error('[TopicDetailPage] onViewContext が渡されていません', onViewContext);
+      return;
+    }
+    const allStmts = Array.isArray(statements) ? statements : [];
+
+    // 1. statement_id による原本直接探索
+    let target = allStmts.find((s) => s.id === (ex.statement_id || ex.id));
+
+    // 2. meeting_id と sequence_number による探索
+    if (!target && ex.meeting_id && ex.sequence_number !== undefined) {
+      target = allStmts.find(
+        (s) =>
+          String(s.meeting_id) === String(ex.meeting_id) &&
+          String(s.sequence_number) === String(ex.sequence_number)
+      );
+    }
+
+    // 3. 原本が見つからない場合のフォールバック（完全なstmt構造を保証）
+    if (!target) {
+      target = {
+        ...ex,
+        id: ex.statement_id || ex.id || `topic_stmt_${ex.meeting_date}_${ex.sequence_number}`,
+        meeting_id: String(ex.meeting_id || ''),
+        sequence_number: ex.sequence_number,
+        speaker: ex.speaker,
+        meeting_date: ex.meeting_date,
+        meeting_title: ex.meeting_title,
+        committee_name: ex.meeting_title,
+        statement_text: ex.statement_summary,
+        summary: ex.statement_summary,
+        official_url: ex.official_url || ex.source_url || ex.url
+      };
+    }
+
+    console.log('[TopicDetailPage] モーダルを開きます:', target);
+    onViewContext(target);
+  };
 
   const handleShare = () => {
     if (navigator.clipboard) {
@@ -226,7 +271,7 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto' })
                     </span>
 
                     {phase.exchanges.map((ex, exIdx) => (
-                      <div key={exIdx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 hover:border-slate-300 transition-colors">
+                      <div key={exIdx} onClick={() => handleViewExchangeContext(ex)} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 hover:bg-slate-100/60 hover:border-slate-300 transition-all cursor-pointer group shadow-2xs">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                           <span className="text-xs font-black text-slate-900">
                             🗣️ {ex.speaker}
@@ -240,17 +285,30 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto' })
                           {ex.statement_summary}
                         </p>
 
-                        <div className="pt-1 flex justify-end">
-                          <button
-                            onClick={() => openOfficialMinute(ex, cityCode)}
-                            title={getOfficialLinkTooltip(ex, cityCode)}
-                            className="inline-flex items-center text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors cursor-pointer group shadow-2xs"
-                          >
-                            <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600 group-hover:text-indigo-700" />
+                        <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 border-t border-slate-200/70 mt-3">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                openOfficialMinute(ex, cityCode);
+                              }}
+                              title={getOfficialLinkTooltip(ex, cityCode)}
+                              className="inline-flex items-center justify-center text-xs font-semibold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors cursor-pointer group shadow-2xs"
+                            >
+                              <Landmark className="w-3.5 h-3.5 mr-1.5 text-slate-500 group-hover:text-slate-700" />
                               <span>{cityCode === 'nagoya' ? '名古屋市会 公式原本で確認' : cityCode === 'osaka' ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認'}</span>
-                            <ExternalLink className="w-3 h-3 ml-1.5 text-slate-400 group-hover:text-slate-600" />
-                          </button>
-                        </div>
+                              <ExternalLink className="w-3 h-3 ml-1.5 text-slate-400 group-hover:text-slate-600" />
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={() => handleViewExchangeContext(ex)}
+                              className="inline-flex items-center justify-center text-xs font-bold text-indigo-600 bg-indigo-50/70 hover:bg-indigo-100/90 border border-indigo-200 hover:border-indigo-300 px-3.5 py-1.5 rounded-xl transition-colors cursor-pointer shadow-2xs"
+                            >
+                              <MessageCircle className="w-3.5 h-3.5 mr-1.5 text-indigo-600" />
+                              <span>会議録・質疑の文脈を見る →</span>
+                            </button>
+                          </div>
                       </div>
                     ))}
                   </div>

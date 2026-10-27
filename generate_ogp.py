@@ -59,7 +59,7 @@ def create_ogp(badge_text, title_text, sub_text, desc_lines, filename, accent_co
 
 # 1. メイン総合 OGP (ogp.png)
 create_ogp(
-    badge_text="京都・大阪 市会公開データ × 一次資料検証基盤",
+    badge_text="京都・大阪・名古屋 市会公開データ × 一次資料検証基盤",
     title_text="議会のミカタ",
     sub_text="AIは入口。判断するのは市民です。",
     desc_lines=[
@@ -95,4 +95,17 @@ create_ogp(
     ],
     filename="ogp-osaka.png",
     accent_color="#0284c7"
+)
+
+# 4. 名古屋専用 OGP (ogp-nagoya.png)
+create_ogp(
+    badge_text="名古屋市会 公式会議録 × 広沢市長政策トラッカー",
+    title_text="議会のミカタ 名古屋",
+    sub_text="対話がわかる。政策が見える。",
+    desc_lines=[
+        "名古屋市会公式会議録と電子採決ログを客観的に構造化。",
+        "現職68議員の質疑スレッド分析と広沢市長政策トラッカーを完全追跡。"
+    ],
+    filename="ogp-nagoya.png",
+    accent_color="#d97706"  # 名古屋城・金鯱アンバー
 )

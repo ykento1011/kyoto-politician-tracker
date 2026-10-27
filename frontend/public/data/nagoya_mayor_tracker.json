@@ -69,14 +69,16 @@
           "project_name": "特別史跡名古屋城跡保存活用事業費（天守閣木造復元関連経費）",
           "amount_display": "調査設計・保全対策費計上",
           "doc_source": "観光文化交流局主要事業説明書",
-          "doc_url": "https://www.city.nagoya.jp/zaisei/"
+          "doc_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
         }
       ],
       "milestone": {
         "date": "2024年11月〜",
         "title": "新技術エレベーターの導入協議について文化庁および有識者・関係団体との意見交換を継続",
-        "evidence_url": "https://www.city.nagoya.jp/mayor/press/"
-      }
+        "evidence_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
+      },
+      "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010542/1010543.html",
+      "evidence_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
     },
     {
       "id": "nagoya_p2",
@@ -102,7 +104,7 @@
           "project_name": "市民税減税に伴う歳入減対策（税負担軽減措置）",
           "amount_display": "平年約120〜130億円減収織込",
           "doc_source": "財政局主要事業説明書（一般財源）",
-          "doc_url": "https://www.city.nagoya.jp/zaisei/"
+          "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html"
         }
       ],
       "legislative_bill": {
@@ -110,7 +112,7 @@
         "bill_number": "市長提出議案",
         "bill_title": "名古屋市市税条例の一部を改正する条例案",
         "result": "可決",
-        "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/",
+        "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html",
         "party_votes": {
           "自民": "賛成",
           "減税": "賛成",
@@ -122,8 +124,10 @@
       "milestone": {
         "date": "2024年11月29日",
         "title": "市長会見にて10%拡大の方向性を堅持しつつ段階的検証を進める意向を表明",
-        "evidence_url": "https://www.city.nagoya.jp/mayor/press/"
-      }
+        "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
+      },
+      "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html",
+      "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
     },
     {
       "id": "nagoya_p3",
@@ -149,14 +153,16 @@
           "project_name": "敬老パス交付事業費（交付経費・運行補填・併給設計）",
           "amount_display": "約140億〜150億円規模",
           "doc_source": "健康福祉局主要事業説明書",
-          "doc_url": "https://www.city.nagoya.jp/zaisei/"
+          "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf"
         }
       ],
       "milestone": {
         "date": "2025年1月",
         "title": "障がい者タクシー助成との併給制度設計および電算システム改修工程の精査を開始",
-        "evidence_url": "https://www.city.nagoya.jp/zaisei/"
-      }
+        "evidence_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf"
+      },
+      "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf",
+      "evidence_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf"
     },
     {
       "id": "nagoya_p4",
@@ -182,7 +188,7 @@
           "project_name": "総務局 特別職給料等経費（市長給与）",
           "amount_display": "年額約800万円（年2,030万円削減）",
           "doc_source": "総務局主要事業説明書（退職金4,220万円削減）",
-          "doc_url": "https://www.city.nagoya.jp/zaisei/"
+          "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/031/917/01.pdf"
         }
       ],
       "legislative_bill": {
@@ -190,7 +196,7 @@
         "bill_number": "市長提出議案",
         "bill_title": "市長等の給料及び退職手当の特例に関する条例の制定について",
         "result": "可決",
-        "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/",
+        "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html",
         "party_votes": {
           "自民": "賛成",
           "減税": "賛成",
@@ -202,8 +208,10 @@
       "milestone": {
         "date": "2025年3月10日",
         "title": "市会本会議採決にて特例条例が賛成多数（自民・減税・公明）で可決成立",
-        "evidence_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/"
-      }
+        "evidence_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html"
+      },
+      "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html",
+      "evidence_url": "https://www.city.nagoya.jp/shisei/jouhou/1028672/1028675/1028758/1037190/1037191/1045338.html"
     },
     {
       "id": "nagoya_p5",
@@ -229,7 +237,7 @@
           "project_name": "保育所等運営給付費（第2子軽減枠拡大）／子ども応援委員会設置運営事業費",
           "amount_display": "当初予算計上",
           "doc_source": "子ども青少年局・教育委員会主要事業説明書",
-          "doc_url": "https://www.city.nagoya.jp/zaisei/"
+          "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf"
         }
       ],
       "legislative_bill": {
@@ -237,7 +245,7 @@
         "bill_number": "第1号議案",
         "bill_title": "令和7年度名古屋市一般会計予算案（子ども青少年局・教育委員会関係費）",
         "result": "可決",
-        "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/",
+        "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf",
         "party_votes": {
           "自民": "賛成",
           "減税": "賛成",
@@ -249,8 +257,11 @@
       "milestone": {
         "date": "2024年12月",
         "title": "所信表明にて0歳児保育料無償化の試算と第2子軽減の先行着手を表明し、令和7年度予算案に反映",
-        "evidence_url": "https://www.city.nagoya.jp/mayor/press/"
-      }
+        "evidence_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=621&schedule_id=26",
+        "url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=621&schedule_id=26"
+      },
+      "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf",
+      "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
     }
   ]
 }

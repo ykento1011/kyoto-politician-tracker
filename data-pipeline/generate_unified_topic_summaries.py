@@ -232,7 +232,7 @@ OSAKA_TOPIC_CONFIGS = [
             "違法民泊・指導無視施設に対する市の行政権限行使の限界",
             "宿泊税の活用や事業者へのルール周知徹底の実効性"
         ],
-        "keywords": ["特区民泊", "民泊", "違法民泊", "立入検査", "宿泊"]
+        "keywords": ["特区民泊", "民泊", "違法民泊", "国家戦略特区民泊", "民泊施設", "違法民泊対策"]
     },
     {
         "topic_id": "street_smoking_ban_spread",
@@ -284,7 +284,7 @@ OSAKA_TOPIC_CONFIGS = [
             "ゼロメートル地帯における避難体制と外国人・来訪者への避難誘導",
             "老朽下水管・河川インフラの耐震補強と財政負担の平準化"
         ],
-        "keywords": ["淀川左岸線", "防潮堤", "高潮", "水門", "津波避難", "浸水想定"]
+        "keywords": ["淀川左岸線", "防潮堤", "高潮対策", "水門整備", "浸水想定区域", "ゼロメートル地帯"]
     },
     {
         "topic_id": "cultural_heritage_osakajo_naniwagu",
@@ -361,14 +361,23 @@ def generate_topics(city_code):
 
             exchanges = []
             for s in p_stmts[:3]:
-                summary_text = s.get("summary", "")
-                if len(summary_text) > 180:
-                    summary_text = summary_text[:180] + "..."
+                # 💡 京都・大阪・名古屋 全都市統一: 議員の実際の発言本文 (statement_text) を最優先
+                raw_speech = (s.get("statement_text") or "").strip()
+                if raw_speech and len(raw_speech) > 20:
+                    # 議事進行の余計な定型句を除去して実際の発言を抽出
+                    cleaned_speech = re.sub(r"^(ただいまから|それでは|よろしくお願いいたします|おはようございます|ありがとうございます)[。、\s]*", "", raw_speech)
+                    display_text = cleaned_speech[:220] + ("..." if len(cleaned_speech) > 220 else "")
+                else:
+                    display_text = s.get("summary", "")[:200]
+
                 exchanges.append({
+                    "statement_id": s.get("id"),
+                    "meeting_id": s.get("meeting_id"),
+                    "sequence_number": s.get("sequence_number") or s.get("speech_order"),
                     "meeting_date": s.get("meeting_date", ""),
                     "meeting_title": s.get("meeting_title", ""),
                     "speaker": s.get("speaker", ""),
-                    "statement_summary": summary_text,
+                    "statement_summary": display_text,
                     "source_url": s.get("official_url") or s.get("source_url", "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html")
                 })
 

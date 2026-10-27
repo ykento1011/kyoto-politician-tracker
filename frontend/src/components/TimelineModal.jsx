@@ -106,14 +106,14 @@ export default function TimelineModal({
                     </div>
 
                     <div
-                      className={`max-w-[90%] rounded-xl px-4 py-3 text-sm leading-relaxed shadow-sm ${msg.is_target
+                      className={`max-w-[90%] rounded-xl px-4 py-3 text-sm leading-relaxed shadow-sm whitespace-pre-wrap break-words ${msg.is_target
                           ? 'bg-indigo-600 text-white rounded-tr-none border border-indigo-700'
                           : msg.is_admin
                             ? 'bg-white border border-slate-200 text-slate-800 rounded-tl-none'
                             : 'bg-slate-200 text-slate-700 rounded-tl-none'
                         }`}
                     >
-                      {msg.statement_text}
+                      {msg.statement_text || msg.summary || msg.statement_summary || msg.question_summary || '（質疑テキスト）'}
                     </div>
                   </div>
                 );

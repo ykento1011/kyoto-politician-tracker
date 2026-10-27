@@ -476,16 +476,50 @@ export function useStatements(cityCode = 'kyoto') {
     setIsPanelOpen(true);
 
     try {
-      const meetingId = stmt.meeting_id;
-      let targetSeq = Number(stmt.sequence_number ?? stmt.speech_order ?? 0);
-      if (!targetSeq && stmt.id) {
-        const match = String(stmt.id).match(/_(\d+)$/);
-        if (match) targetSeq = parseInt(match[1], 10);
+      let meetingId = stmt.meeting_id;
+      let targetSeq = (stmt.sequence_number !== undefined && stmt.sequence_number !== null)
+        ? String(stmt.sequence_number)
+        : null;
+
+      const stmtUrl = stmt.official_url || stmt.meeting_url || stmt.source_url || stmt.url || '';
+      const councilMatch = stmtUrl.match(/council_id=([^&]+)/);
+      const scheduleMatch = stmtUrl.match(/schedule_id=([^&]+)/);
+      const targetCouncil = councilMatch ? councilMatch[1] : null;
+      const targetSchedule = scheduleMatch ? scheduleMatch[1] : null;
+
+      // 1. meeting_id / targetSeq が無い場合のフォールバック逆引き
+      if ((!meetingId || !targetSeq) && statements && statements.length > 0) {
+        if (targetCouncil) {
+          const matchByUrl = statements.find(s => {
+            const sUrl = s.official_url || s.meeting_url || s.source_url || s.url || '';
+            const hitCouncil = sUrl.includes(`council_id=${targetCouncil}`);
+            const hitSchedule = targetSchedule ? sUrl.includes(`schedule_id=${targetSchedule}`) : true;
+            return hitCouncil && hitSchedule;
+          });
+          if (matchByUrl) {
+            meetingId = meetingId || matchByUrl.meeting_id;
+            targetSeq = targetSeq || (matchByUrl.sequence_number ? String(matchByUrl.sequence_number) : null);
+          }
+        }
+
+        if (!meetingId && stmt.meeting_date && stmt.speaker) {
+          const cleanTargetSpeaker = stmt.speaker.replace(/[\s ]+/g, '');
+          const matchBySpeaker = statements.find(s => {
+            if (s.meeting_date !== stmt.meeting_date) return false;
+            const cleanS = (s.speaker || '').replace(/[\s ]+/g, '');
+            return cleanS === cleanTargetSpeaker;
+          });
+          if (matchBySpeaker) {
+            meetingId = matchBySpeaker.meeting_id;
+            targetSeq = targetSeq || (matchBySpeaker.sequence_number ? String(matchBySpeaker.sequence_number) : null);
+          }
+        }
       }
 
       let contextData = [];
 
-      if (meetingId && targetSeq > 0) {
+      // 2. timelines/{meetingId}.json の取得
+      if (meetingId) {
         let meetingTimelines = timelineCache.get(meetingId);
 
         if (!meetingTimelines) {
@@ -497,25 +531,114 @@ export function useStatements(cityCode = 'kyoto') {
               timelineCache.set(meetingId, meetingTimelines);
             }
           } catch (fetchErr) {
-            console.warn(`[handleViewContext] 会議タイムライン取得失敗 (${meetingId}):`, fetchErr);
+            console.warn(`[handleViewContext] タイムライン取得失敗 (${meetingId}):`, fetchErr);
           }
         }
 
-        if (meetingTimelines && meetingTimelines[String(targetSeq)]) {
-          contextData = meetingTimelines[String(targetSeq)];
+        if (meetingTimelines) {
+          let resolvedKey = (targetSeq && meetingTimelines[targetSeq]) ? targetSeq : null;
+
+          // 親チャンクキーの解決（大阪やグループ化されたシーケンス対応）
+          if (!resolvedKey && targetSeq) {
+            for (const [k, msgs] of Object.entries(meetingTimelines)) {
+              if (Array.isArray(msgs)) {
+                const hasSeq = msgs.some(m => String(m.sequence_number) === String(targetSeq));
+                if (hasSeq) {
+                  resolvedKey = k;
+                  break;
+                }
+              }
+            }
+          }
+
+          // 完全一致または親チャンクキー特定時
+          if (resolvedKey && meetingTimelines[resolvedKey]) {
+            const msgs = meetingTimelines[resolvedKey];
+            const cleanTargetSpeaker = (stmt.speaker || '').replace(/[\s ]+/g, '');
+            let hasTarget = false;
+            contextData = msgs.map(m => {
+              const spk = (m.speaker || '').replace(/[\s ]+/g, '');
+              const hit = !hasTarget && cleanTargetSpeaker && (spk.includes(cleanTargetSpeaker) || cleanTargetSpeaker.includes(spk));
+              if (hit) hasTarget = true;
+              return { ...m, is_target: hit || m.is_target };
+            });
+            if (!hasTarget && contextData.length > 0) {
+              contextData[0] = { ...contextData[0], is_target: true };
+            }
+          } else {
+            // targetSeq が合致しない場合のセーフティサーチ
+            const cleanTargetSpeaker = (stmt.speaker || '').replace(/[\s ]+/g, '');
+            const targetSummary = (stmt.statement_summary || stmt.summary || '').replace(/[\s ]+/g, '');
+            let bestSeqKey = null;
+            let bestScore = -1;
+
+            for (const [seqKey, msgs] of Object.entries(meetingTimelines)) {
+              if (!Array.isArray(msgs)) continue;
+              let score = 0;
+              const fullSeqText = msgs.map(m => m.statement_text || '').join('');
+              const seqSpeakers = msgs.map(m => (m.speaker || '').replace(/[\s ]+/g, ''));
+
+              if (cleanTargetSpeaker && seqSpeakers.some(s => s.includes(cleanTargetSpeaker) || cleanTargetSpeaker.includes(s))) {
+                score += 15;
+              }
+              if (targetSummary) {
+                for (let i = 0; i < Math.min(targetSummary.length, 60); i += 4) {
+                  const chunk = targetSummary.slice(i, i + 6);
+                  if (chunk.length >= 4 && fullSeqText.includes(chunk)) {
+                    score += 5;
+                  }
+                }
+              }
+              if (score > bestScore) {
+                bestScore = score;
+                bestSeqKey = seqKey;
+              }
+            }
+
+            if (!bestSeqKey && Object.keys(meetingTimelines).length > 0) {
+              bestSeqKey = Object.keys(meetingTimelines)[0];
+            }
+
+            if (bestSeqKey && meetingTimelines[bestSeqKey]) {
+              const msgs = meetingTimelines[bestSeqKey];
+              let hasTarget = false;
+              contextData = msgs.map(m => {
+                const spk = (m.speaker || '').replace(/[\s ]+/g, '');
+                const hit = !hasTarget && cleanTargetSpeaker && (spk.includes(cleanTargetSpeaker) || cleanTargetSpeaker.includes(spk));
+                if (hit) hasTarget = true;
+                return { ...m, is_target: hit || m.is_target };
+              });
+              if (!hasTarget && contextData.length > 0) {
+                contextData[0] = { ...contextData[0], is_target: true };
+              }
+            }
+          }
         }
       }
 
+      // 3. フォールバック
       if (!contextData || contextData.length === 0) {
+        const bodyText = stmt.statement_text || stmt.statement_summary || stmt.summary || stmt.question_summary || '発言記録';
         contextData = [{
           ...stmt,
           is_target: true,
-          statement_text: stmt.statement_text || stmt.summary || ''
+          speaker: stmt.speaker,
+          statement_text: bodyText
         }];
       }
 
+      const canonicalUrl = stmtUrl || (meetingId ? `https://ssp.kaigiroku.net/tenant/${cityCode === 'nagoya' ? 'nagoya' : cityCode === 'osaka' ? 'cityosaka' : 'kyoto'}/MinuteView.html` : '');
+
       setSelectedContext({
-        statement: stmt,
+        statement: {
+          ...stmt,
+          meeting_id: meetingId,
+          meeting_title: stmt.meeting_title,
+          meeting_url: canonicalUrl,
+          official_url: canonicalUrl,
+          source_url: canonicalUrl,
+          url: canonicalUrl
+        },
         current: stmt,
         target: stmt,
         context: contextData,
@@ -528,7 +651,7 @@ export function useStatements(cityCode = 'kyoto') {
       const fallbackItem = {
         ...stmt,
         is_target: true,
-        statement_text: stmt.statement_text || stmt.summary || ''
+        statement_text: stmt.statement_text || stmt.statement_summary || stmt.summary || ''
       };
       setSelectedContext({
         statement: stmt,
