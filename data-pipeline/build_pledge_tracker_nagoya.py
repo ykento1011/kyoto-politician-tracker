@@ -1,10 +1,10 @@
 import json
 import re
-import sys
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = BASE_DIR.parent
+CUR = Path(".").resolve()
+PROJECT_ROOT = CUR.parent if CUR.name == "data-pipeline" else CUR
+BASE_DIR = PROJECT_ROOT / "data-pipeline"
 FRONTEND_DATA = PROJECT_ROOT / "frontend" / "public" / "data"
 FRONTEND_DIST = PROJECT_ROOT / "frontend" / "dist" / "data"
 
@@ -16,111 +16,146 @@ OUTPUT_FILES = [
     FRONTEND_DIST / "pledge_tracker_nagoya.json"
 ]
 
-# 名古屋市議会の看板公約に特化した厳格な照合ルール（京都版TOPIC_RULES準拠）
-NAGOYA_TOPIC_RULES = {
-    "市民税減税": {
-        "positive": ["市民税減税", "5%減税", "減税", "恒久減税", "減税効果"],
-        "negative": []
+STRICT_TOPIC_RULES = [
+    {
+        "name": "学校給食無償化・完全給食",
+        "triggers": ["給食", "完全給食"],
+        "check": lambda full: "給食" in full and any(w in full for w in ["無償", "無料", "公費", "負担", "オーガニック", "センター", "全員", "公会計"])
     },
-    "名古屋城天守閣木造復元": {
-        "positive": ["名古屋城", "天守閣", "木造復元", "木造化", "バリアフリー", "エレベーター設置"],
-        "negative": []
+    {
+        "name": "学校トイレ洋式化・空調",
+        "triggers": ["トイレ洋式化", "学校のトイレ", "トイレの洋式化"],
+        # 災害時の簡易トイレ・仮設トイレを除外
+        "check": lambda full: ("学校" in full or "校" in full) and "トイレ" in full and any(w in full for w in ["洋式", "便器", "改修", "キレイ"])
     },
-    "敬老パス": {
-        "positive": ["敬老パス", "利用回数", "上限回数", "名鉄", "JR", "近鉄", "敬老乗車証"],
-        "negative": []
+    {
+        "name": "名古屋城木造復元",
+        "triggers": ["名古屋城", "天守閣", "木造復元", "木造化"],
+        "check": lambda full: any(w in full for w in ["名古屋城", "天守閣"]) and any(w in full for w in ["木造", "復元", "バリアフリー", "エレベーター"])
     },
-    "学校給食無償化": {
-        "positive": ["学校給食", "給食費無償化", "給食無償", "給食費", "オーガニック給食", "完全給食"],
-        "negative": []
+    {
+        "name": "敬老パス・高齢者交通支援",
+        "triggers": ["敬老パス", "敬老バス", "敬老乗車証", "バス・タクシー", "交通費援助"],
+        "check": lambda full: any(w in full for w in ["敬老パス", "敬老バス", "敬老乗車証"]) or ("タクシー" in full and any(w in full for w in ["高齢", "助成", "援助", "福祉"]))
     },
-    "議員報酬・身を切る改革": {
-        "positive": ["議員報酬", "800万円", "政務活動費", "身を切る改革", "定数削減"],
-        "negative": []
+    {
+        "name": "市民税減税",
+        "triggers": ["市民税減税", "減税"],
+        "check": lambda full: "減税" in full and any(w in full for w in ["市民税", "5%", "恒久", "税率"])
     },
-    "地下鉄・交通インフラ": {
-        "positive": ["地下鉄", "ホーム柵", "可動式ホーム柵", "駅エレベーター", "市バス", "名鉄本線高架化", "あおなみ線"],
-        "negative": []
+    {
+        "name": "議員報酬・身を切る改革",
+        "triggers": ["議員報酬", "800万円", "政務活動費", "定数削減"],
+        "check": lambda full: any(w in full for w in ["議員報酬", "800万", "政務活動費", "定数削減"])
     },
-    "防災・雨水・治水対策": {
-        "positive": ["雨水貯留", "治水", "ゲリラ豪雨", "浸水対策", "南海トラフ", "防潮壁", "避難所", "防災教育"],
-        "negative": []
+    {
+        "name": "地下鉄・駅設備",
+        "triggers": ["地下鉄", "今池駅", "本山駅", "ホーム柵", "可動式ホーム柵", "駅エレベーター"],
+        "check": lambda full: ("地下鉄" in full or "駅" in full) and any(w in full for w in ["ホーム柵", "利便", "エレベーター", "トイレ", "活用", "コンコース", "可動式"])
     },
-    "子ども医療費助成": {
-        "positive": ["子ども医療費", "医療費無償化", "通院無料", "18歳まで無料"],
-        "negative": ["高齢者"]
+    {
+        "name": "体育館空調",
+        "triggers": ["体育館空調", "体育館エアコン", "体育館に空調"],
+        "check": lambda full: "体育館" in full and any(w in full for w in ["空調", "エアコン"])
     },
-    "トワイライト・放課後児童対策": {
-        "positive": ["トワイライト", "学童保育", "放課後児童クラブ", "待機児童"],
-        "negative": []
+    {
+        "name": "子ども医療費",
+        "triggers": ["子ども医療費", "子どもの医療費", "医療費無料化", "18歳まで無料", "医療費助成"],
+        "check": lambda full: "医療費" in full and any(w in full for w in ["子ども", "18歳", "高校", "小児", "通院", "無償", "無料", "助成"])
     },
-    "体育館エアコン設置": {
-        "positive": ["体育館空調", "体育館エアコン", "空調設備", "普通教室空調"],
-        "negative": []
+    {
+        "name": "区役所・庁舎建て替え",
+        "triggers": ["名東区役所", "東区役所", "複合庁舎", "緑区総合庁舎"],
+        "check": lambda full: any(w in full for w in ["区役所", "庁舎"]) and any(w in full for w in ["建替", "建て替え", "整備", "移転", "複合"])
     },
-    "図書館・文化施設": {
-        "positive": ["アクティブライブラリー", "千種図書館", "図書館整備", "瑞穂スポーツパーク"],
-        "negative": []
+    {
+        "name": "千種図書館整備",
+        "triggers": ["千種図書館", "アクティブライブラリー"],
+        "check": lambda full: "図書館" in full or "アクティブライブラリー" in full
+    },
+    {
+        "name": "雨水・防潮壁・治水",
+        "triggers": ["雨水", "ゲリラ豪雨", "防潮壁", "治水", "津波", "高潮"],
+        "check": lambda full: any(w in full for w in ["雨水", "豪雨", "防潮", "治水", "津波", "高潮", "内水", "矢板"])
+    },
+    {
+        "name": "凶悪犯罪・防犯体制",
+        "triggers": ["凶悪犯罪", "強盗", "詐欺", "防犯カメラ"],
+        "check": lambda full: any(w in full for w in ["犯罪", "詐欺", "強盗", "防犯カメラ", "治安", "特殊詐欺"])
+    },
+    {
+        "name": "介護者・高齢者支援",
+        "triggers": ["介護者への支援", "介護者", "紙オムツ", "リフレッシュ制度", "家族介護"],
+        # 医療的ケア児（教育問題）を完全除外
+        "check": lambda full: "医療的ケア" not in full and any(w in full for w in ["介護者", "家族介護", "紙オムツ", "ヤングケアラー", "要介護", "介護保険"])
+    },
+    {
+        "name": "障がい者福祉",
+        "triggers": ["障がい施策", "障害施策", "障がい者の方に優しい", "障害者福祉"],
+        "check": lambda full: any(w in full for w in ["障害者", "障がい者", "障害福祉", "障がい福祉", "手帳", "就労継続"])
+    },
+    {
+        "name": "リニア・商店街振興",
+        "triggers": ["リニア", "商店街"],
+        "check": lambda full: "リニア" in full or "商店街" in full
     }
-}
+]
 
 def clean_name(name: str) -> str:
     return re.sub(r"[\s\u3000]+", "", name)
 
-def find_related_statements(pledge, speaker_stmts, max_count=2):
-    """京都版完全準拠の厳格照合ロジック"""
+def find_related_statements_final(pledge, speaker_stmts, max_count=2):
     if not speaker_stmts:
         return []
 
     target_text = f"{pledge.get('target_issue', '')} {pledge.get('headline', '')} {pledge.get('exact_quote', '')}"
-
-    search_keywords = []
-    # 1. ルールベースの主題キーワード抽出
-    for topic_name, rule in NAGOYA_TOPIC_RULES.items():
-        if topic_name in target_text or any(p in target_text for p in rule["positive"]):
-            search_keywords.extend(rule["positive"])
+    
+    matched_rule = None
+    for rule in STRICT_TOPIC_RULES:
+        if any(trig in target_text for trig in rule["triggers"]):
+            matched_rule = rule
             break
 
-    # 2. 一般キーワード抽出（抽象語・市会頻出の無意味語を徹底除外）
-    if not search_keywords:
-        words = re.findall(r"[\u4e00-\u9fa5]{2,}", target_text)
-        unique_words = list(dict.fromkeys(words))
+    candidates = []
+    
+    if matched_rule:
+        for stmt in speaker_stmts:
+            s_sum = stmt.get("statement_summary") or stmt.get("summary") or stmt.get("question_summary") or ""
+            s_txt = stmt.get("statement_text") or stmt.get("question_text") or stmt.get("text") or ""
+            full_text = f"{s_sum} {s_txt[:350]}"
+            
+            if matched_rule["check"](full_text):
+                score = sum(full_text.count(t) for t in matched_rule["triggers"]) * 10
+                candidates.append((score, stmt))
+    else:
+        # ルールにない個別公約：4文字以上の明確な名詞の一致のみ許可
         stop_words = {
             "推進", "支援", "実現", "対策", "安心", "安全", "向上", "強化", 
             "名古屋", "要望", "市民", "取組", "充実", "創設", "見直し", "徹底",
-            "促進", "目指す", "課題", "問題", "事業", "地域", "社会", "生活"
+            "促進", "目指す", "課題", "問題", "事業", "地域", "社会", "生活", "対応",
+            "挑戦", "発展", "確立", "確保", "継続", "整備", "福祉", "環境", "経済", "教育", "施策"
         }
-        filtered = [w for w in unique_words if w not in stop_words]
-        search_keywords = filtered[:6] if filtered else []
+        words = re.findall(r"[\u4e00-\u9fa5]{3,}|[ァ-ンヴー]{3,}|[A-Za-z]{3,}", target_text)
+        core_keywords = [w for w in words if w not in stop_words]
+        
+        if core_keywords:
+            for stmt in speaker_stmts:
+                s_sum = stmt.get("statement_summary") or stmt.get("summary") or stmt.get("question_summary") or ""
+                s_txt = stmt.get("statement_text") or stmt.get("question_text") or stmt.get("text") or ""
+                full_text = f"{s_sum} {s_txt[:300]}"
+                
+                hits = [kw for kw in core_keywords if kw in full_text]
+                if len(hits) >= 2:
+                    score = sum(len(h) * 2 for h in hits)
+                    candidates.append((score, stmt))
 
-    if not search_keywords:
+    if not candidates:
         return []
 
-    matched_stmts = []
-    for stmt in speaker_stmts:
-        summary = stmt.get("statement_summary") or stmt.get("summary") or stmt.get("question_summary") or ""
-        text = stmt.get("statement_text") or stmt.get("question_text") or stmt.get("text") or ""
-        topic = stmt.get("topic") or stmt.get("category") or ""
-        full_text = f"{summary} {topic} {text}"
+    candidates.sort(key=lambda x: (x[0], x[1].get("meeting_date", "")), reverse=True)
 
-        hit_count = sum(1 for kw in search_keywords if kw in full_text)
-        if hit_count > 0:
-            # キーワード一致数に強い重み付け
-            score = (
-                hit_count * 20 +
-                (stmt.get("solution_score", 0) or 0) +
-                (stmt.get("evidence_score", 0) or 0) +
-                (stmt.get("constructive_score", 0) or 0)
-            )
-            matched_stmts.append((score, stmt))
-
-    if not matched_stmts:
-        return []
-
-    matched_stmts.sort(key=lambda x: (x[0], x[1].get("meeting_date", "")), reverse=True)
-    
     results = []
-    for _, best_stmt in matched_stmts[:max_count]:
+    for _, best_stmt in candidates[:max_count]:
         official_url = (
             best_stmt.get("official_url") or 
             best_stmt.get("source_url") or 
@@ -141,7 +176,7 @@ def find_related_statements(pledge, speaker_stmts, max_count=2):
     return results
 
 def main():
-    print("=== 名古屋市議 公約・質疑結合パイプライン (京都完全準拠・厳格照合) ===")
+    print("=== 名古屋市議 看板公約トラッカー 最終完全純化ビルド ===")
 
     if not PLEDGES_EXTRACTED.exists():
         fallback_pledges = FRONTEND_DATA / "pledge_tracker_nagoya_2.json"
@@ -155,9 +190,7 @@ def main():
 
     raw_pledge_data = json.loads(pledges_path.read_text(encoding="utf-8"))
     councilor_pledges_list = raw_pledge_data.get("councilors", []) if isinstance(raw_pledge_data, dict) else raw_pledge_data
-
     statements = json.loads(STATEMENTS_FILE.read_text(encoding="utf-8")) if STATEMENTS_FILE.exists() else []
-    print(f"🔍 データロード: 公約対象 {len(councilor_pledges_list)} 名 / 質疑レコード {len(statements)} 件")
 
     stmts_by_speaker = {}
     for s in statements:
@@ -177,8 +210,6 @@ def main():
         party = c.get("party") or c.get("partyGroup", "")
         bulletin_url = c.get("bulletin_url", "")
         raw_pledges = c.get("pledges", [])
-
-        # 議員本人の発言レコード
         my_stmts = stmts_by_speaker.get(c_name, [])
 
         tracked_items = []
@@ -191,8 +222,7 @@ def main():
             stance = p.get("stance", "推進・拡充")
             item_bulletin_url = p.get("bulletin_url") or bulletin_url
 
-            # 京都準拠の厳格照合を実行
-            related_stmts = find_related_statements(p, my_stmts, max_count=2)
+            related_stmts = find_related_statements_final(p, my_stmts, max_count=2)
             main_stmt = related_stmts[0] if related_stmts else None
 
             tracked_items.append({
@@ -218,7 +248,6 @@ def main():
             "tracked_items": tracked_items
         }
 
-        # 原名とスペース除去名の両キーを登録（検索耐性確保）
         pledge_tracker[raw_name] = councilor_data
         if c_name != raw_name:
             pledge_tracker[c_name] = councilor_data
@@ -228,7 +257,7 @@ def main():
         out_p.write_text(json.dumps(pledge_tracker, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"✅ 生成・保存完了: {out_p.resolve()}")
 
-    print(f"🎉 厳格照合による結合が完了しました！（全 {len(councilor_pledges_list)} 名）")
+    print("🎉 最終完全純化ビルドが完了しました！")
 
 if __name__ == "__main__":
     main()
