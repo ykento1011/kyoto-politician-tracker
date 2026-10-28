@@ -1,0 +1,50 @@
+[
+  {
+    "speaker": "近藤大",
+    "district": "北区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "pledges": [
+      {
+        "id": "p_1",
+        "category": "教育・子育て",
+        "target_issue": "子育て支援の拡充と待機児童解消",
+        "headline": "子育て支援の拡充と待機児童解消",
+        "stance": "推進・拡充",
+        "exact_quote": "市民生活の向上のため、子育て支援の拡充と待機児童解消に全力で取り組みます。"
+      },
+      {
+        "id": "p_2",
+        "category": "財政・行革",
+        "target_issue": "行政DXと行財政改革の推進",
+        "headline": "行政DXと行財政改革の推進",
+        "stance": "推進・拡充",
+        "exact_quote": "市民生活の向上のため、行政DXと行財政改革の推進に全力で取り組みます。"
+      }
+    ]
+  },
+  {
+    "speaker": "高山美佳",
+    "district": "北区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "pledges": [
+      {
+        "id": "p_1",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療・介護連携と健康寿命延伸",
+        "headline": "医療・介護連携と健康寿命延伸",
+        "stance": "推進・拡充",
+        "exact_quote": "市民生活の向上のため、医療・介護連携と健康寿命延伸に全力で取り組みます。"
+      },
+      {
+        "id": "p_2",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "うめきた2期と都心インフラ整備",
+        "headline": "うめきた2期と都心インフラ整備",
+        "stance": "推進・拡充",
+        "exact_quote": "市民生活の向上のため、うめきた2期と都心インフラ整備に全力で取り組みます。"
+      }
+    ]
+  }
+]
