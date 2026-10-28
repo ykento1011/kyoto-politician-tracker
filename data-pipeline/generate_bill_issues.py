@@ -62,7 +62,7 @@ def load_env():
         for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
             line = line.strip()
             if line.startswith("GEMINI_API_KEY="):
-                os.environ["GEMINI_API_KEY"] = line.split("=", 1)[1].strip().strip("'"")
+                os.environ["GEMINI_API_KEY"] = line.split("=", 1)[1].strip().strip("'\"")
 
 def load_json(p):
     if p.exists():
