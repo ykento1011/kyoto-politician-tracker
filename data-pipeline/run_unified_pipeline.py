@@ -1,3 +1,4 @@
+from yokohama_adapter import YokohamaAdapter
 import json, os, sys, time, threading, re, argparse
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -359,10 +360,11 @@ class NagoyaAdapter:
 
 ADAPTERS = {
     "osaka": OsakaAdapter,
-    "nagoya": NagoyaAdapter
+    "nagoya": NagoyaAdapter,
+    "yokohama": YokohamaAdapter
 }
 
-def run_pipeline(city_code):
+def run_pipeline(city_code, limit=None):
     if city_code not in ADAPTERS:
         raise ValueError(f"未対応の都市コードです: {city_code}")
 
@@ -373,6 +375,7 @@ def run_pipeline(city_code):
     threads = adapter.build_threads(raw_stmts)
 
     checkpoint_file = PROJECT_ROOT / "pipeline" / f"{city_code}_eval_checkpoint.json"
+    checkpoint_file.parent.mkdir(parents=True, exist_ok=True)
     eval_cache = {}
     if checkpoint_file.exists():
         try:
@@ -383,6 +386,9 @@ def run_pipeline(city_code):
             eval_cache = {}
 
     unprocessed = [th for th in threads if th["thread_id"] not in eval_cache]
+    if limit is not None and limit > 0:
+        print(f"🧪 [サンプリングモード] 評価対象を先頭 {limit} 件に制限します。")
+        unprocessed = unprocessed[:limit]
     print(f"🎯 [{city_code.upper()}] LLM評価対象: {len(unprocessed):,} 件 (8並列実行)")
 
     def process_thread(thread):
@@ -467,6 +473,7 @@ def run_pipeline(city_code):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="議会のミカタ 統合データパイプライン")
-    parser.add_argument("--city", required=True, choices=["osaka", "nagoya"], help="対象都市コード")
+    parser.add_argument("--city", required=True, choices=["osaka", "nagoya", "yokohama"], help="対象都市コード")
+    parser.add_argument("--limit", type=int, default=None, help="サンプリング実行件数")
     args = parser.parse_args()
-    run_pipeline(args.city)
+    run_pipeline(args.city, limit=args.limit)

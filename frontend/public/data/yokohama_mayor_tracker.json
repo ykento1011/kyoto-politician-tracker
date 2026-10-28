@@ -1,0 +1,173 @@
+{
+  "speaker": "原沢あつみ",
+  "pledges": [
+    {
+      "id": "YH-P-01",
+      "pledge_id": "YH-P-01",
+      "category": "防災・減災・治安",
+      "headline": "災害に強く、危機管理に優れた横浜",
+      "title": "災害に強く、危機管理に優れた横浜",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "災害に強く、危機管理に優れた横浜をつくります。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-02",
+      "pledge_id": "YH-P-02",
+      "category": "福祉・医療・健康",
+      "headline": "必要な人に必要な支援が届く福祉",
+      "title": "必要な人に必要な支援が届く福祉",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "必要な人に、必要な支援が届く福祉を実現します。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-03",
+      "pledge_id": "YH-P-03",
+      "category": "都市再生・交通インフラ",
+      "headline": "暮らしを支えるインフラを守ります",
+      "title": "暮らしを支えるインフラを守ります",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "道路・橋・上下水道など、暮らしを支えるインフラを守ります。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-04",
+      "pledge_id": "YH-P-04",
+      "category": "子育て・教育",
+      "headline": "子育て支援を充実させ、安心して子育て",
+      "title": "子育て支援を充実させ、安心して子育て",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "子育て支援をさらに充実させ、子どもを安心して育てられる横浜をつくります。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-05",
+      "pledge_id": "YH-P-05",
+      "category": "産業・観光・地域経済",
+      "headline": "18区の個性を生かし、地域活力向上",
+      "title": "18区の個性を生かし、地域活力向上",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "18区それぞれの個性を生かし、地域の活力を高めます。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-06",
+      "pledge_id": "YH-P-06",
+      "category": "財政・行革",
+      "headline": "財政基盤強化、将来世代に責任持つ市政",
+      "title": "財政基盤強化、将来世代に責任持つ市政",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "財政基盤を強化し、将来世代に責任を持つ市政を実現します。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-07",
+      "pledge_id": "YH-P-07",
+      "category": "産業・観光・地域経済",
+      "headline": "GREEN EXPO 2027で横浜の未来を",
+      "title": "GREEN EXPO 2027で横浜の未来を",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "GREEN EXPO 2027を契機に横浜の未来を切り拓きます。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-08",
+      "pledge_id": "YH-P-08",
+      "category": "産業・観光・地域経済",
+      "headline": "企業誘致で働く場所と新たな雇用創出",
+      "title": "企業誘致で働く場所と新たな雇用創出",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "企業を呼び込み、横浜に働く場所と新たな雇用を生み出します。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-09",
+      "pledge_id": "YH-P-09",
+      "category": "産業・観光・地域経済",
+      "headline": "滞在型観光の拠点化",
+      "title": "滞在型観光の拠点化",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "横浜を観光客が訪れるだけでなく楽しみ、過ごす「滞在型観光」の拠点にします。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-10",
+      "pledge_id": "YH-P-10",
+      "category": "産業・観光・地域経済",
+      "headline": "横浜を世界に誇るエンタメ一大拠点に",
+      "title": "横浜を世界に誇るエンタメ一大拠点に",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "横浜の持つ豊富な基盤を活かし、横浜を世界に誇るエンタメ一大拠点にします",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-11",
+      "pledge_id": "YH-P-11",
+      "category": "財政・行革",
+      "headline": "公正・適正な官民連携で民間の力活用",
+      "title": "公正・適正な官民連携で民間の力活用",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "公正・適正な官民連携で、民間の力を最大限に生かします。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    },
+    {
+      "id": "YH-P-12",
+      "pledge_id": "YH-P-12",
+      "category": "財政・行革",
+      "headline": "市職員の笑顔を取り戻し、市民のための市役所",
+      "title": "市職員の笑顔を取り戻し、市民のための市役所",
+      "election_promise": {
+        "document_type": "横浜市選挙公報",
+        "source_name": "横浜市選管発行 令和8年市長選挙公報",
+        "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+        "quote": "市職員に笑顔を取り戻し、一丸となって市民のために働く市役所をつくります。",
+        "note": "※選挙公報原本（PDF）から抽出した文言です。"
+      }
+    }
+  ]
+}

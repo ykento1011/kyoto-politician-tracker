@@ -109,3 +109,62 @@ create_ogp(
     filename="ogp-nagoya.png",
     accent_color="#d97706"  # 名古屋城・金鯱アンバー
 )
+
+    # 4. 横浜市版 OGP
+
+if __name__ == "__main__":
+    # 1. 京都市版 OGP
+    create_ogp(
+        badge_text="地方議会オープンデータ基盤",
+        title_text="議会のミカタ 京都",
+        sub_text="京都市会 公式会議録12万発言 × 松井市長政策トラッカー",
+        desc_lines=[
+            "AIは入口。判断するのは市民です。",
+            "12万件の生発言データと議案採決を客観的に構造化",
+            "看板公約と議会質疑・賛否行動の完全照合"
+        ],
+        filename="ogp-kyoto.png",
+        accent_color="#4f46e5"
+    )
+
+    # 2. 大阪市版 OGP
+    create_ogp(
+        badge_text="地方議会オープンデータ基盤",
+        title_text="議会のミカタ 大阪",
+        sub_text="大阪市会 公式会議録 × 横山市長政策トラッカー",
+        desc_lines=[
+            "AIは入口。判断するのは市民です。",
+            "大阪市会の公式質疑・議案採決ログを客観的に構造化",
+            "市長公約の予算化・条例化を一次資料から追跡"
+        ],
+        filename="ogp-osaka.png",
+        accent_color="#0284c7"
+    )
+
+    # 3. 名古屋市版 OGP
+    create_ogp(
+        badge_text="地方議会オープンデータ基盤",
+        title_text="議会のミカタ 名古屋",
+        sub_text="名古屋市会 公式会議録 × 広沢市長政策トラッカー",
+        desc_lines=[
+            "AIは入口。判断するのは市民です。",
+            "名古屋市会の公式質疑・議案採決ログを客観的に構造化",
+            "市長公約の予算化・条例化を一次資料から追跡"
+        ],
+        filename="ogp-nagoya.png",
+        accent_color="#0d9488"
+    )
+
+    # 4. 横浜市版 OGP
+    create_ogp(
+        badge_text="地方議会オープンデータ基盤",
+        title_text="議会のミカタ 横浜",
+        sub_text="横浜市会 公式会議録 × 原澤新市長政策トラッカー",
+        desc_lines=[
+            "2026年10月就任・原澤敦美市長の看板公約を一次資料から追跡",
+            "横浜市会の公式会議録・賛否分裂議案データを客観的AI分析",
+            "AIは入口。判断するのは市民です。"
+        ],
+        filename="ogp-yokohama.png",
+        accent_color="#0ea5e9"
+    )

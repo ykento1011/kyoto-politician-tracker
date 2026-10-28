@@ -32,14 +32,18 @@ export function getOfficialMinuteUrl(stmt, cityCode = 'kyoto') {
   }
 
   // 3. council_id と schedule_id がある場合
-  const tenant = cityCode === 'nagoya' ? 'nagoya' : cityCode === 'osaka' ? 'cityosaka' : 'kyoto';
+  // 💡 横浜市は独自ドメイン・HTTP運用（http://giji.city.yokohama.lg.jp/tenant/yokohama/）
+  const isYokohama = cityCode === 'yokohama' || stmt.council_id?.toString().startsWith('yh_');
+  const baseUrl = isYokohama
+    ? 'http://giji.city.yokohama.lg.jp/tenant/yokohama/MinuteView.html'
+    : `https://ssp.kaigiroku.net/tenant/${cityCode === 'nagoya' ? 'nagoya' : cityCode === 'osaka' ? 'cityosaka' : 'kyoto'}/MinuteView.html`;
 
   if (stmt.council_id && stmt.schedule_id) {
-    return `https://ssp.kaigiroku.net/tenant/${tenant}/MinuteView.html?council_id=${stmt.council_id}&schedule_id=${stmt.schedule_id}&is_search=false${viewYear ? `&view_years=${viewYear}` : ''}`;
+    return `${baseUrl}?council_id=${stmt.council_id}&schedule_id=${stmt.schedule_id}&is_search=false${viewYear ? `&view_years=${viewYear}` : ''}`;
   }
 
   // 4. フォールバック
-  return `https://ssp.kaigiroku.net/tenant/${tenant}/MinuteView.html`;
+  return baseUrl;
 }
 
 export function openOfficialMinute(stmt, cityCode = 'kyoto') {
@@ -50,7 +54,7 @@ export function openOfficialMinute(stmt, cityCode = 'kyoto') {
 }
 
 export function getOfficialLinkTooltip(stmt, cityCode = 'kyoto') {
-  const cityName = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
+  const cityName = cityCode === 'yokohama' ? '横浜市会' : cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
   const url = stmt?.official_url || stmt?.source_url || stmt?.url;
   if (url && url.includes('MinuteView.html')) {
     return `${cityName}公式サーバー上の該当会議録原本を直接開きます`;

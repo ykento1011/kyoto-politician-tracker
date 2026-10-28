@@ -10,6 +10,16 @@ import BillsSection from './BillsSection';
 const INITIAL_SPEAKERS_LIMIT = 12;
 const INITIAL_THREADS_LIMIT = 10;
 const KYOTO_DISTRICTS = ['北区', '上京区', '左京区', '中京区', '東山区', '下京区', '南区', '右京区', '西京区', '伏見区', '山科区'];
+const NAGOYA_DISTRICTS = [
+  '千種区', '東区', '北区', '西区', '中村区', '中区', '昭和区', '瑞穂区',
+  '熱田区', '中川区', '港区', '南区', '守山区', '緑区', '名東区', '天白区'
+];
+
+const YOKOHAMA_DISTRICTS = [
+  '鶴見区', '神奈川区', '西区', '中区', '南区', '港南区', '保土ケ谷区', '旭区',
+  '磯子区', '金沢区', '港北区', '緑区', '青葉区', '都筑区', '戸塚区', '栄区',
+  '泉区', '瀬谷区'
+];
 const OSAKA_DISTRICTS = [
   '北区', '都島区', '福島区', '此花区', '中央区', '西区', '港区', '大正区', 
   '天王寺区', '浪速区', '西淀川区', '淀川区', '東淀川区', '東成区', '生野区', 
@@ -47,8 +57,16 @@ viewMode,
   onOpenMethodology
 }) {
   const activeDistricts = React.useMemo(() => {
-    return cityCode === 'osaka' ? OSAKA_DISTRICTS : KYOTO_DISTRICTS;
-  }, [cityCode]);
+    // 議員データから実在する行政区を動的に優先抽出
+    if (speakerStats && speakerStats.length > 0) {
+      const statsDistricts = Array.from(new Set(speakerStats.map(s => s.district).filter(Boolean)));
+      if (statsDistricts.length > 0) return statsDistricts;
+    }
+    if (cityCode === 'yokohama') return YOKOHAMA_DISTRICTS;
+    if (cityCode === 'nagoya') return NAGOYA_DISTRICTS;
+    if (cityCode === 'osaka') return OSAKA_DISTRICTS;
+    return KYOTO_DISTRICTS;
+  }, [cityCode, speakerStats]);
   const [visibleSpeakersCount, setVisibleSpeakersCount] = useState(INITIAL_SPEAKERS_LIMIT);
   const [visibleThreadsCount, setVisibleThreadsCount] = useState(INITIAL_THREADS_LIMIT);
 

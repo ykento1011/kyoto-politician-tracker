@@ -42,7 +42,7 @@ export default function SpeakerCard({
   ];
 
   const defaultDistrict = cityCode === 'nagoya' ? '名古屋' : cityCode === 'osaka' ? '大阪' : '京都';
-  const defaultCouncil = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
+  const defaultCouncil = cityCode === 'yokohama' ? '横浜市会' : cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
 
   return (
     <div

@@ -627,7 +627,10 @@ export function useStatements(cityCode = 'kyoto') {
         }];
       }
 
-      const canonicalUrl = stmtUrl || (meetingId ? `https://ssp.kaigiroku.net/tenant/${cityCode === 'nagoya' ? 'nagoya' : cityCode === 'osaka' ? 'cityosaka' : 'kyoto'}/MinuteView.html` : '');
+      const fallbackBase = cityCode === 'yokohama'
+          ? 'http://giji.city.yokohama.lg.jp/tenant/yokohama/MinuteView.html'
+          : `https://ssp.kaigiroku.net/tenant/${cityCode === 'nagoya' ? 'nagoya' : cityCode === 'osaka' ? 'cityosaka' : 'kyoto'}/MinuteView.html`;
+        const canonicalUrl = stmtUrl || (meetingId ? fallbackBase : '');
 
       setSelectedContext({
         statement: {

@@ -18,7 +18,8 @@ def main():
     city_configs = [
         ("KYOTO", "topic_summaries.json", "timelines"),
         ("OSAKA", "osaka_topic_summaries.json", "osaka_timelines"),
-        ("NAGOYA", "nagoya_topic_summaries.json", "nagoya_timelines")
+        ("NAGOYA", "nagoya_topic_summaries.json", "nagoya_timelines"),
+        ("YOKOHAMA", "yokohama_topic_summaries.json", "yokohama_timelines")
     ]
 
     audit_results = []
@@ -70,14 +71,20 @@ def main():
     print("-" * 65)
 
     for r in audit_results:
-        modal_pct = (r["modal_ok"] / r["total"] * 100) if r["total"] > 0 else 0
-        speech_pct = (r["speech_ok"] / r["total"] * 100) if r["total"] > 0 else 0
+        if r["total"] == 0:
+            status = "ℹ️ PREP"
+            print(f"{r['city']:<8} | {r['total']:<10} | {'--.-% (準備中)':>16} | {'--.-% (準備中)':>16} | {status}")
+            continue
+
+        modal_pct = (r["modal_ok"] / r["total"] * 100)
+        speech_pct = (r["speech_ok"] / r["total"] * 100)
         status = "✅ PASS" if modal_pct >= 98 and speech_pct >= 90 else "⚠️ CHECK"
-        if status != "✅ PASS": all_pass = False
+        if status != "✅ PASS":
+            all_pass = False
         print(f"{r['city']:<8} | {r['total']:<10} | {modal_pct:>6.1f}% ({r['modal_ok']}/{r['total']}) | {speech_pct:>6.1f}% ({r['speech_ok']}/{r['total']}) | {status}")
 
     if all_pass:
-        print("\n🎉 ALL PASS: 全3都市でモーダル到達率 98%以上を達成しました！")
+        print("\n🎉 ALL PASS: 稼働中全都市でモーダル到達率 98%以上・生発言率 90%以上を達成しました！")
         sys.exit(0)
     else:
         print("\n❌ FAILED: インテグリティ監査に不合格の都市があります。")

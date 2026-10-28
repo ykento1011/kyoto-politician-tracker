@@ -32,7 +32,7 @@ const ALIAS_MAP = {
   '繁隆夫': '繁隆夫'
 };
 
-function SpeakerAvatar({ speakerName }) {
+function SpeakerAvatar({ speakerName, cityCode }) {
   const cleanName = speakerName ? speakerName.replace(/\s+/g, '') : '';
   const [src, setSrc] = useState(`/councilors/${cityCode}/${cleanName}.jpg`);
   const [tried, setTried] = useState(false);
@@ -146,7 +146,8 @@ export default function CompareDashboard({
   const handleShare = async () => {
     const compareNames = compareList.map(s => s.speaker).join(',');
     const url = `${window.location.origin}/?compare=${encodeURIComponent(compareNames)}`;
-    const text = `議会のミカタ 京都で ${compareList.map(s => s.speaker).join(' vs ')} の質疑スタイル・注力政策を徹底比較しました！`;
+    const cityName = cityCode === 'yokohama' ? '横浜' : cityCode === 'nagoya' ? '名古屋' : cityCode === 'osaka' ? '大阪' : '京都';
+    const text = `議会のミカタ ${cityName}で ${compareList.map(s => s.speaker).join(' vs ')} の質疑スタイル・注力政策を徹底比較しました！`;
 
     try {
       if (navigator.share) {
@@ -429,7 +430,7 @@ export default function CompareDashboard({
 
                 <div>
                   <div className="flex items-start gap-3 mb-2.5">
-                    <SpeakerAvatar speakerName={spk.speaker} />
+                    <SpeakerAvatar speakerName={spk.speaker} cityCode={cityCode} />
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between">

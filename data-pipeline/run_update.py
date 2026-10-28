@@ -127,7 +127,9 @@ def run_script(script_path, description, args=None):
         print("--------------------")
         return False, e.stderr
 
-def sync_osaka_mayor_files():
+def # 横浜市（原澤市長）は2026年10月就任直後の移行期間（全公約①公約表明維持）
+    log("横浜市長（原澤市長）トラッカー: 就任直後移行期間中（yokohama_mayor_tracker.json 状態維持）")
+    sync_osaka_mayor_files():
     """大阪市長トラッカーの出力ファイル名をフロントエンド参照名と同期"""
     src_a = os.path.join(FRONTEND_DATA_DIR, "mayor_tracker_osaka.json")
     dst_a = os.path.join(FRONTEND_DATA_DIR, "osaka_mayor_tracker.json")
@@ -276,7 +278,7 @@ def main():
     log("--- [議決・賛否データの更新チェック] ---")
     scrape_ok, _ = run_script(SCRAPE_VOTES_SCRIPT, "議会公式HPからの議案・賛否スクレイピング（京都）")
     if os.path.exists(GENERATE_ISSUES_SCRIPT):
-        for c in ["kyoto", "osaka", "nagoya"]:
+        for c in ["kyoto", "osaka", "nagoya", "yokohama"]:
             run_script(GENERATE_ISSUES_SCRIPT, f"Geminiによる対立議案の争点分析（{c.upper()}）", args=["--city", c])
     log("--- [議決・賛否データの更新チェック完了] ---")
 
@@ -309,7 +311,7 @@ def main():
 
         # 7.5 新着発言の Embedding キャッシュ差分更新
         if os.path.exists(CACHE_EMBEDDINGS_SCRIPT):
-            for city in ["kyoto", "osaka", "nagoya"]:
+            for city in ["kyoto", "osaka", "nagoya", "yokohama"]:
                 run_script(CACHE_EMBEDDINGS_SCRIPT, f"質疑Embeddingキャッシュ差分生成（{city.upper()}）", args=["--city", city])
 
     else:
@@ -318,14 +320,14 @@ def main():
     # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（3都市統合）
     log("--- [政策タイムラインの最新化（3都市）] ---")
     if os.path.exists(UNIFIED_TOPIC_SCRIPT):
-        for city in ["kyoto", "osaka", "nagoya"]:
+        for city in ["kyoto", "osaka", "nagoya", "yokohama"]:
             run_script(UNIFIED_TOPIC_SCRIPT, f"政策タイムラインの差分更新（{city.upper()}）", args=["--city", city])
     log("--- [政策タイムラインの最新化完了] ---")
 
     # 7.7 議員看板公約・採決トラッカーの最新化（3都市統一セマンティック結合）
     log("--- [議員公約・採決トラッカーの最新化（3都市）] ---")
     if os.path.exists(UNIFIED_PLEDGE_SCRIPT):
-        for city in ["kyoto", "osaka", "nagoya"]:
+        for city in ["kyoto", "osaka", "nagoya", "yokohama"]:
             p_ok, _ = run_script(UNIFIED_PLEDGE_SCRIPT, f"議員看板公約トラッカー再結合（{city.upper()}）", args=["--city", city])
             if not p_ok:
                 log(f"{city.upper()}公約トラッカー更新で警告が出ましたが続行します", "WARN")

@@ -38,6 +38,15 @@ CITY_CONFIG = {
             FRONTEND_DATA / "osaka" / "bill_issues.json"
         ]
     },
+        "yokohama": {
+        "name": "横浜市",
+        "votes_file": FRONTEND_DATA / "yokohama_votes_summary.json",
+        "statements_file": FRONTEND_DATA / "yokohama_statements_summary.json",
+        "output_files": [
+            FRONTEND_DATA / "yokohama_bill_issues.json",
+            FRONTEND_DIST / "yokohama_bill_issues.json"
+        ]
+    },
     "nagoya": {
         "name": "名古屋市会",
         "votes_file": FRONTEND_DATA / "nagoya_votes_summary.json",
@@ -150,7 +159,7 @@ def analyze_bill(client, model_name, city_name, bill, ctx):
 
 def main():
     parser = argparse.ArgumentParser(description="3都市共通 対立議案AI論点解説パイプライン")
-    parser.add_argument("--city", default="kyoto", choices=["kyoto", "osaka", "nagoya"], help="対象都市コード")
+    parser.add_argument("--city", default="kyoto", choices=["kyoto", "osaka", "nagoya", "yokohama"], help="対象都市コード")
     parser.add_argument("--workers", type=int, default=8, help="並列ワーカー数")
     parser.add_argument("--model", default="gemini-2.5-flash", help="使用モデル名")
     args = parser.parse_args()

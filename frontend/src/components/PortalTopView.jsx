@@ -1,26 +1,43 @@
 import React from 'react';
 import { 
-  Compass, Landmark, Sparkles, ArrowRight, ShieldCheck, 
-  BookmarkCheck, Coins, Flag, FileText, CheckCircle2, 
-  ExternalLink, Layers, Search, Scale
+  Building2, 
+  MapPin, 
+  ArrowRight, 
+  Sparkles, 
+  Landmark, 
+  Search, 
+  CheckCircle2, 
+  FileText, 
+  HelpCircle, 
+  BookOpen, 
+  ChevronRight,
+  ExternalLink,
+  ShieldCheck,
+  Award,
+  Vote,
+  Scale,
+  Activity,
+  BookmarkCheck,
+  Coins,
+  Flag
 } from 'lucide-react';
 
-export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodology, onOpenGuide }) {
+export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenGuide, onOpenMethodology }) {
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
       
-      {/* 画面上部ヘッダー */}
+      {/* グローバルヘッダー */}
       <header className="bg-white border-b border-slate-200/80 sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-black text-lg shadow-sm">
-              議
+              M
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-black text-slate-900 text-base tracking-tight">議会のミカタ</span>
                 <span className="text-[10px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-100 px-2 py-0.5 rounded-full">
-                  Portal
+                  ポータル
                 </span>
               </div>
               <p className="text-[10px] text-slate-400 font-bold hidden sm:block">二元代表制の政策プロセスを可視化するシビックテック基盤</p>
@@ -29,12 +46,12 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
 
           <nav className="flex items-center gap-2 sm:gap-3 text-xs font-bold text-slate-600">
             <button onClick={onOpenGuide} className="hover:text-indigo-600 px-2.5 py-1.5 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer">
-              できること
+              ご利用ガイド
             </button>
             <button onClick={onOpenAbout} className="hover:text-indigo-600 px-2.5 py-1.5 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer">
               About
             </button>
-            <button onClick={onOpenMethodology} className="hover:text-indigo-600 px-2.5 py-1.5 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer hidden sm:block">
+            <button onClick={onOpenMethodology} className="hover:text-indigo-600 px-2.5 py-1.5 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer">
               評価仕様書
             </button>
           </nav>
@@ -48,24 +65,23 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
         <section className="text-center space-y-5 max-w-3xl mx-auto pt-2">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-black shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
-            自治体公開データ × 決定論的AI分析
+            <span>政令指定都市 議会・首長政策トレーサビリティ基盤</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            対話がわかる。<br className="sm:hidden" />政策が見える。
+            AIは入口。<br className="sm:hidden" />判断するのは市民です。
           </h1>
 
           <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
-            選挙時の公約原本から議事録、予算書まで。<br className="hidden sm:inline" />
-            地方自治の「公約・議決・予算・執行」を横断追跡し、二元代表制の政策プロセスを同一基準で可視化します。
+            首長公約の予算化進捗・議会での採決態度・議員の質疑ログを、主観的な格付けを排して客観的に構造化。原本（PDF・公式議事録）への直結により、有権者自らが一次情報で確かめられるオープンデータ基盤です。
           </p>
 
           <p className="text-xs sm:text-sm font-black text-indigo-950">
-            AIは入口。判断するのは市民です。
+            京都・大阪・名古屋・横浜の議会データを公開中
           </p>
         </section>
 
-        {/* 自治体選択エリア */}
+        {/* 自治体選択グリッド（4都市） */}
         <section className="space-y-6">
           <div className="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 pb-3">
             <div>
@@ -75,16 +91,15 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
               </h2>
               <p className="text-xs text-slate-500 font-medium">現在運用中の議会ダッシュボードへ直接アクセスできます</p>
             </div>
-            <span className="text-[11px] font-mono text-slate-400 font-bold">3 CITIES ONLINE</span>
+            <span className="text-[11px] font-mono text-slate-400 font-bold">4 CITIES ONLINE</span>
           </div>
 
-          {/* md:grid-cols-2 から md:grid-cols-3 に変更し、3列レイアウトに対応 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             
-            {/* ① 京都市会カード */}
+            {/* ① 京都市会カード (京都・紫藍: indigo) */}
             <div 
               onClick={() => onSelectCity('kyoto')}
-              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-indigo-500 p-7 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-6 relative overflow-hidden"
+              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-indigo-500 p-6 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-5 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50/50 rounded-bl-full pointer-events-none -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
               
@@ -104,21 +119,21 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
                 </div>
 
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  本会議・全常任委員会・特別委員会の12万発言・5,100超の質疑スレッドを網羅。全67議員の看板公約と議決の照合、松井市長政策トラッカーを完備。
+                  本会議・全委員会の12万発言・5,100超の質疑スレッドを網羅。全67議員の看板公約と議決の照合、松井市長政策トラッカーを完備。
                 </p>
 
-                <div className="grid grid-cols-3 gap-2 pt-2 text-center">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                <div className="grid grid-cols-3 gap-1.5 pt-1 text-center">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">現職議員</span>
-                    <span className="text-base font-black text-slate-900">67名</span>
+                    <span className="text-sm font-black text-slate-900">67名</span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">質疑スレッド</span>
-                    <span className="text-base font-black text-slate-900">5,100+</span>
+                    <span className="text-sm font-black text-slate-900">5,100+</span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">議案賛否</span>
-                    <span className="text-base font-black text-slate-900">300件</span>
+                    <span className="text-sm font-black text-slate-900">300件</span>
                   </div>
                 </div>
               </div>
@@ -131,60 +146,60 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
               </div>
             </div>
 
-            {/* ② 大阪市会カード */}
+            {/* ② 大阪市会カード (水都大阪・鮮青: blue) */}
             <div 
               onClick={() => onSelectCity('osaka')}
-              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-indigo-500 p-7 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-6 relative overflow-hidden"
+              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-blue-500 p-6 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-5 relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50/50 rounded-bl-full pointer-events-none -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-bl-full pointer-events-none -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-black">
+                  <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-black">
                     運用中
                   </span>
                   <span className="text-xs font-mono font-bold text-slate-400">/osaka/</span>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-black text-slate-900 group-hover:text-indigo-600 transition-colors">
+                  <h3 className="text-2xl font-black text-slate-900 group-hover:text-blue-600 transition-colors">
                     大阪市会
                   </h3>
                   <p className="text-xs text-slate-500 font-bold mt-1">Osaka City Council</p>
                 </div>
 
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  本会議および全委員会の1,260超の最新質疑スレッドを構造化。現職81議員の論戦スタイル、万博・副首都ビジョン等の重要政策タイムライン、横山市長政策トラッカーを収録。
+                  本会議および全委員会の1,260超の最新質疑スレッドを構造化。現職81議員の論戦スタイル、万博・副首都ビジョン等の重要政策、横山市長政策トラッカーを収録。
                 </p>
 
-                <div className="grid grid-cols-3 gap-2 pt-2 text-center">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                <div className="grid grid-cols-3 gap-1.5 pt-1 text-center">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">現職議員</span>
-                    <span className="text-base font-black text-slate-900">81名</span>
+                    <span className="text-sm font-black text-slate-900">81名</span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">質疑スレッド</span>
-                    <span className="text-base font-black text-slate-900">1,260+</span>
+                    <span className="text-sm font-black text-slate-900">1,260+</span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">対立議案分析</span>
-                    <span className="text-base font-black text-slate-900">網羅</span>
+                    <span className="text-sm font-black text-slate-900">網羅</span>
                   </div>
                 </div>
               </div>
 
               <div className="pt-2 flex items-center justify-between border-t border-slate-100">
-                <span className="text-xs font-bold text-indigo-600 group-hover:underline">大阪市会ダッシュボードを開く</span>
-                <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                <span className="text-xs font-bold text-blue-600 group-hover:underline">大阪市会ダッシュボードを開く</span>
+                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
             </div>
 
-            {/* ③ 名古屋市会カード */}
+            {/* ③ 名古屋市会カード (金鯱・黄金: amber) */}
             <div 
               onClick={() => onSelectCity('nagoya')}
-              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-amber-500 p-7 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-6 relative overflow-hidden"
+              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-amber-500 p-6 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-5 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-amber-50/50 rounded-bl-full pointer-events-none -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
 
@@ -207,18 +222,18 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
                   電子採決ログ・広沢市長「名古屋城木造復元」等の進捗トラッカー。現職68議員の賛否と質疑をオープンデータとして可視化します。
                 </p>
 
-                <div className="grid grid-cols-3 gap-2 pt-2 text-center">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                <div className="grid grid-cols-3 gap-1.5 pt-1 text-center">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">現職議員</span>
-                    <span className="text-base font-black text-slate-900">68名</span>
+                    <span className="text-sm font-black text-slate-900">68名</span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">質疑スレッド</span>
-                    <span className="text-base font-black text-slate-900">準備中</span>
+                    <span className="text-sm font-black text-slate-900">準備中</span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
                     <span className="text-[10px] font-bold text-slate-400 block">対立議案分析</span>
-                    <span className="text-base font-black text-slate-900">網羅</span>
+                    <span className="text-sm font-black text-slate-900">網羅</span>
                   </div>
                 </div>
               </div>
@@ -230,7 +245,58 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenMethodo
                 </div>
               </div>
             </div>
-            
+
+            {/* ④ 横浜市会カード (港湾ベイ・シアン: cyan) */}
+            <div 
+              onClick={() => onSelectCity('yokohama')}
+              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-cyan-500 p-6 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-5 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-50/50 rounded-bl-full pointer-events-none -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
+
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-700 text-xs font-black flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+                    新市政先行公開
+                  </span>
+                  <span className="text-xs font-mono font-bold text-slate-400">/yokohama/</span>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-black text-slate-900 group-hover:text-cyan-600 transition-colors">
+                    横浜市会
+                  </h3>
+                  <p className="text-xs text-slate-500 font-bold mt-1">Yokohama City Council</p>
+                </div>
+
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                  2026年10月就任の原澤敦美市長・重点12公約トラッカーと18区現職86議員名簿を先行公開。公約原本（選挙公報PDF等）完全バインド。
+                </p>
+
+                <div className="grid grid-cols-3 gap-1.5 pt-1 text-center">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">現職議員</span>
+                    <span className="text-sm font-black text-slate-900">86名</span>
+                  </div>
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">重点公約</span>
+                    <span className="text-sm font-black text-slate-900">12件</span>
+                  </div>
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">議会論戦</span>
+                    <span className="text-sm font-black text-slate-900">移行期</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+                <span className="text-xs font-bold text-cyan-600 group-hover:underline">横浜市会ダッシュボードを開く</span>
+                <div className="w-8 h-8 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </div>
+            </div>
+
           </div>
 
           {/* 順次展開案内 */}

@@ -971,10 +971,80 @@ KYOTO_TOPIC_CONFIGS = [
     }
 ]
 
+
+YOKOHAMA_TOPIC_CONFIGS = [
+    {
+        "topic_id": "yokohama_school_lunch_full",
+        "category": "子育て・教育",
+        "title": "中学校全員給食の円滑実施と食育・安全品質管理の検証",
+        "lead_summary": "2026年4月から開始された中学校全員給食に関し、供給体制の安定性や温かい給食の質、食材の安全性、アレルギー対応、今後の食育体制を巡る議論。",
+        "current_status": "全員提供の開始に伴い、配膳や保温設備の運用実態、民間調理場等との連携体制、喫食率100%に向けた課題検証が進められている。",
+        "conflict_axes": [
+            "全員給食の迅速・安定供給と配送・温食提供の品質確保",
+            "給食費無償化・所得制限見直しに向けた財源確保と受益者負担",
+            "地産地消・有機食材の活用推進と食材価格高騰への対応"
+        ],
+        "keywords": ["給食", "全員給食", "デリバリー給食", "食育", "中学校給食"]
+    },
+    {
+        "topic_id": "yokohama_green_expo_2027",
+        "category": "産業・観光・地域経済",
+        "title": "GREEN×EXPO 2027（園芸博）の開催準備と旧上瀬谷通信施設跡地利用",
+        "lead_summary": "2027年国際園芸博覧会（花博）の会場整備、アクセス交通、機運醸成、および跡地へのテーマパーク構想を含む旧上瀬谷通信施設の土地利用策を巡る議論。",
+        "current_status": "会場建設費の負担や入場券販売、新交通システム（KAMOME等）の代替策、跡地開発事業者との協定締結が進められている。",
+        "conflict_axes": [
+            "博覧会成功に向けた機運醸成・インフラ整備と多額の市費負担の是非",
+            "新交通システム断念後のアクセスバス等の安定輸送ルート確保",
+            "テーマパーク構想と自然環境・農業振興のバランス"
+        ],
+        "keywords": ["上瀬谷", "花博", "園芸博", "expo", "通信施設", "テーマパーク"]
+    },
+    {
+        "topic_id": "yokohama_hilly_public_transport",
+        "category": "都市再生・交通インフラ",
+        "title": "起伏・坂の多い地形に対応する地域交通の確保と敬老パス維持",
+        "lead_summary": "丘陵地帯が多く高齢化が進む郊外部における、路線バスの減便対策やコミュニティバス・オンデマンド交通の導入、敬老パスの持続可能性を巡る議論。",
+        "current_status": "バス運転手不足による路線再編が進む中、地域主体の交通手段構築への支援や、敬老パスのＩＣ化・制度見直しが検討されている。",
+        "conflict_axes": [
+            "路線バス減便路線の維持支援とコミュニティ交通導入路線の採算性",
+            "敬老パスの自己負担額・利用上限と高齢者の外出支援効果",
+            "オンデマンド交通やMaaS等、新技術を活用した移動手段の確保"
+        ],
+        "keywords": ["敬老パス", "地域交通", "コミュニティバス", "坂道", "オンデマンド", "バス路線", "運転手不足"]
+    },
+    {
+        "topic_id": "yokohama_disaster_shelter_welfare",
+        "category": "防災・減災・治安",
+        "title": "急傾斜地・水害リスク対策と「安心して過ごせる避難所」の環境整備",
+        "lead_summary": "市内全域に点在する急傾斜地（がけ地）の崩落対策、ゲリラ豪雨・内水氾濫への備え、および災害拠点となる学校避難所の生活環境改善を巡る議論。",
+        "current_status": "がけ地防災工事の補助要件緩和、雨水幹線の整備強化、避難所への空調設備・防災トイレ・段ボールベッドの配備が進められている。",
+        "conflict_axes": [
+            "民有がけ地の防災工事に対する公的支援の拡充と財政負担",
+            "内水ハザードマップの周知徹底と地下空間の浸水対策",
+            "避難所における女性・要配慮者のプライバシー保護と衛生環境（空調・トイレ）"
+        ],
+        "keywords": ["急傾斜", "土砂災害", "浸水", "避難所", "内水", "崖", "がけ地", "豪雨"]
+    },
+    {
+        "topic_id": "yokohama_debt_fund_fiscal_pdca",
+        "category": "財政・行革",
+        "title": "減債基金依存からの脱却と持続可能な財政規律・行革推進",
+        "lead_summary": "市債（借金）の返済財源である減債基金の取崩しに依存する収支構造からの脱却、将来の財政負担軽減に向けた事業見直しやDX推進を巡る議論。",
+        "current_status": "中期4か年計画における財源確保策として、市有地活用、外郭団体の統廃合、業務デジタル化（DX）による人員適正化が進められている。",
+        "conflict_axes": [
+            "減債基金からの特例取崩しによる財源確保と将来世代へのツケ回し",
+            "市民サービスの維持と公共施設等保全費・インフラ更新投資の抑制",
+            "市役所・区役所業務のDX推進・外部委託化と直営体制の維持"
+        ],
+        "keywords": ["減債基金", "財政規律", "財源確保", "市債", "外郭団体", "中期計画", "行財政改革"]
+    }
+]
+
 CITY_CONFIGS = {
     "kyoto": KYOTO_TOPIC_CONFIGS,
     "nagoya": NAGOYA_TOPIC_CONFIGS,
-    "osaka": OSAKA_TOPIC_CONFIGS
+    "osaka": OSAKA_TOPIC_CONFIGS,
+    "yokohama": YOKOHAMA_TOPIC_CONFIGS
 }
 
 def generate_topics(city_code):
@@ -1034,9 +1104,15 @@ def generate_topics(city_code):
                 continue
 
             exchanges = []
-            for s in p_stmts[:3]:
+            # SOP: 肉声データが復元できた質疑を優先してピックアップ
+            valid_stmts = [s for s in p_stmts if len(str(s.get("statement_text", "")).strip()) > 30]
+            for s in p_stmts:
+                if s not in valid_stmts:
+                    valid_stmts.append(s)
+                    
+            for s in valid_stmts[:3]:
                 # 💡 京都・大阪・名古屋 全都市統一: 議員の実際の発言本文 (statement_text) を最優先
-                raw_speech = (s.get("statement_text") or "").strip()
+                raw_speech = (s.get("statement_text") or s.get("speech_text") or s.get("content") or "").strip()
                 if raw_speech and len(raw_speech) > 20:
                     # 議事進行の余計な定型句を除去して実際の発言を抽出
                     cleaned_speech = re.sub(r"^(ただいまから|それでは|よろしくお願いいたします|おはようございます|ありがとうございます)[。、\s]*", "", raw_speech)
@@ -1047,12 +1123,15 @@ def generate_topics(city_code):
                 exchanges.append({
                     "statement_id": s.get("id"),
                     "meeting_id": s.get("meeting_id"),
-                    "sequence_number": s.get("sequence_number") or s.get("speech_order"),
+                    "sequence_number": s.get("sequence_number") or s.get("speech_order") or (str(s.get("id", "")).split("_")[-1] if s.get("id") else ""),
                     "meeting_date": s.get("meeting_date", ""),
                     "meeting_title": s.get("meeting_title", ""),
                     "speaker": s.get("speaker", ""),
+                    "statement_text": raw_speech if raw_speech else s.get("summary", ""),
+                    "speech_text": raw_speech if raw_speech else s.get("summary", ""),
                     "statement_summary": display_text,
-                    "source_url": s.get("official_url") or s.get("source_url", "https://ssp.kaigiroku.net/tenant/nagoya/SpMinuteSearch.html")
+                    "official_url": s.get("official_url") or s.get("source_url", ""),
+                    "source_url": s.get("official_url") or s.get("source_url", "")
                 })
 
             if "2023" in period_name:
@@ -1101,6 +1180,6 @@ def generate_topics(city_code):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="議会のミカタ 統合トピック要約ジェネレーター")
-    parser.add_argument("--city", required=True, choices=["nagoya", "osaka", "kyoto"], help="対象都市コード")
+    parser.add_argument("--city", required=True, choices=["nagoya", "osaka", "kyoto", "yokohama"], help="対象都市コード")
     args = parser.parse_args()
     generate_topics(args.city)

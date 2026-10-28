@@ -387,7 +387,7 @@ export default function BillDetailModal({
                 rel="noopener noreferrer" 
                 className="inline-flex items-center text-xs font-bold text-indigo-600 hover:underline"
               >
-                {cityCode === 'nagoya' ? '名古屋市会 公式審議結果ページを開く' : cityCode === 'osaka' ? '大阪市会 公式審議結果ページを開く' : '京都市会 公式審議結果ページを開く'} <ExternalLink className="w-3 h-3 ml-1" />
+                {cityCode === 'yokohama' ? '横浜市会 公式会議録・議決結果ページを開く' : cityCode === 'nagoya' ? '名古屋市会 公式審議結果ページを開く' : cityCode === 'osaka' ? '大阪市会 公式審議結果ページを開く' : '京都市会 公式審議結果ページを開く'} <ExternalLink className="w-3 h-3 ml-1" />
               </a>
             </div>
           )}

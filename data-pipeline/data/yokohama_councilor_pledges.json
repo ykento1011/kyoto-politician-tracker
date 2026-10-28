@@ -1,0 +1,4768 @@
+[
+  {
+    "speaker": "青木 亮祐",
+    "raw_name": "青木 けいすけ",
+    "district": "保土ケ谷区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_urban_revitalization",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "都市計画・地域活性化",
+        "stance": "推進・拡充",
+        "headline": "選ばれる都市・街を目指す",
+        "exact_quote": "選ばれる都市（よこはま）選ばれる街（保土ケ谷）を目指して"
+      },
+      {
+        "id": "pledge_childcare_burden",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "負担軽減",
+        "headline": "子育て世代の負担を軽減",
+        "exact_quote": "１．子育て世代の負担軽減"
+      },
+      {
+        "id": "pledge_free_education",
+        "category": "子育て・教育",
+        "target_issue": "教育制度",
+        "stance": "推進・拡充",
+        "headline": "教育の無償化を推進",
+        "exact_quote": "２．教育の無償化"
+      }
+    ]
+  },
+  {
+    "speaker": "関嵩史",
+    "raw_name": "関根 ふみか",
+    "district": "保土ケ谷区",
+    "party": "地域政党よこはま",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_ishin_reform",
+        "category": "財政・行革",
+        "target_issue": "議会改革・行政改革",
+        "stance": "推進・拡充",
+        "headline": "横浜市議会に維新の改革を",
+        "exact_quote": "横浜市議会に維新の改革を！"
+      },
+      {
+        "id": "pledge_childcare_burden_sekine",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "負担軽減",
+        "headline": "子育て世代の負担を軽減",
+        "exact_quote": "１．子育て世代の負担軽減"
+      },
+      {
+        "id": "pledge_free_education_sekine",
+        "category": "子育て・教育",
+        "target_issue": "教育制度",
+        "stance": "推進・拡ctu",
+        "headline": "教育の無償化を推進",
+        "exact_quote": "２．教育の無償化"
+      }
+    ]
+  },
+  {
+    "speaker": "森ひろたか",
+    "raw_name": "むろたに けんいち",
+    "district": "保土ケ谷区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_achievements_challenges",
+        "category": "財政・行革",
+        "target_issue": "行政運営",
+        "stance": "推進・拡充",
+        "headline": "4年間の実績と課題解決を推進",
+        "exact_quote": "2019→2023 4年間の実績と課題解決へ！"
+      },
+      {
+        "id": "pledge_childcare_education_environment",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援,教育環境",
+        "stance": "推進・拡充",
+        "headline": "子育て・教育環境を整備",
+        "exact_quote": "１．子育て・教育環境の整備"
+      },
+      {
+        "id": "pledge_elderly_disabled_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者福祉,障がい者支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者・障がい者支援を充実",
+        "exact_quote": "２．高齢者・障がい者支援の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "斉藤 伸一",
+    "raw_name": "さいとう 伸",
+    "district": "保土ケ谷区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_citizen_consultation",
+        "category": "財政・行革",
+        "target_issue": "市民サービス",
+        "stance": "制度維持",
+        "headline": "11,000件の市民相談実績",
+        "exact_quote": "11,000件の市民相談"
+      },
+      {
+        "id": "pledge_digital_divide_smartphone",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "デジタル格差",
+        "stance": "推進・拡充",
+        "headline": "デジタルデバイド解消とスマホ教室",
+        "exact_quote": "・デジタルデバイド解消へ！使いやすいスマホ教室開催"
+      },
+      {
+        "id": "pledge_elderly_transport_discount",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者交通",
+        "stance": "推進・拡充",
+        "headline": "高齢者向け交通割引制度を拡充",
+        "exact_quote": "・高齢者向けバス・タクシー割引制度の拡充"
+      }
+    ]
+  },
+  {
+    "speaker": "北谷 けんいち",
+    "raw_name": "北谷 けんいち",
+    "district": "保土ケ谷区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_new_city_administration",
+        "category": "財政・行革",
+        "target_issue": "行政運営",
+        "stance": "推進・拡充",
+        "headline": "新しい市政を前へ進める",
+        "exact_quote": "新しい市政をもっと前へ"
+      },
+      {
+        "id": "pledge_no_casino",
+        "category": "産業・観光・地域経済",
+        "target_issue": "IR誘致",
+        "stance": "反対・見直し",
+        "headline": "カジノ誘致に反対",
+        "exact_quote": "カジノやめろ"
+      },
+      {
+        "id": "pledge_free_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "負担軽減,推進・拡充",
+        "headline": "給食費の無償化を推進",
+        "exact_quote": "給食費ゼロ"
+      }
+    ]
+  },
+  {
+    "speaker": "磯部 圭太",
+    "raw_name": "いそべ 圭太",
+    "district": "保土ケ谷区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_for_hodogaya",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域活性化",
+        "stance": "推進・拡充",
+        "headline": "ふるさと保土ケ谷のために尽力",
+        "exact_quote": "生まれ育ったふるさと保土ケ谷のために"
+      },
+      {
+        "id": "pledge_children_youth_future",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援,若者支援",
+        "stance": "推進・拡充",
+        "headline": "子どもと若者の未来を創造",
+        "exact_quote": "１．子どもと若者が未来のために〜"
+      },
+      {
+        "id": "pledge_health_longevity",
+        "category": "福祉・医療・健康",
+        "target_issue": "健康増進,高齢者福祉",
+        "stance": "推進・拡充",
+        "headline": "健康寿命の延伸を推進",
+        "exact_quote": "２．いつまでも健康に〜"
+      }
+    ]
+  },
+  {
+    "speaker": "古谷 靖彦",
+    "raw_name": "古谷 やすひこ",
+    "district": "鶴見区",
+    "party": "日本共産党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_1",
+        "category": "子育て・教育",
+        "target_issue": "不登校対策",
+        "stance": "推進・拡充",
+        "headline": "不登校生徒一人一人に寄り添った対策強化",
+        "exact_quote": "6616人の不登校生徒一人一人に寄り添った対策を"
+      },
+      {
+        "id": "pledge_education_2",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "学校調理の中学校給食、給食費無償化",
+        "exact_quote": "学校調理の中学校給食,給食費無償化"
+      },
+      {
+        "id": "pledge_welfare_1",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費",
+        "stance": "推進・拡充",
+        "headline": "小児医療費の待機期間短縮と補聴器補助",
+        "exact_quote": "待機期間短縮▶補聴器補助"
+      }
+    ]
+  },
+  {
+    "speaker": "山田 一誠",
+    "raw_name": "山田 かずまさ",
+    "district": "鶴見区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_3",
+        "category": "子育て・教育",
+        "target_issue": "学校施設",
+        "stance": "推進・拡充",
+        "headline": "豊岡小学校建て替え・複合化に地域の声を",
+        "exact_quote": "豊岡小学校の建て替え・複合化に保護者・地域の声を"
+      },
+      {
+        "id": "pledge_childcare_1",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "全ての子育て家庭を全力支援",
+        "exact_quote": "親が働いていても、家にいても全ての子育て家庭を全力支援"
+      },
+      {
+        "id": "pledge_childcare_2",
+        "category": "子育て・教育",
+        "target_issue": "子どもアドボケイト",
+        "stance": "推進・拡充",
+        "headline": "子どもアドボケイト実現で意見を市政に",
+        "exact_quote": "子どもたちの意見をもっとヨコハマに(子どもアドボケイトの実現)"
+      }
+    ]
+  },
+  {
+    "speaker": "渡邊 忠則",
+    "raw_name": "わたなべ 忠則",
+    "district": "鶴見区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_transport_1",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "コミュニティバス",
+        "stance": "推進・拡充",
+        "headline": "コミュニティバス導入で移動を円滑に",
+        "exact_quote": "コミュニティバスの導入を目指します"
+      },
+      {
+        "id": "pledge_transport_2",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "バリアフリー",
+        "stance": "推進・拡充",
+        "headline": "バリアフリーな鶴見で安全円滑な移動",
+        "exact_quote": "安全で円滑な移動ができるバリアフリーな鶴見を目指します"
+      },
+      {
+        "id": "pledge_transport_3",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "鉄道駅改良",
+        "stance": "推進・拡充",
+        "headline": "JR矢向駅の高架化を目指す",
+        "exact_quote": "生活の安全向上のためJR矢向駅の高架化を目指していきます"
+      }
+    ]
+  },
+  {
+    "speaker": "東みちよ",
+    "raw_name": "東 みちよ",
+    "district": "鶴見区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economy_1",
+        "category": "産業・観光・地域経済",
+        "target_issue": "物価高騰対策",
+        "stance": "推進・拡充",
+        "headline": "物価高騰対策と幸福度指標の循環型経済",
+        "exact_quote": "物価高騰対策、「幸福度」指標の循環型経済"
+      },
+      {
+        "id": "pledge_welfare_2",
+        "category": "福祉・医療・健康",
+        "target_issue": "子育て・介護支援",
+        "stance": "推進・拡充",
+        "headline": "働きながらの子育て・介護を支援",
+        "exact_quote": "働きながらの子育て、介護を支援"
+      },
+      {
+        "id": "pledge_disaster_1",
+        "category": "防災・減災・治安",
+        "target_issue": "災害対策・共生社会",
+        "stance": "推進・拡充",
+        "headline": "災害に強く、全世代に寄り添う街づくり",
+        "exact_quote": "災害に強い街。子供から高齢者、障がい者にも寄り添う街づくり"
+      }
+    ]
+  },
+  {
+    "speaker": "井上さくら",
+    "raw_name": "井上 さくら",
+    "district": "鶴見区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_welfare_3",
+        "category": "福祉・医療・健康",
+        "target_issue": "保険料負担",
+        "stance": "反対・見直し",
+        "headline": "国保料・介護保険料の値上げストップ",
+        "exact_quote": "国保料、介護保険料の値上げストップ"
+      },
+      {
+        "id": "pledge_education_4",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・拡充",
+        "headline": "中学校給食は学校調理方式で",
+        "exact_quote": "中学校給食は学校調理方式で"
+      },
+      {
+        "id": "pledge_education_5",
+        "category": "子育て・教育",
+        "target_issue": "奨学金",
+        "stance": "推進・拡充",
+        "headline": "若者に返済不要の奨学金を",
+        "exact_quote": "若者に返済不要の奨学金を"
+      }
+    ]
+  },
+  {
+    "speaker": "足立 ひでき",
+    "raw_name": "足立 ひでき",
+    "district": "鶴見区",
+    "party": "国民民主党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economy_2",
+        "category": "産業・観光・地域経済",
+        "target_issue": "就労支援・福祉施設",
+        "stance": "推進・拡充",
+        "headline": "弱者の就職斡旋と福祉施設利用促進",
+        "exact_quote": "社会的弱者に安定した就職先の斡旋や安定した福祉施設利用促進"
+      },
+      {
+        "id": "pledge_fiscal_1",
+        "category": "財政・行革",
+        "target_issue": "特別市移行",
+        "stance": "推進・拡充",
+        "headline": "横浜の特別市移行で権限強化",
+        "exact_quote": "特別市への移行横浜の事は横浜で決める"
+      },
+      {
+        "id": "pledge_education_6",
+        "category": "子育て・教育",
+        "target_issue": "情操教育",
+        "stance": "推進・拡充",
+        "headline": "思いやりと助け合いの情操教育を実践",
+        "exact_quote": "心豊かな情操教育(思いやりと助け合い)の実践"
+      }
+    ]
+  },
+  {
+    "speaker": "有村 としひこ",
+    "raw_name": "有村 としひこ",
+    "district": "鶴見区",
+    "party": "立憲民主党 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_3",
+        "category": "子育て・教育",
+        "target_issue": "地域子育て支援",
+        "stance": "推進・拡充",
+        "headline": "地域ぐるみで次世代を育む子育て応援",
+        "exact_quote": "地域ぐるみで子育てを応援!次世代を育むまちにする"
+      },
+      {
+        "id": "pledge_welfare_4",
+        "category": "福祉・医療・健康",
+        "target_issue": "共生社会",
+        "stance": "推進・拡充",
+        "headline": "心の壁をなくし誰もが活き活き暮らせる街",
+        "exact_quote": "みんなの心の壁をなくして誰もが活き活きと暮らせるまちにする"
+      },
+      {
+        "id": "pledge_transport_4",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "鉄道駅改良",
+        "stance": "推進・拡充",
+        "headline": "相鉄・JR直通線を鶴見駅に停車",
+        "exact_quote": "相鉄・JR直通線を鶴見駅に停車させよう"
+      }
+    ]
+  },
+  {
+    "speaker": "柏原 すぐる",
+    "raw_name": "柏原 すぐる",
+    "district": "鶴見区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_urban_1",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域活性化",
+        "stance": "推進・拡充",
+        "headline": "「TSURUMI2023」で鶴見の新時代を",
+        "exact_quote": "「TSURUMI2023」で鶴見の新時代を"
+      },
+      {
+        "id": "pledge_fiscal_2",
+        "category": "財政・行革",
+        "target_issue": "議員報酬・情報公開",
+        "stance": "推進・拡充",
+        "headline": "身を切る改革と徹底した情報公開・透明化",
+        "exact_quote": "身を切る改革と徹底した情報公開・透明化"
+      },
+      {
+        "id": "pledge_fiscal_3",
+        "category": "財政・行革",
+        "target_issue": "行財政改革・経済成長",
+        "stance": "推進・拡充",
+        "headline": "行財政改革と経済成長で財源を投資",
+        "exact_quote": "行財政改革と経済成長で生み出した財源で将来・現役世代へ徹底投資"
+      }
+    ]
+  },
+  {
+    "speaker": "青島 まさはる",
+    "raw_name": "青島 まさはる",
+    "district": "鶴見区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_7",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "学校給食の今すぐ無償化",
+        "exact_quote": "学校給食今すぐ無償化"
+      },
+      {
+        "id": "pledge_education_8",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "反対・見直し",
+        "headline": "デリバリー撤回し温かい中学校給食実現",
+        "exact_quote": "デリバリー方式撤回、あたたかい中学校給食の実現"
+      },
+      {
+        "id": "pledge_education_9",
+        "category": "子育て・教育",
+        "target_issue": "奨学金",
+        "stance": "推進・拡充",
+        "headline": "給付型奨学金創設と返済支援制度",
+        "exact_quote": "奨学金返済支援制度、独自の「給付型奨学金を創設します"
+      }
+    ]
+  },
+  {
+    "speaker": "尾崎太",
+    "raw_name": "尾崎 太",
+    "district": "鶴見区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economy_3",
+        "category": "産業・観光・地域経済",
+        "target_issue": "物価高騰対策",
+        "stance": "推進・拡充",
+        "headline": "物価高騰対策で鶴見に元気を",
+        "exact_quote": "物価高対策で、鶴見に元気を。"
+      },
+      {
+        "id": "pledge_welfare_5",
+        "category": "福祉・医療・健康",
+        "target_issue": "子育て支援・医療費",
+        "stance": "推進・拡充",
+        "headline": "子育て支援と医療費無償化で安心を",
+        "exact_quote": "小さな声に寄り添い、鶴見に安心を。"
+      },
+      {
+        "id": "pledge_disaster_2",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・防犯",
+        "stance": "推進・拡充",
+        "headline": "防災・防犯力向上で鶴見に安全を",
+        "exact_quote": "防災力・防犯力の向上で、鶴見に安全を。"
+      }
+    ]
+  },
+  {
+    "speaker": "さくま衛",
+    "raw_name": "さくま衛",
+    "district": "中区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economy_revitalization",
+        "category": "産業・観光・地域経済",
+        "target_issue": "商店街振興",
+        "stance": "推進・再生",
+        "headline": "イベント・町内活動で商店街再生",
+        "exact_quote": "① イベントや町内活動を通じて、商店街を再生!"
+      },
+      {
+        "id": "pledge_safety_security",
+        "category": "防災・減災・治安",
+        "target_issue": "治安維持・防犯",
+        "stance": "整備・拡充",
+        "headline": "街路灯・防犯カメラ整備で安全な街に",
+        "exact_quote": "②街路灯や防犯カメラを整備して、安全な街に!"
+      },
+      {
+        "id": "pledge_child_welfare",
+        "category": "子育て・教育",
+        "target_issue": "子ども食堂",
+        "stance": "開設・推進",
+        "headline": "民生委員として子ども食堂を開設",
+        "exact_quote": "③民生委員・児童委員として子ども食堂開設!"
+      }
+    ]
+  },
+  {
+    "speaker": "小宮信良",
+    "raw_name": "小宮信良",
+    "district": "中区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_welfare_review",
+        "category": "子育て・教育",
+        "target_issue": "児童養護施設・里親制度",
+        "stance": "見直し",
+        "headline": "児童養護施設と里親制度の早急な見直し",
+        "exact_quote": "・早急な児童養護施設と里親制度のあり方の見直し"
+      },
+      {
+        "id": "pledge_education_free",
+        "category": "子育て・教育",
+        "target_issue": "教育費無償化",
+        "stance": "完全無償化",
+        "headline": "出産から教育費まで完全無償化",
+        "exact_quote": "・将来的な出産から子どもの医療費等を含め、学費・給食費、塾代等も含めた「教育費の完全無償化」"
+      },
+      {
+        "id": "pledge_digital_government",
+        "category": "財政・行革",
+        "target_issue": "行政サービスDX",
+        "stance": "導入・実現",
+        "headline": "横浜市かんたんアプリ導入で行政DX",
+        "exact_quote": "・「横浜市かんたんアプリ」の導入で世帯環境等を登録するだけでサービスが案内されるシステムの実現"
+      }
+    ]
+  },
+  {
+    "speaker": "伊波 俊之助",
+    "raw_name": "いなみ俊之助",
+    "district": "中区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_support_program",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進",
+        "headline": "子どもの可能性を伸ばす子育て応援推進",
+        "exact_quote": "世代をつなぐ子どもの可能性を伸ばす子育て応援プログラムの推進!"
+      },
+      {
+        "id": "pledge_waste_management_ai",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "ごみ収集",
+        "stance": "推進・短縮",
+        "headline": "ゴミ収集車にAI搭載し待ち時間短縮",
+        "exact_quote": "ゴミ収集車にAI搭載、待ち時間短縮へ"
+      },
+      {
+        "id": "pledge_safety_esports",
+        "category": "防災・減災・治安",
+        "target_issue": "防犯・治安",
+        "stance": "普及・拡充",
+        "headline": "eスポーツ普及で防犯カメラ設置拡充",
+        "exact_quote": "eスポーツ普及拡大による安全確保・犯罪抑止!地域防犯カメラ設置拡充"
+      }
+    ]
+  },
+  {
+    "speaker": "森ひでお",
+    "raw_name": "森ひでお",
+    "district": "中区",
+    "party": "社民党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_medical_system_enhancement",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療提供体制",
+        "stance": "拡充・強化",
+        "headline": "コロナ対応可能な医療提供体制を強化",
+        "exact_quote": "▼コロナ感染拡大時にいのちも対応できるように、病床と人員を増やし市民の命を守る医療提供体制を作ります。"
+      },
+      {
+        "id": "pledge_military_base_opposition",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "米軍基地",
+        "stance": "反対・早期返還",
+        "headline": "ノースドック米軍配備反対、早期返還",
+        "exact_quote": "▼山下ふ頭の目と鼻の先にあるノースドックへの米軍配備に反対し鶴見貯油施設も含めて早期返還を目指します。"
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "無償化・推進",
+        "headline": "温かい中学校給食で食育推進、無償化",
+        "exact_quote": "▼学校で調理する温かくておいしい中学校給食で食育を進めます。小・中学校給食の無償化を実現します。"
+      }
+    ]
+  },
+  {
+    "speaker": "福島直子",
+    "raw_name": "福島直子",
+    "district": "中区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_elderly_care_facilities",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者福祉施設",
+        "stance": "充実",
+        "headline": "特別養護老人ホームなど施設・住まい充実",
+        "exact_quote": "*特別養護老人ホームなど、施設や住まいの充実"
+      },
+      {
+        "id": "pledge_earthquake_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "地震対策・耐震化",
+        "stance": "推進",
+        "headline": "木造密集地の地震予防と耐震化を推進",
+        "exact_quote": "*木造住宅の密集地で、地震災害の予防や耐震化を推進"
+      },
+      {
+        "id": "pledge_tourism_sankeien",
+        "category": "産業・観光・地域経済",
+        "target_issue": "観光資源",
+        "stance": "改良・整備",
+        "headline": "三溪園を魅力的な観光資源として整備",
+        "exact_quote": "*横浜の宝・三溪園をより魅力的な観光資源に改良整備"
+      }
+    ]
+  },
+  {
+    "speaker": "松本研",
+    "raw_name": "松本研",
+    "district": "中区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_urban_tourism_development",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "都市開発・観光",
+        "stance": "推進",
+        "headline": "都心臨海部と関内・関外の観光コンテンツ強化",
+        "exact_quote": "●都心臨海部の魅力ある街づくりや関内・関外地区の魅力ある観光コンテンツづくり"
+      },
+      {
+        "id": "pledge_economy_education_ict",
+        "category": "産業・観光・地域経済",
+        "target_issue": "企業誘致・教育DX",
+        "stance": "推進・育成",
+        "headline": "企業誘致・新産業創出、ICT教育推進",
+        "exact_quote": "●企業誘致や新たな産業の創出、大型イベント誘致やICTを活用した学習支援や国際社会に通じるコミュニケーション能力の育成"
+      },
+      {
+        "id": "pledge_disaster_prevention_community",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災",
+        "stance": "強化・推進",
+        "headline": "消防団・防災拠点強化、自助共助で減災推進",
+        "exact_quote": "●消防団の充実強化、地域防災拠点の機能強化、自助・共助による減災の取組みの推進"
+      }
+    ]
+  },
+  {
+    "speaker": "植木 まりこ",
+    "raw_name": "植木 まりこ",
+    "district": "栄区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_junior_high",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の学校調理・無償化",
+        "exact_quote": "学校給食・学校調理の中学校給食、給食費無償化"
+      },
+      {
+        "id": "pledge_child_medical_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費・出産費用",
+        "stance": "推進・拡充",
+        "headline": "小児医療費18歳まで無償化・出産費ゼロ",
+        "exact_quote": "小児医療費・18歳まで無償化・出産費用ゼロ"
+      },
+      {
+        "id": "pledge_local_transport",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "公共交通",
+        "stance": "推進・拡充",
+        "headline": "地域公共交通（バス等）の充実",
+        "exact_quote": "地域交通・バス路線ミニバス等地域公共交通の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "田畑 きよたか",
+    "raw_name": "田畑 きよたか",
+    "district": "栄区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "小中学校の給食費全額無償化",
+        "exact_quote": "小学校~中学校の給食費全額無償化! 温かく、美味しく、はぐくむ栄養のある給食作りを。"
+      },
+      {
+        "id": "pledge_matchmaking_ai",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "結婚支援",
+        "stance": "推進・拡充",
+        "headline": "AI診断で縁結び、結婚に繋がる環境作り",
+        "exact_quote": "行政機関がお互いの相性をAI診断で結びつけるアプリを推進し、個人の幸せ~結婚に繋がる縁を結ぶ環境作り!"
+      },
+      {
+        "id": "pledge_elderly_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者福祉・介護",
+        "stance": "推進・拡充",
+        "headline": "老後の生活不安解消、介護施設充実",
+        "exact_quote": "老後の生活問題や健康寿命への取り組み、介護施設の充実なども含め、共に歩んで参ります!"
+      }
+    ]
+  },
+  {
+    "speaker": "輿石 かつ子",
+    "raw_name": "こしいし かつ子",
+    "district": "栄区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_sakaesta_town_dev",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "駅前再開発・街づくり",
+        "stance": "推進・拡充",
+        "headline": "本郷台駅前「さかえすた」の街づくり",
+        "exact_quote": "本郷台駅前「さかえすた」の次はトータルな街づくり"
+      },
+      {
+        "id": "pledge_ofuna_barrier_free",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "駅前再開発・バリアフリー",
+        "stance": "推進・拡充",
+        "headline": "大船駅北口再開発と街のバリアフリー",
+        "exact_quote": "大船駅北口再開発の次は街のバリアフリー"
+      },
+      {
+        "id": "pledge_local_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "地域防災",
+        "stance": "推進・拡充",
+        "headline": "地域防災拠点看板・マンション防災",
+        "exact_quote": "地域防災「拠点看板」「マンション防災」"
+      }
+    ]
+  },
+  {
+    "speaker": "つのだ 宏子",
+    "raw_name": "つのだ 宏子",
+    "district": "栄区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_kamigo_area_dev",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域開発・街づくり",
+        "stance": "推進・拡充",
+        "headline": "上郷エリア開発による街づくり",
+        "exact_quote": "1.上郷エリア開発による街づくりを"
+      },
+      {
+        "id": "pledge_medical_system_integration",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療体制",
+        "stance": "推進・拡充",
+        "headline": "医療情報一元化と医療拠点機関",
+        "exact_quote": "2.安心の医療体制を確立させ、ひとりひとり個人の医療情報を一元化する切れ目無く一生を託す医療拠点機関を栄区に"
+      },
+      {
+        "id": "pledge_yokohama_loop_south",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "交通インフラ",
+        "stance": "推進・拡充",
+        "headline": "高速横浜環状南線事業の推進",
+        "exact_quote": "4.高速横浜環状南線事業の見通しをつけます公共交通機関の利便性向上を民間事業者との連携で実現"
+      }
+    ]
+  },
+  {
+    "speaker": "吉永 ゆうや",
+    "raw_name": "吉永 ゆうや",
+    "district": "栄区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_safe_local_medical",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域医療",
+        "stance": "推進・拡充",
+        "headline": "全ての人が安心できる地域医療",
+        "exact_quote": "◎すべての人が安心して生活できる地域医療!"
+      },
+      {
+        "id": "pledge_child_rearing_education",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育支援",
+        "stance": "推進・拡充",
+        "headline": "子育て・教育を地域社会で支援",
+        "exact_quote": "◎未来を担う子どもの子育て・教育を地域社会一丸となって支える!"
+      },
+      {
+        "id": "pledge_overcome_disabilities",
+        "category": "福祉・医療・健康",
+        "target_issue": "障害者支援",
+        "stance": "推進・拡充",
+        "headline": "障害や障壁を共に乗り越える",
+        "exact_quote": "◎障害や障壁を共に乗り越える!"
+      }
+    ]
+  },
+  {
+    "speaker": "長谷川 えつこ",
+    "raw_name": "長谷川 えつこ",
+    "district": "栄区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_junior_high_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の実現",
+        "exact_quote": "・中学校給食の実現"
+      },
+      {
+        "id": "pledge_kamigo_development_abolition",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域開発",
+        "stance": "反対・見直し",
+        "headline": "上郷開発の廃止",
+        "exact_quote": "・上郷開発の廃止"
+      },
+      {
+        "id": "pledge_casino_attraction_stop",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ誘致",
+        "stance": "反対・見直し",
+        "headline": "カジノ誘致の阻止",
+        "exact_quote": "・カジノ誘致阻止"
+      }
+    ]
+  },
+  {
+    "speaker": "大桑 正貴",
+    "raw_name": "大桑 まさたか",
+    "district": "栄区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育てを全力で支援",
+        "exact_quote": "子育てを全力支援します!"
+      },
+      {
+        "id": "pledge_healthy_life_expectancy",
+        "category": "福祉・医療・健康",
+        "target_issue": "健康増進",
+        "stance": "推進・拡充",
+        "headline": "健康寿命を伸ばすサポート",
+        "exact_quote": "健康寿命を伸ばすサポートもやります!"
+      },
+      {
+        "id": "pledge_inclusive_parks",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "公園整備",
+        "stance": "推進・拡充",
+        "headline": "全ての人にやさしい公園を増やす",
+        "exact_quote": "すべてのの人にやさしい公園を増やします!"
+      }
+    ]
+  },
+  {
+    "speaker": "石渡 ゆきお",
+    "raw_name": "石渡 ゆきお",
+    "district": "栄区",
+    "party": "国民民主党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_resilient_town",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災",
+        "stance": "推進・拡充",
+        "headline": "災害に強いまちづくり推進",
+        "exact_quote": "災害に強いまちづくりをめざします。(がけ地対策、水害対策、停電対策、避難所整備等)"
+      },
+      {
+        "id": "pledge_child_support_no_income_limit",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "負担軽減",
+        "headline": "子育て支援策の所得制限撤廃",
+        "exact_quote": "子育て支援策のすべてを対象に所得制限撤廃をめざします。"
+      },
+      {
+        "id": "pledge_junior_high_school_full_lunch",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "中学校の温かい完全給食実現",
+        "exact_quote": "中学校の温かい完全給食実現をめざします。"
+      }
+    ]
+  },
+  {
+    "speaker": "山下 正人",
+    "raw_name": "山下正人",
+    "district": "青葉区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_carbon_industry",
+        "category": "産業・観光・地域経済",
+        "target_issue": "脱炭素関連の新産業創出",
+        "stance": "推進・創出",
+        "headline": "脱炭素で新産業を創出",
+        "exact_quote": "温暖化対策の為に制定した脱炭素条例は経済対策でもあります。社会の変革期に脱炭素関連の新産業を創出したいと考えます。例えば農業。植物が吸収するCO2量を証明し、EV自動車メーカーのテスラの様にCO2 クレジット市場から収入を得ます。"
+      },
+      {
+        "id": "pledge_medical_dx",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療DXと健康長寿",
+        "stance": "推進・活用",
+        "headline": "医療DXで健康長寿とビジネス創出",
+        "exact_quote": "横浜市の膨大な医療ビッグデータを活用すれば、将来の健康リスクを軽減できます。健康長寿の日本の強みを活かして、アプリ・データー解析等のIT技術を横浜から世界に発信します。"
+      },
+      {
+        "id": "pledge_mobility_economy",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "移動サービス・地域交通の整備",
+        "stance": "推進・拡充",
+        "headline": "移動サービスで地域経済を活性化",
+        "exact_quote": "地域交通が便利になり多くの人が行き交えば地域経済が潤います。北欧で使われている MaaS のシステムに、敬老パスなども組み込めば、若者も高齢者も公平な制度として継続できます。"
+      }
+    ]
+  },
+  {
+    "speaker": "行田 朝仁",
+    "raw_name": "行田ともひと",
+    "district": "青葉区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_ev_transport",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "EV充電器と地域交通",
+        "stance": "推進・拡充",
+        "headline": "EV充電器拡充と地域交通整備",
+        "exact_quote": "EV充電器の設置拡充を目指すとともに、地域交通の整備を進めます"
+      },
+      {
+        "id": "pledge_childcare_temp",
+        "category": "子育て・教育",
+        "target_issue": "未就園児の一時預かり保育",
+        "stance": "拡充",
+        "headline": "未就園児一時預かり保育拡充",
+        "exact_quote": "未就園児の一時預かり保育の拡充を進めます"
+      },
+      {
+        "id": "pledge_child_medical_age",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費助成",
+        "stance": "拡充",
+        "headline": "小児医療費助成を18歳まで拡充",
+        "exact_quote": "小児医療費の助成対象を18歳まで引き上げます"
+      }
+    ]
+  },
+  {
+    "speaker": "横山 正人",
+    "raw_name": "横山正人",
+    "district": "青葉区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_city_revitalization",
+        "category": "産業・観光・地域経済",
+        "target_issue": "都市の活性化と税収確保",
+        "stance": "推進・確立",
+        "headline": "人と企業に選ばれる都市を実現",
+        "exact_quote": "人や企業から選ばれる都市を実現します。スタートアップ支援などの起業、産業の育成、観光やMICE誘致、規制緩和など人や企業に選ばれる横浜を都市を活性化し持続可能な横浜市政を確立します。市民が望む全ての政策実現の基本は税収の確保です。"
+      },
+      {
+        "id": "pledge_admin_efficiency",
+        "category": "財政・行革",
+        "target_issue": "行政手続きのオンライン化・効率化",
+        "stance": "推進・効率化",
+        "headline": "行政手続きのオンライン化推進",
+        "exact_quote": "すべての行政手続を見直し、自宅や職場で行政手続きが可能となるオンライン化を進めることにより市民の利便性を実現します。デジタル化により行政の省力化を進め、経費削減につなげます。"
+      },
+      {
+        "id": "pledge_school_education",
+        "category": "子育て・教育",
+        "target_issue": "学校教育の充実と中学校給食",
+        "stance": "推進・実現",
+        "headline": "学校教育充実と中学校給食実現",
+        "exact_quote": "教育による人材育成は我が国の生命線です。質の高い公教育による学力、体力の向上など横浜の子供達が自らの将来像を想像的に描ける教育を実現します。中学校給食は小学校給食同様、学校での調理を基本とし、「温かい美味しい中学校給食」を目指します。"
+      }
+    ]
+  },
+  {
+    "speaker": "伊藤くみこ",
+    "raw_name": "伊藤くみこ",
+    "district": "青葉区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_jh_lunch",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食の早期実施と無償化",
+        "stance": "推進・無償化",
+        "headline": "中学校給食の早期実施と無償化",
+        "exact_quote": "デリバリー方式を給食と定義することは疑問です。自校方式・親子方式・センター方式を組合せたハイブリット方式で温かくいただける本来の給食を実施し、給食の無償化までをめざしていきます。"
+      },
+      {
+        "id": "pledge_library_enhancement",
+        "category": "文化・景観・歴史",
+        "target_issue": "図書館の魅力向上",
+        "stance": "推進・充実",
+        "headline": "絵本充実など魅力ある図書館づくり",
+        "exact_quote": "絵本が充実し子供の遊び場を備え、様々なジャンルの本、読書や勉強のスペース、ビデオの視聴、イベントの実施等々。時間はかかるかもしれませんが子供も大人も魅力を感じる図書館を作りたい。"
+      },
+      {
+        "id": "pledge_senior_pass",
+        "category": "福祉・医療・健康",
+        "target_issue": "敬老パス交付年齢",
+        "stance": "引き下げ",
+        "headline": "敬老パス交付年齢を68歳に引き下げ",
+        "exact_quote": "高齢者の健康のため外出を促すことが目的の敬老パス。市長は、75歳以上を無償化すると提言。私は、負担金は据え置きでその財源で交付年齢を70歳から68歳に引き下げる方が大切と考えます。"
+      }
+    ]
+  },
+  {
+    "speaker": "おさかべ さやか",
+    "raw_name": "おさかべさやか",
+    "district": "青葉区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_first_strategy",
+        "category": "子育て・教育",
+        "target_issue": "子どもファーストの成長戦略",
+        "stance": "推進",
+        "headline": "子どもファーストの成長戦略推進",
+        "exact_quote": "子どもファーストは未来志向の成長戦略!"
+      },
+      {
+        "id": "pledge_childcare_stakeholders",
+        "category": "子育て・教育",
+        "target_issue": "子育て当事者の政策実現",
+        "stance": "推進",
+        "headline": "子育て当事者による政策実現",
+        "exact_quote": "与党(自民党)に子育て当事者がいれば、本当に必要な政策が実現!"
+      },
+      {
+        "id": "pledge_tech_generation_assembly",
+        "category": "財政・行革",
+        "target_issue": "テクノロジー活用世代の議会参画",
+        "stance": "推進",
+        "headline": "テクノロジー活用世代の議会参画",
+        "exact_quote": "テクノロジーの進歩を活用できる世代を議会へ!"
+      }
+    ]
+  },
+  {
+    "speaker": "ねごとのぶひろ",
+    "raw_name": "ねごとのぶひろ",
+    "district": "青葉区",
+    "party": "参政党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_hopeful_nation",
+        "category": "財政・行革",
+        "target_issue": "希望ある国づくり",
+        "stance": "推進",
+        "headline": "国民が希望をもてる国づくりへ",
+        "exact_quote": "いま、私たちの社会は歴史的ともいえる変革期をむかえています。コロナバンデミックはこうした世界の変化を加速し、人々の意識もこれまでになく大きく変わりつつあります。この中にあって、参政党は党の理念にもとづき、これから訪れる大変化の時代に多くの国民が希望ある人生を描くことができるような、日本の新しい国づくりをめざします。"
+      },
+      {
+        "id": "pledge_new_wealth_contribution",
+        "category": "産業・観光・地域経済",
+        "target_issue": "経済成長と新たな豊かさ創出",
+        "stance": "推進",
+        "headline": "経済成長で新たな豊かさを創出",
+        "exact_quote": "超高齢化、少子化、デフレ、パンデミック、自然災害、デジタル化の急速な進展、国際秩序の大変動と国家安全保障、エネルギーや地球環境問題。まだ解決の糸口が見えない大きな課題が山積するなか、日本は世界に先んじてそれらの課題に直面する「課題先進国」と言えます。しかし、私たちはこれを逆にチャンスと捉え、その解決の道筋をつくり出すことで、停滞が続く経済を成長させ、新たな豊かさを生み出し、世界にも貢献できると考えます。"
+      },
+      {
+        "id": "pledge_japan_prosperity_vision",
+        "category": "財政・行革",
+        "target_issue": "日本繁栄に向けた新ビジョン",
+        "stance": "推進・策定",
+        "headline": "日本繁栄に向けた新ビジョン策定",
+        "exact_quote": "既得権益にとらわれ旧態依然とした既存政党では、不確実な未来に不安感を募らせる国民に対して、新しい日本の道筋を示すことができません。いま政治に必要なのは、日本繁栄に向けた新たなビジョンを描き、実行していくことです。参政党では、10のテーマに分けて、日本独自の強みを活かした国づくりの方向性を新しい国づくり「10の柱」としてまとめ、今後の具体的な政策作りの指針としていきます。"
+      }
+    ]
+  },
+  {
+    "speaker": "田中ゆき",
+    "raw_name": "田中ゆき",
+    "district": "青葉区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_healthy_town",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域交通・移動支援と健康施策",
+        "stance": "充実・推進",
+        "headline": "地域交通・移動支援と健康施策充実",
+        "exact_quote": "地域交通・移動支援の充実。情報格差の解消。バリアフリー化推進。多様な地域活動や働く場と機会の充実。個に応じた健康施策の推進。"
+      },
+      {
+        "id": "pledge_mental_health",
+        "category": "福祉・医療・健康",
+        "target_issue": "精神的健康支援と予防",
+        "stance": "強化・充実",
+        "headline": "精神的健康支援と予防対策強化",
+        "exact_quote": "児童虐待・DV・自殺を予防する~O~相談、支援窓口の機能強化。認知症・依存症・引きこもりの予防や早期介入する専門機関の充実。"
+      },
+      {
+        "id": "pledge_future_children",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食と子育て支援",
+        "stance": "推進・充実",
+        "headline": "中学校給食と子育て支援の充実",
+        "exact_quote": "生徒・保護者の声を大切にした、中学校給食へ向けての取組み推進。いじめ・不登校対応窓口の充実。妊娠期からの切れ目ないケアの充実。子育て支援の場、子どもの居場所の充実。保育・教育人材の処遇改善。"
+      }
+    ]
+  },
+  {
+    "speaker": "三浦紀子",
+    "raw_name": "三浦紀子",
+    "district": "青葉区",
+    "party": "地域政党 神奈川ネット",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_home_care_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "在宅介護支援と移動支援",
+        "stance": "推進・充実",
+        "headline": "在宅介護支援と移動支援の充実",
+        "exact_quote": "介護スタッフの処遇改善をすすめ在宅生活を支えます。移動支援の充実をはかります。"
+      },
+      {
+        "id": "pledge_prevent_isolated_parenting",
+        "category": "子育て・教育",
+        "target_issue": "孤立しない子育て支援",
+        "stance": "推進・応援",
+        "headline": "孤立しない子育て支援を推進",
+        "exact_quote": "一時保育や親子の集いの広場、派遣型の産前産後ケア、相談事業などで家族を丸ごと応援します。"
+      },
+      {
+        "id": "pledge_circular_economy",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "循環型経済と脱炭素社会",
+        "stance": "推進・実現",
+        "headline": "循環型経済で横浜を活性化",
+        "exact_quote": "原発に頼らない脱炭素社会をめざします。再生可能エネルギーで循環型の経済システムをめざします。"
+      }
+    ]
+  },
+  {
+    "speaker": "藤崎 浩太郎",
+    "raw_name": "藤崎浩太郎",
+    "district": "青葉区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_healthy_longevity_society",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域交通の充実",
+        "stance": "充実",
+        "headline": "きめ細やかな地域交通の充実",
+        "exact_quote": "きめ細やかな地域交通の充実"
+      },
+      {
+        "id": "pledge_childcare_education_enhancement",
+        "category": "子育て・教育",
+        "target_issue": "子育て環境の充実",
+        "stance": "充実",
+        "headline": "安心して子育てできる環境の充実",
+        "exact_quote": "安心して子育て出来る環境の充実"
+      },
+      {
+        "id": "pledge_fiscal_revenue_increase",
+        "category": "財政・行革",
+        "target_issue": "行財政運営と税収増加",
+        "stance": "改善・削減",
+        "headline": "行財政運営改善と税収増加策",
+        "exact_quote": "事業評価制度の改善で無駄な事業の削減"
+      }
+    ]
+  },
+  {
+    "speaker": "飯田くみ",
+    "raw_name": "飯田くみ",
+    "district": "青葉区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食の学校調理と無償化",
+        "stance": "推進・無償化",
+        "headline": "中学校給食の学校調理と無償化",
+        "exact_quote": "学校給食 ・学校調理の中学校給食,給食費無償化"
+      },
+      {
+        "id": "pledge_child_medical_zero",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費無償化と出産費用ゼロ",
+        "stance": "無償化・ゼロ",
+        "headline": "小児医療費無償化と出産費用ゼロ",
+        "exact_quote": "小児医療費 ・18歳まで無償化 ・出産費用ゼロ"
+      },
+      {
+        "id": "pledge_public_transport_enhancement",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域公共交通の充実",
+        "stance": "充実",
+        "headline": "バス路線・ミニバス等地域交通充実",
+        "exact_quote": "地域交通 ・バス路線ミニバス等地域公共交通の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "こんの典人",
+    "raw_name": "こんの典人",
+    "district": "緑区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_transport_konno",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交通",
+        "stance": "推進・拡充",
+        "headline": "交通手段検討・導入で地域の足を守る",
+        "exact_quote": "さまざまな交通手段の検討・導入で地域の足を守る"
+      },
+      {
+        "id": "pledge_school_lunch_konno",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・拡充",
+        "headline": "全員喫食の中学校給食実現",
+        "exact_quote": "全員喫食の中学校給食実現で食育と生徒の健康を守る"
+      },
+      {
+        "id": "pledge_local_economy_konno",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済・中小企業",
+        "stance": "推進・拡充",
+        "headline": "中小事業者・商店街支援で地域経済を守る",
+        "exact_quote": "中小規模事業者と商店街支援で地域経済を守る"
+      }
+    ]
+  },
+  {
+    "speaker": "穴田たつひろ",
+    "raw_name": "穴田たつひろ",
+    "district": "緑区",
+    "party": "日本維新の会 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_redevelopment_anada",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域再開発",
+        "stance": "推進・拡充",
+        "headline": "地域再開発事業の推進",
+        "exact_quote": "再開発推進"
+      },
+      {
+        "id": "pledge_political_engagement_anada",
+        "category": "財政・行革",
+        "target_issue": "政治参加・選挙制度",
+        "stance": "推進・拡充",
+        "headline": "政治を身近にする活動",
+        "exact_quote": "政治を身近に"
+      },
+      {
+        "id": "pledge_school_lunch_anada",
+        "category": "子育て・教育",
+        "target_issue": "学校給食費",
+        "stance": "推進・拡充",
+        "headline": "学校給食費の無償化",
+        "exact_quote": "学校給食無償化"
+      }
+    ]
+  },
+  {
+    "speaker": "斉藤 達也",
+    "raw_name": "斉藤たつや",
+    "district": "緑区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_resilience_saito",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災",
+        "stance": "推進・拡充",
+        "headline": "災害に強いまちづくり推進",
+        "exact_quote": "災害に強いまちづくりに、チャレンジします!!"
+      },
+      {
+        "id": "pledge_inclusive_city_saito",
+        "category": "福祉・医療・健康",
+        "target_issue": "包摂的社会",
+        "stance": "推進・拡充",
+        "headline": "誰一人取り残さない街づくり推進",
+        "exact_quote": "誰一人取り残さない街へ、チャレンジします!!"
+      },
+      {
+        "id": "pledge_vibrant_green_ward_saito",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域活性化・環境",
+        "stance": "推進・拡充",
+        "headline": "にぎわいと潤いある緑区推進",
+        "exact_quote": "にぎわいと潤いのある緑区に、チャレンジします!!"
+      }
+    ]
+  },
+  {
+    "speaker": "石橋さと子",
+    "raw_name": "石橋さと子",
+    "district": "緑区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_ishibashi",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "学校給食の無償化と充実",
+        "exact_quote": "学校給食"
+      },
+      {
+        "id": "pledge_child_medical_ishibashi",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費・出産費用",
+        "stance": "推進・拡充",
+        "headline": "小児医療費18歳まで無償化",
+        "exact_quote": "小児医療費"
+      },
+      {
+        "id": "pledge_nursing_home_ishibashi",
+        "category": "福祉・医療・健康",
+        "target_issue": "特別養護老人ホーム",
+        "stance": "推進・拡充",
+        "headline": "特養ホーム待機期間短縮",
+        "exact_quote": "特養ホーム"
+      }
+    ]
+  },
+  {
+    "speaker": "鴨志田 啓介",
+    "raw_name": "かもしだ啓介",
+    "district": "緑区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_security_kamoshida",
+        "category": "財政・行革",
+        "target_issue": "安全保障・経済安全保障",
+        "stance": "推進・拡充",
+        "headline": "安全保障・経済安全保障の深化",
+        "exact_quote": "自治体の安全保障、経済安全保障を深化"
+      },
+      {
+        "id": "pledge_aging_society_kamoshida",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・福祉",
+        "stance": "推進・拡充",
+        "headline": "誰もが安心して暮らせる街づくり",
+        "exact_quote": "全ての人が安心して最後まで暮らせる街へ"
+      },
+      {
+        "id": "pledge_local_economy_kamoshida",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済・空き家問題",
+        "stance": "推進・拡充",
+        "headline": "商店街・スタートアップ・空き家支援",
+        "exact_quote": "商店街支援、スタートアップ支援、空き家活用支援"
+      }
+    ]
+  },
+  {
+    "speaker": "高橋 正治",
+    "raw_name": "高橋まさはる",
+    "district": "緑区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_inflation_tax_takahashi",
+        "category": "財政・行革",
+        "target_issue": "物価高・税負担",
+        "stance": "負担軽減・推進",
+        "headline": "物価高対策と固定資産税軽減",
+        "exact_quote": "物価高に、追加対策"
+      },
+      {
+        "id": "pledge_women_burden_takahashi",
+        "category": "福祉・医療・健康",
+        "target_issue": "女性の負担軽減・子育て・介護",
+        "stance": "推進・拡充",
+        "headline": "女性の過重負担解消と支援拡充",
+        "exact_quote": "女性の過重負担を解消(介護、家事、育児)"
+      },
+      {
+        "id": "pledge_disaster_prevention_takahashi",
+        "category": "防災・減災・治安",
+        "target_issue": "水害・震災対策",
+        "stance": "推進・拡充",
+        "headline": "水害・震災対策と防災DX強化",
+        "exact_quote": "水害・震災対策を強化"
+      }
+    ]
+  },
+  {
+    "speaker": "越久田記子",
+    "raw_name": "おくだ記子",
+    "district": "緑区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childbirth_childcare_okuda",
+        "category": "子育て・教育",
+        "target_issue": "出産・子育て支援",
+        "stance": "推進・拡充",
+        "headline": "出産・子育て環境の早急な整備",
+        "exact_quote": "安心して出産、子育てができる環境づくりを早急に!"
+      },
+      {
+        "id": "pledge_care_support_okuda",
+        "category": "福祉・医療・健康",
+        "target_issue": "介護・看護・保育・教育現場のケア",
+        "stance": "推進・拡充",
+        "headline": "ケア体制の充実と負担軽減",
+        "exact_quote": "「ケア」にもっと優しさを!"
+      },
+      {
+        "id": "pledge_inclusive_education_okuda",
+        "category": "子育て・教育",
+        "target_issue": "教育・不登校支援",
+        "stance": "推進・拡充",
+        "headline": "多様な選択肢の「共育」推進",
+        "exact_quote": "選択肢の多い「共育(教育)」へ!"
+      }
+    ]
+  },
+  {
+    "speaker": "川口広",
+    "raw_name": "川口ひろ",
+    "district": "瀬谷区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/10_bulletin_seyaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_transport_community_bus",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "コミュニティーバス",
+        "stance": "推進・拡充",
+        "headline": "コミュニティーバスの普及・拡充",
+        "exact_quote": "「超少子高齢化時代」を迎えるにあたり、買い物難民等を生まないためのコミュニティーバスなどの普及・拡充を目指します。"
+      },
+      {
+        "id": "pledge_transport_express_train",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "相鉄線特急停車",
+        "stance": "推進",
+        "headline": "相鉄線特急の瀬谷区内停車を推進",
+        "exact_quote": "今は見送るだけの相鉄線の特急。2027年に開催予定の花博に向けて、瀬谷区内に相鉄線の特急をとめるよう進言していきます。"
+      },
+      {
+        "id": "pledge_education_university_attraction",
+        "category": "子育て・教育",
+        "target_issue": "大学誘致",
+        "stance": "推進",
+        "headline": "旧上瀬谷通信施設跡地への大学誘致",
+        "exact_quote": "瀬谷区の北側にある旧上瀬谷通信施設跡地内に、大学の誘致を進めます。大学誘致は地域の人口を上げ、活気にもつながります。また文化度も上げることにもつながります。瀬谷区の明るい未来に向けて推し進めます。"
+      }
+    ]
+  },
+  {
+    "speaker": "原ひでと",
+    "raw_name": "原ひでと",
+    "district": "瀬谷区",
+    "party": "日本維新の会公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/10_bulletin_seyaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_community_convenience",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "生活の利便性向上",
+        "stance": "推進",
+        "headline": "生活の不便と市政のズレを改善",
+        "exact_quote": "生活の不便と市政のズレを改善し、便利で住みやすいまちづくりを推進"
+      },
+      {
+        "id": "pledge_education_free",
+        "category": "子育て・教育",
+        "target_issue": "幼児教育・小中学校給食費無償化",
+        "stance": "推進・拡充",
+        "headline": "幼児保育院授業料・給食費無償化",
+        "exact_quote": "幼児保育院での授業料や小中学校の給食費の無償化等で、子育て世代の負担軽減"
+      },
+      {
+        "id": "pledge_fiscal_reform",
+        "category": "財政・行革",
+        "target_issue": "議員報酬・期末手当削減",
+        "stance": "推進・見直し",
+        "headline": "議員報酬・期末手当2割削減",
+        "exact_quote": "議員報酬・期末手当を2割削減し、役人の意識改革、無駄な税金を使わない市政を実現"
+      }
+    ]
+  },
+  {
+    "speaker": "久保 和弘",
+    "raw_name": "久保かずひろ",
+    "district": "瀬谷区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/10_bulletin_seyaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災対策強化",
+        "stance": "推進・拡充",
+        "headline": "浸水ハザードマップや防災教育を充実",
+        "exact_quote": "浸水ハザードマップや防災教育の充実、地域防災拠点の機能強化、密集市街地での新たな延焼危険マップの作成などに取り組みます。"
+      },
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "小児医療費助成・子育て支援",
+        "stance": "推進・拡充",
+        "headline": "小児医療費の所得制限撤廃・対象拡大",
+        "exact_quote": "小児医療費助成の所得制限の撤廃と高校3年生までの対象拡大、妊娠・出産・育児まで一貫して家庭に寄り添う相談支援、横浜型子育て世代包括支援センターの機能強化などに取り組みます。"
+      },
+      {
+        "id": "pledge_urban_renewal_greenexpo",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "横浜国際園芸博覧会を契機とした街づくり",
+        "stance": "推進",
+        "headline": "GREEN×EXPOを契機に自然を生かした街づくり",
+        "exact_quote": "「GREENXEXPO 2027」(横浜国際園芸博覧会)の開催を契機に、新たな都市農業や桜の名所づくり(桜並木や憩いの場)など自然を生かした街づくりを推進します!そして、再生可能エネルギーの普及により、緑豊かな瀬谷区を「脱炭素化のモデル地域」へ変えていきます。"
+      }
+    ]
+  },
+  {
+    "speaker": "花上喜代志",
+    "raw_name": "花上きよし",
+    "district": "瀬谷区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/10_bulletin_seyaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_casino_covid_response",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ誘致・コロナ対策",
+        "stance": "反対・見直し",
+        "headline": "カジノ撤回とコロナ対策加速化",
+        "exact_quote": "カジノを撤回、コロナ対策を加速化"
+      },
+      {
+        "id": "pledge_land_use_kamiseya",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "上瀬谷基地跡地利用",
+        "stance": "推進",
+        "headline": "上瀬谷基地全面返還と跡地利用計画具体化",
+        "exact_quote": "上瀬谷基地も全面返還、跡地利用計画が具体化。花博の開催準備も進んでいます。"
+      },
+      {
+        "id": "pledge_eight_issues",
+        "category": "福祉・医療・健康",
+        "target_issue": "仕事、老後、病気、子育て教育、防犯、防災、環境、食の安全",
+        "stance": "推進・拡充",
+        "headline": "8つの不安解消（仕事・老後・病気等）",
+        "exact_quote": "8つの不安解消へ仕事・老後・病気・子育て教育・防犯・防災・環境・食の安全"
+      }
+    ]
+  },
+  {
+    "speaker": "後藤やすひと",
+    "raw_name": "後藤やすひと",
+    "district": "瀬谷区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/10_bulletin_seyaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_casino_stop",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ誘致",
+        "stance": "反対・見直し",
+        "headline": "カジノ誘致を市民の力で阻止",
+        "exact_quote": "カジノ止めた 市民の力で 新しい市政をもっと前へ"
+      },
+      {
+        "id": "pledge_child_welfare_education",
+        "category": "子育て・教育",
+        "target_issue": "学校給食・小児医療費",
+        "stance": "推進・拡充",
+        "headline": "学校給食無償化と小児医療費18歳まで無償化",
+        "exact_quote": "【学校給食】・学校調理の中学校給食,給食費無償化\n【小児医療費】・18歳まで無償化・出産費用ゼロ"
+      },
+      {
+        "id": "pledge_peace_economy",
+        "category": "財政・行革",
+        "target_issue": "軍事費削減・市民生活優先",
+        "stance": "反対・見直し",
+        "headline": "大軍拡より市民の暮らしを優先",
+        "exact_quote": "大軍拡より市民の暮らし優先へ"
+      }
+    ]
+  },
+  {
+    "speaker": "仁しんや",
+    "raw_name": "仁しんや",
+    "district": "金沢区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_waitlist",
+        "category": "子育て・教育",
+        "target_issue": "待機児童・保留児童",
+        "stance": "解消",
+        "headline": "待機児童・保留児童ゼロを目指す",
+        "exact_quote": "待機児童・保留児童 0 ▶1・2歳児の受け入れ枠確保 ▶保育者の確保・処遇改善"
+      },
+      {
+        "id": "pledge_education_satisfaction",
+        "category": "子育て・教育",
+        "target_issue": "小中高生の教育満足度",
+        "stance": "向上",
+        "headline": "小中高生の教育満足度90%達成",
+        "exact_quote": "小中高生の満足度 90% になるまで 「約束1% 達成に向けて ▶教員の働き方改革(教員の負担減) ▶中学校での「全員給食」の実現 ▶児童虐待・いじめの撲滅"
+      },
+      {
+        "id": "pledge_governance_transparency",
+        "category": "財政・行革",
+        "target_issue": "政治の透明性・市民の声",
+        "stance": "推進",
+        "headline": "市民の声を聞き開かれた活動",
+        "exact_quote": "完全無所属という立場を大切に、横浜市民・金沢区民の皆さんの思いやお声を、一切のしがらみや忖度なく、● 自分の目と耳で受けとめに伺います 開かれた活動、さらには発信する活動を心がけ、駅や街で、皆さまと顔の見えるやり取りを続けます 活動を通じて知り得たことは、機密事項や個人のプライバシーに関する事項を除いて、全て開示します"
+      }
+    ]
+  },
+  {
+    "speaker": "谷田部 孝一",
+    "raw_name": "やたべ孝",
+    "district": "金沢区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_medical_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費",
+        "stance": "無償化",
+        "headline": "小児医療費を中3まで無償化",
+        "exact_quote": "◆小児医療費(中3まで)の無償化!"
+      },
+      {
+        "id": "pledge_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "実現",
+        "headline": "中学校での全員給食を実現",
+        "exact_quote": "◆中学校(全員)給食実現!"
+      },
+      {
+        "id": "pledge_childbirth_elderly_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "出産費用・敬老パス",
+        "stance": "無償化・無料化",
+        "headline": "出産費用無償化と敬老パス無料化",
+        "exact_quote": "※出産費用無償化・敬老パス無料化! (2026年度から完全実施)"
+      }
+    ]
+  },
+  {
+    "speaker": "竹野内猛",
+    "raw_name": "たけのうち猛",
+    "district": "金沢区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_tourism_fishing_promenade",
+        "category": "産業・観光・地域経済",
+        "target_issue": "金沢海釣り遊歩道",
+        "stance": "建設推進",
+        "headline": "金沢海釣り遊歩道の建設推進",
+        "exact_quote": "●金沢海釣り遊歩道(仮称)の建設を推進 台風で破壊された護岸を迅速に復旧、憩いと賑わいの場として再生。2023年春にオープン"
+      },
+      {
+        "id": "pledge_childbirth_subsidy",
+        "category": "福祉・医療・健康",
+        "target_issue": "出産費用補助",
+        "stance": "拡充推進",
+        "headline": "出産費用補助のさらなる拡充",
+        "exact_quote": "●出産費用補助の拡充を推進 令和5年度に42→50万円に増額決定。さらに神奈川県の平均出産費用56万円への増額を目指します"
+      },
+      {
+        "id": "pledge_child_medical_subsidy",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費助成",
+        "stance": "拡充",
+        "headline": "小児医療費助成を中3まで無料化",
+        "exact_quote": "●小児医療費助成を拡充 2023年8月から中3まで全ての児童の医療費が無 料へ。引き続き、高3までの対象拡大を目指します"
+      }
+    ]
+  },
+  {
+    "speaker": "高橋のりみ",
+    "raw_name": "高橋のりみ",
+    "district": "金沢区",
+    "party": "自民みらい",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_transport_asahina_interchange",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "朝比奈インター",
+        "stance": "直進化",
+        "headline": "朝比奈インターの直進化を推進",
+        "exact_quote": "■朝比奈インター直進化"
+      },
+      {
+        "id": "pledge_childcare_education_environment",
+        "category": "子育て・教育",
+        "target_issue": "出産・子育て・教育環境",
+        "stance": "充実",
+        "headline": "出産・子育て・教育環境の充実",
+        "exact_quote": "■安心して出産・子育てができ、子供達がイキイキと輝く教育環境の充実"
+      },
+      {
+        "id": "pledge_social_welfare_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障害者・シングル家庭・若者",
+        "stance": "支援",
+        "headline": "困難を抱える人々の生活を支援",
+        "exact_quote": "■高齢者、障害者、シングル家庭、困難な課題を抱える若者支援"
+      }
+    ]
+  },
+  {
+    "speaker": "黒川勝",
+    "raw_name": "黒川まさる",
+    "district": "金沢区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_demographic_revitalization",
+        "category": "産業・観光・地域経済",
+        "target_issue": "人口減少対策・若い世代誘致",
+        "stance": "推進",
+        "headline": "若い世代が集う金沢区へ人口減少対策",
+        "exact_quote": "1 人口減少対策 「暮らし・子育てが楽しくなる 金沢区に若い世代が集います"
+      },
+      {
+        "id": "pledge_community_exchange",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交流拠点",
+        "stance": "展開・拡充",
+        "headline": "地域交流拠点を展開し交流機会増",
+        "exact_quote": "2 地域の交流 「地域交流拠点を多角的に展開 し人々が集う機会を増やします"
+      },
+      {
+        "id": "pledge_local_economy_support",
+        "category": "産業・観光・地域経済",
+        "target_issue": "中小企業・商店街",
+        "stance": "応援・育成",
+        "headline": "地域の中小企業・商店街を応援",
+        "exact_quote": "3 経済の育成 「金沢区内の地域に根ざした元気な 中小企業や商店街を応援します"
+      }
+    ]
+  },
+  {
+    "speaker": "坂井太",
+    "raw_name": "坂井太",
+    "district": "金沢区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_reform",
+        "category": "財政・行革",
+        "target_issue": "行財政改革・財源確保",
+        "stance": "推進",
+        "headline": "行財政改革で将来の財源確保",
+        "exact_quote": "行財政改革による将来への 政策財源の確保"
+      },
+      {
+        "id": "pledge_child_rearing_subsidy",
+        "category": "子育て・教育",
+        "target_issue": "子育て助成",
+        "stance": "推進",
+        "headline": "安心して子育てできる助成を推進",
+        "exact_quote": "安心して子供を 育てるための 助成"
+      },
+      {
+        "id": "pledge_healthcare_network",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域医療連携パス",
+        "stance": "構築",
+        "headline": "地域医療連携パスの構築を推進",
+        "exact_quote": "の地域医療 連携パス の構築"
+      }
+    ]
+  },
+  {
+    "speaker": "ますだ茂代",
+    "raw_name": "ますだ茂代",
+    "district": "金沢区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食・給食費",
+        "stance": "無償化・推進",
+        "headline": "中学校給食の無償化を推進",
+        "exact_quote": "【学校給食 ・学校調理の中学校給食,給食費無償化"
+      },
+      {
+        "id": "pledge_child_medical_free",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費",
+        "stance": "無償化",
+        "headline": "小児医療費を18歳まで無償化",
+        "exact_quote": "|小児医療費 18歳まで無償化"
+      },
+      {
+        "id": "pledge_local_transport_enhancement",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域公共交通",
+        "stance": "充実",
+        "headline": "地域公共交通の充実を推進",
+        "exact_quote": "|地域交通 ・バス路線ミニバス等 地域公共交通の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "藤村あきこ",
+    "raw_name": "藤村あきこ",
+    "district": "神奈川区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_tax_hike",
+        "category": "財政・行革",
+        "target_issue": "増税、物価高、税金無駄遣い",
+        "stance": "反対・見直し",
+        "headline": "増税阻止と税金無駄遣い徹底追求",
+        "exact_quote": "藤村あきこは増税阻止へ!物価高!燃料高騰!さらに増税の危機!増税により暮らしへの不安感が増し買い控えによる負のスパイラル化へ!日本経済低迷に繋がる増税に反対し市政の税金無駄遣いを徹底追求します!"
+      },
+      {
+        "id": "pledge_disaster_pet_evacuation",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・避難対策、ペット殺処分ゼロ",
+        "stance": "推進・拡充",
+        "headline": "ペット同伴可能な防災避難対策推進",
+        "exact_quote": "震災や有事に安全な避難対策東日本大震災など被災地で救助活動経験ペットも避難できる防災対策を推進!小さな命を殺処分しない街に変えます!"
+      },
+      {
+        "id": "pledge_food_safety_cricket_meal",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "食の安全、学校給食",
+        "stance": "反対・見直し",
+        "headline": "コオロギ給食導入阻止",
+        "exact_quote": "食の安全コオロギ給食導入を阻止!既に給食導入した自治体があります!横浜市が導入しないよう反対し続けます"
+      }
+    ]
+  },
+  {
+    "speaker": "田中 紳一",
+    "raw_name": "田中紳一",
+    "district": "神奈川区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_admin_reform",
+        "category": "財政・行革",
+        "target_issue": "議員報酬、議員定数、行政改革",
+        "stance": "反対・見直し",
+        "headline": "議員報酬・定数削減の身を切る改革",
+        "exact_quote": "①議員報酬と議員定数の削減による“身を切る改革”を断行"
+      },
+      {
+        "id": "pledge_transport_network",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交通、ミニバス、シャトルバス",
+        "stance": "推進・拡充",
+        "headline": "地域交通ネットワーク拡充と利便性向上",
+        "exact_quote": "③ミニバスの投入や区内主要駅から市民病院直行シャトルバスの運行等地域交通ネットワークの拡充及び利便性向上"
+      },
+      {
+        "id": "pledge_education_university_tuition",
+        "category": "子育て・教育",
+        "target_issue": "大学教育、学費",
+        "stance": "推進・拡充",
+        "headline": "横浜市立大学学費無償化",
+        "exact_quote": "⑧横浜市立大学の学費無償化 ※一定条件を満たした横浜市民が対象"
+      }
+    ]
+  },
+  {
+    "speaker": "小松 範昭",
+    "raw_name": "小松のりあき",
+    "district": "神奈川区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_health_infection_control",
+        "category": "福祉・医療・健康",
+        "target_issue": "感染症対策、医療提供体制",
+        "stance": "推進・拡充",
+        "headline": "感染症対策と医療提供体制の構築",
+        "exact_quote": "市民の暮しと命を守るための感染拡大防止と医療提供体制の構築、高齢化社会における的確な病診連携による地域医療提供の推進、地域防犯力の強化など重要な施策です。"
+      },
+      {
+        "id": "pledge_disaster_resilient_city",
+        "category": "防災・減災・治安",
+        "target_issue": "自然災害、街づくり",
+        "stance": "推進・拡充",
+        "headline": "自然災害に対応した強い街づくり推進",
+        "exact_quote": "また、地球温暖化により頻繁に起こる自然災害に対応した強い街づくり、新型コロナウイルス感染症の経験を活かした施策の推進が重要です。"
+      },
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援、人口流入",
+        "stance": "推進・拡充",
+        "headline": "子育て支援充実と世代呼び込み推進",
+        "exact_quote": "次世代へ向けた横浜の発展のために、子育て支援の充実や子育て世代を横浜へ「呼び込む施策は確実に推し進めるべき重要な施策です。"
+      }
+    ]
+  },
+  {
+    "speaker": "みやぎすえん",
+    "raw_name": "みやぎすえん",
+    "district": "神奈川区",
+    "party": "国民民主党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_welfare",
+        "category": "子育て・教育, 福祉・医療・健康",
+        "target_issue": "保育・幼稚園負担、多子世帯、障がい福祉、高齢者介護、在宅緩和ケア",
+        "stance": "推進・拡充, 負担軽減",
+        "headline": "子育て・福祉政策の拡充と負担軽減",
+        "exact_quote": "1 当事者目線の子育て・福祉政策保育・幼稚園負担額値下げ、多子世帯きょうだい区分の見直し障がい福祉施設の支援メニューの見える化と質の向上後期高齢者と介護する家族の支援、在宅緩和ケアの推進"
+      },
+      {
+        "id": "pledge_economy_tax_reduction",
+        "category": "産業・観光・地域経済, 財政・行革",
+        "target_issue": "地域経済、中小企業、教育費、キャッシュレス還元",
+        "stance": "推進・拡充, 負担軽減",
+        "headline": "市独自の減税で地域経済活性化",
+        "exact_quote": "4 市独自の減税で地域経済活性化賃上げや正規雇用へ転換を行った中小企業に法人市民税減税教育費の住民税控除で社会人の学び直しを、応援、支援「使えるお金」が増える市独自のキャッシュレス還元"
+      },
+      {
+        "id": "pledge_education_community",
+        "category": "子育て・教育, 文化・景観・歴史",
+        "target_issue": "奨学金、人材育成、婚活支援",
+        "stance": "推進・拡充",
+        "headline": "人づくり支援と楽しい街づくり推進",
+        "exact_quote": "3 人づくり支援で楽しい街づくり・学習意欲のある学生に返済免除型奨学金制度の充実化・教育現場の負担軽減と多様なニーズに対応できる人材育成・結婚を望む人の希望を叶える婚活支援制度の実現"
+      }
+    ]
+  },
+  {
+    "speaker": "中山 大輔",
+    "raw_name": "中山だいすけ",
+    "district": "神奈川区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_urban_casino_redevelopment",
+        "category": "都市再生・交通インフラ, 産業・観光・地域経済",
+        "target_issue": "カジノ、山下ふ頭再開発、観光MICE",
+        "stance": "反対・見直し, 推進・拡充",
+        "headline": "カジノ白紙化と山下ふ頭再開発推進",
+        "exact_quote": "カジノ白紙化から▶▶▶山下ふ頭を市民の誇れる街として再開発をカジノに頼らない、観光MICEを中心に一大都市の拠点を目指します"
+      },
+      {
+        "id": "pledge_education_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "中学校全員給食の完全実施",
+        "exact_quote": "中学校の全員給食実施!完全実施へ向けて中身の充実を目指します"
+      },
+      {
+        "id": "pledge_health_welfare",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域医療、福祉、高齢者活躍",
+        "stance": "推進・拡充",
+        "headline": "地域医療・福祉の充実強化",
+        "exact_quote": "地域医療・福祉の充実強化を!高齢者が地域でいきいきと活躍できる社会を目指します"
+      }
+    ]
+  },
+  {
+    "speaker": "宇佐美さやか",
+    "raw_name": "宇佐美さやか",
+    "district": "神奈川区",
+    "party": "日本共産党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_medical_fees",
+        "category": "子育て・教育, 福祉・医療・健康",
+        "target_issue": "学校給食、小児医療費、出産費用",
+        "stance": "推進・拡充, 負担軽減",
+        "headline": "学校給食無償化と小児医療費18歳まで無償化",
+        "exact_quote": "学校給食・学校調理の中学校給食,給食費無償化小児医療費・18歳まで無償化・出産費用ゼロ"
+      },
+      {
+        "id": "pledge_environment_climate_energy",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "気候変動、脱炭素、再生可能エネルギー、原発",
+        "stance": "推進・拡充, 反対・見直し",
+        "headline": "気候危機対策と脱炭素・原発ゼロ",
+        "exact_quote": "気候危機・打・再エネ・省エネで。開脱炭素原発ゼロ"
+      },
+      {
+        "id": "pledge_security_north_dock",
+        "category": "防災・減災・治安, 都市再生・交通インフラ",
+        "target_issue": "米軍基地、土地返還",
+        "stance": "推進・拡充",
+        "headline": "ノース・ドックの早期全面返還",
+        "exact_quote": "ノース・ドックの早期全面返還を"
+      }
+    ]
+  },
+  {
+    "speaker": "竹内 康洋",
+    "raw_name": "竹内やすひろ",
+    "district": "神奈川区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_medical_support",
+        "category": "子育て・教育, 福祉・医療・健康",
+        "target_issue": "小児医療費、出産育児支援、中学校給食",
+        "stance": "推進・拡充, 負担軽減",
+        "headline": "子育て環境整備と医療費助成拡充",
+        "exact_quote": "● 安心の子育て環境へ。小児医療費助成高校3年生迄、所得制限の撤廃、完全無償化出産育児支援金の拡充、妊娠から出産・子育てへの伴奏型支援の推進市立中学校の給食の拡充、食育の推進"
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "災害情報伝達、要援護者支援、防災拠点、避難計画",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策の強化と普及",
+        "exact_quote": "● 防災・減災を政治の主流に。災害情報の伝達手段の強化、情報伝達が困難な方等への多様な配信災害時要援護者支援、地域防災拠点の機能強化避難行動計画(マイタイムライン)、避難ナビ、浸水ハザードマップの啓発普及"
+      },
+      {
+        "id": "pledge_economy_elderly_support",
+        "category": "くらし・環境・エネルギー, 福祉・医療・健康",
+        "target_issue": "物価高、電気・ガス料金、高齢者支援、帯状疱疹ワクチン",
+        "stance": "推進・拡充, 負担軽減",
+        "headline": "物価高対策と高齢者支援の推進",
+        "exact_quote": "3 物価高から暮らしを守る。電気・ガス料金の高騰対策物価高対策を強力に推進!高齢おひとり様社会の課題解決を推進します。輝く人生100年時代へ。帯状疱疹ワクチンの定期接種化を目指します"
+      }
+    ]
+  },
+  {
+    "speaker": "藤代哲夫",
+    "raw_name": "ふじしろ哲夫",
+    "district": "神奈川区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_transport_network_fujishiro",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交通、交通ネットワーク、羽沢国大前駅、第三京浜羽沢インター",
+        "stance": "推進・拡充",
+        "headline": "地域交通ネットワーク整備と拡充",
+        "exact_quote": "●横浜市民の方々の足となる地域交通を公民連携で推進し、新たな交通ネットワークを整備します。3月の東部方面線の全面開通を契機に、羽沢国大前駅のまちづくりエリアの拡大と第三京浜羽沢インターのフルランプ化を実現します。"
+      },
+      {
+        "id": "pledge_education_school_lunch_fujishiro",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食、多子世帯負担軽減、小中一貫校、特別支援学校、学童保育",
+        "stance": "推進・拡充, 負担軽減",
+        "headline": "中学校全員給食と教育支援の拡充",
+        "exact_quote": "●令和8年度からスタートする中学校給食の全員喫食に向けて、温かくておいしいメニューの提供や昼食時間の確保にアレルギーやビーガンに配慮した給食を進めます。2人以上の兄弟姉妹で通う場合の負担軽減策を検討します。横浜東部方面の小中一貫校を設置します。特別支援学校の通学支援、付き添い解消を進めます。学童保育と放課後児童クラブの負担解消、特に"
+      },
+      {
+        "id": "pledge_fiscal_digital_admin",
+        "category": "財政・行革",
+        "target_issue": "デジタル化、公共施設再整備、歳出改革、公有資産活用",
+        "stance": "推進・拡充, 反対・見直し",
+        "headline": "デジタル市役所推進と行財政改革",
+        "exact_quote": "●デジタル市役所・区役所を推進し、窓口に来なくてもスマートフォンやパソコンで諸手続きを簡素化してもスマートフォンやパソコンで諸手続きを簡素化します。公共施設の再整備には民間活力導入を推進し、財政負担を減らします。徹底的な歳出改革を断行し、公有資産や遊休資産の積極的な利活用を推進します。"
+      }
+    ]
+  },
+  {
+    "speaker": "みずしま順一",
+    "raw_name": "みずしま順一",
+    "district": "神奈川区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_welfare_scholarship",
+        "category": "子育て・教育, 福祉・医療・健康",
+        "target_issue": "奨学金、生活困窮者支援",
+        "stance": "推進・拡充",
+        "headline": "奨学金補助と生活困窮者支援拡充",
+        "exact_quote": "奨学金の補助学生の2人に1人が奨学金を受給する時代、給付型の拡充や補助を。生活困窮者への積極支援必要な支援を行政から、縦割りではない、伴走型の支援を。"
+      },
+      {
+        "id": "pledge_health_fertility_treatment",
+        "category": "福祉・医療・健康",
+        "target_issue": "不妊治療、不育治療、助成金",
+        "stance": "推進・拡充",
+        "headline": "不妊・不育治療支援の環境づくり",
+        "exact_quote": "不妊・不育治療支援「先進医療」の助成金制度の導入等、治療を受けやすい環境づくり。"
+      },
+      {
+        "id": "pledge_security_school_merger",
+        "category": "防災・減災・治安, 子育て・教育",
+        "target_issue": "米軍基地、小学校統廃合",
+        "stance": "推進・拡充, 反対・見直し",
+        "headline": "ノースドック早期返還と小学校統廃合反対",
+        "exact_quote": "③ノースドック早期返還を②二谷・斎藤分小学校統廃合反対斎藤分小学校は単独で存続を"
+      }
+    ]
+  },
+  {
+    "speaker": "大山 しょうじ",
+    "raw_name": "大山しょうじ",
+    "district": "港北区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_ir_withdrawal",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ(IR)誘致",
+        "stance": "反対・見直し",
+        "headline": "カジノ(IR)誘致の撤回",
+        "exact_quote": "◎カジノ (IR)の横浜誘致の撤回を実現!"
+      },
+      {
+        "id": "pledge_childcare_medical",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費無償化",
+        "stance": "推進・拡充",
+        "headline": "中学3年までの小児医療費無償化",
+        "exact_quote": "◎8月から中学3年までの小児医療費無償化実現!"
+      },
+      {
+        "id": "pledge_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "推進・拡充",
+        "headline": "中学校の全員給食実現",
+        "exact_quote": "◎2026年度から「中学校の全員給食」実現へ!"
+      }
+    ]
+  },
+  {
+    "speaker": "みしまりえ",
+    "raw_name": "みしまりえ",
+    "district": "港北区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_self_determination",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "自己決定権・エックス線検査",
+        "stance": "推進・拡充",
+        "headline": "自己決定権回復と検査任意化",
+        "exact_quote": "憲法第13条自己決定権の回復 個性を重んじる環境づくり エックス線検査を任意に"
+      },
+      {
+        "id": "pledge_foreign_suffrage",
+        "category": "財政・行革",
+        "target_issue": "外国人参政権",
+        "stance": "反対・見直し",
+        "headline": "外国人参政権に反対",
+        "exact_quote": "外国人参政権を認めない"
+      },
+      {
+        "id": "pledge_lifelong_learning",
+        "category": "子育て・教育",
+        "target_issue": "生涯学習の場",
+        "stance": "推進・拡充",
+        "headline": "生涯学習の場を拡充",
+        "exact_quote": "知的好奇心を育み、発展ある社会をつくる 幼児からお年寄りまで、学びの場をどんどんふやす"
+      }
+    ]
+  },
+  {
+    "speaker": "とよた有希",
+    "raw_name": "とよた有希",
+    "district": "港北区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_citizen_participation",
+        "category": "財政・行革",
+        "target_issue": "市民参加型市政",
+        "stance": "推進・拡充",
+        "headline": "市民・地域主役の市政実践",
+        "exact_quote": "対話を重視し、真に市民と地域が主役の市政を実践!"
+      },
+      {
+        "id": "pledge_on_site_reform",
+        "category": "財政・行革",
+        "target_issue": "現場目線での市政改革",
+        "stance": "推進・拡充",
+        "headline": "現場目線での市政改革",
+        "exact_quote": "不偏不党、是々非々だからできる現場目線での改革!"
+      },
+      {
+        "id": "pledge_fair_society",
+        "category": "財政・行革",
+        "target_issue": "公正な社会・市政",
+        "stance": "推進・拡充",
+        "headline": "公正な社会と市政の実現",
+        "exact_quote": "フェアな社会、フェアな市政を。"
+      }
+    ]
+  },
+  {
+    "speaker": "大野トモイ",
+    "raw_name": "大野トモイ",
+    "district": "港北区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childrens_rights",
+        "category": "子育て・教育",
+        "target_issue": "子どもの権利条約に基づく施策",
+        "stance": "推進・拡充",
+        "headline": "子どもの権利条約に基づく施策",
+        "exact_quote": "『子どもの権利条約』の理念を活かした子ども施策・教育施策の推進"
+      },
+      {
+        "id": "pledge_school_lunch_quality",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食の質と普及",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の質と普及を追求",
+        "exact_quote": "中学校給食は、まだまだ発展途上なので、『望む全員が食べられること』『あたたかさ』『おいしさ』を引き続き追求してゆきます。"
+      },
+      {
+        "id": "pledge_infrastructure_safety",
+        "category": "防災・減災・治安",
+        "target_issue": "道路・橋梁耐震化、防災、バリアフリー",
+        "stance": "推進・拡充",
+        "headline": "道路耐震化・防災・バリアフリー",
+        "exact_quote": "道路や橋梁の耐震化、崖地の防災対策、バリアフリーの推進"
+      }
+    ]
+  },
+  {
+    "speaker": "かざまあさみ",
+    "raw_name": "かざまあさみ",
+    "district": "港北区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childbirth_education_free",
+        "category": "子育て・教育",
+        "target_issue": "出産費用・教育費無償化",
+        "stance": "推進・拡充",
+        "headline": "出産費用・教育費の無償化",
+        "exact_quote": "「出産費用ゼロ」・「教育の無償化」 安心して出産・育児ができる社会へ"
+      },
+      {
+        "id": "pledge_minimum_wage_industry",
+        "category": "産業・観光・地域経済",
+        "target_issue": "最低賃金引上げ・成長産業育成",
+        "stance": "推進・拡充",
+        "headline": "最低賃金引上げと成長産業育成",
+        "exact_quote": "最低賃金・給料の引き上げ、次世代成長産業の育成など 明日を良くする経済政策を推進"
+      },
+      {
+        "id": "pledge_school_lunch_quality_2",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食の質向上",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の質向上",
+        "exact_quote": "より栄養たっぷりで、温かく、「美味しい「中学校給食」を目指す。"
+      }
+    ]
+  },
+  {
+    "speaker": "望月 康弘",
+    "raw_name": "望月やすひろ",
+    "district": "港北区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_medical_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "小児医療費助成・中学校給食",
+        "stance": "推進・拡充",
+        "headline": "小児医療費助成と中学校給食充実",
+        "exact_quote": "子育てしやすいまちを目指します!小児医療費助成制度の対象を高校3年生まで拡大し、所得制限の撤廃を目指します。中学校給食のさらなる充実を図り、食育を推進します。"
+      },
+      {
+        "id": "pledge_transport_vaccine",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域交通・ワクチン接種",
+        "stance": "推進・拡充",
+        "headline": "地域交通とワクチン接種推進",
+        "exact_quote": "安心・安全に暮らせるまちを目指します!地域密着型バスなどの新たな交通サービスの検討を進めます。ワクチン(肺炎球菌、帯状疱疹、おたふく風邪など)の接種を推進します。"
+      },
+      {
+        "id": "pledge_disaster_prevention_system",
+        "category": "防災・減災・治安",
+        "target_issue": "防災対策・緊急情報システム",
+        "stance": "推進・拡充",
+        "headline": "防災対策と緊急情報システム構築",
+        "exact_quote": "災害に強いまちを目指します!マイ・タイムラインの普及啓発を推進します。テレビが消えていても緊急情報を通知するシステムの構築を目指します。都市計画道路の整備などを推進し、災害に強い道路の整備を進めます。"
+      }
+    ]
+  },
+  {
+    "speaker": "福地 茂",
+    "raw_name": "福地しげる",
+    "district": "港北区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_wage_hike_shopping_street",
+        "category": "産業・観光・地域経済",
+        "target_issue": "賃上げ・商店街振興",
+        "stance": "推進・拡充",
+        "headline": "賃上げ後押しと商店街振興",
+        "exact_quote": "政府の経済界への賃上げ要請を後押しし、商店街振興券等の充実で市民生活の最前線を応援します。"
+      },
+      {
+        "id": "pledge_urban_planning_deregulation",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "まちづくり規制緩和・住宅支援",
+        "stance": "推進・拡充",
+        "headline": "まちづくり規制緩和と住宅支援",
+        "exact_quote": "都市マスタープランの策定など、まちづくりに対し、大胆な規制緩和を求め、若い方が家を持つ希望を持てる横浜をつくります。"
+      },
+      {
+        "id": "pledge_disaster_shelter_infrastructure",
+        "category": "防災・減災・治安",
+        "target_issue": "避難所・インフラ耐震化・無電柱化",
+        "stance": "推進・拡充",
+        "headline": "避難所・インフラ耐震化・無電柱化",
+        "exact_quote": "避難所の充実、都市インフラと住宅の耐震化・無電柱化など私が育ったこの港北を災害から守る施策を推進します。"
+      }
+    ]
+  },
+  {
+    "speaker": "いそじまたくや",
+    "raw_name": "いそじまたくや",
+    "district": "港北区",
+    "party": "参政党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_mutual_aid_society",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "助け合い社会への転換",
+        "stance": "推進・拡充",
+        "headline": "助け合いの社会への転換",
+        "exact_quote": "力社会から絡合(らくごう) 社会への転換 「お互い様」や「助け合い」の精神のような他人を思いやる気持ちを大切にする社会を目指します!"
+      },
+      {
+        "id": "pledge_education_reform",
+        "category": "子育て・教育",
+        "target_issue": "画一的教育からの脱却",
+        "stance": "推進・拡充",
+        "headline": "画一的教育からの脱却",
+        "exact_quote": "画一的な教育からの脱却 子供の教育の2つのポイント ①子供は好きな勉強をとことんする ②大人は、子供の成績をつけない この理念に基づいた新しい公立小中学校創りを提案します!"
+      },
+      {
+        "id": "pledge_kamiseya_theme_park",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "上瀬谷テーマパーク誘致",
+        "stance": "反対・見直し",
+        "headline": "上瀬谷テーマパーク誘致に反対",
+        "exact_quote": "旧上瀬谷通信施設跡地へのテーマパークの誘致反対 ハコモノの建設は、将来的に費用負担が継続します。テーマパークではなく、農地としての活用を提案します!"
+      }
+    ]
+  },
+  {
+    "speaker": "白井 正子",
+    "raw_name": "白井まさ子",
+    "district": "港北区",
+    "party": "日本共産党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free_school_cooking",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食の無償化・学校調理",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の無償化と学校調理",
+        "exact_quote": "学校給食: 学校調理の中学校給食,給食費無償化"
+      },
+      {
+        "id": "pledge_child_medical_childbirth_free",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費無償化・出産費用ゼロ",
+        "stance": "推進・拡充",
+        "headline": "小児医療費無償化と出産費用ゼロ",
+        "exact_quote": "小児医療費: 18歳まで無償化,出産費用ゼロ"
+      },
+      {
+        "id": "pledge_decarbonization_nuclear_zero",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "脱炭素・原発ゼロ",
+        "stance": "推進・拡充",
+        "headline": "脱炭素と原発ゼロの推進",
+        "exact_quote": "気候危機: 脱炭素原発ゼロ"
+      }
+    ]
+  },
+  {
+    "speaker": "さいとうさや",
+    "raw_name": "さいとうさや",
+    "district": "港北区",
+    "party": "日本維新の会 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_education_lunch",
+        "category": "子育て・教育",
+        "target_issue": "少子化対策・教育格差是正・中学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "少子化対策と教育格差是正",
+        "exact_quote": "少子化対策・教育格差の是正 温かい中学校給食の実現・無償化も!"
+      },
+      {
+        "id": "pledge_citizen_led_urban_dev",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "市民参加型まちづくり",
+        "stance": "推進・拡充",
+        "headline": "市民参加型まちづくり推進",
+        "exact_quote": "まちづくり市民参加 みんなで地域課題を解決防災、道路交通、教育、環境"
+      },
+      {
+        "id": "pledge_admin_reform_dx",
+        "category": "財政・行革",
+        "target_issue": "行政改革・DX推進・財政改革",
+        "stance": "推進・拡充",
+        "headline": "行政改革とDX推進",
+        "exact_quote": "行政改革 DX 推進 縦割り行政の打破 財政改革"
+      }
+    ]
+  },
+  {
+    "speaker": "おおくぼただよし",
+    "raw_name": "おおくぼただよし",
+    "district": "港北区",
+    "party": "日本維新の会 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_diet_member_reform",
+        "category": "財政・行革",
+        "target_issue": "議員定数・報酬削減",
+        "stance": "推進・拡充",
+        "headline": "議員定数・報酬の削減",
+        "exact_quote": "身を切る改革 議員定数削減 議員報酬の削減"
+      },
+      {
+        "id": "pledge_education_childcare_free",
+        "category": "子育て・教育",
+        "target_issue": "教育費用無償化・給食無償化・保育園改善",
+        "stance": "推進・拡充",
+        "headline": "教育費無償化と保育園改善",
+        "exact_quote": "子育て政策 0歳~大学院までの教育費用無償化, 給食費用無償化(小・中学校), 習い事、塾代支援制度, 保育園の改善"
+      },
+      {
+        "id": "pledge_home_care_worker_treatment",
+        "category": "福祉・医療・健康",
+        "target_issue": "在宅医療拡充・介護士看護師待遇改善",
+        "stance": "推進・拡充",
+        "headline": "在宅医療拡充と介護士待遇改善",
+        "exact_quote": "医療・介護・高齢者政策 在宅医療の拡充, 介護士、看護師の待遇改善"
+      }
+    ]
+  },
+  {
+    "speaker": "金井しんや",
+    "raw_name": "金井しんや",
+    "district": "港北区",
+    "party": "日本維新の会 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_diet_member_salary_reform",
+        "category": "財政・行革",
+        "target_issue": "議員報酬削減・政務活動費見直し",
+        "stance": "推進・拡充",
+        "headline": "議員報酬削減と政務活動費見直し",
+        "exact_quote": "身を切る改革 議員報酬の2割削減 政務活動費の見直し"
+      },
+      {
+        "id": "pledge_education_childcare_free_2",
+        "category": "子育て・教育",
+        "target_issue": "教育費用無償化・給食無償化・保育園改善",
+        "stance": "推進・拡充",
+        "headline": "教育費無償化と保育園改善",
+        "exact_quote": "子育て政策 0歳~大学院までの教育費用無償化, 給食費用無償化(小・中学校), 習い事、塾代支援制度, 保育園の改善"
+      },
+      {
+        "id": "pledge_home_care_worker_treatment_2",
+        "category": "福祉・医療・健康",
+        "target_issue": "在宅医療拡充・介護士看護師待遇改善",
+        "stance": "推進・拡充",
+        "headline": "在宅医療拡充と介護士待遇改善",
+        "exact_quote": "医療・介護・高齢者政策 在宅医療の拡充, 介護士、看護師の待遇改善"
+      }
+    ]
+  },
+  {
+    "speaker": "酒井誠",
+    "raw_name": "さかい誠",
+    "district": "港北区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_community_care_system",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域包括ケアシステム推進",
+        "stance": "推進・拡充",
+        "headline": "地域包括ケアシステム推進",
+        "exact_quote": "《福祉》誰もが住み慣れた街で安心して医療や介護が受けられる「横浜型地域包括ケアシステム」を推進し、予防介護強化や在宅医療、オンライン介護相談などの充実強化に努めます。"
+      },
+      {
+        "id": "pledge_child_medical_free_jrhigh",
+        "category": "子育て・教育",
+        "target_issue": "中学3年生まで医療費完全無料化",
+        "stance": "推進・拡充",
+        "headline": "中学3年生まで医療費完全無料化",
+        "exact_quote": "《子育て教育》中学校3年生までの医療費を完全無料にします。(所得制限撤廃)"
+      },
+      {
+        "id": "pledge_special_city_realization",
+        "category": "財政・行革",
+        "target_issue": "特別市実現",
+        "stance": "推進・拡充",
+        "headline": "特別市実現に向けた説明と理解",
+        "exact_quote": "《市政・行政》「特別市」の実現に向けて市民の方々にわかりやすい説明をし理解を求めてまいります。"
+      }
+    ]
+  },
+  {
+    "speaker": "佐藤 祐文",
+    "raw_name": "佐藤枝文",
+    "district": "港北区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_resilient_city",
+        "category": "防災・減災・治安",
+        "target_issue": "災害に強い街づくり・防災力向上",
+        "stance": "推進・拡充",
+        "headline": "災害に強い街づくりと防災力向上",
+        "exact_quote": "安心・安全(自助・共助そして公助) 災害に強い街づくりを推進します。消防団員としても地域の防災力向上にも取組みます。"
+      },
+      {
+        "id": "pledge_africa_conf_international_city",
+        "category": "産業・観光・地域経済",
+        "target_issue": "アフリカ開発会議誘致・国際都市推進",
+        "stance": "推進・拡充",
+        "headline": "アフリカ開発会議誘致と国際都市推進",
+        "exact_quote": "国際都市横浜の推進 アフリカ開発会議の横浜誘致を推進し、「アフリカに一番近い都市」を次世代に繋いでいきます。"
+      },
+      {
+        "id": "pledge_child_medical_free_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "小児医療費無料化・子育て支援充実",
+        "stance": "推進・拡充",
+        "headline": "小児医療費無料化と子育て支援充実",
+        "exact_quote": "子育て 横浜市では今年8月から中学3年までの医療費が無料になります。本来、小児医療費は国が、全国一律の制度にするべきと考え働きかけて参ります。今後も出産から学齢期までの、きめ細かい子育て支援の充実に取組みます。"
+      }
+    ]
+  },
+  {
+    "speaker": "金子 和美",
+    "raw_name": "金子 和美",
+    "district": "旭区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_kaneko_1",
+        "category": "子育て・教育",
+        "target_issue": "子育て世代の負担軽減、学校給食費無償化、保育料の軽減",
+        "stance": "負担軽減,推進・拡充",
+        "headline": "子育て世代の負担軽減を推進",
+        "exact_quote": "子育て世代の負担軽減を！学校給食費の無償化、保育料の軽減、医療費助成の拡充をすすめます。"
+      },
+      {
+        "id": "pledge_kaneko_2",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済の再生、中小企業支援、消費税減税",
+        "stance": "推進・拡充",
+        "headline": "地域経済再生と中小企業支援",
+        "exact_quote": "くらし・経済の再生を！中小企業支援の強化、消費税減税を国に求め、地域経済を再生します。"
+      },
+      {
+        "id": "pledge_kaneko_3",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策、避難所整備、ハザードマップ周知",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を強化し安全確保",
+        "exact_quote": "防災・減災対策の強化を！避難所の整備、ハザードマップの周知、災害時の情報提供を強化します。"
+      }
+    ]
+  },
+  {
+    "speaker": "こがゆ康弘",
+    "raw_name": "古賀 康弘",
+    "district": "旭区",
+    "party": "国民民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_koga_1",
+        "category": "子育て・教育",
+        "target_issue": "待機児童対策、小児医療費助成、中学校給食",
+        "stance": "推進・拡充",
+        "headline": "待機児童ゼロと中学校給食推進",
+        "exact_quote": "待機児童ゼロへ！小児医療費助成の拡充！中学校給食の全員喫食を推進！"
+      },
+      {
+        "id": "pledge_koga_2",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交通、バス路線、交通インフラ整備",
+        "stance": "推進・拡充",
+        "headline": "地域交通網の整備とバス路線拡充",
+        "exact_quote": "地域交通網の整備！バス路線の拡充！交通インフラの整備を推進します！"
+      },
+      {
+        "id": "pledge_koga_3",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災、災害対策、避難所整備",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を強化し安全確保",
+        "exact_quote": "防災・減災対策の強化！災害時の情報提供、避難所の整備を推進します！"
+      }
+    ]
+  },
+  {
+    "speaker": "福島 幸信",
+    "raw_name": "福島 幸信",
+    "district": "旭区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fukushima_1",
+        "category": "財政・行革",
+        "target_issue": "市民参加、情報公開、行政改革",
+        "stance": "推進・拡充",
+        "headline": "市民参加と情報公開の推進",
+        "exact_quote": "市民参加と情報公開を徹底し、市民の声が届く市政を実現します。"
+      },
+      {
+        "id": "pledge_fukushima_2",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "交通インフラ、公園整備、防災対策",
+        "stance": "推進・拡充",
+        "headline": "交通インフラと公園整備を推進",
+        "exact_quote": "交通インフラの整備、公園整備、防災対策を推進し、安全で快適なまちづくりを実現します。"
+      },
+      {
+        "id": "pledge_fukushima_3",
+        "category": "産業・観光・地域経済",
+        "target_issue": "産業振興、観光振興、地域経済活性化",
+        "stance": "推進・拡充",
+        "headline": "産業・観光振興で地域経済活性化",
+        "exact_quote": "産業振興、観光振興を推進し、地域経済を活性化します。"
+      }
+    ]
+  },
+  {
+    "speaker": "くしだ久子",
+    "raw_name": "櫛田 久子",
+    "district": "旭区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_kushida_1",
+        "category": "財政・行革",
+        "target_issue": "議員定数・報酬削減、政務活動費公開",
+        "stance": "反対・見直し,推進・拡充",
+        "headline": "議員定数・報酬削減と政活費公開",
+        "exact_quote": "議員定数・議員報酬の削減！政務活動費の公開を徹底し、税金の無駄遣いをなくします。"
+      },
+      {
+        "id": "pledge_kushida_2",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育の無償化、待機児童ゼロ",
+        "stance": "推進・拡充",
+        "headline": "子育て・教育の無償化と待機児童ゼロ",
+        "exact_quote": "子育て・教育の無償化を推進！待機児童ゼロを実現し、子育て世代を応援します。"
+      },
+      {
+        "id": "pledge_kushida_3",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "コミュニティバス、交通インフラ整備",
+        "stance": "推進・拡充",
+        "headline": "コミュニティバス実現で交通利便性向上",
+        "exact_quote": "コミュニティバスの実現！交通インフラを整備し、地域住民の利便性を向上させます。"
+      }
+    ]
+  },
+  {
+    "speaker": "増永純女",
+    "raw_name": "増永 綾子",
+    "district": "旭区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_masunaga_1",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障がい者支援、地域共生社会",
+        "stance": "推進・拡充",
+        "headline": "高齢者・障がい者支援と地域共生社会",
+        "exact_quote": "すべての市民が安心して暮らせる地域共生社会の実現をめざし、高齢者・障がい者支援を拡充します。"
+      },
+      {
+        "id": "pledge_masunaga_2",
+        "category": "子育て・教育",
+        "target_issue": "子どもの学び支援、教育環境整備、不登校対策",
+        "stance": "推進・拡充",
+        "headline": "子どもの学び支援と教育環境整備",
+        "exact_quote": "子どもの学びを支援し、教育環境を整備します。不登校対策にも力を入れます。"
+      },
+      {
+        "id": "pledge_masunaga_3",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交通、交通インフラ整備、まちづくり",
+        "stance": "推進・拡充",
+        "headline": "地域交通の改善とまちづくり推進",
+        "exact_quote": "地域交通の改善をすすめ、誰もが暮らしやすいまちづくりを推進します。"
+      }
+    ]
+  },
+  {
+    "speaker": "木内秀一",
+    "raw_name": "木内 貴裕",
+    "district": "旭区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_kiuchi_1",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費助成、子育て支援",
+        "stance": "推進・拡充",
+        "headline": "小児医療費助成の拡充を推進",
+        "exact_quote": "小児医療費助成の拡充を推進し、子育て世代を応援します。"
+      },
+      {
+        "id": "pledge_kiuchi_2",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策、避難所整備、災害情報",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を強化し安全確保",
+        "exact_quote": "防災・減災対策の強化！避難所の整備、災害時の情報提供を強化します。"
+      },
+      {
+        "id": "pledge_kiuchi_3",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済活性化、中小企業支援",
+        "stance": "推進・拡充",
+        "headline": "地域経済活性化と中小企業支援",
+        "exact_quote": "地域経済の活性化！中小企業支援を強化し、地域経済を活性化します。"
+      }
+    ]
+  },
+  {
+    "speaker": "佐藤 茂",
+    "raw_name": "佐藤 茂",
+    "district": "旭区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_sato_1",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済活性化、中小企業支援、商店街振興",
+        "stance": "推進・拡充",
+        "headline": "地域経済活性化と中小企業支援",
+        "exact_quote": "地域経済の活性化！中小企業支援、商店街振興を推進し、地域経済を活性化します。"
+      },
+      {
+        "id": "pledge_sato_2",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策、インフラ整備、避難所",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を強化し安全確保",
+        "exact_quote": "防災・減災対策の強化！インフラ整備、避難所の整備を推進し、安全なまちづくりを実現します。"
+      },
+      {
+        "id": "pledge_sato_3",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育環境、待機児童対策、学童保育",
+        "stance": "推進・拡充",
+        "headline": "子育て・教育環境の充実を推進",
+        "exact_quote": "子育て・教育環境の充実！待機児童対策、学童保育の拡充を推進し、子育て世代を応援します。"
+      }
+    ]
+  },
+  {
+    "speaker": "大岩 真善和",
+    "raw_name": "大橋 正和",
+    "district": "旭区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_ohashi_1",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育環境、待機児童対策、学童保育",
+        "stance": "推進・拡充",
+        "headline": "子育て・教育環境の充実を推進",
+        "exact_quote": "子育て・教育環境の充実！待機児童対策、学童保育の拡充を推進し、子育て世代を応援します。"
+      },
+      {
+        "id": "pledge_ohashi_2",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策、インフラ整備、避難所",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を強化し安全確保",
+        "exact_quote": "防災・減災対策の強化！インフラ整備、避難所の整備を推進し、安全なまちづくりを実現します。"
+      },
+      {
+        "id": "pledge_ohashi_3",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済活性化、中小企業支援、商店街振興",
+        "stance": "推進・拡充",
+        "headline": "地域経済活性化と中小企業支援",
+        "exact_quote": "地域経済の活性化！中小企業支援、商店街振興を推進し、地域経済を活性化します。"
+      }
+    ]
+  },
+  {
+    "speaker": "ゆさ大輔",
+    "raw_name": "ゆさ大輔",
+    "district": "南区",
+    "party": "自民党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_transport_fare",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "公共交通運賃",
+        "stance": "負担軽減",
+        "headline": "市営交通通学定期券の値下げ",
+        "exact_quote": "◇市営地下鉄・バス通学定期券の料金値下げ"
+      },
+      {
+        "id": "pledge_sports_facility",
+        "category": "福祉・医療・健康",
+        "target_issue": "スポーツ施設環境",
+        "stance": "推進・拡充",
+        "headline": "南スポーツセンター体育館に空調",
+        "exact_quote": "◇南スポーツセンターの体育館に空調整備"
+      },
+      {
+        "id": "pledge_school_toilet",
+        "category": "子育て・教育",
+        "target_issue": "学校施設改善",
+        "stance": "推進・拡充",
+        "headline": "学校トイレの洋式化を推進",
+        "exact_quote": "◇学校トイレの洋式化"
+      }
+    ]
+  },
+  {
+    "speaker": "渋谷 健",
+    "raw_name": "渋谷 健",
+    "district": "南区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を強力に推進",
+        "exact_quote": "【1】防災・減災の推進"
+      },
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育て世代を全力で応援",
+        "exact_quote": "【3】子育て世代を全力応援"
+      },
+      {
+        "id": "pledge_inflation_measures",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高騰対策",
+        "stance": "推進・拡充",
+        "headline": "物価高騰対策を強力に推進",
+        "exact_quote": "【4】物価高対策を強力に推進"
+      }
+    ]
+  },
+  {
+    "speaker": "仁田 昌寿",
+    "raw_name": "仁田 昌寿",
+    "district": "南区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を強力に推進",
+        "exact_quote": "【1】防災・減災の推進"
+      },
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育て世代を全力で応援",
+        "exact_quote": "【3】子育て世代を全力応援"
+      },
+      {
+        "id": "pledge_inflation_measures",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高騰対策",
+        "stance": "推進・拡充",
+        "headline": "物価高騰対策を強力に推進",
+        "exact_quote": "【4】物価高対策を強力に推進"
+      }
+    ]
+  },
+  {
+    "speaker": "あらき由美子",
+    "raw_name": "あらき由美子",
+    "district": "南区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_medical_aid",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費助成",
+        "stance": "推進・拡充",
+        "headline": "小児医療費助成を高校3年まで拡充",
+        "exact_quote": "①小児医療費助成を高校3年生までに拡充"
+      },
+      {
+        "id": "pledge_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "学校給食制度",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の全員制を推進",
+        "exact_quote": "②学校給食・中学校給食20年度全員制へ"
+      },
+      {
+        "id": "pledge_nursing_home",
+        "category": "福祉・医療・健康",
+        "target_issue": "特別養護老人ホーム待機期間",
+        "stance": "推進・拡充",
+        "headline": "特養ホーム待機期間の短縮",
+        "exact_quote": "③特養ホーム・待機期間10か月に"
+      }
+    ]
+  },
+  {
+    "speaker": "高田 修平",
+    "raw_name": "高田しゅうへい",
+    "district": "南区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_inclusive_city",
+        "category": "福祉・医療・健康",
+        "target_issue": "全世代型社会",
+        "stance": "推進・拡充",
+        "headline": "全ての世代にやさしいまちづくり",
+        "exact_quote": "全ての世代にやさしいまちをつくる"
+      },
+      {
+        "id": "pledge_safe_city",
+        "category": "防災・減災・治安",
+        "target_issue": "都市の安全・安心",
+        "stance": "推進・拡充",
+        "headline": "安心・安全で住みやすいまちづくり",
+        "exact_quote": "安心・安全で住みやすいまちをつくる"
+      },
+      {
+        "id": "pledge_community_support",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "地域コミュニティ",
+        "stance": "推進・拡充",
+        "headline": "つながり支え合う地域社会を構築",
+        "exact_quote": "つながり・支え合うまちをつくる"
+      }
+    ]
+  },
+  {
+    "speaker": "清水 富雄",
+    "raw_name": "清水富雄",
+    "district": "西区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/15_bulletin_nishiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_shimizu",
+        "category": "子育て・教育",
+        "target_issue": "待機児童・保育士確保",
+        "stance": "推進・拡充",
+        "headline": "待機児童解消と保育士確保を推進",
+        "exact_quote": "保育所等待機児童解消を目指し保育士確保。"
+      },
+      {
+        "id": "pledge_women_shimizu",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "女性の働きやすさ",
+        "stance": "推進・拡充",
+        "headline": "日本一女性が働きやすい都市を実現",
+        "exact_quote": "日本一女性が働きやすい都市の実現に向けて施策推進。"
+      },
+      {
+        "id": "pledge_expo_shimizu",
+        "category": "産業・観光・地域経済",
+        "target_issue": "2027年横浜グリーンEXPO",
+        "stance": "推進・成功",
+        "headline": "2027年横浜グリーンEXPOを成功へ",
+        "exact_quote": "2027年横浜グリーンEXPOを未来を担うこども達の為に成功させます。"
+      }
+    ]
+  },
+  {
+    "speaker": "荻原 隆宏",
+    "raw_name": "おぎわら隆宏",
+    "district": "西区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/15_bulletin_nishiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_democracy_ogiwara",
+        "category": "財政・行革",
+        "target_issue": "住民自治・民主主義",
+        "stance": "推進・維持",
+        "headline": "住民自治深化と横浜の民主主義を守る",
+        "exact_quote": "118区ある市内の行政区における民主的機能の向上に取り組み、ヨコハマの民主主義を守ります。"
+      },
+      {
+        "id": "pledge_disaster_ogiwara",
+        "category": "防災・減災・治安",
+        "target_issue": "自然災害対策",
+        "stance": "強化",
+        "headline": "自然災害への備えを一層強化",
+        "exact_quote": "9豪雨等の風水害や大地震など自然災害への備えをより一層強化します。"
+      },
+      {
+        "id": "pledge_welfare_staff_ogiwara",
+        "category": "福祉・医療・健康",
+        "target_issue": "福祉人材の待遇改善",
+        "stance": "推進",
+        "headline": "福祉人材の待遇改善を推進",
+        "exact_quote": "2介護・保育・障がい児者支援など福祉人材の待遇改善に取り組みます。"
+      }
+    ]
+  },
+  {
+    "speaker": "浅田ゆうご",
+    "raw_name": "浅田ゆうご",
+    "district": "西区",
+    "party": "自由民主党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/15_bulletin_nishiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_asada",
+        "category": "子育て・教育",
+        "target_issue": "出産・小児医療費",
+        "stance": "負担軽減",
+        "headline": "出産・小児医療費の負担軽減",
+        "exact_quote": "出産、小児医療費の負担軽減"
+      },
+      {
+        "id": "pledge_senior_asada",
+        "category": "福祉・医療・健康",
+        "target_issue": "シニアの生涯活躍",
+        "stance": "推進",
+        "headline": "シニアが生涯活躍できる仕組みづくり",
+        "exact_quote": "シニアが生涯活躍できる仕組みづくり"
+      },
+      {
+        "id": "pledge_disaster_base_asada",
+        "category": "防災・減災・治安",
+        "target_issue": "防災拠点整備",
+        "stance": "推進",
+        "headline": "旧官舎跡地を防災拠点へ整備",
+        "exact_quote": "野毛山、東ヶ丘、西戸部等の旧官舎跡地を防災拠点へ"
+      }
+    ]
+  },
+  {
+    "speaker": "市来栄美子",
+    "raw_name": "市来えみこ",
+    "district": "都筑区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_inflation_relief",
+        "category": "産業・観光・地域経済",
+        "target_issue": "物価高騰対策",
+        "stance": "推進・拡充",
+        "headline": "物価高騰対策を全力で推進",
+        "exact_quote": "物価高騰対策に全力!「レシ活」につづく、横浜市の物価高騰対策を推進します。"
+      },
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援・相談支援",
+        "stance": "推進・拡充",
+        "headline": "子育て3本柱と伴走型相談支援拡充",
+        "exact_quote": "子育て3本柱・伴走型相談支援の拡充"
+      },
+      {
+        "id": "pledge_healthcare_youth",
+        "category": "福祉・医療・健康",
+        "target_issue": "高校生医療費無償化",
+        "stance": "推進・拡充",
+        "headline": "高校生までの医療費無償化と所得制限撤廃",
+        "exact_quote": "高校3年生までの医療費無償化・所得制限撤廃"
+      }
+    ]
+  },
+  {
+    "speaker": "いそべ尚哉",
+    "raw_name": "いそべ尚哉",
+    "district": "都筑区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_welfare_reform",
+        "category": "子育て・教育",
+        "target_issue": "教育・福祉改革",
+        "stance": "推進・拡充",
+        "headline": "維新の改革で教育・福祉を充実",
+        "exact_quote": "維新の改革で教育・福祉の充実を。"
+      },
+      {
+        "id": "pledge_fiscal_admin_reform",
+        "category": "財政・行革",
+        "target_issue": "政治・行財政改革",
+        "stance": "推進・拡充",
+        "headline": "政治・行財政改革を断行",
+        "exact_quote": "3政治・行財政改革◎議員報酬と定数を削減、身を切る改革断行◎行財政構造を改革し、大胆に財源確保◎自治体経営にさらなる民間マインドを導入"
+      },
+      {
+        "id": "pledge_investment_future_gen",
+        "category": "子育て・教育",
+        "target_issue": "将来世代への投資",
+        "stance": "推進・拡充",
+        "headline": "将来世代への投資を徹底",
+        "exact_quote": "2将来世代への投資◎子育てへの徹底投資◎子育て給付に関わる所得制限の撤廃◎教育無償化へ、教育格差を是正◎中学校給食全員喫食、無償化"
+      }
+    ]
+  },
+  {
+    "speaker": "深作 祐衣",
+    "raw_name": "深作ゆい",
+    "district": "都筑区",
+    "party": "国民民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_friendly_yokohama",
+        "category": "子育て・教育",
+        "target_issue": "子ども・子育て支援",
+        "stance": "推進・拡充",
+        "headline": "日本一の子どもと子育て世帯にやさしい横浜",
+        "exact_quote": "日本一、子どもと子育て世帯にやさしい横浜に"
+      },
+      {
+        "id": "pledge_inclusive_welfare",
+        "category": "福祉・医療・健康",
+        "target_issue": "誰ひとり取り残さない福祉",
+        "stance": "推進・拡充",
+        "headline": "誰ひとり取り残さないきめ細かい福祉政策",
+        "exact_quote": "■誰ひとり取り残すことのない、きめ細かい福祉政策"
+      },
+      {
+        "id": "pledge_digital_smart_city",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "デジタル化推進・スマートシティ",
+        "stance": "推進・拡充",
+        "headline": "デジタル化推進でスリムでスマートな街へ",
+        "exact_quote": "デジタル化を正しく推進し、スリムでスマートな街に"
+      }
+    ]
+  },
+  {
+    "speaker": "ふじい芳明",
+    "raw_name": "ふじい芳明",
+    "district": "都筑区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economic_policy_wages",
+        "category": "産業・観光・地域経済",
+        "target_issue": "経済・賃上げ・物価高対策",
+        "stance": "推進・拡充",
+        "headline": "円安・物価高に打ち勝つ賃上げ経済政策",
+        "exact_quote": "1 円安・物価高に打ち勝つ給料を上げる経済産業政策の実行"
+      },
+      {
+        "id": "pledge_childbirth_education_free",
+        "category": "子育て・教育",
+        "target_issue": "出産・教育無償化",
+        "stance": "推進・拡充",
+        "headline": "出産費用ゼロ・教育無償化社会を目指す",
+        "exact_quote": "② 「出産費用ゼロ」・「教育の無償化」安心して妊娠・出産・育児が出来る社会を目指す"
+      },
+      {
+        "id": "pledge_healthcare_elderly_dementia",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療・介護連携・認知症対策",
+        "stance": "推進・拡充",
+        "headline": "医療と介護連携強化し認知症対策充実",
+        "exact_quote": "4 医療と介護の連携強化し認知症対策を充実"
+      }
+    ]
+  },
+  {
+    "speaker": "白井 亮次",
+    "raw_name": "しらい良次",
+    "district": "都筑区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_quality",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食の質向上",
+        "stance": "推進・拡充",
+        "headline": "温かく美味しい中学校給食の実現",
+        "exact_quote": "1. より温かく・美味しい中学校給食の実現"
+      },
+      {
+        "id": "pledge_subway_extension",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地下鉄ブルーライン延伸",
+        "stance": "推進・拡充",
+        "headline": "地下鉄ブルーライン新百合ヶ丘延伸推進",
+        "exact_quote": "2. 市営地下鉄ブルーライン 新百合ヶ丘までの延伸を推進。センター北駅から新百合ヶ丘まで直通約15分へ。"
+      },
+      {
+        "id": "pledge_social_business",
+        "category": "産業・観光・地域経済",
+        "target_issue": "ソーシャルビジネスによる社会課題解決",
+        "stance": "推進・拡充",
+        "headline": "ソーシャルビジネスで社会課題解決",
+        "exact_quote": "3. ソーシャルビジネスにフォーカスし、社会課題の解決を目指す。"
+      }
+    ]
+  },
+  {
+    "speaker": "平田いくよ",
+    "raw_name": "平田いくよ",
+    "district": "都筑区",
+    "party": "地域政党 神奈川ネット",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_home_care_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "在宅介護支援",
+        "stance": "推進・拡充",
+        "headline": "在宅介護を支える支援を推進",
+        "exact_quote": "在宅介護を支える●介護スタッフの処遇改善をすすめ在宅生活を支えます。"
+      },
+      {
+        "id": "pledge_community_childcare",
+        "category": "子育て・教育",
+        "target_issue": "地域子育て支援",
+        "stance": "推進・拡充",
+        "headline": "地域で支える子育て支援を推進",
+        "exact_quote": "地域で支える子育て●一時保育や親と子のつどいの広場、派遣型の産前産後ケア、相談事業などで家族を丸ごと応援します。"
+      },
+      {
+        "id": "pledge_circular_economy",
+        "category": "産業・観光・地域経済",
+        "target_issue": "循環型経済",
+        "stance": "推進・拡充",
+        "headline": "循環型経済で横浜を活性化",
+        "exact_quote": "循環型経済で横浜を元気にする●原発に頼らない脱炭素社会をめざします。●再生可能エネルギーで循環型の経済システムをめざします。"
+      }
+    ]
+  },
+  {
+    "speaker": "長谷川 琢磨",
+    "raw_name": "長谷川たくま",
+    "district": "都筑区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_abuse_prevention",
+        "category": "子育て・教育",
+        "target_issue": "児童虐待対策",
+        "stance": "推進・拡充",
+        "headline": "児童虐待の未然防止・早期対応推進",
+        "exact_quote": "激増する児童虐待対策として、条例改正だけでなくラインを利用して、未然防止・早期発見・早期対応を推進"
+      },
+      {
+        "id": "pledge_community_care_system",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域包括ケアシステム構築",
+        "stance": "推進・拡充",
+        "headline": "地域包括ケアシステム構築を推進",
+        "exact_quote": "地域包括ケアシステム構築に向け、地域づくり人づくり支援体制を構築"
+      },
+      {
+        "id": "pledge_disaster_emergency_response",
+        "category": "防災・減災・治安",
+        "target_issue": "救急救命・災害危機管理",
+        "stance": "推進・拡充",
+        "headline": "救急救命・災害危機管理体制を強化",
+        "exact_quote": "北山田への救急部隊設置のように、救急救命体制や災害時の危機管理体制を強化"
+      }
+    ]
+  },
+  {
+    "speaker": "望月こうとく",
+    "raw_name": "望月こうとく",
+    "district": "都筑区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_working_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て・働く世代支援",
+        "stance": "推進・拡充",
+        "headline": "子育て・働く世代応援と次代への投資",
+        "exact_quote": "子育て支援・働く世代応援 次代を担う人への投資「子育てしたいまち次世代を共に育むまち ヨコハマ」が、横浜市中期計画の基本戦略に!"
+      },
+      {
+        "id": "pledge_no_casino",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ誘致反対",
+        "stance": "反対・見直し",
+        "headline": "カジノ誘致撤回を断固実現",
+        "exact_quote": "カジノは、No! 誘致撤回を実現!"
+      },
+      {
+        "id": "pledge_school_lunch_introduction",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食導入",
+        "stance": "推進・拡充",
+        "headline": "中学校給食導入と全員給食化",
+        "exact_quote": "中学校給食の導入 2026年度には全員給食へ!"
+      }
+    ]
+  },
+  {
+    "speaker": "井下けんじ",
+    "raw_name": "井下けんじ",
+    "district": "都筑区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free_childbirth",
+        "category": "子育て・教育",
+        "target_issue": "学校給食・出産費用無償化",
+        "stance": "推進・拡充",
+        "headline": "学校給食・出産費用無償化を目指す",
+        "exact_quote": "学校給食・学校調理の中学校給食,給食費無償化・18歳まで無償化・出産費用ゼロ目指します!"
+      },
+      {
+        "id": "pledge_nursing_home_hearing_aid",
+        "category": "福祉・医療・健康",
+        "target_issue": "特養ホーム・補聴器補助",
+        "stance": "推進・拡充",
+        "headline": "特養ホーム待機短縮と補聴器補助",
+        "exact_quote": "特養ホーム・待機期間短縮・補聴器補助"
+      },
+      {
+        "id": "pledge_public_transport_enhancement",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域公共交通の充実",
+        "stance": "推進・拡充",
+        "headline": "地域公共交通の充実を推進",
+        "exact_quote": "地域交通・バス路線ミニバス等地域公共交通の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "鈴木太郎",
+    "raw_name": "鈴木太郎",
+    "district": "戸塚区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_demographics_policy",
+        "category": "財政・行革",
+        "target_issue": "人口減少社会への対応",
+        "stance": "政策転換",
+        "headline": "人口減少前提の政策判断へ",
+        "exact_quote": "残念ながら、今後は人口減少の時代を迎えます。これまでと同様に人口増加を前提とした政策決定ではなく、人口減少を前提とした政策判断に転換していかなければなりません。"
+      }
+    ]
+  },
+  {
+    "speaker": "伏見幸枝",
+    "raw_name": "伏見ゆきえ",
+    "district": "戸塚区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "妊娠・出産・育児支援",
+        "stance": "推進・拡充",
+        "headline": "妊婦初診無料化と育児支援",
+        "exact_quote": "妊婦初診無料化、妊娠期や出産期の生活応援助成"
+      },
+      {
+        "id": "pledge_childcare_capacity",
+        "category": "子育て・教育",
+        "target_issue": "育児休業明けの保育受入枠",
+        "stance": "拡充",
+        "headline": "1・2歳児の保育受入枠を拡大",
+        "exact_quote": "育児休業明けとなる1歳児や2歳児の受入れ枠の拡大"
+      },
+      {
+        "id": "pledge_school_toilet",
+        "category": "子育て・教育",
+        "target_issue": "学校のトイレ洋式化",
+        "stance": "推進",
+        "headline": "学校のトイレ洋式化を推進",
+        "exact_quote": "学校のトイレ洋式化"
+      }
+    ]
+  },
+  {
+    "speaker": "山浦 英太",
+    "raw_name": "やまうら英太",
+    "district": "戸塚区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_local_autonomy",
+        "category": "財政・行革",
+        "target_issue": "住民自治・地方自治",
+        "stance": "推進・確立",
+        "headline": "住民自治と地方自治の確立",
+        "exact_quote": "地域のことは地域で決める住民自治。※住民投票を行うための「住民投票条例」の制定を目指します。※国と対等な地方自治を確立していきます"
+      },
+      {
+        "id": "pledge_fiscal_review",
+        "category": "財政・行革",
+        "target_issue": "税金の無駄遣い・事業見直し",
+        "stance": "反対・見直し",
+        "headline": "税金の無駄遣い許さず事業見直し",
+        "exact_quote": "税金の無駄遣いを許さない徹底した事業見直し。※市の事業を精査し見直しや効率化を進めます。※次世代に財政負担を押し付けない市政運営をしていきます。"
+      },
+      {
+        "id": "pledge_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "中学校完全給食",
+        "stance": "早期実現",
+        "headline": "中学校完全給食の早期実現",
+        "exact_quote": "中学校完全給食の早期実現。※給食費の無償化や、全員に給食を提供できる整備を進めます。"
+      }
+    ]
+  },
+  {
+    "speaker": "中島 光徳",
+    "raw_name": "中島みつのり",
+    "district": "戸塚区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_medical_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費助成",
+        "stance": "拡充",
+        "headline": "小児医療費助成を高校3年まで",
+        "exact_quote": "小児医療費助成を高校3年生まで拡充"
+      },
+      {
+        "id": "pledge_local_transport",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交通",
+        "stance": "充実",
+        "headline": "地域交通の充実と安全対策",
+        "exact_quote": "コミュニティバス等を活用した地域交通の充実AIなどの最新技術を活用した交通安全対策の推進"
+      },
+      {
+        "id": "pledge_cost_of_living",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "電気・ガス・ガソリン代高騰",
+        "stance": "負担軽減",
+        "headline": "高騰する光熱費・燃料費対策",
+        "exact_quote": "電気代、ガス代、ガソリン代高騰から家計を守る対策の大幅な拡充"
+      }
+    ]
+  },
+  {
+    "speaker": "坂本 勝司",
+    "raw_name": "坂本勝司",
+    "district": "戸塚区",
+    "party": "国民民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_barrier_free",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "歩道整備・バリアフリー化",
+        "stance": "実現",
+        "headline": "人に優しい歩道整備とバリアフリー",
+        "exact_quote": "人に優しい歩道整備とバリアフリー化を実現します"
+      },
+      {
+        "id": "pledge_home_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "在宅療養環境",
+        "stance": "整備推進",
+        "headline": "在宅療養環境の整備を推進",
+        "exact_quote": "地域包括支援センターと連携した在宅療養環境の整備を推進します"
+      },
+      {
+        "id": "pledge_school_lunch_quality",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "改善・実現",
+        "headline": "中学校給食の温かい給食実現",
+        "exact_quote": "中学校給食の提供方式や温かい給食の実現に向けて粘り強く、子ども達のための給食となるように取り組みます"
+      }
+    ]
+  },
+  {
+    "speaker": "大和田 あきお",
+    "raw_name": "大和田あきお",
+    "district": "戸塚区",
+    "party": "日本共産党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "無償化・推進",
+        "headline": "学校給食の無償化と推進",
+        "exact_quote": "【学校給食】・学校調理の中学校給食,給食費無償化"
+      },
+      {
+        "id": "pledge_child_medical_care_zero",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費・出産費用",
+        "stance": "無償化",
+        "headline": "小児医療費・出産費用を無償化",
+        "exact_quote": "【小児医療費】・18歳まで無償化・出産費用ゼロ"
+      },
+      {
+        "id": "pledge_climate_crisis",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "気候危機・脱炭素",
+        "stance": "推進",
+        "headline": "気候危機対策と脱炭素を推進",
+        "exact_quote": "【気候危機】※再エネ・省エネで脱炭素、原発ゼロ"
+      }
+    ]
+  },
+  {
+    "speaker": "神崎豊太",
+    "raw_name": "神崎豊太",
+    "district": "戸塚区",
+    "party": "日本維新の会 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_reform_politician_salary",
+        "category": "財政・行革",
+        "target_issue": "議員定数・報酬削減",
+        "stance": "推進",
+        "headline": "議員定数・報酬削減で身を切る",
+        "exact_quote": "「議員定数削減・議員報酬削減を通じて自らの身を切る改革を断行し、住民の政治に対する信頼を取り戻します。"
+      },
+      {
+        "id": "pledge_childcare_medical_free",
+        "category": "子育て・教育",
+        "target_issue": "医療費・出産費用無償化",
+        "stance": "目指す",
+        "headline": "18歳まで医療費・出産費無償化",
+        "exact_quote": "18歳までの医療費や出産費用の無償化等を目指す。"
+      },
+      {
+        "id": "pledge_education_free",
+        "category": "子育て・教育",
+        "target_issue": "高等教育無償化",
+        "stance": "目指す",
+        "headline": "高等教育まで所得制限なく無償化",
+        "exact_quote": "大学院を含む高等教育まで、すべての子どもが所得制限なく無償で通える環境づくりを目指します。"
+      }
+    ]
+  },
+  {
+    "speaker": "二井くみよ",
+    "raw_name": "二井くみよ",
+    "district": "磯子区",
+    "party": "国民民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_education",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育費負担",
+        "stance": "推進・拡充",
+        "headline": "子育て・教育費負担軽減を推進",
+        "exact_quote": "子育てを教育にお金のかからない制度改革を推進!"
+      },
+      {
+        "id": "pledge_elderly_disabled_welfare",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障がい者福祉サービス",
+        "stance": "推進・拡充",
+        "headline": "高齢者・障がい者福祉を身近に",
+        "exact_quote": "高齢者・障がい者福祉をもっと身近で使いやすく!"
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災対策強化",
+        "stance": "推進・拡充",
+        "headline": "区内の防災対策を強化し安全安心に",
+        "exact_quote": "区内の防災対策を強化。密集市街地の消防力を高め、沿岸部では津波対策として垂直避難場所を確保。"
+      }
+    ]
+  },
+  {
+    "speaker": "武田勝久",
+    "raw_name": "たけだ勝久",
+    "district": "磯子区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_health_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "疾病対策（がん・うつ・認知症）",
+        "stance": "推進・拡充",
+        "headline": "ガン・うつ・認知症対策を推進",
+        "exact_quote": "ガン・うつ・認知症対策"
+      },
+      {
+        "id": "pledge_security_disaster",
+        "category": "防災・減災・治安",
+        "target_issue": "防犯・防災・減災",
+        "stance": "推進・拡充",
+        "headline": "防犯・防災・減災対策を強化",
+        "exact_quote": "防犯・防災・減災対策"
+      },
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育て支援策を推進し負担軽減",
+        "exact_quote": "子育て支援策の推進"
+      }
+    ]
+  },
+  {
+    "speaker": "蓮池ゆきお",
+    "raw_name": "蓮池ゆきお",
+    "district": "磯子区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食・給食費",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の実施と給食費無償化",
+        "exact_quote": "学校給食・学校調理の中学校給食、給食費無償化"
+      },
+      {
+        "id": "pledge_child_medical_care",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費",
+        "stance": "推進・拡充",
+        "headline": "小児医療費18歳まで無償化",
+        "exact_quote": "小児医療費・18歳まで無償化"
+      },
+      {
+        "id": "pledge_local_transport",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域公共交通",
+        "stance": "推進・拡充",
+        "headline": "地域公共交通の充実を推進",
+        "exact_quote": "地域交通・バス路線ミニバス等地域公共交通の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "関勝則",
+    "raw_name": "関勝則",
+    "district": "磯子区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_security_seki",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・防犯",
+        "stance": "推進・拡充",
+        "headline": "防災・防犯対策を強化し安全に",
+        "exact_quote": "1.安全をつくる「防災・防犯対策』"
+      },
+      {
+        "id": "pledge_child_youth_seki",
+        "category": "子育て・教育",
+        "target_issue": "子ども・子育て・青少年",
+        "stance": "推進・拡充",
+        "headline": "子ども・子育て・青少年施策を推進",
+        "exact_quote": "2.未来につなぐ「子ども・子育て・青少年施策」"
+      },
+      {
+        "id": "pledge_education_seki",
+        "category": "子育て・教育",
+        "target_issue": "教育",
+        "stance": "推進・拡充",
+        "headline": "未来に開く教育政策を推進",
+        "exact_quote": "3.未来に開く『教育政策』"
+      }
+    ]
+  },
+  {
+    "speaker": "中山しんご",
+    "raw_name": "中山しんご",
+    "district": "磯子区",
+    "party": "立憲民主党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_friendly_city",
+        "category": "子育て・教育",
+        "target_issue": "子育て環境",
+        "stance": "推進・拡充",
+        "headline": "子育てしやすいまち磯子を推進",
+        "exact_quote": "「子育てしたいまち No,1磯子!」"
+      },
+      {
+        "id": "pledge_healthy_longevity",
+        "category": "福祉・医療・健康",
+        "target_issue": "健康長寿",
+        "stance": "推進・拡充",
+        "headline": "健康長寿都市ヨコハマを推進",
+        "exact_quote": "「長生きして良かった!幸せ「健康長寿」都市ヨコハマ!」"
+      },
+      {
+        "id": "pledge_education_equality",
+        "category": "子育て・教育",
+        "target_issue": "教育格差",
+        "stance": "推進・拡充",
+        "headline": "教育格差解消と学力向上を推進",
+        "exact_quote": "「日本一の教育都市ヨコハマ!経済格差と学力格差が比例しないまちに」"
+      }
+    ]
+  },
+  {
+    "speaker": "山本たかし",
+    "raw_name": "山本たかし",
+    "district": "磯子区",
+    "party": "自民党公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_disaster_security_yamamoto",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・防犯",
+        "stance": "推進・拡充",
+        "headline": "防災・防犯対策を強化し安全に",
+        "exact_quote": "1.安全をつくる「防災・防犯対策』"
+      },
+      {
+        "id": "pledge_child_youth_yamamoto",
+        "category": "子育て・教育",
+        "target_issue": "子ども・子育て・青少年",
+        "stance": "推進・拡充",
+        "headline": "子ども・子育て・青少年施策を推進",
+        "exact_quote": "2.未来につなぐ「子ども・子育て・青少年施策」"
+      },
+      {
+        "id": "pledge_education_yamamoto",
+        "category": "子育て・教育",
+        "target_issue": "教育",
+        "stance": "推進・拡充",
+        "headline": "未来に開く教育政策を推進",
+        "exact_quote": "3.未来に開く『教育政策』"
+      }
+    ]
+  },
+  {
+    "speaker": "太田正孝",
+    "raw_name": "太田正孝",
+    "district": "磯子区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_ota",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育て支援を推進し負担軽減",
+        "exact_quote": "1 子育てを応援します!"
+      },
+      {
+        "id": "pledge_welfare_medical_ota",
+        "category": "福祉・医療・健康",
+        "target_issue": "福祉・医療",
+        "stance": "推進・拡充",
+        "headline": "福祉・医療の充実を推進",
+        "exact_quote": "2 福祉・医療の充実"
+      },
+      {
+        "id": "pledge_fiscal_tax_reduction_ota",
+        "category": "財政・行革",
+        "target_issue": "財政健全化・減税",
+        "stance": "推進・拡充",
+        "headline": "市の赤字解消と減税を推進",
+        "exact_quote": "3 市の赤字の解消・減税"
+      }
+    ]
+  },
+  {
+    "speaker": "さかい亮介",
+    "raw_name": "さかい亮介",
+    "district": "磯子区",
+    "party": "日本維新の会",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_sakai",
+        "category": "子育て・教育",
+        "target_issue": "給食無償化・教育環境",
+        "stance": "推進・拡充",
+        "headline": "小中学校給食の無償化を推進",
+        "exact_quote": "小中学校給食無償化!"
+      },
+      {
+        "id": "pledge_nursing_care_sakai",
+        "category": "福祉・医療・健康",
+        "target_issue": "介護保険制度・介護現場",
+        "stance": "推進・拡充",
+        "headline": "逆介護保険導入で介護現場を支援",
+        "exact_quote": "「逆介護保険の導入で介護現場のがんばりに報える仕組みづくりを推進"
+      },
+      {
+        "id": "pledge_fiscal_reform_sakai",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進・拡充",
+        "headline": "増税より「身を切る」改革を推進",
+        "exact_quote": "増税よりも「身を切る」改革!"
+      }
+    ]
+  },
+  {
+    "speaker": "もりた洋平",
+    "raw_name": "もりた洋平",
+    "district": "磯子区",
+    "party": "れいわ新選組 公認",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_school_lunch_morita",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援・中学校給食",
+        "stance": "推進・拡充",
+        "headline": "子育て支援と中学校給食の自校式化",
+        "exact_quote": "子育て世代を手厚く支援、中学校給食は自校式へ"
+      },
+      {
+        "id": "pledge_education_issues_morita",
+        "category": "子育て・教育",
+        "target_issue": "教育現場の課題",
+        "stance": "推進・拡充",
+        "headline": "教育現場の課題解決に全力で取組む",
+        "exact_quote": "教育現場の問題に全力で取り組みます"
+      },
+      {
+        "id": "pledge_fiscal_corruption_morita",
+        "category": "財政・行革",
+        "target_issue": "利権・悪政",
+        "stance": "反対・見直し",
+        "headline": "利権や悪政に斬り込み市民生活を優先",
+        "exact_quote": "血税をむしばむ利権や悪政に斬り込みます"
+      }
+    ]
+  },
+  {
+    "speaker": "かじや あきら",
+    "raw_name": "かじや あきら",
+    "district": "港南区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare",
+        "category": "子育て・教育",
+        "target_issue": "子育て世代支援",
+        "stance": "推進・拡充",
+        "headline": "子育て世代を応援し支援を拡充",
+        "exact_quote": "I 子育て世代を応援！"
+      },
+      {
+        "id": "pledge_welfare_elderly",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障がい者福祉",
+        "stance": "推進・拡充",
+        "headline": "高齢者・障がい者福祉の充実",
+        "exact_quote": "II 高齢者・障がい者福祉の充実"
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "災害対策",
+        "stance": "推進・拡充",
+        "headline": "災害に強いまちづくりを推進",
+        "exact_quote": "III 災害に強いまちづくり"
+      }
+    ]
+  },
+  {
+    "speaker": "安西 英俊",
+    "raw_name": "安西 ひでとし",
+    "district": "港南区",
+    "party": "公明党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_education_childcare",
+        "category": "子育て・教育",
+        "target_issue": "教育・子育て支援",
+        "stance": "推進・拡充",
+        "headline": "教育・子育て支援を推進",
+        "exact_quote": "●教育・子育て支援"
+      },
+      {
+        "id": "pledge_welfare_elderly_disabled",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障がい者支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者・障がい者支援を推進",
+        "exact_quote": "●高齢者・障がい者支援"
+      },
+      {
+        "id": "pledge_disaster_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を推進",
+        "exact_quote": "●防災・減災対策"
+      }
+    ]
+  },
+  {
+    "speaker": "かみ出 おさむ",
+    "raw_name": "かみ出 おさむ",
+    "district": "港南区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_reform",
+        "category": "財政・行革",
+        "target_issue": "財政健全化",
+        "stance": "推進・見直し",
+        "headline": "財政健全化と無駄の排除",
+        "exact_quote": "①財政健全化・ムダをなくす"
+      },
+      {
+        "id": "pledge_education_childcare_expansion",
+        "category": "子育て・教育",
+        "target_issue": "教育・子育て支援",
+        "stance": "推進・拡充",
+        "headline": "教育・子育て支援の拡充を推進",
+        "exact_quote": "②教育・子育て支援の拡充"
+      },
+      {
+        "id": "pledge_local_economy",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済活性化",
+        "stance": "推進・拡充",
+        "headline": "地域経済の活性化を推進",
+        "exact_quote": "③地域経済の活性化"
+      }
+    ]
+  },
+  {
+    "speaker": "瀬之間 康浩",
+    "raw_name": "せのま 康廣",
+    "district": "港南区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て世代支援",
+        "stance": "推進・拡充",
+        "headline": "子育て世代への支援を推進",
+        "exact_quote": "●子育て世代を応援"
+      },
+      {
+        "id": "pledge_elderly_disabled_support",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障がい者支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者・障がい者支援を推進",
+        "exact_quote": "●高齢者・障がい者支援"
+      },
+      {
+        "id": "pledge_disaster_prevention_mitigation",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を推進",
+        "exact_quote": "●防災・減災対策"
+      }
+    ]
+  },
+  {
+    "speaker": "田野井 一雄",
+    "raw_name": "たのい 健",
+    "district": "港南区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_economic_revitalization",
+        "category": "産業・観光・地域経済",
+        "target_issue": "経済活性化",
+        "stance": "推進・拡充",
+        "headline": "経済活性化を推進",
+        "exact_quote": "出前協議経済活性化を推進"
+      },
+      {
+        "id": "pledge_childcare_education_environment",
+        "category": "子育て・教育",
+        "target_issue": "子育て・教育環境",
+        "stance": "推進・拡充",
+        "headline": "子育て・教育環境の充実",
+        "exact_quote": "○子育て・教育環境の充実"
+      },
+      {
+        "id": "pledge_elderly_disabled_support_tanoi",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障がい者支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者・障がい者支援を推進",
+        "exact_quote": "○高齢者・障がい者支援"
+      }
+    ]
+  },
+  {
+    "speaker": "島本 けい",
+    "raw_name": "島本 けい",
+    "district": "港南区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_support_shimamoto",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育て支援の充実を推進",
+        "exact_quote": "■子育て支援の充実"
+      },
+      {
+        "id": "pledge_elderly_disabled_support_shimamoto",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障がい者支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者・障がい者支援を推進",
+        "exact_quote": "■高齢者・障がい者支援"
+      },
+      {
+        "id": "pledge_disaster_prevention_shimamoto",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "推進・拡充",
+        "headline": "防災・減災対策を推進",
+        "exact_quote": "■防災・減災対策"
+      }
+    ]
+  },
+  {
+    "speaker": "みわ 智恵美",
+    "raw_name": "みわ 恵美",
+    "district": "港南区",
+    "party": "日本共産党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_medical_free",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費",
+        "stance": "推進・拡充",
+        "headline": "小児医療費の無料化を推進",
+        "exact_quote": "小児医療費無料化"
+      },
+      {
+        "id": "pledge_school_lunch_free",
+        "category": "子育て・教育",
+        "target_issue": "学校給食費",
+        "stance": "推進・拡充",
+        "headline": "学校給食費の無償化を推進",
+        "exact_quote": "学校給食費無償化"
+      },
+      {
+        "id": "pledge_casino_halt",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ誘致",
+        "stance": "反対・見直し",
+        "headline": "カジノ誘致の中止を主張",
+        "exact_quote": "横浜市のカジノ誘致NO!"
+      }
+    ]
+  },
+  {
+    "speaker": "山田桂一郎",
+    "raw_name": "山田 いちろう",
+    "district": "港南区",
+    "party": "地域政党よこはま",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_fiscal_reform_yamada",
+        "category": "財政・行革",
+        "target_issue": "行財政改革",
+        "stance": "推進・見直し",
+        "headline": "身を切る改革と行財政改革を推進",
+        "exact_quote": "身を切る改革＋徹底した行財政改革で生みだす財源"
+      },
+      {
+        "id": "pledge_education_medical_free",
+        "category": "子育て・教育",
+        "target_issue": "教育・医療無償化",
+        "stance": "推進・拡充",
+        "headline": "教育・医療の無償化を推進",
+        "exact_quote": "教育の無償化・医療の推進で子育て世代の財政負担をゼロに"
+      },
+      {
+        "id": "pledge_aging_society_measures",
+        "category": "福祉・医療・健康",
+        "target_issue": "少子高齢化対策",
+        "stance": "推進・拡充",
+        "headline": "少子高齢化対策を推進",
+        "exact_quote": "少子高齢化対策"
+      }
+    ]
+  },
+  {
+    "speaker": "坂田 まさみ",
+    "raw_name": "坂田 まさみ",
+    "district": "泉区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_allowance",
+        "category": "子育て・教育",
+        "target_issue": "児童手当",
+        "stance": "推進・拡充",
+        "headline": "児童手当の所得制限撤廃を推進",
+        "exact_quote": "★児童手当の所得制限撤廃"
+      },
+      {
+        "id": "pledge_healthcare_system",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域包括ケアシステム",
+        "stance": "推進・拡充",
+        "headline": "地域包括ケアシステムの拡大",
+        "exact_quote": "★全ての人の健康を守る 地域包括ケアシステムの拡大"
+      },
+      {
+        "id": "pledge_elderly_employment",
+        "category": "産業・観光・地域経済",
+        "target_issue": "高齢者の雇用",
+        "stance": "推進・拡充",
+        "headline": "高齢者向け職場確保を推進",
+        "exact_quote": "○高年齢者向けの働き方の職場確保する。"
+      }
+    ]
+  },
+  {
+    "speaker": "麓理恵",
+    "raw_name": "ふくい ひろみ",
+    "district": "泉区",
+    "party": "立憲民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_childcare_quality",
+        "category": "子育て・教育",
+        "target_issue": "保育・幼児教育",
+        "stance": "推進・拡充",
+        "headline": "保育・幼児教育の質確保を推進",
+        "exact_quote": "◇保育・幼児教育の質の確保"
+      },
+      {
+        "id": "pledge_healthy_lifespan",
+        "category": "福祉・医療・健康",
+        "target_issue": "健康寿命",
+        "stance": "推進・拡充",
+        "headline": "健康寿命延伸を推進",
+        "exact_quote": "◆健康ライフスタイル推進で健康寿命延伸"
+      },
+      {
+        "id": "pledge_local_transport",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交通",
+        "stance": "推進・拡充",
+        "headline": "地域交通の充実を推進",
+        "exact_quote": "◇地域交通の充実"
+      }
+    ]
+  },
+  {
+    "speaker": "堀江 えり子",
+    "raw_name": "堀江 えり子",
+    "district": "泉区",
+    "party": "日本共産党",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_school_lunch",
+        "category": "子育て・教育",
+        "target_issue": "学校給食",
+        "stance": "推進・拡充",
+        "headline": "中学校給食の学校調理化と無償化",
+        "exact_quote": "・学校調理の中学校給食,給食費無償化"
+      },
+      {
+        "id": "pledge_child_medical_fees",
+        "category": "福祉・医療・健康",
+        "target_issue": "小児医療費",
+        "stance": "推進・拡充",
+        "headline": "小児医療費18歳まで無償化",
+        "exact_quote": "・18歳まで無償化"
+      },
+      {
+        "id": "pledge_climate_energy",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "気候変動・エネルギー",
+        "stance": "推進・拡充",
+        "headline": "再エネ・省エネで脱炭素原発ゼロ",
+        "exact_quote": "・再エネ・省エネで脱炭素原発ゼロ"
+      }
+    ]
+  },
+  {
+    "speaker": "村花 ひろし",
+    "raw_name": "村花 ひろし",
+    "district": "泉区",
+    "party": "無所属",
+    "is_incumbent_elected": false,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_community_issues",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域課題解決",
+        "stance": "推進・拡充",
+        "headline": "地域社会の課題解決を推進",
+        "exact_quote": "当事者の声を地域社会の課題解決へ"
+      },
+      {
+        "id": "pledge_local_economy",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済活性化",
+        "stance": "推進・拡充",
+        "headline": "泉区の地域経済活性化を推進",
+        "exact_quote": "地域経済の活性: 泉区をもっと楽しく!"
+      },
+      {
+        "id": "pledge_healthy_longevity",
+        "category": "福祉・医療・健康",
+        "target_issue": "健康長寿",
+        "stance": "推進・拡充",
+        "headline": "健康長寿のまちづくりを推進",
+        "exact_quote": "健康長寿のまちづくり"
+      }
+    ]
+  },
+  {
+    "speaker": "梶村充",
+    "raw_name": "かじむら 充",
+    "district": "泉区",
+    "party": "無所属",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_housing_regulation",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "宅地規制緩和・人口増加",
+        "stance": "推進・拡充",
+        "headline": "宅地規制緩和で子育て世代定住促進",
+        "exact_quote": "宅地規制を緩和し、建蔽率、容積率をアップし、子育て世代の転入、定住促進。"
+      },
+      {
+        "id": "pledge_school_zone_safety",
+        "category": "防災・減災・治安",
+        "target_issue": "スクールゾーンの安全",
+        "stance": "推進・拡充",
+        "headline": "スクールゾーンの安全整備を推進",
+        "exact_quote": "スクールゾーンにおける子どもの交通事故死ゼロ・安全安心なスクールゾーンの整備。"
+      },
+      {
+        "id": "pledge_tomei_ic_land_use",
+        "category": "産業・観光・地域経済",
+        "target_issue": "東名横浜IC周辺土地活用",
+        "stance": "推進・拡充",
+        "headline": "東名横浜IC周辺の土地活用を推進",
+        "exact_quote": "東名横浜インターチェンジ周辺土地の利活用。農用地を転換し物流・データセンター等の誘致、その屋上ハウスで効率的・収益性の高い農業農地の集約化・大規模化、輸送コスト低減し持続的農業。カーボンニュートラル2025を視野大型トラックの電動化・自動化基地を設け全国の物流発信基地に。"
+      }
+    ]
+  },
+  {
+    "speaker": "横山 勇太朗",
+    "raw_name": "横山 ゆうたろう",
+    "district": "泉区",
+    "party": "自由民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
+    "pledges": [
+      {
+        "id": "pledge_child_rearing_support",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育てしやすいまちづくりを推進",
+        "exact_quote": "子育てのしやすいまち"
+      },
+      {
+        "id": "pledge_environmental_conservation",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "環境保全",
+        "stance": "推進・拡充",
+        "headline": "水と緑の環境保全を推進",
+        "exact_quote": "水と緑のまち泉区!環境保全推進!"
+      },
+      {
+        "id": "pledge_crime_prevention",
+        "category": "防災・減災・治安",
+        "target_issue": "防犯・安全安心",
+        "stance": "推進・拡充",
+        "headline": "防犯・安全安心対策を推進",
+        "exact_quote": "防犯・安全安心対策を推進!"
+      }
+    ]
+  },
+  {
+    "speaker": "横溝 じゅん子",
+    "raw_name": "横溝じゅん子",
+    "district": "金沢区",
+    "party": "国民民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/0803kanazawa_koho.files/2025_kanazawa_koho.pdf",
+    "pledges": [
+      {
+        "id": "YJ-P01",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "無償化対象年齢の引き上げ",
+        "headline": "子ども医療費無償化18歳まで",
+        "exact_quote": "子どもの医療費無償化を18歳まで引き上げます"
+      },
+      {
+        "id": "YJ-P02",
+        "category": "福祉・医療・健康",
+        "target_issue": "在宅介護サービス",
+        "stance": "体制強化",
+        "headline": "地域密着型在宅介護強化",
+        "exact_quote": "地域密着型在宅介護サービスの体制を強化します"
+      },
+      {
+        "id": "YJ-P03",
+        "category": "産業・観光・地域経済",
+        "target_issue": "市内経済活性化",
+        "stance": "LINKAI横浜金沢・商店街支援",
+        "headline": "LINKAI・商店街支援で経済活性化",
+        "exact_quote": "LINKAI横浜金沢・商店街への支援で市内経済を活性化します"
+      }
+    ]
+  },
+  {
+    "speaker": "熊本 ちひろ",
+    "raw_name": "熊本 ちひろ",
+    "district": "南区",
+    "party": "国民民主党",
+    "is_incumbent_elected": true,
+    "bulletin_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/0209kohosya_koho.files/minami-senkyokouhou.pdf",
+    "pledges": [
+      {
+        "id": "kumamoto_chihiro_1_1",
+        "category": "子育て・教育",
+        "target_issue": "子どもの医療費",
+        "stance": "無償化を18歳まで引き上げ",
+        "headline": "子ども医療費18歳まで無償化",
+        "exact_quote": "子どもの医療費無償化を18歳まで引き上げます"
+      },
+      {
+        "id": "kumamoto_chihiro_1_2",
+        "category": "子育て・教育",
+        "target_issue": "児童手当",
+        "stance": "所得制限撤廃に全力で取り組む",
+        "headline": "児童手当の所得制限撤廃",
+        "exact_quote": "児童手当の所得制限撤廃に全力で取り組みます"
+      },
+      {
+        "id": "kumamoto_chihiro_1_3",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食",
+        "stance": "温かい中学校給食を実現",
+        "headline": "温かい中学校給食を実現",
+        "exact_quote": "みんなが満足できる温かい中学校給食を実現します"
+      },
+      {
+        "id": "kumamoto_chihiro_2_1",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域密着型在宅介護サービス",
+        "stance": "体制を強化",
+        "headline": "地域密着型在宅介護強化",
+        "exact_quote": "地域密着型在宅介護サービスの体制を強化します"
+      },
+      {
+        "id": "kumamoto_chihiro_2_2",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症支援",
+        "stance": "支援施設の拡充と予防施策を推進",
+        "headline": "認知症支援施設の拡充と予防",
+        "exact_quote": "認知症支援施設の拡充と予防施策を推進します"
+      },
+      {
+        "id": "kumamoto_chihiro_2_3",
+        "category": "福祉・医療・健康",
+        "target_issue": "障がい者の就労・生活支援",
+        "stance": "体制を拡充",
+        "headline": "障がい者就労・生活支援拡充",
+        "exact_quote": "障がいのある方の就労・生活支援の体制を拡充します"
+      },
+      {
+        "id": "kumamoto_chihiro_3_1",
+        "category": "産業・観光・地域経済",
+        "target_issue": "中小企業・商店街",
+        "stance": "支援で市内経済を活性化",
+        "headline": "中小企業・商店街支援で経済活性化",
+        "exact_quote": "中小企業・商店街への支援で市内経済を活性化します"
+      },
+      {
+        "id": "kumamoto_chihiro_3_2",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "地域交通",
+        "stance": "買い物や通院など日常的に必要な地域交通を拡充",
+        "headline": "日常的な地域交通を拡充",
+        "exact_quote": "買い物や通院など日常的に必要な地域交通を拡充します"
+      },
+      {
+        "id": "kumamoto_chihiro_3_3",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "女性の社会参画",
+        "stance": "個性と能力が十分に発揮できる社会を実現",
+        "headline": "女性が活躍できる社会を実現",
+        "exact_quote": "女性の個性と能力が十分に発揮できる社会を実現します"
+      },
+      {
+        "id": "kumamoto_chihiro_3_4",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "町内会の担い手確保と多世代交流カフェ",
+        "stance": "充実を図る",
+        "headline": "町内会担い手確保と交流カフェ充実",
+        "exact_quote": "町内会の担い手確保と多世代交流カフェの充実を図ります"
+      }
+    ]
+  }
+]

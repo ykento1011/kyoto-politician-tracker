@@ -1,6 +1,6 @@
 =======================================================================
 議会のミカタ：新規都市追加・水平展開 標準運用手順書 (SOP)
-改訂: 2026年10月（生発言テキスト統一・原本直結・セマンティック公約＆議決統合評価標準化）
+改訂: 2026年10月（公約トラッカースキーマ統一・生発言テキスト統一・原本直結モーダル連動・全自動インテグリティ監査標準化・公報原本物理抽出の厳格化）
 =======================================================================
 
 【基本原則】
@@ -13,6 +13,7 @@
 
 2. 一次情報至上主義と会議録ディープリンク完全保証（Zero-Hallucination & Deep Link Gate）
    - 二次解説や推測によるデータ登録を一切禁止し、自治体公式Web・市会公式・選管公式PDF・原本公文書のみを情報源とする。
+   - 【厳格追加】LLM等の推論による公約や政策テキストの自動生成・補完・捏造（ハルシネーション）は、いかなる場合も絶対厳禁とする。公約テキストは、専用スクリプトを用いた公式選挙公報PDFからの正確な物理的抽出（OCR/テキストパース）および目視による一言一句違わぬ転記のみを許可し、確認できないデータは「白紙（転記待ち）」とする。
    - 会議録への直リンクは「個別会議・発言のPC版ビュー（MinuteView.html）」を絶対原則とし、検索トップ（MinuteSearch.html / SpMinuteSearch.html）への安易な逃げやハードコードを厳禁とする。
    - スマートフォン版URL（SpMinuteView.html）は外部直接参照時に403エラーを誘発するセキュリティ仕様が存在するため、必ずPC版パーマリンク（MinuteView.html?council_id=...&schedule_id=...）を採用する。
 
@@ -30,13 +31,14 @@
 
 6. 単一パイプライン・アダプター原則（No-Copy-Paste Pipeline）【厳格遵守】
    - 都市ごとにパイプラインスクリプトを複製（コピペ）することを物理的に禁止する。
-   - パイプラインはすべて `data-pipeline/` に集約し、`pipeline/` のような別名フォルダの並立を禁止する。
+   - パイプラインはすべて `data-pipeline/` に集約し、`pipeline/` のような別名フォルダの並立や、場当たり的な一時修復スクリプト（temp_*.py 等）の乱立を禁止する。
    - LLM評価プロンプト、8大政策カテゴリ、4軸整数スコア、キーワード、並列処理は単一の共通コア（run_unified_pipeline.py）で集中管理する。
    - トピック要約（マクロ論戦マップ）も単一の共通ジェネレーター（generate_unified_topic_summaries.py）で集中管理する。
    - 都市ごとの差異（BigQueryクエリ、行政側役職判定、名寄せ、スレッド化ロジック）は「都市アダプター（{City}Adapter）」クラスとしてのみ実装する。
+   - 【厳格追加・モジュール分離】都市アダプターをパイプライン本体（run_unified_pipeline.py）内に直接記述・置換することを禁止する。必ず `data-pipeline/{cityCode}_adapter.py` として独立モジュール化し、本体からは `from {cityCode}_adapter import {City}Adapter` でインポートして `ADAPTERS` 辞書に登録する疎結合設計を義務付ける（構文破損・エスケープ事故・NameErrorの防止）。
 
 7. 全自動インテグリティ監査（Automated Integrity Audit）の必須化
-   - 手動による目視確認には限界がある。新都市追加・データ更新時は、全トピック・全発言カードを網羅走査する検証スクリプト（`audit_unified_integrity.py`、`audit_unified_pledges.py`、`audit_pledge_votes.py`）を実行し、【モーダル到達率 100%】【生発言率 90%以上】【低精度ノイズ疑い率 0.0%】が機械的に証明されるまでデプロイを許可しない。
+   - 手動による目視確認には限界がある。新都市追加・データ更新時は、全トピック・全発言カードおよび公約データを網羅走査する検証スクリプトを実行し、【モーダル到達率 100%】【生発言率 90%以上】【現職公約照合率 100%】【原本引用率 100%】が機械的に証明されるまでデプロイを許可しない。
 
 8. 評価スキーマ・キー互換の完全原則（京都マスター準拠）
    - いかなる都市であっても、以下の仕様を勝手に改変してはならない。
@@ -47,18 +49,22 @@
      - 会議録直通URL（official_url）: BigQueryの `meetings.url` から取得した正規の `MinuteView.html` URLを、発言スレッドおよび要約JSONに漏れなく格納する。
      - キーワード（keywords）: 必須。3件の配列。
 
-9. 【NEW】客観的公約評価と二重安全弁（Semantic & Anchor Gate 原則）
-   - 公約評価は手動の恣意性を排し、Google Gemini Embedding (`models/gemini-embedding-2`) によるベクトル照合で「言葉（質疑）」と「行動（採決・賛否）」を完全自動結合する。
-   - **質疑照合（言葉の検証）**: コサイン類似度 `sim >= 0.65`（文脈合致）を基準とする。
-   - **議案照合（行動の検証・Anchor Gate）**: 議案テキストは短文であるため、一般的な行政動詞・名詞（「推進」「協議会」「条例」等）による誤爆を防ぐ二重安全弁を必須とする。
-     - 原則: `sim >= 0.67` かつ 公約の主要主題名詞（STOP_WORDS除外）が議案テキストに含まれていること。
-     - 例外: `sim >= 0.74`（超高精度一致）の場合のみ単独結合を許容。
-   - **未紐づけ（継続監視中）の尊重**: 事実無根の誤結合を防ぐため、基準を満たさない公約は無理に結合せず「該当なし（継続監視中）」として客観的に留める。
+9. 公約トラッカー（Pledge Tracker）スキーマの完全対称性原則【新規厳格基準】
+   - フロントエンド（`SpeakerDetailView.jsx`）は、議員名をキーとした辞書（Dict/Map）形式（`{ "議員名": { ... } }`）を前提としている。独自形式（List型 `[{ speaker: ... }]` や `{ metadata: ..., councilors: [...] }`）での出力は厳禁とする。
+   - スキーマ（プロパティ名）は京都・大阪と完全一致させること：
+     - 公約配列キー: `tracked_items`（`pledges` は不可）
+     - 公報原文引用: `election_promise.quote`（`exact_quote` や `original_text` は不可）
+     - 関連質疑リスト: `council_statements`（配列：`date`, `committee`, `summary`, `speech_id`, `official_url`）
+     - 代表質疑: `council_statement`（オブジェクトまたは `null`）
+     - 関連議決: `council_vote`（オブジェクトまたは `null`）
+   - 氏名の姓名スペース揺れ（全角・半角スペースの有無）による検索空振りを防ぐため、辞書キーには「原名」と「スペース完全除去名」の両方を必ず同一オブジェクトへの参照として登録する。
 
-10. 【NEW】巨大ベクトルキャッシュ管理とGit安全原則（Git Hygiene）
-   - 生成されるベクトルキャッシュ（`embeddings_{cityCode}_*.json`）は100MB超に達するため、Git追跡対象から厳格に除外する（`.gitignore` 必須）。
-   - コミット前に必ず `git status` を確認し、成果物JSON（`pledge_tracker_{cityCode}.json`）のみがステージングされていることを担保する。
+10. データ破壊コマンドの厳禁（Data Safety First）
+    - トラブルシューティング時、未コミットの生成・抽出データが存在する状態で `git checkout -- <file>` や `git reset` 等の破壊的コマンドを実行することを固く禁ずる。変更は必ず退避（Stash / Copy）した上で作業すること。
 
+11. BigQuery 単一JOINクエリ一括取得の原則（N+1クエリの禁止）
+    - 会議一覧（meetings）をループして1件ずつ発言（conversations）をクエリする「N+1クエリ」は、通信オーバーヘッドにより取得だけで十数分を浪費するため厳禁とする。
+    - `conferences` -> `meetings` -> `minutes` -> `conversations` を一括で `JOIN` する単一クエリを発行し、8〜10万件規模の発言であっても数秒でメモリ上に一括展開する設計を必須とする。
 
 -----------------------------------------------------------------------
 ディレクトリ構成標準（data-pipeline への完全一本化）
@@ -69,36 +75,31 @@ kyoto-politician-tracker/
 │   ├── run_unified_pipeline.py                # 3都市共通 質疑スレッド化＆AI評価
 │   ├── generate_unified_topic_summaries.py    # 3都市共通 政策論戦マップ生成
 │   ├── build_timeline_contexts.py             # 会議単位の質疑・答弁タイムライン生成
-│   ├── audit_unified_integrity.py             # 全自動インテグリティ監査（UI到達性）
-│   ├── build_unified_pledge_tracker.py        # 3都市共通 セマンティック公約・議決トラッカービルド
-│   ├── cache_statement_embeddings.py          # 3都市共通 質疑Embeddingキャッシュ生成
-│   ├── audit_unified_pledges.py               # 3都市共通 公約質疑照合精度監査
-│   ├── audit_pledge_votes.py                  # 3都市共通 公約議案採決行動結合監査
+│   ├── build_pledge_tracker_{cityCode}.py     # 各都市 公約トラッカー結合ビルダー（京都・大阪準拠）
+│   ├── audit_unified_integrity.py             # 【必須】全自動インテグリティ監査スクリプト
 │   ├── run_update.py                          # 3都市共通 自動更新エントリポイント
-│   ├── checkpoints/                           # 中断再開用チェックポイントJSON
-│   └── data/                                  # キャッシュ・中間データ（※Git除外必須）
-│       ├── embeddings_{cityCode}_statements.json
-│       ├── embeddings_{cityCode}_pledges.json
-│       └── embeddings_{cityCode}_bills.json
+│   └── checkpoints/                           # 中断再開用チェックポイントJSON
 ├── frontend/
 │   ├── public/data/                           # フロントエンド用出力JSON
-│   │   ├── {cityCode}_speaker_stats.json      # 各都市 議員マスタ
+│   │   ├── {cityCode}_speaker_stats.json      # 各都市 議員マスタ（会派・選挙区）
 │   │   ├── {cityCode}_votes_summary.json      # 各都市 議決・賛否データ
 │   │   ├── {cityCode}_bill_issues.json        # 各都市 議案対立点・AI論点解説
-│   │   ├── {cityCode}_mayor_tracker.json      # 各都市 首長政策進捗トラッカー
-│   │   ├── pledge_tracker_{cityCode}.json     # 各都市 選挙公約トラッカー（質疑＋賛否完備）
-│   │   ├── {cityCode}_statements_summary.json # 各都市 質疑スレッドデータ
+│   │   ├── {cityCode}_mayor_tracker.json      # 各都市 市長・首長政策進捗トラッカー
+│   │   ├── pledge_tracker_{cityCode}.json     # 各都市 選挙公約トラッカー（Dict形式・tracked_items完備）
+│   │   ├── {cityCode}_statements_summary.json # 各都市 質疑スレッドデータ（official_url完備）
 │   │   ├── {cityCode}_timelines/              # 各都市 タイムラインJSON群
-│   │   └── {cityCode}_topic_summaries.json    # 各都市 政策マップ
+│   │   └── {cityCode}_topic_summaries.json    # 各都市 政策マップ（生発言テキスト完備）
 │   └── src/
 │       ├── config/cities.js                   # 全都市の設定・パス・SEO一元管理
-│       ├── components/
-│       │   ├── AiSearchAnswer.jsx             # 論点＆公約クロス検索（端末内高速実行・0円検索）
-│       │   ├── SpeakerDetailView.jsx          # 議員詳細（公約・質疑・賛否行動カード表示）
-│       │   └── TopicDetailPage.jsx            # 政策トピック詳細画面
-│       └── utils/
-│           └── officialLink.js                # 会議録パーマリンク生成
+│       ├── hooks/useStatements.js             # データ読み込み・動的集計・属性マージ
+│       ├── utils/
+│       │   └── officialLink.js                # 会議録パーマリンク生成（フォールバックチェーン標準化）
+│       └── components/
+│           ├── ThreadCard.jsx                 # 質疑スレッドカード（3都市Props判定完備）
+│           ├── SpeakerDetailView.jsx          # 議員詳細画面（タイムライン・賛否・公約表示）
+│           └── TopicDetailPage.jsx            # 政策トピック詳細画面（2連ボタン・原本直結）
 └── 議会のミカタSOP.txt
+
 
 -----------------------------------------------------------------------
 Phase 1: 事前適合性診断と自治体ID・会議録テナントの確定
@@ -113,6 +114,7 @@ Phase 1: 事前適合性診断と自治体ID・会議録テナントの確定
    - 京都市会: `kyoto`
    - 大阪市会: `cityosaka`（※`osaka` は無効／404）
    - 名古屋市会: `nagoya`
+   - 横浜市会: 独自ドメイン運用（`http://giji.city.yokohama.lg.jp/tenant/yokohama/`）
 
 3. 会議録パーマリンクの動作検証
    - `MinuteView.html?council_id=...&schedule_id=...` 形式でブラウザから外部直アクセスし、セッションエラー（403/404）なく議事録が開くことを確認する。
@@ -122,7 +124,6 @@ Phase 1: 事前適合性診断と自治体ID・会議録テナントの確定
    - 電子採決（HTMLテーブル形式）: 議員個人の賛否が記録されており、機械的抽出が可能。
    - 起立採決（会派別賛否＋例外ト書き）: 「市会だより」等の会派ごとの賛否テーブルと、造反・退席・除斥議員を例外適用して個人賛否を復元する。
 
-
 -----------------------------------------------------------------------
 Phase 2: 一次資料Deep Research・公文書検証ゲート【必須品質ゲート】
 -----------------------------------------------------------------------
@@ -131,14 +132,20 @@ Phase 2: 一次資料Deep Research・公文書検証ゲート【必須品質ゲ�
    - 外部メディアの要約記事ではなく、選挙公報原本または首長公式サイトの政策集のみを採用する。
 
 2. 首長トラッカーのデータ構造とピンポイントURL検証
-   - データ構造の確認: マイルストーンが配列（`milestones: [...]`）か、単一オブジェクト（`milestone: {...}`）かを必ずプロファイリングする。
+   - データ構造の確認: マイルストーンが配列（milestones: [...]）か、単一オブジェクト（milestone: {...}）かを必ずプロファイリングする。
    - トップページ逃げの禁止: 沿革一覧や検索トップでお茶を濁さず、対象事象に1対1で合致する公文書URLを特定して結合する。
 
 3. 対立議案・賛否が割れた議案（Contested Bills）の抽出
-   - 直近任期（4年間）の本会議議決一覧から、全会一致以外の案件を全件抽出し `{cityCode}_votes_summary.json` に整形する。
+   - 直近任期（4年間）の本会議議決一覧から、全会一致以外の案件を全件抽出し {cityCode}_votes_summary.json に整形する。
 
 4. 議員マスタの公式選管・市会名簿照合
    - 市会公式名簿から、現職議員全員の「氏名」「所属会派」「選挙区」を抽出し、名寄せ辞書（`ALIAS_MAP`）を整備する。
+
+5. 選挙公報からの看板政策原本テキスト抽出【厳格化・Pydantic必須】
+   - 各区選管または国立国会図書館WARPアーカイブの公式選挙公報原本PDFから、現職議員（および首長）の看板政策を抽出する。
+   - 抽出プロセスは、必ず `extract_pledges_gemini_{cityCode}.py` を作成し、**Gemini 2.5 Flash モデル** と **Pydantic スキーマ（`response_schema`）** を用いた構造化JSON出力として実装すること。
+   - `exact_quote` プロパティには、紙面の該当枠に実際に印刷されている文字テキストをそのまま抜き出すこと（要約や言い換えは絶対不可）。
+   - 抽出結果（`data/{cityCode}_pledges.json`）は必ず目視照合し、紙面に物理的に存在しない推測文脈が混入していないか確認する。確認できないデータは「未転記・白紙状態」とし、ハルシネーションによる埋め合わせを絶対に行わない。
 
 
 -----------------------------------------------------------------------
@@ -147,54 +154,93 @@ Phase 3: 都市アダプター実装・データ抽出とJSON出力
 
 1. 会議録生データの構造プロファイリング
    - 行政側（市長、副市長、局長等）と議員の役職キーワードリストを作成し、答弁者を正確に除外・識別する。
+   - 首長・副市長・教育長など行政トップ幹部が役職接尾語なしの「苗字単体」（例: 山中、平原、下田、金高、鯉渕 等）で記録されている場合、議員発言と誤認しないよう `admin_names` ホワイトリストとして事前定義する。
+   - 議員名末尾の「委員」「議員」「君」などの役職サフィックスを除去・正規化してマスタ（speaker_stats.json）と突合するロジックを設ける。
 
 2. プレースホルダーJSONの先行配置
-   - 開発中、Viteが404 HTMLを返してアプリがクラッシュするのを防ぐため、空の配列 `[]` を持ったJSONを事前に配置する。
+   - 開発中、Viteが404 HTMLを返してアプリがクラッシュするのを防ぐため、空の配列 [] または空の辞書 {} を事前に配置する。   - 開発中、Viteが404 HTMLを返してアプリがクラッシュするのを防ぐため、空の配列 `[]` または空の辞書 `{}` を事前に配置する。
 
-3. 都市アダプターの実装（`run_unified_pipeline.py` 内）
+3. 議事進行・採決ノイズフィルタ（procedural_phrases）の実装【必須】
+   - 議員が委員会等の委員長・座長を務めている場合、その議事進行発言が「政策質疑」として誤判定されるのを防ぐ。
+   - 「お諮りいたします」「御異議ございませんか」「さよう決定いたします」「一括議題に供します」「これより委員会を開会」「散会いたします」「説明を求めます」「起立を求めます」等の定型進行フレーズで始まる発言をスレッド開始から事前除外する。
+
+4. 都市アダプターの実装（`run_unified_pipeline.py` 内）
    - `fetch_data()`: BigQueryクエリで必ず `m.url AS official_url` を取得すること。
    - `build_threads()`: 各スレッドには質問開始発言の `sequence_number` と `official_url` を漏れなく出力すること。
 
-4. 質疑・答弁タイムラインの生成（`build_timeline_contexts.py`）
+5. 質疑・答弁タイムラインの生成（`build_timeline_contexts.py`）
    - 各スレッドの質問開始から答弁終了まで、最大12発言程度のバッファを持たせて抽出。
 
-5. 統一トピック要約（政策論戦マップ）の生成（`generate_unified_topic_summaries.py`）
+6. 統一トピック要約（政策論戦マップ）の生成（`generate_unified_topic_summaries.py`）
    - 生発言本文の優先格納: `summary` ではなく `statement_text` から挨拶等の定型句をトリムしてカードテキストに格納する。
    - トピックキーワード誤爆の防止: 「津波避難」単体ではなく「津波避難ビル」「防潮堤」等の複合語でスコアリングし、無関係な質疑の混入を防ぐ。
 
+7. 公約トラッカー結合パイプライン（`build_pledge_tracker_{cityCode}.py`）の実行
+   - 原本公約データ（`exact_quote`）と、各議員本人の議会質疑（`statements_summary.json`）をキーワード・カテゴリで照合バインドする。
+   - 出力は必ず `{ "議員名": { "tracked_items": [...] } }` の辞書形式とし、原名およびスペース除去名の両キーを格納する。
+
+8. 全件バッチ実行前のサンプリング品質監査ゲート（--limit 10）【必須】
+   - 数千件規模の全件バッチを実行する前に、必ず `--limit 10` でサンプリング実行を行う。
+   - 出力されたチェックポイント（pipeline/{cityCode}_eval_checkpoint.json）を読み込み、以下を目視監査する：
+     ① 成果強調表現（「前向き」「鋭い」等）や減点評価語（「至らなかった」「不十分」等）が排除されているか
+     ② 参照公文書名、条例条文、具体的数値が「事実メモ（reasoning）」に客観的に抽出されているか
+     ③ 4軸スコア（根拠・対案・地域・展開）が実態に応じた適正な分散を示しているか
+   - 監査合格後に `--limit` を外して全件バッチを実行する。
 
 -----------------------------------------------------------------------
 Phase 4: データ取得フック層の改修（useStatements.js）
 -----------------------------------------------------------------------
 
 1. Supabaseフォールバックの都市制限:
-   - Supabaseによるデータ取得は `cityCode === 'kyoto'` のみに限定し、データ漏洩（Data Bleed）を完全に遮断する。
+   - Supabaseによるデータ取得は cityCode === 'kyoto' のみに限定し、データ漏洩（Data Bleed）を完全に遮断する。
 
 2. 発言番号の堅牢化:
-   - JSONデータ内に `sequence_number` が存在しない場合、`stmt.id`（例:`th_5336591_85`）の末尾から数値を抽出するフォールバックを実装する。
+   - JSONデータ内に sequence_number が存在しない場合、stmt.id（例: th_5336591_85）の末尾から数値を抽出するフォールバックを実装する。
 
 3. 議員マスタの無条件・常時フェッチ（超重要）:
-   - 質疑ログのフェッチ成否に関わらず、`speaker_stats.json` は【常時・無条件】でフェッチして動的集計にマージする。
+   - 質疑ログのフェッチ成否に関わらず、speaker_stats.json は【常時・無条件】でフェッチして動的集計にマージする。
 
 4. 姓名の表記揺れ・スペース耐性:
-   - `masterMap` には原名とともに `replace(/\s+/g, '')` を適用したスペース除去キーも同時に登録して照合する。
+   - masterMap には原名とともに replace(/\s+/g, '') を適用したスペース除去キーも同時に登録して照合する。
 
+.5 新規都市展開時の論点マスター策定手順（データドリブン原則）
+1. **AIによる先入観・一般論策定の禁止**:
+   - 都市ごとの政策論点（`*_TOPIC_CONFIGS`）は、AIの推測や全国的な一般論で設定してはならない。
+   - 必ず一次議事録データ（`*_raw_statements.json` または `*_statements_summary.json`）を対象にキーワード頻出度・議案対決構造のプロファイリングを事前実行し、実データに裏付けられた主題キーワードおよび正本カテゴリ名を採用すること。
 
+2. **カテゴリ名の完全一致原則**:
+   - フロントエンドの8大政策カテゴリ（例: `子育て・教育`, `都市再生・交通インフラ`, `産業・観光・地域経済`, `防災・減災・治安`, `財政・行革` 等）と完全一致させ、マッチング漏れ（0件ヒット）を防止すること。
 -----------------------------------------------------------------------
 Phase 5: フロントエンド統合とURLパーマリンク完全標準化
 -----------------------------------------------------------------------
 
-1. 会議録リンクユーティリティ（`officialLink.js`）の標準化仕様
+1. 会議録リンクユーティリティ（officialLink.js）の標準化仕様
    - 以下の【優先度付きフォールバックチェーン】でURLを解決する：
-     `stmt.official_url || stmt.source_url || stmt.url || stmt.doc_url || stmt.evidence_url || ''`
-   - `MinuteSearch.html` は自動的に `MinuteView.html` へ補正・置換する。
+     stmt.official_url || stmt.source_url || stmt.url || stmt.doc_url || stmt.evidence_url || ''
+   - MinuteSearch.html は自動的に MinuteView.html へ補正・置換する。
 
-2. `TopicDetailPage.jsx` の原本レコード解決ロジック標準化
-   - `App.jsx` から `TopicDetailPage` に `statements={statements}` と `onViewContext={handleViewContext}` を必ず渡す。
-   - `handleViewExchangeContext` は、カードから渡された情報を元に `statements` 原本配列から完全なレコード（`meeting_id`, `sequence_number` 入り）を探索し直してからモーダルを開く。
+2 データパイプラインにおける生発言（肉声）保全・復元プロトコル
+  **AI要約処理による原本破壊の防止とマージ手順**:
+   - 要約生成ステップで `statement_text` に短い見出しや三人称要約が誤って上書きされる事象を想定し、パイプライン内に原本データ（`*_raw_statements.json`）からの生発言結合ステップを標準配備する。
+   - 結合キーには、単一IDだけでなく `meeting_id` と `sequence_number`（発言番号）の複合キーを用い、確実に原本の肉声テキスト（長文）を注入すること。
 
-3. 発言カードの2連アクションボタン標準化
+  **タイムライン抽出時の肉声優先ロジック（Prioritization）**:
+   - タイムラインフェーズごとの発言カード（`exchanges`）抽出時は、単なる先頭スライス（`[:3]`）を行わず、肉声データ（30文字以上の未加工発言）が存在する質疑レコードを優先してピックアップすること。
+
+ **SOP品質ゲート（インテグリティ監査）のクリア基準**:
+   - `check_*_topics.py` による監査で以下の全条件を満たすこと：
+     - 生発言（肉声）適用率: **90.0% 以上**（目標100%）
+     - 公式原本URL欠損: **0 件**
+     - 発言番号（`sequence_number`）欠損: **0 件**
+
+3. TopicDetailPage.jsx の原本レコード解決ロジック標準化
+   - App.jsx から TopicDetailPage に statements={statements} と onViewContext={handleViewContext} を必ず渡す。
+   - handleViewExchangeContext は、カードから渡された情報を元に statements 原本配列から完全なレコード（meeting_id, sequence_number 入り）を探索し直してからモーダルを開く。
+
+4. 発言カードの2連アクションボタン標準化
    - 各発言カード下部に、「公式原本で確認」と「会議録・質疑の文脈を見る →」の2ボタンを並列配置する。
+
+5. cities.js への新都市設定追加（カラー、名称、データファイルパス、SEOタグ）。
 
 
 -----------------------------------------------------------------------
@@ -207,10 +253,21 @@ Phase 6: 静的アセット・全自動インテグリティ監査・デプロ�
 2. サイトマップとルーティング
    - `public/sitemap.xml`、`App.jsx` のルーティング、`Navbar.jsx` の都市セレクターに新都市を登録する。
 
-3. 全自動インテグリティ監査（必須デプロイゲート）
-   - `python data-pipeline/audit_unified_integrity.py` （または同等の網羅検証スクリプト）を実行。
-   - 【合格判定基準】モーダル到達率 98.0% 以上（実質100%）、生発言率 90.0% 以上、行政理事者ノイズ 0件。
+3. 全自動インテグリティ監査（必須デプロイゲート・手動目視確認の禁止）
+   - トピック・発言カード監査: `python data-pipeline/audit_unified_integrity.py` を実行。
+     【合格判定基準】モーダル到達率 98.0% 以上（実質100%）、生発言率 90.0% 以上、行政理事者ノイズ 0件。
+   - 公約トラッカー監査: 監査スクリプトを実行。
+     【合格判定基準】現職議員マスタ照合率 100%（全名合致）、公報原本引用率 100%（quote空文字0件）。
 
+4.パイプライン保守・コード変更時の安全運用基準（リグレッション防止）
+ **スクリプト修正時のAST構文検証**:
+   - `generate_unified_topic_summaries.py` などの基幹スクリプトを自動更新する際は、正規表現置換によるカンマ抜け（`SyntaxError`）や隣接する定義ブロック（`CITY_CONFIGS` 等）の巻き込み削除を避けるため、Pythonの `ast.parse()` による構文チェックを必ずパスさせること。
+
+ **Git操作による未コミット変更消失の防止**:
+   - トラブル発生時に `git restore` や `git checkout` を安易に実行すると、未コミットの追加実装（`argparse` の追加候補やマッピング定義）が消失する。必ず差分（`git diff`）を確認してから操作を行うこと。
+
+ **文字コード（UTF-8）の完全維持**:
+   - ファイルの読み書き時は必ず `encoding="utf-8"` を統一し、BOM混入やShift-JIS混在による文字化け（Mojibake）の混入・Git記録を防止すること。
 
 -----------------------------------------------------------------------
 Phase 7: 本番デプロイと継続的自動更新パイプライン
@@ -232,6 +289,8 @@ Step 1. 質疑＆議案 Embedding の差分生成
 python cache_statement_embeddings.py --city kyoto
 python cache_statement_embeddings.py --city osaka
 python cache_statement_embeddings.py --city nagoya
+python cache_statement_embeddings.py --city yokohama
+
 Step 2. 統一公約・採決行動トラッカーのビルド
 公約ベクトルに対し、質疑（言葉）と議案採決（行動）をアンカーゲート付きでセマンティック結合し、成果物JSONを出力する。
 
@@ -239,6 +298,8 @@ PowerShell
 python build_unified_pledge_tracker.py --city kyoto
 python build_unified_pledge_tracker.py --city osaka
 python build_unified_pledge_tracker.py --city nagoya
+python build_unified_pledge_tracker.py --city yokohama
+
 Step 3. 全自動インテグリティ監査（デプロイゲート）
 以下の2つの監査を実行し、データ品質を機械的に検証する。
 
@@ -274,8 +335,13 @@ data/embeddings_*.json（巨大キャッシュ）が含まれていないこと�
 | 議決・賛否データがあるのに「0件」と表示される | マスタ読み込みスキップ、または議員名の姓名スペース揺れ | `speaker_stats.json` を常時無条件で読み込み、スペース除去名で二重ルックアップを行う |
 | 新都市の画面に京都市の議員や質疑が表示される | `useStatements.js` が京都のSupabaseをフェッチしている | Supabaseフェッチ条件に `cityCode === 'kyoto'` を追加し、新都市は静的マスタを直読みさせる |
 | GitHub Push時に "exceeds GitHub's file size limit of 100.00 MB" エラーEmbeddingキャッシュファイル（100MB超）がコミットに含まれているgit reset HEAD~1 でコミットを取り消し、.gitignore に **/embeddings_*.json を追記して再コミット新しい公約を追加したが、質疑が紐づかない古い公約のベクトルキャッシュ（embeddings_{city}_pledges.json）が残っている該当都市の embeddings_{city}_pledges.json を削除してからビルドを再実行し、キャッシュを再生成させる監査でノイズ（低精度）が大量に発生したbuild_unified_pledge_tracker.py の類似度閾値（sim）が 0.62 等に甘く設定されている閾値を 0.65 以上の適正な境界線に引き上げ、無関係な質疑（区や行政語彙の一致のみ）を遮断する公約や質疑の ID 形式不一致で結合が 0件になる過去の実行時と IDキー（{名前}_p_{連番} など）のフォーマットが変わったキャッシュ（pledges）を一度削除し、統一フォーマットで生成し直す|
-新しい公約を追加したが質疑・採決が紐づかない古い公約ベクトルキャッシュ（embeddings_{city}_pledges.json）が残っている該当都市の公約キャッシュを削除してからビルドを再実行し、最新公約ベクトルを再生成させる
-
+| 新しい公約を追加したが質疑・採決が紐づかない古い公約ベクトルキャッシュ（embeddings_{city}_pledges.json）が残っている該当都市の公約キャッシュを削除してからビルドを再実行し、最新公約ベクトルを再生成させる
+| 存在しない公約文（長文・別ソース）が表示される | LLMによる推測・補完（ハルシネーション）または不適切なソースからの引用が行われた | 即座に該当データを白紙（抽出待ち）にリセットし、公報原本PDFからの専用スクリプト（`extract_election_bulletin.py`）による物理抽出のみで再構築する |
+| BigQueryからのデータ抽出に10分以上かかる | 会議一覧をループして1件ずつクエリしている（N+1問題） | conferences〜conversations を単一クエリで JOIN して一括ロードする |
+| 議事進行・採決手続きが政策質疑として抽出される | 委員長・座長を務める議員の発言が質疑として誤判定された | procedural_phrases（お諮りします、決定します等）でスレッド開始から事前除外する |
+| 市長や副市長の答弁が質疑スレッドの先頭に混入する | 行政幹部が役職なしの「苗字単体」で記録されている | admin_names（山中、平原、鯉渕等）に幹部名を登録し答弁者判定に含める |
+| アダプター更新時に SyntaxError や NameError が発生する | パイプライン本体内に直接コードを注入・置換した | {city}_adapter.py を独立ファイルとして作成し、本体からは import する疎結合構成にする |
+| argparse で conflicting option string: --limit エラー | --limit 引数の定義が重複している | パーサー定義の重複行を削除し1行に統一する |
 """
 
 

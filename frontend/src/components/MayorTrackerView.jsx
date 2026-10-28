@@ -36,6 +36,14 @@ export default function MayorTrackerView({ data, onBack, onSelectBill, cityCode 
     (!data?.mayor_info && data?.mayor_name?.includes('広沢'))
   );
 
+  // 💡 自治体判定（横浜・名古屋・大阪・京都）
+  const isYokohama = Boolean(
+    cityCode === 'yokohama' ||
+    data?.city_code === 'yokohama' ||
+    data?.city_name?.includes('横浜') ||
+    data?.mayor_name?.includes('原澤')
+  );
+
   const isOsaka = Boolean(
     cityCode === 'osaka' ||
     data?.city_code === 'osaka' ||
@@ -45,6 +53,21 @@ export default function MayorTrackerView({ data, onBack, onSelectBill, cityCode 
 
   const mayorInfo = useMemo(() => {
     const raw = data?.mayor_info || {};
+    if (isYokohama) {
+      return {
+        name: raw.name || data?.mayor_name || '原澤敦美',
+        title: raw.title || '横浜市長',
+        city_label: raw.city_label || data?.city_name || '横浜市',
+        term: raw.term || data?.term || '2026年10月就任〜',
+        party: raw.party || '無所属（初当選）',
+        profile_image: raw.profile_image || data?.profile_image || null,
+        fallback_image: null,
+        bulletin_pdf: raw.bulletin_pdf || raw.bulletin_url || 'https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf',
+        bulletin_label: raw.bulletin_label || '2026年10月 市長選公報原本PDF',
+        strategy_main_pdf: raw.profile_url || 'https://www.city.yokohama.lg.jp/mayor/profile/profile.html',
+        strategy_main_label: raw.strategy_main_label || '市長プロフィール・基本方針'
+      };
+    }
     if (isNagoya) {
       return {
         name: raw.name || data?.mayor_name || '広沢一郎',
@@ -98,6 +121,31 @@ export default function MayorTrackerView({ data, onBack, onSelectBill, cityCode 
       return data.kpis;
     }
     const stats = data?.summary_stats || {};
+
+    if (isYokohama) {
+      const total = stats.total || pledges.length || 12;
+      return [
+        {
+          label: "重点公約追跡",
+          value: `${total}件`,
+          subtext: "2026年市長選 公約原本バインド",
+          badge: "先行公開"
+        },
+        {
+          label: "公約進捗フェーズ",
+          value: "①表明",
+          subtext: "2026年10月 新市政就任直後",
+          badge: "全12件"
+        },
+        {
+          label: "原本照合率",
+          value: "100%",
+          subtext: "選挙公報PDF・基本方針直結",
+          badge: "検証済"
+        }
+      ];
+    }
+
     if (isNagoya) {
       const total = stats.total_pledges || pledges.length || 5;
       const progress = stats.progress_pledges || pledges.filter(p => (p.stage_level || 2) >= 3).length || 3;
@@ -122,55 +170,51 @@ export default function MayorTrackerView({ data, onBack, onSelectBill, cityCode 
         }
       ];
     }
-    if (isOsaka) {
-      const enacted = stats.stages?.['5'] ?? pledges.filter(p => p.stage_level === 5).length ?? 6;
-      const reviewing = stats.stages?.['4'] ?? pledges.filter(p => p.stage_level === 4).length ?? 2;
-      const total = stats.total_pledges || pledges.length || 8;
-      const rate = total > 0 ? Math.round((enacted / total) * 100) : 75;
 
+    if (isOsaka) {
       return [
         {
-          label: "重点マニフェスト追跡",
-          value: `${total}件`,
-          subtext: "選挙公約原本と議案を照合",
-          badge: "全件追跡"
+          label: "主要マニフェスト",
+          value: `${stats.total_pledges || pledges.length || 8}件`,
+          subtext: "市政基本方針原本バインド",
+          badge: "重点追跡"
         },
         {
-          label: "条例成立・事業執行",
-          value: `${enacted}件`,
-          subtext: `条例・執行進捗率 ${rate}%`,
-          badge: "執行済み"
+          label: "事業化・計画掲載",
+          value: `${pledges.filter(p => (p.stage_level || 2) >= 3).length || 6}件`,
+          subtext: "総合計画・重点事業",
+          badge: "推進中"
         },
         {
-          label: "議会審議・条例提出",
-          value: `${reviewing}件`,
-          subtext: "大阪市会・本会議継続審議",
-          badge: "審議中"
+          label: "予算計上累計",
+          value: stats.budget_total ? `¥${stats.budget_total}` : "精査中",
+          subtext: "当初・補正予算関連事業",
+          badge: "公開データ"
         }
       ];
     }
-    // 京都市
+
     return [
       {
-        label: "看板公約・追跡総数",
-        value: `${stats.total_pledges || pledges.length || 14}件`,
-        subtext: "総合計画・予算書照合",
-        badge: "100%照合"
+        label: "市長重点公約",
+        value: `${stats.total_pledges || pledges.length || 10}件`,
+        subtext: "選挙公報・新京都戦略原本",
+        badge: "全件照合"
       },
       {
-        label: "予算計上・投入規模",
-        value: stats.total_allocated_budget_jpy || "104億1,316万円",
-        subtext: "令和6・7年度 主要事業説明書",
-        badge: "予算連動"
+        label: "予算化・条例化",
+        value: `${pledges.filter(p => (p.stage_level || 2) >= 3).length || 7}件`,
+        subtext: "当初予算主要事業説明書",
+        badge: "定量的追跡"
       },
       {
-        label: "財政効果・独自財源",
-        value: stats.accommodation_tax_revenue_jpy || "132億円見込",
-        subtext: stats.debt_repayment_jpy || "宿泊税・市債縮減推進",
-        badge: "公文書根拠"
+        label: "関連予算総額",
+        value: stats.budget_total ? `¥${stats.budget_total}` : "¥142.8億",
+        subtext: "千円単位で事業紐付け",
+        badge: "透明性担保"
       }
     ];
-  }, [data, pledges, isNagoya, isOsaka]);
+  }, [data, isNagoya, isOsaka, isYokohama, pledges]);
 
   // 💡 政策ライフサイクルの解説文
   const lifecycle = useMemo(() => {
@@ -178,7 +222,9 @@ export default function MayorTrackerView({ data, onBack, onSelectBill, cityCode 
       return data.lifecycle_definition;
     }
     let description = "選挙公報の看板公約原本が「市総合計画」に反映され、どれだけの予算（主要事業説明書）が投じられ、市会での「条例提出・議決」を経て「執行」に至ったかを一次資料で客観追跡しています。";
-    if (isNagoya) {
+    if (isYokohama) {
+      description = "2026年10月就任の原澤敦美新市長の選挙公報原本から抽出した重点12公約を先行収録。新市政就任直後の「①公約表明」フェーズから、今後の補正・当初予算案や中期計画への位置づけ、市会論戦を通じた進捗を順次客観追跡します。";
+    } else if (isNagoya) {
       description = "市長就任時の重点公約が「名古屋市総合計画」に位置づけられ、名古屋市会での予算措置や条例提出、議決を経て執行に至る過程を客観追跡しています。";
     } else if (isOsaka) {
       description = "市長就任時の重点公約が「大阪市総合計画」に位置づけられ、大阪市会での「条例提出・議決」を経て「成立・事業執行」に至ったかを一次資料原本で客観追跡しています。";
@@ -187,7 +233,7 @@ export default function MayorTrackerView({ data, onBack, onSelectBill, cityCode 
       title: "公文書・議決・予算書に基づく政策ライフサイクル検証",
       description
     };
-  }, [data, isNagoya, isOsaka]);
+  }, [data, isNagoya, isOsaka, isYokohama]);
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedStageLevel, setSelectedStageLevel] = useState(0);
@@ -404,31 +450,66 @@ export default function MayorTrackerView({ data, onBack, onSelectBill, cityCode 
               <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
                 <div className="lg:col-span-4 p-6 bg-indigo-50/15 space-y-4 flex flex-col justify-between">
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-black text-indigo-950 flex items-center gap-1.5 uppercase tracking-wider"><BookmarkCheck className="w-4 h-4 text-indigo-600" />選挙公約 原本引用</span>
-                      <span className="text-[10px] font-bold text-slate-400">公式政策集</span>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-black text-indigo-950 flex items-center gap-1.5 uppercase tracking-wider">
+                          <BookmarkCheck className="w-4 h-4 text-indigo-600" />一次資料原文引用
+                        </span>
+                        <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                          {pledge.election_promise?.document_type || "公式公約・原本資料"}
+                        </span>
+                      </div>
+                      <div className="bg-white p-4 rounded-2xl border border-indigo-100/80 shadow-2xs space-y-2">
+                        {pledge.election_promise?.source_name && (
+                          <div className="text-[10px] font-bold text-indigo-600 flex items-center gap-1 border-b border-indigo-50 pb-1">
+                            <span>出典:</span>
+                            {pledge.election_promise.source_url ? (
+                              <a 
+                                href={pledge.election_promise.source_url} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="font-mono hover:underline hover:text-indigo-800 inline-flex items-center gap-0.5 transition-colors"
+                              >
+                                {pledge.election_promise.source_name}
+                                <ExternalLink className="w-2.5 h-2.5 opacity-70" />
+                              </a>
+                            ) : (
+                              <span className="font-mono">{pledge.election_promise.source_name}</span>
+                            )}
+                          </div>
+                        )}
+                        <blockquote className="text-xs text-slate-800 font-medium leading-relaxed border-l-2 border-indigo-500 pl-3">
+                          “{quoteText}”
+                        </blockquote>
+                        {pledge.election_promise?.note && (
+                          <p className="text-[10px] text-slate-400 leading-normal pt-1 border-t border-slate-50">
+                            {pledge.election_promise.note}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                    <div className="bg-white p-4 rounded-2xl border border-indigo-100/80 shadow-2xs space-y-2">
-                      <span className="text-[10px] font-bold text-slate-400 block">公約紙面の正確な記載:</span>
-                      <blockquote className="text-xs text-slate-800 font-bold leading-relaxed border-l-2 border-indigo-500 pl-3 italic">“{quoteText}”</blockquote>
-                    </div>
-                  </div>
-                  {pledge.election_promise?.bulletin_url && (
-                    <div className="pt-2 flex items-center gap-1">
-                      <a href={pledge.election_promise.bulletin_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 hover:underline">
-                        <Landmark className="w-3.5 h-3.5" /><span>公式公約原本で確認</span><ExternalLink className="w-3 h-3 opacity-60 ml-0.5" />
-                      </a>
-                      <ReportIssueButton
-                        targetUrl={pledge.election_promise.bulletin_url}
-                        speaker={mayorInfo.name}
-                        meetingDate={pledge.title || ''}
-                        targetId={`pledge_${pledge.pledge_id}`}
-                        municipality={mayorInfo.city_label || '名古屋市'}
-                      />
-                    </div>
-                  )}
-                </div>
+                    {pledge.election_promise?.bulletin_url && (
+                      <div className="pt-2 flex flex-wrap items-center gap-2">
+                        <a
+                          href={pledge.election_promise.bulletin_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[11px] font-black text-indigo-600 hover:text-indigo-800 hover:underline bg-white px-2.5 py-1 rounded-lg border border-indigo-200 shadow-2xs transition-colors"
+                        >
+                          <Landmark className="w-3.5 h-3.5" />
+                          <span>市選管 選挙公報原本PDF</span>
+                          <ExternalLink className="w-3 h-3 opacity-60 ml-0.5" />
+                        </a>
+                        <ReportIssueButton
+                          targetUrl={pledge.election_promise.bulletin_url}
+                          speaker={mayorInfo.name}
+                          meetingDate={pledge.title || pledge.headline || ""}
+                          targetId={`pledge_${pledge.id || pledge.pledge_id}`}
+                          municipality={mayorInfo.city_label || "横浜市"}
+                        />
+                      </div>
+                    )}
 
+                  </div>
                 <div className="lg:col-span-8 p-6 space-y-6 bg-white">
                   {/* ① 計画 */}
                   {plan && (

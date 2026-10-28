@@ -18,6 +18,15 @@ const OSAKA_HOT_TOPICS = [
   "学校 熱中症",
 ];
 
+const YOKOHAMA_HOT_TOPICS = [
+  "中学校給食全員実施",
+  "小児医療費無償化",
+  "防災・激甚災害対策",
+  "都心臨海部・港湾GX",
+  "敬老パス・シニア支援",
+  "行財政改革・DX推進",
+];
+
 const NAGOYA_HOT_TOPICS = [
   "名古屋城木造復元",
   "市民税減税",
@@ -47,6 +56,10 @@ export default function HeroSection({
     cityName = "名古屋市会";
     hotTopics = NAGOYA_HOT_TOPICS;
     scopeText = "本会議および各委員会・電子採決ログ（現職68議員の議案賛否・首長トラッカー）";
+  } else if (cityCode === "yokohama") {
+    cityName = "横浜市会";
+    hotTopics = YOKOHAMA_HOT_TOPICS;
+    scopeText = "2026年10月就任 原澤敦美市長重点12公約トラッカー・18区現職86議員（本会議・常任委員会論戦移行期）";
   }
 
   return (

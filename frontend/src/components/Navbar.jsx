@@ -19,7 +19,8 @@ export default function Navbar({
   const CITIES = {
     kyoto: { label: '京都市', path: '/kyoto/' },
     osaka: { label: '大阪市', path: '/osaka/' },
-    nagoya: { label: '名古屋市', path: '/nagoya/' }
+    nagoya: { label: '名古屋市', path: '/nagoya/' },
+    yokohama: { label: '横浜市', path: '/yokohama/' }
   };
 
   // 枠外クリックでドロップダウンを閉じる処理
@@ -44,7 +45,7 @@ export default function Navbar({
   };
 
   // 💡 市長名の動的切り替え
-  const mayorName = cityCode === 'osaka' ? '横山市長 ' : cityCode === 'nagoya' ? '広沢市長 ' : '松井市長 ';
+  const mayorName = cityCode === 'yokohama' ? '原澤市長 ' : cityCode === 'osaka' ? '横山市長 ' : cityCode === 'nagoya' ? '広沢市長 ' : '松井市長 ';
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs">

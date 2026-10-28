@@ -92,7 +92,9 @@ export default function App() {
       const params = new URLSearchParams(window.location.search);
       const hash = window.location.hash || '';
 
-      if (path.startsWith('/nagoya') || params.get('city') === 'nagoya') {
+      if (path.startsWith('/yokohama') || params.get('city') === 'yokohama') {
+        return 'yokohama';
+      } else if (path.startsWith('/nagoya') || params.get('city') === 'nagoya') {
         return 'nagoya';
       }
       if (path.startsWith('/osaka') || params.get('city') === 'osaka') {
@@ -201,7 +203,9 @@ export default function App() {
       const currentParams = new URLSearchParams(window.location.search);
       let detectedCity = null;
       
-      if (currentPath.startsWith('/nagoya') || currentParams.get('city') === 'nagoya') {
+      if (currentPath.startsWith('/yokohama') || currentParams.get('city') === 'yokohama') {
+        detectedCity = 'yokohama';
+      } else if (currentPath.startsWith('/nagoya') || currentParams.get('city') === 'nagoya') {
         detectedCity = 'nagoya';
       } else if (currentPath.startsWith('/osaka') || currentParams.get('city') === 'osaka') {
         detectedCity = 'osaka';
@@ -239,7 +243,11 @@ export default function App() {
     let canonicalUrl = "https://gikai-mikata.jp/";
     let ogpImage = "https://gikai-mikata.jp/ogp-portal.png";
 
-    if (cityCode === 'osaka') {
+    if (cityCode === 'yokohama') {
+      title = '議会のミカタ 横浜 ｜ AIは入口。判断するのは市民です。';
+      canonicalUrl = 'https://gikai-mikata.jp/yokohama/';
+      ogpImage = 'https://gikai-mikata.jp/ogp-yokohama.png';
+    } else if (cityCode === 'osaka') {
       title = "議会のミカタ 大阪 ｜ AIは入口。判断するのは市民です。";
       description = "大阪市会公式会議録と議決データを客観的に構造化。現職81議員・1,260超の質疑スレッド分析、賛否が分かれた議案の記録、横山市長政策進捗トラッカー（一次資料・予算照合）により、市民が自ら確認・判断できるオープンデータ基盤。";
       canonicalUrl = "https://gikai-mikata.jp/osaka/";

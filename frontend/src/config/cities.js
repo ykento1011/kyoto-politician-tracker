@@ -9,7 +9,6 @@ export const CITIES = {
     mayorName: '松井市長',
     accentColor: '#4f46e5',
     active: true,
-    // 既存のファイル命名規則を完全維持（京都は接頭辞なし、大阪は osaka_）
     dataPathPrefix: '',
     files: {
       votesSummary: '/data/votes_summary.json',
@@ -50,7 +49,7 @@ export const CITIES = {
     councilName: '名古屋市会',
     councilType: 'council',
     mayorName: '広沢市長',
-    accentColor: '#d97706', // アンバー（名古屋城の金鯱イメージ）
+    accentColor: '#d97706',
     active: true,
     dataPathPrefix: 'nagoya_',
     files: {
@@ -63,6 +62,28 @@ export const CITIES = {
     title: '議会のミカタ 名古屋 ｜ AIは入口。判断するのは市民です。',
     description: '名古屋市会公式会議録と電子採決ログを客観的に構造化。現職68議員の質疑スレッド分析、議案賛否ログ、広沢市長政策進捗トラッカーを一次情報で確認。',
     ogpImage: 'https://gikai-mikata.jp/ogp-nagoya.png',
+  },
+  yokohama: {
+    code: 'yokohama',
+    name: '横浜',
+    fullName: '横浜市',
+    councilName: '横浜市会',
+    councilType: 'council',
+    mayorName: '原澤市長',
+    accentColor: '#0ea5e9',
+    active: true,
+    dataPathPrefix: 'yokohama_',
+    files: {
+      votesSummary: '/data/yokohama_votes_summary.json',
+      billIssues: '/data/yokohama_bill_issues.json',
+      mayorTracker: '/data/yokohama_mayor_tracker.json',
+      pledgeTracker: '/data/pledge_tracker_yokohama.json',
+      topicSummaries: '/data/yokohama_topic_summaries.json',
+    },
+    title: '議会のミカタ 横浜 ｜ AIは入口。判断するのは市民です。',
+    description: '横浜市会公式会議録と議決データを客観的に構造化。2026年10月就任の原澤敦美市長の看板公約トラッカーと市会論戦マップ。一次原本（PDF・公式議事録）完全バインド。',
+    canonicalUrl: 'https://gikai-mikata.jp/yokohama/',
+    ogpImage: 'https://gikai-mikata.jp/ogp-yokohama.png',
   },
 };
 

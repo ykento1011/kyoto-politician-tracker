@@ -93,7 +93,7 @@ export default function SpeakerDetailView({
   const [speakerVoteFilter, setSpeakerVoteFilter] = useState('contested');
   const [pledgeTrackerMap, setPledgeTrackerMap] = useState({});
 
-  const cityName = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
+  const cityName = cityCode === 'yokohama' ? '横浜市会' : cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
   const electionAdminName = cityCode === 'nagoya' ? '名古屋市選管' : cityCode === 'osaka' ? '大阪市選管' : '京都市選管';
 
   useEffect(() => {

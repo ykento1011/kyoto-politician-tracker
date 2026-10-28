@@ -1,0 +1,685 @@
+[
+  {
+    "speaker": "山中竹春",
+    "pledges": [
+      {
+        "id": "pledge_yamanaka_1",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ誘致",
+        "stance": "反対・見直し",
+        "headline": "カジノ「断固阻止!」",
+        "exact_quote": "カジノ「断固阻止!」"
+      },
+      {
+        "id": "pledge_yamanaka_2",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "もっと子育てしやすい横浜へ!",
+        "exact_quote": "もっと子育てしやすい横浜へ!"
+      },
+      {
+        "id": "pledge_yamanaka_3",
+        "category": "産業・観光・地域経済",
+        "target_issue": "若者の雇用・就労支援",
+        "stance": "推進・拡充",
+        "headline": "若者が夢を持って働ける横浜へ!",
+        "exact_quote": "若者が「夢を持って」「働ける横浜へ!"
+      },
+      {
+        "id": "pledge_yamanaka_4",
+        "category": "防災・減災・治安",
+        "target_issue": "防災・減災対策",
+        "stance": "推進・拡充",
+        "headline": "災害時も命と暮らしを守る横浜へ!",
+        "exact_quote": "災害時も「命と暮らしを」「守る横浜へ!"
+      }
+    ]
+  },
+  {
+    "speaker": "藤川祥子",
+    "pledges": [
+      {
+        "id": "pledge_fujikawa_1",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ誘致・大型開発",
+        "stance": "反対・見直し",
+        "headline": "カジノ復活NO!大型開発を市民参加で見直し",
+        "exact_quote": "カジノの復活はNO!民設民営の大型開発計画を市民参加で見直します"
+      },
+      {
+        "id": "pledge_fujikawa_2",
+        "category": "財政・行革",
+        "target_issue": "家計負担軽減 (水道料金・保育料・住宅費)",
+        "stance": "負担軽減",
+        "headline": "税金は家計・子育て・福祉に!負担軽減",
+        "exact_quote": "税金はまず家計・子育て・福祉に!水道料金・保育料・住宅費の負担軽減"
+      },
+      {
+        "id": "pledge_fujikawa_3",
+        "category": "財政・行革",
+        "target_issue": "市政の透明化・山下ふ頭開発",
+        "stance": "推進・拡充",
+        "headline": "情報公開で市政信頼回復、山下ふ頭は市民が決める",
+        "exact_quote": "徹底した情報公開からパワハラで損なわれた市政の信頼回復は、山下ふ頭の未来は、市民が決める。海と緑と憩いの場に"
+      },
+      {
+        "id": "pledge_fujikawa_4",
+        "category": "産業・観光・地域経済",
+        "target_issue": "中小企業支援・地域経済活性化",
+        "stance": "推進・拡充",
+        "headline": "中小企業・商店を元気に。省エネ・地域循環経済",
+        "exact_quote": "中小企業・商店を元気に。省エネ・地域循環型の経済を"
+      },
+      {
+        "id": "pledge_fujikawa_5",
+        "category": "防災・減災・治安",
+        "target_issue": "横浜港の平和利用・米軍基地返還",
+        "stance": "推進・拡充",
+        "headline": "横浜港を平和の港に。ノース・ドック早期返還",
+        "exact_quote": "横浜港を世界とつながる平和の港に。横浜ノース・ドックの早期返還を"
+      }
+    ]
+  },
+  {
+    "speaker": "原沢あつみ",
+    "pledges": [
+      {
+        "id": "pledge_harasawa_1",
+        "category": "防災・減災・治安",
+        "target_issue": "災害対策・危機管理",
+        "stance": "推進・拡充",
+        "headline": "災害に強く、危機管理に優れた横浜",
+        "exact_quote": "災害に強く、危機管理に優れた横浜をつくります。"
+      },
+      {
+        "id": "pledge_harasawa_2",
+        "category": "福祉・医療・健康",
+        "target_issue": "福祉支援",
+        "stance": "推進・拡充",
+        "headline": "必要な人に必要な支援が届く福祉",
+        "exact_quote": "必要な人に、必要な支援が届く福祉を実現します。"
+      },
+      {
+        "id": "pledge_harasawa_3",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "インフラ維持・整備",
+        "stance": "制度維持・推進",
+        "headline": "暮らしを支えるインフラを守ります",
+        "exact_quote": "道路・橋・上下水道など、暮らしを支えるインフラを守ります。"
+      },
+      {
+        "id": "pledge_harasawa_4",
+        "category": "子育て・教育",
+        "target_issue": "子育て支援",
+        "stance": "推進・拡充",
+        "headline": "子育て支援を充実させ、安心して子育て",
+        "exact_quote": "子育て支援をさらに充実させ、子どもを安心して育てられる横浜をつくります。"
+      },
+      {
+        "id": "pledge_harasawa_5",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域活性化",
+        "stance": "推進・拡充",
+        "headline": "18区の個性を生かし、地域活力向上",
+        "exact_quote": "18区それぞれの個性を生かし、地域の活力を高めます。"
+      },
+      {
+        "id": "pledge_harasawa_6",
+        "category": "財政・行革",
+        "target_issue": "財政健全化",
+        "stance": "推進・拡充",
+        "headline": "財政基盤強化、将来世代に責任持つ市政",
+        "exact_quote": "財政基盤を強化し、将来世代に責任を持つ市政を実現します。"
+      },
+      {
+        "id": "pledge_harasawa_7",
+        "category": "産業・観光・地域経済",
+        "target_issue": "GREEN EXPO 2027活用",
+        "stance": "推進・拡充",
+        "headline": "GREEN EXPO 2027で横浜の未来を",
+        "exact_quote": "GREEN EXPO 2027を契機に横浜の未来を切り拓きます。"
+      },
+      {
+        "id": "pledge_harasawa_8",
+        "category": "産業・観光・地域経済",
+        "target_issue": "企業誘致・雇用創出",
+        "stance": "推進・拡充",
+        "headline": "企業誘致で働く場所と新たな雇用創出",
+        "exact_quote": "企業を呼び込み、横浜に働く場所と新たな雇用を生み出します。"
+      },
+      {
+        "id": "pledge_harasawa_9",
+        "category": "産業・観光・地域経済",
+        "target_issue": "滞在型観光推進",
+        "stance": "推進・拡充",
+        "headline": "滞在型観光の拠点化",
+        "exact_quote": "横浜を観光客が訪れるだけでなく楽しみ、過ごす「滞在型観光」の拠点にします。"
+      },
+      {
+        "id": "pledge_harasawa_10",
+        "category": "産業・観光・地域経済",
+        "target_issue": "エンタメ拠点化",
+        "stance": "推進・拡充",
+        "headline": "横浜を世界に誇るエンタメ一大拠点に",
+        "exact_quote": "横浜の持つ豊富な基盤を活かし、横浜を世界に誇るエンタメ一大拠点にします"
+      },
+      {
+        "id": "pledge_harasawa_11",
+        "category": "財政・行革",
+        "target_issue": "官民連携推進",
+        "stance": "推進・拡充",
+        "headline": "公正・適正な官民連携で民間の力活用",
+        "exact_quote": "公正・適正な官民連携で、民間の力を最大限に生かします。"
+      },
+      {
+        "id": "pledge_harasawa_12",
+        "category": "財政・行革",
+        "target_issue": "市役所改革・職員モチベーション向上",
+        "stance": "推進・拡充",
+        "headline": "市職員の笑顔を取り戻し、市民のための市役所",
+        "exact_quote": "市職員に笑顔を取り戻し、一丸となって市民のために働く市役所をつくります。"
+      }
+    ]
+  },
+  {
+    "speaker": "福山あつし",
+    "pledges": [
+      {
+        "id": "pledge_fukuyama_1_1",
+        "category": "財政・行革",
+        "target_issue": "市役所組織改革",
+        "stance": "推進・拡充",
+        "headline": "市役所に「営業局」を新設",
+        "exact_quote": "① 市役所に「営業局」を新設"
+      },
+      {
+        "id": "pledge_fukuyama_1_2",
+        "category": "財政・行革",
+        "target_issue": "市有財産活用・財源確保",
+        "stance": "推進・拡充",
+        "headline": "休眠市有地活用、ネーミングライツ導入",
+        "exact_quote": "② 休眠市有地や建物の活用 ネーミングライツの積極導入"
+      },
+      {
+        "id": "pledge_fukuyama_1_3",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地元企業プロモーション",
+        "stance": "推進・拡充",
+        "headline": "地元企業のプロモーション推進",
+        "exact_quote": "③ 地元企業のプロモーションの推進"
+      },
+      {
+        "id": "pledge_fukuyama_1_4",
+        "category": "産業・観光・地域経済",
+        "target_issue": "起業・事業継承支援",
+        "stance": "推進・拡充",
+        "headline": "起業・挑戦企業を応援、事業継承支援",
+        "exact_quote": "④ 横浜で開業・挑戦する企業を積極応援,事業継承支援"
+      },
+      {
+        "id": "pledge_fukuyama_1_5",
+        "category": "産業・観光・地域経済",
+        "target_issue": "新規開業企業支援・公共調達",
+        "stance": "推進・拡充",
+        "headline": "新規開業企業へ積極発注 (ファーストクライアント)",
+        "exact_quote": "⑤「横浜ファーストクライアント宣言」: 市内新規開業企業への積極的発注"
+      },
+      {
+        "id": "pledge_fukuyama_1_6",
+        "category": "産業・観光・地域経済",
+        "target_issue": "農業ブランド化",
+        "stance": "推進・拡充",
+        "headline": "「横浜野菜」のブランディング",
+        "exact_quote": "⑥「横浜野菜」のブランディング"
+      },
+      {
+        "id": "pledge_fukuyama_1_7",
+        "category": "産業・観光・地域経済",
+        "target_issue": "次世代テック企業誘致",
+        "stance": "推進・拡充",
+        "headline": "次世代テック企業誘致で税収・雇用拡大",
+        "exact_quote": "⑦ 次世代テック企業誘致を強力に進め、税収と雇用を拡大"
+      },
+      {
+        "id": "pledge_fukuyama_1_8",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "空き家・空き店舗活用",
+        "stance": "推進・拡充",
+        "headline": "空き家・空き店舗を起業・地域拠点に活用",
+        "exact_quote": "⑧ 空き家・空き店舗を起業・店舗・地域拠点として活用"
+      },
+      {
+        "id": "pledge_fukuyama_1_9",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "市営住宅活用",
+        "stance": "推進・拡充",
+        "headline": "市営住宅空室を若者・子育て世帯へ活用",
+        "exact_quote": "⑨ 市営住宅の空室を若者・子育て世帯等への有効活用を推進"
+      },
+      {
+        "id": "pledge_fukuyama_1_10",
+        "category": "産業・観光・地域経済",
+        "target_issue": "モノづくり・物流拠点強化",
+        "stance": "推進・拡充",
+        "headline": "モノづくり・物流拠点の機能強化",
+        "exact_quote": "⑩ 横浜のモノづくり産業や、物流・流通拠点の機能を強化"
+      },
+      {
+        "id": "pledge_fukuyama_1_11",
+        "category": "産業・観光・地域経済",
+        "target_issue": "ナイトタイムエコノミー",
+        "stance": "推進・拡充",
+        "headline": "ナイトタイムエコノミー推進、夜の観光活用",
+        "exact_quote": "⑪ ナイトタイムエコノミーの推進。夜の観光資源の活用"
+      },
+      {
+        "id": "pledge_fukuyama_1_12",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "港・山下埠頭活用・クルーズ船誘致",
+        "stance": "推進・拡充",
+        "headline": "港・山下埠頭活用、クルーズ船誘致",
+        "exact_quote": "⑫港・山下埠頭の積極活用 「クルーズ船の誘致と新モビリティサービス」"
+      },
+      {
+        "id": "pledge_fukuyama_1_13",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者支援・移動支援",
+        "stance": "推進・拡充",
+        "headline": "高齢者の就業・移動支援、敬老パス見直し",
+        "exact_quote": "⑩ 高齢者の就業支援と移動支援でみんな元気な横浜に。敬老パスの自己負担金見直しや移動支援。「コミュニティバス」「予約制ミニバス」"
+      },
+      {
+        "id": "pledge_fukuyama_1_14",
+        "category": "財政・行革",
+        "target_issue": "ふるさと納税改善",
+        "stance": "推進・拡充",
+        "headline": "ふるさと納税収支改善、魅力ある返礼品",
+        "exact_quote": "⑭ ふるさと納税の収支の改善: 魅力ある返礼品の創出"
+      },
+      {
+        "id": "pledge_fukuyama_2_1",
+        "category": "財政・行革",
+        "target_issue": "外郭団体改革",
+        "stance": "反対・見直し",
+        "headline": "外郭団体の抜本的見直し",
+        "exact_quote": "①外郭団体の抜本的見直し"
+      },
+      {
+        "id": "pledge_fukuyama_2_2",
+        "category": "財政・行革",
+        "target_issue": "市政構造改革・二元代表制",
+        "stance": "推進・拡充",
+        "headline": "市政構造打破、真の二元代表制構築",
+        "exact_quote": "② 既存の市政構造の打破: 真の二元代表制の構築(議会との秩序ある関係)"
+      },
+      {
+        "id": "pledge_fukuyama_2_3",
+        "category": "財政・行革",
+        "target_issue": "ハラスメント対策",
+        "stance": "推進・拡充",
+        "headline": "ハラスメント相談窓口の完全外部化",
+        "exact_quote": "③ ハラスメント相談窓口の完全外部化"
+      },
+      {
+        "id": "pledge_fukuyama_2_4",
+        "category": "財政・行革",
+        "target_issue": "市長監査評価制度",
+        "stance": "推進・拡充",
+        "headline": "市長に対する「外部監査評価制度」導入",
+        "exact_quote": "④ 市長に対する「外部監査評価制度」の導入"
+      },
+      {
+        "id": "pledge_fukuyama_2_5",
+        "category": "財政・行革",
+        "target_issue": "コンプライアンス強化",
+        "stance": "推進・拡充",
+        "headline": "内部通報・コンプライアンス体制強化",
+        "exact_quote": "⑤ 内部通報・コンプライアンス体制の徹底強化"
+      },
+      {
+        "id": "pledge_fukuyama_2_6",
+        "category": "財政・行革",
+        "target_issue": "カスタマーハラスメント対策",
+        "stance": "推進・拡充",
+        "headline": "カスタマーハラスメント防止条例制定",
+        "exact_quote": "⑥ カスタマーハラスメント防止条例の制定"
+      },
+      {
+        "id": "pledge_fukuyama_2_7",
+        "category": "財政・行革",
+        "target_issue": "事業評価・DX推進",
+        "stance": "反対・見直し",
+        "headline": "事業評価見直し、DX導入で内製化実現",
+        "exact_quote": "⑦ 事業評価制度の見直しとDX 積極導入による内製化の実現"
+      },
+      {
+        "id": "pledge_fukuyama_2_8",
+        "category": "財政・行革",
+        "target_issue": "事業見直し・組織再編",
+        "stance": "反対・見直し",
+        "headline": "事業ゼロベース見直しと部局再編検討",
+        "exact_quote": "⑧事業のゼロベースでの見直しと部局再編の検討"
+      },
+      {
+        "id": "pledge_fukuyama_3_1",
+        "category": "子育て・教育",
+        "target_issue": "保育料無償化",
+        "stance": "推進・拡充",
+        "headline": "0~2歳保育料無償化",
+        "exact_quote": "①0~2歳保育料無償化"
+      },
+      {
+        "id": "pledge_fukuyama_3_2",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食改善",
+        "stance": "推進・拡充",
+        "headline": "中学校給食をミックス方式へ転換",
+        "exact_quote": "② 中学校給食をデリバリー型からミックス方式(自校調理型、親子、兄弟方式を組み合わせる)への転換"
+      },
+      {
+        "id": "pledge_fukuyama_3_3",
+        "category": "子育て・教育",
+        "target_issue": "給食費無償化",
+        "stance": "推進・拡充",
+        "headline": "給食費無償化を中学生まで拡大",
+        "exact_quote": "③給食費無償化を中学生まで拡大"
+      },
+      {
+        "id": "pledge_fukuyama_3_4",
+        "category": "子育て・教育",
+        "target_issue": "教育費負担軽減",
+        "stance": "負担軽減",
+        "headline": "修学旅行費や副教材費の負担をゼロに",
+        "exact_quote": "④ 修学旅行費や副教材費の負担をゼロに"
+      },
+      {
+        "id": "pledge_fukuyama_3_5",
+        "category": "子育て・教育",
+        "target_issue": "奨学金返済免除",
+        "stance": "推進・拡充",
+        "headline": "特定職種就職で奨学金返済免除",
+        "exact_quote": "⑤ 奨学金の返済免除特定の職種(教員、消防、市技術職)に就職した場合"
+      },
+      {
+        "id": "pledge_fukuyama_3_6",
+        "category": "子育て・教育",
+        "target_issue": "受験費用負担軽減",
+        "stance": "負担軽減",
+        "headline": "受験料ゼロ・塾代支援で費用負担軽減",
+        "exact_quote": "⑥ 高校・大学受験料ゼロ・塾代支援により受験期の費用負担を引き下げ"
+      },
+      {
+        "id": "pledge_fukuyama_3_7",
+        "category": "子育て・教育",
+        "target_issue": "教員の事務負担軽減",
+        "stance": "推進・拡充",
+        "headline": "教員の事務負担軽減、事務補助員全校配置",
+        "exact_quote": "⑦ 教員の事務負担軽減: 事務補助員の全校配置で教員が子どもと向き合う時間を創出"
+      }
+    ]
+  },
+  {
+    "speaker": "あさか由香",
+    "pledges": [
+      {
+        "id": "pledge_asaka_1",
+        "category": "子育て・教育",
+        "target_issue": "保育料・中学校給食無償化",
+        "stance": "推進・拡充",
+        "headline": "全年齢保育料・中学校給食の無償化",
+        "exact_quote": "全年齢の保育料、中学校給食の無償化"
+      },
+      {
+        "id": "pledge_asaka_2",
+        "category": "子育て・教育",
+        "target_issue": "学生・若者家賃補助、市立大学学費軽減",
+        "stance": "推進・拡充",
+        "headline": "学生・若者家賃補助、市立大学学費軽減",
+        "exact_quote": "学生・若者などへの家賃補助の創設 市立大学の入学金廃止、授業料半額へ"
+      },
+      {
+        "id": "pledge_asaka_3",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "人権尊重・ハラスメント対策",
+        "stance": "推進・拡充",
+        "headline": "人権都市へ、ハラスメント・差別禁止条例",
+        "exact_quote": "世界水準の人権都市へハラスメント防止条例・実効性ある差別禁止条例の策定"
+      },
+      {
+        "id": "pledge_asaka_4",
+        "category": "防災・減災・治安",
+        "target_issue": "平和主義・核兵器廃絶・米軍基地返還",
+        "stance": "推進・拡充",
+        "headline": "憲法9条を守り、核廃絶、米軍基地全面返還",
+        "exact_quote": "憲法9条を守り生かす平和でこそ発展します核兵器廃絶を世界へ発信 横浜ノース・ドックなど米軍基地の全面返還へ全力。横浜を戦争の拠点にさせません"
+      },
+      {
+        "id": "pledge_asaka_5_1",
+        "category": "防災・減災・治安",
+        "target_issue": "避難所環境改善",
+        "stance": "推進・拡充",
+        "headline": "避難所にエアコン設置100%",
+        "exact_quote": "1 避難所にエアコン設置100%!あたたかい"
+      },
+      {
+        "id": "pledge_asaka_5_2",
+        "category": "子育て・教育",
+        "target_issue": "中学校給食・保育料無償化",
+        "stance": "推進・拡充",
+        "headline": "中学校給食・保育料を完全無償化",
+        "exact_quote": "2 中学校給食!第1子から・所得制限なしで「○歳児から」完全無償化"
+      },
+      {
+        "id": "pledge_asaka_5_3",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "子ども運賃負担軽減",
+        "stance": "負担軽減",
+        "headline": "18歳まで子ども運賃に!",
+        "exact_quote": "3 18歳まで子ども運賃に!"
+      },
+      {
+        "id": "pledge_asaka_5_4",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者施設拡充",
+        "stance": "推進・拡充",
+        "headline": "年金で入れる高齢者施設を!",
+        "exact_quote": "4 年金で入れる高齢者施設を!"
+      },
+      {
+        "id": "pledge_asaka_5_5",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "生理用品無償提供",
+        "stance": "推進・拡充",
+        "headline": "生理用品を学校トイレに!",
+        "exact_quote": "5 生理用品を学校トイレに!"
+      }
+    ]
+  },
+  {
+    "speaker": "山本理顕",
+    "pledges": [
+      {
+        "id": "pledge_yamamoto_1",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "住宅保障・職住一体型住宅",
+        "stance": "推進・拡充",
+        "headline": "安全快適な住宅保障、職住一体型住宅",
+        "exact_quote": "1 すべての横浜市民は安全で快適な住宅に住む権利をもつ。それを保障する。住宅は職住一体型住宅とする。"
+      },
+      {
+        "id": "pledge_yamamoto_2",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域コミュニティ拠点",
+        "stance": "推進・拡充",
+        "headline": "町内会ごとに町内会サロンをつくる",
+        "exact_quote": "2 ひとつの町内会ごとに町内会サロンをつくる。"
+      },
+      {
+        "id": "pledge_yamamoto_3",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "公共交通網充実・無料ミニバス",
+        "stance": "推進・拡充",
+        "headline": "公共交通網充実、市民無料ミニバス網",
+        "exact_quote": "3 公共交通網の充実 市全域まで行き届く市民無料のミニバス網・ミニタクシー網をつくる。"
+      },
+      {
+        "id": "pledge_yamamoto_4",
+        "category": "産業・観光・地域経済",
+        "target_issue": "観光収入増大",
+        "stance": "推進・拡充",
+        "headline": "観光収入を5,000億円から1兆円に",
+        "exact_quote": "4 横浜市の観光収入を現在の約5,000億円から1兆円にする。"
+      }
+    ]
+  },
+  {
+    "speaker": "中谷一馬",
+    "pledges": [
+      {
+        "id": "pledge_nakatani_0_1",
+        "category": "福祉・医療・健康",
+        "target_issue": "出産費用負担軽減・無痛分娩助成",
+        "stance": "負担軽減",
+        "headline": "出産の不安ゼロ、無痛分娩10万円助成",
+        "exact_quote": "出産の不安をゼロ無痛分娩上限10万円助成"
+      },
+      {
+        "id": "pledge_nakatani_0_2",
+        "category": "子育て・教育",
+        "target_issue": "給食費無償化・給食改善",
+        "stance": "負担軽減",
+        "headline": "給食費ゼロ、安全でおいしい給食",
+        "exact_quote": "給食費をゼロ安全であたたかくておいしい給食"
+      },
+      {
+        "id": "pledge_nakatani_0_3",
+        "category": "産業・観光・地域経済",
+        "target_issue": "カジノ誘致",
+        "stance": "反対・見直し",
+        "headline": "カジノをゼロ、将来も誘致しない",
+        "exact_quote": "カジノをゼロ将来もカジノを誘致しない"
+      },
+      {
+        "id": "pledge_nakatani_0_4",
+        "category": "子育て・教育",
+        "target_issue": "第2子以降保育料無償化",
+        "stance": "負担軽減",
+        "headline": "第2子以降保育料ゼロ、所得・年齢制限なし",
+        "exact_quote": "第2子以降の保育料をゼロ所得制限・きょうだいの年齢制限なし"
+      },
+      {
+        "id": "pledge_nakatani_0_5",
+        "category": "福祉・医療・健康",
+        "target_issue": "介護離職ゼロ・家族介護負担軽減",
+        "stance": "推進・拡充",
+        "headline": "介護離職ゼロ、家族介護の負担軽減",
+        "exact_quote": "介護で仕事を諦める人をゼロ介護を家族だけで抱え込まない"
+      },
+      {
+        "id": "pledge_nakatani_0_6",
+        "category": "財政・行革",
+        "target_issue": "ハラスメント対策",
+        "stance": "推進・拡充",
+        "headline": "あらゆるハラスメントゼロ、市長も例外なし",
+        "exact_quote": "あらゆるハラスメントをゼロ市長も特別職も例外にしない"
+      },
+      {
+        "id": "pledge_nakatani_R_1",
+        "category": "財政・行革",
+        "target_issue": "AI活用・行政DX",
+        "stance": "推進・拡充",
+        "headline": "AIで横浜を改革、AIネイティブ市役所",
+        "exact_quote": "AIで横浜をかえるAIネイティブ市役所・プッシュ型行政"
+      },
+      {
+        "id": "pledge_nakatani_R_2",
+        "category": "財政・行革",
+        "target_issue": "働き方改革・週休3日制",
+        "stance": "推進・拡充",
+        "headline": "働き方改革、選択的週休3日制導入",
+        "exact_quote": "働き方をかえる選択的週休3日制・横浜発・働き方の再デザイン"
+      },
+      {
+        "id": "pledge_nakatani_R_3",
+        "category": "財政・行革",
+        "target_issue": "政治資金透明化",
+        "stance": "推進・拡充",
+        "headline": "政治・行政改革、市長の政治資金透明化",
+        "exact_quote": "政治と行政をかえる市長の政治資金・資産もガラス張りに"
+      },
+      {
+        "id": "pledge_nakatani_R_4",
+        "category": "財政・行革",
+        "target_issue": "電子投票導入",
+        "stance": "推進・拡充",
+        "headline": "民主主義改革、地方選挙に電子投票",
+        "exact_quote": "民主主義をかえる地方選挙や政策立案に電子投票"
+      },
+      {
+        "id": "pledge_nakatani_R_5",
+        "category": "産業・観光・地域経済",
+        "target_issue": "経済活性化・挑戦支援",
+        "stance": "推進・拡充",
+        "headline": "横浜経済改革、挑戦・成長を支援",
+        "exact_quote": "横浜の経済をかえる挑戦・成長するなら横浜"
+      },
+      {
+        "id": "pledge_nakatani_R_6",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "次世代交通システム",
+        "stance": "推進・拡充",
+        "headline": "まちの形改革、オンデマンド・自動運転交通",
+        "exact_quote": "まちのかたちをかえるオンデマンド交通、自動運転で暮らしをつなぐあたたかい横浜"
+      },
+      {
+        "id": "pledge_nakatani_O_1",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高対策・家計負担軽減",
+        "stance": "負担軽減",
+        "headline": "物価高対策、家賃・転居支援、光熱費軽減",
+        "exact_quote": "物価高に負けない暮らしへ。家賃・転居支援、断熱改修で光熱費負担を軽減"
+      },
+      {
+        "id": "pledge_nakatani_O_2",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療体制確保",
+        "stance": "推進・拡充",
+        "headline": "必要な医療を守る、いつでも安心医療",
+        "exact_quote": "必要な医療をまもるいつでも、安心して医療を受けられる横浜"
+      },
+      {
+        "id": "pledge_nakatani_O_3",
+        "category": "子育て・教育",
+        "target_issue": "子どもの保護・支援",
+        "stance": "推進・拡充",
+        "headline": "子どもの命と尊厳を守る、SOS見逃さない",
+        "exact_quote": "子どもの命と尊厳をまもるすべての子どものSOSを見逃さない"
+      },
+      {
+        "id": "pledge_nakatani_O_4",
+        "category": "福祉・医療・健康",
+        "target_issue": "共生社会実現・居場所づくり",
+        "stance": "推進・拡充",
+        "headline": "誰一人取り残さない共生社会へ",
+        "exact_quote": "つながりと居場所をまもる誰一人取り残さない共生社会へ"
+      },
+      {
+        "id": "pledge_nakatani_O_5",
+        "category": "防災・減災・治安",
+        "target_issue": "防災対策強化",
+        "stance": "推進・拡充",
+        "headline": "災害から命と暮らしを守る、最高水準の防災都市",
+        "exact_quote": "災害から命と暮らしをまもる最高水準の防災都市・横浜へ"
+      },
+      {
+        "id": "pledge_nakatani_O_6",
+        "category": "防災・減災・治安",
+        "target_issue": "治安対策強化",
+        "stance": "推進・拡充",
+        "headline": "最先端の治安対策で、安心できる横浜",
+        "exact_quote": "最先端の治安対策で、安心できる横浜へ"
+      }
+    ]
+  }
+]
