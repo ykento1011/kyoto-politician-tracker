@@ -16,25 +16,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-13",
-          "committee": "本会議・委員会",
-          "summary": "議員が市民参加推進計画における継続的な議論の場の設定や若い世代の参画促進について質問し、行政側からこれまでの取組状況や検討する旨の答弁が行われた。",
-          "speech_id": "mtg_c9f5e7edf693530efe75087c5c8f762b_357",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5866&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-03-13",
-            "committee": "本会議・委員会",
-            "summary": "議員が市民参加推進計画における継続的な議論の場の設定や若い世代の参画促進について質問し、行政側からこれまでの取組状況や検討する旨の答弁が行われた。",
+            "committee": "本会議",
+            "summary": "議員が市民参加推進計画における継続的な議論の場の設定や若い世代の参画促進について質問し、行政側からこれまでの取組状況や検討する旨の答弁が行われた。...",
             "speech_id": "mtg_c9f5e7edf693530efe75087c5c8f762b_357",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5866&schedule_id=1"
           },
           {
             "date": "2025-10-08",
-            "committee": "本会議・委員会",
-            "summary": "議員は新基本構想案における市民参加の捉え方や歴史的経緯、及び国の施策・予算に関する提案・要望項目の選定プロセスについて質問し、行政側は基本構想の理念の継承や全庁的な重要施策の要望項目の選定方針について説明した。",
+            "committee": "本会議",
+            "summary": "議員は新基本構想案における市民参加の捉え方や歴史的経緯、及び国の施策・予算に関する提案・要望項目の選定プロセスについて質問し、行政側は基本構想の理念の継承や全庁的な重要施策の要望項目の選定方針について説明した。...",
             "speech_id": "mtg_9559f886ea4eb0ad4e6cf32e142dfda5_437",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6336&schedule_id=1"
           }
@@ -51,8 +44,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市子ども若者はぐくみ事業基金条例の一部を改正する条例の制定について",
+          "bill_number": "議64",
+          "session": "令和8年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R08/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -66,8 +65,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "地方創生に貢献するサーキュラーエコノミー(循環経済)の一層の推進を求める意見書の提出について",
+          "bill_number": "市会議51",
+          "session": "令和5年3月市会",
+          "vote": "賛成",
+          "vote_type": "個人採決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian3.html"
+        },
         "council_statements": []
       }
     ]
@@ -88,26 +93,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2023-10-20",
-          "committee": "本会議・委員会",
-          "summary": "市長の公約におけるリニア誘致の未達成について質疑が行われ、続いて選挙管理委員の報酬体系を日額制に見直す提案がなされ、行政側が適正であると答弁した。さらに、美化推進条例に基づく罰則規定の運用実態と過料への見直しについて議論が行われた。",
-          "speech_id": "mtg_bcda68d419055056758b6cd066bc590b_325",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5753&schedule_id=1"
+        "council_vote": {
+          "bill_title": "京都市会議員の議員報酬、費用弁償及び期末手当の支給に関する条例の一部を改正する条例の制定について",
+          "bill_number": "議201",
+          "session": "令和7年11月市会",
+          "vote": "反対",
+          "vote_type": "個人採決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
         },
         "council_statements": [
           {
             "date": "2023-10-20",
-            "committee": "本会議・委員会",
-            "summary": "市長の公約におけるリニア誘致の未達成について質疑が行われ、続いて選挙管理委員の報酬体系を日額制に見直す提案がなされ、行政側が適正であると答弁した。さらに、美化推進条例に基づく罰則規定の運用実態と過料への見直しについて議論が行われた。",
+            "committee": "本会議",
+            "summary": "市長の公約におけるリニア誘致の未達成について質疑が行われ、続いて選挙管理委員の報酬体系を日額制に見直す提案がなされ、行政側が適正であると答弁した。さらに、美化推進条例に基づく罰則規定の運用実態と過料への見直しについて議論が行われた。...",
             "speech_id": "mtg_bcda68d419055056758b6cd066bc590b_325",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5753&schedule_id=1"
           },
           {
             "date": "2023-10-11",
-            "committee": "本会議・委員会",
-            "summary": "議員が消防局の行財政改革における職員寮の売却方針と退去時期、また火災と紛らわしい行為等の届出の電子化について質問し、行政側から保有施設数や退去予定時期、将来的な電子化検討について説明があった。",
+            "committee": "本会議",
+            "summary": "議員が消防局の行財政改革における職員寮の売却方針と退去時期、また火災と紛らわしい行為等の届出の電子化について質問し、行政側から保有施設数や退去予定時期、将来的な電子化検討について説明があった。...",
             "speech_id": "mtg_2220a64f1a19d86e527754391121ac3e_127",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5794&schedule_id=1"
           }
@@ -125,7 +130,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -139,26 +143,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-12-04",
-          "committee": "本会議・委員会",
-          "summary": "菅谷浩平議員が他党の提案における100億円規模の財源や大型公共工事の数字的根拠について行財政局に見解を求め、行政側が財政調整基金の仕組みや投資的経費における新設・道路拡幅等の一般財源ベースの割合について説明した。",
-          "speech_id": "mtg_b756386ca8c0b8a01b6127b7e601ddc9_361",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6181&schedule_id=1"
+        "council_vote": {
+          "bill_title": "令和5年度京都市市公債特別会計歳入歳出決算",
+          "bill_number": "報12",
+          "session": "令和6年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian9.html"
         },
         "council_statements": [
           {
             "date": "2024-12-04",
-            "committee": "本会議・委員会",
-            "summary": "菅谷浩平議員が他党の提案における100億円規模の財源や大型公共工事の数字的根拠について行財政局に見解を求め、行政側が財政調整基金の仕組みや投資的経費における新設・道路拡幅等の一般財源ベースの割合について説明した。",
+            "committee": "本会議",
+            "summary": "菅谷浩平議員が他党の提案における100億円規模の財源や大型公共工事の数字的根拠について行財政局に見解を求め、行政側が財政調整基金の仕組みや投資的経費における新設・道路拡幅等の一般財源ベースの割合について説明した。...",
             "speech_id": "mtg_b756386ca8c0b8a01b6127b7e601ddc9_361",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6181&schedule_id=1"
           },
           {
             "date": "2024-12-04",
-            "committee": "本会議・委員会",
-            "summary": "議員が11.2億円という試算数値の正確性と財源の根拠について質問し、行政側が11.2億円で試算している旨を答弁した。",
+            "committee": "本会議",
+            "summary": "議員が11.2億円という試算数値の正確性と財源の根拠について質問し、行政側が11.2億円で試算している旨を答弁した。...",
             "speech_id": "mtg_b756386ca8c0b8a01b6127b7e601ddc9_333",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6181&schedule_id=1"
           }
@@ -183,7 +187,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -198,7 +201,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -213,7 +215,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -234,8 +235,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "学校調理による全員制中学校給食を求める決議について",
+          "bill_number": "市会議41",
+          "session": "令和5年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -250,7 +257,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -265,7 +271,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -287,25 +292,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2023-08-09",
-          "committee": "本会議・委員会",
-          "summary": "谷口みゆき議員が第4次京都市子ども読書活動推進計画の延長や不読率の現状、学校図書館の環境整備や司書の配置、電子媒体と紙媒体の活用について質問し、行政側がこれまでの取組や今後の対応方針について説明した。",
-          "speech_id": "mtg_d4869cdef6b8c8060981b0c8fe5112ae_265",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5731&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2023-08-09",
-            "committee": "本会議・委員会",
-            "summary": "谷口みゆき議員が第4次京都市子ども読書活動推進計画の延長や不読率の現状、学校図書館の環境整備や司書の配置、電子媒体と紙媒体の活用について質問し、行政側がこれまでの取組や今後の対応方針について説明した。",
+            "committee": "本会議",
+            "summary": "谷口みゆき議員が第4次京都市子ども読書活動推進計画の延長や不読率の現状、学校図書館の環境整備や司書の配置、電子媒体と紙媒体の活用について質問し、行政側がこれまでの取組や今後の対応方針について説明した。...",
             "speech_id": "mtg_d4869cdef6b8c8060981b0c8fe5112ae_265",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5731&schedule_id=1"
           },
           {
             "date": "2023-10-24",
-            "committee": "本会議・委員会",
-            "summary": "谷口みゆき議員は子育て情報発信冊子や子育て応援アンバサダー、北総合支援学校中央分校の施設整備や地域連携、就学援助制度について質問し、行政側はそれぞれの事業内容や安全配慮、制度設計について説明した。",
+            "committee": "本会議",
+            "summary": "谷口みゆき議員は子育て情報発信冊子や子育て応援アンバサダー、北総合支援学校中央分校の施設整備や地域連携、就学援助制度について質問し、行政側はそれぞれの事業内容や安全配慮、制度設計について説明した。...",
             "speech_id": "mtg_c62829187e9a26e193e8e64c37cb6db3_374",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5837&schedule_id=1"
           }
@@ -323,25 +321,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-10-21",
-          "committee": "本会議・委員会",
-          "summary": "議員が自主防災組織の避難所運営マニュアルやハザードマップの周知、感震ブレーカー等の防災施策について質問し、行政側が部局横断的な連携や情報発信、宿泊税の活用等について答弁した。",
-          "speech_id": "mtg_5634f9205881fde7e5a980b6d12aa7f5_254",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6291&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2025-10-21",
-            "committee": "本会議・委員会",
-            "summary": "議員が自主防災組織の避難所運営マニュアルやハザードマップの周知、感震ブレーカー等の防災施策について質問し、行政側が部局横断的な連携や情報発信、宿泊税の活用等について答弁した。",
+            "committee": "本会議",
+            "summary": "議員が自主防災組織の避難所運営マニュアルやハザードマップの周知、感震ブレーカー等の防災施策について質問し、行政側が部局横断的な連携や情報発信、宿泊税の活用等について答弁した。...",
             "speech_id": "mtg_5634f9205881fde7e5a980b6d12aa7f5_254",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6291&schedule_id=1"
           },
           {
             "date": "2024-09-26",
-            "committee": "本会議・委員会",
-            "summary": "議員は災害時の高齢者等の避難に関する取組や個別避難計画・要支援者名簿の活用について質問し、行政側はマイ・タイムラインの普及啓発や個別避難計画の作成状況、要支援者名簿の地域団体への提供と安否確認での活用方法について説明した。",
+            "committee": "本会議",
+            "summary": "議員は災害時の高齢者等の避難に関する取組や個別避難計画・要支援者名簿の活用について質問し、行政側はマイ・タイムラインの普及啓発や個別避難計画の作成状況、要支援者名簿の地域団体への提供と安否確認での活用方法について説明した。...",
             "speech_id": "mtg_378c10a08d4715a5156316b1493c24a7_153",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6004&schedule_id=1"
           }
@@ -359,7 +350,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -380,26 +370,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-02-20",
-          "committee": "本会議・委員会",
-          "summary": "障害者相談支援事業所の消費税課税に伴う追納や補填、今後の要望活動や事業者への支援について議員が質問し、行政側が催促の有無や非課税見直し時の還付、税務処理の手順とサポートについて説明した。",
-          "speech_id": "mtg_10c35a5a9a8d2d9fa0ff3969d877f745_87",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5888&schedule_id=1"
+        "council_vote": {
+          "bill_title": "消費税5%以下への減税とインボイス制度の廃止を求める意見書の提出について",
+          "bill_number": "市会議26",
+          "session": "令和7年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
         },
         "council_statements": [
           {
             "date": "2024-02-20",
-            "committee": "本会議・委員会",
-            "summary": "障害者相談支援事業所の消費税課税に伴う追納や補填、今後の要望活動や事業者への支援について議員が質問し、行政側が催促の有無や非課税見直し時の還付、税務処理の手順とサポートについて説明した。",
+            "committee": "本会議",
+            "summary": "障害者相談支援事業所の消費税課税に伴う追納や補填、今後の要望活動や事業者への支援について議員が質問し、行政側が催促の有無や非課税見直し時の還付、税務処理の手順とサポートについて説明した。...",
             "speech_id": "mtg_10c35a5a9a8d2d9fa0ff3969d877f745_87",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5888&schedule_id=1"
           },
           {
             "date": "2023-09-25",
-            "committee": "本会議・委員会",
-            "summary": "議員は請願者の代読として紙の健康保険証廃止の撤回や制度の諸課題を指摘し意見を述べ、行政側はマイナンバー制度の意義や国の総点検の動向、資格確認書の交付予定等について説明した。",
+            "committee": "本会議",
+            "summary": "議員は請願者の代読として紙の健康保険証廃止の撤回や制度の諸課題を指摘し意見を述べ、行政側はマイナンバー制度の意義や国の総点検の動向、資格確認書の交付予定等について説明した。...",
             "speech_id": "mtg_0941f41a5b6687593bcbf60f9558d4bc_13",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5775&schedule_id=1"
           }
@@ -416,19 +406,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-04",
-          "committee": "本会議・委員会",
-          "summary": "議員が地球温暖化対策の温室効果ガス削減目標の引き上げと原発に依存しないエネルギー政策の推進を求め、行政側は現行目標の達成に向けた取組強化や環境審議会での議論、国や電力会社への働き掛けと再エネ普及施策について説明した。",
-          "speech_id": "mtg_d98c136a8b60f0b05a48040474477869_2",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6184&schedule_id=1"
+        "council_vote": {
+          "bill_title": "原子力発電からの撤退を明確にすることを求める意見書の提出について",
+          "bill_number": "市会議10",
+          "session": "令和6年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian5.html"
         },
         "council_statements": [
           {
             "date": "2025-03-04",
-            "committee": "本会議・委員会",
-            "summary": "議員が地球温暖化対策の温室効果ガス削減目標の引き上げと原発に依存しないエネルギー政策の推進を求め、行政側は現行目標の達成に向けた取組強化や環境審議会での議論、国や電力会社への働き掛けと再エネ普及施策について説明した。",
+            "committee": "本会議",
+            "summary": "議員が地球温暖化対策の温室効果ガス削減目標の引き上げと原発に依存しないエネルギー政策の推進を求め、行政側は現行目標の達成に向けた取組強化や環境審議会での議論、国や電力会社への働き掛けと再エネ普及施策について説明した。...",
             "speech_id": "mtg_d98c136a8b60f0b05a48040474477869_2",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6184&schedule_id=1"
           }
@@ -446,7 +436,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -467,8 +456,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -482,8 +477,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -498,7 +499,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -519,8 +519,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -534,8 +540,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -549,8 +561,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市立学校の給食費の無償化を求める決議について",
+          "bill_number": "市会議27",
+          "session": "令和6年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -572,7 +590,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -587,7 +604,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -602,7 +618,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -623,26 +638,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2023-12-05",
-          "committee": "本会議・委員会",
-          "summary": "森かれん議員は京都市の「すこやかプラン」におけるケアラー支援と認知症予防対策について質問し、行政側はケアマネジャーへの研修やガイドブック等による啓発、国・他都市の動向を踏まえつつ必要な施策を進めると答弁した。",
-          "speech_id": "mtg_16fa9a6df4552157f68ca257dbb803b9_363",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5926&schedule_id=1"
+        "council_vote": {
+          "bill_title": "京都市ケアラーに対する支援の推進に関する条例の制定について",
+          "bill_number": "市会議15",
+          "session": "令和6年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian9.html"
         },
         "council_statements": [
           {
             "date": "2023-12-05",
-            "committee": "本会議・委員会",
-            "summary": "森かれん議員は京都市の「すこやかプラン」におけるケアラー支援と認知症予防対策について質問し、行政側はケアマネジャーへの研修やガイドブック等による啓発、国・他都市の動向を踏まえつつ必要な施策を進めると答弁した。",
+            "committee": "本会議",
+            "summary": "森かれん議員は京都市の「すこやかプラン」におけるケアラー支援と認知症予防対策について質問し、行政側はケアマネジャーへの研修やガイドブック等による啓発、国・他都市の動向を踏まえつつ必要な施策を進めると答弁した。...",
             "speech_id": "mtg_16fa9a6df4552157f68ca257dbb803b9_363",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5926&schedule_id=1"
           },
           {
             "date": "2025-03-03",
-            "committee": "本会議・委員会",
-            "summary": "議員は密集市街地における京町家の大規模修繕支援や制度の実績・認知度について質問し、行政側は認定制度の概要や普及に向けた取組について説明した。",
+            "committee": "本会議",
+            "summary": "議員は密集市街地における京町家の大規模修繕支援や制度の実績・認知度について質問し、行政側は認定制度の概要や普及に向けた取組について説明した。...",
             "speech_id": "mtg_388606d159e4e1b0ef231070c2baf3e1_521",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6218&schedule_id=1"
           }
@@ -660,7 +675,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -674,8 +688,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -697,7 +717,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -712,7 +731,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -727,7 +745,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -749,7 +766,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -763,19 +779,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-06",
-          "committee": "本会議・委員会",
-          "summary": "議員は子ども医療費支給制度の拡充状況と医療的ケア児の把握・災害時支援について質問し、行政側は府市協調による検討状況やはぐくみ室等での把握状況、災害時の避難対応ノートの活用について説明した。",
-          "speech_id": "mtg_7114c0da7713da35d7eaa73fd65cbde7_260",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6220&schedule_id=1"
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
         },
         "council_statements": [
           {
             "date": "2025-03-06",
-            "committee": "本会議・委員会",
-            "summary": "議員は子ども医療費支給制度の拡充状況と医療的ケア児の把握・災害時支援について質問し、行政側は府市協調による検討状況やはぐくみ室等での把握状況、災害時の避難対応ノートの活用について説明した。",
+            "committee": "本会議",
+            "summary": "議員は子ども医療費支給制度の拡充状況と医療的ケア児の把握・災害時支援について質問し、行政側は府市協調による検討状況やはぐくみ室等での把握状況、災害時の避難対応ノートの活用について説明した。...",
             "speech_id": "mtg_7114c0da7713da35d7eaa73fd65cbde7_260",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6220&schedule_id=1"
           }
@@ -792,8 +808,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       }
     ]
@@ -815,7 +837,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -830,7 +851,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -845,7 +865,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/02kamigyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -867,25 +886,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-11",
-          "committee": "本会議・委員会",
-          "summary": "さくらい泰広議員が令和6年度予算の規模や国からの支援、財政状況について質問し、行政側が市税の伸びや地方交付税の状況、今後の新たな行財政改革計画の策定方針について説明した。",
-          "speech_id": "mtg_c594ae7cc5ec545e5ff073eeda8ab020_254",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5895&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-03-11",
-            "committee": "本会議・委員会",
-            "summary": "さくらい泰広議員が令和6年度予算の規模や国からの支援、財政状況について質問し、行政側が市税の伸びや地方交付税の状況、今後の新たな行財政改革計画の策定方針について説明した。",
+            "committee": "本会議",
+            "summary": "さくらい泰広議員が令和6年度予算の規模や国からの支援、財政状況について質問し、行政側が市税の伸びや地方交付税の状況、今後の新たな行財政改革計画の策定方針について説明した。...",
             "speech_id": "mtg_c594ae7cc5ec545e5ff073eeda8ab020_254",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5895&schedule_id=1"
           },
           {
             "date": "2023-10-19",
-            "committee": "本会議・委員会",
-            "summary": "議員は令和4年度決算の黒字要因や積極財政の効果、地方交付税の動向および投資的経費の重要性について質問し、行政側は成長戦略による税収増の効果や交付税を巡る国の動向、今後の公共事業の確保について説明した。",
+            "committee": "本会議",
+            "summary": "議員は令和4年度決算の黒字要因や積極財政の効果、地方交付税の動向および投資的経費の重要性について質問し、行政側は成長戦略による税収増の効果や交付税を巡る国の動向、今後の公共事業の確保について説明した。...",
             "speech_id": "mtg_a247dfd42523171cd6a46058d0887d97_210",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5752&schedule_id=1"
           }
@@ -903,7 +915,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -918,7 +929,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -940,7 +950,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -955,7 +964,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -970,7 +978,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -991,8 +998,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "学校調理による全員制中学校給食を求める決議について",
+          "bill_number": "市会議41",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1006,8 +1019,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1021,8 +1040,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和7年度京都市市公債特別会計補正予算",
+          "bill_number": "議221",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       }
     ]
@@ -1044,7 +1069,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1059,7 +1083,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1074,7 +1097,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1095,26 +1117,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-09-26",
-          "committee": "本会議・委員会",
-          "summary": "議員が前市政の行革計画や職員削減、投資的経費等の評価について質問し、行政側が財政状況の変化や今後の方向性について説明した。",
-          "speech_id": "mtg_7bb3d131833d2405dd920905ec25fb6a_276",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6020&schedule_id=1"
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
         },
         "council_statements": [
           {
             "date": "2024-09-26",
-            "committee": "本会議・委員会",
-            "summary": "議員が前市政の行革計画や職員削減、投資的経費等の評価について質問し、行政側が財政状況の変化や今後の方向性について説明した。",
+            "committee": "本会議",
+            "summary": "議員が前市政の行革計画や職員削減、投資的経費等の評価について質問し、行政側が財政状況の変化や今後の方向性について説明した。...",
             "speech_id": "mtg_7bb3d131833d2405dd920905ec25fb6a_276",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6020&schedule_id=1"
           },
           {
             "date": "2024-03-11",
-            "committee": "本会議・委員会",
-            "summary": "議員が行財政改革計画や職員定数条例、大型開発事業等の財政負担について見直しを求め、行政側は持続的な行財政運営と新たな行政課題への対応を両立させる方針や事業評価の実施について説明した。",
+            "committee": "本会議",
+            "summary": "議員が行財政改革計画や職員定数条例、大型開発事業等の財政負担について見直しを求め、行政側は持続的な行財政運営と新たな行政課題への対応を両立させる方針や事業評価の実施について説明した。...",
             "speech_id": "mtg_c594ae7cc5ec545e5ff073eeda8ab020_105",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5895&schedule_id=1"
           }
@@ -1132,7 +1154,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1146,8 +1167,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和7年度京都市市公債特別会計補正予算",
+          "bill_number": "議221",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       }
     ]
@@ -1168,8 +1195,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議148~155号、157号、159号",
+          "bill_number": "議148~159",
+          "session": "令和7年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1183,8 +1216,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1199,7 +1238,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1221,7 +1259,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1236,7 +1273,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1251,7 +1287,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1273,7 +1308,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1288,7 +1322,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1303,7 +1336,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1324,8 +1356,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市立学校の学校給食費の助成に関する条例の制定について",
+          "bill_number": "市会議17",
+          "session": "令和6年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1340,18 +1378,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-12",
-          "committee": "本会議・委員会",
-          "summary": "おんづか功議員は令和6年度予算編成の思いや敬老バス回数券の予算規模および1回券導入の可能性について質問し、安部統括監および米津好美担当部長は市長公約や重層的支援体制の構築、敬老バス回数券の予算計上額と券面金額の仕組み、今後の制度検証についてそれぞれ説明した。",
-          "speech_id": "mtg_3cde8c534fc996d441706f17a4d473f9_584",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5889&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-03-12",
-            "committee": "本会議・委員会",
-            "summary": "おんづか功議員は令和6年度予算編成の思いや敬老バス回数券の予算規模および1回券導入の可能性について質問し、安部統括監および米津好美担当部長は市長公約や重層的支援体制の構築、敬老バス回数券の予算計上額と券面金額の仕組み、今後の制度検証についてそれぞれ説明した。",
+            "committee": "本会議",
+            "summary": "おんづか功議員は令和6年度予算編成の思いや敬老バス回数券の予算規模および1回券導入の可能性について質問し、安部統括監および米津好美担当部長は市長公約や重層的支援体制の構築、敬老バス回数券の予算計上額と券面金額の仕組み、今後の制度検証についてそれぞれ説明した。...",
             "speech_id": "mtg_3cde8c534fc996d441706f17a4d473f9_584",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5889&schedule_id=1"
           }
@@ -1368,26 +1399,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2023-10-20",
-          "committee": "本会議・委員会",
-          "summary": "議員が宿泊税の使途見直しや高級ホテルに対する応分の負担の導入、および市の温室効果ガス削減に向けた先導的な取組について質問・提案し、行政側がこれまでの宿泊税の導入経緯や活用事例、環境政策に対する取組方針を説明した。",
-          "speech_id": "mtg_bcda68d419055056758b6cd066bc590b_14",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5753&schedule_id=1"
+        "council_vote": {
+          "bill_title": "京都市報酬及び費用弁償条例の一部を改正する条例の制定について",
+          "bill_number": "議21",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
         },
         "council_statements": [
           {
             "date": "2023-10-20",
-            "committee": "本会議・委員会",
-            "summary": "議員が宿泊税の使途見直しや高級ホテルに対する応分の負担の導入、および市の温室効果ガス削減に向けた先導的な取組について質問・提案し、行政側がこれまでの宿泊税の導入経緯や活用事例、環境政策に対する取組方針を説明した。",
+            "committee": "本会議",
+            "summary": "議員が宿泊税の使途見直しや高級ホテルに対する応分の負担の導入、および市の温室効果ガス削減に向けた先導的な取組について質問・提案し、行政側がこれまでの宿泊税の導入経緯や活用事例、環境政策に対する取組方針を説明した。...",
             "speech_id": "mtg_bcda68d419055056758b6cd066bc590b_14",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5753&schedule_id=1"
           },
           {
             "date": "2023-08-07",
-            "committee": "本会議・委員会",
-            "summary": "おんづか功議員が京都市の宿泊税の導入からの5年間の実績や使途、高額宿泊施設への税率、定率制への移行、市民への還元策等について質問し、行政側が導入5年の総括段階でデータに基づき議論・検討する旨を説明した。",
+            "committee": "本会議",
+            "summary": "おんづか功議員が京都市の宿泊税の導入からの5年間の実績や使途、高額宿泊施設への税率、定率制への移行、市民への還元策等について質問し、行政側が導入5年の総括段階でデータに基づき議論・検討する旨を説明した。...",
             "speech_id": "mtg_dd5ee238a377339bcace80f3d7deb5bd_48",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5735&schedule_id=1"
           }
@@ -1412,7 +1443,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1427,7 +1457,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1449,7 +1478,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1463,8 +1491,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1478,8 +1512,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "学校調理による全員制中学校給食を求める決議について",
+          "bill_number": "市会議41",
+          "session": "令和5年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -1500,8 +1540,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "「物価高騰対応重点支援地方創生臨時交付金」の効果的・効率的な執行を求める決議について",
+          "bill_number": "市会議40",
+          "session": "令和7年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1515,8 +1561,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1531,7 +1583,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1553,7 +1604,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1568,25 +1618,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-10-11",
-          "committee": "本会議・委員会",
-          "summary": "議員が緊急輸送道路における無電柱化事業の令和5年度決算実績や後院通および寺町通の進捗状況と完成時期について質問し、行政側が各路線の工事内容や地中遺構の影響によるスケジュール見直しと今後の完了予定時期について説明した。",
-          "speech_id": "mtg_904e3816091c6859085f90e35bd34f7c_66",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6022&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-10-11",
-            "committee": "本会議・委員会",
-            "summary": "議員が緊急輸送道路における無電柱化事業の令和5年度決算実績や後院通および寺町通の進捗状況と完成時期について質問し、行政側が各路線の工事内容や地中遺構の影響によるスケジュール見直しと今後の完了予定時期について説明した。",
+            "committee": "本会議",
+            "summary": "議員が緊急輸送道路における無電柱化事業の令和5年度決算実績や後院通および寺町通の進捗状況と完成時期について質問し、行政側が各路線の工事内容や地中遺構の影響によるスケジュール見直しと今後の完了予定時期について説明した。...",
             "speech_id": "mtg_904e3816091c6859085f90e35bd34f7c_66",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6022&schedule_id=1"
           },
           {
             "date": "2025-03-04",
-            "committee": "本会議・委員会",
-            "summary": "津田大三議員が防災・減災に向けたインフラ整備、官民境界確定、幹線道路整備および堀川通の機能強化について質問し、行政側がそれぞれの取組状況や今後の対応方針について説明した。",
+            "committee": "本会議",
+            "summary": "津田大三議員が防災・減災に向けたインフラ整備、官民境界確定、幹線道路整備および堀川通の機能強化について質問し、行政側がそれぞれの取組状況や今後の対応方針について説明した。...",
             "speech_id": "mtg_adeb6cefb8fec57dd1fc1874d8dd2f34_104",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6219&schedule_id=1"
           }
@@ -1604,18 +1647,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-10-09",
-          "committee": "本会議・委員会",
-          "summary": "津田大三議員は子ども若者はぐくみ局の決算不用額や若者世代の市外流出対策について質問し、行政側は出産・子育て応援事業等の不用実績や乳幼児親子の相談拠点の取組について説明した。また、子ども医療費支給制度の中学生までの段階的な拡充や他政令市の状況、府市協調の維持について質疑が行われた。",
-          "speech_id": "mtg_f94497e44f49db510a18d4f39598a296_289",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6037&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-10-09",
-            "committee": "本会議・委員会",
-            "summary": "津田大三議員は子ども若者はぐくみ局の決算不用額や若者世代の市外流出対策について質問し、行政側は出産・子育て応援事業等の不用実績や乳幼児親子の相談拠点の取組について説明した。また、子ども医療費支給制度の中学生までの段階的な拡充や他政令市の状況、府市協調の維持について質疑が行われた。",
+            "committee": "本会議",
+            "summary": "津田大三議員は子ども若者はぐくみ局の決算不用額や若者世代の市外流出対策について質問し、行政側は出産・子育て応援事業等の不用実績や乳幼児親子の相談拠点の取組について説明した。また、子ども医療費支給制度の中学生までの段階的な拡充や他政令市の状況、府市協調の維持について質疑が行われた。...",
             "speech_id": "mtg_f94497e44f49db510a18d4f39598a296_289",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6037&schedule_id=1"
           }
@@ -1640,25 +1676,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-10-10",
-          "committee": "本会議・委員会",
-          "summary": "学校施設の長寿命化改修や整備の進捗状況と今後の計画について議員が質問し、行政側から実施校数の推移や築年数別の現状、予算確保に向けた方針について説明があった。",
-          "speech_id": "mtg_a7d6ff3843575b31b752a2008b27468c_194",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6085&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-10-10",
-            "committee": "本会議・委員会",
-            "summary": "学校施設の長寿命化改修や整備の進捗状況と今後の計画について議員が質問し、行政側から実施校数の推移や築年数別の現状、予算確保に向けた方針について説明があった。",
+            "committee": "本会議",
+            "summary": "学校施設の長寿命化改修や整備の進捗状況と今後の計画について議員が質問し、行政側から実施校数の推移や築年数別の現状、予算確保に向けた方針について説明があった。...",
             "speech_id": "mtg_a7d6ff3843575b31b752a2008b27468c_194",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6085&schedule_id=1"
           },
           {
             "date": "2025-02-18",
-            "committee": "本会議・委員会",
-            "summary": "加藤昌洋議員が市民ぐるみ推進運動における国庫補助金の活用メニューや予算配分、新規・既存事業の内訳および来年度予算との関係について質問し、行政側が交付金対象事業や配分額、予算規模の増額見込み、早期の準備・実施について説明した。",
+            "committee": "本会議",
+            "summary": "加藤昌洋議員が市民ぐるみ推進運動における国庫補助金の活用メニューや予算配分、新規・既存事業の内訳および来年度予算との関係について質問し、行政側が交付金対象事業や配分額、予算規模の増額見込み、早期の準備・実施について説明した。...",
             "speech_id": "mtg_55bca45374ca06f06bb73e97395e46a7_5",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6211&schedule_id=1"
           }
@@ -1676,7 +1705,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1691,18 +1719,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-10-09",
-          "committee": "本会議・委員会",
-          "summary": "議員がスポーツ振興予算の現状や西京極総合運動公園の老朽化対策、プロスポーツチームとの連携、京都マラソンの市民理解について質問し、行政側が予算確保の工夫やアンケート結果を踏まえた方針、チームとの連携強化について答弁した。",
-          "speech_id": "mtg_f94497e44f49db510a18d4f39598a296_174",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6037&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-10-09",
-            "committee": "本会議・委員会",
-            "summary": "議員がスポーツ振興予算の現状や西京極総合運動公園の老朽化対策、プロスポーツチームとの連携、京都マラソンの市民理解について質問し、行政側が予算確保の工夫やアンケート結果を踏まえた方針、チームとの連携強化について答弁した。",
+            "committee": "本会議",
+            "summary": "議員がスポーツ振興予算の現状や西京極総合運動公園の老朽化対策、プロスポーツチームとの連携、京都マラソンの市民理解について質問し、行政側が予算確保の工夫やアンケート結果を踏まえた方針、チームとの連携強化について答弁した。...",
             "speech_id": "mtg_f94497e44f49db510a18d4f39598a296_174",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6037&schedule_id=1"
           }
@@ -1726,8 +1747,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市旅館業法の施行及び旅館業の適正な運営を確保するための措置に関する条例の一部を改正する条例の制定について",
+          "bill_number": "議77",
+          "session": "令和5年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian9.html"
+        },
         "council_statements": []
       },
       {
@@ -1741,8 +1768,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1757,7 +1790,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1779,18 +1811,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-05-23",
-          "committee": "本会議・委員会",
-          "summary": "議員は中古住宅購入への奨励金支給の検討経過や他都市事例を踏まえた家賃補助などの重層的な制度構築を求め、行政側は若者世代の流出抑制と既存住宅流通促進を優先度の上位に置く方針と財政負担の観点から慎重な姿勢を示した。",
-          "speech_id": "mtg_9aae2861968125b45131a65761b2301c_390",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5954&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-05-23",
-            "committee": "本会議・委員会",
-            "summary": "議員は中古住宅購入への奨励金支給の検討経過や他都市事例を踏まえた家賃補助などの重層的な制度構築を求め、行政側は若者世代の流出抑制と既存住宅流通促進を優先度の上位に置く方針と財政負担の観点から慎重な姿勢を示した。",
+            "committee": "本会議",
+            "summary": "議員は中古住宅購入への奨励金支給の検討経過や他都市事例を踏まえた家賃補助などの重層的な制度構築を求め、行政側は若者世代の流出抑制と既存住宅流通促進を優先度の上位に置く方針と財政負担の観点から慎重な姿勢を示した。...",
             "speech_id": "mtg_9aae2861968125b45131a65761b2301c_390",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5954&schedule_id=1"
           }
@@ -1807,19 +1832,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-10-20",
-          "committee": "本会議・委員会",
-          "summary": "物価高騰に伴う中小事業者への支援や消費税減税・インボイス制度について質問し、行政側は生産性向上支援や既存の国への要望実施について説明した。また、奨学金返済一体型支援事業や「まちの匠」制度の延長等について議論が行われた。",
-          "speech_id": "mtg_3dcbc2812bb936c9e20d93d1ab244e66_217",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6275&schedule_id=1"
+        "council_vote": {
+          "bill_title": "消費税5%以下への減税とインボイス制度の廃止を求める意見書の提出について",
+          "bill_number": "市会議26",
+          "session": "令和7年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
         },
         "council_statements": [
           {
             "date": "2025-10-20",
-            "committee": "本会議・委員会",
-            "summary": "物価高騰に伴う中小事業者への支援や消費税減税・インボイス制度について質問し、行政側は生産性向上支援や既存の国への要望実施について説明した。また、奨学金返済一体型支援事業や「まちの匠」制度の延長等について議論が行われた。",
+            "committee": "本会議",
+            "summary": "物価高騰に伴う中小事業者への支援や消費税減税・インボイス制度について質問し、行政側は生産性向上支援や既存の国への要望実施について説明した。また、奨学金返済一体型支援事業や「まちの匠」制度の延長等について議論が行われた。...",
             "speech_id": "mtg_3dcbc2812bb936c9e20d93d1ab244e66_217",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6275&schedule_id=1"
           }
@@ -1836,19 +1861,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-10-08",
-          "committee": "本会議・委員会",
-          "summary": "議員は子ども医療費支給制度の拡充やOTC類似薬の保険適用外見直しへの対応、18歳までの対象拡大を求め、行政側は国の動向や京都府との協調を踏まえ段階的な制度運営を目指す旨を説明した。",
-          "speech_id": "mtg_8b6dce832b27f9acb620f471b653c963_150",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6251&schedule_id=1"
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
         },
         "council_statements": [
           {
             "date": "2025-10-08",
-            "committee": "本会議・委員会",
-            "summary": "議員は子ども医療費支給制度の拡充やOTC類似薬の保険適用外見直しへの対応、18歳までの対象拡大を求め、行政側は国の動向や京都府との協調を踏まえ段階的な制度運営を目指す旨を説明した。",
+            "committee": "本会議",
+            "summary": "議員は子ども医療費支給制度の拡充やOTC類似薬の保険適用外見直しへの対応、18歳までの対象拡大を求め、行政側は国の動向や京都府との協調を踏まえ段階的な制度運営を目指す旨を説明した。...",
             "speech_id": "mtg_8b6dce832b27f9acb620f471b653c963_150",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6251&schedule_id=1"
           }
@@ -1873,7 +1898,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1888,7 +1912,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1903,7 +1926,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1924,8 +1946,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和8年度京都市一般会計予算",
+          "bill_number": "議1",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -1939,8 +1967,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市ケアラーに対する支援の推進に関する条例の制定について",
+          "bill_number": "市会議15",
+          "session": "令和6年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian9.html"
+        },
         "council_statements": []
       },
       {
@@ -1954,8 +1988,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市会議員の議員報酬、費用弁償及び期末手当の支給に関する条例の一部を改正する条例の制定について",
+          "bill_number": "議201",
+          "session": "令和7年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -1976,8 +2016,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -1991,8 +2037,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市立学校の給食費の無償化を求める決議について",
+          "bill_number": "市会議27",
+          "session": "令和6年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -2006,8 +2058,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和7年度京都市市公債特別会計補正予算",
+          "bill_number": "議221",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       }
     ]
@@ -2028,8 +2086,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -2043,8 +2107,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -2059,7 +2129,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2080,8 +2149,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -2096,7 +2171,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2110,26 +2184,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-14",
-          "committee": "本会議・委員会",
-          "summary": "議員は修学旅行生の駐車場利用枠の制限や祇園祭プレミアム観覧席の運営を例に挙げて他局の取組への意見調整や観光施策の方向性について質問し、行政側は部局横断での議論の必要性や日本人観光客および修学旅行生を重視した今後の観光政策の検討について答弁した。",
-          "speech_id": "mtg_d2ac2c22f955006c88af2ec63cc76856_302",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6224&schedule_id=1"
+        "council_vote": {
+          "bill_title": "観光課題及び観光客受入環境整備に係る意見書の提出について",
+          "bill_number": "市会議10",
+          "session": "令和7年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian5.html"
         },
         "council_statements": [
           {
             "date": "2025-03-14",
-            "committee": "本会議・委員会",
-            "summary": "議員は修学旅行生の駐車場利用枠の制限や祇園祭プレミアム観覧席の運営を例に挙げて他局の取組への意見調整や観光施策の方向性について質問し、行政側は部局横断での議論の必要性や日本人観光客および修学旅行生を重視した今後の観光政策の検討について答弁した。",
+            "committee": "本会議",
+            "summary": "議員は修学旅行生の駐車場利用枠の制限や祇園祭プレミアム観覧席の運営を例に挙げて他局の取組への意見調整や観光施策の方向性について質問し、行政側は部局横断での議論の必要性や日本人観光客および修学旅行生を重視した今後の観光政策の検討について答弁した。...",
             "speech_id": "mtg_d2ac2c22f955006c88af2ec63cc76856_302",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6224&schedule_id=1"
           },
           {
             "date": "2025-01-09",
-            "committee": "本会議・委員会",
-            "summary": "議員は令和7年度予算における市民生活と観光の両立に向けた都市計画局の対策やマイカー規制・駐車場対策について質問し、行政側は情報発信の強化や国交省の駐車場予約システムの実験を踏まえた関係機関との連携方針について説明した。",
+            "committee": "本会議",
+            "summary": "議員は令和7年度予算における市民生活と観光の両立に向けた都市計画局の対策やマイカー規制・駐車場対策について質問し、行政側は情報発信の強化や国交省の駐車場予約システムの実験を踏まえた関係機関との連携方針について説明した。...",
             "speech_id": "mtg_8e1895505e635550f1c3d094f4cf6131_28",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6083&schedule_id=1"
           }
@@ -2154,25 +2228,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2023-05-19",
-          "committee": "本会議・委員会",
-          "summary": "平山たかお議員が京都市の財政運営の周知や情報発信の在り方、行政の事業特性について質問し、行政側から財政健全化と収支均衡の事実や発信の課題について説明があった。",
-          "speech_id": "mtg_7e7a25d6dc776527647f6f834411c12f_316",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5669&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2023-05-19",
-            "committee": "本会議・委員会",
-            "summary": "平山たかお議員が京都市の財政運営の周知や情報発信の在り方、行政の事業特性について質問し、行政側から財政健全化と収支均衡の事実や発信の課題について説明があった。",
+            "committee": "本会議",
+            "summary": "平山たかお議員が京都市の財政運営の周知や情報発信の在り方、行政の事業特性について質問し、行政側から財政健全化と収支均衡の事実や発信の課題について説明があった。...",
             "speech_id": "mtg_7e7a25d6dc776527647f6f834411c12f_316",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5669&schedule_id=1"
           },
           {
             "date": "2023-10-23",
-            "committee": "本会議・委員会",
-            "summary": "平山たかお議員が京都市の財政状況や破綻懸念に関する発言の経緯および今後の財政運営について質問し、行政側から市民への説明責任や時代の変化に対応した財政運営について答弁した。",
+            "committee": "本会議",
+            "summary": "平山たかお議員が京都市の財政状況や破綻懸念に関する発言の経緯および今後の財政運営について質問し、行政側から市民への説明責任や時代の変化に対応した財政運営について答弁した。...",
             "speech_id": "mtg_ebabd480304659f2d276b24bb8d55949_57",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5797&schedule_id=1"
           }
@@ -2190,7 +2257,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2205,7 +2271,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/05higashiyama.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2226,26 +2291,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-10-21",
-          "committee": "本会議・委員会",
-          "summary": "北陸新幹線の五つの懸念や交通不便地域の解消に向けた一般会計からの支援、敬老乗車証制度の見直しについて議員が質問し、行政側は国や鉄道・運輸機構への対応方針や公営企業の独立採算の原則、アンケート結果に基づく周知等の対応について説明した。",
-          "speech_id": "mtg_5634f9205881fde7e5a980b6d12aa7f5_274",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6291&schedule_id=1"
+        "council_vote": {
+          "bill_title": "北陸新幹線延伸計画に係る国等の適切な対応を求める決議について",
+          "bill_number": "市会議19",
+          "session": "令和7年5月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian5.html"
         },
         "council_statements": [
           {
             "date": "2025-10-21",
-            "committee": "本会議・委員会",
-            "summary": "北陸新幹線の五つの懸念や交通不便地域の解消に向けた一般会計からの支援、敬老乗車証制度の見直しについて議員が質問し、行政側は国や鉄道・運輸機構への対応方針や公営企業の独立採算の原則、アンケート結果に基づく周知等の対応について説明した。",
+            "committee": "本会議",
+            "summary": "北陸新幹線の五つの懸念や交通不便地域の解消に向けた一般会計からの支援、敬老乗車証制度の見直しについて議員が質問し、行政側は国や鉄道・運輸機構への対応方針や公営企業の独立採算の原則、アンケート結果に基づく周知等の対応について説明した。...",
             "speech_id": "mtg_5634f9205881fde7e5a980b6d12aa7f5_274",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6291&schedule_id=1"
           },
           {
             "date": "2023-08-10",
-            "committee": "本会議・委員会",
-            "summary": "一般会計の決算が黒字化する中で、市バスの運賃値上げ回避に向け一般会計からの繰入れ拡充を求める質問に対し、行政側は公営企業として独立採算の理念に基づき経営改善と最後の手段としての運賃改定に取り組む旨を説明した。",
+            "committee": "本会議",
+            "summary": "一般会計の決算が黒字化する中で、市バスの運賃値上げ回避に向け一般会計からの繰入れ拡充を求める質問に対し、行政側は公営企業として独立採算の理念に基づき経営改善と最後の手段としての運賃改定に取り組む旨を説明した。...",
             "speech_id": "mtg_422ad74badecc96ced87a8a2fb2106a8_31",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5697&schedule_id=1"
           }
@@ -2263,25 +2328,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2023-05-26",
-          "committee": "本会議・委員会",
-          "summary": "北山ただお議員は行財政改革計画に基づく敬老乗車証負担増等の撤回を求め、行政側は制度の持続可能性確保と負担軽減策の実施を説明した。",
-          "speech_id": "mtg_468c30f8443c00ed019ecb08dd813bbf_77",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5687&schedule_id=3"
-        },
         "council_statements": [
           {
             "date": "2023-05-26",
-            "committee": "本会議・委員会",
-            "summary": "北山ただお議員は行財政改革計画に基づく敬老乗車証負担増等の撤回を求め、行政側は制度の持続可能性確保と負担軽減策の実施を説明した。",
+            "committee": "本会議",
+            "summary": "北山ただお議員は行財政改革計画に基づく敬老乗車証負担増等の撤回を求め、行政側は制度の持続可能性確保と負担軽減策の実施を説明した。...",
             "speech_id": "mtg_468c30f8443c00ed019ecb08dd813bbf_77",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5687&schedule_id=3"
           },
           {
             "date": "2025-10-21",
-            "committee": "本会議・委員会",
-            "summary": "北陸新幹線の五つの懸念や交通不便地域の解消に向けた一般会計からの支援、敬老乗車証制度の見直しについて議員が質問し、行政側は国や鉄道・運輸機構への対応方針や公営企業の独立採算の原則、アンケート結果に基づく周知等の対応について説明した。",
+            "committee": "本会議",
+            "summary": "北陸新幹線の五つの懸念や交通不便地域の解消に向けた一般会計からの支援、敬老乗車証制度の見直しについて議員が質問し、行政側は国や鉄道・運輸機構への対応方針や公営企業の独立採算の原則、アンケート結果に基づく周知等の対応について説明した。...",
             "speech_id": "mtg_5634f9205881fde7e5a980b6d12aa7f5_274",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6291&schedule_id=1"
           }
@@ -2298,8 +2356,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -2321,7 +2385,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2336,7 +2399,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2351,7 +2413,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2372,26 +2433,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2023-06-07",
-          "committee": "本会議・委員会",
-          "summary": "議員は全員制中学校給食の早期実施や一斉実施の方式、給食費無償化および物価高騰に伴う保護者負担軽減について質問し、行政側は全員制給食の役割や実施スケジュールは総合的に検討中であること、生活困窮世帯への支援や物価高騰への対応について答弁した。",
-          "speech_id": "mtg_f69148e1a9664f5aecff8d1d063f6b58_73",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5690&schedule_id=1"
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳まで完全無償化を求める決議について",
+          "bill_number": "市会議38",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
         },
         "council_statements": [
           {
             "date": "2023-06-07",
-            "committee": "本会議・委員会",
-            "summary": "議員は全員制中学校給食の早期実施や一斉実施の方式、給食費無償化および物価高騰に伴う保護者負担軽減について質問し、行政側は全員制給食の役割や実施スケジュールは総合的に検討中であること、生活困窮世帯への支援や物価高騰への対応について答弁した。",
+            "committee": "本会議",
+            "summary": "議員は全員制中学校給食の早期実施や一斉実施の方式、給食費無償化および物価高騰に伴う保護者負担軽減について質問し、行政側は全員制給食の役割や実施スケジュールは総合的に検討中であること、生活困窮世帯への支援や物価高騰への対応について答弁した。...",
             "speech_id": "mtg_f69148e1a9664f5aecff8d1d063f6b58_73",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5690&schedule_id=1"
           },
           {
             "date": "2024-03-12",
-            "committee": "本会議・委員会",
-            "summary": "議員は子育て世帯の経済的支援、保育士の処遇改善、学童クラブの環境整備、子供の権利保障について質問し、行政側は府市協調による医療費助成や保育料軽減の取り組み、職員配置基準や補助金制度の運用、はぐくみ憲章等に基づく施策について説明した。",
+            "committee": "本会議",
+            "summary": "議員は子育て世帯の経済的支援、保育士の処遇改善、学童クラブの環境整備、子供の権利保障について質問し、行政側は府市協調による医療費助成や保育料軽減の取り組み、職員配置基準や補助金制度の運用、はぐくみ憲章等に基づく施策について説明した。...",
             "speech_id": "mtg_3a62bbf088123e4558649b23f3d7cbe5_374",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5898&schedule_id=1"
           }
@@ -2409,25 +2470,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-10-11",
-          "committee": "本会議・委員会",
-          "summary": "住宅宿泊事業の条例附則における見直し規定の根拠について質問し、行政側が説明した。また、高齢者の居場所確保や老人保養センターの存続、敬老乗車証制度の改定の影響、訪問介護事業所の報酬引き下げと介護人材確保に関する課題について質問し、行政側が見解や対応を答弁した。",
-          "speech_id": "mtg_acaa49ba3d9a59e96419007c581e4dd7_493",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6009&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-10-11",
-            "committee": "本会議・委員会",
-            "summary": "住宅宿泊事業の条例附則における見直し規定の根拠について質問し、行政側が説明した。また、高齢者の居場所確保や老人保養センターの存続、敬老乗車証制度の改定の影響、訪問介護事業所の報酬引き下げと介護人材確保に関する課題について質問し、行政側が見解や対応を答弁した。",
+            "committee": "本会議",
+            "summary": "住宅宿泊事業の条例附則における見直し規定の根拠について質問し、行政側が説明した。また、高齢者の居場所確保や老人保養センターの存続、敬老乗車証制度の改定の影響、訪問介護事業所の報酬引き下げと介護人材確保に関する課題について質問し、行政側が見解や対応を答弁した。...",
             "speech_id": "mtg_acaa49ba3d9a59e96419007c581e4dd7_493",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6009&schedule_id=1"
           },
           {
             "date": "2023-10-20",
-            "committee": "本会議・委員会",
-            "summary": "民間保育士給与補助金の昇給財源制限の見直し、中学校給食のセンター方式、教員不足と少人数学級、学童保育の大規模化・詰め込みの実態について質問し、行政側から各制度の基準や対応について説明・答弁があった質疑。",
+            "committee": "本会議",
+            "summary": "民間保育士給与補助金の昇給財源制限の見直し、中学校給食のセンター方式、教員不足と少人数学級、学童保育の大規模化・詰め込みの実態について質問し、行政側から各制度の基準や対応について説明・答弁があった質疑。...",
             "speech_id": "mtg_bcda68d419055056758b6cd066bc590b_104",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5753&schedule_id=1"
           }
@@ -2445,18 +2499,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-07-09",
-          "committee": "本会議・委員会",
-          "summary": "市民税の分割納付や納税猶予の件数の推移、窓口集約および職員数削減の影響について議員が質問し、行政側が取扱いの変更や件数減少の理由、個別事情への対応方針について説明した。",
-          "speech_id": "mtg_3d5fcbadb3a83bf58f5e7e5c3e537a46_169",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5998&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-07-09",
-            "committee": "本会議・委員会",
-            "summary": "市民税の分割納付や納税猶予の件数の推移、窓口集約および職員数削減の影響について議員が質問し、行政側が取扱いの変更や件数減少の理由、個別事情への対応方針について説明した。",
+            "committee": "本会議",
+            "summary": "市民税の分割納付や納税猶予の件数の推移、窓口集約および職員数削減の影響について議員が質問し、行政側が取扱いの変更や件数減少の理由、個別事情への対応方針について説明した。...",
             "speech_id": "mtg_3d5fcbadb3a83bf58f5e7e5c3e537a46_169",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5998&schedule_id=1"
           }
@@ -2481,25 +2528,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-06",
-          "committee": "本会議・委員会",
-          "summary": "山本しゅうじ議員が京都の町柄や地域連携、子育て支援のPR、幼稚園における保育料の支援、京都版ミニ・ミュンヘン事業等について質問し、行政側がはぐくみネットワークやアプリ等による情報発信、幼稚園への支援方針、事業の目的や実施予定について説明した。",
-          "speech_id": "mtg_7114c0da7713da35d7eaa73fd65cbde7_458",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6220&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2025-03-06",
-            "committee": "本会議・委員会",
-            "summary": "山本しゅうじ議員が京都の町柄や地域連携、子育て支援のPR、幼稚園における保育料の支援、京都版ミニ・ミュンヘン事業等について質問し、行政側がはぐくみネットワークやアプリ等による情報発信、幼稚園への支援方針、事業の目的や実施予定について説明した。",
+            "committee": "本会議",
+            "summary": "山本しゅうじ議員が京都の町柄や地域連携、子育て支援のPR、幼稚園における保育料の支援、京都版ミニ・ミュンヘン事業等について質問し、行政側がはぐくみネットワークやアプリ等による情報発信、幼稚園への支援方針、事業の目的や実施予定について説明した。...",
             "speech_id": "mtg_7114c0da7713da35d7eaa73fd65cbde7_458",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6220&schedule_id=1"
           },
           {
             "date": "2024-06-05",
-            "committee": "本会議・委員会",
-            "summary": "山本しゅうじ議員がこどもまんなか公園魅力アッププロジェクトにおけるインクルーシブ遊具やトイレリニューアル、meetus山科-醍醐プロジェクトとの連携について質問し、行政側が勧修寺公園や二条公園での設置予定、トイレの設計・工事・洋式化の予算計上、全庁的会議を通じた取組の検討について答弁した。",
+            "committee": "本会議",
+            "summary": "山本しゅうじ議員がこどもまんなか公園魅力アッププロジェクトにおけるインクルーシブ遊具やトイレリニューアル、meetus山科-醍醐プロジェクトとの連携について質問し、行政側が勧修寺公園や二条公園での設置予定、トイレの設計・工事・洋式化の予算計上、全庁的会議を通じた取組の検討について答弁した。...",
             "speech_id": "mtg_d13af567e1d17e22d42dbb6cf92953ed_535",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5919&schedule_id=1"
           }
@@ -2517,25 +2557,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-06-05",
-          "committee": "本会議・委員会",
-          "summary": "meetus山科－醍醐プロジェクトの広報物企画について質問し、行政側から秋頃の方向性取りまとめや市民しんぶん等での周知予定が説明された。また京阪バスの減便に対する京都市の申入れや協議状況について質問し、行政側から運転士不足を理由とする緊急的措置であることや、早期のダイヤ見直しとプロジェクトへの参画について事業者と協議した旨が説明された。",
-          "speech_id": "mtg_d13af567e1d17e22d42dbb6cf92953ed_257",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5919&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-06-05",
-            "committee": "本会議・委員会",
-            "summary": "meetus山科－醍醐プロジェクトの広報物企画について質問し、行政側から秋頃の方向性取りまとめや市民しんぶん等での周知予定が説明された。また京阪バスの減便に対する京都市の申入れや協議状況について質問し、行政側から運転士不足を理由とする緊急的措置であることや、早期のダイヤ見直しとプロジェクトへの参画について事業者と協議した旨が説明された。",
+            "committee": "本会議",
+            "summary": "meetus山科－醍醐プロジェクトの広報物企画について質問し、行政側から秋頃の方向性取りまとめや市民しんぶん等での周知予定が説明された。また京阪バスの減便に対する京都市の申入れや協議状況について質問し、行政側から運転士不足を理由とする緊急的措置であることや、早期のダイヤ見直しとプロジェクトへの参画について事業者と協議した旨が説明された。...",
             "speech_id": "mtg_d13af567e1d17e22d42dbb6cf92953ed_257",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5919&schedule_id=1"
           },
           {
             "date": "2025-10-10",
-            "committee": "本会議・委員会",
-            "summary": "山本しゅうじ議員はmeetsh山科-醍醐の機運醸成や市営住宅の団地再生事業、生活交通確保支援事業について質問し、行政側は各事業の進捗状況や今後の取組予定について説明した。",
+            "committee": "本会議",
+            "summary": "山本しゅうじ議員はmeetsh山科-醍醐の機運醸成や市営住宅の団地再生事業、生活交通確保支援事業について質問し、行政側は各事業の進捗状況や今後の取組予定について説明した。...",
             "speech_id": "mtg_bcf205344fc8d407ea25ef99057656a0_141",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6337&schedule_id=1"
           }
@@ -2553,7 +2586,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2575,7 +2607,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2590,7 +2621,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2605,7 +2635,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2626,8 +2655,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市職員定数条例の一部を改正する条例の制定について",
+          "bill_number": "議18",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -2641,8 +2676,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市地区計画の区域内における建築物等の制限に関する条例の一部を改正する条例の制定について",
+          "bill_number": "議97",
+          "session": "令和7年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
         "council_statements": []
       },
       {
@@ -2656,8 +2697,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市地域コミュニティ活性化推進条例の一部を改正する条例の制定について",
+          "bill_number": "議25",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       }
     ]
@@ -2679,7 +2726,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2693,8 +2739,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -2709,18 +2761,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2023-10-10",
-          "committee": "本会議・委員会",
-          "summary": "議員が不妊治療に関する情報発信の強化やSNSを活用した相談事業、医療的ケア児の災害対応のスケジュールについて質問し、行政側が動画配信の周知方法やホームページの構成見直し、マニュアルの配布方法等について説明した。",
-          "speech_id": "mtg_c11f57846843873ce38683c8f4f337cc_339",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5839&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2023-10-10",
-            "committee": "本会議・委員会",
-            "summary": "議員が不妊治療に関する情報発信の強化やSNSを活用した相談事業、医療的ケア児の災害対応のスケジュールについて質問し、行政側が動画配信の周知方法やホームページの構成見直し、マニュアルの配布方法等について説明した。",
+            "committee": "本会議",
+            "summary": "議員が不妊治療に関する情報発信の強化やSNSを活用した相談事業、医療的ケア児の災害対応のスケジュールについて質問し、行政側が動画配信の周知方法やホームページの構成見直し、マニュアルの配布方法等について説明した。...",
             "speech_id": "mtg_c11f57846843873ce38683c8f4f337cc_339",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5839&schedule_id=1"
           }
@@ -2744,8 +2789,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議148~155号、157号、159号",
+          "bill_number": "議148~159",
+          "session": "令和7年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -2759,8 +2810,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和8年度京都市自動車運送事業特別会計予算",
+          "bill_number": "議14",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -2775,7 +2832,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2796,8 +2852,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -2812,7 +2874,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2827,7 +2888,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2848,8 +2908,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "消費税5%以下への減税とインボイス制度の廃止を求める意見書の提出について",
+          "bill_number": "市会議26",
+          "session": "令和7年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
+        },
         "council_statements": []
       },
       {
@@ -2863,8 +2929,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市国民健康保険条例の一部を改正する条例の制定について",
+          "bill_number": "議26",
+          "session": "令和6年2月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -2878,8 +2950,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "北陸新幹線京都地下延伸計画の中止を求める意見書の提出について",
+          "bill_number": "市会議34",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -2900,8 +2978,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市会議員の議員報酬、費用弁償及び期末手当の支給に関する条例の一部を改正する条例の制定について",
+          "bill_number": "議201",
+          "session": "令和7年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -2915,8 +2999,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -2930,8 +3020,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -2953,25 +3049,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-04-23",
-          "committee": "本会議・委員会",
-          "summary": "議員が祇園地域の街頭ごみ容器の設置数や収集回数の増加に伴う予算、スマートごみ箱のアラーム通知機能や国の補助金活用について質問し、行政側が設置数25基、追加費用は既定予算内で対応していることや国の補助制度の認識状況について説明した。",
-          "speech_id": "mtg_cfc69fc6ff68fe12e9f0a36c03dd60da_61",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5929&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-04-23",
-            "committee": "本会議・委員会",
-            "summary": "議員が祇園地域の街頭ごみ容器の設置数や収集回数の増加に伴う予算、スマートごみ箱のアラーム通知機能や国の補助金活用について質問し、行政側が設置数25基、追加費用は既定予算内で対応していることや国の補助制度の認識状況について説明した。",
+            "committee": "本会議",
+            "summary": "議員が祇園地域の街頭ごみ容器の設置数や収集回数の増加に伴う予算、スマートごみ箱のアラーム通知機能や国の補助金活用について質問し、行政側が設置数25基、追加費用は既定予算内で対応していることや国の補助制度の認識状況について説明した。...",
             "speech_id": "mtg_cfc69fc6ff68fe12e9f0a36c03dd60da_61",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5929&schedule_id=1"
           },
           {
             "date": "2025-03-03",
-            "committee": "本会議・委員会",
-            "summary": "議員が市バス事業の令和7年度予算における赤字見込みと運転士不足の状況について質問し、行政側は厳しい経営環境や採用活動の現状と今後の取組方針について説明した。",
+            "committee": "本会議",
+            "summary": "議員が市バス事業の令和7年度予算における赤字見込みと運転士不足の状況について質問し、行政側は厳しい経営環境や採用活動の現状と今後の取組方針について説明した。...",
             "speech_id": "mtg_985a0962e178fcc56ffcf4987c318a56_32",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6221&schedule_id=1"
           }
@@ -2988,8 +3077,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -3004,7 +3099,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3026,7 +3120,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3041,7 +3134,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3056,7 +3148,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3078,7 +3169,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3093,25 +3183,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2023-07-18",
-          "committee": "本会議・委員会",
-          "summary": "議員は京都駅西部エリアおよび東部エリアの将来構想や回遊性向上、京都市立芸術大学の移転に向けた取組について質問し、行政側は民間や地域と連携したまちづくりの推進や文化芸術を基軸とした活性化について説明した。",
-          "speech_id": "mtg_4e53d1f40b4049b507b71c7f6a3d7100_144",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5770&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2023-07-18",
-            "committee": "本会議・委員会",
-            "summary": "議員は京都駅西部エリアおよび東部エリアの将来構想や回遊性向上、京都市立芸術大学の移転に向けた取組について質問し、行政側は民間や地域と連携したまちづくりの推進や文化芸術を基軸とした活性化について説明した。",
+            "committee": "本会議",
+            "summary": "議員は京都駅西部エリアおよび東部エリアの将来構想や回遊性向上、京都市立芸術大学の移転に向けた取組について質問し、行政側は民間や地域と連携したまちづくりの推進や文化芸術を基軸とした活性化について説明した。...",
             "speech_id": "mtg_4e53d1f40b4049b507b71c7f6a3d7100_144",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5770&schedule_id=1"
           },
           {
             "date": "2023-11-06",
-            "committee": "本会議・委員会",
-            "summary": "京都駅周辺の西部・東部・東南部エリアにおける文化芸術や施設整備を活用したまちづくりの展開と、将来構想の取組期間延長に関する質問に対し、行政側から各エリアの特性をいかした一体的な取組を継続する旨の答弁があった。",
+            "committee": "本会議",
+            "summary": "京都駅周辺の西部・東部・東南部エリアにおける文化芸術や施設整備を活用したまちづくりの展開と、将来構想の取組期間延長に関する質問に対し、行政側から各エリアの特性をいかした一体的な取組を継続する旨の答弁があった。...",
             "speech_id": "mtg_f70d64684709b576b674673f2e60efef_33",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5799&schedule_id=1"
           }
@@ -3129,25 +3212,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-06-12",
-          "committee": "本会議・委員会",
-          "summary": "議員は商店街振興と林業振興について質問し、行政側は商店街の共通課題や個別課題に対する支援策や、森林政策推進本部を中心とした林業振興の取組について答弁した。",
-          "speech_id": "mtg_e4f8b413b1802c231d352310736bbb0e_68",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5949&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-06-12",
-            "committee": "本会議・委員会",
-            "summary": "議員は商店街振興と林業振興について質問し、行政側は商店街の共通課題や個別課題に対する支援策や、森林政策推進本部を中心とした林業振興の取組について答弁した。",
+            "committee": "本会議",
+            "summary": "議員は商店街振興と林業振興について質問し、行政側は商店街の共通課題や個別課題に対する支援策や、森林政策推進本部を中心とした林業振興の取組について答弁した。...",
             "speech_id": "mtg_e4f8b413b1802c231d352310736bbb0e_68",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5949&schedule_id=1"
           },
           {
             "date": "2025-03-18",
-            "committee": "本会議・委員会",
-            "summary": "下村あきら議員は、街路灯撤去補助制度の実績や単価、市民しんぶんの活用、商店街の後継者育成支援、個性ある商店街づくりの事例について質問し、行政側は、3年間で延べ9団体・127基を支援していることや、SNS活用やコーディネーター派遣等の取組について説明した。",
+            "committee": "本会議",
+            "summary": "下村あきら議員は、街路灯撤去補助制度の実績や単価、市民しんぶんの活用、商店街の後継者育成支援、個性ある商店街づくりの事例について質問し、行政側は、3年間で延べ9団体・127基を支援していることや、SNS活用やコーディネーター派遣等の取組について説明した。...",
             "speech_id": "mtg_c67af40053916bbc44c1751c9009d7b9_258",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6234&schedule_id=1"
           }
@@ -3171,8 +3247,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -3186,8 +3268,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -3202,25 +3290,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-11-28",
-          "committee": "本会議・委員会",
-          "summary": "議員は北陸新幹線計画の中止、京都駅周辺のまちづくりや公園整備等の見直し、鉄道駅のバリアフリー化などを提案し、行政側は各種計画や都市再生特別地区の審査方針、公共交通や学校環境の取り組みについて説明した。",
-          "speech_id": "mtg_ed1c7e801418f0d6a653b40cb52b5759_77",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4"
-        },
         "council_statements": [
           {
             "date": "2025-11-28",
-            "committee": "本会議・委員会",
-            "summary": "議員は北陸新幹線計画の中止、京都駅周辺のまちづくりや公園整備等の見直し、鉄道駅のバリアフリー化などを提案し、行政側は各種計画や都市再生特別地区の審査方針、公共交通や学校環境の取り組みについて説明した。",
+            "committee": "本会議",
+            "summary": "議員は北陸新幹線計画の中止、京都駅周辺のまちづくりや公園整備等の見直し、鉄道駅のバリアフリー化などを提案し、行政側は各種計画や都市再生特別地区の審査方針、公共交通や学校環境の取り組みについて説明した。...",
             "speech_id": "mtg_ed1c7e801418f0d6a653b40cb52b5759_77",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4"
           },
           {
             "date": "2024-10-04",
-            "committee": "本会議・委員会",
-            "summary": "森田ゆみ子議員は北陸新幹線延伸の中止や東吉祥院公園への給食工場建設計画の見直し、市営住宅の所得基準引き上げや市バスの乗継ぎ無料化を質問し、松井市長および関係理事者は新幹線の課題精査や計画の変更はない旨、住宅政策やバス運賃・乗継ぎポイント制度の現状について説明した。",
+            "committee": "本会議",
+            "summary": "森田ゆみ子議員は北陸新幹線延伸の中止や東吉祥院公園への給食工場建設計画の見直し、市営住宅の所得基準引き上げや市バスの乗継ぎ無料化を質問し、松井市長および関係理事者は新幹線の課題精査や計画の変更はない旨、住宅政策やバス運賃・乗継ぎポイント制度の現状について説明した。...",
             "speech_id": "mtg_e67500aeecf63dfad7d39b52f535757a_20",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6059&schedule_id=5"
           }
@@ -3244,8 +3325,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市子ども・子育て支援法施行条例の一部を改正する条例の制定について",
+          "bill_number": "議30",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -3260,7 +3347,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3275,7 +3361,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3297,7 +3382,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3312,7 +3396,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3327,7 +3410,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3348,8 +3430,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -3363,8 +3451,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市子ども・子育て支援法施行条例の一部を改正する条例の制定について",
+          "bill_number": "議30",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -3378,8 +3472,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "地方創生に貢献するサーキュラーエコノミー(循環経済)の一層の推進を求める意見書の提出について",
+          "bill_number": "市会議51",
+          "session": "令和5年3月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian3.html"
+        },
         "council_statements": []
       }
     ]
@@ -3400,8 +3500,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市立学校の学校給食費の助成に関する条例の制定について",
+          "bill_number": "市会議17",
+          "session": "令和6年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -3415,8 +3521,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -3431,7 +3543,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3452,19 +3563,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-10-08",
-          "committee": "本会議・委員会",
-          "summary": "議員が子育て家庭やひとり親家庭への支援施策について質問し、行政側からこんにちは赤ちゃん事業や家庭訪問型継続的個別支援、各種給付金事業の実施状況やヘルパー研修について説明があった。",
-          "speech_id": "mtg_8b6dce832b27f9acb620f471b653c963_62",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6251&schedule_id=1"
+        "council_vote": {
+          "bill_title": "京都市子ども・子育て支援法施行条例の一部を改正する条例の制定について",
+          "bill_number": "議30",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
         },
         "council_statements": [
           {
             "date": "2025-10-08",
-            "committee": "本会議・委員会",
-            "summary": "議員が子育て家庭やひとり親家庭への支援施策について質問し、行政側からこんにちは赤ちゃん事業や家庭訪問型継続的個別支援、各種給付金事業の実施状況やヘルパー研修について説明があった。",
+            "committee": "本会議",
+            "summary": "議員が子育て家庭やひとり親家庭への支援施策について質問し、行政側からこんにちは赤ちゃん事業や家庭訪問型継続的個別支援、各種給付金事業の実施状況やヘルパー研修について説明があった。...",
             "speech_id": "mtg_8b6dce832b27f9acb620f471b653c963_62",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6251&schedule_id=1"
           }
@@ -3482,7 +3593,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3497,7 +3607,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3519,7 +3628,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/08minami.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3541,7 +3649,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3556,7 +3663,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3571,7 +3677,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3592,8 +3697,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市子ども・子育て支援法施行条例の一部を改正する条例の制定について",
+          "bill_number": "議30",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -3607,8 +3718,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和6年度京都市後期高齢者医療特別会計補正予算",
+          "bill_number": "議67",
+          "session": "令和6年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -3622,8 +3739,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市地域コミュニティ活性化推進条例の一部を改正する条例の制定について",
+          "bill_number": "議25",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       }
     ]
@@ -3645,7 +3768,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3659,26 +3781,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-11",
-          "committee": "本会議・委員会",
-          "summary": "議員が過去の予算編成や行財政改革計画との比較、市税収入の動向等について質問し、行政側から第一次・第二次編成の考え方や税収の現状、財政健全化に向けた取組について説明があった。",
-          "speech_id": "mtg_c594ae7cc5ec545e5ff073eeda8ab020_347",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5895&schedule_id=1"
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
         },
         "council_statements": [
           {
             "date": "2024-03-11",
-            "committee": "本会議・委員会",
-            "summary": "議員が過去の予算編成や行財政改革計画との比較、市税収入の動向等について質問し、行政側から第一次・第二次編成の考え方や税収の現状、財政健全化に向けた取組について説明があった。",
+            "committee": "本会議",
+            "summary": "議員が過去の予算編成や行財政改革計画との比較、市税収入の動向等について質問し、行政側から第一次・第二次編成の考え方や税収の現状、財政健全化に向けた取組について説明があった。...",
             "speech_id": "mtg_c594ae7cc5ec545e5ff073eeda8ab020_347",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5895&schedule_id=1"
           },
           {
             "date": "2023-10-05",
-            "committee": "本会議・委員会",
-            "summary": "議員は令和4年度決算を踏まえた財政状況や行財政改革計画の成果、職員の意識変化や今後の削減余地、将来への投資について質問し、行政側は財政危機の回避状況や黒字決算の達成、職員の時間外勤務削減や民間活用、今後の収入増加策や未来への投資について説明した。",
+            "committee": "本会議",
+            "summary": "議員は令和4年度決算を踏まえた財政状況や行財政改革計画の成果、職員の意識変化や今後の削減余地、将来への投資について質問し、行政側は財政危機の回避状況や黒字決算の達成、職員の時間外勤務削減や民間活用、今後の収入増加策や未来への投資について説明した。...",
             "speech_id": "mtg_a69ee8d4deb3ebed883a51b558380e61_287",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5777&schedule_id=1"
           }
@@ -3696,7 +3818,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3717,8 +3838,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -3733,7 +3860,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3747,8 +3873,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大企業の内部留保を活用し抜本的な賃上げ対策を求める意見書の提出について",
+          "bill_number": "市会議35",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -3769,26 +3901,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2023-09-22",
-          "committee": "本会議・委員会",
-          "summary": "議員が物価高騰やインボイス制度による中小企業の経営悪化と廃業懸念を指摘し実態調査や固定費補助等の支援を求めたのに対し、行政側は各種統計や日々の業務を通じた実態把握に努めつつ、国の動向や既存の支援策を活用して対応する旨を説明した。",
-          "speech_id": "mtg_198cbeea70e1491f6a83d272735abcb3_75",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5774&schedule_id=1"
+        "council_vote": {
+          "bill_title": "消費税5%以下への減税とインボイス制度の廃止を求める意見書の提出について",
+          "bill_number": "市会議26",
+          "session": "令和7年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian9.html"
         },
         "council_statements": [
           {
             "date": "2023-09-22",
-            "committee": "本会議・委員会",
-            "summary": "議員が物価高騰やインボイス制度による中小企業の経営悪化と廃業懸念を指摘し実態調査や固定費補助等の支援を求めたのに対し、行政側は各種統計や日々の業務を通じた実態把握に努めつつ、国の動向や既存の支援策を活用して対応する旨を説明した。",
+            "committee": "本会議",
+            "summary": "議員が物価高騰やインボイス制度による中小企業の経営悪化と廃業懸念を指摘し実態調査や固定費補助等の支援を求めたのに対し、行政側は各種統計や日々の業務を通じた実態把握に努めつつ、国の動向や既存の支援策を活用して対応する旨を説明した。...",
             "speech_id": "mtg_198cbeea70e1491f6a83d272735abcb3_75",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5774&schedule_id=1"
           },
           {
             "date": "2025-05-13",
-            "committee": "本会議・委員会",
-            "summary": "議員が定額減税補足給付金の対象者把握や給付スケジュール、物価高騰に伴う市民生活の実態について質問し、行政側が国の基準に基づいた事務処理の予定や市民相談を通じた動向把握について説明した。",
+            "committee": "本会議",
+            "summary": "議員が定額減税補足給付金の対象者把握や給付スケジュール、物価高騰に伴う市民生活の実態について質問し、行政側が国の基準に基づいた事務処理の予定や市民相談を通じた動向把握について説明した。...",
             "speech_id": "mtg_32b660ba2f12ee1ea9af7124206b847c_114",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6260&schedule_id=1"
           }
@@ -3805,8 +3937,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -3820,8 +3958,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       }
     ]
@@ -3842,26 +3986,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-18",
-          "committee": "本会議・委員会",
-          "summary": "議員が京都市財政の現状と過去負債の返済計画、新たな行財政改革計画について見解を問い、行政側が税収確保や行財政改革、公債償還基金の返済計画について説明した。",
-          "speech_id": "mtg_faab9725319b6945109869ec6197552e_22",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5892&schedule_id=1"
+        "council_vote": {
+          "bill_title": "京都市会議員の議員報酬、費用弁償及び期末手当の支給に関する条例の一部を改正する条例の制定について",
+          "bill_number": "議201",
+          "session": "令和7年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
         },
         "council_statements": [
           {
             "date": "2024-03-18",
-            "committee": "本会議・委員会",
-            "summary": "議員が京都市財政の現状と過去負債の返済計画、新たな行財政改革計画について見解を問い、行政側が税収確保や行財政改革、公債償還基金の返済計画について説明した。",
+            "committee": "本会議",
+            "summary": "議員が京都市財政の現状と過去負債の返済計画、新たな行財政改革計画について見解を問い、行政側が税収確保や行財政改革、公債償還基金の返済計画について説明した。...",
             "speech_id": "mtg_faab9725319b6945109869ec6197552e_22",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5892&schedule_id=1"
           },
           {
             "date": "2024-12-03",
-            "committee": "本会議・委員会",
-            "summary": "給食センター整備運営事業費の債務負担行為設定額について、算定根拠や上限額、償還方法、財源内訳、国庫支出金の基準面積や建築単価、地方交付税措置の見通し、調理員の確保や人件費高騰に対するスライド条項の導入可能性について議員が質問し、行政側がそれぞれの説明や答弁を行った。",
+            "committee": "本会議",
+            "summary": "給食センター整備運営事業費の債務負担行為設定額について、算定根拠や上限額、償還方法、財源内訳、国庫支出金の基準面積や建築単価、地方交付税措置の見通し、調理員の確保や人件費高騰に対するスライド条項の導入可能性について議員が質問し、行政側がそれぞれの説明や答弁を行った。...",
             "speech_id": "mtg_fb800eca59ee756ea9a3ceb71f3c67de_66",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6050&schedule_id=1"
           }
@@ -3878,26 +4022,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-12-03",
-          "committee": "本会議・委員会",
-          "summary": "給食センター整備運営事業費の債務負担行為設定額について、算定根拠や上限額、償還方法、財源内訳、国庫支出金の基準面積や建築単価、地方交付税措置の見通し、調理員の確保や人件費高騰に対するスライド条項の導入可能性について議員が質問し、行政側がそれぞれの説明や答弁を行った。",
-          "speech_id": "mtg_fb800eca59ee756ea9a3ceb71f3c67de_66",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6050&schedule_id=1"
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
         },
         "council_statements": [
           {
             "date": "2024-12-03",
-            "committee": "本会議・委員会",
-            "summary": "給食センター整備運営事業費の債務負担行為設定額について、算定根拠や上限額、償還方法、財源内訳、国庫支出金の基準面積や建築単価、地方交付税措置の見通し、調理員の確保や人件費高騰に対するスライド条項の導入可能性について議員が質問し、行政側がそれぞれの説明や答弁を行った。",
+            "committee": "本会議",
+            "summary": "給食センター整備運営事業費の債務負担行為設定額について、算定根拠や上限額、償還方法、財源内訳、国庫支出金の基準面積や建築単価、地方交付税措置の見通し、調理員の確保や人件費高騰に対するスライド条項の導入可能性について議員が質問し、行政側がそれぞれの説明や答弁を行った。...",
             "speech_id": "mtg_fb800eca59ee756ea9a3ceb71f3c67de_66",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6050&schedule_id=1"
           },
           {
             "date": "2025-03-14",
-            "committee": "本会議・委員会",
-            "summary": "こうち大輔議員は、給食費無償化の中学校分に関する市の道筋や、学校施設マネジメント計画の更新、学区間交流について質問し、行政側から国の動向を踏まえた総合的な検討や計画更新の意向、地域コミュニティの取組について説明があった。",
+            "committee": "本会議",
+            "summary": "こうち大輔議員は、給食費無償化の中学校分に関する市の道筋や、学校施設マネジメント計画の更新、学区間交流について質問し、行政側から国の動向を踏まえた総合的な検討や計画更新の意向、地域コミュニティの取組について説明があった。...",
             "speech_id": "mtg_d2ac2c22f955006c88af2ec63cc76856_100",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6224&schedule_id=1"
           }
@@ -3914,19 +4058,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-07",
-          "committee": "本会議・委員会",
-          "summary": "議員が来年度予算案における学校施設整備の主要事業や児童生徒数の地域別増減、体育館空調設備の整備計画、学校プールの老朽化対策及び民間委託の試行状況について質問し、行政側が各事業の予算計上状況、今後の整備方針や試行結果について説明した。",
-          "speech_id": "mtg_76a838b1ef1401c24d3cae1c6556bccf_164",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6230&schedule_id=1"
+        "council_vote": {
+          "bill_title": "学校施設における体育館を含めた空調設備の整備についての財政支援を求める意見書の提出について",
+          "bill_number": "市会議14",
+          "session": "令和5年9月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian9.html"
         },
         "council_statements": [
           {
             "date": "2025-03-07",
-            "committee": "本会議・委員会",
-            "summary": "議員が来年度予算案における学校施設整備の主要事業や児童生徒数の地域別増減、体育館空調設備の整備計画、学校プールの老朽化対策及び民間委託の試行状況について質問し、行政側が各事業の予算計上状況、今後の整備方針や試行結果について説明した。",
+            "committee": "本会議",
+            "summary": "議員が来年度予算案における学校施設整備の主要事業や児童生徒数の地域別増減、体育館空調設備の整備計画、学校プールの老朽化対策及び民間委託の試行状況について質問し、行政側が各事業の予算計上状況、今後の整備方針や試行結果について説明した。...",
             "speech_id": "mtg_76a838b1ef1401c24d3cae1c6556bccf_164",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6230&schedule_id=1"
           }
@@ -3950,26 +4094,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-17",
-          "committee": "本会議・委員会",
-          "summary": "議員は全員制中学校給食の学校調理方式での実施や少子化に伴うコスト増への懸念等を質問し、行政側は給食センター方式の利点や入札・契約に向けた準備状況、2時間喫食の確保等について説明した。",
-          "speech_id": "mtg_f87ce2404496cb1d48cb78d0d2dec5ac_485",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6232&schedule_id=1"
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
         },
         "council_statements": [
           {
             "date": "2025-03-17",
-            "committee": "本会議・委員会",
-            "summary": "議員は全員制中学校給食の学校調理方式での実施や少子化に伴うコスト増への懸念等を質問し、行政側は給食センター方式の利点や入札・契約に向けた準備状況、2時間喫食の確保等について説明した。",
+            "committee": "本会議",
+            "summary": "議員は全員制中学校給食の学校調理方式での実施や少子化に伴うコスト増への懸念等を質問し、行政側は給食センター方式の利点や入札・契約に向けた準備状況、2時間喫食の確保等について説明した。...",
             "speech_id": "mtg_f87ce2404496cb1d48cb78d0d2dec5ac_485",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6232&schedule_id=1"
           },
           {
             "date": "2023-11-08",
-            "committee": "本会議・委員会",
-            "summary": "議員が中学校給食の全員制実施方式や給食センターの設置可能性、配送計画、衛生管理、立地場所の安全性について質問し、行政側が調査手法や配送シミュレーション、安全対策などについて説明した。",
+            "committee": "本会議",
+            "summary": "議員が中学校給食の全員制実施方式や給食センターの設置可能性、配送計画、衛生管理、立地場所の安全性について質問し、行政側が調査手法や配送シミュレーション、安全対策などについて説明した。...",
             "speech_id": "mtg_fa13a72ea6a619fc111a8ba8a4d8344a_82",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5840&schedule_id=1"
           }
@@ -3986,26 +4130,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-19",
-          "committee": "本会議・委員会",
-          "summary": "えもとかよこ議員が市長公約である給食費無償化に関する教育委員会の考え方を質問し、行政側が就学援助世帯への公費負担や国への働きかけ等の基本方針を説明した質疑。",
-          "speech_id": "mtg_9e977a1826d46134397f7504410ba03f_495",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5878&schedule_id=1"
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
         },
         "council_statements": [
           {
             "date": "2024-03-19",
-            "committee": "本会議・委員会",
-            "summary": "えもとかよこ議員が市長公約である給食費無償化に関する教育委員会の考え方を質問し、行政側が就学援助世帯への公費負担や国への働きかけ等の基本方針を説明した質疑。",
+            "committee": "本会議",
+            "summary": "えもとかよこ議員が市長公約である給食費無償化に関する教育委員会の考え方を質問し、行政側が就学援助世帯への公費負担や国への働きかけ等の基本方針を説明した質疑。...",
             "speech_id": "mtg_9e977a1826d46134397f7504410ba03f_495",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5878&schedule_id=1"
           },
           {
             "date": "2025-02-19",
-            "committee": "本会議・委員会",
-            "summary": "議員が市立学校の給食費無償化、高校端末の公費負担、就学援助の拡充、奨学金制度について質問し、行政側が市単独での恒常的財源確保の課題や国の動向、既存の支援制度と今後の検討方針について説明した。",
+            "committee": "本会議",
+            "summary": "議員が市立学校の給食費無償化、高校端末の公費負担、就学援助の拡充、奨学金制度について質問し、行政側が市単独での恒常的財源確保の課題や国の動向、既存の支援制度と今後の検討方針について説明した。...",
             "speech_id": "mtg_0840ddbaef0c033db47c41a01a76104b_313",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6213&schedule_id=1"
           }
@@ -4022,26 +4166,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-09-26",
-          "committee": "本会議・委員会",
-          "summary": "議員が18歳までの医療費助成拡充に伴う必要予算額について質問し、行政側が中学生まで3.2億円、高校生まで8億円の合わせて11.2億円とシステム改修等の事務費が見込まれると答弁した。",
-          "speech_id": "mtg_dee124ff98b08d7730bc6d5246f21594_386",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6034&schedule_id=1"
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
         },
         "council_statements": [
           {
             "date": "2024-09-26",
-            "committee": "本会議・委員会",
-            "summary": "議員が18歳までの医療費助成拡充に伴う必要予算額について質問し、行政側が中学生まで3.2億円、高校生まで8億円の合わせて11.2億円とシステム改修等の事務費が見込まれると答弁した。",
+            "committee": "本会議",
+            "summary": "議員が18歳までの医療費助成拡充に伴う必要予算額について質問し、行政側が中学生まで3.2億円、高校生まで8億円の合わせて11.2億円とシステム改修等の事務費が見込まれると答弁した。...",
             "speech_id": "mtg_dee124ff98b08d7730bc6d5246f21594_386",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6034&schedule_id=1"
           },
           {
             "date": "2024-10-09",
-            "committee": "本会議・委員会",
-            "summary": "議員が子ども医療費の18歳までの拡充、第2子以降の保育料無償化、一時保育やこども誰でも通園制度の課題について質問し、行政側が府市協調による中学生までの段階的拡充方針や財源確保の検討状況、国の制度設計について説明した。",
+            "committee": "本会議",
+            "summary": "議員が子ども医療費の18歳までの拡充、第2子以降の保育料無償化、一時保育やこども誰でも通園制度の課題について質問し、行政側が府市協調による中学生までの段階的拡充方針や財源確保の検討状況、国の制度設計について説明した。...",
             "speech_id": "mtg_f94497e44f49db510a18d4f39598a296_332",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6037&schedule_id=1"
           }
@@ -4065,8 +4209,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "原油価格高騰の対策強化を求める意見書の提出について",
+          "bill_number": "市会議42",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -4080,8 +4230,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市子ども・子育て支援法施行条例の一部を改正する条例の制定について",
+          "bill_number": "議30",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -4096,7 +4252,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4118,7 +4273,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4133,7 +4287,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4148,7 +4301,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4170,7 +4322,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4185,25 +4336,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-05-30",
-          "committee": "本会議・委員会",
-          "summary": "森田守議員が京北地域の人口減少に伴う保育所の現状と方針について質問し、行政側は就学前児童数の減少や集団活動の重要性、保育所の在り方の検討について説明した。また、保幼小中一貫教育や移住促進に向けた子育て環境の発信について意見が交わされた。",
-          "speech_id": "mtg_5c851d770396fec01ca1671c65be2c0b_13",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6238&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2025-05-30",
-            "committee": "本会議・委員会",
-            "summary": "森田守議員が京北地域の人口減少に伴う保育所の現状と方針について質問し、行政側は就学前児童数の減少や集団活動の重要性、保育所の在り方の検討について説明した。また、保幼小中一貫教育や移住促進に向けた子育て環境の発信について意見が交わされた。",
+            "committee": "本会議",
+            "summary": "森田守議員が京北地域の人口減少に伴う保育所の現状と方針について質問し、行政側は就学前児童数の減少や集団活動の重要性、保育所の在り方の検討について説明した。また、保幼小中一貫教育や移住促進に向けた子育て環境の発信について意見が交わされた。...",
             "speech_id": "mtg_5c851d770396fec01ca1671c65be2c0b_13",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6238&schedule_id=1"
           },
           {
             "date": "2024-04-23",
-            "committee": "本会議・委員会",
-            "summary": "議員はケアラー支援条例の制定や歯科健診の対象拡大、民泊のセルフチェックイン規制について質問し、行政側は各施策の現状や今後の対応方針について説明した。",
+            "committee": "本会議",
+            "summary": "議員はケアラー支援条例の制定や歯科健診の対象拡大、民泊のセルフチェックイン規制について質問し、行政側は各施策の現状や今後の対応方針について説明した。...",
             "speech_id": "mtg_cfc69fc6ff68fe12e9f0a36c03dd60da_208",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5929&schedule_id=1"
           }
@@ -4221,7 +4365,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4243,7 +4386,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4258,7 +4400,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4273,7 +4414,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4295,7 +4435,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4310,7 +4449,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4325,7 +4463,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4347,7 +4484,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4362,7 +4498,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4377,7 +4512,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4399,7 +4533,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4414,7 +4547,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4429,7 +4561,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4451,7 +4582,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4466,7 +4596,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4481,7 +4610,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4502,8 +4630,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -4517,8 +4651,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -4532,26 +4672,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo1.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-12-24",
-          "committee": "本会議・委員会",
-          "summary": "河合ようこ議員が敬老乗車証の交付状況や所得区分の負担金、民間バスへの適用拡大、交付年齢の引き下げについて質問し、行政側から交付率の推移や制度見直しの考え方、財政状況についての説明があった。",
-          "speech_id": "mtg_4322d3061ee20a675983fa2f28d8e02f_210",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6092&schedule_id=1"
+        "council_vote": {
+          "bill_title": "令和7年度京都市市公債特別会計補正予算",
+          "bill_number": "議221",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
         },
         "council_statements": [
           {
             "date": "2024-12-24",
-            "committee": "本会議・委員会",
-            "summary": "河合ようこ議員が敬老乗車証の交付状況や所得区分の負担金、民間バスへの適用拡大、交付年齢の引き下げについて質問し、行政側から交付率の推移や制度見直しの考え方、財政状況についての説明があった。",
+            "committee": "本会議",
+            "summary": "河合ようこ議員が敬老乗車証の交付状況や所得区分の負担金、民間バスへの適用拡大、交付年齢の引き下げについて質問し、行政側から交付率の推移や制度見直しの考え方、財政状況についての説明があった。...",
             "speech_id": "mtg_4322d3061ee20a675983fa2f28d8e02f_210",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6092&schedule_id=1"
           },
           {
             "date": "2025-02-19",
-            "committee": "本会議・委員会",
-            "summary": "議員は敬老乗車証制度の交付基準見直しに関する陳情を受け、利用減や交付金低下が市民の移動や事業者へ与える影響を質し、行政側は同制度は事業者支援目的ではなく維持のための見直しであり見直しの予定はないと答弁した。",
+            "committee": "本会議",
+            "summary": "議員は敬老乗車証制度の交付基準見直しに関する陳情を受け、利用減や交付金低下が市民の移動や事業者へ与える影響を質し、行政側は同制度は事業者支援目的ではなく維持のための見直しであり見直しの予定はないと答弁した。...",
             "speech_id": "mtg_b5d46e66400adb83648eb3727a392741_237",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6175&schedule_id=1"
           }
@@ -4575,8 +4715,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市子ども・子育て支援法施行条例の一部を改正する条例の制定について",
+          "bill_number": "議30",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -4591,7 +4737,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4605,8 +4750,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市障害者の日常生活及び社会生活を総合的に支援するための法律に基づく事業及び施設の人員、設備及び運営の基準等に関する条例の一部を改正する条例の制定について",
+          "bill_number": "議25",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       }
     ]
@@ -4627,8 +4778,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "指定管理者の指定について(都市計画局関係)",
+          "bill_number": "議178~180",
+          "session": "令和7年11月市会",
+          "vote": "賛成",
+          "vote_type": "個人採決",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -4643,7 +4800,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4658,7 +4814,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4680,7 +4835,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4694,8 +4848,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "指定管理者の指定について(京都市菊浜特別養護老人ホーム)",
+          "bill_number": "議151",
+          "session": "令和6年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -4710,7 +4870,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4732,7 +4891,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4747,7 +4905,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4762,7 +4919,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/10nishikyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4784,7 +4940,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4799,7 +4954,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4814,7 +4968,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4836,7 +4989,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4851,7 +5003,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4866,7 +5017,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -4888,7 +5038,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4902,8 +5051,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市子ども医療費支給条例の一部を改正する条例の制定について",
+          "bill_number": "市会議16",
+          "session": "令和6年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -4918,18 +5073,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-10-08",
-          "committee": "本会議・委員会",
-          "summary": "議員が流産・死産後のグリーフケア支援およびプレコンセプションケアの推進について質問し、行政側がパンフレットの周知、中央斎場の専用胎児炉の活用、専門の産後ケア施設の拡充、また京都府と連携したプレコンセプションケアや体験型思春期健康教室の取組について答弁した。",
-          "speech_id": "mtg_8b6dce832b27f9acb620f471b653c963_396",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6251&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2025-10-08",
-            "committee": "本会議・委員会",
-            "summary": "議員が流産・死産後のグリーフケア支援およびプレコンセプションケアの推進について質問し、行政側がパンフレットの周知、中央斎場の専用胎児炉の活用、専門の産後ケア施設の拡充、また京都府と連携したプレコンセプションケアや体験型思春期健康教室の取組について答弁した。",
+            "committee": "本会議",
+            "summary": "議員が流産・死産後のグリーフケア支援およびプレコンセプションケアの推進について質問し、行政側がパンフレットの周知、中央斎場の専用胎児炉の活用、専門の産後ケア施設の拡充、また京都府と連携したプレコンセプションケアや体験型思春期健康教室の取組について答弁した。...",
             "speech_id": "mtg_8b6dce832b27f9acb620f471b653c963_396",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6251&schedule_id=1"
           }
@@ -4953,8 +5101,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -4969,7 +5123,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -4984,7 +5137,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5006,7 +5158,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5021,7 +5172,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5036,7 +5186,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5058,18 +5207,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-12-25",
-          "committee": "本会議・委員会",
-          "summary": "新京都戦略の骨子や子育て応援プロジェクトを踏まえた少子化の現状認識や子ども医療費支給制度・第２子以降の保育料無償化等の検討状況について質問し、行政側から現状認識や財源確保策の検討状況、今後の取組方針について説明・答弁があった質疑。",
-          "speech_id": "mtg_508827384aa3a4437be64d73b16cca20_840",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6116&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-12-25",
-            "committee": "本会議・委員会",
-            "summary": "新京都戦略の骨子や子育て応援プロジェクトを踏まえた少子化の現状認識や子ども医療費支給制度・第２子以降の保育料無償化等の検討状況について質問し、行政側から現状認識や財源確保策の検討状況、今後の取組方針について説明・答弁があった質疑。",
+            "committee": "本会議",
+            "summary": "新京都戦略の骨子や子育て応援プロジェクトを踏まえた少子化の現状認識や子ども医療費支給制度・第２子以降の保育料無償化等の検討状況について質問し、行政側から現状認識や財源確保策の検討状況、今後の取組方針について説明・答弁があった質疑。...",
             "speech_id": "mtg_508827384aa3a4437be64d73b16cca20_840",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6116&schedule_id=1"
           }
@@ -5087,7 +5229,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5102,18 +5243,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi1.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-10-07",
-          "committee": "本会議・委員会",
-          "summary": "議員が商店街振興の基本方針や個店支援、産業観光局の人材確保策について質問し、行政側がそれぞれの事業実績や今後の対応方針について説明した。",
-          "speech_id": "mtg_e9fe2c26c5c6ebdc82dd754bb6088f26_280",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6319&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2025-10-07",
-            "committee": "本会議・委員会",
-            "summary": "議員が商店街振興の基本方針や個店支援、産業観光局の人材確保策について質問し、行政側がそれぞれの事業実績や今後の対応方針について説明した。",
+            "committee": "本会議",
+            "summary": "議員が商店街振興の基本方針や個店支援、産業観光局の人材確保策について質問し、行政側がそれぞれの事業実績や今後の対応方針について説明した。...",
             "speech_id": "mtg_e9fe2c26c5c6ebdc82dd754bb6088f26_280",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6319&schedule_id=1"
           }
@@ -5138,18 +5272,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2023-08-07",
-          "committee": "本会議・委員会",
-          "summary": "赤阪仁議員が伏見区の地下水と地場産業への影響に関する施工上の課題について認識を問い、行政側がアセス準備書の注視と専門家意見を踏まえた対応を述べ、再質問に対し行政側がルート選定の状況と影響回避・低減の要望を行っていくと答弁した。",
-          "speech_id": "mtg_dd5ee238a377339bcace80f3d7deb5bd_214",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5735&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2023-08-07",
-            "committee": "本会議・委員会",
-            "summary": "赤阪仁議員が伏見区の地下水と地場産業への影響に関する施工上の課題について認識を問い、行政側がアセス準備書の注視と専門家意見を踏まえた対応を述べ、再質問に対し行政側がルート選定の状況と影響回避・低減の要望を行っていくと答弁した。",
+            "committee": "本会議",
+            "summary": "赤阪仁議員が伏見区の地下水と地場産業への影響に関する施工上の課題について認識を問い、行政側がアセス準備書の注視と専門家意見を踏まえた対応を述べ、再質問に対し行政側がルート選定の状況と影響回避・低減の要望を行っていくと答弁した。...",
             "speech_id": "mtg_dd5ee238a377339bcace80f3d7deb5bd_214",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5735&schedule_id=1"
           }
@@ -5166,26 +5293,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-07-24",
-          "committee": "本会議・委員会",
-          "summary": "赤阪仁議員が中学校給食の自校方式での実施や無償化を求めたのに対し、行政側は給食センター方式の実現可能性や定性面・コスト面の総合的判断、他都市事例を踏まえたおいしさや温かさの確保について説明した。",
-          "speech_id": "mtg_2eeb9cd0da9a28ed1893cf51e7dc510b_165",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5964&schedule_id=1"
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
         },
         "council_statements": [
           {
             "date": "2024-07-24",
-            "committee": "本会議・委員会",
-            "summary": "赤阪仁議員が中学校給食の自校方式での実施や無償化を求めたのに対し、行政側は給食センター方式の実現可能性や定性面・コスト面の総合的判断、他都市事例を踏まえたおいしさや温かさの確保について説明した。",
+            "committee": "本会議",
+            "summary": "赤阪仁議員が中学校給食の自校方式での実施や無償化を求めたのに対し、行政側は給食センター方式の実現可能性や定性面・コスト面の総合的判断、他都市事例を踏まえたおいしさや温かさの確保について説明した。...",
             "speech_id": "mtg_2eeb9cd0da9a28ed1893cf51e7dc510b_165",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5964&schedule_id=1"
           },
           {
             "date": "2024-09-26",
-            "committee": "本会議・委員会",
-            "summary": "赤阪仁議員が中学校給食整備におけるPFI手法の予算規模や検討委員会の非公開方針、委員構成について質問し、行政側が試算や公開基準、専門委員の選定理由について説明した。",
+            "committee": "本会議",
+            "summary": "赤阪仁議員が中学校給食整備におけるPFI手法の予算規模や検討委員会の非公開方針、委員構成について質問し、行政側が試算や公開基準、専門委員の選定理由について説明した。...",
             "speech_id": "mtg_dee124ff98b08d7730bc6d5246f21594_248",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6034&schedule_id=1"
           }
@@ -5203,18 +5330,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-04",
-          "committee": "本会議・委員会",
-          "summary": "議員は敬老乗車証制度の見直しに伴う補正予算の減額理由や交付実績の低迷、制度変更による影響について質問し、行政側は交付率の想定や持続可能な制度運営の必要性について説明した。",
-          "speech_id": "mtg_3480d80662bc288793de97899256aa80_139",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5854&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-03-04",
-            "committee": "本会議・委員会",
-            "summary": "議員は敬老乗車証制度の見直しに伴う補正予算の減額理由や交付実績の低迷、制度変更による影響について質問し、行政側は交付率の想定や持続可能な制度運営の必要性について説明した。",
+            "committee": "本会議",
+            "summary": "議員は敬老乗車証制度の見直しに伴う補正予算の減額理由や交付実績の低迷、制度変更による影響について質問し、行政側は交付率の想定や持続可能な制度運営の必要性について説明した。...",
             "speech_id": "mtg_3480d80662bc288793de97899256aa80_139",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5854&schedule_id=1"
           }
@@ -5239,7 +5359,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5254,7 +5373,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5269,7 +5387,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5290,8 +5407,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -5305,8 +5428,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和8年度京都市自動車運送事業特別会計予算",
+          "bill_number": "議14",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -5321,7 +5450,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5343,7 +5471,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5358,7 +5485,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5373,7 +5499,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5394,8 +5519,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -5409,8 +5540,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
+        },
         "council_statements": []
       },
       {
@@ -5425,25 +5562,18 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-06-14",
-          "committee": "本会議・委員会",
-          "summary": "議員が市営住宅の家賃減免制度の改定見直しを求める請願文を代読し、行政側が制度の見直しの概要や収入判定方法、経過措置について説明した。",
-          "speech_id": "mtg_75d58566bae76308424fd6a11e13ffab_54",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5910&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2024-06-14",
-            "committee": "本会議・委員会",
-            "summary": "議員が市営住宅の家賃減免制度の改定見直しを求める請願文を代読し、行政側が制度の見直しの概要や収入判定方法、経過措置について説明した。",
+            "committee": "本会議",
+            "summary": "議員が市営住宅の家賃減免制度の改定見直しを求める請願文を代読し、行政側が制度の見直しの概要や収入判定方法、経過措置について説明した。...",
             "speech_id": "mtg_75d58566bae76308424fd6a11e13ffab_54",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5910&schedule_id=1"
           },
           {
             "date": "2025-09-09",
-            "committee": "本会議・委員会",
-            "summary": "議員は住宅扶助基準の引き下げに伴う生活への影響と最高裁判決についての京都市の認識を問い、国への強い要望を求めた。行政側は経過措置や特別基準の運用状況、最高裁判決の対象範囲、国への要望状況について説明した。",
+            "committee": "本会議",
+            "summary": "議員は住宅扶助基準の引き下げに伴う生活への影響と最高裁判決についての京都市の認識を問い、国への強い要望を求めた。行政側は経過措置や特別基準の運用状況、最高裁判決の対象範囲、国への要望状況について説明した。...",
             "speech_id": "mtg_aa822664716a8c271d495c6be7c385ed_196",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6273&schedule_id=1"
           }
@@ -5467,8 +5597,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -5482,8 +5618,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市立学校の学校給食費の助成に関する条例の制定について",
+          "bill_number": "市会議17",
+          "session": "令和6年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -5498,7 +5640,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5519,26 +5660,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-06-04",
-          "committee": "本会議・委員会",
-          "summary": "やまね智史議員は、18歳までの医療費無料化や中学校給食の自校調理方式での実施、敬老乗車証制度の元への戻し、文化芸術支援の拡充などを質問・提案し、行政側は、既存住宅取得支援など子育て環境の充実を図っている旨や、給食センター方式を主軸として取り組む旨、制度の持続可能性を考慮して見直した旨などをそれぞれ説明した。",
-          "speech_id": "mtg_7ad05085c782fe3d6a63f5fc1bf95034_77",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5992&schedule_id=3"
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
         },
         "council_statements": [
           {
             "date": "2024-06-04",
-            "committee": "本会議・委員会",
-            "summary": "やまね智史議員は、18歳までの医療費無料化や中学校給食の自校調理方式での実施、敬老乗車証制度の元への戻し、文化芸術支援の拡充などを質問・提案し、行政側は、既存住宅取得支援など子育て環境の充実を図っている旨や、給食センター方式を主軸として取り組む旨、制度の持続可能性を考慮して見直した旨などをそれぞれ説明した。",
+            "committee": "本会議",
+            "summary": "やまね智史議員は、18歳までの医療費無料化や中学校給食の自校調理方式での実施、敬老乗車証制度の元への戻し、文化芸術支援の拡充などを質問・提案し、行政側は、既存住宅取得支援など子育て環境の充実を図っている旨や、給食センター方式を主軸として取り組む旨、制度の持続可能性を考慮して見直した旨などをそれぞれ説明した。...",
             "speech_id": "mtg_7ad05085c782fe3d6a63f5fc1bf95034_77",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5992&schedule_id=3"
           },
           {
             "date": "2024-10-30",
-            "committee": "本会議・委員会",
-            "summary": "やまね智史議員は全員制中学校給食のリスクや栄養教諭配置、給食費無償化、子ども医療費の18歳までの拡充について質問し、吉田副市長および松井市長は、給食センター方式の利点や財政負担、京都府との協調による持続可能な制度設計についての説明や答弁を行った。",
+            "committee": "本会議",
+            "summary": "やまね智史議員は全員制中学校給食のリスクや栄養教諭配置、給食費無償化、子ども医療費の18歳までの拡充について質問し、吉田副市長および松井市長は、給食センター方式の利点や財政負担、京都府との協調による持続可能な制度設計についての説明や答弁を行った。...",
             "speech_id": "mtg_d5dd82d8fea48324c3824eb1e3ccea8b_256",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6023&schedule_id=1"
           }
@@ -5555,26 +5696,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2023-11-08",
-          "committee": "本会議・委員会",
-          "summary": "議員が中学校給食の調査におけるコスト試算の条件や複数センター・学校跡地の活用、親子方式のルート設定等について質問し、行政側から実現可能性や衛生管理上の観点に基づいた調査方針とセンター方式を総合的に優れているとする判断について説明があった。",
-          "speech_id": "mtg_fa13a72ea6a619fc111a8ba8a4d8344a_266",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5840&schedule_id=1"
+        "council_vote": {
+          "bill_title": "小中学校給食無償化を求める意見書の提出について",
+          "bill_number": "市会議3",
+          "session": "令和5年5月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian5.html"
         },
         "council_statements": [
           {
             "date": "2023-11-08",
-            "committee": "本会議・委員会",
-            "summary": "議員が中学校給食の調査におけるコスト試算の条件や複数センター・学校跡地の活用、親子方式のルート設定等について質問し、行政側から実現可能性や衛生管理上の観点に基づいた調査方針とセンター方式を総合的に優れているとする判断について説明があった。",
+            "committee": "本会議",
+            "summary": "議員が中学校給食の調査におけるコスト試算の条件や複数センター・学校跡地の活用、親子方式のルート設定等について質問し、行政側から実現可能性や衛生管理上の観点に基づいた調査方針とセンター方式を総合的に優れているとする判断について説明があった。...",
             "speech_id": "mtg_fa13a72ea6a619fc111a8ba8a4d8344a_266",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5840&schedule_id=1"
           },
           {
             "date": "2024-09-26",
-            "committee": "本会議・委員会",
-            "summary": "議員が自衛隊への個人情報提供や学校グラウンドの料金設定、中学校給食について質問し、行政側が提供状況や法的根拠、給食センターの整備計画等について説明した。",
+            "committee": "本会議",
+            "summary": "議員が自衛隊への個人情報提供や学校グラウンドの料金設定、中学校給食について質問し、行政側が提供状況や法的根拠、給食センターの整備計画等について説明した。...",
             "speech_id": "mtg_dee124ff98b08d7730bc6d5246f21594_37",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6034&schedule_id=1"
           }
@@ -5592,7 +5733,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5614,7 +5754,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5629,7 +5768,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5644,7 +5782,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5666,7 +5803,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5681,7 +5817,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5696,7 +5831,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5718,7 +5852,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5733,7 +5866,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5748,7 +5880,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5770,7 +5901,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5784,8 +5914,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -5799,8 +5935,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi3.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子どもの医療費支給制度の18歳までの拡充を求める決議について",
+          "bill_number": "市会議39",
+          "session": "令和5年11月市会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       }
     ]
@@ -5822,7 +5964,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5836,8 +5977,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市子ども・子育て支援法施行条例の一部を改正する条例の制定について",
+          "bill_number": "議30",
+          "session": "令和6年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R06/gian2.html"
+        },
         "council_statements": []
       },
       {
@@ -5852,7 +5999,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/01kita.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5873,8 +6019,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "子ども医療費支給制度の更なる拡充を求める決議について",
+          "bill_number": "市会議37",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
+        },
         "council_statements": []
       },
       {
@@ -5889,7 +6041,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5903,8 +6054,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/03sakyo2.pdf"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "京都市特定都市河川浸水被害対策法に基づく雨水貯留浸透施設及び保全調整池に係る標識に関する条例の制定について",
+          "bill_number": "議33",
+          "session": "令和7年2月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
+        },
         "council_statements": []
       }
     ]
@@ -5926,7 +6083,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5941,7 +6097,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5956,7 +6111,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -5978,7 +6132,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -5993,7 +6146,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -6008,7 +6160,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -6030,7 +6181,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -6045,7 +6195,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -6060,7 +6209,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/06yamashina.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -6082,7 +6230,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -6097,7 +6244,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -6112,7 +6258,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/07shimogyo.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -6134,7 +6279,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -6149,7 +6293,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -6164,7 +6307,6 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/09ukyo1.pdf"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -6185,19 +6327,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-05",
-          "committee": "本会議・委員会",
-          "summary": "議員は国民健康保険の財政支援や重層的支援体制の地域づくり、支え合い活動創出コーディネーターの活動状況、区役所機能充実における保健福祉局の役割、ウェルビーイングの定義について質問し、行政側は京都府等への働き掛けの状況や各取組の推進状況、他局との連携方針等について説明した。",
-          "speech_id": "mtg_545173da30ada40d8d54f61d87ab91f7_52",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6185&schedule_id=1"
+        "council_vote": {
+          "bill_title": "議126",
+          "bill_number": "議126~127",
+          "session": "令和5年11月市会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R05/gian11.html"
         },
         "council_statements": [
           {
             "date": "2025-03-05",
-            "committee": "本会議・委員会",
-            "summary": "議員は国民健康保険の財政支援や重層的支援体制の地域づくり、支え合い活動創出コーディネーターの活動状況、区役所機能充実における保健福祉局の役割、ウェルビーイングの定義について質問し、行政側は京都府等への働き掛けの状況や各取組の推進状況、他局との連携方針等について説明した。",
+            "committee": "本会議",
+            "summary": "議員は国民健康保険の財政支援や重層的支援体制の地域づくり、支え合い活動創出コーディネーターの活動状況、区役所機能充実における保健福祉局の役割、ウェルビーイングの定義について質問し、行政側は京都府等への働き掛けの状況や各取組の推進状況、他局との連携方針等について説明した。...",
             "speech_id": "mtg_545173da30ada40d8d54f61d87ab91f7_52",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6185&schedule_id=1"
           }
@@ -6215,18 +6357,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-09-22",
-          "committee": "本会議・委員会",
-          "summary": "もりもと英靖議員が学校給食費の高騰に伴う3億円の補正予算の積算根拠や給食現場の対応について質問し、行政側が校種別の公費負担額や献立作成の流れ、食育の取組について説明した。",
-          "speech_id": "mtg_ebb00721a4590f6c1a20daf70743ce74_307",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6283&schedule_id=1"
-        },
         "council_statements": [
           {
             "date": "2025-09-22",
-            "committee": "本会議・委員会",
-            "summary": "もりもと英靖議員が学校給食費の高騰に伴う3億円の補正予算の積算根拠や給食現場の対応について質問し、行政側が校種別の公費負担額や献立作成の流れ、食育の取組について説明した。",
+            "committee": "本会議",
+            "summary": "もりもと英靖議員が学校給食費の高騰に伴う3億円の補正予算の積算根拠や給食現場の対応について質問し、行政側が校種別の公費負担額や献立作成の流れ、食育の取組について説明した。...",
             "speech_id": "mtg_ebb00721a4590f6c1a20daf70743ce74_307",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6283&schedule_id=1"
           }
@@ -6244,18 +6379,11 @@
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/11fushimi2.pdf"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-07",
-          "committee": "本会議・委員会",
-          "summary": "議員は公共用ヘリポート設置、ドクターヘリの自前導入、消防団員の処遇改善、向島ニュータウン等の地域活性化について質問し、行政側は消防ヘリポートの現状やドクターヘリの広域運用、消防団支援や地域活性化策について説明した。",
-          "speech_id": "mtg_7ffea47d455409f78c44e7977c4d458f_68",
-          "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5927&schedule_id=4"
-        },
         "council_statements": [
           {
             "date": "2024-03-07",
-            "committee": "本会議・委員会",
-            "summary": "議員は公共用ヘリポート設置、ドクターヘリの自前導入、消防団員の処遇改善、向島ニュータウン等の地域活性化について質問し、行政側は消防ヘリポートの現状やドクターヘリの広域運用、消防団支援や地域活性化策について説明した。",
+            "committee": "本会議",
+            "summary": "議員は公共用ヘリポート設置、ドクターヘリの自前導入、消防団員の処遇改善、向島ニュータウン等の地域活性化について質問し、行政側は消防ヘリポートの現状やドクターヘリの広域運用、消防団支援や地域活性化策について説明した。...",
             "speech_id": "mtg_7ffea47d455409f78c44e7977c4d458f_68",
             "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=5927&schedule_id=4"
           }

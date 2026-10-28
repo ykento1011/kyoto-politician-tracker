@@ -1,8 +1,6 @@
-
-
-sop_content = """=======================================================================
+=======================================================================
 議会のミカタ：新規都市追加・水平展開 標準運用手順書 (SOP)
-改訂: 2026年10月（生発言テキスト統一・原本直結モーダル連動・全自動インテグリティ監査標準化）
+改訂: 2026年10月（生発言テキスト統一・原本直結・セマンティック公約評価パイプライン導入）
 =======================================================================
 
 【基本原則】
@@ -49,6 +47,9 @@ sop_content = """===============================================================
      - 会議録直通URL（official_url）: BigQueryの `meetings.url` から取得した正規の `MinuteView.html` URLを、発言スレッドおよび要約JSONに漏れなく格納する。
      - キーワード（keywords）: 必須。3件の配列。
 
+9. 【NEW】セマンティック照合による客観的公約評価（Zero-Hallucination Matching）
+   - 公約トラッカーの判定において、手動による恣意的なキーワード紐付けや主観的解釈を完全に排除する。
+   - `gemini-embedding-2` によるベクトル類似度計算を用い、コサイン類似度 `sim >= 0.65`（中精度以上）を明確な境界線として完全自動・客観的に照合を行う。
 
 -----------------------------------------------------------------------
 ディレクトリ構成標準（data-pipeline への完全一本化）
@@ -59,30 +60,27 @@ kyoto-politician-tracker/
 │   ├── run_unified_pipeline.py                # 3都市共通 質疑スレッド化＆AI評価
 │   ├── generate_unified_topic_summaries.py    # 3都市共通 政策論戦マップ生成
 │   ├── build_timeline_contexts.py             # 会議単位の質疑・答弁タイムライン生成
-│   ├── audit_unified_integrity.py             # 【必須】全自動インテグリティ監査スクリプト
+│   ├── audit_unified_integrity.py             # 全自動インテグリティ監査スクリプト
+│   ├── build_unified_pledge_tracker.py        # 【NEW】3都市共通 セマンティック公約トラッカービルド
+│   ├── cache_statement_embeddings.py          # 【NEW】3都市共通 質疑Embeddingキャッシュ生成
+│   ├── audit_unified_pledges.py               # 【NEW】3都市共通 公約照合精度監査スクリプト
 │   ├── run_update.py                          # 3都市共通 自動更新エントリポイント
-│   └── checkpoints/                           # 中断再開用チェックポイントJSON
+│   ├── checkpoints/                           # 中断再開用チェックポイントJSON
+│   └── data/                                  # キャッシュ・中間データ
+│       └── embeddings_{cityCode}_*.json       # 【超重要】ベクトルキャッシュ（.gitignore登録必須）
 ├── frontend/
 │   ├── public/data/                           # フロントエンド用出力JSON
-│   │   ├── {cityCode}_speaker_stats.json      # 各都市 議員マスタ（会派・選挙区）
-│   │   ├── {cityCode}_votes_summary.json      # 各都市 議決・賛否データ
-│   │   ├── {cityCode}_bill_issues.json        # 各都市 議案対立点・AI論点解説
-│   │   ├── {cityCode}_mayor_tracker.json      # 各都市 市長・首長政策進捗トラッカー
-│   │   ├── pledge_tracker_{cityCode}.json     # 各都市 選挙公約トラッカー
-│   │   ├── {cityCode}_statements_summary.json # 各都市 質疑スレッドデータ（official_url完備）
-│   │   ├── {cityCode}_timelines/              # 各都市 タイムラインJSON群
-│   │   └── {cityCode}_topic_summaries.json    # 各都市 政策マップ（生発言テキスト完備）
+│   │   ├── {cityCode}_speaker_stats.json      
+│   │   ├── {cityCode}_votes_summary.json      
+│   │   ├── {cityCode}_bill_issues.json        
+│   │   ├── {cityCode}_mayor_tracker.json      
+│   │   ├── pledge_tracker_{cityCode}.json     # 【NEW】各都市 公約トラッカー最終成果物
+│   │   ├── {cityCode}_statements_summary.json # 各都市 質疑スレッドデータ
+│   │   ├── {cityCode}_timelines/              
+│   │   └── {cityCode}_topic_summaries.json    
 │   └── src/
-│       ├── config/cities.js                   # 全都市の設定・パス・SEO一元管理
-│       ├── hooks/useStatements.js             # データ読み込み・動的集計・属性マージ
-│       ├── utils/
-│       │   └── officialLink.js                # 会議録パーマリンク生成（フォールバックチェーン標準化）
-│       └── components/
-│           ├── ThreadCard.jsx                 # 質疑スレッドカード（3都市Props判定完備）
-│           ├── SpeakerDetailView.jsx          # 議員詳細画面（タイムライン・賛否表示）
-│           └── TopicDetailPage.jsx            # 政策トピック詳細画面（2連ボタン・原本直結）
+│       └── ... (省略)
 └── 議会のミカタSOP.txt
-
 
 -----------------------------------------------------------------------
 Phase 1: 事前適合性診断と自治体ID・会議録テナントの確定
@@ -203,6 +201,44 @@ Phase 7: 本番デプロイと継続的自動更新パイプライン
 1. ホスティング環境（Cloudflare Pages / Vercel）でのルーティング確認。
 2. 会期末の差分更新（`python data-pipeline/run_update.py --city {cityCode}`）。
 
+-----------------------------------------------------------------------
+Phase 8: 【NEW】セマンティック公約トラッカー 定例更新・運用フロー
+-----------------------------------------------------------------------
+
+議会期が終了し、新しい議事録・質疑要約データが追加された際は、以下のステップで公約トラッカーを更新する。
+
+Step 1. 質疑 Embedding キャッシュの差分生成
+新しく追加された質疑のみを自動検知し、ベクトルを事前計算してキャッシュに追記する。
+※API制限対策のため、中断レジューム機能が自動で働く。
+```powershell
+python cache_statement_embeddings.py --city kyoto
+python cache_statement_embeddings.py --city osaka
+python cache_statement_embeddings.py --city nagoya
+
+【警告】生成される embeddings_*.json は 100MB〜200MB の巨大ファイルになるため、絶対に Git に含めず、ローカルに保持すること（.gitignore 設定を厳守）。
+
+Step 2. 統一公約トラッカーのビルド
+公約ベクトルと質疑ベクトルのコサイン類似度照合を行い、フロントエンド用 JSON を出力する。
+判定閾値は原則 sim >= 0.65（文脈合致・同義語レベル）を維持し、不用意に引き下げてノイズを誘発しないこと。
+
+PowerShell
+python build_unified_pledge_tracker.py --city kyoto
+python build_unified_pledge_tracker.py --city osaka
+python build_unified_pledge_tracker.py --city nagoya
+Step 3. 精度 & インテグリティ監査
+更新された全データについて、ノイズ疑い（低精度結合）が混入していないかを一括検証する。
+
+PowerShell
+python audit_unified_pledges.py --city all
+【合格判定基準】
+🔴 低精度／ノイズ疑い率が 全都市で 0.0% であること。
+
+Step 4. Git公開時のセキュリティチェック
+パブリックリポジトリとして運用するため、以下の2点を必ず確認してからプッシュする。
+
+.env（Google/Gemini API Key等）がステージングされていないこと。
+
+data/embeddings_*.json などの巨大ファイルが git status の追跡から外れていること。
 
 =======================================================================
 【トラブルシューティング・チェックリスト（実戦教訓）】
@@ -219,5 +255,6 @@ Phase 7: 本番デプロイと継続的自動更新パイプライン
 | 会議録リンクが 404/403 エラーになる | テナントが `osaka` になっている、またはスマホ用 `SpMinuteView` に直リンクしている | テナントは `cityosaka` に修正し、リンクはPC版 `MinuteView.html` に統一する |
 | 議決・賛否データがあるのに「0件」と表示される | マスタ読み込みスキップ、または議員名の姓名スペース揺れ | `speaker_stats.json` を常時無条件で読み込み、スペース除去名で二重ルックアップを行う |
 | 新都市の画面に京都市の議員や質疑が表示される | `useStatements.js` が京都のSupabaseをフェッチしている | Supabaseフェッチ条件に `cityCode === 'kyoto'` を追加し、新都市は静的マスタを直読みさせる |
+| GitHub Push時に "exceeds GitHub's file size limit of 100.00 MB" エラーEmbeddingキャッシュファイル（100MB超）がコミットに含まれているgit reset HEAD~1 でコミットを取り消し、.gitignore に **/embeddings_*.json を追記して再コミット新しい公約を追加したが、質疑が紐づかない古い公約のベクトルキャッシュ（embeddings_{city}_pledges.json）が残っている該当都市の embeddings_{city}_pledges.json を削除してからビルドを再実行し、キャッシュを再生成させる監査でノイズ（低精度）が大量に発生したbuild_unified_pledge_tracker.py の類似度閾値（sim）が 0.62 等に甘く設定されている閾値を 0.65 以上の適正な境界線に引き上げ、無関係な質疑（区や行政語彙の一致のみ）を遮断する公約や質疑の ID 形式不一致で結合が 0件になる過去の実行時と IDキー（{名前}_p_{連番} など）のフォーマットが変わったキャッシュ（pledges）を一度削除し、統一フォーマットで生成し直す|
 """
 

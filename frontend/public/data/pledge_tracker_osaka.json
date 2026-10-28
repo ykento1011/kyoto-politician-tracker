@@ -15,8 +15,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市児童福祉施設の設備及び運営に関する基準を定める条例の一部改正について",
+          "bill_number": "議第230号",
+          "session": "令和6年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -30,26 +36,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-12",
-          "committee": "本会議・委員会",
-          "summary": "議員はDX戦略や選挙出前講義の実施状況と課題を質し、行政側は情報発信の最適化や新体制による都市・まちDXの推進、若年層向けの新たな啓発策について説明した。",
-          "speech_id": "th_5301059_24",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6"
+        "council_vote": {
+          "bill_title": "令和6年度大阪市一般会計予算",
+          "bill_number": "議第1号",
+          "session": "令和6年3月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
         },
         "council_statements": [
           {
             "date": "2024-03-12",
-            "committee": "本会議・委員会",
-            "summary": "議員はDX戦略や選挙出前講義の実施状況と課題を質し、行政側は情報発信の最適化や新体制による都市・まちDXの推進、若年層向けの新たな啓発策について説明した。",
+            "committee": "本会議",
+            "summary": "議員はDX戦略や選挙出前講義の実施状況と課題を質し、行政側は情報発信の最適化や新体制による都市・まちDXの推進、若年層向けの新たな啓発策について説明した。...",
             "speech_id": "th_5301059_24",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6"
           },
           {
             "date": "2026-05-21",
-            "committee": "本会議・委員会",
-            "summary": "議員が行政評価の変遷や他都市事例を踏まえた事務事業評価について質問し、行政側が現在の運営方針評価の趣旨や個別の予算事業・財務諸表の公表状況について説明した。",
+            "committee": "本会議",
+            "summary": "議員が行政評価の変遷や他都市事例を踏まえた事務事業評価について質問し、行政側が現在の運営方針評価の趣旨や個別の予算事業・財務諸表の公表状況について説明した。...",
             "speech_id": "th_5336583_11",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3724&schedule_id=2"
           }
@@ -74,7 +80,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -88,19 +93,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2026-03-13",
-          "committee": "本会議・委員会",
-          "summary": "北区のもと曽根崎小売市場の未利用地について、境界確定後の越境物の整理など商品化に向けた現在の取組状況と売却課題について質問し、経済戦略局と契約管財局から説明と今後の対応方針について答弁があった。",
-          "speech_id": "th_5301827_39",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=6"
+        "council_vote": {
+          "bill_title": "夢洲地区都市基盤整備関連補正予算",
+          "bill_number": "議第74号",
+          "session": "令和5年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
         },
         "council_statements": [
           {
             "date": "2026-03-13",
-            "committee": "本会議・委員会",
-            "summary": "北区のもと曽根崎小売市場の未利用地について、境界確定後の越境物の整理など商品化に向けた現在の取組状況と売却課題について質問し、経済戦略局と契約管財局から説明と今後の対応方針について答弁があった。",
+            "committee": "本会議",
+            "summary": "北区のもと曽根崎小売市場の未利用地について、境界確定後の越境物の整理など商品化に向けた現在の取組状況と売却課題について質問し、経済戦略局と契約管財局から説明と今後の対応方針について答弁があった。...",
             "speech_id": "th_5301827_39",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=6"
           }
@@ -125,7 +130,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -140,7 +144,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -162,7 +165,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -177,7 +179,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -199,7 +200,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -214,7 +214,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -236,7 +235,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -251,7 +249,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -273,7 +270,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -288,7 +284,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -310,7 +305,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -324,8 +318,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市児童福祉施設の設備及び運営に関する基準を定める条例の一部改正について",
+          "bill_number": "議第323号",
+          "session": "令和5年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -347,7 +347,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -362,7 +361,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -384,7 +382,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -399,18 +396,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-05-20",
-          "committee": "本会議・委員会",
-          "summary": "教育振興基本計画等における学習者用端末の起動率に代わる成果指標と目標値の設定について質問し、行政側から次期計画策定に向けて具体的な目標値の設定を検討する旨の答弁があった。",
-          "speech_id": "th_5301570_15",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3652&schedule_id=2"
-        },
         "council_statements": [
           {
             "date": "2025-05-20",
-            "committee": "本会議・委員会",
-            "summary": "教育振興基本計画等における学習者用端末の起動率に代わる成果指標と目標値の設定について質問し、行政側から次期計画策定に向けて具体的な目標値の設定を検討する旨の答弁があった。",
+            "committee": "本会議",
+            "summary": "教育振興基本計画等における学習者用端末の起動率に代わる成果指標と目標値の設定について質問し、行政側から次期計画策定に向けて具体的な目標値の設定を検討する旨の答弁があった。...",
             "speech_id": "th_5301570_15",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3652&schedule_id=2"
           }
@@ -435,18 +425,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-08",
-          "committee": "本会議・委員会",
-          "summary": "議員は万博渋滞対策や橋梁等の津波避難場所指定、下水処理場の防災活用について質問し、行政側は交通影響検討の結果や津波避難ビル整備の進捗状況について説明した。",
-          "speech_id": "th_5301039_2",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=4"
-        },
         "council_statements": [
           {
             "date": "2024-03-08",
-            "committee": "本会議・委員会",
-            "summary": "議員は万博渋滞対策や橋梁等の津波避難場所指定、下水処理場の防災活用について質問し、行政側は交通影響検討の結果や津波避難ビル整備の進捗状況について説明した。",
+            "committee": "本会議",
+            "summary": "議員は万博渋滞対策や橋梁等の津波避難場所指定、下水処理場の防災活用について質問し、行政側は交通影響検討の結果や津波避難ビル整備の進捗状況について説明した。...",
             "speech_id": "th_5301039_2",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=4"
           }
@@ -464,7 +447,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -486,7 +468,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -501,7 +482,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -523,7 +503,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -538,7 +517,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -560,7 +538,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -575,7 +552,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -597,7 +573,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -612,7 +587,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -633,8 +607,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "夢洲地区都市基盤整備関連補正予算",
+          "bill_number": "議第74号",
+          "session": "令和5年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -649,7 +629,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -670,8 +649,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "物価高騰から生活と営業を守る財政措置を求める決議案",
+          "bill_number": "議提第29号",
+          "session": "令和6年5月定例会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -686,7 +671,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -708,7 +692,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -723,25 +706,18 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-11",
-          "committee": "本会議・委員会",
-          "summary": "日本語指導が必要な児童生徒の就学支援について、外国籍児童の就学義務やプレクラス制度の運用実態、専門校設置等の制度的改善の可能性を質問し、行政側から国の指針や受入れの現状について説明があった質疑。",
-          "speech_id": "th_5301430_60",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6"
-        },
         "council_statements": [
           {
             "date": "2025-03-11",
-            "committee": "本会議・委員会",
-            "summary": "日本語指導が必要な児童生徒の就学支援について、外国籍児童の就学義務やプレクラス制度の運用実態、専門校設置等の制度的改善の可能性を質問し、行政側から国の指針や受入れの現状について説明があった質疑。",
+            "committee": "本会議",
+            "summary": "日本語指導が必要な児童生徒の就学支援について、外国籍児童の就学義務やプレクラス制度の運用実態、専門校設置等の制度的改善の可能性を質問し、行政側から国の指針や受入れの現状について説明があった質疑。...",
             "speech_id": "th_5301430_60",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6"
           },
           {
             "date": "2026-02-24",
-            "committee": "本会議・委員会",
-            "summary": "藤田議員が学校司書の配置と子どもの読書活動の効果について質問し、教育委員会が調査研究報告や配置校の貸出実績を説明。議員は他都市事例の検証とスピード感ある方針決定を求めた。",
+            "committee": "本会議",
+            "summary": "藤田議員が学校司書の配置と子どもの読書活動の効果について質問し、教育委員会が調査研究報告や配置校の貸出実績を説明。議員は他都市事例の検証とスピード感ある方針決定を求めた。...",
             "speech_id": "th_5333397_28",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3701&schedule_id=3"
           }
@@ -766,7 +742,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -781,18 +756,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2023-09-22",
-          "committee": "本会議・委員会",
-          "summary": "保育士の離職防止に向けた一時金支給方法や公立保育所の負担軽減について質問し、行政側から法人を通じた支給や業務効率化の取り組みについて説明があった。",
-          "speech_id": "th_5300888_27",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2"
-        },
         "council_statements": [
           {
             "date": "2023-09-22",
-            "committee": "本会議・委員会",
-            "summary": "保育士の離職防止に向けた一時金支給方法や公立保育所の負担軽減について質問し、行政側から法人を通じた支給や業務効率化の取り組みについて説明があった。",
+            "committee": "本会議",
+            "summary": "保育士の離職防止に向けた一時金支給方法や公立保育所の負担軽減について質問し、行政側から法人を通じた支給や業務効率化の取り組みについて説明があった。...",
             "speech_id": "th_5300888_27",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2"
           }
@@ -817,7 +785,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -831,8 +798,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和6年度大阪市一般会計予算",
+          "bill_number": "議第1号",
+          "session": "令和6年3月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -854,7 +827,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -869,18 +841,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-11-13",
-          "committee": "本会議・委員会",
-          "summary": "議員は気候変動を踏まえた浸水対策の基準見直しや下水道施設の耐震化、マンホールトイレの設置スキームについて質問し、行政側は66ミリへの降雨基準見直しや耐震診断の実施スケジュール、広域避難所以外の設置状況について説明した。",
-          "speech_id": "th_5301309_85",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=4"
-        },
         "council_statements": [
           {
             "date": "2024-11-13",
-            "committee": "本会議・委員会",
-            "summary": "議員は気候変動を踏まえた浸水対策の基準見直しや下水道施設の耐震化、マンホールトイレの設置スキームについて質問し、行政側は66ミリへの降雨基準見直しや耐震診断の実施スケジュール、広域避難所以外の設置状況について説明した。",
+            "committee": "本会議",
+            "summary": "議員は気候変動を踏まえた浸水対策の基準見直しや下水道施設の耐震化、マンホールトイレの設置スキームについて質問し、行政側は66ミリへの降雨基準見直しや耐震診断の実施スケジュール、広域避難所以外の設置状況について説明した。...",
             "speech_id": "th_5301309_85",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=4"
           }
@@ -905,7 +870,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -920,7 +884,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -942,7 +905,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -957,7 +919,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -979,7 +940,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -994,7 +954,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1016,18 +975,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2023-12-08",
-          "committee": "本会議・委員会",
-          "summary": "議員が提出された陳情案件に対する理事者の見解を求め、環境局および建設局から路上喫煙禁止方針、環境アセスメント、ヒートアイランド対策、公園樹・街路樹の安全対策に関する説明と答弁が行われた。",
-          "speech_id": "th_5300918_19",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3541&schedule_id=2"
-        },
         "council_statements": [
           {
             "date": "2023-12-08",
-            "committee": "本会議・委員会",
-            "summary": "議員が提出された陳情案件に対する理事者の見解を求め、環境局および建設局から路上喫煙禁止方針、環境アセスメント、ヒートアイランド対策、公園樹・街路樹の安全対策に関する説明と答弁が行われた。",
+            "committee": "本会議",
+            "summary": "議員が提出された陳情案件に対する理事者の見解を求め、環境局および建設局から路上喫煙禁止方針、環境アセスメント、ヒートアイランド対策、公園樹・街路樹の安全対策に関する説明と答弁が行われた。...",
             "speech_id": "th_5300918_19",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3541&schedule_id=2"
           }
@@ -1045,7 +997,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1067,7 +1018,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1081,19 +1031,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-11-05",
-          "committee": "本会議・委員会",
-          "summary": "議員は小中学校や保育所等における外国につながる児童・生徒や保護者への支援と翻訳技術の活用等について質問し、行政側はアンケート調査結果や現状の支援策と課題について説明した。",
-          "speech_id": "th_5301705_130",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=7"
+        "council_vote": {
+          "bill_title": "学校給食費の完全無償化を求める意見書案",
+          "bill_number": "議員提出第1号",
+          "session": "令和8年3月定例会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
         },
         "council_statements": [
           {
             "date": "2025-11-05",
-            "committee": "本会議・委員会",
-            "summary": "議員は小中学校や保育所等における外国につながる児童・生徒や保護者への支援と翻訳技術の活用等について質問し、行政側はアンケート調査結果や現状の支援策と課題について説明した。",
+            "committee": "本会議",
+            "summary": "議員は小中学校や保育所等における外国につながる児童・生徒や保護者への支援と翻訳技術の活用等について質問し、行政側はアンケート調査結果や現状の支援策と課題について説明した。...",
             "speech_id": "th_5301705_130",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=7"
           }
@@ -1117,8 +1067,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "学校給食費の完全無償化を求める意見書案",
+          "bill_number": "議員提出第1号",
+          "session": "令和8年3月定例会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -1133,7 +1089,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1155,7 +1110,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1170,7 +1124,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1191,8 +1144,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "夢洲地区都市基盤整備関連補正予算",
+          "bill_number": "議第74号",
+          "session": "令和5年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -1207,7 +1166,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1229,7 +1187,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1244,7 +1201,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1266,7 +1222,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1281,7 +1236,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1303,7 +1257,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1318,7 +1271,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1340,7 +1292,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1354,8 +1305,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市児童福祉施設の設備及び運営に関する基準を定める条例の一部改正について",
+          "bill_number": "議第230号",
+          "session": "令和6年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -1376,8 +1333,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市児童福祉施設の設備及び運営に関する基準を定める条例の一部改正について",
+          "bill_number": "議第230号",
+          "session": "令和6年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -1391,8 +1354,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市介護保険条例の一部を改正する条例の制定について（第9期介護保険料基準額改定）",
+          "bill_number": "議第25号",
+          "session": "令和8年3月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -1414,7 +1383,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1429,7 +1397,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1451,7 +1418,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1466,7 +1432,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1488,7 +1453,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1502,8 +1466,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "物価高騰から生活と営業を守る財政措置を求める決議案",
+          "bill_number": "議提第29号",
+          "session": "令和5年5月定例会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -1525,7 +1495,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1540,18 +1509,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-05-23",
-          "committee": "本会議・委員会",
-          "summary": "淡路駅周辺の駐輪場不足や違法駐輪の実態を示し、高架化完了までの未開通道路予定地を活用した一時的な駐輪場整備を提案した。行政側は区役所や関係機関と連携し地域の状況を把握して取り組むと答弁した。",
-          "speech_id": "th_5301077_89",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3576&schedule_id=2"
-        },
         "council_statements": [
           {
             "date": "2024-05-23",
-            "committee": "本会議・委員会",
-            "summary": "淡路駅周辺の駐輪場不足や違法駐輪の実態を示し、高架化完了までの未開通道路予定地を活用した一時的な駐輪場整備を提案した。行政側は区役所や関係機関と連携し地域の状況を把握して取り組むと答弁した。",
+            "committee": "本会議",
+            "summary": "淡路駅周辺の駐輪場不足や違法駐輪の実態を示し、高架化完了までの未開通道路予定地を活用した一時的な駐輪場整備を提案した。行政側は区役所や関係機関と連携し地域の状況を把握して取り組むと答弁した。...",
             "speech_id": "th_5301077_89",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3576&schedule_id=2"
           }
@@ -1575,26 +1537,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-11",
-          "committee": "本会議・委員会",
-          "summary": "議員は児童発達支援の多子軽減や見守り事業、認定調査体制等について質問し、行政側は令和6年度からの無償化方針や調査体制の確保状況などについてそれぞれ説明した。",
-          "speech_id": "th_5301052_144",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=5"
+        "council_vote": {
+          "bill_title": "学校給食費の完全無償化を求める意見書案",
+          "bill_number": "議員提出第1号",
+          "session": "令和8年3月定例会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
         },
         "council_statements": [
           {
             "date": "2024-03-11",
-            "committee": "本会議・委員会",
-            "summary": "議員は児童発達支援の多子軽減や見守り事業、認定調査体制等について質問し、行政側は令和6年度からの無償化方針や調査体制の確保状況などについてそれぞれ説明した。",
+            "committee": "本会議",
+            "summary": "議員は児童発達支援の多子軽減や見守り事業、認定調査体制等について質問し、行政側は令和6年度からの無償化方針や調査体制の確保状況などについてそれぞれ説明した。...",
             "speech_id": "th_5301052_144",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=5"
           },
           {
             "date": "2025-03-06",
-            "committee": "本会議・委員会",
-            "summary": "議員は保育人材確保策や待機児童対策、心の天気の活用状況とスクールカウンセラーによる情報共有の進捗について質問し、行政側は各種補助金や整備実績、閲覧環境の整備状況について説明した。",
+            "committee": "本会議",
+            "summary": "議員は保育人材確保策や待機児童対策、心の天気の活用状況とスクールカウンセラーによる情報共有の進捗について質問し、行政側は各種補助金や整備実績、閲覧環境の整備状況について説明した。...",
             "speech_id": "th_5301427_2",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=3"
           }
@@ -1612,7 +1574,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1634,7 +1595,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1649,7 +1609,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1671,7 +1630,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1686,7 +1644,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1708,7 +1665,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1723,18 +1679,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2026-03-10",
-          "committee": "本会議・委員会",
-          "summary": "議員が開票立会人の報酬や投票所の寒さ対策、空き家対策における税務部と区役所の連携について質問し、行政側がそれぞれの現状や今後の取組予定、区長がこれまでの区政運営の実績について説明した。",
-          "speech_id": "th_5301824_98",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=3"
-        },
         "council_statements": [
           {
             "date": "2026-03-10",
-            "committee": "本会議・委員会",
-            "summary": "議員が開票立会人の報酬や投票所の寒さ対策、空き家対策における税務部と区役所の連携について質問し、行政側がそれぞれの現状や今後の取組予定、区長がこれまでの区政運営の実績について説明した。",
+            "committee": "本会議",
+            "summary": "議員が開票立会人の報酬や投票所の寒さ対策、空き家対策における税務部と区役所の連携について質問し、行政側がそれぞれの現状や今後の取組予定、区長がこれまでの区政運営の実績について説明した。...",
             "speech_id": "th_5301824_98",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=3"
           }
@@ -1759,7 +1708,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1774,7 +1722,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1796,7 +1743,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1811,7 +1757,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1833,7 +1778,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1848,7 +1792,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1869,8 +1812,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市児童福祉施設の設備及び運営に関する基準を定める条例の一部改正について",
+          "bill_number": "議第230号",
+          "session": "令和6年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -1885,7 +1834,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1907,7 +1855,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1922,7 +1869,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1944,7 +1890,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1959,7 +1904,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -1981,7 +1925,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -1996,7 +1939,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2018,7 +1960,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2033,7 +1974,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2055,7 +1995,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2070,18 +2009,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2024-03-12",
-          "committee": "本会議・委員会",
-          "summary": "豊里矢田線の暫定2車線整備や道路予定地の利活用、中浜下水処理場の再構築、街路樹の寄附制度や外来植物対策、楠根川跡緑陰歩道の整備について質問し、行政側から今後の検討方針や関係機関との協議状況等の説明があった質疑。",
-          "speech_id": "th_5301041_2",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=6"
-        },
         "council_statements": [
           {
             "date": "2024-03-12",
-            "committee": "本会議・委員会",
-            "summary": "豊里矢田線の暫定2車線整備や道路予定地の利活用、中浜下水処理場の再構築、街路樹の寄附制度や外来植物対策、楠根川跡緑陰歩道の整備について質問し、行政側から今後の検討方針や関係機関との協議状況等の説明があった質疑。",
+            "committee": "本会議",
+            "summary": "豊里矢田線の暫定2車線整備や道路予定地の利活用、中浜下水処理場の再構築、街路樹の寄附制度や外来植物対策、楠根川跡緑陰歩道の整備について質問し、行政側から今後の検討方針や関係機関との協議状況等の説明があった質疑。...",
             "speech_id": "th_5301041_2",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=6"
           }
@@ -2106,7 +2038,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2121,7 +2052,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2142,8 +2072,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "国民健康保険料の国庫負担増額を求める意見書案",
+          "bill_number": "議提第30号",
+          "session": "令和5年5月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -2158,7 +2094,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2180,18 +2115,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-11",
-          "committee": "本会議・委員会",
-          "summary": "大阪鶴見フラワーセンターの店舗撤退後の活用方針、土地賃貸料の減免措置、および万博開幕に向けた準備状況について質問し、行政側から市場機能拡充の計画や減免の経緯、万博準備の進捗等について説明があった。",
-          "speech_id": "th_5301448_178",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=6"
-        },
         "council_statements": [
           {
             "date": "2025-03-11",
-            "committee": "本会議・委員会",
-            "summary": "大阪鶴見フラワーセンターの店舗撤退後の活用方針、土地賃貸料の減免措置、および万博開幕に向けた準備状況について質問し、行政側から市場機能拡充の計画や減免の経緯、万博準備の進捗等について説明があった。",
+            "committee": "本会議",
+            "summary": "大阪鶴見フラワーセンターの店舗撤退後の活用方針、土地賃貸料の減免措置、および万博開幕に向けた準備状況について質問し、行政側から市場機能拡充の計画や減免の経緯、万博準備の進捗等について説明があった。...",
             "speech_id": "th_5301448_178",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=6"
           }
@@ -2208,8 +2136,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市教育委員会委員の任命について",
+          "bill_number": "議第58号",
+          "session": "令和7年5月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -2231,7 +2165,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2246,7 +2179,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2268,18 +2200,11 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-07",
-          "committee": "本会議・委員会",
-          "summary": "罹災証明書の交付迅速化に向けた自己判定方式の全災害への適用や、ライブ映像119の活用事例、さらに区役所におけるおくやみ手続きのワンストップ化の検討について質問し、行政側から各対応について説明や今後の検討方針が示された。",
-          "speech_id": "th_5301416_104",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3631&schedule_id=4"
-        },
         "council_statements": [
           {
             "date": "2025-03-07",
-            "committee": "本会議・委員会",
-            "summary": "罹災証明書の交付迅速化に向けた自己判定方式の全災害への適用や、ライブ映像119の活用事例、さらに区役所におけるおくやみ手続きのワンストップ化の検討について質問し、行政側から各対応について説明や今後の検討方針が示された。",
+            "committee": "本会議",
+            "summary": "罹災証明書の交付迅速化に向けた自己判定方式の全災害への適用や、ライブ映像119の活用事例、さらに区役所におけるおくやみ手続きのワンストップ化の検討について質問し、行政側から各対応について説明や今後の検討方針が示された。...",
             "speech_id": "th_5301416_104",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3631&schedule_id=4"
           }
@@ -2297,7 +2222,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2319,7 +2243,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2333,8 +2256,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "令和6年度大阪市一般会計予算",
+          "bill_number": "議第1号",
+          "session": "令和6年3月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -2356,7 +2285,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2371,7 +2299,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2393,7 +2320,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2408,7 +2334,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2430,7 +2355,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2444,8 +2368,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市児童福祉施設の設備及び運営に関する基準を定める条例の一部改正について",
+          "bill_number": "議第230号",
+          "session": "令和6年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -2467,7 +2397,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2482,7 +2411,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2504,7 +2432,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2519,7 +2446,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2541,7 +2467,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2556,7 +2481,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2577,8 +2501,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "学校給食費の完全無償化を求める意見書案",
+          "bill_number": "議員提出第1号",
+          "session": "令和8年3月定例会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       },
       {
@@ -2593,7 +2523,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2615,7 +2544,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2630,7 +2558,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2652,7 +2579,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2667,7 +2593,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2689,7 +2614,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2703,26 +2627,26 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-02-09",
-          "committee": "本会議・委員会",
-          "summary": "物価高騰均等割支援給付金および子ども加算支援給付金の支給要件、申請方法、時期について質問し、行政側から確認書の送付やオンライン申請の導入、3月末からの順次支給予定であると説明があった。",
-          "speech_id": "th_5301015_4",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3557&schedule_id=2"
+        "council_vote": {
+          "bill_title": "物価高騰から生活と営業を守る財政措置を求める決議案",
+          "bill_number": "議提第29号",
+          "session": "令和5年9月定例会",
+          "vote": "反対",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
         },
         "council_statements": [
           {
             "date": "2024-02-09",
-            "committee": "本会議・委員会",
-            "summary": "物価高騰均等割支援給付金および子ども加算支援給付金の支給要件、申請方法、時期について質問し、行政側から確認書の送付やオンライン申請の導入、3月末からの順次支給予定であると説明があった。",
+            "committee": "本会議",
+            "summary": "物価高騰均等割支援給付金および子ども加算支援給付金の支給要件、申請方法、時期について質問し、行政側から確認書の送付やオンライン申請の導入、3月末からの順次支給予定であると説明があった。...",
             "speech_id": "th_5301015_4",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3557&schedule_id=2"
           },
           {
             "date": "2023-05-31",
-            "committee": "本会議・委員会",
-            "summary": "中田光一郎議員が電力・ガス・食料品等価格高騰重点支援給付金の支給時期や対象世帯の見込みと早期支給について質問し、行政側から7月下旬からの申請書送付や8月中旬からの支給見込み、プッシュ型方式の採用等について説明があった。",
+            "committee": "本会議",
+            "summary": "中田光一郎議員が電力・ガス・食料品等価格高騰重点支援給付金の支給時期や対象世帯の見込みと早期支給について質問し、行政側から7月下旬からの申請書送付や8月中旬からの支給見込み、プッシュ型方式の採用等について説明があった。...",
             "speech_id": "th_5300777_10",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3507&schedule_id=3"
           }
@@ -2747,25 +2671,18 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": {
-          "date": "2025-10-30",
-          "committee": "本会議・委員会",
-          "summary": "議員が国保料の減免制度や任意繰入れ、介護保険料の負担軽減を求め、行政側が制度の趣旨や保険料額等を説明した。",
-          "speech_id": "th_5301703_122",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=5"
-        },
         "council_statements": [
           {
             "date": "2025-10-30",
-            "committee": "本会議・委員会",
-            "summary": "議員が国保料の減免制度や任意繰入れ、介護保険料の負担軽減を求め、行政側が制度の趣旨や保険料額等を説明した。",
+            "committee": "本会議",
+            "summary": "議員が国保料の減免制度や任意繰入れ、介護保険料の負担軽減を求め、行政側が制度の趣旨や保険料額等を説明した。...",
             "speech_id": "th_5301703_122",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=5"
           },
           {
             "date": "2024-11-15",
-            "committee": "本会議・委員会",
-            "summary": "議員は国民健康保険料と介護保険料の負担軽減や多段階化を提案し、行政側は制度の仕組みや基金取組、保険料段階の設定理由について説明した。",
+            "committee": "本会議",
+            "summary": "議員は国民健康保険料と介護保険料の負担軽減や多段階化を提案し、行政側は制度の仕組みや基金取組、保険料段階の設定理由について説明した。...",
             "speech_id": "th_5301311_36",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=6"
           }
@@ -2782,19 +2699,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2025-03-25",
-          "committee": "本会議・委員会",
-          "summary": "学校給食費の無償化に係る国の財政措置と本市負担の見込み額について質問し、行政側が小学校分約60億円や国の支援基準額等を説明した。",
-          "speech_id": "th_5301798_61",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3705&schedule_id=2"
+        "council_vote": {
+          "bill_title": "学校給食費の完全無償化を求める意見書案",
+          "bill_number": "議員提出第1号",
+          "session": "令和8年3月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
         },
         "council_statements": [
           {
             "date": "2025-03-25",
-            "committee": "本会議・委員会",
-            "summary": "学校給食費の無償化に係る国の財政措置と本市負担の見込み額について質問し、行政側が小学校分約60億円や国の支援基準額等を説明した。",
+            "committee": "本会議",
+            "summary": "学校給食費の無償化に係る国の財政措置と本市負担の見込み額について質問し、行政側が小学校分約60億円や国の支援基準額等を説明した。...",
             "speech_id": "th_5301798_61",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3705&schedule_id=2"
           }
@@ -2819,7 +2736,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2833,8 +2749,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "市立中学校屋内運動場空調設備設置工事請負契約の締結について",
+          "bill_number": "議第110号",
+          "session": "令和8年3月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -2856,7 +2778,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2871,7 +2792,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2893,7 +2813,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2908,7 +2827,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2930,7 +2848,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2945,7 +2862,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -2967,7 +2883,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -2982,7 +2897,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3004,7 +2918,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3018,8 +2931,14 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": null,
+        "council_vote": {
+          "bill_title": "大阪市児童福祉施設の設備及び運営に関する基準を定める条例の一部改正について",
+          "bill_number": "議第230号",
+          "session": "令和6年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
+        },
         "council_statements": []
       }
     ]
@@ -3041,7 +2960,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3056,7 +2974,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3078,7 +2995,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3093,7 +3009,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3115,7 +3030,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3130,7 +3044,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3152,7 +3065,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3166,19 +3078,19 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
-        "council_vote": null,
-        "council_statement": {
-          "date": "2024-11-15",
-          "committee": "本会議・委員会",
-          "summary": "万博会場のバリアフリーや交通バリアフリー基本構想の変更について質問し、行政側から施設整備基準や今後のスケジュール等について説明があった質疑。",
-          "speech_id": "th_5301311_122",
-          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=6"
+        "council_vote": {
+          "bill_title": "夢洲地区都市基盤整備関連補正予算",
+          "bill_number": "議第74号",
+          "session": "令和5年9月定例会",
+          "vote": "賛成",
+          "vote_type": "会派方針",
+          "source_url": "https://www.city.osaka.lg.jp/shikai/page/0000001592.html"
         },
         "council_statements": [
           {
             "date": "2024-11-15",
-            "committee": "本会議・委員会",
-            "summary": "万博会場のバリアフリーや交通バリアフリー基本構想の変更について質問し、行政側から施設整備基準や今後のスケジュール等について説明があった質疑。",
+            "committee": "本会議",
+            "summary": "万博会場のバリアフリーや交通バリアフリー基本構想の変更について質問し、行政側から施設整備基準や今後のスケジュール等について説明があった質疑。...",
             "speech_id": "th_5301311_122",
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=6"
           }
@@ -3203,7 +3115,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3218,7 +3129,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3240,7 +3150,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3255,7 +3164,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
@@ -3277,7 +3185,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       },
       {
@@ -3292,7 +3199,6 @@
           "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
         },
         "council_vote": null,
-        "council_statement": null,
         "council_statements": []
       }
     ]
