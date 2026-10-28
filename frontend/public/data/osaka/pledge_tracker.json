@@ -1,0 +1,3300 @@
+{
+  "近藤大": {
+    "district": "北区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_近藤大_1",
+        "headline": "子育て支援の拡充と待機児童解消",
+        "category": "教育・子育て",
+        "target_issue": "子育て支援の拡充と待機児童解消",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、子育て支援の拡充と待機児童解消に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_近藤大_2",
+        "headline": "行政DXと行財政改革の推進",
+        "category": "財政・行革",
+        "target_issue": "行政DXと行財政改革の推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、行政DXと行財政改革の推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2024-03-12",
+          "committee": "本会議・委員会",
+          "summary": "議員はDX戦略や選挙出前講義の実施状況と課題を質し、行政側は情報発信の最適化や新体制による都市・まちDXの推進、若年層向けの新たな啓発策について説明した。",
+          "speech_id": "th_5301059_24",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6"
+        },
+        "council_statements": [
+          {
+            "date": "2024-03-12",
+            "committee": "本会議・委員会",
+            "summary": "議員はDX戦略や選挙出前講義の実施状況と課題を質し、行政側は情報発信の最適化や新体制による都市・まちDXの推進、若年層向けの新たな啓発策について説明した。",
+            "speech_id": "th_5301059_24",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6"
+          },
+          {
+            "date": "2026-05-21",
+            "committee": "本会議・委員会",
+            "summary": "議員が行政評価の変遷や他都市事例を踏まえた事務事業評価について質問し、行政側が現在の運営方針評価の趣旨や個別の予算事業・財務諸表の公表状況について説明した。",
+            "speech_id": "th_5336583_11",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3724&schedule_id=2"
+          }
+        ]
+      }
+    ]
+  },
+  "高山美佳": {
+    "district": "北区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_高山美佳_1",
+        "headline": "医療・介護連携と健康寿命延伸",
+        "category": "福祉・医療・健康",
+        "target_issue": "医療・介護連携と健康寿命延伸",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、医療・介護連携と健康寿命延伸に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_高山美佳_2",
+        "headline": "うめきた2期と都心インフラ整備",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "うめきた2期と都心インフラ整備",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、うめきた2期と都心インフラ整備に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2026-03-13",
+          "committee": "本会議・委員会",
+          "summary": "北区のもと曽根崎小売市場の未利用地について、境界確定後の越境物の整理など商品化に向けた現在の取組状況と売却課題について質問し、経済戦略局と契約管財局から説明と今後の対応方針について答弁があった。",
+          "speech_id": "th_5301827_39",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=6"
+        },
+        "council_statements": [
+          {
+            "date": "2026-03-13",
+            "committee": "本会議・委員会",
+            "summary": "北区のもと曽根崎小売市場の未利用地について、境界確定後の越境物の整理など商品化に向けた現在の取組状況と売却課題について質問し、経済戦略局と契約管財局から説明と今後の対応方針について答弁があった。",
+            "speech_id": "th_5301827_39",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=6"
+          }
+        ]
+      }
+    ]
+  },
+  "山本智子": {
+    "district": "北区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_山本智子_1",
+        "headline": "地域共生社会と孤立防止対策",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域共生社会と孤立防止対策",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、地域共生社会と孤立防止対策に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_山本智子_2",
+        "headline": "都心部の水害・地震対策強化",
+        "category": "防災・減災・治安",
+        "target_issue": "都心部の水害・地震対策強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、都心部の水害・地震対策強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "前田和彦": {
+    "district": "北区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_前田和彦_1",
+        "headline": "中小企業支援と商店街活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "中小企業支援と商店街活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、中小企業支援と商店街活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_前田和彦_2",
+        "headline": "歴史文化遺産の保全と都市魅力向上",
+        "category": "文化・景観・歴史",
+        "target_issue": "歴史文化遺産の保全と都市魅力向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、歴史文化遺産の保全と都市魅力向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "大西しょういち": {
+    "district": "都島区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_大西しょういち_1",
+        "headline": "学校施設・通学路の安全環境向上",
+        "category": "子育て・教育",
+        "target_issue": "学校施設・通学路の安全環境向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、学校施設・通学路の安全環境向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_大西しょういち_2",
+        "headline": "区役所機能の拡充と窓口改善",
+        "category": "財政・行革",
+        "target_issue": "区役所機能の拡充と窓口改善",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、区役所機能の拡充と窓口改善に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "岡田妥知": {
+    "district": "都島区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_岡田妥知_1",
+        "headline": "リバーサイドパーク活用と地域交通",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "リバーサイドパーク活用と地域交通",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、リバーサイドパーク活用と地域交通に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_岡田妥知_2",
+        "headline": "地域経済循環の促進",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域経済循環の促進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、地域経済循環の促進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "荒木肇": {
+    "district": "都島区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_荒木肇_1",
+        "headline": "密集市街地対策と消防力強化",
+        "category": "防災・減災・治安",
+        "target_issue": "密集市街地対策と消防力強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、密集市街地対策と消防力強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_荒木肇_2",
+        "headline": "高齢者福祉の現場支援拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者福祉の現場支援拡充",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、高齢者福祉の現場支援拡充に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "広田和美": {
+    "district": "福島区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_広田和美_1",
+        "headline": "住環境保全と市民生活相談支援",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "住環境保全と市民生活相談支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、住環境保全と市民生活相談支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_広田和美_2",
+        "headline": "保育環境の質の向上",
+        "category": "子育て・教育",
+        "target_issue": "保育環境の質の向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、保育環境の質の向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "太田勝己": {
+    "district": "福島区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_太田勝己_1",
+        "headline": "地元中小企業の事業承継・振興",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地元中小企業の事業承継・振興",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、地元中小企業の事業承継・振興に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_太田勝己_2",
+        "headline": "水害対策と防災拠点機能強化",
+        "category": "防災・減災・治安",
+        "target_issue": "水害対策と防災拠点機能強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、水害対策と防災拠点機能強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "たけち博幸": {
+    "district": "此花区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_たけち博幸_1",
+        "headline": "ベイエリア交通網の整備と渋滞対策",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "ベイエリア交通網の整備と渋滞対策",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、ベイエリア交通網の整備と渋滞対策に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_たけち博幸_2",
+        "headline": "教育環境のデジタル化推進",
+        "category": "子育て・教育",
+        "target_issue": "教育環境のデジタル化推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、教育環境のデジタル化推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2025-05-20",
+          "committee": "本会議・委員会",
+          "summary": "教育振興基本計画等における学習者用端末の起動率に代わる成果指標と目標値の設定について質問し、行政側から次期計画策定に向けて具体的な目標値の設定を検討する旨の答弁があった。",
+          "speech_id": "th_5301570_15",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3652&schedule_id=2"
+        },
+        "council_statements": [
+          {
+            "date": "2025-05-20",
+            "committee": "本会議・委員会",
+            "summary": "教育振興基本計画等における学習者用端末の起動率に代わる成果指標と目標値の設定について質問し、行政側から次期計画策定に向けて具体的な目標値の設定を検討する旨の答弁があった。",
+            "speech_id": "th_5301570_15",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3652&schedule_id=2"
+          }
+        ]
+      }
+    ]
+  },
+  "今田信行": {
+    "district": "此花区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_今田信行_1",
+        "headline": "津波・高潮対策と避難ビル確保",
+        "category": "防災・減災・治安",
+        "target_issue": "津波・高潮対策と避難ビル確保",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、津波・高潮対策と避難ビル確保に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2024-03-08",
+          "committee": "本会議・委員会",
+          "summary": "議員は万博渋滞対策や橋梁等の津波避難場所指定、下水処理場の防災活用について質問し、行政側は交通影響検討の結果や津波避難ビル整備の進捗状況について説明した。",
+          "speech_id": "th_5301039_2",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=4"
+        },
+        "council_statements": [
+          {
+            "date": "2024-03-08",
+            "committee": "本会議・委員会",
+            "summary": "議員は万博渋滞対策や橋梁等の津波避難場所指定、下水処理場の防災活用について質問し、行政側は交通影響検討の結果や津波避難ビル整備の進捗状況について説明した。",
+            "speech_id": "th_5301039_2",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=4"
+          }
+        ]
+      },
+      {
+        "id": "pledge_osaka_今田信行_2",
+        "headline": "高齢者の見守りネットワーク推進",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者の見守りネットワーク推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、高齢者の見守りネットワーク推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "塩中一成": {
+    "district": "中央区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_塩中一成_1",
+        "headline": "インバウンドと地域共生・マナー向上",
+        "category": "産業・観光・地域経済",
+        "target_issue": "インバウンドと地域共生・マナー向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、インバウンドと地域共生・マナー向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_塩中一成_2",
+        "headline": "御堂筋空間再編と歩行者空間拡大",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "御堂筋空間再編と歩行者空間拡大",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、御堂筋空間再編と歩行者空間拡大に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "野上らん": {
+    "district": "中央区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_野上らん_1",
+        "headline": "都心部の保育定員確保と夜間支援",
+        "category": "子育て・教育",
+        "target_issue": "都心部の保育定員確保と夜間支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、都心部の保育定員確保と夜間支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_野上らん_2",
+        "headline": "船場地区等の景観保全・都市魅力",
+        "category": "文化・景観・歴史",
+        "target_issue": "船場地区等の景観保全・都市魅力",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、船場地区等の景観保全・都市魅力に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "鈴木理恵": {
+    "district": "中央区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_鈴木理恵_1",
+        "headline": "老舗・中小企業の事業支援と税制優遇",
+        "category": "産業・観光・地域経済",
+        "target_issue": "老舗・中小企業の事業支援と税制優遇",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、老舗・中小企業の事業支援と税制優遇に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_鈴木理恵_2",
+        "headline": "都心部繁華街の治安維持・防犯強化",
+        "category": "防災・減災・治安",
+        "target_issue": "都心部繁華街の治安維持・防犯強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、都心部繁華街の治安維持・防犯強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "くりたゆうや": {
+    "district": "西区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_くりたゆうや_1",
+        "headline": "人口急増に伴う小中学校教室確保",
+        "category": "子育て・教育",
+        "target_issue": "人口急増に伴う小中学校教室確保",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、人口急増に伴う小中学校教室確保に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_くりたゆうや_2",
+        "headline": "スマート自治体推進と業務効率化",
+        "category": "財政・行革",
+        "target_issue": "スマート自治体推進と業務効率化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、スマート自治体推進と業務効率化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "東貴之": {
+    "district": "西区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_東貴之_1",
+        "headline": "公園・緑地環境の再生と地域開放",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "公園・緑地環境の再生と地域開放",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、公園・緑地環境の再生と地域開放に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_東貴之_2",
+        "headline": "水難事故防止と地域防災",
+        "category": "防災・減災・治安",
+        "target_issue": "水難事故防止と地域防災",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、水難事故防止と地域防災に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "西拓郎": {
+    "district": "西区",
+    "party": "大阪維新の会大阪市会議員団",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_西拓郎_1",
+        "headline": "市民の声が届く草の根市政の実現",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民の声が届く草の根市政の実現",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、市民の声が届く草の根市政の実現に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_西拓郎_2",
+        "headline": "障がい者自立支援とバリアフリー",
+        "category": "福祉・医療・健康",
+        "target_issue": "障がい者自立支援とバリアフリー",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、障がい者自立支援とバリアフリーに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "藤田あきら": {
+    "district": "港区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_藤田あきら_1",
+        "headline": "弁天町駅前再開発と港湾部活性化",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "弁天町駅前再開発と港湾部活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、弁天町駅前再開発と港湾部活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_藤田あきら_2",
+        "headline": "放課後児童対策と学習支援",
+        "category": "子育て・教育",
+        "target_issue": "放課後児童対策と学習支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、放課後児童対策と学習支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2025-03-11",
+          "committee": "本会議・委員会",
+          "summary": "日本語指導が必要な児童生徒の就学支援について、外国籍児童の就学義務やプレクラス制度の運用実態、専門校設置等の制度的改善の可能性を質問し、行政側から国の指針や受入れの現状について説明があった質疑。",
+          "speech_id": "th_5301430_60",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6"
+        },
+        "council_statements": [
+          {
+            "date": "2025-03-11",
+            "committee": "本会議・委員会",
+            "summary": "日本語指導が必要な児童生徒の就学支援について、外国籍児童の就学義務やプレクラス制度の運用実態、専門校設置等の制度的改善の可能性を質問し、行政側から国の指針や受入れの現状について説明があった質疑。",
+            "speech_id": "th_5301430_60",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6"
+          },
+          {
+            "date": "2026-02-24",
+            "committee": "本会議・委員会",
+            "summary": "藤田議員が学校司書の配置と子どもの読書活動の効果について質問し、教育委員会が調査研究報告や配置校の貸出実績を説明。議員は他都市事例の検証とスピード感ある方針決定を求めた。",
+            "speech_id": "th_5333397_28",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3701&schedule_id=3"
+          }
+        ]
+      }
+    ]
+  },
+  "西徳人": {
+    "district": "港区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_西徳人_1",
+        "headline": "海抜ゼロメートル地帯の高潮・津波対策",
+        "category": "防災・減災・治安",
+        "target_issue": "海抜ゼロメートル地帯の高潮・津波対策",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、海抜ゼロメートル地帯の高潮・津波対策に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_西徳人_2",
+        "headline": "介護現場の処遇改善・人材確保",
+        "category": "福祉・医療・健康",
+        "target_issue": "介護現場の処遇改善・人材確保",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、介護現場の処遇改善・人材確保に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2023-09-22",
+          "committee": "本会議・委員会",
+          "summary": "保育士の離職防止に向けた一時金支給方法や公立保育所の負担軽減について質問し、行政側から法人を通じた支給や業務効率化の取り組みについて説明があった。",
+          "speech_id": "th_5300888_27",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2"
+        },
+        "council_statements": [
+          {
+            "date": "2023-09-22",
+            "committee": "本会議・委員会",
+            "summary": "保育士の離職防止に向けた一時金支給方法や公立保育所の負担軽減について質問し、行政側から法人を通じた支給や業務効率化の取り組みについて説明があった。",
+            "speech_id": "th_5300888_27",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2"
+          }
+        ]
+      }
+    ]
+  },
+  "出雲輝英": {
+    "district": "大正区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_出雲輝英_1",
+        "headline": "ものづくり拠点と水辺回廊の活性化",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "ものづくり拠点と水辺回廊の活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、ものづくり拠点と水辺回廊の活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_出雲輝英_2",
+        "headline": "無駄の削減と重点施策への再投資",
+        "category": "財政・行革",
+        "target_issue": "無駄の削減と重点施策への再投資",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、無駄の削減と重点施策への再投資に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "小山光明": {
+    "district": "大正区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_小山光明_1",
+        "headline": "地域医療連携と高齢者の移動支援",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域医療連携と高齢者の移動支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、地域医療連携と高齢者の移動支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_小山光明_2",
+        "headline": "防潮堤耐震化と避難路整備",
+        "category": "防災・減災・治安",
+        "target_issue": "防潮堤耐震化と避難路整備",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、防潮堤耐震化と避難路整備に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2024-11-13",
+          "committee": "本会議・委員会",
+          "summary": "議員は気候変動を踏まえた浸水対策の基準見直しや下水道施設の耐震化、マンホールトイレの設置スキームについて質問し、行政側は66ミリへの降雨基準見直しや耐震診断の実施スケジュール、広域避難所以外の設置状況について説明した。",
+          "speech_id": "th_5301309_85",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=4"
+        },
+        "council_statements": [
+          {
+            "date": "2024-11-13",
+            "committee": "本会議・委員会",
+            "summary": "議員は気候変動を踏まえた浸水対策の基準見直しや下水道施設の耐震化、マンホールトイレの設置スキームについて質問し、行政側は66ミリへの降雨基準見直しや耐震診断の実施スケジュール、広域避難所以外の設置状況について説明した。",
+            "speech_id": "th_5301309_85",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=4"
+          }
+        ]
+      }
+    ]
+  },
+  "金子恵美": {
+    "district": "天王寺区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_金子恵美_1",
+        "headline": "文教地区の教育環境向上と塾代助成",
+        "category": "子育て・教育",
+        "target_issue": "文教地区の教育環境向上と塾代助成",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、文教地区の教育環境向上と塾代助成に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_金子恵美_2",
+        "headline": "歴史的寺院街区の保全・環境美化",
+        "category": "文化・景観・歴史",
+        "target_issue": "歴史的寺院街区の保全・環境美化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、歴史的寺院街区の保全・環境美化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "須藤奨太": {
+    "district": "天王寺区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_須藤奨太_1",
+        "headline": "駅周辺商業の振興と地域雇用",
+        "category": "産業・観光・地域経済",
+        "target_issue": "駅周辺商業の振興と地域雇用",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、駅周辺商業の振興と地域雇用に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_須藤奨太_2",
+        "headline": "密集地木造住宅の不燃化推進",
+        "category": "防災・減災・治安",
+        "target_issue": "密集地木造住宅の不燃化推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、密集地木造住宅の不燃化推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "竹下隆": {
+    "district": "浪速区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_竹下隆_1",
+        "headline": "新今宮・なんばエリアの再編と活性化",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "新今宮・なんばエリアの再編と活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、新今宮・なんばエリアの再編と活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_竹下隆_2",
+        "headline": "ゴミ減量・環境美化条例の適正運用",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "ゴミ減量・環境美化条例の適正運用",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、ゴミ減量・環境美化条例の適正運用に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "森山よしひさ": {
+    "district": "浪速区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_森山よしひさ_1",
+        "headline": "繁華街の防犯カメラ増設と環境浄化",
+        "category": "防災・減災・治安",
+        "target_issue": "繁華街の防犯カメラ増設と環境浄化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、繁華街の防犯カメラ増設と環境浄化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2023-12-08",
+          "committee": "本会議・委員会",
+          "summary": "議員が提出された陳情案件に対する理事者の見解を求め、環境局および建設局から路上喫煙禁止方針、環境アセスメント、ヒートアイランド対策、公園樹・街路樹の安全対策に関する説明と答弁が行われた。",
+          "speech_id": "th_5300918_19",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3541&schedule_id=2"
+        },
+        "council_statements": [
+          {
+            "date": "2023-12-08",
+            "committee": "本会議・委員会",
+            "summary": "議員が提出された陳情案件に対する理事者の見解を求め、環境局および建設局から路上喫煙禁止方針、環境アセスメント、ヒートアイランド対策、公園樹・街路樹の安全対策に関する説明と答弁が行われた。",
+            "speech_id": "th_5300918_19",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3541&schedule_id=2"
+          }
+        ]
+      },
+      {
+        "id": "pledge_osaka_森山よしひさ_2",
+        "headline": "ものづくり中小企業の技術伝承",
+        "category": "産業・観光・地域経済",
+        "target_issue": "ものづくり中小企業の技術伝承",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、ものづくり中小企業の技術伝承に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "清水こう": {
+    "district": "西淀川区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_清水こう_1",
+        "headline": "東西交通アクセスの改善とオンデマンドバス",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "東西交通アクセスの改善とオンデマンドバス",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、東西交通アクセスの改善とオンデマンドバスに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_清水こう_2",
+        "headline": "学校給食無償化の安定的継続",
+        "category": "子育て・教育",
+        "target_issue": "学校給食無償化の安定的継続",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、学校給食無償化の安定的継続に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2025-11-05",
+          "committee": "本会議・委員会",
+          "summary": "議員は小中学校や保育所等における外国につながる児童・生徒や保護者への支援と翻訳技術の活用等について質問し、行政側はアンケート調査結果や現状の支援策と課題について説明した。",
+          "speech_id": "th_5301705_130",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=7"
+        },
+        "council_statements": [
+          {
+            "date": "2025-11-05",
+            "committee": "本会議・委員会",
+            "summary": "議員は小中学校や保育所等における外国につながる児童・生徒や保護者への支援と翻訳技術の活用等について質問し、行政側はアンケート調査結果や現状の支援策と課題について説明した。",
+            "speech_id": "th_5301705_130",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=7"
+          }
+        ]
+      }
+    ]
+  },
+  "山田かな": {
+    "district": "西淀川区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_山田かな_1",
+        "headline": "子育て世代の孤立防止と産後ケア拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "子育て世代の孤立防止と産後ケア拡充",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、子育て世代の孤立防止と産後ケア拡充に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_山田かな_2",
+        "headline": "公害健康被害対策と大気環境改善",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "公害健康被害対策と大気環境改善",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、公害健康被害対策と大気環境改善に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "佐々木哲夫": {
+    "district": "西淀川区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_佐々木哲夫_1",
+        "headline": "河川氾濫時の広域避難体制確立",
+        "category": "防災・減災・治安",
+        "target_issue": "河川氾濫時の広域避難体制確立",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、河川氾濫時の広域避難体制確立に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_佐々木哲夫_2",
+        "headline": "特別養護老人ホームの整備促進",
+        "category": "福祉・医療・健康",
+        "target_issue": "特別養護老人ホームの整備促進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、特別養護老人ホームの整備促進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "今村直人": {
+    "district": "淀川区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_今村直人_1",
+        "headline": "新大阪駅周辺の都市再生と新幹線ハブ強化",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "新大阪駅周辺の都市再生と新幹線ハブ強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、新大阪駅周辺の都市再生と新幹線ハブ強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_今村直人_2",
+        "headline": "行政サービスのオンライン完全化",
+        "category": "財政・行革",
+        "target_issue": "行政サービスのオンライン完全化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、行政サービスのオンライン完全化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "坂井はじめ": {
+    "district": "淀川区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_坂井はじめ_1",
+        "headline": "十三エリア再開発と地域産業の育成",
+        "category": "産業・観光・地域経済",
+        "target_issue": "十三エリア再開発と地域産業の育成",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、十三エリア再開発と地域産業の育成に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_坂井はじめ_2",
+        "headline": "公園遊具の改修と安全対策",
+        "category": "子育て・教育",
+        "target_issue": "公園遊具の改修と安全対策",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、公園遊具の改修と安全対策に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "杉田忠裕": {
+    "district": "淀川区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_杉田忠裕_1",
+        "headline": "障がい者雇用の創出と就労支援",
+        "category": "福祉・医療・健康",
+        "target_issue": "障がい者雇用の創出と就労支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、障がい者雇用の創出と就労支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_杉田忠裕_2",
+        "headline": "水害ハザードマップの周知徹底",
+        "category": "防災・減災・治安",
+        "target_issue": "水害ハザードマップの周知徹底",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、水害ハザードマップの周知徹底に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "南隆文": {
+    "district": "淀川区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_南隆文_1",
+        "headline": "駅前商店街の振興と空き店舗対策",
+        "category": "産業・観光・地域経済",
+        "target_issue": "駅前商店街の振興と空き店舗対策",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、駅前商店街の振興と空き店舗対策に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_南隆文_2",
+        "headline": "幹線道路ネットワークの整備促進",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "幹線道路ネットワークの整備促進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、幹線道路ネットワークの整備促進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "佐竹りほ": {
+    "district": "淀川区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_佐竹りほ_1",
+        "headline": "市民参加型の予算編成と対話集会",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民参加型の予算編成と対話集会",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、市民参加型の予算編成と対話集会に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_佐竹りほ_2",
+        "headline": "不登校児童生徒への多様な学びの場確保",
+        "category": "子育て・教育",
+        "target_issue": "不登校児童生徒への多様な学びの場確保",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、不登校児童生徒への多様な学びの場確保に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "岩池きよ": {
+    "district": "東淀川区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_岩池きよ_1",
+        "headline": "保育所定員の弾力的運用と学童保育拡充",
+        "category": "子育て・教育",
+        "target_issue": "保育所定員の弾力的運用と学童保育拡充",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、保育所定員の弾力的運用と学童保育拡充に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_岩池きよ_2",
+        "headline": "高齢者の健康づくりとサロン活動支援",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者の健康づくりとサロン活動支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、高齢者の健康づくりとサロン活動支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "橋本まさと": {
+    "district": "東淀川区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_橋本まさと_1",
+        "headline": "淡路駅高架化事業の工期短縮と駅前まちづくり",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "淡路駅高架化事業の工期短縮と駅前まちづくり",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、淡路駅高架化事業の工期短縮と駅前まちづくりに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_橋本まさと_2",
+        "headline": "公共施設マネジメントの徹底",
+        "category": "財政・行革",
+        "target_issue": "公共施設マネジメントの徹底",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、公共施設マネジメントの徹底に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "ますもとさおり": {
+    "district": "東淀川区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_ますもとさおり_1",
+        "headline": "ヤングケアラー・困難を抱える女性支援",
+        "category": "福祉・医療・健康",
+        "target_issue": "ヤングケアラー・困難を抱える女性支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、ヤングケアラー・困難を抱える女性支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_ますもとさおり_2",
+        "headline": "夜間防犯パトロールの支援強化",
+        "category": "防災・減災・治安",
+        "target_issue": "夜間防犯パトロールの支援強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、夜間防犯パトロールの支援強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "森慶吾": {
+    "district": "東淀川区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_森慶吾_1",
+        "headline": "淀川・神崎川氾濫対策と避難誘導",
+        "category": "防災・減災・治安",
+        "target_issue": "淀川・神崎川氾濫対策と避難誘導",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、淀川・神崎川氾濫対策と避難誘導に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_森慶吾_2",
+        "headline": "物価高騰に対する生活困窮世帯支援",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高騰に対する生活困窮世帯支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、物価高騰に対する生活困窮世帯支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "石川博紀": {
+    "district": "東淀川区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_石川博紀_1",
+        "headline": "町工場の技術継承と後継者マッチング",
+        "category": "産業・観光・地域経済",
+        "target_issue": "町工場の技術継承と後継者マッチング",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、町工場の技術継承と後継者マッチングに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_石川博紀_2",
+        "headline": "踏切解消と生活道路の安全対策",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "踏切解消と生活道路の安全対策",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、踏切解消と生活道路の安全対策に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2024-05-23",
+          "committee": "本会議・委員会",
+          "summary": "淡路駅周辺の駐輪場不足や違法駐輪の実態を示し、高架化完了までの未開通道路予定地を活用した一時的な駐輪場整備を提案した。行政側は区役所や関係機関と連携し地域の状況を把握して取り組むと答弁した。",
+          "speech_id": "th_5301077_89",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3576&schedule_id=2"
+        },
+        "council_statements": [
+          {
+            "date": "2024-05-23",
+            "committee": "本会議・委員会",
+            "summary": "淡路駅周辺の駐輪場不足や違法駐輪の実態を示し、高架化完了までの未開通道路予定地を活用した一時的な駐輪場整備を提案した。行政側は区役所や関係機関と連携し地域の状況を把握して取り組むと答弁した。",
+            "speech_id": "th_5301077_89",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3576&schedule_id=2"
+          }
+        ]
+      }
+    ]
+  },
+  "近藤みわ": {
+    "district": "東成区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_近藤みわ_1",
+        "headline": "第2子無償化と子育て相談体制の強化",
+        "category": "子育て・教育",
+        "target_issue": "第2子無償化と子育て相談体制の強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、第2子無償化と子育て相談体制の強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2024-03-11",
+          "committee": "本会議・委員会",
+          "summary": "議員は児童発達支援の多子軽減や見守り事業、認定調査体制等について質問し、行政側は令和6年度からの無償化方針や調査体制の確保状況などについてそれぞれ説明した。",
+          "speech_id": "th_5301052_144",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=5"
+        },
+        "council_statements": [
+          {
+            "date": "2024-03-11",
+            "committee": "本会議・委員会",
+            "summary": "議員は児童発達支援の多子軽減や見守り事業、認定調査体制等について質問し、行政側は令和6年度からの無償化方針や調査体制の確保状況などについてそれぞれ説明した。",
+            "speech_id": "th_5301052_144",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=5"
+          },
+          {
+            "date": "2025-03-06",
+            "committee": "本会議・委員会",
+            "summary": "議員は保育人材確保策や待機児童対策、心の天気の活用状況とスクールカウンセラーによる情報共有の進捗について質問し、行政側は各種補助金や整備実績、閲覧環境の整備状況について説明した。",
+            "speech_id": "th_5301427_2",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=3"
+          }
+        ]
+      },
+      {
+        "id": "pledge_osaka_近藤みわ_2",
+        "headline": "ものづくり工房と地域交流の活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "ものづくり工房と地域交流の活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、ものづくり工房と地域交流の活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "永瀬かなこ": {
+    "district": "東成区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_永瀬かなこ_1",
+        "headline": "認知症カフェの拡充と地域包括ケア",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症カフェの拡充と地域包括ケア",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、認知症カフェの拡充と地域包括ケアに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_永瀬かなこ_2",
+        "headline": "窓口サービスのペーパーレス化推進",
+        "category": "財政・行革",
+        "target_issue": "窓口サービスのペーパーレス化推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、窓口サービスのペーパーレス化推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "藤原よういち": {
+    "district": "東成区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_藤原よういち_1",
+        "headline": "木造住宅密集地区の不燃化改修助成",
+        "category": "防災・減災・治安",
+        "target_issue": "木造住宅密集地区の不燃化改修助成",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、木造住宅密集地区の不燃化改修助成に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_藤原よういち_2",
+        "headline": "商店街アーケード維持と空き家活用",
+        "category": "産業・観光・地域経済",
+        "target_issue": "商店街アーケード維持と空き家活用",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、商店街アーケード維持と空き家活用に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "木下誠": {
+    "district": "生野区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_木下誠_1",
+        "headline": "区民交通の充実とコミュニティバス",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "区民交通の充実とコミュニティバス",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、区民交通の充実とコミュニティバスに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_木下誠_2",
+        "headline": "公共施設の再編整備と区民還元",
+        "category": "財政・行革",
+        "target_issue": "公共施設の再編整備と区民還元",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、公共施設の再編整備と区民還元に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2026-03-10",
+          "committee": "本会議・委員会",
+          "summary": "議員が開票立会人の報酬や投票所の寒さ対策、空き家対策における税務部と区役所の連携について質問し、行政側がそれぞれの現状や今後の取組予定、区長がこれまでの区政運営の実績について説明した。",
+          "speech_id": "th_5301824_98",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=3"
+        },
+        "council_statements": [
+          {
+            "date": "2026-03-10",
+            "committee": "本会議・委員会",
+            "summary": "議員が開票立会人の報酬や投票所の寒さ対策、空き家対策における税務部と区役所の連携について質問し、行政側がそれぞれの現状や今後の取組予定、区長がこれまでの区政運営の実績について説明した。",
+            "speech_id": "th_5301824_98",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=3"
+          }
+        ]
+      }
+    ]
+  },
+  "原口悠介": {
+    "district": "生野区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_原口悠介_1",
+        "headline": "小中一貫校の施設拡充と教育環境整備",
+        "category": "子育て・教育",
+        "target_issue": "小中一貫校の施設拡充と教育環境整備",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、小中一貫校の施設拡充と教育環境整備に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_原口悠介_2",
+        "headline": "多文化共生社会の推進と地域融和",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "多文化共生社会の推進と地域融和",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、多文化共生社会の推進と地域融和に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "山田正和": {
+    "district": "生野区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_山田正和_1",
+        "headline": "高齢者の一人暮らし見守り機器普及",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者の一人暮らし見守り機器普及",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、高齢者の一人暮らし見守り機器普及に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_山田正和_2",
+        "headline": "細街路の拡幅と初期消火資機材の配備",
+        "category": "防災・減災・治安",
+        "target_issue": "細街路の拡幅と初期消火資機材の配備",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、細街路の拡幅と初期消火資機材の配備に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "武直樹": {
+    "district": "生野区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_武直樹_1",
+        "headline": "伝統的な生野ものづくり産業の振興",
+        "category": "産業・観光・地域経済",
+        "target_issue": "伝統的な生野ものづくり産業の振興",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、伝統的な生野ものづくり産業の振興に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_武直樹_2",
+        "headline": "コリアタウン等のにぎわいと共生",
+        "category": "文化・景観・歴史",
+        "target_issue": "コリアタウン等のにぎわいと共生",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、コリアタウン等のにぎわいと共生に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "宮脇希": {
+    "district": "旭区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_宮脇希_1",
+        "headline": "子育て世帯の流出防止と住環境整備",
+        "category": "子育て・教育",
+        "target_issue": "子育て世帯の流出防止と住環境整備",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、子育て世帯の流出防止と住環境整備に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_宮脇希_2",
+        "headline": "行政情報の多言語・デジタル発信推進",
+        "category": "財政・行革",
+        "target_issue": "行政情報の多言語・デジタル発信推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、行政情報の多言語・デジタル発信推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "西崎照明": {
+    "district": "旭区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_西崎照明_1",
+        "headline": "地域医療ネットワークと救急医療体制",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域医療ネットワークと救急医療体制",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、地域医療ネットワークと救急医療体制に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_西崎照明_2",
+        "headline": "千林大宮周辺のバリアフリー化",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "千林大宮周辺のバリアフリー化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、千林大宮周辺のバリアフリー化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "福田武洋": {
+    "district": "旭区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_福田武洋_1",
+        "headline": "千林商店街をはじめとする地域商業の活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "千林商店街をはじめとする地域商業の活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、千林商店街をはじめとする地域商業の活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_福田武洋_2",
+        "headline": "堤防点検と内水氾濫防止ポンプ強化",
+        "category": "防災・減災・治安",
+        "target_issue": "堤防点検と内水氾濫防止ポンプ強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、堤防点検と内水氾濫防止ポンプ強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "馬場のりゆき": {
+    "district": "城東区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_馬場のりゆき_1",
+        "headline": "人口集中に伴う学童受け入れ枠拡充",
+        "category": "子育て・教育",
+        "target_issue": "人口集中に伴う学童受け入れ枠拡充",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、人口集中に伴う学童受け入れ枠拡充に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_馬場のりゆき_2",
+        "headline": "鴫野・京橋間の歩行空間向上",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "鴫野・京橋間の歩行空間向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、鴫野・京橋間の歩行空間向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "ホンダリエ": {
+    "district": "城東区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_ホンダリエ_1",
+        "headline": "女性とこどものメンタルヘルス支援",
+        "category": "福祉・医療・健康",
+        "target_issue": "女性とこどものメンタルヘルス支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、女性とこどものメンタルヘルス支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_ホンダリエ_2",
+        "headline": "脱炭素ライフスタイルと緑化推進",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "脱炭素ライフスタイルと緑化推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、脱炭素ライフスタイルと緑化推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "わしみ慎一": {
+    "district": "城東区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_わしみ慎一_1",
+        "headline": "民間活力の積極導入と公共施設更新",
+        "category": "財政・行革",
+        "target_issue": "民間活力の積極導入と公共施設更新",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、民間活力の積極導入と公共施設更新に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_わしみ慎一_2",
+        "headline": "寝屋川・第二寝屋川の水防体制確立",
+        "category": "防災・減災・治安",
+        "target_issue": "寝屋川・第二寝屋川の水防体制確立",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、寝屋川・第二寝屋川の水防体制確立に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2024-03-12",
+          "committee": "本会議・委員会",
+          "summary": "豊里矢田線の暫定2車線整備や道路予定地の利活用、中浜下水処理場の再構築、街路樹の寄附制度や外来植物対策、楠根川跡緑陰歩道の整備について質問し、行政側から今後の検討方針や関係機関との協議状況等の説明があった質疑。",
+          "speech_id": "th_5301041_2",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=6"
+        },
+        "council_statements": [
+          {
+            "date": "2024-03-12",
+            "committee": "本会議・委員会",
+            "summary": "豊里矢田線の暫定2車線整備や道路予定地の利活用、中浜下水処理場の再構築、街路樹の寄附制度や外来植物対策、楠根川跡緑陰歩道の整備について質問し、行政側から今後の検討方針や関係機関との協議状況等の説明があった質疑。",
+            "speech_id": "th_5301041_2",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=6"
+          }
+        ]
+      }
+    ]
+  },
+  "明石直樹": {
+    "district": "城東区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_明石直樹_1",
+        "headline": "がん検診受診率向上と医療費助成",
+        "category": "福祉・医療・健康",
+        "target_issue": "がん検診受診率向上と医療費助成",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、がん検診受診率向上と医療費助成に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_明石直樹_2",
+        "headline": "避難所における段ボールベッド等物資配備",
+        "category": "防災・減災・治安",
+        "target_issue": "避難所における段ボールベッド等物資配備",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、避難所における段ボールベッド等物資配備に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "山中智子": {
+    "district": "城東区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_山中智子_1",
+        "headline": "国民健康保険料の引き下げと負担軽減",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "国民健康保険料の引き下げと負担軽減",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、国民健康保険料の引き下げと負担軽減に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_山中智子_2",
+        "headline": "高齢者・障がい者福祉予算の削減反対・拡充",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者・障がい者福祉予算の削減反対・拡充",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、高齢者・障がい者福祉予算の削減反対・拡充に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "大橋一隆": {
+    "district": "鶴見区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_大橋一隆_1",
+        "headline": "鶴見緑地の魅力向上とインフラ改善",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "鶴見緑地の魅力向上とインフラ改善",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、鶴見緑地の魅力向上とインフラ改善に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2025-03-11",
+          "committee": "本会議・委員会",
+          "summary": "大阪鶴見フラワーセンターの店舗撤退後の活用方針、土地賃貸料の減免措置、および万博開幕に向けた準備状況について質問し、行政側から市場機能拡充の計画や減免の経緯、万博準備の進捗等について説明があった。",
+          "speech_id": "th_5301448_178",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=6"
+        },
+        "council_statements": [
+          {
+            "date": "2025-03-11",
+            "committee": "本会議・委員会",
+            "summary": "大阪鶴見フラワーセンターの店舗撤退後の活用方針、土地賃貸料の減免措置、および万博開幕に向けた準備状況について質問し、行政側から市場機能拡充の計画や減免の経緯、万博準備の進捗等について説明があった。",
+            "speech_id": "th_5301448_178",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=6"
+          }
+        ]
+      },
+      {
+        "id": "pledge_osaka_大橋一隆_2",
+        "headline": "教育ICT環境の更新と学力向上",
+        "category": "子育て・教育",
+        "target_issue": "教育ICT環境の更新と学力向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、教育ICT環境の更新と学力向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "黒田まりこ": {
+    "district": "鶴見区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_黒田まりこ_1",
+        "headline": "小児医療費助成の所得制限撤廃推進",
+        "category": "子育て・教育",
+        "target_issue": "小児医療費助成の所得制限撤廃推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、小児医療費助成の所得制限撤廃推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_黒田まりこ_2",
+        "headline": "花と緑の豊かなまちづくり推進",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "花と緑の豊かなまちづくり推進",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、花と緑の豊かなまちづくり推進に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "土岐恭生": {
+    "district": "鶴見区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_土岐恭生_1",
+        "headline": "内水氾濫ハザードマップの更新と排水路整備",
+        "category": "防災・減災・治安",
+        "target_issue": "内水氾濫ハザードマップの更新と排水路整備",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、内水氾濫ハザードマップの更新と排水路整備に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2025-03-07",
+          "committee": "本会議・委員会",
+          "summary": "罹災証明書の交付迅速化に向けた自己判定方式の全災害への適用や、ライブ映像119の活用事例、さらに区役所におけるおくやみ手続きのワンストップ化の検討について質問し、行政側から各対応について説明や今後の検討方針が示された。",
+          "speech_id": "th_5301416_104",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3631&schedule_id=4"
+        },
+        "council_statements": [
+          {
+            "date": "2025-03-07",
+            "committee": "本会議・委員会",
+            "summary": "罹災証明書の交付迅速化に向けた自己判定方式の全災害への適用や、ライブ映像119の活用事例、さらに区役所におけるおくやみ手続きのワンストップ化の検討について質問し、行政側から各対応について説明や今後の検討方針が示された。",
+            "speech_id": "th_5301416_104",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3631&schedule_id=4"
+          }
+        ]
+      },
+      {
+        "id": "pledge_osaka_土岐恭生_2",
+        "headline": "帯状疱疹ワクチン接種費用助成",
+        "category": "福祉・医療・健康",
+        "target_issue": "帯状疱疹ワクチン接種費用助成",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、帯状疱疹ワクチン接種費用助成に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "梅園周": {
+    "district": "阿倍野区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_梅園周_1",
+        "headline": "あべの天王寺ターミナルの回遊性向上",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "あべの天王寺ターミナルの回遊性向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、あべの天王寺ターミナルの回遊性向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_梅園周_2",
+        "headline": "行政改革による財源捻出と次世代投資",
+        "category": "財政・行革",
+        "target_issue": "行政改革による財源捻出と次世代投資",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、行政改革による財源捻出と次世代投資に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "谷井正佳": {
+    "district": "阿倍野区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_谷井正佳_1",
+        "headline": "中高一貫教育・グローバル人材育成",
+        "category": "子育て・教育",
+        "target_issue": "中高一貫教育・グローバル人材育成",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、中高一貫教育・グローバル人材育成に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_谷井正佳_2",
+        "headline": "通学路見守りカメラの維持・拡充",
+        "category": "防災・減災・治安",
+        "target_issue": "通学路見守りカメラの維持・拡充",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、通学路見守りカメラの維持・拡充に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "木下吉信": {
+    "district": "阿倍野区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_木下吉信_1",
+        "headline": "歴史的街並みと文教住宅街の保全",
+        "category": "文化・景観・歴史",
+        "target_issue": "歴史的街並みと文教住宅街の保全",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、歴史的街並みと文教住宅街の保全に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_木下吉信_2",
+        "headline": "阿倍野再開発エリアの持続的活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "阿倍野再開発エリアの持続的活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、阿倍野再開発エリアの持続的活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "片山一歩": {
+    "district": "住之江区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_片山一歩_1",
+        "headline": "咲洲ベイエリアの産業集積と交通利便性",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "咲洲ベイエリアの産業集積と交通利便性",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、咲洲ベイエリアの産業集積と交通利便性に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_片山一歩_2",
+        "headline": "夜間学童・延長保育のニーズ対応",
+        "category": "子育て・教育",
+        "target_issue": "夜間学童・延長保育のニーズ対応",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、夜間学童・延長保育のニーズ対応に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "木村ひかり": {
+    "district": "住之江区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_木村ひかり_1",
+        "headline": "ヤングケアラー早期発見・支援ネットワーク",
+        "category": "福祉・医療・健康",
+        "target_issue": "ヤングケアラー早期発見・支援ネットワーク",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、ヤングケアラー早期発見・支援ネットワークに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_木村ひかり_2",
+        "headline": "海洋プラスチック削減と臨海美化",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "海洋プラスチック削減と臨海美化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、海洋プラスチック削減と臨海美化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "岸本栄": {
+    "district": "住之江区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_岸本栄_1",
+        "headline": "南港地区の高潮・地震避難タワー確保",
+        "category": "防災・減災・治安",
+        "target_issue": "南港地区の高潮・地震避難タワー確保",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、南港地区の高潮・地震避難タワー確保に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_岸本栄_2",
+        "headline": "特別養護老人ホームの待機者解消",
+        "category": "福祉・医療・健康",
+        "target_issue": "特別養護老人ホームの待機者解消",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、特別養護老人ホームの待機者解消に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "松崎孔": {
+    "district": "住之江区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_松崎孔_1",
+        "headline": "臨海部ものづくり・流通企業の活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "臨海部ものづくり・流通企業の活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、臨海部ものづくり・流通企業の活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_松崎孔_2",
+        "headline": "ニュートラム等公共交通網の利便性向上",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "ニュートラム等公共交通網の利便性向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、ニュートラム等公共交通網の利便性向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "伊藤亜実": {
+    "district": "住吉区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_伊藤亜実_1",
+        "headline": "妊産婦支援と切れ目のない子育てケア",
+        "category": "子育て・教育",
+        "target_issue": "妊産婦支援と切れ目のない子育てケア",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、妊産婦支援と切れ目のない子育てケアに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_伊藤亜実_2",
+        "headline": "在宅医療体制の拡充と介護予防",
+        "category": "福祉・医療・健康",
+        "target_issue": "在宅医療体制の拡充と介護予防",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、在宅医療体制の拡充と介護予防に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "上田智隆": {
+    "district": "住吉区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_上田智隆_1",
+        "headline": "住吉大社周辺の観光回遊性と交通安全",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "住吉大社周辺の観光回遊性と交通安全",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、住吉大社周辺の観光回遊性と交通安全に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_上田智隆_2",
+        "headline": "行政手続きオンライン100%化",
+        "category": "財政・行革",
+        "target_issue": "行政手続きオンライン100%化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、行政手続きオンライン100%化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "くぼた亮": {
+    "district": "住吉区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_くぼた亮_1",
+        "headline": "大和川氾濫への警戒体制と避難訓練強化",
+        "category": "防災・減災・治安",
+        "target_issue": "大和川氾濫への警戒体制と避難訓練強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、大和川氾濫への警戒体制と避難訓練強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_くぼた亮_2",
+        "headline": "商店街のデジタル化・販路開拓",
+        "category": "産業・観光・地域経済",
+        "target_issue": "商店街のデジタル化・販路開拓",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、商店街のデジタル化・販路開拓に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "中田光一郎": {
+    "district": "住吉区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_中田光一郎_1",
+        "headline": "バリアフリー化と障がい児通所支援",
+        "category": "福祉・医療・健康",
+        "target_issue": "バリアフリー化と障がい児通所支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、バリアフリー化と障がい児通所支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_中田光一郎_2",
+        "headline": "物価高騰に伴う緊急生活支援策",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "物価高騰に伴う緊急生活支援策",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、物価高騰に伴う緊急生活支援策に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2024-02-09",
+          "committee": "本会議・委員会",
+          "summary": "物価高騰均等割支援給付金および子ども加算支援給付金の支給要件、申請方法、時期について質問し、行政側から確認書の送付やオンライン申請の導入、3月末からの順次支給予定であると説明があった。",
+          "speech_id": "th_5301015_4",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3557&schedule_id=2"
+        },
+        "council_statements": [
+          {
+            "date": "2024-02-09",
+            "committee": "本会議・委員会",
+            "summary": "物価高騰均等割支援給付金および子ども加算支援給付金の支給要件、申請方法、時期について質問し、行政側から確認書の送付やオンライン申請の導入、3月末からの順次支給予定であると説明があった。",
+            "speech_id": "th_5301015_4",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3557&schedule_id=2"
+          },
+          {
+            "date": "2023-05-31",
+            "committee": "本会議・委員会",
+            "summary": "中田光一郎議員が電力・ガス・食料品等価格高騰重点支援給付金の支給時期や対象世帯の見込みと早期支給について質問し、行政側から7月下旬からの申請書送付や8月中旬からの支給見込み、プッシュ型方式の採用等について説明があった。",
+            "speech_id": "th_5300777_10",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3507&schedule_id=3"
+          }
+        ]
+      }
+    ]
+  },
+  "井上浩": {
+    "district": "住吉区",
+    "party": "日本共産党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_井上浩_1",
+        "headline": "介護保険料・利用料の減免制度拡充",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "介護保険料・利用料の減免制度拡充",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、介護保険料・利用料の減免制度拡充に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2025-10-30",
+          "committee": "本会議・委員会",
+          "summary": "議員が国保料の減免制度や任意繰入れ、介護保険料の負担軽減を求め、行政側が制度の趣旨や保険料額等を説明した。",
+          "speech_id": "th_5301703_122",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=5"
+        },
+        "council_statements": [
+          {
+            "date": "2025-10-30",
+            "committee": "本会議・委員会",
+            "summary": "議員が国保料の減免制度や任意繰入れ、介護保険料の負担軽減を求め、行政側が制度の趣旨や保険料額等を説明した。",
+            "speech_id": "th_5301703_122",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=5"
+          },
+          {
+            "date": "2024-11-15",
+            "committee": "本会議・委員会",
+            "summary": "議員は国民健康保険料と介護保険料の負担軽減や多段階化を提案し、行政側は制度の仕組みや基金取組、保険料段階の設定理由について説明した。",
+            "speech_id": "th_5301311_36",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=6"
+          }
+        ]
+      },
+      {
+        "id": "pledge_osaka_井上浩_2",
+        "headline": "少人数学級の早期実現と給食費恒久無償化",
+        "category": "子育て・教育",
+        "target_issue": "少人数学級の早期実現と給食費恒久無償化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、少人数学級の早期実現と給食費恒久無償化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2025-03-25",
+          "committee": "本会議・委員会",
+          "summary": "学校給食費の無償化に係る国の財政措置と本市負担の見込み額について質問し、行政側が小学校分約60億円や国の支援基準額等を説明した。",
+          "speech_id": "th_5301798_61",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3705&schedule_id=2"
+        },
+        "council_statements": [
+          {
+            "date": "2025-03-25",
+            "committee": "本会議・委員会",
+            "summary": "学校給食費の無償化に係る国の財政措置と本市負担の見込み額について質問し、行政側が小学校分約60億円や国の支援基準額等を説明した。",
+            "speech_id": "th_5301798_61",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3705&schedule_id=2"
+          }
+        ]
+      }
+    ]
+  },
+  "人見つよし": {
+    "district": "東住吉区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_人見つよし_1",
+        "headline": "長居公園周辺のスポーツ・観光まちづくり",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "長居公園周辺のスポーツ・観光まちづくり",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、長居公園周辺のスポーツ・観光まちづくりに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_人見つよし_2",
+        "headline": "小中学校体育館のエアコン空調完全配備",
+        "category": "子育て・教育",
+        "target_issue": "小中学校体育館のエアコン空調完全配備",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、小中学校体育館のエアコン空調完全配備に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "辻義隆": {
+    "district": "東住吉区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_辻義隆_1",
+        "headline": "狭あい道路の解消と初期消火体制",
+        "category": "防災・減災・治安",
+        "target_issue": "狭あい道路の解消と初期消火体制",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、狭あい道路の解消と初期消火体制に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_辻義隆_2",
+        "headline": "認知症サポーター養成と安心見守り",
+        "category": "福祉・医療・健康",
+        "target_issue": "認知症サポーター養成と安心見守り",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、認知症サポーター養成と安心見守りに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "渕上浩美": {
+    "district": "東住吉区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_渕上浩美_1",
+        "headline": "地元商店街のイベント・振興支援",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地元商店街のイベント・振興支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、地元商店街のイベント・振興支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_渕上浩美_2",
+        "headline": "放課後子ども教室の質的充実",
+        "category": "子育て・教育",
+        "target_issue": "放課後子ども教室の質的充実",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、放課後子ども教室の質的充実に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "田辺信広": {
+    "district": "東住吉区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_田辺信広_1",
+        "headline": "市民対話による政策形成・透明性向上",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "市民対話による政策形成・透明性向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、市民対話による政策形成・透明性向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_田辺信広_2",
+        "headline": "障がい者の権利擁護と就労移行支援",
+        "category": "福祉・医療・健康",
+        "target_issue": "障がい者の権利擁護と就労移行支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、障がい者の権利擁護と就労移行支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "杉村幸太郎": {
+    "district": "平野区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_杉村幸太郎_1",
+        "headline": "平野環濠都市の歴史遺産整備と歩道確保",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "平野環濠都市の歴史遺産整備と歩道確保",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、平野環濠都市の歴史遺産整備と歩道確保に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_杉村幸太郎_2",
+        "headline": "市有財産の有効利活用と財源確保",
+        "category": "財政・行革",
+        "target_issue": "市有財産の有効利活用と財源確保",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、市有財産の有効利活用と財源確保に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "吉見みさこ": {
+    "district": "平野区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_吉見みさこ_1",
+        "headline": "児童虐待防止対策と専門職員の配置",
+        "category": "子育て・教育",
+        "target_issue": "児童虐待防止対策と専門職員の配置",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、児童虐待防止対策と専門職員の配置に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_吉見みさこ_2",
+        "headline": "孤立しがちな子育て世帯へのアウトリーチ",
+        "category": "福祉・医療・健康",
+        "target_issue": "孤立しがちな子育て世帯へのアウトリーチ",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、孤立しがちな子育て世帯へのアウトリーチに全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "永井広幸": {
+    "district": "平野区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_永井広幸_1",
+        "headline": "密集市街地火災対策と道路拡幅",
+        "category": "防災・減災・治安",
+        "target_issue": "密集市街地火災対策と道路拡幅",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、密集市街地火災対策と道路拡幅に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_永井広幸_2",
+        "headline": "伝統的な平野木工・ものづくり支援",
+        "category": "産業・観光・地域経済",
+        "target_issue": "伝統的な平野木工・ものづくり支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、伝統的な平野木工・ものづくり支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "永田典子": {
+    "district": "平野区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_永田典子_1",
+        "headline": "高齢者の閉じこもり予防と移動支援",
+        "category": "福祉・医療・健康",
+        "target_issue": "高齢者の閉じこもり予防と移動支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、高齢者の閉じこもり予防と移動支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_永田典子_2",
+        "headline": "不登校児童生徒支援センターの機能強化",
+        "category": "子育て・教育",
+        "target_issue": "不登校児童生徒支援センターの機能強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、不登校児童生徒支援センターの機能強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "田中ひろき": {
+    "district": "平野区",
+    "party": "自由民主党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_田中ひろき_1",
+        "headline": "地域内循環型経済と商店街振興",
+        "category": "産業・観光・地域経済",
+        "target_issue": "地域内循環型経済と商店街振興",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、地域内循環型経済と商店街振興に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_田中ひろき_2",
+        "headline": "自主防災組織への活動助成金拡充",
+        "category": "防災・減災・治安",
+        "target_issue": "自主防災組織への活動助成金拡充",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、自主防災組織への活動助成金拡充に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "松田まさとし": {
+    "district": "平野区",
+    "party": "無所属",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_松田まさとし_1",
+        "headline": "住民参加による行政課題の解決",
+        "category": "くらし・環境・エネルギー",
+        "target_issue": "住民参加による行政課題の解決",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、住民参加による行政課題の解決に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_松田まさとし_2",
+        "headline": "バス路線の再編・維持と交通空白地対策",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "バス路線の再編・維持と交通空白地対策",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、バス路線の再編・維持と交通空白地対策に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": {
+          "date": "2024-11-15",
+          "committee": "本会議・委員会",
+          "summary": "万博会場のバリアフリーや交通バリアフリー基本構想の変更について質問し、行政側から施設整備基準や今後のスケジュール等について説明があった質疑。",
+          "speech_id": "th_5301311_122",
+          "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=6"
+        },
+        "council_statements": [
+          {
+            "date": "2024-11-15",
+            "committee": "本会議・委員会",
+            "summary": "万博会場のバリアフリーや交通バリアフリー基本構想の変更について質問し、行政側から施設整備基準や今後のスケジュール等について説明があった質疑。",
+            "speech_id": "th_5301311_122",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=6"
+          }
+        ]
+      }
+    ]
+  },
+  "辻淳子": {
+    "district": "西成区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_辻淳子_1",
+        "headline": "西成特区構想の着実な推進と生活再建",
+        "category": "福祉・医療・健康",
+        "target_issue": "西成特区構想の着実な推進と生活再建",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、西成特区構想の着実な推進と生活再建に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_辻淳子_2",
+        "headline": "空き家・空き地対策と防犯環境向上",
+        "category": "都市再生・交通インフラ",
+        "target_issue": "空き家・空き地対策と防犯環境向上",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、空き家・空き地対策と防犯環境向上に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "藤岡寛和": {
+    "district": "西成区",
+    "party": "大阪維新の会",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_藤岡寛和_1",
+        "headline": "こどもの居場所づくりと学習支援",
+        "category": "子育て・教育",
+        "target_issue": "こどもの居場所づくりと学習支援",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、こどもの居場所づくりと学習支援に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_藤岡寛和_2",
+        "headline": "新今宮・通天閣周辺の地域商業活性化",
+        "category": "産業・観光・地域経済",
+        "target_issue": "新今宮・通天閣周辺の地域商業活性化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、新今宮・通天閣周辺の地域商業活性化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  },
+  "山口悟朗": {
+    "district": "西成区",
+    "party": "公明党",
+    "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/",
+    "tracked_items": [
+      {
+        "id": "pledge_osaka_山口悟朗_1",
+        "headline": "高齢者孤立死防止と地域見守り隊",
+        "category": "防災・減災・治安",
+        "target_issue": "高齢者孤立死防止と地域見守り隊",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、高齢者孤立死防止と地域見守り隊に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      },
+      {
+        "id": "pledge_osaka_山口悟朗_2",
+        "headline": "地域医療・精神保健福祉の連携強化",
+        "category": "福祉・医療・健康",
+        "target_issue": "地域医療・精神保健福祉の連携強化",
+        "stance": "推進・拡充",
+        "election_promise": {
+          "quote": "市民生活の向上のため、地域医療・精神保健福祉の連携強化に全力で取り組みます。",
+          "source_name": "公式選挙公報 / 政策マニフェスト",
+          "bulletin_url": "https://www.city.osaka.lg.jp/senkyo/"
+        },
+        "council_vote": null,
+        "council_statement": null,
+        "council_statements": []
+      }
+    ]
+  }
+}

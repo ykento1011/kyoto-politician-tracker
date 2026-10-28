@@ -21,3 +21,7 @@ service_account.json
 
 sagebase_crawled_data.json
 **/sagebase_crawled_data.json
+
+# Semantic Embedding Caches (exceeds GitHub 100MB limit)
+**/embeddings_*.json
+

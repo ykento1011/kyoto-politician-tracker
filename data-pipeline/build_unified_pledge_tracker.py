@@ -1,4 +1,4 @@
-import os
+﻿import os
 import json
 import re
 import math
@@ -85,9 +85,7 @@ def get_or_create_pledge_embeddings(councilor_list, emb_file):
     for c in councilor_list:
         spk = clean_name(c.get("speaker") or c.get("name") or "")
         for idx, p in enumerate(c.get("pledges", [])):
-            p_id = p.get("id") or f"p_{idx+1}"
-            full_id = f"{spk}_{p_id}"
-            # 定型挨拶句を除いたコア文脈
+            full_id = f"{spk}_{idx+1}"
             text = f"{p.get('category', '')} {p.get('target_issue', '')} {p.get('headline', '')}".strip()
             pending.append((full_id, text))
 
@@ -106,7 +104,7 @@ def get_or_create_pledge_embeddings(councilor_list, emb_file):
     return cache
 
 def main():
-    parser = argparse.ArgumentParser(description="統一公約トラッカービルダー (セマンティック対応)")
+    parser = argparse.ArgumentParser(description="統一公約トラッカービルダー")
     parser.add_argument("--city", required=True, help="対象都市コード")
     args = parser.parse_args()
     city = args.city.lower()
@@ -114,7 +112,6 @@ def main():
     print(f"=== {city.upper()} 公約トラッカー 統一ビルドパイプライン ===")
     paths = get_paths(city)
 
-    # 公約データロード
     pledges_path = paths["pledges"] if paths["pledges"].exists() else paths["pledges_alt"]
     if not pledges_path or not pledges_path.exists():
         pledges_path = paths["pledges_fallback"]
@@ -135,14 +132,12 @@ def main():
     elif isinstance(raw_data, list):
         councilor_list = raw_data
 
-    # 質疑データロード
     statements = []
     if paths["statements"] and paths["statements"].exists():
         raw_stmts = json.loads(paths["statements"].read_text(encoding="utf-8"))
         statements = raw_stmts if isinstance(raw_stmts, list) else raw_stmts.get("statements", [])
         print(f"🔍 質疑データロード完了: {paths['statements'].name} ({len(statements)} 件)")
 
-    # 質疑Embeddingキャッシュのロード
     stmt_embeddings = {}
     use_semantic = False
     if paths["stmt_embeddings"].exists():
@@ -157,7 +152,6 @@ def main():
     if use_semantic:
         pledge_embeddings = get_or_create_pledge_embeddings(councilor_list, paths["pledge_embeddings"])
 
-    # 議員ごとに質疑をインデックス
     stmts_by_speaker = {}
     for idx, s in enumerate(statements):
         spk = clean_name(s.get("speaker") or s.get("speaker_name") or "")
@@ -167,7 +161,6 @@ def main():
             s_with_id["_computed_id"] = s_id
             stmts_by_speaker.setdefault(spk, []).append(s_with_id)
 
-    # ルールロード（フォールバック用）
     city_rules = []
     if paths["rules"].exists():
         city_rules = json.loads(paths["rules"].read_text(encoding="utf-8")).get(city, [])
@@ -187,12 +180,10 @@ def main():
 
         tracked_items = []
         for idx, p in enumerate(raw_pledges):
-            p_id = p.get("id") or f"p_{idx+1}"
-            full_p_id = f"{c_name}_{p_id}"
-            
+            full_p_id = f"{c_name}_{idx+1}"
             candidates = []
             
-            # 1. セマンティック照合（Embeddingモード）
+            # 1. セマンティック照合（sim >= 0.65）
             if use_semantic and full_p_id in pledge_embeddings:
                 p_vec = pledge_embeddings[full_p_id]
                 for stmt in my_stmts:
@@ -200,12 +191,11 @@ def main():
                     if sid in stmt_embeddings:
                         s_vec = stmt_embeddings[sid]
                         sim = cosine_similarity(p_vec, s_vec)
-                        # 0.62以上の関連質疑のみを候補とする（ノイズ完全遮断）
                         if sim >= 0.65:
                             candidates.append((sim, stmt))
                 candidates.sort(key=lambda x: (x[0], x[1].get("meeting_date", "")), reverse=True)
             
-            # 2. ルール照合（フォールバックモード）
+            # 2. ルール照合（フォールバック）
             if not candidates and not use_semantic:
                 target_text = f"{p.get('target_issue', '')} {p.get('headline', '')}"
                 matched_rule = next((r for r in city_rules if any(t in target_text for t in r.get("triggers", []))), None)
@@ -226,7 +216,7 @@ def main():
                     "date": best.get("meeting_date") or best.get("date") or "",
                     "committee": best.get("meeting_name") or best.get("committee") or "本会議・委員会",
                     "summary": s_sum[:200] + ("..." if len(s_sum) > 200 else ""),
-                    "speech_id": str(best.get("id") or best.get("speech_id") or ""),
+                    "speech_id": best.get("_computed_id", ""),
                     "official_url": best.get("official_url") or best.get("source_url") or ""
                 })
 

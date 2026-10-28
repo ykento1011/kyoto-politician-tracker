@@ -1,4 +1,4 @@
-import json
+﻿import json
 import re
 import math
 import argparse
@@ -27,20 +27,20 @@ def audit_city(city):
     print(f" 🔬 【{city.upper()}】 公約トラッカー 精度＆インテグリティ監査 (セマンティック評価対応)")
     print(f"================================================================================")
 
-    data_file = FRONTEND_DATA / f"pledge_tracker_{city}.json"
-    if not data_file.exists():
-        if city == "kyoto":
-            data_file = FRONTEND_DATA / "pledge_tracker.json"
-        elif city == "osaka":
-            data_file = FRONTEND_DATA / "osaka" / "pledge_tracker.json"
+    data_candidates = [
+        FRONTEND_DATA / f"pledge_tracker_{city}.json",
+        FRONTEND_DATA / f"{city}" / "pledge_tracker.json"
+    ]
+    if city == "kyoto":
+        data_candidates.append(FRONTEND_DATA / "pledge_tracker.json")
 
-    if not data_file.exists():
-        print(f"❌ データファイルが見つかりません: {data_file}")
+    data_file = next((p for p in data_candidates if p.exists()), None)
+    if not data_file:
+        print(f"❌ データファイルが見つかりません（検索先: {[str(p) for p in data_candidates]}）")
         return
 
     tracker_data = json.loads(data_file.read_text(encoding="utf-8"))
 
-    # ベクトルキャッシュのロード（存在する場合）
     stmt_emb_file = DATA_DIR / f"embeddings_{city}_statements.json"
     pledge_emb_file = DATA_DIR / f"embeddings_{city}_pledges.json"
     stmt_emb = json.loads(stmt_emb_file.read_text(encoding="utf-8")) if stmt_emb_file.exists() else {}
@@ -75,7 +75,7 @@ def audit_city(city):
 
             headline = item.get("headline", "")
             target_issue = item.get("target_issue", "")
-            full_p_id = f"{spk}_p_{idx+1}"
+            full_p_id = f"{spk}_{idx+1}"
 
             for s in stmts:
                 summary = s.get("summary", "")
@@ -83,12 +83,10 @@ def audit_city(city):
                 full_stmt = f"{committee} {summary}"
                 speech_id = str(s.get("speech_id", ""))
 
-                # 1. ベクトル類似度による判定（優先）
                 sim = 0.0
                 if full_p_id in pledge_emb and speech_id in stmt_emb:
                     sim = cosine_similarity(pledge_emb[full_p_id], stmt_emb[speech_id])
 
-                # 2. ルールベース判定
                 is_rule_high = False
                 core_p_text = f"{target_issue} {headline}"
                 for r in city_rules:
@@ -111,7 +109,6 @@ def audit_city(city):
                 elif sim >= 0.65:
                     med_conf.append(entry)
                 else:
-                    # キーワードフォールバック判定
                     words = [w for w in re.findall(r"[\u4e00-\u9fa5]{2,}", core_p_text) if w not in {"推進", "支援", "実現", "対策", "安心", "安全", "向上", "強化"}]
                     if any(w in full_stmt for w in words):
                         med_conf.append(entry)
@@ -139,9 +136,13 @@ def audit_city(city):
 
 def main():
     parser = argparse.ArgumentParser(description="セマンティック公約トラッカー精度監査")
-    parser.add_argument("--city", default="osaka", help="都市コード")
+    parser.add_argument("--city", default="all", help="都市コード (kyoto, osaka, nagoya または all)")
     args = parser.parse_args()
-    audit_city(args.city.lower())
+    
+    city_arg = args.city.lower()
+    targets = ["kyoto", "osaka", "nagoya"] if city_arg == "all" else [city_arg]
+    for c in targets:
+        audit_city(c)
 
 if __name__ == "__main__":
     main()
