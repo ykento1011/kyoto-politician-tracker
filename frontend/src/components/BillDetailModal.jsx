@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { 
   X, CheckCircle2, XCircle, Sparkles, ExternalLink, User, 
-  Flame, Tag, Scale, ArrowRight, AlertTriangle 
+  Flame, BookmarkCheck, ArrowRight, MinusCircle 
 } from 'lucide-react';
 
 // 異体字・旧字体のエイリアス辞書
@@ -12,17 +12,34 @@ const ALIAS_MAP = {
   '繁隆夫': '繁隆夫'
 };
 
+// 長文の賛否理由を安全に短縮表示する共通関数
+function formatVoteDisplay(v) {
+  if (!v) return '-';
+  const str = String(v).trim();
+  if (str === '賛成' || str === '〇') return '賛成';
+  if (str === '反対' || str === '×') return '反対';
+  if (str.includes('一身上') || str.includes('除斥')) return '除斥';
+  if (str.includes('議長')) return '議長';
+  if (str.includes('退席')) return '退席';
+  if (str.includes('棄権')) return '棄権';
+  if (str.includes('欠席')) return '欠席';
+  if (str.includes('不参加')) return '不参加';
+  return str.length > 5 ? str.slice(0, 4) + '..' : str;
+}
+
 export default function BillDetailModal({
   isOpen,
   onClose,
   bill,
   issue,
   speakerStats = [],
-  onSpeakerClick
-, cityCode = 'kyoto'}) {
+  pledgeTrackerData = null,
+  onSpeakerClick,
+  cityCode = 'kyoto'
+}) {
   if (!isOpen || !bill) return null;
 
-  // 各議員の所属会派・無所属ステータスに基づき、賛成議員・反対議員を特定
+  // 1. 各議員の所属会派・無所属ステータスに基づき、賛成議員・反対議員を特定
   const { agreeCouncilors, disagreeCouncilors } = useMemo(() => {
     const agree = [];
     const disagree = [];
@@ -32,7 +49,6 @@ export default function BillDetailModal({
       const isIndependent = !spk.partyGroup || spk.partyGroup === '無所属';
       let voteVal = null;
 
-      // 1. 会派による一括照合
       if (!isIndependent && spk.partyGroup) {
         for (const [groupName, v] of Object.entries(votes)) {
           if (groupName.includes(spk.partyGroup) || spk.partyGroup.includes(groupName)) {
@@ -42,7 +58,6 @@ export default function BillDetailModal({
         }
       }
 
-      // 2. 個人名（無所属など）による照合（異体字・空白揺らぎも自動吸収）
       if (!voteVal) {
         const rawName = spk.speaker || '';
         const cleanSpkName = rawName.replace(/\s+/g, '');
@@ -60,12 +75,46 @@ export default function BillDetailModal({
         }
       }
 
-      if (voteVal === '賛成') agree.push(spk);
-      else if (voteVal === '反対') disagree.push(spk);
+      if (voteVal === '賛成' || voteVal === '〇') agree.push(spk);
+      else if (voteVal === '反対' || voteVal === '×') disagree.push(spk);
     });
 
     return { agreeCouncilors: agree, disagreeCouncilors: disagree };
   }, [bill, speakerStats]);
+
+  // 2. この議案を公約に掲げていた議員の逆引き
+  const pledgedCouncilors = useMemo(() => {
+    if (!bill || !pledgeTrackerData) return [];
+
+    const results = [];
+    const bTitle = bill.title || '';
+    const bNo = bill.bill_number || '';
+    const sess = bill.session_name || '';
+
+    Object.entries(pledgeTrackerData).forEach(([speakerName, data]) => {
+      (data.tracked_items || []).forEach(item => {
+        const cv = item.council_vote;
+        if (!cv) return;
+
+        const isMatch = 
+          (cv.bill_title && cv.bill_title === bTitle) ||
+          (cv.session === sess && cv.bill_number === bNo && bNo !== '');
+
+        if (isMatch) {
+          if (!results.find(r => r.speaker === speakerName)) {
+            results.push({
+              speaker: speakerName,
+              party: data.party || data.partyGroup || '',
+              headline: item.headline,
+              vote: cv.vote
+            });
+          }
+        }
+      });
+    });
+
+    return results;
+  }, [bill, pledgeTrackerData]);
 
   const votes = bill.votes || {};
   const vValues = Object.values(votes);
@@ -86,7 +135,7 @@ export default function BillDetailModal({
           <div className="space-y-1.5 flex-1 pr-4">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-[10px] font-black text-slate-500 bg-slate-200/80 px-2 py-0.5 rounded font-mono">
-                {bill.session_name} ({bill.bill_number})
+                {bill.session_name} {bill.bill_number ? `(${bill.bill_number})` : ''}
               </span>
               {isContested ? (
                 <span className="text-[10px] font-black px-2 py-0.5 rounded bg-rose-50 text-rose-600 border border-rose-200 flex items-center gap-1">
@@ -99,7 +148,7 @@ export default function BillDetailModal({
               )}
               {result && (
                 <span className={`text-[10px] font-black px-2 py-0.5 rounded ${
-                  result.includes('可決') || result.includes('認定') || result.includes('同意')
+                  result.includes('可決') || result.includes('認定') || result.includes('同意') || result.includes('〇')
                     ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                     : 'bg-rose-50 text-rose-700 border border-rose-200'
                 }`}>
@@ -129,32 +178,88 @@ export default function BillDetailModal({
             <div className="bg-gradient-to-br from-indigo-50/50 to-slate-50 p-5 rounded-2xl border border-indigo-100/80 space-y-3">
               <div>
                 <div className="flex items-center gap-1.5 text-xs font-black text-indigo-900 mb-1">
-                  <Sparkles className="w-4 h-4 text-amber-500" />
-                  対立の核心: {issue.key_conflict}
+                  <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+                  対立の核心: {issue.key_conflict || issue.issue}
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  {issue.background}
-                </p>
+                {issue.background && (
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                    {issue.background}
+                  </p>
+                )}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
-                <div className="bg-emerald-50/80 p-3.5 rounded-xl border border-emerald-100">
-                  <span className="text-xs font-black text-emerald-800 flex items-center gap-1 mb-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />賛成派の主な論理
-                  </span>
-                  <p className="text-slate-700 text-xs leading-relaxed">{issue.agree_logic}</p>
+              {((issue.agree_logic || issue.arguments?.agree) || (issue.disagree_logic || issue.arguments?.disagree)) && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                  {(issue.agree_logic || issue.arguments?.agree) && (
+                    <div className="bg-emerald-50/80 p-3.5 rounded-xl border border-emerald-100">
+                      <span className="text-xs font-black text-emerald-800 flex items-center gap-1 mb-1">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />賛成派の主な論理
+                      </span>
+                      <p className="text-slate-700 text-xs leading-relaxed">{issue.agree_logic || issue.arguments?.agree}</p>
+                    </div>
+                  )}
+                  {(issue.disagree_logic || issue.arguments?.disagree) && (
+                    <div className="bg-rose-50/80 p-3.5 rounded-xl border border-rose-100">
+                      <span className="text-xs font-black text-rose-800 flex items-center gap-1 mb-1">
+                        <XCircle className="w-3.5 h-3.5 text-rose-600 shrink-0" />反対派の主な論理
+                      </span>
+                      <p className="text-slate-700 text-xs leading-relaxed">{issue.disagree_logic || issue.arguments?.disagree}</p>
+                    </div>
+                  )}
                 </div>
-                <div className="bg-rose-50/80 p-3.5 rounded-xl border border-rose-100">
-                  <span className="text-xs font-black text-rose-800 flex items-center gap-1 mb-1">
-                    <XCircle className="w-3.5 h-3.5 text-rose-600" />反対派の主な論理
-                  </span>
-                  <p className="text-slate-700 text-xs leading-relaxed">{issue.disagree_logic}</p>
-                </div>
-              </div>
+              )}
             </div>
           ) : (
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 text-xs text-slate-500">
               {Object.values(bill.votes || {}).includes('反対') ? '会派間で賛否が分かれた重要議案です。' : '全会一致で可決・認定された議案です。会派間の対立論点は生じていません。'}
+            </div>
+          )}
+
+          {/* 公約を掲げていた議員のハイライト表示（逆引き） */}
+          {pledgedCouncilors.length > 0 && (
+            <div className="bg-amber-50/60 rounded-2xl p-4 border border-amber-200/80 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-black text-amber-950 flex items-center gap-1.5">
+                  <BookmarkCheck className="w-4 h-4 text-amber-600 shrink-0" />
+                  この政策を看板公約に掲げていた議員 ({pledgedCouncilors.length}名)
+                </span>
+                <span className="text-[10px] text-amber-800/80 font-medium">公報原本と照合</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {pledgedCouncilors.map((c, i) => {
+                  const isAgree = c.vote === '賛成' || c.vote === '〇';
+                  const isDisagree = c.vote === '反対' || c.vote === '×';
+                  return (
+                    <div 
+                      key={i}
+                      onClick={() => {
+                        onClose();
+                        onSpeakerClick(c.speaker);
+                      }}
+                      className="p-2.5 rounded-xl bg-white border border-amber-200 hover:border-amber-400 transition-all cursor-pointer shadow-2xs group"
+                    >
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="font-black text-slate-800 text-xs group-hover:text-amber-700 transition-colors truncate">
+                          {c.speaker} <span className="text-[10px] text-slate-400 font-normal">({c.party})</span>
+                        </span>
+                        <span className={`text-[10px] font-black px-1.5 py-0.5 rounded border shrink-0 ${
+                          isAgree 
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
+                            : isDisagree
+                            ? 'bg-rose-50 text-rose-700 border-rose-200'
+                            : 'bg-slate-100 text-slate-600 border-slate-200'
+                        }`}>
+                          {formatVoteDisplay(c.vote)}
+                        </span>
+                      </div>
+                      <div className="text-[11px] text-slate-600 line-clamp-1 font-medium">
+                        📌 {c.headline}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
 
@@ -233,21 +338,38 @@ export default function BillDetailModal({
             </div>
           </div>
 
-          {/* 会派・無所属別投票態度一覧 */}
+          {/* 会派・無所属別投票態度一覧（名前が押しつぶされない安全レイアウト） */}
           {Object.keys(votes).length > 0 && (
             <div className="space-y-2 pt-2 border-t border-slate-100">
               <span className="text-[11px] font-bold text-slate-500 block">会派・無所属別の評決結果</span>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {Object.entries(votes).map(([grp, v]) => {
-                  const isAgree = v === '賛成';
+                  const isAgree = v === '賛成' || v === '〇';
+                  const isDisagree = v === '反対' || v === '×';
+                  const isNeutral = !isAgree && !isDisagree;
+                  const label = formatVoteDisplay(v);
+
                   return (
                     <div key={grp} className="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
-                      <span className="font-bold text-slate-700 truncate mr-2" title={grp}>{grp}</span>
-                      <span className={`font-black shrink-0 inline-flex items-center gap-0.5 text-[11px] ${
-                        isAgree ? 'text-emerald-600' : 'text-rose-600'
-                      }`}>
-                        {isAgree ? <CheckCircle2 className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
-                        {v}
+                      {/* 左側の名前: min-w-0 と truncate で適切に確保 */}
+                      <span className="font-bold text-slate-700 truncate min-w-0 mr-2" title={grp}>
+                        {grp}
+                      </span>
+                      {/* 右側の賛否バッジ: shrink-0 で固定幅かつ短縮ラベル */}
+                      <span 
+                        title={v}
+                        className={`font-black shrink-0 inline-flex items-center gap-0.5 text-[11px] px-1.5 py-0.5 rounded ${
+                          isAgree 
+                            ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' 
+                            : isDisagree 
+                            ? 'bg-rose-50 text-rose-600 border border-rose-200' 
+                            : 'bg-slate-100 text-slate-600 border border-slate-200'
+                        }`}
+                      >
+                        {isAgree && <CheckCircle2 className="w-3 h-3 shrink-0" />}
+                        {isDisagree && <XCircle className="w-3 h-3 shrink-0" />}
+                        {isNeutral && <MinusCircle className="w-3 h-3 shrink-0" />}
+                        {label}
                       </span>
                     </div>
                   );

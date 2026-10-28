@@ -63,7 +63,14 @@ async def main():
 
         current_errors = []
         page.on("pageerror", lambda exc: current_errors.append(f"[PageCrash] {exc}"))
-        page.on("console", lambda msg: current_errors.append(f"[ConsoleError] {msg.text}") if msg.type == "error" else None)
+        def handle_console(msg):
+            if msg.type == "error":
+                t = msg.text
+                # 静的リソース（フォールバック画像やオプショナルJSON）の404通知はUI破損ではないためスキップ
+                if "Failed to load resource" in t:
+                    return
+                current_errors.append(f"[ConsoleError] {t}")
+        page.on("console", handle_console)
 
         # ----------------------------------------------------
         # Phase 1: 全画面のURL・ハッシュアクセスチェック

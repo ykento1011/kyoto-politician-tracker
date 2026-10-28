@@ -1,6 +1,6 @@
 import React from 'react';
-import { 
-  ArrowLeft, Compass, Search, Milestone, Users, Flag, 
+import {
+  ArrowLeft, Compass, Search, Milestone, Users, Flag,
   Scale, Landmark, CheckCircle2, ArrowRight, ShieldCheck,
   Layers, Table, BarChart3, BookOpen, BookmarkCheck, Coins, BookCheck
 } from 'lucide-react';
@@ -57,13 +57,13 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
           <section className="bg-white rounded-3xl border border-indigo-100 p-6 md:p-8 shadow-sm space-y-4 hover:border-indigo-300 transition-colors ring-1 ring-indigo-50">
             <div className="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-wider">
               <BookmarkCheck className="w-4 h-4 text-indigo-600" />
-              機能 01 / 議員の言行一致トラッカー
+              機能 01 / 議員の言行一致トラッカー（質疑＋賛否行動の完全統合）
             </div>
             <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
               選挙時の看板公約に対し、「実際の採決や議場質疑でどう行動したか」がわかる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              直近の地方議員選挙の公式選挙公報原本（PDF）から各議員の看板政策を抽出し、議会での実際の投票態度（賛成/反対）や関連質疑ログを並列提示します。包括予算で執行される政策についても、議場で市側にどのような是正や拡充を迫ったかの質疑要旨と公式会議録直リンクを1対1で突き合わせることができます。
+              公式選挙公報原本（PDF）から抽出した各議員の看板政策に対し、AIセマンティック照合を用いて<strong>「本会議・委員会での質疑実績」</strong>と<strong>「重要条例・予算案への採決行動（賛成／反対）」</strong>の両輪を客観的に突き合わせます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -71,9 +71,9 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
                 こんな時に便利：
               </div>
               <ul className="list-disc list-inside space-y-1 pl-1 text-slate-600">
-                <li>選挙公報で掲げていた看板公約について、本会議や委員会で実際に追及しているかを確かめたい時</li>
-                <li>関連する条例改正案や意見書に対して、党議拘束も含めてどのような賛否態度をとったかを検証したい時</li>
-                <li>スローガンではなく、公報紙面の原文引用と公式会議録を照らし合わせて事実確認したい時</li>
+                <li>「給食無償化」や「身を切る改革」などの看板公約に対し、関連条例案で実際に【賛成】したのか【反対】したのかを検証したい時</li>
+                <li>包括予算で執行される政策について、委員会等で市側にどのような是正や改善を迫ったかを会議録原本と照らし合わせたい時</li>
+                <li>スローガンではなく、公報紙面の原文引用と公式議決ログを対比してファクトを確認したい時</li>
               </ul>
             </div>
           </section>

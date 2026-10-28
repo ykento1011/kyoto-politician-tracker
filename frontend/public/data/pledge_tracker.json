@@ -1946,14 +1946,7 @@
           "source_name": "公式選挙公報 / 政策マニフェスト",
           "bulletin_url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000313/313230/04nakagyo.pdf"
         },
-        "council_vote": {
-          "bill_title": "令和8年度京都市一般会計予算",
-          "bill_number": "議1",
-          "session": "令和7年2月市会",
-          "vote": "賛成",
-          "vote_type": "会派方針",
-          "source_url": "https://www2.city.kyoto.lg.jp/shikai/honkaigi/R07/gian2.html"
-        },
+        "council_vote": null,
         "council_statements": []
       },
       {
