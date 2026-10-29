@@ -18,6 +18,7 @@ const KYOTO_VALID_COUNCILORS = Object.keys(KYOTO_COUNCILOR_MASTER || {});
  * 都市コードに応じて有効な議員名リストを取得
  */
 export function getValidCouncilors(cityCode) {
+  if (cityCode === 'yokohama') return [];
   if (cityCode === 'nagoya') {
     return Array.isArray(NAGOYA_VALID_COUNCILORS) ? NAGOYA_VALID_COUNCILORS : [];
   }
@@ -35,10 +36,17 @@ export function getValidCouncilors(cityCode) {
  */
 export function getCouncilorInfo(cityCode, speakerName) {
   if (!speakerName) return {};
+  if (cityCode === 'yokohama') return {};
+  if (!speakerName) return {};
   if (cityCode === 'nagoya') {
-    return typeof getNagoyaCouncilorMasterInfo === 'function'
+    const info = typeof getNagoyaCouncilorMasterInfo === 'function'
       ? getNagoyaCouncilorMasterInfo(speakerName)
       : {};
+    return {
+      ...info,
+      party: info.party || info.faction || '',
+      partyGroup: info.partyGroup || info.faction || ''
+    };
   }
   if (cityCode === 'osaka') {
     return typeof getOsakaCouncilorMasterInfo === 'function' 

@@ -1,1034 +1,1394 @@
-[
-  {
-    "speaker": "青木 亮祐",
-    "name_clean": "青木亮祐",
-    "furigana": "あおき りょうすけ",
+{
+  "関 勝則": {
+    "name": "関 勝則",
+    "party": "自由民主党",
+    "district": "磯子区",
+    "aliases": [
+      "関勝則"
+    ]
+  },
+  "関勝則": {
+    "name": "関 勝則",
+    "party": "自由民主党",
+    "district": "磯子区",
+    "aliases": [
+      "関勝則"
+    ]
+  },
+  "青木 亮祐": {
+    "name": "青木 亮祐",
     "party": "自由民主党",
     "district": "保土ケ谷区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "青木亮祐"
+    ]
   },
-  {
-    "speaker": "東みちよ",
-    "name_clean": "東みちよ",
-    "furigana": "あずまみちよ",
-    "party": "自由民主党",
-    "district": "鶴見区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "磯部 圭太",
-    "name_clean": "磯部圭太",
-    "furigana": "いそべけいた",
+  "青木亮祐": {
+    "name": "青木 亮祐",
     "party": "自由民主党",
     "district": "保土ケ谷区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "青木亮祐"
+    ]
   },
-  {
-    "speaker": "伊波 俊之助",
-    "name_clean": "伊波俊之助",
-    "furigana": "いなみとしのすけ",
+  "長谷川 琢磨": {
+    "name": "長谷川 琢磨",
     "party": "自由民主党",
-    "district": "中区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "都筑区",
+    "aliases": [
+      "長谷川琢磨"
+    ]
   },
-  {
-    "speaker": "大桑 正貴",
-    "name_clean": "大桑正貴",
-    "furigana": "おおくわ まさたか",
+  "長谷川琢磨": {
+    "name": "長谷川 琢磨",
     "party": "自由民主党",
-    "district": "栄区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "都筑区",
+    "aliases": [
+      "長谷川琢磨"
+    ]
   },
-  {
-    "speaker": "おさかべ さやか",
-    "name_clean": "おさかべさやか",
-    "furigana": "おさかべさやか",
-    "party": "自由民主党",
-    "district": "青葉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "鴨志田 啓介",
-    "name_clean": "鴨志田啓介",
-    "furigana": "かもしだけいすけ",
-    "party": "自由民主党",
-    "district": "緑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "川口広",
-    "name_clean": "川口広",
-    "furigana": "かわぐちひろ",
-    "party": "自由民主党",
-    "district": "瀬谷区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/10_bulletin_seyaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "黒川勝",
-    "name_clean": "黒川勝",
-    "furigana": "くろかわ まさる",
-    "party": "自由民主党",
-    "district": "金沢区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "小松 範昭",
-    "name_clean": "小松範昭",
-    "furigana": "こまつのりあき",
+  "藤代 哲夫": {
+    "name": "藤代 哲夫",
     "party": "自由民主党",
     "district": "神奈川区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "藤代哲夫"
+    ]
   },
-  {
-    "speaker": "酒井誠",
-    "name_clean": "酒井誠",
-    "furigana": "さかい まこと",
+  "藤代哲夫": {
+    "name": "藤代 哲夫",
     "party": "自由民主党",
-    "district": "港北区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "神奈川区",
+    "aliases": [
+      "藤代哲夫"
+    ]
   },
-  {
-    "speaker": "佐藤 茂",
-    "name_clean": "佐藤茂",
-    "furigana": "さとう しげる",
+  "東 みちよ": {
+    "name": "東 みちよ",
+    "party": "自由民主党",
+    "district": "鶴見区",
+    "aliases": [
+      "東みちよ"
+    ]
+  },
+  "東みちよ": {
+    "name": "東 みちよ",
+    "party": "自由民主党",
+    "district": "鶴見区",
+    "aliases": [
+      "東みちよ"
+    ]
+  },
+  "伊波 俊之助": {
+    "name": "伊波 俊之助",
+    "party": "自由民主党",
+    "district": "中区",
+    "aliases": [
+      "伊波俊之助"
+    ]
+  },
+  "伊波俊之助": {
+    "name": "伊波 俊之助",
+    "party": "自由民主党",
+    "district": "中区",
+    "aliases": [
+      "伊波俊之助"
+    ]
+  },
+  "磯部 圭太": {
+    "name": "磯部 圭太",
+    "party": "自由民主党",
+    "district": "保土ケ谷区",
+    "aliases": [
+      "磯部圭太"
+    ]
+  },
+  "磯部圭太": {
+    "name": "磯部 圭太",
+    "party": "自由民主党",
+    "district": "保土ケ谷区",
+    "aliases": [
+      "磯部圭太"
+    ]
+  },
+  "おさかべさやか": {
+    "name": "おさかべさやか",
+    "party": "自由民主党",
+    "district": "青葉区",
+    "aliases": [
+      "おさかべさやか"
+    ]
+  },
+  "大桑 正貴": {
+    "name": "大桑 正貴",
+    "party": "自由民主党",
+    "district": "栄区",
+    "aliases": [
+      "大桑正貴"
+    ]
+  },
+  "大桑正貴": {
+    "name": "大桑 正貴",
+    "party": "自由民主党",
+    "district": "栄区",
+    "aliases": [
+      "大桑正貴"
+    ]
+  },
+  "鴨志田 啓介": {
+    "name": "鴨志田 啓介",
+    "party": "自由民主党",
+    "district": "緑区",
+    "aliases": [
+      "鴨志田啓介"
+    ]
+  },
+  "鴨志田啓介": {
+    "name": "鴨志田 啓介",
+    "party": "自由民主党",
+    "district": "緑区",
+    "aliases": [
+      "鴨志田啓介"
+    ]
+  },
+  "川口 広": {
+    "name": "川口 広",
+    "party": "自由民主党",
+    "district": "瀬谷区",
+    "aliases": [
+      "川口広"
+    ]
+  },
+  "川口広": {
+    "name": "川口 広",
+    "party": "自由民主党",
+    "district": "瀬谷区",
+    "aliases": [
+      "川口広"
+    ]
+  },
+  "黒川 勝": {
+    "name": "黒川 勝",
+    "party": "自由民主党",
+    "district": "金沢区",
+    "aliases": [
+      "黒川勝"
+    ]
+  },
+  "黒川勝": {
+    "name": "黒川 勝",
+    "party": "自由民主党",
+    "district": "金沢区",
+    "aliases": [
+      "黒川勝"
+    ]
+  },
+  "小松 範昭": {
+    "name": "小松 範昭",
+    "party": "自由民主党",
+    "district": "神奈川区",
+    "aliases": [
+      "小松範昭"
+    ]
+  },
+  "小松範昭": {
+    "name": "小松 範昭",
+    "party": "自由民主党",
+    "district": "神奈川区",
+    "aliases": [
+      "小松範昭"
+    ]
+  },
+  "佐藤 茂": {
+    "name": "佐藤 茂",
     "party": "自由民主党",
     "district": "旭区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "佐藤茂"
+    ]
   },
-  {
-    "speaker": "佐藤 祐文",
-    "name_clean": "佐藤祐文",
-    "furigana": "さとうひろふみ",
+  "佐藤茂": {
+    "name": "佐藤 茂",
+    "party": "自由民主党",
+    "district": "旭区",
+    "aliases": [
+      "佐藤茂"
+    ]
+  },
+  "佐藤 祐文": {
+    "name": "佐藤 祐文",
     "party": "自由民主党",
     "district": "港北区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "佐藤祐文"
+    ]
   },
-  {
-    "speaker": "渋谷 健",
-    "name_clean": "渋谷健",
-    "furigana": "しぶやたけし",
+  "佐藤祐文": {
+    "name": "佐藤 祐文",
     "party": "自由民主党",
-    "district": "南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "港北区",
+    "aliases": [
+      "佐藤祐文"
+    ]
   },
-  {
-    "speaker": "清水 富雄",
-    "name_clean": "清水富雄",
-    "furigana": "しみずとみお",
+  "酒井 誠": {
+    "name": "酒井 誠",
+    "party": "自由民主党",
+    "district": "港北区",
+    "aliases": [
+      "酒井誠"
+    ]
+  },
+  "酒井誠": {
+    "name": "酒井 誠",
+    "party": "自由民主党",
+    "district": "港北区",
+    "aliases": [
+      "酒井誠"
+    ]
+  },
+  "清水 富雄": {
+    "name": "清水 富雄",
     "party": "自由民主党",
     "district": "西区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/15_bulletin_nishiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "清水富雄"
+    ]
   },
-  {
-    "speaker": "白井 亮次",
-    "name_clean": "白井亮次",
-    "furigana": "しらいりょうじ",
+  "清水富雄": {
+    "name": "清水 富雄",
+    "party": "自由民主党",
+    "district": "西区",
+    "aliases": [
+      "清水富雄"
+    ]
+  },
+  "渋谷 健": {
+    "name": "渋谷 健",
+    "party": "自由民主党",
+    "district": "南区",
+    "aliases": [
+      "渋谷健"
+    ]
+  },
+  "渋谷健": {
+    "name": "渋谷 健",
+    "party": "自由民主党",
+    "district": "南区",
+    "aliases": [
+      "渋谷健"
+    ]
+  },
+  "白井 亮次": {
+    "name": "白井 亮次",
     "party": "自由民主党",
     "district": "都筑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "白井亮次"
+    ]
   },
-  {
-    "speaker": "鈴木太郎",
-    "name_clean": "鈴木太郎",
-    "furigana": "すずきたろう",
+  "白井亮次": {
+    "name": "白井 亮次",
+    "party": "自由民主党",
+    "district": "都筑区",
+    "aliases": [
+      "白井亮次"
+    ]
+  },
+  "鈴木 太郎": {
+    "name": "鈴木 太郎",
     "party": "自由民主党",
     "district": "戸塚区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "鈴木太郎"
+    ]
   },
-  {
-    "speaker": "関勝則",
-    "name_clean": "関勝則",
-    "furigana": "せき かつのり",
+  "鈴木太郎": {
+    "name": "鈴木 太郎",
     "party": "自由民主党",
-    "district": "磯子区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "戸塚区",
+    "aliases": [
+      "鈴木太郎"
+    ]
   },
-  {
-    "speaker": "瀬之間 康浩",
-    "name_clean": "瀬之間康浩",
-    "furigana": "せのまやすひろ",
+  "瀬之間 康浩": {
+    "name": "瀬之間 康浩",
     "party": "自由民主党",
     "district": "港南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "瀬之間康浩"
+    ]
   },
-  {
-    "speaker": "田野井 一雄",
-    "name_clean": "田野井一雄",
-    "furigana": "たのいかずお",
+  "瀬之間康浩": {
+    "name": "瀬之間 康浩",
     "party": "自由民主党",
     "district": "港南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "瀬之間康浩"
+    ]
   },
-  {
-    "speaker": "長谷川 琢磨",
-    "name_clean": "長谷川琢磨",
-    "furigana": "はせがわ たくま",
+  "田野井 一雄": {
+    "name": "田野井 一雄",
     "party": "自由民主党",
-    "district": "都筑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "港南区",
+    "aliases": [
+      "田野井一雄"
+    ]
   },
-  {
-    "speaker": "福地 茂",
-    "name_clean": "福地茂",
-    "furigana": "ふくちしげる",
+  "田野井一雄": {
+    "name": "田野井 一雄",
+    "party": "自由民主党",
+    "district": "港南区",
+    "aliases": [
+      "田野井一雄"
+    ]
+  },
+  "福地 茂": {
+    "name": "福地 茂",
     "party": "自由民主党",
     "district": "港北区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "福地茂"
+    ]
   },
-  {
-    "speaker": "藤代哲夫",
-    "name_clean": "藤代哲夫",
-    "furigana": "ふじしろ てつお",
+  "福地茂": {
+    "name": "福地 茂",
     "party": "自由民主党",
-    "district": "神奈川区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "港北区",
+    "aliases": [
+      "福地茂"
+    ]
   },
-  {
-    "speaker": "伏見幸枝",
-    "name_clean": "伏見幸枝",
-    "furigana": "ふしみゆきえ",
+  "伏見 幸枝": {
+    "name": "伏見 幸枝",
     "party": "自由民主党",
     "district": "戸塚区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "伏見幸枝"
+    ]
   },
-  {
-    "speaker": "増永純女",
-    "name_clean": "増永純女",
-    "furigana": "ますなが あやこ",
+  "伏見幸枝": {
+    "name": "伏見 幸枝",
+    "party": "自由民主党",
+    "district": "戸塚区",
+    "aliases": [
+      "伏見幸枝"
+    ]
+  },
+  "増永 純女": {
+    "name": "増永 純女",
     "party": "自由民主党",
     "district": "旭区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "増永純女"
+    ]
   },
-  {
-    "speaker": "松本研",
-    "name_clean": "松本研",
-    "furigana": "まつもと けん",
+  "増永純女": {
+    "name": "増永 純女",
+    "party": "自由民主党",
+    "district": "旭区",
+    "aliases": [
+      "増永純女"
+    ]
+  },
+  "松本 研": {
+    "name": "松本 研",
     "party": "自由民主党",
     "district": "中区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "松本研"
+    ]
   },
-  {
-    "speaker": "山下 正人",
-    "name_clean": "山下正人",
-    "furigana": "やました まさと",
+  "松本研": {
+    "name": "松本 研",
+    "party": "自由民主党",
+    "district": "中区",
+    "aliases": [
+      "松本研"
+    ]
+  },
+  "山下 正人": {
+    "name": "山下 正人",
     "party": "自由民主党",
     "district": "青葉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "山下正人"
+    ]
   },
-  {
-    "speaker": "山田 一誠",
-    "name_clean": "山田一誠",
-    "furigana": "やまだ かずまさ",
+  "山下正人": {
+    "name": "山下 正人",
+    "party": "自由民主党",
+    "district": "青葉区",
+    "aliases": [
+      "山下正人"
+    ]
+  },
+  "山田 一誠": {
+    "name": "山田 一誠",
     "party": "自由民主党",
     "district": "鶴見区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "山田一誠"
+    ]
   },
-  {
-    "speaker": "横山 正人",
-    "name_clean": "横山正人",
-    "furigana": "よこやままさと",
+  "山田一誠": {
+    "name": "山田 一誠",
+    "party": "自由民主党",
+    "district": "鶴見区",
+    "aliases": [
+      "山田一誠"
+    ]
+  },
+  "横山 正人": {
+    "name": "横山 正人",
     "party": "自由民主党",
     "district": "青葉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "横山正人"
+    ]
   },
-  {
-    "speaker": "横山 勇太朗",
-    "name_clean": "横山勇太朗",
-    "furigana": "よこやまゆうたろう",
+  "横山正人": {
+    "name": "横山 正人",
+    "party": "自由民主党",
+    "district": "青葉区",
+    "aliases": [
+      "横山正人"
+    ]
+  },
+  "横山 勇太朗": {
+    "name": "横山 勇太朗",
     "party": "自由民主党",
     "district": "泉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "横山勇太朗"
+    ]
   },
-  {
-    "speaker": "渡邊 忠則",
-    "name_clean": "渡邊忠則",
-    "furigana": "わたなべ ただのり",
+  "横山勇太朗": {
+    "name": "横山 勇太朗",
+    "party": "自由民主党",
+    "district": "泉区",
+    "aliases": [
+      "横山勇太朗"
+    ]
+  },
+  "渡邊 忠則": {
+    "name": "渡邊 忠則",
     "party": "自由民主党",
     "district": "鶴見区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "渡邊忠則"
+    ]
   },
-  {
-    "speaker": "安西 英俊",
-    "name_clean": "安西英俊",
-    "furigana": "あんざい ひでとし",
-    "party": "公明党",
-    "district": "港南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "市来栄美子",
-    "name_clean": "市来栄美子",
-    "furigana": "いちきえみこ",
-    "party": "公明党",
-    "district": "都筑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "尾崎太",
-    "name_clean": "尾崎太",
-    "furigana": "おざき ふとし",
-    "party": "公明党",
+  "渡邊忠則": {
+    "name": "渡邊 忠則",
+    "party": "自由民主党",
     "district": "鶴見区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "渡邊忠則"
+    ]
   },
-  {
-    "speaker": "木内秀一",
-    "name_clean": "木内秀一",
-    "furigana": "きうち ひでかず",
-    "party": "公明党",
-    "district": "旭区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+  "渡辺忠則": {
+    "name": "渡邊 忠則",
+    "party": "自由民主党",
+    "district": "鶴見区",
+    "aliases": [
+      "渡邊忠則"
+    ]
   },
-  {
-    "speaker": "行田 朝仁",
-    "name_clean": "行田朝仁",
-    "furigana": "ぎょうた ともひと",
-    "party": "公明党",
-    "district": "青葉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "久保 和弘",
-    "name_clean": "久保和弘",
-    "furigana": "くぼ かずひろ",
-    "party": "公明党",
-    "district": "瀬谷区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/10_bulletin_seyaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "斉藤 伸一",
-    "name_clean": "斉藤伸一",
-    "furigana": "さいとうしんいち",
+  "斉藤 伸一": {
+    "name": "斉藤 伸一",
     "party": "公明党",
     "district": "保土ケ谷区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "斉藤伸一"
+    ]
   },
-  {
-    "speaker": "高橋 正治",
-    "name_clean": "高橋正治",
-    "furigana": "たかはしまさはる",
+  "斉藤伸一": {
+    "name": "斉藤 伸一",
+    "party": "公明党",
+    "district": "保土ケ谷区",
+    "aliases": [
+      "斉藤伸一"
+    ]
+  },
+  "行田 朝仁": {
+    "name": "行田 朝仁",
+    "party": "公明党",
+    "district": "青葉区",
+    "aliases": [
+      "行田朝仁"
+    ]
+  },
+  "行田朝仁": {
+    "name": "行田 朝仁",
+    "party": "公明党",
+    "district": "青葉区",
+    "aliases": [
+      "行田朝仁"
+    ]
+  },
+  "望月 康弘": {
+    "name": "望月 康弘",
+    "party": "公明党",
+    "district": "港北区",
+    "aliases": [
+      "望月康弘"
+    ]
+  },
+  "望月康弘": {
+    "name": "望月 康弘",
+    "party": "公明党",
+    "district": "港北区",
+    "aliases": [
+      "望月康弘"
+    ]
+  },
+  "安西 英俊": {
+    "name": "安西 英俊",
+    "party": "公明党",
+    "district": "港南区",
+    "aliases": [
+      "安西英俊"
+    ]
+  },
+  "安西英俊": {
+    "name": "安西 英俊",
+    "party": "公明党",
+    "district": "港南区",
+    "aliases": [
+      "安西英俊"
+    ]
+  },
+  "市来 栄美子": {
+    "name": "市来 栄美子",
+    "party": "公明党",
+    "district": "都筑区",
+    "aliases": [
+      "市来栄美子"
+    ]
+  },
+  "市来栄美子": {
+    "name": "市来 栄美子",
+    "party": "公明党",
+    "district": "都筑区",
+    "aliases": [
+      "市来栄美子"
+    ]
+  },
+  "尾崎 太": {
+    "name": "尾崎 太",
+    "party": "公明党",
+    "district": "鶴見区",
+    "aliases": [
+      "尾崎太"
+    ]
+  },
+  "尾崎太": {
+    "name": "尾崎 太",
+    "party": "公明党",
+    "district": "鶴見区",
+    "aliases": [
+      "尾崎太"
+    ]
+  },
+  "木内 秀一": {
+    "name": "木内 秀一",
+    "party": "公明党",
+    "district": "旭区",
+    "aliases": [
+      "木内秀一"
+    ]
+  },
+  "木内秀一": {
+    "name": "木内 秀一",
+    "party": "公明党",
+    "district": "旭区",
+    "aliases": [
+      "木内秀一"
+    ]
+  },
+  "久保 和弘": {
+    "name": "久保 和弘",
+    "party": "公明党",
+    "district": "瀬谷区",
+    "aliases": [
+      "久保和弘"
+    ]
+  },
+  "久保和弘": {
+    "name": "久保 和弘",
+    "party": "公明党",
+    "district": "瀬谷区",
+    "aliases": [
+      "久保和弘"
+    ]
+  },
+  "髙橋 正治": {
+    "name": "髙橋 正治",
     "party": "公明党",
     "district": "緑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "髙橋正治"
+    ]
   },
-  {
-    "speaker": "竹内 康洋",
-    "name_clean": "竹内康洋",
-    "furigana": "たけうち やすひろ",
+  "髙橋正治": {
+    "name": "髙橋 正治",
+    "party": "公明党",
+    "district": "緑区",
+    "aliases": [
+      "髙橋正治"
+    ]
+  },
+  "高橋正治": {
+    "name": "髙橋 正治",
+    "party": "公明党",
+    "district": "緑区",
+    "aliases": [
+      "髙橋正治"
+    ]
+  },
+  "竹内 康洋": {
+    "name": "竹内 康洋",
     "party": "公明党",
     "district": "神奈川区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "竹内康洋"
+    ]
   },
-  {
-    "speaker": "武田勝久",
-    "name_clean": "武田勝久",
-    "furigana": "たけだ かつひさ",
+  "竹内康洋": {
+    "name": "竹内 康洋",
+    "party": "公明党",
+    "district": "神奈川区",
+    "aliases": [
+      "竹内康洋"
+    ]
+  },
+  "武田 勝久": {
+    "name": "武田 勝久",
     "party": "公明党",
     "district": "磯子区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "武田勝久"
+    ]
   },
-  {
-    "speaker": "竹野内猛",
-    "name_clean": "竹野内猛",
-    "furigana": "たけのうちたけし",
+  "武田勝久": {
+    "name": "武田 勝久",
+    "party": "公明党",
+    "district": "磯子区",
+    "aliases": [
+      "武田勝久"
+    ]
+  },
+  "竹野内 猛": {
+    "name": "竹野内 猛",
     "party": "公明党",
     "district": "金沢区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "竹野内猛"
+    ]
   },
-  {
-    "speaker": "中島 光徳",
-    "name_clean": "中島光徳",
-    "furigana": "なかじま みつのり",
+  "竹野内猛": {
+    "name": "竹野内 猛",
+    "party": "公明党",
+    "district": "金沢区",
+    "aliases": [
+      "竹野内猛"
+    ]
+  },
+  "中島 光徳": {
+    "name": "中島 光徳",
     "party": "公明党",
     "district": "戸塚区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "中島光徳"
+    ]
   },
-  {
-    "speaker": "仁田 昌寿",
-    "name_clean": "仁田昌寿",
-    "furigana": "にったまさとし",
+  "中島光徳": {
+    "name": "中島 光徳",
+    "party": "公明党",
+    "district": "戸塚区",
+    "aliases": [
+      "中島光徳"
+    ]
+  },
+  "仁田 昌寿": {
+    "name": "仁田 昌寿",
     "party": "公明党",
     "district": "南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "仁田昌寿"
+    ]
   },
-  {
-    "speaker": "福島直子",
-    "name_clean": "福島直子",
-    "furigana": "ふくしま なおこ",
+  "仁田昌寿": {
+    "name": "仁田 昌寿",
+    "party": "公明党",
+    "district": "南区",
+    "aliases": [
+      "仁田昌寿"
+    ]
+  },
+  "福島 直子": {
+    "name": "福島 直子",
     "party": "公明党",
     "district": "中区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/14_bulletin_nakaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "福島直子"
+    ]
   },
-  {
-    "speaker": "望月 康弘",
-    "name_clean": "望月康弘",
-    "furigana": "もちづき やすひろ",
+  "福島直子": {
+    "name": "福島 直子",
     "party": "公明党",
-    "district": "港北区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "中区",
+    "aliases": [
+      "福島直子"
+    ]
   },
-  {
-    "speaker": "大岩 真善和",
-    "name_clean": "大岩真善和",
-    "furigana": "おおいわ まさかず",
+  "大岩 真善和": {
+    "name": "大岩 真善和",
     "party": "立憲民主党",
     "district": "旭区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "大岩真善和"
+    ]
   },
-  {
-    "speaker": "越久田記子",
-    "name_clean": "越久田記子",
-    "furigana": "おくだのりこ",
+  "大岩真善和": {
+    "name": "大岩 真善和",
+    "party": "立憲民主党",
+    "district": "旭区",
+    "aliases": [
+      "大岩真善和"
+    ]
+  },
+  "藤崎 浩太郎": {
+    "name": "藤崎 浩太郎",
+    "party": "立憲民主党",
+    "district": "青葉区",
+    "aliases": [
+      "藤崎浩太郎"
+    ]
+  },
+  "藤崎浩太郎": {
+    "name": "藤崎 浩太郎",
+    "party": "立憲民主党",
+    "district": "青葉区",
+    "aliases": [
+      "藤崎浩太郎"
+    ]
+  },
+  "越久田 記子": {
+    "name": "越久田 記子",
     "party": "立憲民主党",
     "district": "緑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "越久田記子"
+    ]
   },
-  {
-    "speaker": "かざまあさみ",
-    "name_clean": "かざまあさみ",
-    "furigana": "かざまあさみ",
+  "越久田記子": {
+    "name": "越久田 記子",
+    "party": "立憲民主党",
+    "district": "緑区",
+    "aliases": [
+      "越久田記子"
+    ]
+  },
+  "かざま あさみ": {
+    "name": "かざま あさみ",
     "party": "立憲民主党",
     "district": "港北区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "かざまあさみ"
+    ]
   },
-  {
-    "speaker": "高田 修平",
-    "name_clean": "高田修平",
-    "furigana": "たかだしゅうへい",
+  "かざまあさみ": {
+    "name": "かざま あさみ",
+    "party": "立憲民主党",
+    "district": "港北区",
+    "aliases": [
+      "かざまあさみ"
+    ]
+  },
+  "髙田 修平": {
+    "name": "髙田 修平",
     "party": "立憲民主党",
     "district": "南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "髙田修平"
+    ]
   },
-  {
-    "speaker": "中山 大輔",
-    "name_clean": "中山大輔",
-    "furigana": "なかやまだいすけ",
+  "髙田修平": {
+    "name": "髙田 修平",
+    "party": "立憲民主党",
+    "district": "南区",
+    "aliases": [
+      "髙田修平"
+    ]
+  },
+  "高田修平": {
+    "name": "髙田 修平",
+    "party": "立憲民主党",
+    "district": "南区",
+    "aliases": [
+      "髙田修平"
+    ]
+  },
+  "中山 大輔": {
+    "name": "中山 大輔",
     "party": "立憲民主党",
     "district": "神奈川区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "中山大輔"
+    ]
   },
-  {
-    "speaker": "花上喜代志",
-    "name_clean": "花上喜代志",
-    "furigana": "はなうえきよし",
+  "中山大輔": {
+    "name": "中山 大輔",
+    "party": "立憲民主党",
+    "district": "神奈川区",
+    "aliases": [
+      "中山大輔"
+    ]
+  },
+  "花上 喜代志": {
+    "name": "花上 喜代志",
     "party": "立憲民主党",
     "district": "瀬谷区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/10_bulletin_seyaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "花上喜代志"
+    ]
   },
-  {
-    "speaker": "藤崎 浩太郎",
-    "name_clean": "藤崎浩太郎",
-    "furigana": "ふじさきこうたろう",
+  "花上喜代志": {
+    "name": "花上 喜代志",
     "party": "立憲民主党",
-    "district": "青葉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "瀬谷区",
+    "aliases": [
+      "花上喜代志"
+    ]
   },
-  {
-    "speaker": "麓理恵",
-    "name_clean": "麓理恵",
-    "furigana": "ふもとりえ",
+  "麓 理恵": {
+    "name": "麓 理恵",
     "party": "立憲民主党",
     "district": "泉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "麓理恵"
+    ]
   },
-  {
-    "speaker": "森ひろたか",
-    "name_clean": "森ひろたか",
-    "furigana": "もりひろたか",
+  "麓理恵": {
+    "name": "麓 理恵",
+    "party": "立憲民主党",
+    "district": "泉区",
+    "aliases": [
+      "麓理恵"
+    ]
+  },
+  "森 ひろたか": {
+    "name": "森 ひろたか",
     "party": "立憲民主党",
     "district": "保土ケ谷区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "森ひろたか"
+    ]
   },
-  {
-    "speaker": "伊藤くみこ",
-    "name_clean": "伊藤くみこ",
-    "furigana": "いとうくみこ",
+  "森ひろたか": {
+    "name": "森 ひろたか",
+    "party": "立憲民主党",
+    "district": "保土ケ谷区",
+    "aliases": [
+      "森ひろたか"
+    ]
+  },
+  "坂井 太": {
+    "name": "坂井 太",
+    "party": "日本維新の会",
+    "district": "金沢区",
+    "aliases": [
+      "坂井太"
+    ]
+  },
+  "坂井太": {
+    "name": "坂井 太",
+    "party": "日本維新の会",
+    "district": "金沢区",
+    "aliases": [
+      "坂井太"
+    ]
+  },
+  "伊藤 くみこ": {
+    "name": "伊藤 くみこ",
     "party": "日本維新の会",
     "district": "青葉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "伊藤くみこ"
+    ]
   },
-  {
-    "speaker": "いそべ尚哉",
-    "name_clean": "いそべ尚哉",
-    "furigana": "いそべなおや",
+  "伊藤くみこ": {
+    "name": "伊藤 くみこ",
     "party": "日本維新の会",
-    "district": "都筑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "青葉区",
+    "aliases": [
+      "伊藤くみこ"
+    ]
   },
-  {
-    "speaker": "大山 しょうじ",
-    "name_clean": "大山しょうじ",
-    "furigana": "おおやま しょうじ",
-    "party": "日本維新の会",
-    "district": "港北区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "柏原 すぐる",
-    "name_clean": "柏原すぐる",
-    "furigana": "かしわばらすぐる",
-    "party": "日本維新の会",
-    "district": "鶴見区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "くしだ久子",
-    "name_clean": "くしだ久子",
-    "furigana": "くしだひさこ",
+  "くしだ 久子": {
+    "name": "くしだ 久子",
     "party": "日本維新の会",
     "district": "旭区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "くしだ久子"
+    ]
   },
-  {
-    "speaker": "坂井太",
-    "name_clean": "坂井太",
-    "furigana": "さかいふとし",
+  "くしだ久子": {
+    "name": "くしだ 久子",
     "party": "日本維新の会",
-    "district": "金沢区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "旭区",
+    "aliases": [
+      "くしだ久子"
+    ]
   },
-  {
-    "speaker": "田中 紳一",
-    "name_clean": "田中紳一",
-    "furigana": "たなかしんいち",
+  "いそべ 尚哉": {
+    "name": "いそべ 尚哉",
+    "party": "日本維新の会",
+    "district": "都筑区",
+    "aliases": [
+      "いそべ尚哉"
+    ]
+  },
+  "いそべ尚哉": {
+    "name": "いそべ 尚哉",
+    "party": "日本維新の会",
+    "district": "都筑区",
+    "aliases": [
+      "いそべ尚哉"
+    ]
+  },
+  "大山 しょうじ": {
+    "name": "大山 しょうじ",
+    "party": "日本維新の会",
+    "district": "港北区",
+    "aliases": [
+      "大山しょうじ"
+    ]
+  },
+  "大山しょうじ": {
+    "name": "大山 しょうじ",
+    "party": "日本維新の会",
+    "district": "港北区",
+    "aliases": [
+      "大山しょうじ"
+    ]
+  },
+  "柏原 すぐる": {
+    "name": "柏原 すぐる",
+    "party": "日本維新の会",
+    "district": "鶴見区",
+    "aliases": [
+      "柏原すぐる"
+    ]
+  },
+  "柏原すぐる": {
+    "name": "柏原 すぐる",
+    "party": "日本維新の会",
+    "district": "鶴見区",
+    "aliases": [
+      "柏原すぐる"
+    ]
+  },
+  "田中 紳一": {
+    "name": "田中 紳一",
     "party": "日本維新の会",
     "district": "神奈川区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "田中紳一"
+    ]
   },
-  {
-    "speaker": "山浦 英太",
-    "name_clean": "山浦英太",
-    "furigana": "やまうらえいた",
+  "田中紳一": {
+    "name": "田中 紳一",
+    "party": "日本維新の会",
+    "district": "神奈川区",
+    "aliases": [
+      "田中紳一"
+    ]
+  },
+  "山浦 英太": {
+    "name": "山浦 英太",
     "party": "日本維新の会",
     "district": "戸塚区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "山浦英太"
+    ]
   },
-  {
-    "speaker": "熊本 ちひろ",
-    "name_clean": "熊本ちひろ",
-    "furigana": "くまもとちひろ",
+  "山浦英太": {
+    "name": "山浦 英太",
+    "party": "日本維新の会",
+    "district": "戸塚区",
+    "aliases": [
+      "山浦英太"
+    ]
+  },
+  "こがゆ 康弘": {
+    "name": "こがゆ 康弘",
+    "party": "国民民主党",
+    "district": "旭区",
+    "aliases": [
+      "こがゆ康弘"
+    ]
+  },
+  "こがゆ康弘": {
+    "name": "こがゆ 康弘",
+    "party": "国民民主党",
+    "district": "旭区",
+    "aliases": [
+      "こがゆ康弘"
+    ]
+  },
+  "熊本 ちひろ": {
+    "name": "熊本 ちひろ",
     "party": "国民民主党",
     "district": "南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/18_bulletin_minamiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "熊本ちひろ"
+    ]
   },
-  {
-    "speaker": "こがゆ康弘",
-    "name_clean": "こがゆ康弘",
-    "furigana": "こがゆやすひろ",
+  "熊本ちひろ": {
+    "name": "熊本 ちひろ",
     "party": "国民民主党",
-    "district": "旭区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/02_bulletin_asahiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "南区",
+    "aliases": [
+      "熊本ちひろ"
+    ]
   },
-  {
-    "speaker": "坂本 勝司",
-    "name_clean": "坂本勝司",
-    "furigana": "さかもとかつじ",
+  "坂本 勝司": {
+    "name": "坂本 勝司",
     "party": "国民民主党",
     "district": "戸塚区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "坂本勝司"
+    ]
   },
-  {
-    "speaker": "深作 祐衣",
-    "name_clean": "深作祐衣",
-    "furigana": "ふかさくゆい",
+  "坂本勝司": {
+    "name": "坂本 勝司",
+    "party": "国民民主党",
+    "district": "戸塚区",
+    "aliases": [
+      "坂本勝司"
+    ]
+  },
+  "深作 祐衣": {
+    "name": "深作 祐衣",
     "party": "国民民主党",
     "district": "都筑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/11_bulletin_tsuzukiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "深作祐衣"
+    ]
   },
-  {
-    "speaker": "二井くみよ",
-    "name_clean": "二井くみよ",
-    "furigana": "ふたいくみよ",
+  "深作祐衣": {
+    "name": "深作 祐衣",
+    "party": "国民民主党",
+    "district": "都筑区",
+    "aliases": [
+      "深作祐衣"
+    ]
+  },
+  "二井 くみよ": {
+    "name": "二井 くみよ",
     "party": "国民民主党",
     "district": "磯子区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "二井くみよ"
+    ]
   },
-  {
-    "speaker": "横溝 じゅん子",
-    "name_clean": "横溝じゅん子",
-    "furigana": "よこみぞじゅんこ",
+  "二井くみよ": {
+    "name": "二井 くみよ",
+    "party": "国民民主党",
+    "district": "磯子区",
+    "aliases": [
+      "二井くみよ"
+    ]
+  },
+  "横溝 じゅん子": {
+    "name": "横溝 じゅん子",
     "party": "国民民主党",
     "district": "金沢区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "横溝じゅん子"
+    ]
   },
-  {
-    "speaker": "宇佐美さやか",
-    "name_clean": "宇佐美さやか",
-    "furigana": "うさみ さやか",
+  "横溝じゅん子": {
+    "name": "横溝 じゅん子",
+    "party": "国民民主党",
+    "district": "金沢区",
+    "aliases": [
+      "横溝じゅん子"
+    ]
+  },
+  "古谷 靖彦": {
+    "name": "古谷 靖彦",
+    "party": "日本共産党",
+    "district": "鶴見区",
+    "aliases": [
+      "古谷靖彦"
+    ]
+  },
+  "古谷靖彦": {
+    "name": "古谷 靖彦",
+    "party": "日本共産党",
+    "district": "鶴見区",
+    "aliases": [
+      "古谷靖彦"
+    ]
+  },
+  "白井 正子": {
+    "name": "白井 正子",
+    "party": "日本共産党",
+    "district": "港北区",
+    "aliases": [
+      "白井正子"
+    ]
+  },
+  "白井正子": {
+    "name": "白井 正子",
+    "party": "日本共産党",
+    "district": "港北区",
+    "aliases": [
+      "白井正子"
+    ]
+  },
+  "宇佐美 さやか": {
+    "name": "宇佐美 さやか",
     "party": "日本共産党",
     "district": "神奈川区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/05_bulletin_kanagawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "宇佐美さやか"
+    ]
   },
-  {
-    "speaker": "大和田 あきお",
-    "name_clean": "大和田あきお",
-    "furigana": "おおわだ あきお",
+  "宇佐美さやか": {
+    "name": "宇佐美 さやか",
+    "party": "日本共産党",
+    "district": "神奈川区",
+    "aliases": [
+      "宇佐美さやか"
+    ]
+  },
+  "大和田 あきお": {
+    "name": "大和田 あきお",
     "party": "日本共産党",
     "district": "戸塚区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/13_bulletin_totsukaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "大和田あきお"
+    ]
   },
-  {
-    "speaker": "白井 正子",
-    "name_clean": "白井正子",
-    "furigana": "しらいまさこ",
+  "大和田あきお": {
+    "name": "大和田 あきお",
     "party": "日本共産党",
-    "district": "港北区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "戸塚区",
+    "aliases": [
+      "大和田あきお"
+    ]
   },
-  {
-    "speaker": "古谷 靖彦",
-    "name_clean": "古谷靖彦",
-    "furigana": "ふるや やすひこ",
-    "party": "日本共産党",
-    "district": "鶴見区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "みわ 智恵美",
-    "name_clean": "みわ智恵美",
-    "furigana": "みわちえみ",
+  "みわ 智恵美": {
+    "name": "みわ 智恵美",
     "party": "日本共産党",
     "district": "港南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "みわ智恵美"
+    ]
   },
-  {
-    "speaker": "関嵩史",
-    "name_clean": "関嵩史",
-    "furigana": "せきたかふみ",
+  "みわ智恵美": {
+    "name": "みわ 智恵美",
+    "party": "日本共産党",
+    "district": "港南区",
+    "aliases": [
+      "みわ智恵美"
+    ]
+  },
+  "山田 桂一郎": {
+    "name": "山田 桂一郎",
+    "party": "地域政党よこはま",
+    "district": "港南区",
+    "aliases": [
+      "山田桂一郎"
+    ]
+  },
+  "山田桂一郎": {
+    "name": "山田 桂一郎",
+    "party": "地域政党よこはま",
+    "district": "港南区",
+    "aliases": [
+      "山田桂一郎"
+    ]
+  },
+  "関 嵩史": {
+    "name": "関 嵩史",
     "party": "地域政党よこはま",
     "district": "保土ケ谷区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/16_bulletin_hodogayaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "関嵩史"
+    ]
   },
-  {
-    "speaker": "山田桂一郎",
-    "name_clean": "山田桂一郎",
-    "furigana": "やまだ けいいちろう",
+  "関嵩史": {
+    "name": "関 嵩史",
     "party": "地域政党よこはま",
-    "district": "港南区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/07_bulletin_kounanku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "保土ケ谷区",
+    "aliases": [
+      "関嵩史"
+    ]
   },
-  {
-    "speaker": "井上さくら",
-    "name_clean": "井上さくら",
-    "furigana": "いのうえ さくら",
-    "party": "無所属",
-    "district": "鶴見区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/12_bulletin_tsurumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "太田正孝",
-    "name_clean": "太田正孝",
-    "furigana": "おおたまさたか",
+  "太田 正孝": {
+    "name": "太田 正孝",
     "party": "無所属",
     "district": "磯子区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/04_bulletin_isogoku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "太田正孝"
+    ]
   },
-  {
-    "speaker": "大野トモイ",
-    "name_clean": "大野トモイ",
-    "furigana": "おおのともい",
+  "太田正孝": {
+    "name": "太田 正孝",
     "party": "無所属",
-    "district": "港北区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/08_bulletin_kohokuku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "磯子区",
+    "aliases": [
+      "太田正孝"
+    ]
   },
-  {
-    "speaker": "荻原 隆宏",
-    "name_clean": "荻原隆宏",
-    "furigana": "おぎわらたかひろ",
+  "谷田部 孝一": {
+    "name": "谷田部 孝一",
+    "party": "無所属",
+    "district": "金沢区",
+    "aliases": [
+      "谷田部孝一"
+    ]
+  },
+  "谷田部孝一": {
+    "name": "谷田部 孝一",
+    "party": "無所属",
+    "district": "金沢区",
+    "aliases": [
+      "谷田部孝一"
+    ]
+  },
+  "井上 さくら": {
+    "name": "井上 さくら",
+    "party": "無所属",
+    "district": "鶴見区",
+    "aliases": [
+      "井上さくら"
+    ]
+  },
+  "井上さくら": {
+    "name": "井上 さくら",
+    "party": "無所属",
+    "district": "鶴見区",
+    "aliases": [
+      "井上さくら"
+    ]
+  },
+  "梶村 充": {
+    "name": "梶村 充",
+    "party": "無所属",
+    "district": "泉区",
+    "aliases": [
+      "梶村充"
+    ]
+  },
+  "梶村充": {
+    "name": "梶村 充",
+    "party": "無所属",
+    "district": "泉区",
+    "aliases": [
+      "梶村充"
+    ]
+  },
+  "斉藤 達也": {
+    "name": "斉藤 達也",
+    "party": "無所属",
+    "district": "緑区",
+    "aliases": [
+      "斉藤達也"
+    ]
+  },
+  "斉藤達也": {
+    "name": "斉藤 達也",
+    "party": "無所属",
+    "district": "緑区",
+    "aliases": [
+      "斉藤達也"
+    ]
+  },
+  "輿石 かつ子": {
+    "name": "輿石 かつ子",
+    "party": "無所属",
+    "district": "栄区",
+    "aliases": [
+      "輿石かつ子"
+    ]
+  },
+  "輿石かつ子": {
+    "name": "輿石 かつ子",
+    "party": "無所属",
+    "district": "栄区",
+    "aliases": [
+      "輿石かつ子"
+    ]
+  },
+  "荻原 隆宏": {
+    "name": "荻原 隆宏",
     "party": "無所属",
     "district": "西区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/15_bulletin_nishiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "荻原隆宏"
+    ]
   },
-  {
-    "speaker": "梶村充",
-    "name_clean": "梶村充",
-    "furigana": "かじむらみつる",
+  "荻原隆宏": {
+    "name": "荻原 隆宏",
     "party": "無所属",
-    "district": "泉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/03_bulletin_izumiku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "西区",
+    "aliases": [
+      "荻原隆宏"
+    ]
   },
-  {
-    "speaker": "輿石 かつ子",
-    "name_clean": "輿石かつ子",
-    "furigana": "こしいしかつこ",
-    "party": "無所属",
-    "district": "栄区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "斉藤 達也",
-    "name_clean": "斉藤達也",
-    "furigana": "さいとう たつや",
-    "party": "無所属",
-    "district": "緑区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/17_bulletin_midoriku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
-  },
-  {
-    "speaker": "田中ゆき",
-    "name_clean": "田中ゆき",
-    "furigana": "たなか ゆき",
+  "田中 ゆき": {
+    "name": "田中 ゆき",
     "party": "無所属",
     "district": "青葉区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/01_bulletin_aobaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "田中ゆき"
+    ]
   },
-  {
-    "speaker": "谷田部 孝一",
-    "name_clean": "谷田部孝一",
-    "furigana": "やたべこういち",
+  "田中ゆき": {
+    "name": "田中 ゆき",
     "party": "無所属",
-    "district": "金沢区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/06_bulletin_kanazawaku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "district": "青葉区",
+    "aliases": [
+      "田中ゆき"
+    ]
   },
-  {
-    "speaker": "長谷川 えつこ",
-    "name_clean": "長谷川えつこ",
-    "furigana": "はせがわえつこ",
+  "長谷川 えつこ": {
+    "name": "長谷川 えつこ",
     "party": "無所属",
     "district": "栄区",
-    "role": "議員",
-    "official_profile_url": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
-    "bulletin_pdf_url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/chiho/kohosya_koho.files/09_bulletin_sakaeku.pdf",
-    "total_speeches": 0,
-    "topics_count": 0
+    "aliases": [
+      "長谷川えつこ"
+    ]
+  },
+  "長谷川えつこ": {
+    "name": "長谷川 えつこ",
+    "party": "無所属",
+    "district": "栄区",
+    "aliases": [
+      "長谷川えつこ"
+    ]
+  },
+  "大野 トモイ": {
+    "name": "大野 トモイ",
+    "party": "無所属",
+    "district": "港北区",
+    "aliases": [
+      "大野トモイ"
+    ]
+  },
+  "大野トモイ": {
+    "name": "大野 トモイ",
+    "party": "無所属",
+    "district": "港北区",
+    "aliases": [
+      "大野トモイ"
+    ]
   }
-]
+}

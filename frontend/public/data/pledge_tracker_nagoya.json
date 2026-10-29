@@ -135,22 +135,7 @@
           "vote_type": "会派方針",
           "source_url": "https://www.city.nagoya.jp/shikai/kouhou/1030998/1030999/1031000/1031047/1031049.html"
         },
-        "council_statements": [
-          {
-            "date": "2023-12-20",
-            "committee": "本会議",
-            "summary": "名古屋市文化財保存活用地域計画案の歴史文化の特性について、尾張氏の歴史的役割や地域ごとの記述の充実を質問し、行政側から関連する文化財の活用や調査研究を通じて周知していく旨の答弁があった。...",
-            "speech_id": "th_5305474_25",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=598&schedule_id=7"
-          },
-          {
-            "date": "2024-10-07",
-            "committee": "本会議",
-            "summary": "議員がウォーカブル戦略や熱田神宮周辺まちづくり、自動運転の取組状況について質問し、行政側がそれぞれの事業実績や検討状況、今後の課題について説明した。...",
-            "speech_id": "th_5305930_25",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=626&schedule_id=24"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_北角嘉幸_3",
@@ -185,7 +170,15 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf"
         },
         "council_vote": null,
-        "council_statements": []
+        "council_statements": [
+          {
+            "date": "2024-12-16",
+            "committee": "本会議",
+            "summary": "山田議員は次期総合計画における保育所等待機児童対策や保育料無償化の課題について質問し、行政側は新設必要性の低下や財源確保・利用枠増加の課題、アンケートによるニーズ把握の方針を説明した。...",
+            "speech_id": "th_5305731_79",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=37"
+          }
+        ]
       },
       {
         "id": "pledge_nagoya_山田昌弘_2",
@@ -270,7 +263,15 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/01.pdf"
         },
         "council_vote": null,
-        "council_statements": []
+        "council_statements": [
+          {
+            "date": "2024-06-17",
+            "committee": "本会議",
+            "summary": "地下鉄駅トイレの洋式化計画およびQRコード切符導入について質問し、行政側から観光施設周辺の整備目標や他都市の動向を踏まえたキャッシュレス化の検討状況について説明があった質疑。...",
+            "speech_id": "th_5305853_138",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=624&schedule_id=14"
+          }
+        ]
       },
       {
         "id": "pledge_nagoya_伊神邦彦_3",
@@ -307,18 +308,18 @@
         "council_vote": null,
         "council_statements": [
           {
-            "date": "2023-06-27",
+            "date": "2023-10-02",
             "committee": "本会議",
-            "summary": "議員が保育所給食費の物価高騰対応支援や国の交付金活用について質問し、行政側から事業実施の経緯や今後の少子化対策への検討状況について説明が行われた。...",
-            "speech_id": "th_5305498_70",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=15"
+            "summary": "田辺議員はひとり親家庭等の中学生及び高校生の学習支援事業の実施状況や定員、当初の反省点について質問した。行政側は過去からの定員拡充や令和4年度の登録率等について説明し、議員は詳細なデータ資料を要求した。...",
+            "speech_id": "th_5305507_190",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=24"
           },
           {
-            "date": "2025-03-18",
+            "date": "2023-10-04",
             "committee": "本会議",
-            "summary": "議員はフリースクール等に通う児童生徒に対する支援策について、教育委員会と子ども青少年局の連携や制度設計の進め方を質問した。これに対し行政側は、実態把握を踏まえ両局が緊密に連携して学びの保障に取り組むと答弁した。...",
-            "speech_id": "th_5306045_122",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=14"
+            "summary": "田辺議員は中学生の学習支援事業の利用実態やひとり親家庭の困窮状況について質問し、行政側はアンケート結果や各種支援策の実施状況について説明した。...",
+            "speech_id": "th_5305508_94",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=25"
           }
         ]
       },
@@ -516,22 +517,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-06-25",
-            "committee": "本会議",
-            "summary": "議員が独自アンケート調査結果や東区役所整備のプロセスに関する問題点を挙げ市長の見解を質し、市長が住民説明会の開催や今後の対応について答弁した。...",
-            "speech_id": "th_5305944_12",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=628&schedule_id=4"
-          },
-          {
-            "date": "2025-12-15",
-            "committee": "本会議",
-            "summary": "佐藤議員が東区役所等の整備方針、住民説明会やアンケート結果、土木事務所等との複合化の条件について質問し、行政側が現在の検討状況や判断基準について説明した。...",
-            "speech_id": "th_5306013_49",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=639&schedule_id=37"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_佐藤ゆうこ_2",
@@ -643,15 +629,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-06-24",
-            "committee": "本会議",
-            "summary": "少子化の進展に伴う将来的な保育児童数の減少や質の向上への転換を見据え、本市における公立保育所の今後の在り方について質問し、行政側から今後のあり方懇談会を立ち上げて検討していく旨の答弁があった。...",
-            "speech_id": "th_5305943_55",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=628&schedule_id=3"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_上村みちよ_3",
@@ -786,22 +764,7 @@
           "vote_type": "会派方針",
           "source_url": "https://www.city.nagoya.jp/shikai/kouhou/1030998/1030999/1031000/1031047/1031049.html"
         },
-        "council_statements": [
-          {
-            "date": "2023-06-15",
-            "committee": "本会議",
-            "summary": "名古屋城バリアフリーに関する市民討論会での不適切な発言に対する当局の対応について質問し、行政側から開催経緯や今後の対応について説明があった質疑。...",
-            "speech_id": "th_5305539_1",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=602&schedule_id=15"
-          },
-          {
-            "date": "2023-06-06",
-            "committee": "本会議",
-            "summary": "名古屋城バリアフリーに関する市民討論会の概要や市長定例記者会見の発言、抗議及び回答要求文について当局から説明が行われた。...",
-            "speech_id": "th_5305537_5",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=602&schedule_id=13"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_田山宏之_3",
@@ -815,22 +778,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2026-03-04",
-            "committee": "本会議",
-            "summary": "議員は市民税減税10％の断行やマニフェストの実行に向けたスケジュールと覚悟を質問し、市長は持続可能な市政運営と減税・マニフェスト実現に全力で取り組むと答弁した。...",
-            "speech_id": "th_5306236_60",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=4"
-          },
-          {
-            "date": "2026-03-04",
-            "committee": "本会議",
-            "summary": "田山議員が令和8年度当初予算案に込めた市長の思いと将来像を問い、広沢市長がアジア競技大会の成功や行財政改革、選ばれる都市づくりについて答弁した。...",
-            "speech_id": "th_5306236_55",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=4"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -963,7 +911,15 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf"
         },
         "council_vote": null,
-        "council_statements": []
+        "council_statements": [
+          {
+            "date": "2023-10-03",
+            "committee": "本会議",
+            "summary": "認知症基本法や独居高齢者の増加を踏まえ、金銭管理や家賃滞納等の課題を抱える認知症高齢者への令和4年度の対応について質問し、行政側からいきいき支援センターや介護保険、関係機関との連携による支援体制について説明があった。...",
+            "speech_id": "th_5305614_56",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=604&schedule_id=22"
+          }
+        ]
       },
       {
         "id": "pledge_nagoya_長谷川由美子_3",
@@ -1012,15 +968,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-10-02",
-            "committee": "本会議",
-            "summary": "渡辺議員が里親登録数やフォスタリング機関の運営状況について質問し、行政側が令和4年度末の数値や社会福祉法人への委託状況、業務内容について説明した。...",
-            "speech_id": "th_5305507_13",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=24"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_渡辺やすのり_3",
@@ -1160,13 +1108,6 @@
             "summary": "議員は学校給食無償化の試算額や保育士配置基準の改善について質問し、行政側は小学校給食無償化の試算額約56億円や保育士配置改善加算の取得状況について説明した。...",
             "speech_id": "th_5306050_54",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=19"
-          },
-          {
-            "date": "2024-09-24",
-            "committee": "本会議",
-            "summary": "中学校における全員制給食の導入検討やスクールランチのアンケート結果について質問し、行政側から選択制給食の支持状況や今後の運営方針について説明があった。...",
-            "speech_id": "th_5305956_23",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=630&schedule_id=5"
           }
         ]
       },
@@ -1196,22 +1137,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/03.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-03-14",
-            "committee": "本会議",
-            "summary": "岡田議員が国民健康保険の被保険者数や一般会計繰入金、事業費納付金等について質問し、行政側が減少理由や国庫交付金の動向、保険料賦課率の引上げ必要性について説明した。...",
-            "speech_id": "th_5305743_43",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=620&schedule_id=10"
-          },
-          {
-            "date": "2023-11-30",
-            "committee": "本会議",
-            "summary": "岡田議員が産前産後の国民健康保険料減額に関する財源や法改正理由を質問し、行政側が国県市の負担割合や国会での附帯決議の経緯を説明した。その後、議員が国保の構造的課題と国庫負担増額を要望した。...",
-            "speech_id": "th_5311480_34",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=604&schedule_id=29"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -1267,15 +1193,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-06-17",
-            "committee": "本会議",
-            "summary": "名古屋市総合計画2028（案）の緑政土木局関係の施策・事業について説明を受け、関連する計画内容や事業一覧の報告が行われた。...",
-            "speech_id": "th_5305853_1",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=624&schedule_id=14"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -1310,15 +1228,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2025-03-11",
-            "committee": "本会議",
-            "summary": "予算説明書の小中高生起業家人材育成事業について令和7年度の事業内容と変更点を質問し、行政側から4つのプログラム内容や実施校数の拡大などの変更点について説明があった。...",
-            "speech_id": "th_5306142_26",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=652&schedule_id=4"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_大田とみひこ_3",
@@ -1445,22 +1355,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/04.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-10-03",
-            "committee": "本会議",
-            "summary": "名古屋市内の雨水調整池の設置状況や周辺施設との接続、広域的な排水計画について質問し、行政側から流域ごとの排水原則や河川管理者との協議状況について説明があった。...",
-            "speech_id": "th_5305547_107",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=602&schedule_id=23"
-          },
-          {
-            "date": "2024-03-18",
-            "committee": "本会議",
-            "summary": "他都市の計画降雨量や名古屋市の63ミリ対応の現状について質問し、行政側から総合排水計画に基づく今後の対応方針について説明があった質疑。...",
-            "speech_id": "th_5305875_19",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=625&schedule_id=6"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -1563,7 +1458,7 @@
       {
         "id": "pledge_nagoya_うかい春美_2",
         "headline": "防災体制強化と高齢者障害者支援",
-        "category": "防災・減災・治安, 福祉・医療・健康",
+        "category": "防災・減災・治安",
         "target_issue": "防災体制・高齢者障害者支援",
         "stance": "推進・拡充",
         "election_promise": {
@@ -1626,7 +1521,7 @@
       {
         "id": "pledge_nagoya_藤井しげる_3",
         "headline": "国保・介護保険料引き下げ、奨学金支援",
-        "category": "福祉・医療・健康, 財政・行革",
+        "category": "福祉・医療・健康",
         "target_issue": "国保・介護保険料、奨学金",
         "stance": "負担軽減, 推進・拡充",
         "election_promise": {
@@ -1663,27 +1558,12 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/05.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2025-10-07",
-            "committee": "本会議",
-            "summary": "赤ちゃんへの絵本プレゼント事業の令和6年度実績とゼロ歳児の図書館登録数・おはなし会参加者数について質問し、行政側から購入冊数や贈呈実績、ゼロ歳児人口との比較における課題について説明があった質疑。...",
-            "speech_id": "th_5306056_2",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=25"
-          },
-          {
-            "date": "2023-10-02",
-            "committee": "本会議",
-            "summary": "物価高騰や最低賃金上昇に対する業務委託等のスライド制度の活用状況について質問し、行政側から令和4年度に100件の契約変更を行った旨と、資料提供の旨の答弁があった質疑。...",
-            "speech_id": "th_5305613_9",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=604&schedule_id=21"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_おか千恵_2",
         "headline": "物価高騰対策で生活費負担軽減",
-        "category": "くらし・環境・エネルギー, 財政・行革",
+        "category": "くらし・環境・エネルギー",
         "target_issue": "物価高騰対策・生活費負担軽減",
         "stance": "負担軽減",
         "election_promise": {
@@ -1692,22 +1572,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/05.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-10-05",
-            "committee": "本会議",
-            "summary": "議員が生活保護世帯から大学等へ進学した学生への物価高騰対応支援金の支給実績とアンケート結果について質問し、行政側が進学準備給付金の仕組みや支給対象者との開き、アンケートの回収状況について説明した。...",
-            "speech_id": "th_5311485_144",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=604&schedule_id=34"
-          },
-          {
-            "date": "2023-10-02",
-            "committee": "本会議",
-            "summary": "物価高騰や最低賃金上昇に対する業務委託等のスライド制度の活用状況について質問し、行政側から令和4年度に100件の契約変更を行った旨と、資料提供の旨の答弁があった質疑。...",
-            "speech_id": "th_5305613_9",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=604&schedule_id=21"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_おか千恵_3",
@@ -1778,20 +1643,13 @@
             "summary": "名古屋城木造天守の整備事業における当事者からの大型エレベーター設置等の要望と、歴史的価値の向上を目指す当局の方針について質問し、行政側が技術的根拠を示したバリアフリー検討の進め方を説明した。...",
             "speech_id": "th_5312593_53",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=652&schedule_id=34"
-          },
-          {
-            "date": "2025-10-06",
-            "committee": "本会議",
-            "summary": "日本遺産有松における歴史まちづくりの推進状況や再審査の背景について質問し、行政側から審査の現状や文化庁からの指摘事項、昨年度の主な取組について説明があった質疑。...",
-            "speech_id": "th_5312583_159",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=652&schedule_id=24"
           }
         ]
       },
       {
         "id": "pledge_nagoya_村瀬きよみ_3",
         "headline": "子ども支援と敬老パスの拡充",
-        "category": "子育て・教育, 福祉・医療・健康",
+        "category": "子育て・教育",
         "target_issue": "子ども支援・敬老パス拡充",
         "stance": "推進・拡充",
         "election_promise": {
@@ -1812,7 +1670,7 @@
       {
         "id": "pledge_nagoya_斉藤たかお_1",
         "headline": "敬老パス拡充と救急医療体制強化",
-        "category": "福祉・医療・健康, 都市再生・交通インフラ",
+        "category": "福祉・医療・健康",
         "target_issue": "敬老パス拡充・救急医療",
         "stance": "推進・拡充",
         "election_promise": {
@@ -1893,18 +1751,18 @@
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=605&schedule_id=25"
           },
           {
-            "date": "2024-03-14",
+            "date": "2023-11-16",
             "committee": "本会議",
-            "summary": "議員は各局や地域の特性に応じた防災対策の推進と局間調整におけるリーダーシップを質問し、行政側は地区防災カルテや個別避難計画、学校の耐震化などの取り組みについて説明した。...",
-            "speech_id": "th_5305916_65",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=626&schedule_id=10"
+            "summary": "小出議員は起震車の更新や防災危機管理局の体制強化、他局連携による防災機能向上について質問し、行政側は起震車の更新予定や建築・土木等の専門職配置による体制について説明した。...",
+            "speech_id": "th_5305640_48",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=605&schedule_id=25"
           }
         ]
       },
       {
         "id": "pledge_nagoya_小出昭司_3",
         "headline": "敬老パスの利便性向上を推進",
-        "category": "福祉・医療・健康, 都市再生・交通インフラ",
+        "category": "福祉・医療・健康",
         "target_issue": "敬老パス利便性向上",
         "stance": "推進・拡充",
         "election_promise": {
@@ -2048,18 +1906,18 @@
         "council_vote": null,
         "council_statements": [
           {
-            "date": "2024-03-11",
-            "committee": "本会議",
-            "summary": "名古屋のびのび子育てサポート事業の活動件数やマッチング不成立件数、会員数、対象児数について質問し、行政側からそれぞれの実績数値について説明があった質疑。...",
-            "speech_id": "th_5305699_187",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=5"
-          },
-          {
             "date": "2024-12-17",
             "committee": "本会議",
             "summary": "中区橘学区の見守り活動等を例に地域福祉計画の取組について質問し、行政側が体制づくりや事例展開の方針を説明。さらに独居高齢者の住まい確保策について福祉と住宅部局の連携を質した。...",
             "speech_id": "th_5311492_26",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=620&schedule_id=36"
+          },
+          {
+            "date": "2023-09-15",
+            "committee": "本会議",
+            "summary": "子ども応援サポーター研修の全市展開と継続実施、およびポジティブエージングを促進する市独自のエンディングノート作成について質問し、教育委員会から研修の全市拡大と継続を検討する旨の、健康福祉局から市独自の作成には課題があるが他都市の状況等を引き続き情報収集する旨の答弁があった。...",
+            "speech_id": "th_5305657_8",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=613&schedule_id=4"
           }
         ]
       },
@@ -2154,6 +2012,13 @@
             "summary": "中田議員は堀川・新堀川の水質浄化及び堀留水処理センターの廃止と上部空間有効活用について質問し、行政側は分流化や雨水幹線の設計状況、機能移転や施設整備に要する期間、関係局による会議の検討状況を説明した。...",
             "speech_id": "th_5305547_66",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=602&schedule_id=23"
+          },
+          {
+            "date": "2024-03-12",
+            "committee": "本会議",
+            "summary": "中田議員は下水道による河川の水質浄化策と新堀川沿いの雨水幹線整備の進捗について質問し、行政側は令和8年度の完了を目指して事業を進める旨を説明した。...",
+            "speech_id": "th_5305873_55",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=625&schedule_id=4"
           }
         ]
       }
@@ -2372,7 +2237,15 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/07.pdf"
         },
         "council_vote": null,
-        "council_statements": []
+        "council_statements": [
+          {
+            "date": "2023-11-16",
+            "committee": "本会議",
+            "summary": "災害対策実施計画の町内会加入率低下や地域防災活動の参加者確保に関し、未加入者への広報や他行事との連携による意識向上策について質問し、行政側からノベルティー配布の継続やハザードマップ等を用いた周知啓発を継続する旨の答弁があった。...",
+            "speech_id": "th_5305640_18",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=605&schedule_id=25"
+          }
+        ]
       },
       {
         "id": "pledge_nagoya_大村光子_2",
@@ -2400,15 +2273,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/07.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-09-30",
-            "committee": "本会議",
-            "summary": "名古屋城バリアフリーに関する市民討論会検証報告書の職員ヒアリングにおける発言記載について、パワハラ認定の有無や事実確認の議論の経緯を質問し、行政側から検証委員会の議論内容と記載方針について説明があった。...",
-            "speech_id": "th_5305818_18",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=622&schedule_id=22"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -2478,22 +2343,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/08.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-03-11",
-            "committee": "本会議",
-            "summary": "市立大学附属病院群に対する医療機器等の支援について、補助金と貸付金の基準や財政規律を巡る質疑。総務局長は繰出基準に基づく予算要求や今後の協議について説明した。...",
-            "speech_id": "th_5305809_253",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=622&schedule_id=13"
-          },
-          {
-            "date": "2024-03-13",
-            "committee": "本会議",
-            "summary": "医療機器整備に関する補助金から貸付金への変更経緯や市大側との協議内容について質問し、行政側から、市大の意見を尊重し予算をまとめた経過や協議の時間が足りず令和6年度は暫定的に対応したと説明があった質疑。...",
-            "speech_id": "th_5305810_380",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=622&schedule_id=14"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_ふじた和秀_2",
@@ -2514,13 +2364,6 @@
             "summary": "ふじた議員が瑞穂区の交通死亡事故後の大型交差点における通学路安全対策の実施状況と教育委員会の関与について質問し、行政側が詳細な予算や協議の把握状況について答弁した質疑。...",
             "speech_id": "th_5305725_269",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=31"
-          },
-          {
-            "date": "2024-08-16",
-            "committee": "本会議",
-            "summary": "議員はアジア競技大会のレガシーやリニア開業時期にとどまらない都市交通の重要性について質問し、行政側はリニアの開通時期にかかわらず事業を推進する旨を答弁した。...",
-            "speech_id": "th_5305667_130",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=615&schedule_id=7"
           }
         ]
       },
@@ -2547,8 +2390,8 @@
           {
             "date": "2024-06-18",
             "committee": "本会議",
-            "summary": "総合計画2028の策定において学校給食無償化をゼロベースで検討し挑戦することを議員が求め、行政側がフラットに何ができるか汗をかいてまいりたいと答弁した。...",
-            "speech_id": "th_5305716_209",
+            "summary": "子ども会の保護者負担軽減や中学生の学習支援事業の運営体制について質問し、行政側からICT活用や事業者との情報共有について説明があった。...",
+            "speech_id": "th_5305716_38",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=22"
           }
         ]
@@ -2635,7 +2478,15 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/08.pdf"
         },
         "council_vote": null,
-        "council_statements": []
+        "council_statements": [
+          {
+            "date": "2023-11-24",
+            "committee": "本会議",
+            "summary": "産後ケア事業の拡充や不妊治療費助成制度の創設等について質問し、行政側から利用要件等の検討や国の動向を注視し実施に向け検討する旨の答弁があった。...",
+            "speech_id": "th_5311486_55",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=614&schedule_id=3"
+          }
+        ]
       },
       {
         "id": "pledge_nagoya_久田邦博_3",
@@ -2692,13 +2543,6 @@
           "source_url": "https://www.city.nagoya.jp/shikai/kouhou/1030998/1030999/1031000/1031047/1031049.html"
         },
         "council_statements": [
-          {
-            "date": "2023-12-25",
-            "committee": "本会議",
-            "summary": "名古屋城木造天守昇降技術開発業務委託契約に関し、行政側から契約概要やこれまでの経緯、最優秀者の提案技術について説明が行われた事実関係を整理している。...",
-            "speech_id": "th_5305556_27",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=602&schedule_id=32"
-          },
           {
             "date": "2023-07-03",
             "committee": "本会議",
@@ -2951,15 +2795,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/09.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-12-04",
-            "committee": "本会議",
-            "summary": "森議員は感染症予防計画における保健所の人員確保目標値1033人の根拠と応援体制について質問し、行政側は新型コロナ第6波の実績に基づく算定であると説明した。...",
-            "speech_id": "th_5311481_154",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=604&schedule_id=30"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_森ともお_3",
@@ -3043,15 +2879,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/09.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-10-05",
-            "committee": "本会議",
-            "summary": "議員がスポーツ市民局関係の決算認定案に関する資料説明を求め、行政側が審議会委員の登用率や各種事業実績、施設整備費等の資料内容を説明した。...",
-            "speech_id": "th_5305585_1",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=603&schedule_id=29"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_服部しんのすけ_2",
@@ -3066,13 +2894,6 @@
         },
         "council_vote": null,
         "council_statements": [
-          {
-            "date": "2025-03-12",
-            "committee": "本会議",
-            "summary": "議員は町内会加入率低下に対する防災や若者のアイデアを活用した促進策を提案し、行政側は関係局との連携や成功事例の共有を推進する旨を答弁した。...",
-            "speech_id": "th_5305987_69",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=639&schedule_id=11"
-          },
           {
             "date": "2024-06-06",
             "committee": "本会議",
@@ -3241,15 +3062,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-03-11",
-            "committee": "本会議",
-            "summary": "高齢者向け優良賃貸住宅の供給助成に関し、決算の不用額、事業内容、取組、要求額の内訳を質問し、行政側から家賃減額補助の内容と令和6年度の予算凍結の方針について説明があり、要求額に関する資料提出が約束された。...",
-            "speech_id": "th_5305910_252",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=626&schedule_id=4"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -3382,15 +3195,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2026-06-24",
-            "committee": "本会議",
-            "summary": "里帰り保育の広域利用受入れや低出生体重児の家族に対する搾乳関連費用助成などについて質問し、行政側から今後の検討方針や既存の支援策について説明と答弁が行われた。...",
-            "speech_id": "th_5327480_20",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=676&schedule_id=3"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_月森たくや_3",
@@ -3404,15 +3209,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/10.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-11-16",
-            "committee": "本会議",
-            "summary": "名古屋市災害対策実施計画案等を踏まえ、災害時の情報伝達手段や平時からの周知方法について質問し、行政側から防災アプリやホームページ等による情報提供や今後の充実について説明があった。...",
-            "speech_id": "th_5305466_5",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=597&schedule_id=5"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -3531,22 +3328,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2025-10-08",
-            "committee": "本会議",
-            "summary": "議員が中川運河再生計画における沿岸用地の規制緩和や他ゾーンの活用について質問し、行政側がガイドラインの見直し状況や名古屋港管理組合との協議について説明した。...",
-            "speech_id": "th_5312613_22",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=654&schedule_id=24"
-          },
-          {
-            "date": "2023-11-16",
-            "committee": "本会議",
-            "summary": "議員は避難所の優先順位や港防災センターの野跡小学校跡地への移転について質問した。行政側は、初動の備蓄や段階的な支援方針、および令和9年度の解体工事着手を見据えた早期の事業推進について説明した。...",
-            "speech_id": "th_5305466_90",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=597&schedule_id=5"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_加藤一登_2",
@@ -3644,15 +3426,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-10-08",
-            "committee": "本会議",
-            "summary": "吉田議員が地域防災の担い手確保や意識向上策について質問し、行政側が令和5年度の取り組みや啓発活動の実施状況について説明した。...",
-            "speech_id": "th_5305931_52",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=626&schedule_id=25"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_吉田茂_2",
@@ -3701,22 +3475,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2025-08-04",
-            "committee": "本会議",
-            "summary": "名古屋臨海高速鉄道の中期経営計画における可動式ホーム柵の更新、運行管理システム、駅トイレの洋式化、外国人旅行者向けの多言語対応等の進捗状況について質問し、行政側から各事業の完了状況や対応について説明があった質疑。...",
-            "speech_id": "th_5306021_50",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=645&schedule_id=8"
-          },
-          {
-            "date": "2025-05-19",
-            "committee": "本会議",
-            "summary": "吉岡議員が委員会の開会と議事進行を行い、各局関係者から令和6年度安心・安全なまちづくり施策の実施状況について説明聴取と活動経過の確認を行った。...",
-            "speech_id": "th_5306026_1",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=646&schedule_id=2"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_吉岡正修_2",
@@ -3730,22 +3489,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/11.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-09-26",
-            "committee": "本会議",
-            "summary": "吉岡議員が総合計画における線状降水帯や風水害対策の反映状況を質問し、防災危機管理局長が最大規模の風水害への備えや関連施策について答弁した。...",
-            "speech_id": "th_5305929_48",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=626&schedule_id=23"
-          },
-          {
-            "date": "2025-03-12",
-            "committee": "本会議",
-            "summary": "議員は避難所の備蓄品（TKB）や個別避難計画の推進状況を質問し、行政側は現在の配備数や協定による調達見込み、さらにモデル事業における課題と今後の展開について説明した。...",
-            "speech_id": "th_5312598_4",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=654&schedule_id=9"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_吉岡正修_3",
@@ -3815,22 +3559,7 @@
           "vote_type": "会派方針",
           "source_url": "https://www.city.nagoya.jp/shikai/kouhou/1030998/1030999/1031000/1031047/1031049.html"
         },
-        "council_statements": [
-          {
-            "date": "2025-05-15",
-            "committee": "本会議",
-            "summary": "沢田議員は名古屋城の総括とパワハラ事案の調査結果の切り離しについて質問し、行政側は速やかな報告と信頼回復の必要性について答弁した。...",
-            "speech_id": "th_5312578_41",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=652&schedule_id=19"
-          },
-          {
-            "date": "2025-03-17",
-            "committee": "本会議",
-            "summary": "沢田議員は名古屋城の「本物復元」という言葉の定義と市民の誤解について質問し、広沢市長は本質的価値を感じられるかどうかという定義や往時の姿の再現についての考え方を説明した。...",
-            "speech_id": "th_5312571_46",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=652&schedule_id=12"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -3978,22 +3707,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-12-05",
-            "committee": "本会議",
-            "summary": "橋本議員はゼロ歳児からの保育料完全無償化の公約実現時期や推進方針について質問し、広沢市長は全ての利用者の保育料無償化を目指しできることから着手すると答弁した。...",
-            "speech_id": "th_5305969_2",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=632&schedule_id=5"
-          },
-          {
-            "date": "2024-05-08",
-            "committee": "本会議",
-            "summary": "議員が請願の趣旨説明を行い、行政側が保育士配置基準や少人数学級、給食費無償化等の現状や国の動向について説明した。...",
-            "speech_id": "th_5305707_1",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=13"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_橋本ひろき_3",
@@ -4009,18 +3723,11 @@
         "council_vote": null,
         "council_statements": [
           {
-            "date": "2025-10-07",
+            "date": "2025-11-11",
             "committee": "本会議",
-            "summary": "橋本議員がもの忘れ検診の受診者数と個別勧奨の影響について質問し、行政側が令和5年度・6年度の受診者数や個別勧奨実施年齢の受診率、精密検査費用助成の状況について答弁した。...",
-            "speech_id": "th_5306173_124",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=31"
-          },
-          {
-            "date": "2024-10-10",
-            "committee": "本会議",
-            "summary": "議員はもの忘れ検診の受診者数や精密検査の状況について実績と課題を尋ね、行政側は費用助成の効果と受診率向上の必要性について説明した。...",
-            "speech_id": "th_5305758_163",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=620&schedule_id=25"
+            "summary": "橋本議員は保育料の無償化に向けた市の検討状況と県の補助拡充に伴う県内自治体の実施状況を質問し、行政側は財政負担や影響分析を踏まえて慎重に検討中であると答弁した。...",
+            "speech_id": "th_5306186_5",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=655&schedule_id=6"
           }
         ]
       }
@@ -4156,7 +3863,15 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf"
         },
         "council_vote": null,
-        "council_statements": []
+        "council_statements": [
+          {
+            "date": "2023-11-24",
+            "committee": "本会議",
+            "summary": "藤沢ちあき議員は市バス・地下鉄の子供や子育て世帯が利用しやすい環境整備について質問し、交通局長は新型車両へのサポートスペース設置や案内表示の充実などの取組を検討すると答弁した。...",
+            "speech_id": "th_5311486_50",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=614&schedule_id=3"
+          }
+        ]
       },
       {
         "id": "pledge_nagoya_藤沢ちあき_2",
@@ -4170,15 +3885,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2025-03-12",
-            "committee": "本会議",
-            "summary": "名鉄桜駅のバリアフリー化の現状と事業者への働きかけについて質問し、行政側から鉄道事業者との協議状況や対応方針について説明があった。...",
-            "speech_id": "th_5306147_126",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=5"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_藤沢ちあき_3",
@@ -4192,15 +3899,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/12.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-11-16",
-            "committee": "本会議",
-            "summary": "南区の防災訓練における住民の意見を背景に、新ハザードマップを反映した風水害の対応方針と具体的な事業展開について質問し、行政側が防災人材育成方針や計画に基づく支援策を説明した。...",
-            "speech_id": "th_5305640_33",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=605&schedule_id=25"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -4741,22 +4440,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-06-26",
-            "committee": "本会議",
-            "summary": "議員は災害時のペット一時預かり協定締結と部活動中の事故対応を質問し、行政は令和6年度中の協定締結を目指す方針と、調査委員会を設置し再発防止策を策定すると答弁した。...",
-            "speech_id": "th_5305945_11",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=628&schedule_id=5"
-          },
-          {
-            "date": "2025-03-12",
-            "committee": "本会議",
-            "summary": "市長マニフェストに基づく動物愛護の新規事業や施設の老朽化と他都市事例について質問し、行政側から多頭飼育崩壊防止や順化事業の仕組み、施設課題について説明があった。...",
-            "speech_id": "th_5306147_331",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=5"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_岩本たかひろ_3",
@@ -4799,7 +4483,15 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf"
         },
         "council_vote": null,
-        "council_statements": []
+        "council_statements": [
+          {
+            "date": "2024-06-10",
+            "committee": "本会議",
+            "summary": "永井議員は地域生活支援拠点事業の計画目標と整備方針について質問し、行政側は令和6年度からの全域利用の見直しと今後の整備継続について答弁した。...",
+            "speech_id": "th_5305750_52",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=620&schedule_id=17"
+          }
+        ]
       },
       {
         "id": "pledge_nagoya_永井ゆり_2",
@@ -4848,15 +4540,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2025-10-06",
-            "committee": "本会議",
-            "summary": "令和6年度インフラ分野のDX推進経費に関する業務内容や計画について質問し、行政側からシステム再構築や土木事務所の課題洗い出し等について説明があった。...",
-            "speech_id": "th_5306134_82",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=651&schedule_id=24"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_大谷ともひろ_2",
@@ -4884,22 +4568,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-03-11",
-            "committee": "本会議",
-            "summary": "大谷議員が名古屋城の観覧環境整備について令和5年度の調査や6年度以降の計画を質問し、行政側が本丸や西の丸を優先した看板改修やICT活用、検証方法について説明した。...",
-            "speech_id": "th_5305883_165",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=625&schedule_id=14"
-          },
-          {
-            "date": "2023-12-20",
-            "committee": "本会議",
-            "summary": "大谷議員が歴史的風致維持向上計画における他都市の認定状況や支援実績、次期計画での取り組みについて質問し、行政側が愛知県内の認定状況や技術的・経済的支援の内容、関係局と連携した継承支援について説明した。...",
-            "speech_id": "th_5305474_18",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=598&schedule_id=7"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -4920,22 +4589,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/14.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-10-05",
-            "committee": "本会議",
-            "summary": "議員は市施設への再生可能エネルギー導入状況や目標値と財源について質問し、行政側は所管や契約期間、焼却工場の売電収入や電力活用方針について説明した。...",
-            "speech_id": "th_5305585_328",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=603&schedule_id=29"
-          },
-          {
-            "date": "2023-07-10",
-            "committee": "本会議",
-            "summary": "近藤議員がこども未来戦略方針を踏まえた提案内容の修正や国へのアピールを求め、水野子ども青少年局企画経理課長が提案活動において各所へ伝えていくと説明した質疑。...",
-            "speech_id": "th_5305443_26",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=594&schedule_id=5"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_近藤和博_2",
@@ -4951,18 +4605,11 @@
         "council_vote": null,
         "council_statements": [
           {
-            "date": "2023-07-10",
+            "date": "2025-03-14",
             "committee": "本会議",
-            "summary": "近藤議員がこども未来戦略方針を踏まえた提案内容の修正や国へのアピールを求め、水野子ども青少年局企画経理課長が提案活動において各所へ伝えていくと説明した質疑。...",
-            "speech_id": "th_5305443_26",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=594&schedule_id=5"
-          },
-          {
-            "date": "2025-10-08",
-            "committee": "本会議",
-            "summary": "議員は婚活支援事業の広報手法やマッチング状況、さらに小学校年齢期における放課後施策のトワイライトルーム移行について質問し、行政側はSNS広告の活用や次期総合計画に基づく進め方、12学区における共存状況について説明した。...",
-            "speech_id": "th_5306057_34",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=26"
+            "summary": "議員のがん検診および精密検査の受診状況や受診率向上の取組に関する質問に対し、行政側が受診率の推移や理由、サポートセンター開設等の対応を説明した。...",
+            "speech_id": "th_5306150_330",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=8"
           }
         ]
       },
@@ -4979,13 +4626,6 @@
         },
         "council_vote": null,
         "council_statements": [
-          {
-            "date": "2025-03-18",
-            "committee": "本会議",
-            "summary": "近藤議員が敬老パスの早期利用促進策と健康増進キャンペーンについて質問し、行政側がオンライン申請の実績や郵便局連携、ICカードのポイント機能を活用した秋のキャンペーン実施予定について説明した。...",
-            "speech_id": "th_5306151_4",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=9"
-          },
           {
             "date": "2025-02-28",
             "committee": "本会議",
@@ -5246,6 +4886,13 @@
             "summary": "議員が請願審査の議事を進行し、行政側が保育士配置基準、少人数学級、学校給食費等の各項目の現状や国の動向について説明した。...",
             "speech_id": "th_5305714_1",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=20"
+          },
+          {
+            "date": "2025-11-26",
+            "committee": "本会議",
+            "summary": "岡本議員は保育料完全無償化の令和8年度実施見通しや、はち丸ネットワークの行政活用状況について質問し、行政側は令和8年度の実施は極めて厳しい旨と、今後の検討状況についてそれぞれ説明した。...",
+            "speech_id": "th_5306206_52",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=660&schedule_id=5"
           }
         ]
       },
@@ -5284,18 +4931,11 @@
         "council_vote": null,
         "council_statements": [
           {
-            "date": "2023-07-03",
+            "date": "2025-10-10",
             "committee": "本会議",
-            "summary": "中村議員は保育所等及び学校給食費の物価高騰対応支援の着実な実施と、給食費無償化を含むさらなる子育て世帯・教育費負担軽減策の検討を求め、行政側はいただいた意見として十分に検討していく旨を述べた。...",
-            "speech_id": "th_5305496_5",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=13"
-          },
-          {
-            "date": "2023-06-27",
-            "committee": "本会議",
-            "summary": "議員は民間保育所の給食費や物価高騰支援金の活用状況、申請しなかった理由と給食水準への影響を質問し、行政側は令和4年度の平均給食費や昨年の実施状況、指導監査による確認結果について説明した。...",
-            "speech_id": "th_5305498_58",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=15"
+            "summary": "議員が調整債の発行理由や残高見込み、市債現在高と財政規律の関係について質問し、行政側が税制改正による減収補填や大規模事業の継続が要因であることと今後の見通しを説明した。...",
+            "speech_id": "th_5306171_73",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=29"
           }
         ]
       },
@@ -5320,11 +4960,11 @@
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=13"
           },
           {
-            "date": "2023-06-27",
+            "date": "2023-10-02",
             "committee": "本会議",
-            "summary": "議員は民間保育所の給食費や物価高騰支援金の活用状況、申請しなかった理由と給食水準への影響を質問し、行政側は令和4年度の平均給食費や昨年の実施状況、指導監査による確認結果について説明した。...",
-            "speech_id": "th_5305498_58",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=15"
+            "summary": "中村議員が児童虐待に関する質問を終了したことに対し、子ども青少年局子育て支援部主幹が工夫して対応する旨を述べた質疑。...",
+            "speech_id": "th_5305507_150",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=24"
           }
         ]
       },
@@ -5361,22 +5001,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-03-18",
-            "committee": "本会議",
-            "summary": "議員は周辺市町からの地下鉄・市バス延伸に関する要望と交通局の対応について質問した。行政側は、各地域からの要望に対し現状や人口動態を説明し意見交換を行っていると答弁した。...",
-            "speech_id": "th_5305848_42",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=624&schedule_id=9"
-          },
-          {
-            "date": "2025-12-23",
-            "committee": "本会議",
-            "summary": "名古屋城天守閣事業の過去の経緯と苦難の時期を振り返り、今後の進め方について質問し、行政側から信頼回復とバリアフリー方針の丁寧な検討を進めると答弁があった。...",
-            "speech_id": "th_5312593_128",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=652&schedule_id=34"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_丹羽ひろし_2",
@@ -5390,15 +5015,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-11-15",
-            "committee": "本会議",
-            "summary": "議員は各区の自主的・主体的予算の増額や機動的な配分について意見を述べ、行政側は限られた予算額の中で地域ニーズに対応しつつ、さらなる予算確保への希望を述べた。...",
-            "speech_id": "th_5305445_26",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=594&schedule_id=7"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_丹羽ひろし_3",
@@ -5433,15 +5050,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-12-27",
-            "committee": "本会議",
-            "summary": "名東図書館の整備方針がスマートライブラリーからコミュニティライブラリーに変更された経緯について質問し、行政側から子ども・子育て支援の役割や地域の実情を踏まえた方針変更の理由と今後の検討状況について説明があった。...",
-            "speech_id": "th_5305733_6",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=39"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_くずや利枝_2",
@@ -5469,15 +5078,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-06-23",
-            "committee": "本会議",
-            "summary": "くずや利枝議員はトワイライトの体験活動充実と美術館の子供の利用促進について質問し、行政側は民間事業者との連携強化や教員向け無料体験の実施について答弁した。...",
-            "speech_id": "th_5305652_16",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=612&schedule_id=4"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -5610,15 +5211,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-02-28",
-            "committee": "本会議",
-            "summary": "電気・ガス・食料品等価格高騰重点支援地方交付金の活用事業における申請実績の割合や不用額の使途について質問し、行政側から今後の経済活性化施策の検討について説明があった質疑。...",
-            "speech_id": "th_5305870_13",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=625&schedule_id=1"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_日比美咲_3",
@@ -5667,15 +5260,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-06-18",
-            "committee": "本会議",
-            "summary": "不妊治療受給者の割合や保険適用の状況を踏まえ、計画書への不妊治療支援の文言記載について質問し、行政側から国の動向注視や今後の検討状況について説明があった。...",
-            "speech_id": "th_5305716_79",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=22"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_大島英勲_3",
@@ -5689,15 +5274,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/15.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-03-12",
-            "committee": "本会議",
-            "summary": "大島議員が上下水道事業におけるDX推進方針やSNSを活用した情報探査ツールの位置づけと今後の取組について質問し、行政側が基本方針の理念や試行導入の現状と効果検証について説明した。...",
-            "speech_id": "th_5305873_78",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=625&schedule_id=4"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -5893,22 +5470,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-10-02",
-            "committee": "本会議",
-            "summary": "議員は医療的ケア児支援に関する協議会の開催状況や保護者の参画、保育所での受入体制と窓口周知について質問し、行政側はネットワーク会議の開催や保育支援事業の実績、窓口職員向けの研修実施について説明した。...",
-            "speech_id": "th_5305507_225",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=600&schedule_id=24"
-          },
-          {
-            "date": "2024-06-25",
-            "committee": "本会議",
-            "summary": "放課後等デイサービスの学校での送迎や、総合リハビリテーションセンターの市立大学病院化およびPET-CTの運用について質問し、教育委員会や健康福祉局長から対応や今後の検討状況について答弁があった。...",
-            "speech_id": "th_5305944_45",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=628&schedule_id=4"
-          }
-        ]
+        "council_statements": []
       }
     ]
   },
@@ -5931,18 +5493,11 @@
         "council_vote": null,
         "council_statements": [
           {
-            "date": "2025-10-07",
+            "date": "2025-10-09",
             "committee": "本会議",
-            "summary": "議員は国民健康保険料等の値上げ要因や介護保険、後期高齢者医療について質問し、行政側は各保険料の推移や算定根拠、減免制度の実績について説明した。...",
-            "speech_id": "th_5306173_187",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=31"
-          },
-          {
-            "date": "2025-03-12",
-            "committee": "本会議",
-            "summary": "議員が国民健康保険料の推移や事業費納付金、一般会計繰入金、および敬老パス負担金の見直しについて質問し、行政側がそれぞれの算出要因や交渉経緯について説明した。...",
-            "speech_id": "th_5306147_225",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=5"
+            "summary": "議員は訪問介護の基本報酬引下げや国保料・介護保険料の負担増について質問し、行政側は報酬水準への立場や保険料算定の状況について説明した。...",
+            "speech_id": "th_5306174_50",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=32"
           }
         ]
       },
@@ -5958,15 +5513,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2025-03-12",
-            "committee": "本会議",
-            "summary": "議員が看護修学資金貸与条例の廃止理由や他都市の状況について質問し、行政側が平成17年度からの新規貸付休止の経緯、令和5年度までの返還事務完了および中央看護専門学校の閉校を理由とした条例廃止について説明した。...",
-            "speech_id": "th_5306147_402",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=653&schedule_id=5"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_田口一登_3",
@@ -5982,18 +5529,11 @@
         "council_vote": null,
         "council_statements": [
           {
-            "date": "2024-06-10",
+            "date": "2024-12-05",
             "committee": "本会議",
-            "summary": "鯱城学園の運営目標や食品の安全・安心に関する成果指標の数値設定について質問し、行政側から各数値の推移や設定理由について説明があった質疑。...",
-            "speech_id": "th_5305750_99",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=620&schedule_id=17"
-          },
-          {
-            "date": "2024-09-04",
-            "committee": "本会議",
-            "summary": "議員がトワイライトスクールの児童数増加やスタッフの配置基準、給与水準について質問し、行政側が平均参加児童数や補助員の配置状況、報酬額の現状について説明した。...",
-            "speech_id": "th_5305669_52",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=615&schedule_id=9"
+            "summary": "田口議員は市民税減税の恩恵や公平性、小学校給食無償化との財源比較について質問し、広沢市長は減税の意義や経済活性化の効果、一律税率の妥当性を答弁した。...",
+            "speech_id": "th_5305969_58",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=632&schedule_id=5"
           }
         ]
       }
@@ -6007,7 +5547,7 @@
       {
         "id": "pledge_nagoya_堀田太規_1",
         "headline": "観光振興で子育て支援拡充を実現",
-        "category": "産業・観光・地域経済, 子育て・教育",
+        "category": "産業・観光・地域経済",
         "target_issue": "観光振興, 子育て支援拡充",
         "stance": "推進・拡充",
         "election_promise": {
@@ -6091,7 +5631,7 @@
       {
         "id": "pledge_nagoya_辻󠄀まさお_1",
         "headline": "病児・病後児デイケア事業を充実",
-        "category": "子育て・教育, 福祉・医療・健康",
+        "category": "子育て・教育",
         "target_issue": "病児・病後児デイケア事業拡充",
         "stance": "拡充",
         "election_promise": {
@@ -6100,22 +5640,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-10-07",
-            "committee": "本会議",
-            "summary": "辻議員からのびのび子育てサポート事業の業務効率化やDX検討状況について質問が行われ、行政側から今年度より活動報告や会報紙へのDX活用について検討を開始した旨の答弁がなされた。...",
-            "speech_id": "th_5305722_64",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=28"
-          },
-          {
-            "date": "2025-06-24",
-            "committee": "本会議",
-            "summary": "辻まさお議員が児童相談所及び一時保護所の環境整備について質問し、子ども青少年局長が個室化に向けて検討していくと答弁した。...",
-            "speech_id": "th_5306193_2",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=657&schedule_id=5"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_辻󠄀まさお_2",
@@ -6129,22 +5654,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/16.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-06-18",
-            "committee": "本会議",
-            "summary": "辻議員が学校給食費の改定経緯や物価高騰対策の予算額および1食当たりの単価について質問し、行政側が前回の改定前金額や支援額等を説明した質疑。...",
-            "speech_id": "th_5305716_152",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=619&schedule_id=22"
-          },
-          {
-            "date": "2025-03-14",
-            "committee": "本会議",
-            "summary": "辻議員が小中一貫校の学びの多様化学校の設置や基本方針策定について質問し、行政側が他都市事例の調査研究を行い、令和7年度中に基本方針をまとめるよう努めると答弁した。...",
-            "speech_id": "th_5306038_267",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=647&schedule_id=7"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_辻󠄀まさお_3",
@@ -6219,7 +5729,7 @@
       {
         "id": "pledge_nagoya_くにまさ直記_1",
         "headline": "国際会議誘致でMICE施設整備、国際都市名古屋の発展に貢献",
-        "category": "経済・産業",
+        "category": "産業・観光・地域経済",
         "target_issue": "国際会議誘致・MICE施設整備",
         "stance": "推進",
         "election_promise": {
@@ -6228,20 +5738,12 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/02.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2024-03-11",
-            "committee": "本会議",
-            "summary": "議員がインフラ分野におけるDX推進の具体的取組や計画期間等について質問し、行政側が名古屋市のDX推進方針や局内ワーキンググループでの検討結果、令和8年度までの計画期間について説明し、資料提出を行った。...",
-            "speech_id": "th_5305843_4",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=624&schedule_id=4"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_くにまさ直記_2",
         "headline": "東区の歴史・文化を活かし観光振興、地域経済活性化",
-        "category": "文化・観光",
+        "category": "文化・景観・歴史",
         "target_issue": "東区の歴史・文化を活かした観光振興",
         "stance": "推進",
         "election_promise": {
@@ -6252,25 +5754,25 @@
         "council_vote": null,
         "council_statements": [
           {
+            "date": "2023-06-22",
+            "committee": "本会議",
+            "summary": "東区役所移転改築の経緯や建物調査について質問し、行政側から利便性や防災機能の確保、スケジュール、区民への説明方針について答弁があった。...",
+            "speech_id": "th_5305651_20",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=612&schedule_id=3"
+          },
+          {
             "date": "2026-03-09",
             "committee": "本会議",
             "summary": "議員は中小企業のサイバーセキュリティー対策支援と東区役所整備における区民ニーズ把握について質問し、行政側は情報発信やワークショップ開催を通じた対応について説明した。...",
             "speech_id": "th_5306239_11",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=674&schedule_id=7"
-          },
-          {
-            "date": "2024-06-06",
-            "committee": "本会議",
-            "summary": "議員はスマート窓口の推進プロセスと東区役所整備の基本構想への反映について質問し、行政側は令和4年策定のDX推進方針に基づく検討状況やハード・ソフト両面での連携について説明した。...",
-            "speech_id": "th_5305815_192",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=622&schedule_id=19"
           }
         ]
       },
       {
         "id": "pledge_nagoya_くにまさ直記_3",
         "headline": "災害に強いまちづくり推進、市民の安全・安心確保",
-        "category": "防災・安全",
+        "category": "防災・減災・治安",
         "target_issue": "災害に強いまちづくり",
         "stance": "推進",
         "election_promise": {
@@ -6286,6 +5788,13 @@
             "summary": "南海トラフ地震等の災害に備え、老朽化した高所監視カメラの更新とAI画像解析技術の導入について質問し、行政側から他都市の状況調査や機能強化に向けた検討を進めると説明があった。...",
             "speech_id": "th_5306192_67",
             "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=657&schedule_id=4"
+          },
+          {
+            "date": "2025-03-14",
+            "committee": "本会議",
+            "summary": "議員は過去の議事録や本会議答弁を基に土木事務所と区役所の複合化方針を確認し、行政側は災害時の対応強化等の観点から条件が整えば合築する方針に変わりないと答弁した。...",
+            "speech_id": "th_5305984_199",
+            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=639&schedule_id=8"
           }
         ]
       }
@@ -6299,7 +5808,7 @@
       {
         "id": "pledge_nagoya_西川学_1",
         "headline": "高齢者を大切にするまちづくり",
-        "category": "福祉・医療",
+        "category": "福祉・医療・健康",
         "target_issue": "高齢者福祉",
         "stance": "高齢者を大切にするまちづくりを推進",
         "election_promise": {
@@ -6313,7 +5822,7 @@
       {
         "id": "pledge_nagoya_西川学_2",
         "headline": "未来の子どもの地球を守るまち",
-        "category": "環境",
+        "category": "くらし・環境・エネルギー",
         "target_issue": "地球環境保護、次世代への継承",
         "stance": "未来の子どもたちのために地球環境を守る",
         "election_promise": {
@@ -6322,15 +5831,7 @@
           "bulletin_url": "https://warp.ndl.go.jp/20250211/20250205095834/www.city.nagoya.jp/senkyokanri/cmsfiles/contents/0000165/165666/07.pdf"
         },
         "council_vote": null,
-        "council_statements": [
-          {
-            "date": "2023-09-05",
-            "committee": "本会議",
-            "summary": "西川議員が子どもの環境教育における自然体験の重要性を質問し、行政側が出張講座や地域の公園等を活用した自然観察会の取り組みについて説明した質疑。...",
-            "speech_id": "th_5305451_10",
-            "official_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=595&schedule_id=6"
-          }
-        ]
+        "council_statements": []
       },
       {
         "id": "pledge_nagoya_西川学_3",

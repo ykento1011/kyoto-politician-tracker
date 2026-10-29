@@ -296,7 +296,7 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
                               className="inline-flex items-center justify-center text-xs font-semibold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors cursor-pointer group shadow-2xs"
                             >
                               <Landmark className="w-3.5 h-3.5 mr-1.5 text-slate-500 group-hover:text-slate-700" />
-                              <span>{cityCode === 'nagoya' ? '名古屋市会 公式原本で確認' : cityCode === 'osaka' ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認'}</span>
+                              <span>{cityCode === 'nagoya' ? '名古屋市会 議事録原本を確認' : cityCode === 'osaka' ? '大阪市会 議事録原本を確認' : '議事録原本を確認'}</span>
                               <ExternalLink className="w-3 h-3 ml-1.5 text-slate-400 group-hover:text-slate-600" />
                             </button>
 

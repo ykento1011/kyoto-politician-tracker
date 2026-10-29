@@ -52,7 +52,7 @@ export default function TimelineModal({
                 className="inline-flex items-center text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-3 py-1.5 rounded-lg transition-colors cursor-pointer group"
               >
                 <Landmark className="w-3.5 h-3.5 mr-1.5 text-indigo-600" />
-                <span>{cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会'} 公式原本で確認</span>
+                <span>{cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会'} 議事録原本を確認</span>
                 <ExternalLink className="w-3 h-3 ml-1 text-indigo-400 group-hover:text-indigo-600" />
               </button>
             )}

@@ -53,7 +53,7 @@ class CandidatePledgeExtraction(BaseModel):
     speaker: str = Field(description="候補者・議員名（漢字フルネーム）")
     district: str = Field(description="選挙区名")
     party: str = Field(description="所属党派・公認政党")
-    pledges: List[CouncilorPledgeItem] = Field(description="看板公約・重点政策リスト（必ず1〜3件抽出すること）")
+    pledges: List[CouncilorPledgeItem] = Field(description="看板公約・重点政策リスト（記載されているものをすべて抽出すること）")
 
 class BulletinPledgesResult(BaseModel):
     candidates: List[CandidatePledgeExtraction] = Field(description="公報PDF内に掲載されている全候補者リスト")
@@ -94,9 +94,9 @@ def process_bulletin_pdf(client: genai.Client, pdf_path: Path, valid_names: set)
 あなたは地方選挙公報の政策監査を行う客観的なデータアナリストです。
 添付されたPDFは、2023年4月9日執行「京都市議会議員一般選挙」の公式選挙公報原本です。
 
-【重要：抽出ルール（0件を撲滅し、全員から必ず1〜3件抽出すること）】
+【重要：抽出ルール（0件を撲滅し、全員からすべて抽出すること）】
 1. PDF内の全候補者を漏れなく識別してください。
-2. 候補者が掲げている政策を、以下の優先順位で【1人につき必ず1〜3件】抽出してください：
+2. 候補者が掲げている政策を、以下の優先順位で【記載されているすべての項目を】抽出してください：
    - 【第1優先（具体的施策）】：数値や具体的な制度名を含む公約（例：北陸新幹線延伸中止、全員制中学校給食、子ども医療費無料化、敬老パス維持、議員定数削減、宿泊税など）。
    - 【第2優先（重点政策の柱）】：上記のような固有名詞がない候補者の場合、その候補者が「私の政策」「マニフェスト」「公約」「重点政策」として【番号付きや箇条書き】で掲げている政策項目（例：中野洋一氏の「子育て・教育の拡充」「市民生活第一の観光政策」など）を必ず抽出してください。
 3. 【最重要】「exact_quote」には、公報内の該当枠に実際に印刷されている文字テキストを一切要約・改変せず、そのまま正確に抜き出してください。

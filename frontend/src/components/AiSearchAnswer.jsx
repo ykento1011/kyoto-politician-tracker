@@ -219,7 +219,7 @@ export default function AiSearchAnswer({ query, filteredThreads, cityCode = 'kyo
                     className="inline-flex items-center text-[11px] font-bold text-slate-700 hover:text-indigo-600 bg-white hover:bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg transition-colors cursor-pointer shrink-0 shadow-2xs"
                   >
                     <Landmark className="w-3 h-3 mr-1 text-indigo-600" />
-                    <span>本議会 原本で確認</span>
+                    <span>議事録原本を確認</span>
                     <ExternalLink className="w-2.5 h-2.5 ml-1 text-slate-400" />
                   </button>
                 </div>

@@ -20,7 +20,7 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
                         (typeof stmt?.committee_name === 'string' && stmt.committee_name.includes('大阪市')) ||
                         (typeof actualStmt?.committee_name === 'string' && thread.committee_name.includes('大阪市'));
   const isNagoyaThread = stmt.official_url?.includes('nagoya') || stmt.meeting_title?.includes('名古屋') || window.location.pathname.includes('/nagoya');
-  const councilOriginalLabel = isNagoyaThread ? '名古屋市会 公式原本で確認' : isOsakaThread ? '大阪市会 公式原本で確認' : '京都市会 公式原本で確認';
+  const councilOriginalLabel = isNagoyaThread ? '名古屋市会 議事録原本を確認' : isOsakaThread ? '大阪市会 議事録原本を確認' : '議事録原本を確認';
 
   const [isNoteExpanded, setIsNoteExpanded] = useState(false);
 

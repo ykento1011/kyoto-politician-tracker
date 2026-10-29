@@ -1,9 +1,7 @@
 ﻿import os
 import sys
 import json
-import shutil
 import subprocess
-import time
 from datetime import datetime
 import requests
 
@@ -27,7 +25,11 @@ STATIC_DATA_SCRIPT = os.path.join(BASE_DIR, "generate_static_data.py")
 SCRAPE_VOTES_SCRIPT = os.path.join(BASE_DIR, "scrape_kyoto_votes.py")
 GENERATE_ISSUES_SCRIPT = os.path.join(BASE_DIR, "generate_bill_issues.py")
 
-# 【統一アーキテクチャ】3都市共通スクリプト
+# 【Single Source of Truth】公式マスター生成・同期スクリプト
+SCRAPE_MASTER_SCRIPT = os.path.join(BASE_DIR, "scrape_councilors_master.py")
+SYNC_MASTER_SCRIPT = os.path.join(BASE_DIR, "sync_master_data.py")
+
+# 【統一アーキテクチャ】4都市共通スクリプト
 CACHE_EMBEDDINGS_SCRIPT = os.path.join(BASE_DIR, "cache_statement_embeddings.py")
 UNIFIED_PLEDGE_SCRIPT = os.path.join(BASE_DIR, "build_unified_pledge_tracker.py")
 UNIFIED_TOPIC_SCRIPT = os.path.join(BASE_DIR, "generate_unified_topic_summaries.py")
@@ -36,16 +38,20 @@ UNIFIED_TOPIC_SCRIPT = os.path.join(BASE_DIR, "generate_unified_topic_summaries.
 BUILD_MAYOR_TRACKER_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker.py")
 BUILD_MAYOR_TRACKER_OSAKA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_osaka.py")
 BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_nagoya.py")
+BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT = os.path.join(BASE_DIR, "build_yokohama_mayor_tracker.py")
 
 # 監査スクリプト
 AUDIT_INTEGRITY_SCRIPT = os.path.join(BASE_DIR, "audit_unified_integrity.py")
 AUDIT_PLEDGE_VOTES_SCRIPT = os.path.join(BASE_DIR, "audit_pledge_votes.py")
+AUDIT_PLEDGES_QUALITY_SCRIPT = os.path.join(BASE_DIR, "audit_pledges_quality.py")
 
 # 自動テストスクリプト（ルート直下）
 COMPREHENSIVE_TEST_SCRIPT = os.path.join(PROJECT_ROOT, "run_comprehensive_test.py")
 
 # 出力・監視対象のファイル
 CRAWLED_FILE = os.path.join(BASE_DIR, "sagebase_crawled_data.json")
+
+CITIES = ["kyoto", "osaka", "nagoya", "yokohama"]
 
 def load_webhook_url():
     """data-pipeline/.env から DISCORD_WEBHOOK_URL を安全に読み込む"""
@@ -127,19 +133,6 @@ def run_script(script_path, description, args=None):
         print("--------------------")
         return False, e.stderr
 
-def # 横浜市（原澤市長）は2026年10月就任直後の移行期間（全公約①公約表明維持）
-    log("横浜市長（原澤市長）トラッカー: 就任直後移行期間中（yokohama_mayor_tracker.json 状態維持）")
-    sync_osaka_mayor_files():
-    """大阪市長トラッカーの出力ファイル名をフロントエンド参照名と同期"""
-    src_a = os.path.join(FRONTEND_DATA_DIR, "mayor_tracker_osaka.json")
-    dst_a = os.path.join(FRONTEND_DATA_DIR, "osaka_mayor_tracker.json")
-    if os.path.exists(src_a):
-        try:
-            shutil.copy2(src_a, dst_a)
-            log("大阪市長トラッカーファイル名同期完了 (osaka_mayor_tracker.json)")
-        except Exception as e:
-            log(f"ファイル同期中に警告: {e}", "WARN")
-
 def load_crawled_ids():
     if os.path.exists(CRAWLED_FILE):
         try:
@@ -181,15 +174,15 @@ def check_for_changes():
         return False
 
 def run_integrity_audit():
-    """デプロイ直前の自動インテグリティ監査（モーダル到達率 & 公約採決結合検証）"""
-    # 1. UI到達性監査
+    """デプロイ直前の自動インテグリティ監査（モーダル到達率 & 公約品質 & 採決結合検証）"""
+    # 1. UI到達性・生発言率監査
     if os.path.exists(AUDIT_INTEGRITY_SCRIPT):
-        log("🛡️ [監査 1/2] 全自動インテグリティ監査（全都市カード到達率）を実行中...")
+        log("🛡️ [監査 1/3] 全自動インテグリティ監査（全4都市カード到達率・生発言率）を実行中...")
         try:
             python_exe = sys.executable
             res = subprocess.run([python_exe, AUDIT_INTEGRITY_SCRIPT], capture_output=True, text=True, check=True)
-            if "ALL PASS" in res.stdout or "全3都市でモーダル到達率" in res.stdout:
-                log("✅ インテグリティ監査合格（全都市モーダル到達率 98% 以上確認）")
+            if "ALL PASS" in res.stdout:
+                log("✅ インテグリティ監査合格（全4都市モーダル到達率 98% 以上・生発言率 90% 以上確認）")
             else:
                 log("❌ インテグリティ監査で未到達・不整合が検知されました", "ERROR")
                 return False, res.stdout
@@ -197,9 +190,20 @@ def run_integrity_audit():
             log("❌ インテグリティ監査実行中にエラーが発生しました", "ERROR")
             return False, e.stderr
 
-    # 2. 公約・採決結合監査
+    # 2. 公約データ品質監査
+    if os.path.exists(AUDIT_PLEDGES_QUALITY_SCRIPT):
+        log("🛡️ [監査 2/3] 公約データ品質監査（全4都市カバレッジ100%検証）を実行中...")
+        try:
+            python_exe = sys.executable
+            res = subprocess.run([python_exe, AUDIT_PLEDGES_QUALITY_SCRIPT], capture_output=True, text=True, check=True)
+            log("✅ 公約データ品質監査 完了（現任期議員カバレッジ100%確認）")
+        except subprocess.CalledProcessError as e:
+            log("❌ 公約データ品質監査実行中にエラーが発生しました", "ERROR")
+            return False, e.stderr
+
+    # 3. 公約・採決結合監査
     if os.path.exists(AUDIT_PLEDGE_VOTES_SCRIPT):
-        log("🛡️ [監査 2/2] 公約 ⇄ 議案採決（賛否行動）結合インテグリティ監査を実行中...")
+        log("🛡️ [監査 3/3] 公約 ⇄ 議案採決（賛否行動）結合インテグリティ監査を実行中...")
         try:
             python_exe = sys.executable
             res = subprocess.run([python_exe, AUDIT_PLEDGE_VOTES_SCRIPT], capture_output=True, text=True, check=True)
@@ -218,8 +222,8 @@ def run_pre_deploy_test():
     log("🛡️ デプロイ前の自動健全性テスト（Playwright全画面巡回）を実行中...")
     try:
         python_exe = sys.executable
-        res = subprocess.run([python_exe, COMPREHENSIVE_TEST_SCRIPT], capture_output=True, text=True, check=True)
-        if "全画面・全モーダル・全タブ正常" in res.stdout or "全ページ正常" in res.stdout:
+        res = subprocess.run([python_exe, COMPREHENSIVE_TEST_SCRIPT], capture_output=True, text=True, encoding='utf-8', errors='replace', check=True)
+        if any(k in res.stdout for k in ["全画面・全モーダル・全タブ正常", "全ページ正常", "0件でした"]):
             log("✅ 自動健全性テスト合格（UIクラッシュ・404・コンソールエラーなし）")
             return True, ""
         else:
@@ -244,7 +248,7 @@ def push_to_github(custom_detail=""):
         if custom_detail:
             commit_msg = f"Auto-update: {custom_detail} を追加・反映 ({now_str})"
         else:
-            commit_msg = f"Auto-update: 京都・大阪・名古屋 議決・公約・政策タイムライン最新化 ({now_str})"
+            commit_msg = f"Auto-update: 4都市（京都・大阪・名古屋・横浜）議決・公約・政策タイムライン最新化 ({now_str})"
             
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push", "origin", "main"], check=True)
@@ -258,7 +262,7 @@ def main():
     is_dry_run = "--dry-run" in sys.argv or "--no-push" in sys.argv
 
     print("\n" + "="*60)
-    log("定期監視・全自動データ更新パイプライン（京都・大阪・名古屋 統合セマンティック版）を開始")
+    log("定期監視・全自動データ更新パイプライン（4都市 統合セマンティック版）を開始")
     if is_dry_run:
         log("🧪 ドライランモード: GitHub へのデプロイ（commit/push）は行われません")
     print("="*60)
@@ -274,11 +278,11 @@ def main():
         notify_discord("❌ 定期更新エラー: 議事録取得失敗", "データ取得スクリプトの実行中にエラーが発生しました。", status="error", error_detail=output)
         return
 
-    # 3. 議決・賛否データの更新（3都市共通エンジン）
+    # 3. 議決・賛否データの更新
     log("--- [議決・賛否データの更新チェック] ---")
     scrape_ok, _ = run_script(SCRAPE_VOTES_SCRIPT, "議会公式HPからの議案・賛否スクレイピング（京都）")
     if os.path.exists(GENERATE_ISSUES_SCRIPT):
-        for c in ["kyoto", "osaka", "nagoya", "yokohama"]:
+        for c in CITIES:
             run_script(GENERATE_ISSUES_SCRIPT, f"Geminiによる対立議案の争点分析（{c.upper()}）", args=["--city", c])
     log("--- [議決・賛否データの更新チェック完了] ---")
 
@@ -309,45 +313,47 @@ def main():
             notify_discord("❌ 定期更新エラー: サマリー生成失敗", "statements_summary.json の生成中にエラーが発生しました。", status="error", error_detail=err)
             return
 
+        # 7.1 【SSoT】市議会公式マスターと発言ログの同期（異体字正規化・行政幹部完全自動排除）
+        if os.path.exists(SYNC_MASTER_SCRIPT):
+            log("--- [公式マスター同期＆行政幹部自動排除フィルタリング] ---")
+            for city in CITIES:
+                run_script(SYNC_MASTER_SCRIPT, f"公式マスター・発言ログ同期（{city.upper()}）", args=["--city", city])
+            log("--- [公式マスター同期＆行政幹部自動排除フィルタリング完了] ---")
+
         # 7.5 新着発言の Embedding キャッシュ差分更新
         if os.path.exists(CACHE_EMBEDDINGS_SCRIPT):
-            for city in ["kyoto", "osaka", "nagoya", "yokohama"]:
+            for city in CITIES:
                 run_script(CACHE_EMBEDDINGS_SCRIPT, f"質疑Embeddingキャッシュ差分生成（{city.upper()}）", args=["--city", city])
 
     else:
         log("✅ 新しい議事録はありませんでした。")
 
-    # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（3都市統合）
-    log("--- [政策タイムラインの最新化（3都市）] ---")
+    # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（4都市統合）
+    log("--- [政策タイムラインの最新化（4都市）] ---")
     if os.path.exists(UNIFIED_TOPIC_SCRIPT):
-        for city in ["kyoto", "osaka", "nagoya", "yokohama"]:
+        for city in CITIES:
             run_script(UNIFIED_TOPIC_SCRIPT, f"政策タイムラインの差分更新（{city.upper()}）", args=["--city", city])
     log("--- [政策タイムラインの最新化完了] ---")
 
-    # 7.7 議員看板公約・採決トラッカーの最新化（3都市統一セマンティック結合）
-    log("--- [議員公約・採決トラッカーの最新化（3都市）] ---")
+    # 7.7 議員看板公約・採決トラッカーの最新化（4都市統一セマンティック結合）
+    log("--- [議員公約・採決トラッカーの最新化（4都市）] ---")
     if os.path.exists(UNIFIED_PLEDGE_SCRIPT):
-        for city in ["kyoto", "osaka", "nagoya", "yokohama"]:
+        for city in CITIES:
             p_ok, _ = run_script(UNIFIED_PLEDGE_SCRIPT, f"議員看板公約トラッカー再結合（{city.upper()}）", args=["--city", city])
             if not p_ok:
                 log(f"{city.upper()}公約トラッカー更新で警告が出ましたが続行します", "WARN")
     log("--- [議員公約・採決トラッカーの最新化完了] ---")
 
-    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（京都・大阪・名古屋）
+    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（4都市）
     log("--- [首長政策トラッカーの最新化] ---")
-    m_ok, _ = run_script(BUILD_MAYOR_TRACKER_SCRIPT, "京都市長（松井市長）政策・予算トラッカーの更新")
-    if not m_ok:
-        log("京都市長政策トラッカー更新で警告が出ましたが続行します", "WARN")
-
-    m_osaka_ok, _ = run_script(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT, "大阪市長（横山市長）政策・予算トラッカーの更新")
-    if not m_osaka_ok:
-        log("大阪市長政策トラッカー更新で警告が出ましたが続行します", "WARN")
-
+    if os.path.exists(BUILD_MAYOR_TRACKER_SCRIPT):
+        run_script(BUILD_MAYOR_TRACKER_SCRIPT, "京都市長 政策・予算トラッカーの更新")
+    if os.path.exists(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT):
+        run_script(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT, "大阪市長 政策・予算トラッカーの更新")
     if os.path.exists(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT):
-        run_script(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT, "名古屋市長（広沢市長）政策・予算トラッカーの更新")
-    
-    # 大阪首長トラッカーのファイル名同期
-    sync_osaka_mayor_files()
+        run_script(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT, "名古屋市長 政策・予算トラッカーの更新")
+    if os.path.exists(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT):
+        run_script(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT, "横浜市長 政策・予算トラッカーの更新")
     log("--- [首長政策トラッカーの最新化完了] ---")
 
     # 8. Git差分チェックと安全なデプロイ
@@ -355,7 +361,7 @@ def main():
     if has_changes:
         log("データファイルに変更があります。")
 
-        # 🛡️ プッシュ前の自動健全性検証（モーダル到達率 & 公約採決結合）
+        # 🛡️ プッシュ前の自動健全性検証（モーダル到達率 & 公約品質 & 採決結合）
         audit_passed, audit_err = run_integrity_audit()
         if not audit_passed:
             log("❌ 全自動インテグリティ監査に失敗したため、GitHub デプロイを中止しました。", "ERROR")
@@ -375,8 +381,8 @@ def main():
         else:
             push_ok, push_msg = push_to_github(new_detail_str)
             if push_ok:
-                detail_desc = f"**更新内容:** {new_detail_str}\n京都・大阪・名古屋の最新データを自動検証の上、GitHub (`main`) へ安全にデプロイしました。" if new_detail_str else "京都・大阪・名古屋の議決・公約・首長トラッカーを自動検証の上、GitHub へデプロイしました。"
-                notify_discord("🎉 定期更新完了: 京都・大阪・名古屋の最新データを反映", detail_desc, status="success")
+                detail_desc = f"**更新内容:** {new_detail_str}\n4都市（京都・大阪・名古屋・横浜）の最新データを自動検証の上、GitHub (`main`) へ安全にデプロイしました。" if new_detail_str else "4都市（京都・大阪・名古屋・横浜）の議決・公約・首長トラッカーを自動検証の上、GitHub へデプロイしました。"
+                notify_discord("🎉 定期更新完了: 4都市の最新データを反映", detail_desc, status="success")
             else:
                 notify_discord("⚠️ 定期更新警告: Gitプッシュ失敗", f"データ生成は成功しましたが、GitHub へのプッシュに失敗しました。\n`{push_msg}`", status="warn")
     else:

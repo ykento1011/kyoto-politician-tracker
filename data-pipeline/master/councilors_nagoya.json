@@ -1,0 +1,614 @@
+[
+  {
+    "name": "山田昌弘",
+    "aliases": [
+      "やまだまさひろ"
+    ],
+    "district": "千種区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "伊神邦彦",
+    "aliases": [
+      "いかみくにひこ"
+    ],
+    "district": "千種区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "神ひろし",
+    "aliases": [
+      "じんひろし"
+    ],
+    "district": "千種区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "北角嘉幸",
+    "aliases": [
+      "きたずみよしゆき"
+    ],
+    "district": "千種区",
+    "party": "新生会",
+    "partyGroup": "新生会"
+  },
+  {
+    "name": "田辺雄一",
+    "aliases": [
+      "たなべゆういち"
+    ],
+    "district": "千種区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "佐藤ゆうこ",
+    "aliases": [
+      "さとうゆうこ"
+    ],
+    "district": "東区",
+    "party": "減税日本ナゴヤ",
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  {
+    "name": "上村みちよ",
+    "aliases": [
+      "うえむらみちよ"
+    ],
+    "district": "東区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "くにまさ直記",
+    "aliases": [
+      "くにまさなおき"
+    ],
+    "district": "東区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "渡辺やすのり",
+    "aliases": [
+      "わたなべやすのり"
+    ],
+    "district": "北区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "田山宏之",
+    "aliases": [
+      "たやまひろゆき"
+    ],
+    "district": "北区",
+    "party": "減税日本ナゴヤ",
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  {
+    "name": "長谷川由美子",
+    "aliases": [
+      "はせがわゆみこ"
+    ],
+    "district": "北区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "服部将也",
+    "aliases": [
+      "はっとりまさや"
+    ],
+    "district": "北区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "岡田ゆき子",
+    "aliases": [
+      "おかだゆきこ"
+    ],
+    "district": "北区",
+    "party": "日本共産党名古屋市会議員団",
+    "partyGroup": "日本共産党名古屋市会議員団"
+  },
+  {
+    "name": "浅野有",
+    "aliases": [
+      "あさのたもつ"
+    ],
+    "district": "西区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "大田とみひこ",
+    "aliases": [
+      "おおたとみひこ"
+    ],
+    "district": "西区",
+    "party": "減税日本ナゴヤ",
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  {
+    "name": "うえぞの晋介",
+    "aliases": [
+      "うえぞのしんすけ"
+    ],
+    "district": "西区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "さわだ晃一",
+    "aliases": [
+      "さわだこういち"
+    ],
+    "district": "西区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "うかい春美",
+    "aliases": [
+      "うかいはるみ"
+    ],
+    "district": "中村区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "村瀬きよみ",
+    "aliases": [
+      "むらせきよみ"
+    ],
+    "district": "中村区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "小出昭司",
+    "aliases": [
+      "こいでしょうじ"
+    ],
+    "district": "中村区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "おか千恵",
+    "aliases": [
+      "おかちえ"
+    ],
+    "district": "中村区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "中田ちづこ",
+    "aliases": [
+      "なかたちづこ"
+    ],
+    "district": "中区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "豊田かおる",
+    "aliases": [
+      "とよだかおる"
+    ],
+    "district": "中区",
+    "party": "減税日本ナゴヤ",
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  {
+    "name": "塚本つよし",
+    "aliases": [
+      "つかもとつよし"
+    ],
+    "district": "中区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "おくむら文悟",
+    "aliases": [
+      "おくむらぶんご"
+    ],
+    "district": "昭和区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "西川学",
+    "aliases": [
+      "にしかわひさし"
+    ],
+    "district": "昭和区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "大村光子",
+    "aliases": [
+      "おおむらみつこ"
+    ],
+    "district": "昭和区",
+    "party": "減税日本ナゴヤ",
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  {
+    "name": "久田邦博",
+    "aliases": [
+      "ひさだくにひろ"
+    ],
+    "district": "瑞穂区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "ふじた和秀",
+    "aliases": [
+      "ふじたかずひで"
+    ],
+    "district": "瑞穂区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "金城ゆたか",
+    "aliases": [
+      "きんじょうゆたか"
+    ],
+    "district": "瑞穂区",
+    "party": "なごや陽向の会",
+    "partyGroup": "なごや陽向の会"
+  },
+  {
+    "name": "森ともお",
+    "aliases": [
+      "もりともお"
+    ],
+    "district": "熱田区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "服部しんのすけ",
+    "aliases": [
+      "はっとりしんのすけ"
+    ],
+    "district": "熱田区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "久野美穂",
+    "aliases": [
+      "くのみほ"
+    ],
+    "district": "中川区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "中川あつし",
+    "aliases": [
+      "なかがわあつし"
+    ],
+    "district": "中川区",
+    "party": "なごや創政会",
+    "partyGroup": "なごや創政会"
+  },
+  {
+    "name": "赤松哲次",
+    "aliases": [
+      "あかまつてつじ"
+    ],
+    "district": "中川区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "木下優",
+    "aliases": [
+      "きのしたまさる"
+    ],
+    "district": "中川区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "浅井正仁",
+    "aliases": [
+      "あさいまさひと"
+    ],
+    "district": "中川区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "月森たくや",
+    "aliases": [
+      "つきもりたくや"
+    ],
+    "district": "中川区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "加藤一登",
+    "aliases": [
+      "かとうかずと"
+    ],
+    "district": "港区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "吉岡正修",
+    "aliases": [
+      "よしおかまさのぶ"
+    ],
+    "district": "港区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "吉田茂",
+    "aliases": [
+      "よしだしげる"
+    ],
+    "district": "港区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "沢田ひとみ",
+    "aliases": [
+      "さわだひとみ"
+    ],
+    "district": "港区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "横井利明",
+    "aliases": [
+      "よこいとしあき"
+    ],
+    "district": "南区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "さかい大輔",
+    "aliases": [
+      "さかいだいすけ"
+    ],
+    "district": "南区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "藤沢ちあき",
+    "aliases": [
+      "ふじさわちあき"
+    ],
+    "district": "南区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "橋本ひろき",
+    "aliases": [
+      "はしもとひろき"
+    ],
+    "district": "南区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "小川としゆき",
+    "aliases": [
+      "おがわとしゆき"
+    ],
+    "district": "守山区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "松井よしのり",
+    "aliases": [
+      "まついよしのり"
+    ],
+    "district": "守山区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "金庭宜雄",
+    "aliases": [
+      "こんばのぶお"
+    ],
+    "district": "守山区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "野田留美",
+    "aliases": [
+      "のだるみ"
+    ],
+    "district": "守山区",
+    "party": "なごや陽向の会",
+    "partyGroup": "なごや陽向の会"
+  },
+  {
+    "name": "北野よしはる",
+    "aliases": [
+      "きたのよしはる"
+    ],
+    "district": "守山区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "中里高之",
+    "aliases": [
+      "なかざとたかゆき"
+    ],
+    "district": "緑区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "近藤和博",
+    "aliases": [
+      "こんどうかずひろ"
+    ],
+    "district": "緑区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "岡本やすひろ",
+    "aliases": [
+      "おかもとやすひろ"
+    ],
+    "district": "緑区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "岩本たかひろ",
+    "aliases": [
+      "いわもとたかひろ"
+    ],
+    "district": "緑区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "大谷ともひろ",
+    "aliases": [
+      "おおたにともひろ"
+    ],
+    "district": "緑区",
+    "party": "減税日本ナゴヤ",
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  {
+    "name": "永井ゆり",
+    "aliases": [
+      "ながいゆり"
+    ],
+    "district": "緑区",
+    "party": "減税日本ナゴヤ",
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  {
+    "name": "みつなか美由紀",
+    "aliases": [
+      "みつなかみゆき"
+    ],
+    "district": "緑区",
+    "party": "日本共産党名古屋市会議員団",
+    "partyGroup": "日本共産党名古屋市会議員団"
+  },
+  {
+    "name": "日比美咲",
+    "aliases": [
+      "ひびみさき"
+    ],
+    "district": "名東区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "中村しゅうへい",
+    "aliases": [
+      "なかむらしゅうへい"
+    ],
+    "district": "名東区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "くずや利枝",
+    "aliases": [
+      "くずやとしえ"
+    ],
+    "district": "名東区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "丹羽ひろし",
+    "aliases": [
+      "にわひろし"
+    ],
+    "district": "名東区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "大島英勲",
+    "aliases": [
+      "おおしまひでひろ"
+    ],
+    "district": "名東区",
+    "party": "日本維新の会名古屋市会議員団",
+    "partyGroup": "日本維新の会名古屋市会議員団"
+  },
+  {
+    "name": "成田たかゆき",
+    "aliases": [
+      "なりたたかゆき"
+    ],
+    "district": "天白区",
+    "party": "自由民主党名古屋市会議員団",
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  {
+    "name": "田中里佳",
+    "aliases": [
+      "たなかりか"
+    ],
+    "district": "天白区",
+    "party": "名古屋民主市会議員団",
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  {
+    "name": "鈴木孝之",
+    "aliases": [
+      "すずきたかゆき"
+    ],
+    "district": "天白区",
+    "party": "減税日本ナゴヤ",
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  {
+    "name": "辻󠄀まさお",
+    "aliases": [
+      "つじまさお"
+    ],
+    "district": "天白区",
+    "party": "公明党名古屋市会議員団",
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  {
+    "name": "田口一登",
+    "aliases": [
+      "たぐちかずと"
+    ],
+    "district": "天白区",
+    "party": "日本共産党名古屋市会議員団",
+    "partyGroup": "日本共産党名古屋市会議員団"
+  }
+]

@@ -1,0 +1,646 @@
+[
+  {
+    "name": "近藤　大",
+    "aliases": [
+      "こんどうだい"
+    ],
+    "district": "北区",
+    "party": "維新"
+  },
+  {
+    "name": "高山　美佳",
+    "aliases": [
+      "たかやまみか"
+    ],
+    "district": "北区",
+    "party": "維新"
+  },
+  {
+    "name": "前田　和彦",
+    "aliases": [
+      "まえだかずひこ"
+    ],
+    "district": "北区",
+    "party": "自民市民"
+  },
+  {
+    "name": "山本　智子",
+    "aliases": [
+      "やまもとともこ"
+    ],
+    "district": "北区",
+    "party": "公明"
+  },
+  {
+    "name": "荒木　肇",
+    "aliases": [
+      "あらきはじめ"
+    ],
+    "district": "都島区",
+    "party": "自民市民"
+  },
+  {
+    "name": "大西　しょういち",
+    "aliases": [
+      "おおにししょういち"
+    ],
+    "district": "都島区",
+    "party": "維新"
+  },
+  {
+    "name": "岡田　妥知",
+    "aliases": [
+      "おかだやすとも"
+    ],
+    "district": "都島区",
+    "party": "維新"
+  },
+  {
+    "name": "太田　勝己",
+    "aliases": [
+      "おおたかつき"
+    ],
+    "district": "福島区",
+    "party": "自国くらし"
+  },
+  {
+    "name": "広田　和美",
+    "aliases": [
+      "ひろたかずみ"
+    ],
+    "district": "福島区",
+    "party": "福島クラブ"
+  },
+  {
+    "name": "今田　信行",
+    "aliases": [
+      "いまだのぶゆき"
+    ],
+    "district": "此花区",
+    "party": "公明"
+  },
+  {
+    "name": "たけち　博幸",
+    "aliases": [
+      "たけちひろゆき"
+    ],
+    "district": "此花区",
+    "party": "維新"
+  },
+  {
+    "name": "塩中　一成",
+    "aliases": [
+      "しおなかかずしげ"
+    ],
+    "district": "中央区",
+    "party": "維新"
+  },
+  {
+    "name": "鈴木　理恵",
+    "aliases": [
+      "すずきりえ"
+    ],
+    "district": "中央区",
+    "party": "自民市民"
+  },
+  {
+    "name": "野上　らん",
+    "aliases": [
+      "のがみらん"
+    ],
+    "district": "中央区",
+    "party": "維新"
+  },
+  {
+    "name": "くりた　ゆうや",
+    "aliases": [],
+    "district": "西区",
+    "party": "維新"
+  },
+  {
+    "name": "西　拓郎",
+    "aliases": [
+      "にしたくろう"
+    ],
+    "district": "西区",
+    "party": "大阪にし"
+  },
+  {
+    "name": "東　貴之",
+    "aliases": [
+      "ひがしたかゆき"
+    ],
+    "district": "西区",
+    "party": "維新"
+  },
+  {
+    "name": "西　徳人",
+    "aliases": [
+      "にしのりひと"
+    ],
+    "district": "港区",
+    "party": "公明"
+  },
+  {
+    "name": "藤田　あきら",
+    "aliases": [
+      "ふじたあきら"
+    ],
+    "district": "港区",
+    "party": "維新"
+  },
+  {
+    "name": "出雲　輝英",
+    "aliases": [
+      "いずもてるひで"
+    ],
+    "district": "大正区",
+    "party": "維新"
+  },
+  {
+    "name": "小山　光明",
+    "aliases": [
+      "こやまみつあき"
+    ],
+    "district": "大正区",
+    "party": "公明"
+  },
+  {
+    "name": "金子　恵美",
+    "aliases": [
+      "かねこえみ"
+    ],
+    "district": "天王寺区",
+    "party": "維新"
+  },
+  {
+    "name": "須藤　奨太",
+    "aliases": [
+      "すどうしょうた"
+    ],
+    "district": "天王寺区",
+    "party": "自民市民"
+  },
+  {
+    "name": "竹下　隆",
+    "aliases": [
+      "たけしたたかし"
+    ],
+    "district": "浪速区",
+    "party": "維新"
+  },
+  {
+    "name": "森山　よしひさ",
+    "aliases": [
+      "もりやまよしひさ"
+    ],
+    "district": "浪速区",
+    "party": "自民市民"
+  },
+  {
+    "name": "佐々木　哲夫",
+    "aliases": [
+      "ささきてつお"
+    ],
+    "district": "西淀川区",
+    "party": "公明"
+  },
+  {
+    "name": "清水　こう",
+    "aliases": [
+      "しみずこう"
+    ],
+    "district": "西淀川区",
+    "party": "維新"
+  },
+  {
+    "name": "山田　かな",
+    "aliases": [
+      "やまだかな"
+    ],
+    "district": "西淀川区",
+    "party": "維新"
+  },
+  {
+    "name": "今村　直人",
+    "aliases": [
+      "いまむらなおと"
+    ],
+    "district": "淀川区",
+    "party": "維新"
+  },
+  {
+    "name": "坂井　はじめ",
+    "aliases": [
+      "さかいはじめ"
+    ],
+    "district": "淀川区",
+    "party": "維新"
+  },
+  {
+    "name": "佐竹　りほ",
+    "aliases": [
+      "さたけりほ"
+    ],
+    "district": "淀川区",
+    "party": "総活躍"
+  },
+  {
+    "name": "杉田　忠裕",
+    "aliases": [
+      "すぎたただひろ"
+    ],
+    "district": "淀川区",
+    "party": "公明"
+  },
+  {
+    "name": "南　隆文",
+    "aliases": [
+      "みなみたかふみ"
+    ],
+    "district": "淀川区",
+    "party": "自民市民"
+  },
+  {
+    "name": "石川　博紀",
+    "aliases": [
+      "いしかわひろき"
+    ],
+    "district": "東淀川区",
+    "party": "自民市民"
+  },
+  {
+    "name": "岩池　きよ",
+    "aliases": [
+      "いわいけきよ"
+    ],
+    "district": "東淀川区",
+    "party": "維新"
+  },
+  {
+    "name": "橋本　まさと",
+    "aliases": [
+      "はしもとまさと"
+    ],
+    "district": "東淀川区",
+    "party": "維新"
+  },
+  {
+    "name": "ますもと　さおり",
+    "aliases": [],
+    "district": "東淀川区",
+    "party": "維新"
+  },
+  {
+    "name": "森　慶吾",
+    "aliases": [
+      "もりけいご"
+    ],
+    "district": "東淀川区",
+    "party": "公明"
+  },
+  {
+    "name": "近藤　みわ",
+    "aliases": [
+      "こんどうみわ"
+    ],
+    "district": "東成区",
+    "party": "維新"
+  },
+  {
+    "name": "永瀬　かなこ",
+    "aliases": [
+      "ながせかなこ"
+    ],
+    "district": "東成区",
+    "party": "維新"
+  },
+  {
+    "name": "藤原　よういち",
+    "aliases": [
+      "ふじわらよういち"
+    ],
+    "district": "東成区",
+    "party": "自国くらし"
+  },
+  {
+    "name": "木下　誠",
+    "aliases": [
+      "きのしたまこと"
+    ],
+    "district": "生野区",
+    "party": "維新"
+  },
+  {
+    "name": "武　直樹",
+    "aliases": [
+      "たけなおき"
+    ],
+    "district": "生野区",
+    "party": "自国くらし"
+  },
+  {
+    "name": "原口　悠介",
+    "aliases": [
+      "はらぐちゆうすけ"
+    ],
+    "district": "生野区",
+    "party": "維新"
+  },
+  {
+    "name": "山田　正和",
+    "aliases": [
+      "やまだまさかず"
+    ],
+    "district": "生野区",
+    "party": "公明"
+  },
+  {
+    "name": "西崎　照明",
+    "aliases": [
+      "にしざきてるあき"
+    ],
+    "district": "旭区",
+    "party": "公明"
+  },
+  {
+    "name": "福田　武洋",
+    "aliases": [
+      "ふくだたけひろ"
+    ],
+    "district": "旭区",
+    "party": "自民市民"
+  },
+  {
+    "name": "宮脇　希",
+    "aliases": [
+      "みやわきのぞみ"
+    ],
+    "district": "旭区",
+    "party": "維新"
+  },
+  {
+    "name": "明石　直樹",
+    "aliases": [
+      "あかしなおき"
+    ],
+    "district": "城東区",
+    "party": "公明"
+  },
+  {
+    "name": "馬場　のりゆき",
+    "aliases": [
+      "ばばのりゆき"
+    ],
+    "district": "城東区",
+    "party": "維新"
+  },
+  {
+    "name": "ホンダ　リエ",
+    "aliases": [
+      "ほんだりえ"
+    ],
+    "district": "城東区",
+    "party": "維新"
+  },
+  {
+    "name": "山中　智子",
+    "aliases": [
+      "やまなかともこ"
+    ],
+    "district": "城東区",
+    "party": "共産"
+  },
+  {
+    "name": "わしみ　慎一",
+    "aliases": [
+      "わしみしんいち"
+    ],
+    "district": "城東区",
+    "party": "維新"
+  },
+  {
+    "name": "大橋　一隆",
+    "aliases": [
+      "おおはしかずたか"
+    ],
+    "district": "鶴見区",
+    "party": "維新"
+  },
+  {
+    "name": "黒田　まりこ",
+    "aliases": [
+      "くろだまりこ"
+    ],
+    "district": "鶴見区",
+    "party": "維新"
+  },
+  {
+    "name": "土岐　恭生",
+    "aliases": [
+      "ときやすお"
+    ],
+    "district": "鶴見区",
+    "party": "公明"
+  },
+  {
+    "name": "梅園　周",
+    "aliases": [
+      "うめぞのまこと"
+    ],
+    "district": "阿倍野区",
+    "party": "維新"
+  },
+  {
+    "name": "木下　吉信",
+    "aliases": [
+      "きのしたよしのぶ"
+    ],
+    "district": "阿倍野区",
+    "party": "自民市民"
+  },
+  {
+    "name": "谷井　正佳",
+    "aliases": [
+      "たにいまさよし"
+    ],
+    "district": "阿倍野区",
+    "party": "維新"
+  },
+  {
+    "name": "片山　一歩",
+    "aliases": [
+      "かたやまいっぽ"
+    ],
+    "district": "住之江区",
+    "party": "維新"
+  },
+  {
+    "name": "岸本　栄",
+    "aliases": [
+      "きしもとさかえ"
+    ],
+    "district": "住之江区",
+    "party": "公明"
+  },
+  {
+    "name": "木村　ひかり",
+    "aliases": [
+      "きむらひかり"
+    ],
+    "district": "住之江区",
+    "party": "維新"
+  },
+  {
+    "name": "松崎　孔",
+    "aliases": [
+      "まつざきとおる"
+    ],
+    "district": "住之江区",
+    "party": "自国くらし"
+  },
+  {
+    "name": "伊藤　亜実",
+    "aliases": [
+      "いとうあみ"
+    ],
+    "district": "住吉区",
+    "party": "維新"
+  },
+  {
+    "name": "井上　浩",
+    "aliases": [
+      "いのうえひろし"
+    ],
+    "district": "住吉区",
+    "party": "共産"
+  },
+  {
+    "name": "上田　智隆",
+    "aliases": [
+      "うえだともたか"
+    ],
+    "district": "住吉区",
+    "party": "維新"
+  },
+  {
+    "name": "くぼた　亮",
+    "aliases": [
+      "くぼたりょう"
+    ],
+    "district": "住吉区",
+    "party": "維新"
+  },
+  {
+    "name": "中田　光一郎",
+    "aliases": [
+      "なかたこういちろう"
+    ],
+    "district": "住吉区",
+    "party": "公明"
+  },
+  {
+    "name": "田辺　信広",
+    "aliases": [
+      "たなべのぶひろ"
+    ],
+    "district": "東住吉区",
+    "party": "無所属"
+  },
+  {
+    "name": "辻　義隆",
+    "aliases": [
+      "つじよしたか"
+    ],
+    "district": "東住吉区",
+    "party": "公明"
+  },
+  {
+    "name": "人見　つよし",
+    "aliases": [
+      "ひとみつよし"
+    ],
+    "district": "東住吉区",
+    "party": "維新"
+  },
+  {
+    "name": "渕上　浩美",
+    "aliases": [
+      "ふちかみひろみ"
+    ],
+    "district": "東住吉区",
+    "party": "自民市民"
+  },
+  {
+    "name": "杉村　幸太郎",
+    "aliases": [
+      "すぎむらこうたろう"
+    ],
+    "district": "平野区",
+    "party": "維新"
+  },
+  {
+    "name": "田中　ひろき",
+    "aliases": [
+      "たなかひろき"
+    ],
+    "district": "平野区",
+    "party": "自国くらし"
+  },
+  {
+    "name": "永井　広幸",
+    "aliases": [
+      "ながいひろゆき"
+    ],
+    "district": "平野区",
+    "party": "公明"
+  },
+  {
+    "name": "永田　典子",
+    "aliases": [
+      "ながたのりこ"
+    ],
+    "district": "平野区",
+    "party": "公明"
+  },
+  {
+    "name": "松田　まさとし",
+    "aliases": [
+      "まつだまさとし"
+    ],
+    "district": "平野区",
+    "party": "大阪平野"
+  },
+  {
+    "name": "吉見　みさこ",
+    "aliases": [
+      "よしみみさこ"
+    ],
+    "district": "平野区",
+    "party": "維新"
+  },
+  {
+    "name": "辻　淳子",
+    "aliases": [
+      "つじじゅんこ"
+    ],
+    "district": "西成区",
+    "party": "維新"
+  },
+  {
+    "name": "藤岡　寛和",
+    "aliases": [
+      "ふじおかひろかず"
+    ],
+    "district": "西成区",
+    "party": "維新"
+  },
+  {
+    "name": "山口　悟朗",
+    "aliases": [
+      "やまぐちごろう"
+    ],
+    "district": "西成区",
+    "party": "公明"
+  }
+]

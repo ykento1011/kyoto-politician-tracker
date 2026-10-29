@@ -1,10 +1,12 @@
-﻿import os
+import os
 import json
 import re
 import math
 import argparse
 from pathlib import Path
 from dotenv import load_dotenv
+from google import genai
+from google.genai import types
 
 CUR = Path(__file__).resolve().parent
 PROJECT_ROOT = CUR.parent
@@ -38,12 +40,10 @@ def resolve_vote(votes_dict, party, speaker_name):
     clean_spk = clean_name(speaker_name)
     clean_p = clean_name(party)
 
-    # 1. 議員個人の採決（造反・無所属等）
     for k, v in votes_dict.items():
         if clean_name(k) == clean_spk:
             return v, "個人採決"
 
-    # 2. 会派の採決
     for k, v in votes_dict.items():
         ck = clean_name(k)
         if clean_p and (clean_p in ck or ck in clean_p):
@@ -144,29 +144,30 @@ def build_bill_data(paths, city):
 
     uncached = [b for b in bills if b["id"] not in bill_embeddings]
     if uncached:
-        import google.generativeai as genai
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
-        genai.configure(api_key=api_key)
-        
+        client = genai.Client(api_key=api_key)
         print(f"⚡ {city.upper()} 議案Embedding計算: 未計算 {len(uncached)} 件 / 全議案 {len(bills)} 件...")
         batch_size = 50
         for i in range(0, len(uncached), batch_size):
             batch = uncached[i : i + batch_size]
             try:
-                resp = genai.embed_content(model=EMBEDDING_MODEL, content=[b["text"] for b in batch])
-                embs = resp.get("embedding", [])
-                for b, emb in zip(batch, embs):
-                    bill_embeddings[b["id"]] = emb
+                res = client.models.embed_content(
+                    model=EMBEDDING_MODEL,
+                    contents=[b["text"] for b in batch]
+                )
+                for b, emb in zip(batch, res.embeddings):
+                    bill_embeddings[b["id"]] = emb.values
             except Exception as e:
                 print(f"⚠️ 議案Embeddingエラー (offset {i}): {e}")
+                break
 
         paths["bill_embeddings"].write_text(json.dumps(bill_embeddings, ensure_ascii=False), encoding="utf-8")
         print(f"✅ {city.upper()} 議案Embedding保存完了: {len(bill_embeddings)} 件")
 
     return bills, bill_embeddings
 
-
 def get_or_create_pledge_embeddings(councilor_list, emb_file):
+    import time
     cache = {}
     if emb_file.exists():
         try:
@@ -174,24 +175,17 @@ def get_or_create_pledge_embeddings(councilor_list, emb_file):
         except Exception:
             cache = {}
 
-    pending = []
-    for c in councilor_list:
-        spk = clean_name(c.get("speaker") or c.get("name") or "")
-        if not spk:
-            continue
-        for idx, p in enumerate(c.get("pledges", [])):
-            key_num = f"{spk}_{idx+1}"
-            key_p = f"{spk}_p_{idx+1}"
-            p_id = p.get("id")
-            key_id = f"{spk}_{p_id}" if p_id else None
+    has_old_keys = any("_" in k and k.split("_")[-1].isdigit() for k in cache.keys())
+    if has_old_keys:
+        print("🧹 古いインデックスベースのEmbeddingキャッシュを破棄し、テキスト完全一致キャッシュへ刷新します...")
+        cache = {}
 
-            # 未計算の場合のみキューへ追加（キー形式の差異を吸収）
-            if key_num not in cache:
-                text = f"{p.get('category', '')} {p.get('target_issue', '')} {p.get('headline', '')}".strip()
-                keys = [key_num, key_p]
-                if key_id:
-                    keys.append(key_id)
-                pending.append((keys, text))
+    pending = set()
+    for c in councilor_list:
+        for p in c.get("pledges", []):
+            text = f"{p.get('category', '')} {p.get('target_issue', '')} {p.get('headline', '')}".strip()
+            if text and text not in cache:
+                pending.add(text)
 
     if pending:
         api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
@@ -199,29 +193,58 @@ def get_or_create_pledge_embeddings(councilor_list, emb_file):
             print("⚠️ APIキーが見つからないため公約Embedding計算をスキップします。")
             return cache
 
-        import google.generativeai as genai
-        genai.configure(api_key=api_key)
+        client = genai.Client(api_key=api_key)
+        pending_list = sorted(list(pending))
+        print(f"⚡ 公約テキストEmbedding計算: 未計算 {len(pending_list)} 件 (既存取得済: {len(cache)} 件)...")
+        batch_size = 20
+        for i in range(0, len(pending_list), batch_size):
+            batch = pending_list[i : i + batch_size]
+            contents_payload = [types.Content(parts=[types.Part.from_text(text=t)]) for t in batch]
+            
+            success = False
+            for retry in range(1, 6):
+                try:
+                    res = client.models.embed_content(
+                        model=EMBEDDING_MODEL,
+                        contents=contents_payload
+                    )
+                    embs = res.embeddings or []
+                    if len(embs) == len(batch):
+                        for txt, emb in zip(batch, embs):
+                            cache[txt] = emb.values
+                    else:
+                        for single_txt in batch:
+                            s_res = client.models.embed_content(
+                                model=EMBEDDING_MODEL,
+                                contents=[types.Content(parts=[types.Part.from_text(text=single_txt)])]
+                            )
+                            cache[single_txt] = s_res.embeddings[0].values
+                            time.sleep(0.2)
+                    success = True
+                    break
+                except Exception as e:
+                    err_msg = str(e)
+                    if "429" in err_msg or "RESOURCE_EXHAUSTED" in err_msg:
+                        wait_sec = retry * 12
+                        print(f"⏳ レート制限(429)検出。{wait_sec}秒待機してリトライ ({retry}/5)...")
+                        time.sleep(wait_sec)
+                    else:
+                        print(f"⚠️ 公約Embeddingエラー (offset {i}): {e}")
+                        time.sleep(3)
+            
+            if success:
+                emb_file.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+                print(f"  ✓ 進捗: {len(cache)} 件キャッシュ完了")
+                time.sleep(1.0)
+            else:
+                print(f"❌ バッチ offset {i} の取得に失敗しました。")
+                break
 
-        print(f"⚡ 公約テキストEmbedding計算: 未計算 {len(pending)} 件...")
-        batch_size = 50
-        for i in range(0, len(pending), batch_size):
-            batch = pending[i : i + batch_size]
-            try:
-                resp = genai.embed_content(model=EMBEDDING_MODEL, content=[item[1] for item in batch])
-                embs = resp.get("embedding", [])
-                for (keys, _), emb in zip(batch, embs):
-                    for k in keys:
-                        cache[k] = emb
-            except Exception as e:
-                print(f"⚠️ 公約Embeddingエラー (offset {i}): {e}")
-
-        emb_file.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
         print(f"✅ 公約Embedding保存完了: {len(cache)} 件 -> {emb_file.name}")
 
     return cache
 
 def main():
-
     parser = argparse.ArgumentParser()
     parser.add_argument("--city", required=True)
     args = parser.parse_args()
@@ -280,21 +303,45 @@ def main():
         district = c.get("district", "")
         party = c.get("party") or c.get("partyGroup", "")
         bulletin_url = c.get("bulletin_url") or c.get("bulletin_pdf") or ""
+        # 公式選管原本URLの正規化（大阪・横浜のSOP準拠ルール）
+        if city == "yokohama":
+            bulletin_url = "https://www.city.yokohama.lg.jp/city-info/senkyo/data/kako_senkyokoho.files/r5shigikai.pdf"
+        elif city == "osaka":
+            osaka_district_map = {
+                "北区": "01", "都島区": "02", "福島区": "03", "此花区": "04", "中央区": "05",
+                "西区": "06", "港区": "07", "大正区": "08", "天王寺区": "09", "浪速区": "10",
+                "西淀川区": "11", "淀川区": "12", "東淀川区": "13", "東成区": "14", "生野区": "15",
+                "旭区": "16", "城東区": "17", "鶴見区": "18", "阿倍野区": "19", "住之江区": "20",
+                "住吉区": "21", "東住吉区": "22", "平野区": "23", "西成区": "24"
+            }
+            cand_dist = c.get("district", "")
+            for d_name, d_num in osaka_district_map.items():
+                if d_name in cand_dist:
+                    bulletin_url = f"https://www.city.osaka.lg.jp/contents/wdu240/shikai/kouhosha/{d_num}.pdf"
+                    break
+
         my_stmts = stmts_by_speaker.get(c_name, [])
 
         tracked_items = []
         for idx, p in enumerate(c.get("pledges", [])):
-            full_p_id = f"{c_name}_{idx+1}"
+            p_text = f"{p.get('category', '')} {p.get('target_issue', '')} {p.get('headline', '')}".strip()
+            p_vec = pledge_embeddings.get(p_text)
             
-            # 1. 質疑マッチング (sim >= 0.65)
+            # 1. 質疑マッチング (アンカー一致 + 類似度)
             candidates = []
-            if full_p_id in pledge_embeddings:
-                p_vec = pledge_embeddings[full_p_id]
+            if p_vec:
+                target_p_text = f"{p.get('target_issue', '')} {p.get('headline', '')}"
+                p_keywords = [w for w in re.findall(r"[\u4e00-\u9fa5\u30a1-\u30fc]{2,}", target_p_text) if w not in STOP_WORDS]
+                
                 for stmt in my_stmts:
                     sid = stmt.get("_computed_id")
                     if sid in stmt_embeddings:
                         sim = cosine_similarity(p_vec, stmt_embeddings[sid])
-                        if sim >= 0.65:
+                        s_text = (stmt.get("statement_summary") or stmt.get("summary") or stmt.get("statement_text", ""))
+                        has_anchor = any(kw in s_text for kw in p_keywords) if p_keywords else False
+
+                        # キーワード合致なら sim >= 0.62、超高類似度なら sim >= 0.73
+                        if (sim >= 0.62 and has_anchor) or sim >= 0.73:
                             candidates.append((sim, stmt))
                 candidates.sort(key=lambda x: (x[0], x[1].get("meeting_date", "")), reverse=True)
 
@@ -311,8 +358,7 @@ def main():
 
             # 2. 議案・採決マッチング (アンカーゲート + sim >= 0.65)
             council_vote = None
-            if full_p_id in pledge_embeddings and bill_embeddings:
-                p_vec = pledge_embeddings[full_p_id]
+            if p_vec and bill_embeddings:
                 target_p_text = f"{p.get('target_issue', '')} {p.get('headline', '')}"
                 p_keywords = [w for w in re.findall(r"[\u4e00-\u9fa5\u30a1-\u30fc]{2,}", target_p_text) if w not in STOP_WORDS]
 
@@ -328,8 +374,6 @@ def main():
 
                 has_anchor = any(kw in best_bill["text"] for kw in p_keywords) if best_bill else False
 
-                # 基準:
-                # sim >= 0.65 かつ主要名詞アンカー一致、または sim >= 0.74 超高精度
                 if best_bill and ((best_bill_sim >= 0.65 and has_anchor) or best_bill_sim >= 0.74):
                     vote_action, vote_type = resolve_vote(best_bill["votes"], party, raw_name)
                     if vote_action:

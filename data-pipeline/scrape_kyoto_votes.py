@@ -9,20 +9,24 @@ import requests
 
 BASE_URL = "https://www2.city.kyoto.lg.jp/shikai/honkaigi"
 
-VALID_COUNCILORS = [
-    "青野仁志", "赤阪仁", "天方ひろゆき", "井﨑敦子", "井崎敦子", "井上よしひろ", "宇佐美賢一",
-    "江村理紗", "えもとかよこ", "大津裕太", "おんづか功", "片桐直哉", "加藤あい",
-    "加藤昌洋", "神谷修平", "河合ようこ", "かわしま優子", "河村諒", "きくち一秀",
-    "北尾ゆか", "北川みき", "北山ただお", "久保田正紀", "くまざわ真昭", "くらた共子",
-    "こうち大輔", "小島信太郎", "さくらい泰広", "繁隆夫", "しまもと京司", "下村あきら",
-    "菅谷浩平", "田中明秀", "田中たかのり", "谷口みゆき", "玉本なるみ", "津田大三",
-    "寺田一博", "とがし豊", "富きくお", "中高しゅうじ", "中野洋一", "中村まり",
-    "西野さち子", "西村義直", "西山信昌", "橋村芳和", "土方莉紗", "兵藤しんいち",
-    "平井良人", "平田圭", "平山たかお", "平山よしかず", "増成竜治", "松田けい子",
-    "みちはた弘之", "椋田隆知", "森かれん", "森田守", "森田ゆみ子", "もりもと英靖",
-    "山田こうじ", "やまね智史", "山本恵一", "山本しゅうじ", "山本陽子", "湯浅光彦",
-    "吉田孝雄"
-]
+# --- 正本マスターから動的ロード (ハードコード完全排除) ---
+MASTER_JSON = os.path.join(os.path.dirname(os.path.abspath(__file__)), "master", "councilors_kyoto.json")
+def get_official_councilors():
+    if os.path.exists(MASTER_JSON):
+        with open(MASTER_JSON, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            names = set()
+            for c in data:
+                clean_n = re.sub(r"[\s\u3000]+", "", c.get("name", ""))
+                names.add(clean_n)
+                names.add(c.get("name", ""))
+                for al in c.get("aliases", []):
+                    names.add(re.sub(r"[\s\u3000]+", "", al))
+                    names.add(al)
+            return list(names)
+    return []
+
+VALID_COUNCILORS = get_official_councilors()
 
 def clean_str(text):
     if not text:

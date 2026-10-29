@@ -56,7 +56,7 @@ class CandidatePledgeExtraction(BaseModel):
     speaker: str = Field(description="候補者・議員名")
     district: str = Field(description="選挙区名")
     party: str = Field(description="所属党派・公認政党")
-    pledges: List[CouncilorPledgeItem] = Field(description="看板公約・重点政策リスト（1〜3件）")
+    pledges: List[CouncilorPledgeItem] = Field(description="看板公約・重点政策リスト（1〜すべて（件数制限なし））")
 
 class BulletinPledgesResult(BaseModel):
     candidates: List[CandidatePledgeExtraction] = Field(description="全候補者リスト")
@@ -106,7 +106,7 @@ def process_district_pdf(district_name: str, pdf_url: str, master_map: dict) -> 
 
     prompt = f"""あなたは地方選挙公報の政策監査を行う客観的なデータアナリストです。
 添付されたPDFは、横浜市議会議員一般選挙（{district_name}）の公式選挙公報原本です。
-紙面に掲載されている全候補者の情報を抽出し、各候補者が紙面で最も強調している「看板公約・重点政策（1〜3件）」を客観的・中立的に構造化してください。
+紙面に掲載されている全候補者の情報を抽出し、各候補者が紙面で最も強調している「看板公約・重点政策（1〜すべて（件数制限なし））」を客観的・中立的に構造化してください。
 
 【厳格な要件（SOP準拠・ハルシネーション絶対禁止）】
 1. 候補者名（speaker）は、紙面に大きく掲げられている氏名（通称表記含む）を正確に記録すること。

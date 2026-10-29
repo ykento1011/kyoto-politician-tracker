@@ -1,750 +1,1226 @@
-[
-  {
-    "speaker": "伊神邦彦",
-    "partyGroup": "自民",
+{
+  "山田昌弘": {
+    "name": "山田昌弘",
+    "party": "名古屋民主市会議員団",
     "district": "千種区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "やまだまさひろ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "神ひろし",
-    "partyGroup": "自民",
+  "やまだまさひろ": {
+    "name": "山田昌弘",
+    "party": "名古屋民主市会議員団",
     "district": "千種区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "やまだまさひろ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "上村みちよ",
-    "partyGroup": "自民",
+  "伊神邦彦": {
+    "name": "伊神邦彦",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "千種区",
+    "aliases": [
+      "いかみくにひこ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "いかみくにひこ": {
+    "name": "伊神邦彦",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "千種区",
+    "aliases": [
+      "いかみくにひこ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "神ひろし": {
+    "name": "神ひろし",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "千種区",
+    "aliases": [
+      "じんひろし"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "じんひろし": {
+    "name": "神ひろし",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "千種区",
+    "aliases": [
+      "じんひろし"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "北角嘉幸": {
+    "name": "北角嘉幸",
+    "party": "新生会",
+    "district": "千種区",
+    "aliases": [
+      "きたずみよしゆき"
+    ],
+    "partyGroup": "新生会"
+  },
+  "きたずみよしゆき": {
+    "name": "北角嘉幸",
+    "party": "新生会",
+    "district": "千種区",
+    "aliases": [
+      "きたずみよしゆき"
+    ],
+    "partyGroup": "新生会"
+  },
+  "田辺雄一": {
+    "name": "田辺雄一",
+    "party": "公明党名古屋市会議員団",
+    "district": "千種区",
+    "aliases": [
+      "たなべゆういち"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "たなべゆういち": {
+    "name": "田辺雄一",
+    "party": "公明党名古屋市会議員団",
+    "district": "千種区",
+    "aliases": [
+      "たなべゆういち"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "佐藤ゆうこ": {
+    "name": "佐藤ゆうこ",
+    "party": "減税日本ナゴヤ",
     "district": "東区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "さとうゆうこ"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
   },
-  {
-    "speaker": "渡辺やすのり",
-    "partyGroup": "自民",
+  "さとうゆうこ": {
+    "name": "佐藤ゆうこ",
+    "party": "減税日本ナゴヤ",
+    "district": "東区",
+    "aliases": [
+      "さとうゆうこ"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "上村みちよ": {
+    "name": "上村みちよ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "東区",
+    "aliases": [
+      "うえむらみちよ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "うえむらみちよ": {
+    "name": "上村みちよ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "東区",
+    "aliases": [
+      "うえむらみちよ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "くにまさ直記": {
+    "name": "くにまさ直記",
+    "party": "名古屋民主市会議員団",
+    "district": "東区",
+    "aliases": [
+      "くにまさなおき"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "くにまさなおき": {
+    "name": "くにまさ直記",
+    "party": "名古屋民主市会議員団",
+    "district": "東区",
+    "aliases": [
+      "くにまさなおき"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "渡辺やすのり": {
+    "name": "渡辺やすのり",
+    "party": "自由民主党名古屋市会議員団",
     "district": "北区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "わたなべやすのり"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
   },
-  {
-    "speaker": "浅野有",
-    "partyGroup": "自民",
+  "わたなべやすのり": {
+    "name": "渡辺やすのり",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "北区",
+    "aliases": [
+      "わたなべやすのり"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "田山宏之": {
+    "name": "田山宏之",
+    "party": "減税日本ナゴヤ",
+    "district": "北区",
+    "aliases": [
+      "たやまひろゆき"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "たやまひろゆき": {
+    "name": "田山宏之",
+    "party": "減税日本ナゴヤ",
+    "district": "北区",
+    "aliases": [
+      "たやまひろゆき"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "長谷川由美子": {
+    "name": "長谷川由美子",
+    "party": "公明党名古屋市会議員団",
+    "district": "北区",
+    "aliases": [
+      "はせがわゆみこ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "はせがわゆみこ": {
+    "name": "長谷川由美子",
+    "party": "公明党名古屋市会議員団",
+    "district": "北区",
+    "aliases": [
+      "はせがわゆみこ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "服部将也": {
+    "name": "服部将也",
+    "party": "名古屋民主市会議員団",
+    "district": "北区",
+    "aliases": [
+      "はっとりまさや"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "はっとりまさや": {
+    "name": "服部将也",
+    "party": "名古屋民主市会議員団",
+    "district": "北区",
+    "aliases": [
+      "はっとりまさや"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "岡田ゆき子": {
+    "name": "岡田ゆき子",
+    "party": "日本共産党名古屋市会議員団",
+    "district": "北区",
+    "aliases": [
+      "おかだゆきこ"
+    ],
+    "partyGroup": "日本共産党名古屋市会議員団"
+  },
+  "おかだゆきこ": {
+    "name": "岡田ゆき子",
+    "party": "日本共産党名古屋市会議員団",
+    "district": "北区",
+    "aliases": [
+      "おかだゆきこ"
+    ],
+    "partyGroup": "日本共産党名古屋市会議員団"
+  },
+  "浅野有": {
+    "name": "浅野有",
+    "party": "自由民主党名古屋市会議員団",
     "district": "西区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "あさのたもつ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
   },
-  {
-    "speaker": "村瀬きよみ",
-    "partyGroup": "自民",
+  "あさのたもつ": {
+    "name": "浅野有",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "西区",
+    "aliases": [
+      "あさのたもつ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "大田とみひこ": {
+    "name": "大田とみひこ",
+    "party": "減税日本ナゴヤ",
+    "district": "西区",
+    "aliases": [
+      "おおたとみひこ"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "おおたとみひこ": {
+    "name": "大田とみひこ",
+    "party": "減税日本ナゴヤ",
+    "district": "西区",
+    "aliases": [
+      "おおたとみひこ"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "うえぞの晋介": {
+    "name": "うえぞの晋介",
+    "party": "名古屋民主市会議員団",
+    "district": "西区",
+    "aliases": [
+      "うえぞのしんすけ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "うえぞのしんすけ": {
+    "name": "うえぞの晋介",
+    "party": "名古屋民主市会議員団",
+    "district": "西区",
+    "aliases": [
+      "うえぞのしんすけ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "さわだ晃一": {
+    "name": "さわだ晃一",
+    "party": "公明党名古屋市会議員団",
+    "district": "西区",
+    "aliases": [
+      "さわだこういち"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "さわだこういち": {
+    "name": "さわだ晃一",
+    "party": "公明党名古屋市会議員団",
+    "district": "西区",
+    "aliases": [
+      "さわだこういち"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "うかい春美": {
+    "name": "うかい春美",
+    "party": "名古屋民主市会議員団",
     "district": "中村区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "うかいはるみ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "小出昭司",
-    "partyGroup": "自民",
+  "うかいはるみ": {
+    "name": "うかい春美",
+    "party": "名古屋民主市会議員団",
     "district": "中村区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "うかいはるみ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "中田ちづこ",
-    "partyGroup": "自民",
+  "村瀬きよみ": {
+    "name": "村瀬きよみ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "中村区",
+    "aliases": [
+      "むらせきよみ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "むらせきよみ": {
+    "name": "村瀬きよみ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "中村区",
+    "aliases": [
+      "むらせきよみ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "小出昭司": {
+    "name": "小出昭司",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "中村区",
+    "aliases": [
+      "こいでしょうじ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "こいでしょうじ": {
+    "name": "小出昭司",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "中村区",
+    "aliases": [
+      "こいでしょうじ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "おか千恵": {
+    "name": "おか千恵",
+    "party": "公明党名古屋市会議員団",
+    "district": "中村区",
+    "aliases": [
+      "おかちえ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "おかちえ": {
+    "name": "おか千恵",
+    "party": "公明党名古屋市会議員団",
+    "district": "中村区",
+    "aliases": [
+      "おかちえ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "中田ちづこ": {
+    "name": "中田ちづこ",
+    "party": "自由民主党名古屋市会議員団",
     "district": "中区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "なかたちづこ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
   },
-  {
-    "speaker": "西川学",
-    "partyGroup": "自民",
+  "なかたちづこ": {
+    "name": "中田ちづこ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "中区",
+    "aliases": [
+      "なかたちづこ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "豊田かおる": {
+    "name": "豊田かおる",
+    "party": "減税日本ナゴヤ",
+    "district": "中区",
+    "aliases": [
+      "とよだかおる"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "とよだかおる": {
+    "name": "豊田かおる",
+    "party": "減税日本ナゴヤ",
+    "district": "中区",
+    "aliases": [
+      "とよだかおる"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "塚本つよし": {
+    "name": "塚本つよし",
+    "party": "名古屋民主市会議員団",
+    "district": "中区",
+    "aliases": [
+      "つかもとつよし"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "つかもとつよし": {
+    "name": "塚本つよし",
+    "party": "名古屋民主市会議員団",
+    "district": "中区",
+    "aliases": [
+      "つかもとつよし"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "おくむら文悟": {
+    "name": "おくむら文悟",
+    "party": "名古屋民主市会議員団",
     "district": "昭和区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "おくむらぶんご"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "ふじた和秀",
-    "partyGroup": "自民",
+  "おくむらぶんご": {
+    "name": "おくむら文悟",
+    "party": "名古屋民主市会議員団",
+    "district": "昭和区",
+    "aliases": [
+      "おくむらぶんご"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "西川学": {
+    "name": "西川学",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "昭和区",
+    "aliases": [
+      "にしかわひさし"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "にしかわひさし": {
+    "name": "西川学",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "昭和区",
+    "aliases": [
+      "にしかわひさし"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "大村光子": {
+    "name": "大村光子",
+    "party": "減税日本ナゴヤ",
+    "district": "昭和区",
+    "aliases": [
+      "おおむらみつこ"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "おおむらみつこ": {
+    "name": "大村光子",
+    "party": "減税日本ナゴヤ",
+    "district": "昭和区",
+    "aliases": [
+      "おおむらみつこ"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "久田邦博": {
+    "name": "久田邦博",
+    "party": "名古屋民主市会議員団",
     "district": "瑞穂区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "ひさだくにひろ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "服部しんのすけ",
-    "partyGroup": "自民",
+  "ひさだくにひろ": {
+    "name": "久田邦博",
+    "party": "名古屋民主市会議員団",
+    "district": "瑞穂区",
+    "aliases": [
+      "ひさだくにひろ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "ふじた和秀": {
+    "name": "ふじた和秀",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "瑞穂区",
+    "aliases": [
+      "ふじたかずひで"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "ふじたかずひで": {
+    "name": "ふじた和秀",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "瑞穂区",
+    "aliases": [
+      "ふじたかずひで"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "金城ゆたか": {
+    "name": "金城ゆたか",
+    "party": "なごや陽向の会",
+    "district": "瑞穂区",
+    "aliases": [
+      "きんじょうゆたか"
+    ],
+    "partyGroup": "なごや陽向の会"
+  },
+  "きんじょうゆたか": {
+    "name": "金城ゆたか",
+    "party": "なごや陽向の会",
+    "district": "瑞穂区",
+    "aliases": [
+      "きんじょうゆたか"
+    ],
+    "partyGroup": "なごや陽向の会"
+  },
+  "森ともお": {
+    "name": "森ともお",
+    "party": "名古屋民主市会議員団",
     "district": "熱田区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "もりともお"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "浅井正仁",
-    "partyGroup": "自民",
-    "district": "中川区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "吉田茂",
-    "partyGroup": "自民",
-    "district": "港区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "沢田ひとみ",
-    "partyGroup": "自民",
-    "district": "港区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "横井利明",
-    "partyGroup": "自民",
-    "district": "南区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "藤沢ちあき",
-    "partyGroup": "自民",
-    "district": "南区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "松井よしのり",
-    "partyGroup": "自民",
-    "district": "守山区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "北野よしはる",
-    "partyGroup": "自民",
-    "district": "守山区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "中里高之",
-    "partyGroup": "自民",
-    "district": "緑区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "岩本たかひろ",
-    "partyGroup": "自民",
-    "district": "緑区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "くずや利枝",
-    "partyGroup": "自民",
-    "district": "名東区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "丹羽ひろし",
-    "partyGroup": "自民",
-    "district": "名東区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "成田たかゆき",
-    "partyGroup": "自民",
-    "district": "天白区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "山田昌弘",
-    "partyGroup": "民主",
-    "district": "千種区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "くにまさ直記",
-    "partyGroup": "民主",
-    "district": "東区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "服部将也",
-    "partyGroup": "民主",
-    "district": "北区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "うえぞの晋介",
-    "partyGroup": "民主",
-    "district": "西区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "うかい春美",
-    "partyGroup": "民主",
-    "district": "中村区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "塚本つよし",
-    "partyGroup": "民主",
-    "district": "中区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "おくむら文悟",
-    "partyGroup": "民主",
-    "district": "昭和区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "久田邦博",
-    "partyGroup": "民主",
-    "district": "瑞穂区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "森ともお",
-    "partyGroup": "民主",
+  "もりともお": {
+    "name": "森ともお",
+    "party": "名古屋民主市会議員団",
     "district": "熱田区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "もりともお"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "久野美穂",
-    "partyGroup": "民主",
+  "服部しんのすけ": {
+    "name": "服部しんのすけ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "熱田区",
+    "aliases": [
+      "はっとりしんのすけ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "はっとりしんのすけ": {
+    "name": "服部しんのすけ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "熱田区",
+    "aliases": [
+      "はっとりしんのすけ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "久野美穂": {
+    "name": "久野美穂",
+    "party": "名古屋民主市会議員団",
     "district": "中川区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "くのみほ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "赤松哲次",
-    "partyGroup": "民主",
+  "くのみほ": {
+    "name": "久野美穂",
+    "party": "名古屋民主市会議員団",
     "district": "中川区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "くのみほ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "加藤一登",
-    "partyGroup": "民主",
+  "中川あつし": {
+    "name": "中川あつし",
+    "party": "なごや創政会",
+    "district": "中川区",
+    "aliases": [
+      "なかがわあつし"
+    ],
+    "partyGroup": "なごや創政会"
+  },
+  "なかがわあつし": {
+    "name": "中川あつし",
+    "party": "なごや創政会",
+    "district": "中川区",
+    "aliases": [
+      "なかがわあつし"
+    ],
+    "partyGroup": "なごや創政会"
+  },
+  "赤松哲次": {
+    "name": "赤松哲次",
+    "party": "名古屋民主市会議員団",
+    "district": "中川区",
+    "aliases": [
+      "あかまつてつじ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "あかまつてつじ": {
+    "name": "赤松哲次",
+    "party": "名古屋民主市会議員団",
+    "district": "中川区",
+    "aliases": [
+      "あかまつてつじ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "木下優": {
+    "name": "木下優",
+    "party": "公明党名古屋市会議員団",
+    "district": "中川区",
+    "aliases": [
+      "きのしたまさる"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "きのしたまさる": {
+    "name": "木下優",
+    "party": "公明党名古屋市会議員団",
+    "district": "中川区",
+    "aliases": [
+      "きのしたまさる"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "浅井正仁": {
+    "name": "浅井正仁",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "中川区",
+    "aliases": [
+      "あさいまさひと"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "あさいまさひと": {
+    "name": "浅井正仁",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "中川区",
+    "aliases": [
+      "あさいまさひと"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "月森たくや": {
+    "name": "月森たくや",
+    "party": "公明党名古屋市会議員団",
+    "district": "中川区",
+    "aliases": [
+      "つきもりたくや"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "つきもりたくや": {
+    "name": "月森たくや",
+    "party": "公明党名古屋市会議員団",
+    "district": "中川区",
+    "aliases": [
+      "つきもりたくや"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "加藤一登": {
+    "name": "加藤一登",
+    "party": "名古屋民主市会議員団",
     "district": "港区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "かとうかずと"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "橋本ひろき",
-    "partyGroup": "民主",
-    "district": "南区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "小川としゆき",
-    "partyGroup": "民主",
-    "district": "守山区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "岡本やすひろ",
-    "partyGroup": "民主",
-    "district": "緑区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "日比美咲",
-    "partyGroup": "民主",
-    "district": "名東区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "田中里佳",
-    "partyGroup": "民主",
-    "district": "天白区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "田辺雄一",
-    "partyGroup": "公明",
-    "district": "千種区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "長谷川由美子",
-    "partyGroup": "公明",
-    "district": "北区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "さわだ晃一",
-    "partyGroup": "公明",
-    "district": "西区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "おか千恵",
-    "partyGroup": "公明",
-    "district": "中村区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "木下優",
-    "partyGroup": "公明",
-    "district": "中川区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "月森たくや",
-    "partyGroup": "公明",
-    "district": "中川区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "吉岡正修",
-    "partyGroup": "公明",
+  "かとうかずと": {
+    "name": "加藤一登",
+    "party": "名古屋民主市会議員団",
     "district": "港区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "かとうかずと"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "さかい大輔",
-    "partyGroup": "公明",
+  "吉岡正修": {
+    "name": "吉岡正修",
+    "party": "公明党名古屋市会議員団",
+    "district": "港区",
+    "aliases": [
+      "よしおかまさのぶ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "よしおかまさのぶ": {
+    "name": "吉岡正修",
+    "party": "公明党名古屋市会議員団",
+    "district": "港区",
+    "aliases": [
+      "よしおかまさのぶ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "吉田茂": {
+    "name": "吉田茂",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "港区",
+    "aliases": [
+      "よしだしげる"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "よしだしげる": {
+    "name": "吉田茂",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "港区",
+    "aliases": [
+      "よしだしげる"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "沢田ひとみ": {
+    "name": "沢田ひとみ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "港区",
+    "aliases": [
+      "さわだひとみ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "さわだひとみ": {
+    "name": "沢田ひとみ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "港区",
+    "aliases": [
+      "さわだひとみ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "横井利明": {
+    "name": "横井利明",
+    "party": "自由民主党名古屋市会議員団",
     "district": "南区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "よこいとしあき"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
   },
-  {
-    "speaker": "金庭宜雄",
-    "partyGroup": "公明",
+  "よこいとしあき": {
+    "name": "横井利明",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "南区",
+    "aliases": [
+      "よこいとしあき"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "さかい大輔": {
+    "name": "さかい大輔",
+    "party": "公明党名古屋市会議員団",
+    "district": "南区",
+    "aliases": [
+      "さかいだいすけ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "さかいだいすけ": {
+    "name": "さかい大輔",
+    "party": "公明党名古屋市会議員団",
+    "district": "南区",
+    "aliases": [
+      "さかいだいすけ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "藤沢ちあき": {
+    "name": "藤沢ちあき",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "南区",
+    "aliases": [
+      "ふじさわちあき"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "ふじさわちあき": {
+    "name": "藤沢ちあき",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "南区",
+    "aliases": [
+      "ふじさわちあき"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "橋本ひろき": {
+    "name": "橋本ひろき",
+    "party": "名古屋民主市会議員団",
+    "district": "南区",
+    "aliases": [
+      "はしもとひろき"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "はしもとひろき": {
+    "name": "橋本ひろき",
+    "party": "名古屋民主市会議員団",
+    "district": "南区",
+    "aliases": [
+      "はしもとひろき"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "小川としゆき": {
+    "name": "小川としゆき",
+    "party": "名古屋民主市会議員団",
     "district": "守山区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "おがわとしゆき"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "近藤和博",
-    "partyGroup": "公明",
-    "district": "緑区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "中村しゅうへい",
-    "partyGroup": "公明",
-    "district": "名東区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "辻󠄀まさお",
-    "partyGroup": "公明",
-    "district": "天白区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "佐藤ゆうこ",
-    "partyGroup": "減税",
-    "district": "東区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "田山宏之",
-    "partyGroup": "減税",
-    "district": "北区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "大田とみひこ",
-    "partyGroup": "減税",
-    "district": "西区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "豊田かおる",
-    "partyGroup": "減税",
-    "district": "中区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "大村光子",
-    "partyGroup": "減税",
-    "district": "昭和区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "大谷ともひろ",
-    "partyGroup": "減税",
-    "district": "緑区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "永井ゆり",
-    "partyGroup": "減税",
-    "district": "緑区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "鈴木孝之",
-    "partyGroup": "減税",
-    "district": "天白区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "岡田ゆき子",
-    "partyGroup": "共産",
-    "district": "北区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "みつなか美由紀",
-    "partyGroup": "共産",
-    "district": "緑区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "田口一登",
-    "partyGroup": "共産",
-    "district": "天白区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "金城ゆたか",
-    "partyGroup": "陽向",
-    "district": "瑞穂区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
-  },
-  {
-    "speaker": "野田留美",
-    "partyGroup": "陽向",
+  "おがわとしゆき": {
+    "name": "小川としゆき",
+    "party": "名古屋民主市会議員団",
     "district": "守山区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "おがわとしゆき"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
   },
-  {
-    "speaker": "中川あつし",
-    "partyGroup": "創政",
-    "district": "中川区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+  "松井よしのり": {
+    "name": "松井よしのり",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "守山区",
+    "aliases": [
+      "まついよしのり"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
   },
-  {
-    "speaker": "北角嘉幸",
-    "partyGroup": "新生",
-    "district": "千種区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+  "まついよしのり": {
+    "name": "松井よしのり",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "守山区",
+    "aliases": [
+      "まついよしのり"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
   },
-  {
-    "speaker": "大島英勲",
-    "partyGroup": "維新",
+  "金庭宜雄": {
+    "name": "金庭宜雄",
+    "party": "公明党名古屋市会議員団",
+    "district": "守山区",
+    "aliases": [
+      "こんばのぶお"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "こんばのぶお": {
+    "name": "金庭宜雄",
+    "party": "公明党名古屋市会議員団",
+    "district": "守山区",
+    "aliases": [
+      "こんばのぶお"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "野田留美": {
+    "name": "野田留美",
+    "party": "なごや陽向の会",
+    "district": "守山区",
+    "aliases": [
+      "のだるみ"
+    ],
+    "partyGroup": "なごや陽向の会"
+  },
+  "のだるみ": {
+    "name": "野田留美",
+    "party": "なごや陽向の会",
+    "district": "守山区",
+    "aliases": [
+      "のだるみ"
+    ],
+    "partyGroup": "なごや陽向の会"
+  },
+  "北野よしはる": {
+    "name": "北野よしはる",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "守山区",
+    "aliases": [
+      "きたのよしはる"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "きたのよしはる": {
+    "name": "北野よしはる",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "守山区",
+    "aliases": [
+      "きたのよしはる"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "中里高之": {
+    "name": "中里高之",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "なかざとたかゆき"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "なかざとたかゆき": {
+    "name": "中里高之",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "なかざとたかゆき"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "近藤和博": {
+    "name": "近藤和博",
+    "party": "公明党名古屋市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "こんどうかずひろ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "こんどうかずひろ": {
+    "name": "近藤和博",
+    "party": "公明党名古屋市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "こんどうかずひろ"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "岡本やすひろ": {
+    "name": "岡本やすひろ",
+    "party": "名古屋民主市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "おかもとやすひろ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "おかもとやすひろ": {
+    "name": "岡本やすひろ",
+    "party": "名古屋民主市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "おかもとやすひろ"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "岩本たかひろ": {
+    "name": "岩本たかひろ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "いわもとたかひろ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "いわもとたかひろ": {
+    "name": "岩本たかひろ",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "いわもとたかひろ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "大谷ともひろ": {
+    "name": "大谷ともひろ",
+    "party": "減税日本ナゴヤ",
+    "district": "緑区",
+    "aliases": [
+      "おおたにともひろ"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "おおたにともひろ": {
+    "name": "大谷ともひろ",
+    "party": "減税日本ナゴヤ",
+    "district": "緑区",
+    "aliases": [
+      "おおたにともひろ"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "永井ゆり": {
+    "name": "永井ゆり",
+    "party": "減税日本ナゴヤ",
+    "district": "緑区",
+    "aliases": [
+      "ながいゆり"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "ながいゆり": {
+    "name": "永井ゆり",
+    "party": "減税日本ナゴヤ",
+    "district": "緑区",
+    "aliases": [
+      "ながいゆり"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "みつなか美由紀": {
+    "name": "みつなか美由紀",
+    "party": "日本共産党名古屋市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "みつなかみゆき"
+    ],
+    "partyGroup": "日本共産党名古屋市会議員団"
+  },
+  "みつなかみゆき": {
+    "name": "みつなか美由紀",
+    "party": "日本共産党名古屋市会議員団",
+    "district": "緑区",
+    "aliases": [
+      "みつなかみゆき"
+    ],
+    "partyGroup": "日本共産党名古屋市会議員団"
+  },
+  "日比美咲": {
+    "name": "日比美咲",
+    "party": "名古屋民主市会議員団",
     "district": "名東区",
-    "count": 0,
-    "statements": [],
-    "avg_solution": 0,
-    "avg_local_focus": 0,
-    "avg_evidence": 0,
-    "avg_constructive": 0
+    "aliases": [
+      "ひびみさき"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "ひびみさき": {
+    "name": "日比美咲",
+    "party": "名古屋民主市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "ひびみさき"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "中村しゅうへい": {
+    "name": "中村しゅうへい",
+    "party": "公明党名古屋市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "なかむらしゅうへい"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "なかむらしゅうへい": {
+    "name": "中村しゅうへい",
+    "party": "公明党名古屋市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "なかむらしゅうへい"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "くずや利枝": {
+    "name": "くずや利枝",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "くずやとしえ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "くずやとしえ": {
+    "name": "くずや利枝",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "くずやとしえ"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "丹羽ひろし": {
+    "name": "丹羽ひろし",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "にわひろし"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "にわひろし": {
+    "name": "丹羽ひろし",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "にわひろし"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "大島英勲": {
+    "name": "大島英勲",
+    "party": "日本維新の会名古屋市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "おおしまひでひろ"
+    ],
+    "partyGroup": "日本維新の会名古屋市会議員団"
+  },
+  "おおしまひでひろ": {
+    "name": "大島英勲",
+    "party": "日本維新の会名古屋市会議員団",
+    "district": "名東区",
+    "aliases": [
+      "おおしまひでひろ"
+    ],
+    "partyGroup": "日本維新の会名古屋市会議員団"
+  },
+  "成田たかゆき": {
+    "name": "成田たかゆき",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "天白区",
+    "aliases": [
+      "なりたたかゆき"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "なりたたかゆき": {
+    "name": "成田たかゆき",
+    "party": "自由民主党名古屋市会議員団",
+    "district": "天白区",
+    "aliases": [
+      "なりたたかゆき"
+    ],
+    "partyGroup": "自由民主党名古屋市会議員団"
+  },
+  "田中里佳": {
+    "name": "田中里佳",
+    "party": "名古屋民主市会議員団",
+    "district": "天白区",
+    "aliases": [
+      "たなかりか"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "たなかりか": {
+    "name": "田中里佳",
+    "party": "名古屋民主市会議員団",
+    "district": "天白区",
+    "aliases": [
+      "たなかりか"
+    ],
+    "partyGroup": "名古屋民主市会議員団"
+  },
+  "鈴木孝之": {
+    "name": "鈴木孝之",
+    "party": "減税日本ナゴヤ",
+    "district": "天白区",
+    "aliases": [
+      "すずきたかゆき"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "すずきたかゆき": {
+    "name": "鈴木孝之",
+    "party": "減税日本ナゴヤ",
+    "district": "天白区",
+    "aliases": [
+      "すずきたかゆき"
+    ],
+    "partyGroup": "減税日本ナゴヤ"
+  },
+  "辻󠄀まさお": {
+    "name": "辻󠄀まさお",
+    "party": "公明党名古屋市会議員団",
+    "district": "天白区",
+    "aliases": [
+      "つじまさお"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "つじまさお": {
+    "name": "辻󠄀まさお",
+    "party": "公明党名古屋市会議員団",
+    "district": "天白区",
+    "aliases": [
+      "つじまさお"
+    ],
+    "partyGroup": "公明党名古屋市会議員団"
+  },
+  "田口一登": {
+    "name": "田口一登",
+    "party": "日本共産党名古屋市会議員団",
+    "district": "天白区",
+    "aliases": [
+      "たぐちかずと"
+    ],
+    "partyGroup": "日本共産党名古屋市会議員団"
+  },
+  "たぐちかずと": {
+    "name": "田口一登",
+    "party": "日本共産党名古屋市会議員団",
+    "district": "天白区",
+    "aliases": [
+      "たぐちかずと"
+    ],
+    "partyGroup": "日本共産党名古屋市会議員団"
   }
-]
+}

@@ -28,8 +28,11 @@
             "sequence_number": 53,
             "meeting_date": "2023-09-25",
             "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（財政総務）  09月25日－01号",
-            "speaker": "福田武洋",
+            "speaker": "福田　武洋",
+            "statement_text": "情報公開請求における文書不存在回答事案について",
+            "speech_text": "情報公開請求における文書不存在回答事案について",
             "statement_summary": "情報公開請求における文書不存在回答事案について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3528&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3528&schedule_id=2"
           },
           {
@@ -38,8 +41,11 @@
             "sequence_number": 1,
             "meeting_date": "2023-10-16",
             "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（大都市・税財政制度特別委員会）  10月16日－01号",
-            "speaker": "上田智隆",
+            "speaker": "上田　智隆",
+            "statement_text": "大都市・税財政制度特別委員会における報告事項の聴取",
+            "speech_text": "大都市・税財政制度特別委員会における報告事項の聴取",
             "statement_summary": "大都市・税財政制度特別委員会における報告事項の聴取",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3535&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3535&schedule_id=2"
           },
           {
@@ -48,8 +54,11 @@
             "sequence_number": 60,
             "meeting_date": "2023-10-16",
             "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（大都市・税財政制度特別委員会）  10月16日－01号",
-            "speaker": "山中智子",
+            "speaker": "山中　智子",
+            "statement_text": "大阪府市の一体的行政運営と副首都推進本部の在り方",
+            "speech_text": "大阪府市の一体的行政運営と副首都推進本部の在り方",
             "statement_summary": "大阪府市の一体的行政運営と副首都推進本部の在り方",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3535&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3535&schedule_id=2"
           }
         ]
@@ -69,19 +78,12 @@
             "sequence_number": 1,
             "meeting_date": "2024-02-21",
             "meeting_title": "大阪市  令和６年１月、２月特別委員会（大都市・税財政制度特別委員会）  02月21日－01号",
-            "speaker": "上田智隆",
+            "speaker": "上田　智隆",
+            "statement_text": "大都市・税財政制度特別委員会の活動経過及び関連する国等の動向について",
+            "speech_text": "大都市・税財政制度特別委員会の活動経過及び関連する国等の動向について",
             "statement_summary": "大都市・税財政制度特別委員会の活動経過及び関連する国等の動向について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3555&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3555&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301059_2",
-            "meeting_id": "5301059",
-            "sequence_number": 2,
-            "meeting_date": "2024-03-12",
-            "meeting_title": "大阪市  令和６年３月定例会常任委員会（財政総務・通常予算）  03月12日－05号",
-            "speaker": "馬場のりゆき",
-            "statement_summary": "外国人情報発信やフルコスト意識定着等の施策について",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6"
           },
           {
             "statement_id": "th_5301318_1",
@@ -89,9 +91,25 @@
             "sequence_number": 1,
             "meeting_date": "2024-11-08",
             "meeting_title": "大阪市  令和６年10月、11月、12月特別委員会（大都市・税財政制度特別委員会）  11月08日－01号",
-            "speaker": "金子恵美",
+            "speaker": "金子　恵美",
+            "statement_text": "大都市・税財政制度特別委員会の活動経過及び関連資料についての報告",
+            "speech_text": "大都市・税財政制度特別委員会の活動経過及び関連資料についての報告",
             "statement_summary": "大都市・税財政制度特別委員会の活動経過及び関連資料についての報告",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3610&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3610&schedule_id=2"
+          },
+          {
+            "statement_id": "th_5301059_2",
+            "meeting_id": "5301059",
+            "sequence_number": 2,
+            "meeting_date": "2024-03-12",
+            "meeting_title": "大阪市  令和６年３月定例会常任委員会（財政総務・通常予算）  03月12日－05号",
+            "speaker": "馬場　のりゆき",
+            "statement_text": "外国人情報発信やフルコスト意識定着等の施策について",
+            "speech_text": "外国人情報発信やフルコスト意識定着等の施策について",
+            "statement_summary": "外国人情報発信やフルコスト意識定着等の施策について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6"
           }
         ]
       },
@@ -105,34 +123,43 @@
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301798_34",
-            "meeting_id": "5301798",
-            "sequence_number": 34,
-            "meeting_date": "2025-03-25",
-            "meeting_title": "大阪市  令和７年12月、令和８年３月特別委員会（大都市・税財政制度特別委員会）  03月25日－01号",
-            "speaker": "永井広幸",
-            "statement_summary": "大阪の副首都構想と特別区設置の在り方に関する質疑",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3705&schedule_id=2"
+            "statement_id": "th_5301707_126",
+            "meeting_id": "5301707",
+            "sequence_number": 126,
+            "meeting_date": "2025-11-07",
+            "meeting_title": "大阪市  令和７年10月～11月決算特別委員会（令和６年度決算）  11月07日－08号",
+            "speaker": "藤田　あきら",
+            "statement_text": "指定管理者制度や外郭団体経営、公教育の多様化、副首都の取組等に関する質疑",
+            "speech_text": "指定管理者制度や外郭団体経営、公教育の多様化、副首都の取組等に関する質疑",
+            "statement_summary": "指定管理者制度や外郭団体経営、公教育の多様化、副首都の取組等に関する質疑",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=9",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=9"
           },
           {
-            "statement_id": "th_5301798_48",
-            "meeting_id": "5301798",
-            "sequence_number": 48,
-            "meeting_date": "2025-03-25",
-            "meeting_title": "大阪市  令和７年12月、令和８年３月特別委員会（大都市・税財政制度特別委員会）  03月25日－01号",
-            "speaker": "前田和彦",
-            "statement_summary": "副首都法案と特別市制度を含む大都市制度に関する質疑",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3705&schedule_id=2"
+            "statement_id": "th_5301826_60",
+            "meeting_id": "5301826",
+            "sequence_number": 60,
+            "meeting_date": "2026-03-12",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（財政総務・通常予算）  03月12日－04号",
+            "speaker": "松田　まさとし",
+            "statement_text": "大阪公立大学の管理、地域連携、未利用地活用及び副首都の要件とバックアップ機能の推進について",
+            "speech_text": "大阪公立大学の管理、地域連携、未利用地活用及び副首都の要件とバックアップ機能の推進について",
+            "statement_summary": "大阪公立大学の管理、地域連携、未利用地活用及び副首都の要件とバックアップ機能の推進について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=5",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=5"
           },
           {
-            "statement_id": "th_5301798_81",
-            "meeting_id": "5301798",
-            "sequence_number": 81,
-            "meeting_date": "2025-03-25",
-            "meeting_title": "大阪市  令和７年12月、令和８年３月特別委員会（大都市・税財政制度特別委員会）  03月25日－01号",
-            "speaker": "田辺信広",
-            "statement_summary": "府市の二重投資と一体的取組の事業・財源について",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3705&schedule_id=2"
+            "statement_id": "th_5301827_21",
+            "meeting_id": "5301827",
+            "sequence_number": 21,
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（財政総務・通常予算）  03月13日－05号",
+            "speaker": "高山　美佳",
+            "statement_text": "大阪の副首都構想と副首都ビジョンの位置づけ及び副首都実現に向けた行政体制について",
+            "speech_text": "大阪の副首都構想と副首都ビジョンの位置づけ及び副首都実現に向けた行政体制について",
+            "statement_summary": "大阪の副首都構想と副首都ビジョンの位置づけ及び副首都実現に向けた行政体制について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=6",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=6"
           }
         ]
       }
@@ -149,7 +176,7 @@
       "万博レガシーの継承とIR・MICE拠点開発のバランス",
       "軟弱地盤・防災インフラの安全性確保と民間投資の誘致"
     ],
-    "thread_count": 60,
+    "thread_count": 59,
     "last_updated": "2026-05-20",
     "timeline_phases": [
       {
@@ -167,29 +194,38 @@
             "sequence_number": 15,
             "meeting_date": "2023-05-31",
             "meeting_title": "大阪市  令和５年５・６月定例会常任委員会（市政改革）  05月31日－01号",
-            "speaker": "永井広幸",
+            "speaker": "永井　広幸",
+            "statement_text": "平野区における市営住宅跡地等の未利用地を活用したまちづくりの推進",
+            "speech_text": "平野区における市営住宅跡地等の未利用地を活用したまちづくりの推進",
             "statement_summary": "平野区における市営住宅跡地等の未利用地を活用したまちづくりの推進",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3507&schedule_id=3",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3507&schedule_id=3"
           },
           {
-            "statement_id": "th_5300903_12",
+            "statement_id": "th_5300903_123",
             "meeting_id": "5300903",
-            "sequence_number": 12,
+            "sequence_number": 123,
             "meeting_date": "2023-09-12",
             "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（2025大阪・関西万博推進特別委員会）  09月12日－01号",
-            "speaker": "たけち博幸",
-            "statement_summary": "海外パビリオン建設と夢洲周辺の交通対策について",
+            "speaker": "渕上　浩美",
+            "statement_text": "大阪・関西万博における工事車両の渋滞対策と物流交通対策について",
+            "speech_text": "大阪・関西万博における工事車両の渋滞対策と物流交通対策について",
+            "statement_summary": "大阪・関西万博における工事車両の渋滞対策と物流交通対策について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3534&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3534&schedule_id=2"
           },
           {
-            "statement_id": "th_5300903_97",
-            "meeting_id": "5300903",
-            "sequence_number": 97,
-            "meeting_date": "2023-09-12",
-            "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（2025大阪・関西万博推進特別委員会）  09月12日－01号",
-            "speaker": "西徳人",
-            "statement_summary": "万博開催に向けた来場者輸送体制と交通アクセスの整備方針",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3534&schedule_id=2"
+            "statement_id": "th_5300891_128",
+            "meeting_id": "5300891",
+            "sequence_number": 128,
+            "meeting_date": "2023-09-21",
+            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（都市経済）  09月21日－01号",
+            "speaker": "前田　和彦",
+            "statement_text": "大阪・関西万博における空飛ぶクルマの安全性確保と物流・工事車両の円滑な交通対策について",
+            "speech_text": "大阪・関西万博における空飛ぶクルマの安全性確保と物流・工事車両の円滑な交通対策について",
+            "statement_summary": "大阪・関西万博における空飛ぶクルマの安全性確保と物流・工事車両の円滑な交通対策について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3529&schedule_id=2",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3529&schedule_id=2"
           }
         ]
       },
@@ -203,34 +239,43 @@
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301012_27",
-            "meeting_id": "5301012",
-            "sequence_number": 27,
-            "meeting_date": "2024-01-31",
-            "meeting_title": "大阪市  令和６年１月、２月特別委員会（2025大阪・関西万博推進特別委員会）  01月31日－01号",
-            "speaker": "藤田あきら",
-            "statement_summary": "大阪・関西万博跡地のまちづくりと利活用に関する質問",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3554&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301012_125",
-            "meeting_id": "5301012",
-            "sequence_number": 125,
-            "meeting_date": "2024-01-31",
-            "meeting_title": "大阪市  令和６年１月、２月特別委員会（2025大阪・関西万博推進特別委員会）  01月31日－01号",
-            "speaker": "西徳人",
-            "statement_summary": "万博大屋根リングのリユースと夢洲跡地活用について",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3554&schedule_id=2"
-          },
-          {
             "statement_id": "th_5301028_54",
             "meeting_id": "5301028",
             "sequence_number": 54,
             "meeting_date": "2024-02-16",
             "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（都市経済）  02月16日－01号",
-            "speaker": "前田和彦",
+            "speaker": "前田　和彦",
+            "statement_text": "万博開催時の交通影響と渋滞対策およびIR工事車両との調整について",
+            "speech_text": "万博開催時の交通影響と渋滞対策およびIR工事車両との調整について",
             "statement_summary": "万博開催時の交通影響と渋滞対策およびIR工事車両との調整について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3562&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3562&schedule_id=2"
+          },
+          {
+            "statement_id": "th_5301085_128",
+            "meeting_id": "5301085",
+            "sequence_number": 128,
+            "meeting_date": "2024-05-21",
+            "meeting_title": "大阪市  令和６年５月定例会常任委員会（都市経済）  05月21日－01号",
+            "speaker": "藤田　あきら",
+            "statement_text": "万博跡地活用におけるマーケット・サウンディングと今後のマスタープラン募集について",
+            "speech_text": "万博跡地活用におけるマーケット・サウンディングと今後のマスタープラン募集について",
+            "statement_summary": "万博跡地活用におけるマーケット・サウンディングと今後のマスタープラン募集について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3580&schedule_id=2",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3580&schedule_id=2"
+          },
+          {
+            "statement_id": "th_5301317_18",
+            "meeting_id": "5301317",
+            "sequence_number": 18,
+            "meeting_date": "2024-12-25",
+            "meeting_title": "大阪市  令和６年10月、11月、12月特別委員会（2025大阪・関西万博推進特別委員会）  12月25日－01号",
+            "speaker": "吉見　みさこ",
+            "statement_text": "大阪・関西万博における交通・通信インフラの整備状況と運行ルール",
+            "speech_text": "大阪・関西万博における交通・通信インフラの整備状況と運行ルール",
+            "statement_summary": "大阪・関西万博における交通・通信インフラの整備状況と運行ルール",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=3",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=3"
           }
         ]
       },
@@ -249,8 +294,11 @@
             "sequence_number": 20,
             "meeting_date": "2025-02-17",
             "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（都市経済）  02月17日－01号",
-            "speaker": "今村直人",
+            "speaker": "今村　直人",
+            "statement_text": "夢洲第２期区域マスタープラン策定の募集プロセスと情報公開について",
+            "speech_text": "夢洲第２期区域マスタープラン策定の募集プロセスと情報公開について",
             "statement_summary": "夢洲第２期区域マスタープラン策定の募集プロセスと情報公開について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2"
           },
           {
@@ -259,8 +307,11 @@
             "sequence_number": 27,
             "meeting_date": "2025-02-17",
             "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（都市経済）  02月17日－01号",
-            "speaker": "森慶吾",
+            "speaker": "森　慶吾",
+            "statement_text": "夢洲第2期区域マスタープラン策定に係る提案募集の公平性とプロセスについて",
+            "speech_text": "夢洲第2期区域マスタープラン策定に係る提案募集の公平性とプロセスについて",
             "statement_summary": "夢洲第2期区域マスタープラン策定に係る提案募集の公平性とプロセスについて",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2"
           },
           {
@@ -269,8 +320,11 @@
             "sequence_number": 44,
             "meeting_date": "2025-02-19",
             "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（建設港湾）  02月19日－01号",
-            "speaker": "山口悟朗",
+            "speaker": "山口　悟朗",
+            "statement_text": "下水道の緊急点検や水道事業計画、夢洲第２期区域のまちづくりに関する質疑",
+            "speech_text": "下水道の緊急点検や水道事業計画、夢洲第２期区域のまちづくりに関する質疑",
             "statement_summary": "下水道の緊急点検や水道事業計画、夢洲第２期区域のまちづくりに関する質疑",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=2"
           }
         ]
@@ -306,8 +360,11 @@
             "sequence_number": 6,
             "meeting_date": "2024-12-25",
             "meeting_title": "大阪市  令和６年10月、11月、12月特別委員会（2025大阪・関西万博推進特別委員会）  12月25日－01号",
-            "speaker": "馬場のりゆき",
+            "speaker": "馬場　のりゆき",
+            "statement_text": "観光客数及び宿泊施設・民泊の現状について",
+            "speech_text": "観光客数及び宿泊施設・民泊の現状について",
             "statement_summary": "馬場のりゆき議員が外国人観光客数やホテル客室数の現状と民泊の申請状況を質問し、行政側が推計数値や宿泊施設数のデータ、民泊の許認可期間等を説明した。",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=3",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=3"
           }
         ]
@@ -322,33 +379,42 @@
         ],
         "exchanges": [
           {
+            "statement_id": "th_5301833_36",
+            "meeting_id": "5301833",
+            "sequence_number": 36,
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（都市経済・通常予算）  03月13日－05号",
+            "speaker": "梅園　周",
+            "statement_text": "屋外広告基準の見直しやエリアマネジメント支援策、観光・文化事業等に関する質疑",
+            "speech_text": "屋外広告基準の見直しやエリアマネジメント支援策、観光・文化事業等に関する質疑",
+            "statement_summary": "屋外広告基準の見直しやエリアマネジメント支援策、観光・文化事業等に関する質疑",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=6",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=6"
+          },
+          {
+            "statement_id": "th_5336593_40",
+            "meeting_id": "5336593",
+            "sequence_number": 40,
+            "meeting_date": "2026-05-20",
+            "meeting_title": "大阪市  令和８年５・６月定例会常任委員会（都市経済）  05月20日－01号",
+            "speaker": "わしみ　慎一",
+            "statement_text": "国家戦略特別区域外国人滞在施設経営事業条例案の附帯決議に関する報告",
+            "speech_text": "国家戦略特別区域外国人滞在施設経営事業条例案の附帯決議に関する報告",
+            "statement_summary": "国家戦略特別区域外国人滞在施設経営事業条例案の附帯決議に関する報告",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3729&schedule_id=2",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3729&schedule_id=2"
+          },
+          {
             "statement_id": "th_5301576_35",
             "meeting_id": "5301576",
             "sequence_number": 35,
             "meeting_date": "2025-05-19",
             "meeting_title": "大阪市  令和７年５月定例会常任委員会（都市経済）  05月19日－01号",
-            "speaker": "伊藤亜実",
+            "speaker": "伊藤　亜実",
+            "statement_text": "特区民泊に関する附帯決議にかかる報告の聴取",
+            "speech_text": "特区民泊に関する附帯決議にかかる報告の聴取",
             "statement_summary": "特区民泊に関する附帯決議にかかる報告の聴取",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3655&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301576_41",
-            "meeting_id": "5301576",
-            "sequence_number": 41,
-            "meeting_date": "2025-05-19",
-            "meeting_title": "大阪市  令和７年５月定例会常任委員会（都市経済）  05月19日－01号",
-            "speaker": "吉見みさこ",
-            "statement_summary": "海外民泊事業者の運営実態と指導監督に関する質問",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3655&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301576_45",
-            "meeting_id": "5301576",
-            "sequence_number": 45,
-            "meeting_date": "2025-05-19",
-            "meeting_title": "大阪市  令和７年５月定例会常任委員会（都市経済）  05月19日－01号",
-            "speaker": "吉見みさこ",
-            "statement_summary": "吉見みさこ議員は海外事業者による民泊増加や経営管理ビザ取得目的の事例について課題解決を求め、行政側は関係部署と連携し対応策を検討していくと答弁した。",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3655&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3655&schedule_id=2"
           }
         ]
@@ -366,7 +432,7 @@
       "民間事業者（コンビニ等）への負担と公費補助のあり方",
       "来街者・外国人観光客への周知徹底と指導員の適正配置"
     ],
-    "thread_count": 48,
+    "thread_count": 45,
     "last_updated": "2026-05-22",
     "timeline_phases": [
       {
@@ -384,8 +450,11 @@
             "sequence_number": 53,
             "meeting_date": "2023-09-07",
             "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（環境対策特別委員会）  09月07日－01号",
-            "speaker": "鈴木理恵",
+            "speaker": "鈴木　理恵",
+            "statement_text": "市内全域の路上喫煙禁止と条例改正の検討状況について",
+            "speech_text": "市内全域の路上喫煙禁止と条例改正の検討状況について",
             "statement_summary": "市内全域の路上喫煙禁止と条例改正の検討状況について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2"
           },
           {
@@ -394,8 +463,11 @@
             "sequence_number": 86,
             "meeting_date": "2023-09-07",
             "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（環境対策特別委員会）  09月07日－01号",
-            "speaker": "田中ひろき",
+            "speaker": "田中　ひろき",
+            "statement_text": "市有施設のアスベスト調査と公設喫煙所の整備について",
+            "speech_text": "市有施設のアスベスト調査と公設喫煙所の整備について",
             "statement_summary": "市有施設のアスベスト調査と公設喫煙所の整備について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2"
           },
           {
@@ -404,8 +476,11 @@
             "sequence_number": 19,
             "meeting_date": "2023-12-08",
             "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（建設港湾）  12月08日－01号",
-            "speaker": "森山よしひさ",
+            "speaker": "森山　よしひさ",
+            "statement_text": "各種陳情に対する環境局および建設局の見解",
+            "speech_text": "各種陳情に対する環境局および建設局の見解",
             "statement_summary": "議員が提出された陳情案件に対する理事者の見解を求め、環境局および建設局から路上喫煙禁止方針、環境アセスメント、ヒートアイランド対策、公園樹・街路樹の安全対策に関する説明と答弁が行われた。",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3541&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3541&schedule_id=2"
           }
         ]
@@ -425,8 +500,11 @@
             "sequence_number": 106,
             "meeting_date": "2024-03-07",
             "meeting_title": "大阪市  令和６年３月定例会常任委員会（建設港湾・通常予算）  03月07日－02号",
-            "speaker": "金子恵美",
+            "speaker": "金子　恵美",
+            "statement_text": "ごみ収集車ドラレコ映像の活用と喫煙所整備の進捗",
+            "speech_text": "ごみ収集車ドラレコ映像の活用と喫煙所整備の進捗",
             "statement_summary": "ごみ収集車ドラレコ映像の活用と喫煙所整備の進捗",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=3",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=3"
           },
           {
@@ -435,8 +513,11 @@
             "sequence_number": 62,
             "meeting_date": "2024-03-08",
             "meeting_title": "大阪市  令和６年３月定例会常任委員会（建設港湾・通常予算）  03月08日－03号",
-            "speaker": "山本智子",
+            "speaker": "山本　智子",
+            "statement_text": "水道局マイページ導入や路上喫煙対策等の取組について",
+            "speech_text": "水道局マイページ導入や路上喫煙対策等の取組について",
             "statement_summary": "水道局マイページ導入や路上喫煙対策等の取組について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=4",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=4"
           },
           {
@@ -445,8 +526,11 @@
             "sequence_number": 2,
             "meeting_date": "2024-03-11",
             "meeting_title": "大阪市  令和６年３月定例会常任委員会（建設港湾・通常予算）  03月11日－04号",
-            "speaker": "石川博紀",
+            "speaker": "石川　博紀",
+            "statement_text": "路上喫煙防止条例改正やオンライン申請、鯨処分に関する質疑",
+            "speech_text": "路上喫煙防止条例改正やオンライン申請、鯨処分に関する質疑",
             "statement_summary": "路上喫煙防止条例改正やオンライン申請、鯨処分に関する質疑",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=5",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=5"
           }
         ]
@@ -461,34 +545,43 @@
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301413_70",
-            "meeting_id": "5301413",
-            "sequence_number": 70,
-            "meeting_date": "2025-01-15",
-            "meeting_title": "大阪市  令和７年１月、３月特別委員会（環境対策特別委員会）  01月15日－01号",
-            "speaker": "荒木肇",
-            "statement_summary": "路上喫煙対策における喫煙所整備と検証方法について",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3630&schedule_id=2"
+            "statement_id": "th_5301423_2",
+            "meeting_id": "5301423",
+            "sequence_number": 2,
+            "meeting_date": "2025-03-10",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（建設港湾・通常予算）  03月10日－04号",
+            "speaker": "福田　武洋",
+            "statement_text": "万博機運醸成事業、市有地売却及び路上喫煙対策の推進状況について",
+            "speech_text": "万博機運醸成事業、市有地売却及び路上喫煙対策の推進状況について",
+            "statement_summary": "万博機運醸成事業、市有地売却及び路上喫煙対策の推進状況について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3632&schedule_id=5",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3632&schedule_id=5"
           },
           {
-            "statement_id": "th_5301409_7",
-            "meeting_id": "5301409",
-            "sequence_number": 7,
-            "meeting_date": "2025-02-19",
-            "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（建設港湾）  02月19日－01号",
-            "speaker": "野上らん",
-            "statement_summary": "喫煙所整備及び下水道耐震化に関する陳情の審査",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=2"
+            "statement_id": "th_5301411_3",
+            "meeting_id": "5301411",
+            "sequence_number": 3,
+            "meeting_date": "2025-03-21",
+            "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（建設港湾）  03月21日－01号",
+            "speaker": "野上　らん",
+            "statement_text": "喫煙所整備や公園樹・街路樹の撤去及び植え替えに関する陳情の審査",
+            "speech_text": "喫煙所整備や公園樹・街路樹の撤去及び植え替えに関する陳情の審査",
+            "statement_summary": "喫煙所整備や公園樹・街路樹の撤去及び植え替えに関する陳情の審査",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=4",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=4"
           },
           {
-            "statement_id": "th_5301409_17",
-            "meeting_id": "5301409",
-            "sequence_number": 17,
-            "meeting_date": "2025-02-19",
-            "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（建設港湾）  02月19日－01号",
-            "speaker": "近藤大",
-            "statement_summary": "大阪市における喫煙所整備と路上喫煙対策について",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=2"
+            "statement_id": "th_5301699_63",
+            "meeting_id": "5301699",
+            "sequence_number": 63,
+            "meeting_date": "2025-10-20",
+            "meeting_title": "大阪市  令和７年５月、９月、10月特別委員会（環境対策特別委員会）  10月20日－01号",
+            "speaker": "渕上　浩美",
+            "statement_text": "児童遊園の路上喫煙禁止指定手続とコールセンターの対応状況について",
+            "speech_text": "児童遊園の路上喫煙禁止指定手続とコールセンターの対応状況について",
+            "statement_summary": "児童遊園の路上喫煙禁止指定手続とコールセンターの対応状況について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3683&schedule_id=3",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3683&schedule_id=3"
           }
         ]
       }
@@ -523,8 +616,11 @@
             "sequence_number": 31,
             "meeting_date": "2023-05-31",
             "meeting_title": "大阪市  令和５年５・６月定例会常任委員会（教育こども）  05月31日－01号",
-            "speaker": "ますもとさおり",
+            "speaker": "ますもと　さおり",
+            "statement_text": "体育授業等のマスク着用と熱中症対策",
+            "speech_text": "体育授業等のマスク着用と熱中症対策",
             "statement_summary": "議員が中学校の体育大会における生徒のマスク着用状況について質問し、行政側が熱中症対策を最優先しマスクを外すよう指導する方針と通知の再発出について答弁した。",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3509&schedule_id=4",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3509&schedule_id=4"
           },
           {
@@ -533,8 +629,11 @@
             "sequence_number": 65,
             "meeting_date": "2023-09-22",
             "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（教育こども）  09月22日－01号",
-            "speaker": "坂井はじめ",
+            "speaker": "坂井　はじめ",
+            "statement_text": "教育委員会及びこども青少年局関連の陳情に関する理事者の見解",
+            "speech_text": "教育委員会及びこども青少年局関連の陳情に関する理事者の見解",
             "statement_summary": "教育委員会及びこども青少年局関連の陳情に関する理事者の見解",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2"
           },
           {
@@ -543,8 +642,11 @@
             "sequence_number": 81,
             "meeting_date": "2023-09-22",
             "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（教育こども）  09月22日－01号",
-            "speaker": "西崎照明",
+            "speaker": "西崎　照明",
+            "statement_text": "中学校夜間学級の統合移転方針と今後の教育体制について",
+            "speech_text": "中学校夜間学級の統合移転方針と今後の教育体制について",
             "statement_summary": "中学校夜間学級の統合移転方針と今後の教育体制について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2"
           }
         ]
@@ -559,34 +661,43 @@
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301020_26",
-            "meeting_id": "5301020",
-            "sequence_number": 26,
-            "meeting_date": "2024-02-19",
-            "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（教育こども）  02月19日－01号",
-            "speaker": "坂井はじめ",
-            "statement_summary": "委員会における教育および子育て関連陳情の審査",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3559&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301020_36",
-            "meeting_id": "5301020",
-            "sequence_number": 36,
-            "meeting_date": "2024-02-19",
-            "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（教育こども）  02月19日－01号",
-            "speaker": "西徳人",
-            "statement_summary": "中学校夜間学級の統廃合計画と学びの場に関する質疑",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3559&schedule_id=2"
-          },
-          {
             "statement_id": "th_5301045_84",
             "meeting_id": "5301045",
             "sequence_number": 84,
             "meeting_date": "2024-03-08",
             "meeting_title": "大阪市  令和６年３月定例会常任委員会（教育こども・通常予算）  03月08日－03号",
-            "speaker": "西徳人",
+            "speaker": "西　徳人",
+            "statement_text": "夜間中学校の広報・ニーズ把握および学校へのウォーターサーバー設置について",
+            "speech_text": "夜間中学校の広報・ニーズ把握および学校へのウォーターサーバー設置について",
             "statement_summary": "夜間中学校の広報・ニーズ把握および学校へのウォーターサーバー設置について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3565&schedule_id=4",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3565&schedule_id=4"
+          },
+          {
+            "statement_id": "th_5301079_30",
+            "meeting_id": "5301079",
+            "sequence_number": 30,
+            "meeting_date": "2024-05-22",
+            "meeting_title": "大阪市  令和６年５月定例会常任委員会（教育こども）  05月22日－01号",
+            "speaker": "西崎　照明",
+            "statement_text": "大阪・関西万博の児童・生徒招待事業における安全確保と学校現場への対応",
+            "speech_text": "大阪・関西万博の児童・生徒招待事業における安全確保と学校現場への対応",
+            "statement_summary": "大阪・関西万博の児童・生徒招待事業における安全確保と学校現場への対応",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3577&schedule_id=2",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3577&schedule_id=2"
+          },
+          {
+            "statement_id": "th_5301020_26",
+            "meeting_id": "5301020",
+            "sequence_number": 26,
+            "meeting_date": "2024-02-19",
+            "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（教育こども）  02月19日－01号",
+            "speaker": "坂井　はじめ",
+            "statement_text": "委員会における教育および子育て関連陳情の審査",
+            "speech_text": "委員会における教育および子育て関連陳情の審査",
+            "statement_summary": "委員会における教育および子育て関連陳情の審査",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3559&schedule_id=2",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3559&schedule_id=2"
           }
         ]
       },
@@ -600,13 +711,29 @@
         ],
         "exchanges": [
           {
+            "statement_id": "th_5333398_12",
+            "meeting_id": "5333398",
+            "sequence_number": 12,
+            "meeting_date": "2026-03-19",
+            "meeting_title": "大阪市  令和８年２・３月定例会常任委員会（教育こども）  03月19日－01号",
+            "speaker": "明石　直樹",
+            "statement_text": "中学校夜間学級の入学状況と教育機会確保法に基づく体制整備について",
+            "speech_text": "中学校夜間学級の入学状況と教育機会確保法に基づく体制整備について",
+            "statement_summary": "中学校夜間学級の入学状況と教育機会確保法に基づく体制整備について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3701&schedule_id=4",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3701&schedule_id=4"
+          },
+          {
             "statement_id": "th_5301428_108",
             "meeting_id": "5301428",
             "sequence_number": 108,
             "meeting_date": "2025-03-07",
             "meeting_title": "大阪市  令和７年３月定例会常任委員会（教育こども・通常予算）  03月07日－03号",
-            "speaker": "杉田忠裕",
+            "speaker": "杉田　忠裕",
+            "statement_text": "不登校対策、保育無償化、給食室空調整備についての質疑",
+            "speech_text": "不登校対策、保育無償化、給食室空調整備についての質疑",
             "statement_summary": "不登校対策、保育無償化、給食室空調整備についての質疑",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=4",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=4"
           },
           {
@@ -615,18 +742,11 @@
             "sequence_number": 74,
             "meeting_date": "2025-03-11",
             "meeting_title": "大阪市  令和７年３月定例会常任委員会（教育こども・通常予算）  03月11日－05号",
-            "speaker": "藤田あきら",
+            "speaker": "藤田　あきら",
+            "statement_text": "不登校対策のスクリーニング機能と学校の魅力化に関する質疑",
+            "speech_text": "不登校対策のスクリーニング機能と学校の魅力化に関する質疑",
             "statement_summary": "不登校対策のスクリーニング機能と学校の魅力化に関する質疑",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6"
-          },
-          {
-            "statement_id": "th_5301430_92",
-            "meeting_id": "5301430",
-            "sequence_number": 92,
-            "meeting_date": "2025-03-11",
-            "meeting_title": "大阪市  令和７年３月定例会常任委員会（教育こども・通常予算）  03月11日－05号",
-            "speaker": "藤田あきら",
-            "statement_summary": "不登校対策、アプリ連携、学校跡地活用等に関する質疑",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6"
           }
         ]
@@ -662,8 +782,11 @@
             "sequence_number": 24,
             "meeting_date": "2023-09-21",
             "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（民生保健）  09月21日－01号",
-            "speaker": "永田典子",
+            "speaker": "永田　典子",
+            "statement_text": "福祉局関連等に関する陳情書の審査と理事者の見解表明",
+            "speech_text": "福祉局関連等に関する陳情書の審査と理事者の見解表明",
             "statement_summary": "福祉局関連等に関する陳情書の審査と理事者の見解表明",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3527&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3527&schedule_id=2"
           },
           {
@@ -672,8 +795,11 @@
             "sequence_number": 31,
             "meeting_date": "2023-09-21",
             "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（民生保健）  09月21日－01号",
-            "speaker": "武直樹",
+            "speaker": "武　直樹",
+            "statement_text": "介護保険料の負担軽減策と訪日外国人の医療体制について",
+            "speech_text": "介護保険料の負担軽減策と訪日外国人の医療体制について",
             "statement_summary": "介護保険料の負担軽減策と訪日外国人の医療体制について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3527&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3527&schedule_id=2"
           },
           {
@@ -682,8 +808,11 @@
             "sequence_number": 1,
             "meeting_date": "2023-12-06",
             "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（民生保健）  12月06日－01号",
-            "speaker": "永田典子",
+            "speaker": "永田　典子",
+            "statement_text": "福祉局・健康局関係の提出案件に関する審議",
+            "speech_text": "福祉局・健康局関係の提出案件に関する審議",
             "statement_summary": "福祉局および健康局の関係議案について各局長から説明があり、国民健康保険条例の一部改正や新病院建設工事、ワクチンの取得に関する追認などの提出案件について質疑が進行した。",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3543&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3543&schedule_id=2"
           }
         ]
@@ -703,8 +832,11 @@
             "sequence_number": 10,
             "meeting_date": "2024-03-08",
             "meeting_title": "大阪市  令和６年３月定例会常任委員会（民生保健・通常予算）  03月08日－03号",
-            "speaker": "岸本栄",
+            "speaker": "岸本　栄",
+            "statement_text": "健診・保健事業におけるナッジ理論を活用した受診勧奨",
+            "speech_text": "健診・保健事業におけるナッジ理論を活用した受診勧奨",
             "statement_summary": "健診・保健事業におけるナッジ理論を活用した受診勧奨",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=4",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=4"
           },
           {
@@ -713,8 +845,11 @@
             "sequence_number": 2,
             "meeting_date": "2024-03-11",
             "meeting_title": "大阪市  令和６年３月定例会常任委員会（民生保健・通常予算）  03月11日－04号",
-            "speaker": "鈴木理恵",
+            "speaker": "鈴木　理恵",
+            "statement_text": "大阪市の医療提供体制と介護保険料・認定の適正化について",
+            "speech_text": "大阪市の医療提供体制と介護保険料・認定の適正化について",
             "statement_summary": "大阪市の医療提供体制と介護保険料・認定の適正化について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=5",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=5"
           },
           {
@@ -723,8 +858,11 @@
             "sequence_number": 31,
             "meeting_date": "2024-03-18",
             "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（民生保健）  03月18日－01号",
-            "speaker": "永田典子",
+            "speaker": "永田　典子",
+            "statement_text": "福祉局および健康局関連の陳情書に対する見解について",
+            "speech_text": "福祉局および健康局関連の陳情書に対する見解について",
             "statement_summary": "福祉局および健康局関連の陳情書に対する見解について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3560&schedule_id=3",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3560&schedule_id=3"
           }
         ]
@@ -739,34 +877,43 @@
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301403_28",
-            "meeting_id": "5301403",
-            "sequence_number": 28,
-            "meeting_date": "2025-02-17",
-            "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（民生保健）  02月17日－01号",
-            "speaker": "岸本栄",
-            "statement_summary": "福祉局および健康局関連の陳情書に対する見解",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3625&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301434_74",
-            "meeting_id": "5301434",
-            "sequence_number": 74,
-            "meeting_date": "2025-03-07",
-            "meeting_title": "大阪市  令和７年３月定例会常任委員会（民生保健・通常予算）  03月07日－03号",
-            "speaker": "佐々木哲夫",
-            "statement_summary": "介護予防事業及び難聴高齢者補聴器購入費助成事業の推進について",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3634&schedule_id=4"
-          },
-          {
             "statement_id": "th_5301435_134",
             "meeting_id": "5301435",
             "sequence_number": 134,
             "meeting_date": "2025-03-10",
             "meeting_title": "大阪市  令和７年３月定例会常任委員会（民生保健・通常予算）  03月10日－04号",
-            "speaker": "西拓郎",
+            "speaker": "西　拓郎",
+            "statement_text": "国保保険料改定、新保健所整備および骨髄バンクドナー支援について",
+            "speech_text": "国保保険料改定、新保健所整備および骨髄バンクドナー支援について",
             "statement_summary": "国保保険料改定、新保健所整備および骨髄バンクドナー支援について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3634&schedule_id=5",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3634&schedule_id=5"
+          },
+          {
+            "statement_id": "th_5301676_153",
+            "meeting_id": "5301676",
+            "sequence_number": 153,
+            "meeting_date": "2025-12-05",
+            "meeting_title": "大阪市  令和７年９～12月定例会常任委員会（教育こども）  12月05日－01号",
+            "speaker": "明石　直樹",
+            "statement_text": "産後ケア事業の申請におけるオンライン化と面接手法の見直しについて",
+            "speech_text": "産後ケア事業の申請におけるオンライン化と面接手法の見直しについて",
+            "statement_summary": "産後ケア事業の申請におけるオンライン化と面接手法の見直しについて",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3674&schedule_id=5",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3674&schedule_id=5"
+          },
+          {
+            "statement_id": "th_5336589_12",
+            "meeting_id": "5336589",
+            "sequence_number": 12,
+            "meeting_date": "2026-05-20",
+            "meeting_title": "大阪市  令和８年５・６月定例会常任委員会（民生保健）  05月20日－01号",
+            "speaker": "宮脇　希",
+            "statement_text": "国民健康保険の府内統一保険料の経緯と令和8年度の改定要因について",
+            "speech_text": "国民健康保険の府内統一保険料の経緯と令和8年度の改定要因について",
+            "statement_summary": "国民健康保険の府内統一保険料の経緯と令和8年度の改定要因について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3727&schedule_id=2",
+            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3727&schedule_id=2"
           }
         ]
       }
@@ -801,8 +948,11 @@
             "sequence_number": 74,
             "meeting_date": "2024-02-20",
             "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（建設港湾）  02月20日－01号",
-            "speaker": "井上浩",
+            "speaker": "井上　浩",
+            "statement_text": "都市公園の樹木管理、夢洲の土地利用および防災インフラ整備に関する質疑",
+            "speech_text": "都市公園の樹木管理、夢洲の土地利用および防災インフラ整備に関する質疑",
             "statement_summary": "都市公園の樹木管理、夢洲の土地利用および防災インフラ整備に関する質疑",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3558&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3558&schedule_id=2"
           },
           {
@@ -811,8 +961,11 @@
             "sequence_number": 6,
             "meeting_date": "2024-10-07",
             "meeting_title": "大阪市  令和６年10月、11月、12月特別委員会（2025大阪・関西万博推進特別委員会）  10月07日－01号",
-            "speaker": "近藤大",
+            "speaker": "近藤　大",
+            "statement_text": "淀川左岸線（2期）の暫定利用と万博の備蓄食料について",
+            "speech_text": "淀川左岸線（2期）の暫定利用と万博の備蓄食料について",
             "statement_summary": "淀川左岸線（2期）の暫定利用と万博の備蓄食料について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=2"
           }
         ]
@@ -848,8 +1001,11 @@
             "sequence_number": 6,
             "meeting_date": "2024-05-21",
             "meeting_title": "大阪市  令和６年５月定例会常任委員会（都市経済）  05月21日－01号",
-            "speaker": "高山美佳",
+            "speaker": "高山　美佳",
+            "statement_text": "豊臣期石垣公開施設整備工事の契約変更に関する詳細と経緯の確認",
+            "speech_text": "豊臣期石垣公開施設整備工事の契約変更に関する詳細と経緯の確認",
             "statement_summary": "豊臣期石垣公開施設整備工事の契約変更に関する詳細と経緯の確認",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3580&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3580&schedule_id=2"
           }
         ]
@@ -869,8 +1025,11 @@
             "sequence_number": 71,
             "meeting_date": "2025-02-17",
             "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（都市経済）  02月17日－01号",
-            "speaker": "伊藤亜実",
+            "speaker": "伊藤　亜実",
+            "statement_text": "大阪城公園パークマネジメント事業の5年評価報告",
+            "speech_text": "大阪城公園パークマネジメント事業の5年評価報告",
             "statement_summary": "大阪城公園パークマネジメント事業の5年評価報告",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2"
           },
           {
@@ -879,8 +1038,11 @@
             "sequence_number": 121,
             "meeting_date": "2025-03-10",
             "meeting_title": "大阪市  令和７年３月定例会常任委員会（都市経済・通常予算）  03月10日－04号",
-            "speaker": "田中ひろき",
+            "speaker": "田中　ひろき",
+            "statement_text": "難波宮跡の保存活用と文化財協会の解散に伴う業務継承について",
+            "speech_text": "難波宮跡の保存活用と文化財協会の解散に伴う業務継承について",
             "statement_summary": "難波宮跡の保存活用と文化財協会の解散に伴う業務継承について",
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=5",
             "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=5"
           }
         ]

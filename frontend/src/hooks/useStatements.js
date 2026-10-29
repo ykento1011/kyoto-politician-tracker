@@ -127,26 +127,39 @@ export function useStatements(cityCode = 'kyoto') {
           const spkRes = await fetch(`/data/${prefix}speaker_stats.json`);
           if (spkRes.ok) {
             const spkText = await spkRes.text();
-            if (spkText.trim().startsWith('[')) {
-              const spkData = JSON.parse(spkText);
+            const trimmed = spkText.trim();
+            if (trimmed.startsWith('[') || trimmed.startsWith('{')) {
+              const spkData = JSON.parse(trimmed);
+              let rawList = [];
               if (Array.isArray(spkData)) {
-                const sanitized = spkData.map(s => ({
-                  speaker: s.speaker || '',
-                  partyGroup: s.partyGroup || s.party || '',
-                  district: s.district || '',
-                  count: s.count || 0,
-                  statements: s.statements || [],
-                  topCategories: s.topCategories || [],
-                  avg_evidence: s.avg_evidence || 0,
-                  avg_solution: s.avg_solution || 0,
-                  avg_local_focus: s.avg_local_focus || 0,
-                  avg_constructive: s.avg_constructive || 0,
-                  style: s.style || null,
-                  latest_date: s.latest_date || ''
+                rawList = spkData;
+              } else if (typeof spkData === 'object' && spkData !== null) {
+                rawList = Object.entries(spkData).map(([key, val]) => ({
+                  speaker: val.name || val.speaker || key,
+                  partyGroup: val.partyGroup || val.party || '',
+                  party: val.party || val.partyGroup || '',
+                  district: val.district || '',
+                  aliases: val.aliases || [],
+                  ...val
                 }));
-                setStaticSpeakerStats(sanitized);
-                console.log(`[useStatements] 議員マスタより ${sanitized.length} 名の議員を読み込みました。`);
               }
+              const sanitized = rawList.map(s => ({
+                speaker: s.speaker || s.name || '',
+                partyGroup: s.partyGroup || s.party || '',
+                party: s.party || s.partyGroup || '',
+                district: s.district || '',
+                count: s.count || 0,
+                statements: s.statements || [],
+                topCategories: s.topCategories || [],
+                avg_evidence: s.avg_evidence || 0,
+                avg_solution: s.avg_solution || 0,
+                avg_local_focus: s.avg_local_focus || 0,
+                avg_constructive: s.avg_constructive || 0,
+                style: s.style || null,
+                latest_date: s.latest_date || ''
+              }));
+              setStaticSpeakerStats(sanitized);
+              console.log(`[useStatements] 議員マスタより ${sanitized.length} 名の議員情報を読み込みました。`);
             }
           }
         } catch (spkErr) {

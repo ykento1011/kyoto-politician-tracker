@@ -80,6 +80,7 @@ kyoto-politician-tracker/
 │   ├── run_update.py                          # 3都市共通 自動更新エントリポイント
 │   └── checkpoints/                           # 中断再開用チェックポイントJSON
 ├── frontend/
+│   ├── public/councilors/{cityCode}/          # 各都市 議員顔写真ディレクトリ（スペース除去名.jpg）
 │   ├── public/data/                           # フロントエンド用出力JSON
 │   │   ├── {cityCode}_speaker_stats.json      # 各都市 議員マスタ（会派・選挙区）
 │   │   ├── {cityCode}_votes_summary.json      # 各都市 議決・賛否データ
@@ -220,7 +221,11 @@ Phase 4: データ取得フック層の改修（useStatements.js）
    - 質疑ログのフェッチ成否に関わらず、speaker_stats.json は【常時・無条件】でフェッチして動的集計にマージする。
 
 4. 姓名の表記揺れ・スペース耐性:
-   - masterMap には原名とともに replace(/\s+/g, '') を適用したスペース除去キーも同時に登録して照合する。
+
+   - 【厳格化】`speaker_stats.json` のデータ構造（辞書型 / リスト型）の完全吸収:
+     都市によって `{ "議員名": { ... } }` または `[ { "speaker": ... } ]` で出力形式が異なる場合がある。`useStatements.js` は必ず両方の型を判定・展開し、姓名の空白除去キーおよび `aliases` 配列も含めた二重照合マップを構築すること。安易な `startsWith('[')` チェックでフェッチを破棄してはならない。
+   - 【厳格化】不適切な他都市名フォールバックの禁止:
+     UIコンポーネントにおいて、選挙区や会派が未取得の場合に `'京都'` や `'名古屋市会'` など推測や別都市の定数をフォールバック表示させる実装を完全禁止する（存在しない場合は非表示、または「無所属」と明記）。   - masterMap には原名とともに replace(/\s+/g, '') を適用したスペース除去キーも同時に登録して照合する。
 
 .5 新規都市展開時の論点マスター策定手順（データドリブン原則）
 1. **AIによる先入観・一般論策定の禁止**:
@@ -367,6 +372,10 @@ data/embeddings_*.json（巨大キャッシュ）が含まれていないこと�
 | `generate_bill_issues.py` で新都市の議事録ログが全くバインドされない | `find_context_stmts` のストップワード除外に新都市名が入っておらず、タイトル全一致で検索失敗している | `re.sub` のストップワード正規表現に新都市の正式名称（例: `横浜市`）を追加する |
 | `GEMINI_API_KEY が見つかりません` と表示される | APIキーがプロジェクトルートではなく `data-pipeline/.env` に配置されている | `load_env()` を改修し、スクリプト階層の `.env` とルート `.env` の両方を自動探索させる |
 | `AttributeError: 'SourceFileLoader' object has no attribute 'load_module'` | Python 3.12 以降で非推奨メソッド `load_module()` が完全削除された | `importlib.util.spec_from_file_location` と `spec.loader.exec_module(mod)` を使用する構文に更新する |
+| 他都市で選挙区に「京都」、政党に議会名が表示される | `SpeakerCard.jsx` 内の三項演算子フォールバックに他都市名が直書きされていた | 他都市名・議会名へのフォールバック定数を完全撤廃し、データが存在する場合のみ表示、未設定時は「無所属」とする |
+| 議員マスタJSONがあるのに会派や行政区が反映されない | `useStatements.js` が配列（`[`）形式のみを想定し、辞書（`{`）形式のマスタ読み込みをスキップしていた | `starts_with('[')` 単体判定を撤廃し、dict / array の両構造を自動判定して正規化・マージするロジックにする |
+| 自治体公式名簿から顔写真が取得できない（特定議員のみ欠落） | 公式HTMLの `img[alt]` が氏名ではなく会派名になっていた、または画像と氏名が別テーブル・別DIVに分離している | `alt` 単体依存を排し、`<h3>` 議員名ブロックと直後の紹介枠（`.shokai_wp` 等）をペア走査して画像URLを抽出する |
+| 名古屋市会議員が全員「無所属」と表示される | `speaker_stats.json` が「無所属」で初期化され、マスタのキー名が `party` ではなく `faction` になっていた | マスタの正規会派データをJSONに同期し、アダプター層で `faction` を `party` / `partyGroup` にマッピングして返却する |
 
 
 ================================================================================
@@ -390,3 +399,8 @@ data/embeddings_*.json（巨大キャッシュ）が含まれていないこと�
 4. 定期更新パイプラインの動作検証手順
 - 週次更新の動作確認やコード修正後の検証は、必ずフルドライランから実施し、エラー0件を確認すること。
 - コマンド: python run_update.py --dry-run (末尾に「🎉 パイプラインが安全に終了しました。」を確認)
+
+5. 【2026-10 実務記録】都市間UI標準化・データ連携および議員マスタ同期
+- 横浜市会: 公式名簿の構造差分（alt=会派名）を解消し、現職86名全員の顔写真（86/86）を `frontend/public/councilors/yokohama` に完全配備。
+- 都市フォールバック撤廃: `useStatements.js` の dict/array 両対応化と `SpeakerCard.jsx` のフォールバック除去により、横浜市トップにおける「京都」タグ漏洩および議会名による会派偽装を根本根絶。
+- 名古屋市会: `nagoyaCouncilorMaster.js` の正式会派情報を `nagoya_speaker_stats.json` および `councilors_nagoya.json` に同期し、フロントエンド共通の `party` / `partyGroup` にマッピング統一。

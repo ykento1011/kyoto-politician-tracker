@@ -41,8 +41,8 @@ export default function SpeakerCard({
     { subject: '議論の進展', A: speaker.avg_constructive || 0, fullMark: 5 },
   ];
 
-  const defaultDistrict = cityCode === 'nagoya' ? '名古屋' : cityCode === 'osaka' ? '大阪' : '京都';
-  const defaultCouncil = cityCode === 'yokohama' ? '横浜市会' : cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
+  
+  
 
   return (
     <div
@@ -72,13 +72,15 @@ export default function SpeakerCard({
               <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-indigo-600 transition-colors leading-snug truncate">
                 {speaker.speaker}
               </h3>
-              <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded shrink-0">
-                {speaker.district || defaultDistrict}
-              </span>
+              {speaker.district && (
+                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded shrink-0">
+                    {speaker.district}
+                  </span>
+                )}
             </div>
-            <p className="text-xs text-slate-400 font-medium mt-0.5 truncate">
-              {speaker.partyGroup || speaker.party || defaultCouncil}
-            </p>
+            <p className="text-xs text-slate-500 font-medium mt-0.5 truncate">
+                {speaker.partyGroup || speaker.party || '無所属'}
+              </p>
           </div>
         </div>
 

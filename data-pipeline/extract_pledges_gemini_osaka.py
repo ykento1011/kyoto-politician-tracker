@@ -45,7 +45,7 @@ class CandidatePledgeExtraction(BaseModel):
     speaker: str = Field(description="候補者・議員名（漢字フルネーム）")
     district: str = Field(description="選挙区名 (例: 北区, 住之江区, etc.)")
     party: str = Field(description="所属党派・公認政党")
-    pledges: List[CouncilorPledgeItem] = Field(description="看板公約・重点政策リスト（必ず1〜3件抽出すること）")
+    pledges: List[CouncilorPledgeItem] = Field(description="看板公約・重点政策リスト（必ず1〜すべて（件数制限なし）抽出すること）")
 
 class BulletinPledgesResult(BaseModel):
     candidates: List[CandidatePledgeExtraction] = Field(description="公報PDF内に掲載されている全候補者リスト")
@@ -79,9 +79,9 @@ def process_bulletin_pdf(client: genai.Client, pdf_path: Path, master_map: dict)
 あなたは地方選挙公報の政策監査を行う客観的なデータアナリストです。
 添付されたPDFは、2023年4月9日執行「大阪市議会議員一般選挙」の公式選挙公報原本です。
 
-【重要：抽出ルール（全候補者を識別し、必ず1〜3件の看板公約を抽出すること）】
+【重要：抽出ルール（全候補者を識別し、必ず1〜すべて（件数制限なし）の看板公約を抽出すること）】
 1. PDF内の全候補者（枠）を漏れなく識別してください。
-2. 候補者が掲げている政策を、以下の優先順位で【1人につき必ず1〜3件】抽出してください：
+2. 候補者が掲げている政策を、以下の優先順位で【1人につき必ず1〜すべて（件数制限なし）】抽出してください：
    - 【第1優先（具体的施策）】：数値や具体的な制度名を含む公約（例：0〜2歳児保育料無償化、塾代助成の所得制限撤廃、小中学校給食費無償化、淀川左岸線整備、書かない窓口・DX推進、児童虐待防止、防犯カメラ増設、敬老パス、身を切る改革など）。
    - 【第2優先（重点政策の柱）】：上記のような固有名詞がない場合、候補者が「私の政策」「マニフェスト」「公約」「重点政策」として【番号付きや箇条書き】で掲げている政策項目を必ず抽出してください。
 3. 【最重要】「exact_quote」には、公報内の該当枠に実際に印刷されている文字テキストを一切要約・改変せず、そのまま正確に抜き出してください。

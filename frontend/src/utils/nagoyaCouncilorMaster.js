@@ -72,5 +72,13 @@ export const NAGOYA_COUNCILOR_MASTER = {
 export const NAGOYA_VALID_COUNCILORS = Object.keys(NAGOYA_COUNCILOR_MASTER);
 
 export function getNagoyaCouncilorMasterInfo(name) {
-  return NAGOYA_COUNCILOR_MASTER[name] || {};
+  if (!name) return {};
+  const clean = name.replace(/[\s\u3000]+/g, '');
+  const item = NAGOYA_COUNCILOR_MASTER[name] || NAGOYA_COUNCILOR_MASTER[clean];
+  if (!item) return {};
+  return {
+    ...item,
+    party: item.party || item.faction || '',
+    partyGroup: item.partyGroup || item.faction || ''
+  };
 }
