@@ -279,6 +279,43 @@ const NAGOYA_CATEGORY_TOPICS = {
 };
 
 
+
+const YOKOHAMA_CATEGORY_TOPICS = {
+  "子育て・教育": [
+    {
+      "id": "yokohama_school_lunch_full",
+      "title": "中学校全員給食の円滑実施と食育・安全品質管理の検証"
+    }
+  ],
+  "産業・観光・地域経済": [
+    {
+      "id": "yokohama_green_expo_2027",
+      "title": "GREEN×EXPO 2027（園芸博）の開催準備と旧上瀬谷通信施設跡地利用"
+    }
+  ],
+  "都市再生・交通インフラ": [
+    {
+      "id": "yokohama_hilly_public_transport",
+      "title": "起伏・坂の多い地形に対応する地域交通の確保と敬老パス維持"
+    }
+  ],
+  "防災・減災・治安": [
+    {
+      "id": "yokohama_disaster_shelter_welfare",
+      "title": "急傾斜地・水害リスク対策と「安心して過ごせる避難所」の環境整備"
+    }
+  ],
+  "財政・行革": [
+    {
+      "id": "yokohama_debt_fund_fiscal_pdca",
+      "title": "減債基金依存からの脱却と持続可能な財政規律・行革推進"
+    }
+  ],
+  "福祉・医療・健康": [],
+  "くらし・環境・エネルギー": [],
+  "文化・景観・歴史": []
+};
+
 export default function MacroTopicMap({
   topicStats = [],
   cityCode = 'kyoto',
@@ -291,7 +328,7 @@ export default function MacroTopicMap({
     return topicStats.reduce((sum, t) => sum + (t.count || 0), 0);
   }, [topicStats]);
 
-  const activeCategoryTopicsMap = cityCode === 'nagoya' ? NAGOYA_CATEGORY_TOPICS : cityCode === 'osaka' ? OSAKA_CATEGORY_TOPICS : KYOTO_CATEGORY_TOPICS;
+  const activeCategoryTopicsMap = cityCode === 'nagoya' ? NAGOYA_CATEGORY_TOPICS : cityCode === 'osaka' ? OSAKA_CATEGORY_TOPICS : cityCode === 'yokohama' ? YOKOHAMA_CATEGORY_TOPICS : KYOTO_CATEGORY_TOPICS;
 
   return (
     <section className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
