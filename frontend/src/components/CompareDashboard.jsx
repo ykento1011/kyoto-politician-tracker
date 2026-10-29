@@ -136,7 +136,7 @@ export default function CompareDashboard({
     if (votesData && votesData.length > 0) {
       setInternalVotes(votesData);
     } else {
-      fetch('/data/votes_summary.json')
+      fetch(cityCode === 'kyoto' ? '/data/votes_summary.json' : `/data/${cityCode}_votes_summary.json`)
         .then(res => res.ok ? res.json() : [])
         .then(data => setInternalVotes(data))
         .catch(err => console.error("Failed to load votes:", err));

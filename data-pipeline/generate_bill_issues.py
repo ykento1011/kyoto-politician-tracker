@@ -84,7 +84,7 @@ def load_json(p):
 def find_context_stmts(bill, stmts):
     b_num = bill.get("bill_number", "").strip()
     title = bill.get("title", "").strip()
-    clean_title = re.sub(r'京都市|大阪市|名古屋市|に関する|について|の一部を改正する|条例の制定|予算|会計|議案', '', title)
+    clean_title = re.sub(r'京都市|大阪市|名古屋市|横浜市|に関する|について|の一部を改正する|条例の制定|予算|会計|議案', '', title)
     nouns = [w for w in re.split(r'[（）\s、。]', clean_title) if len(w) >= 3]
     keywords = [b_num] if len(b_num) >= 2 else []
     keywords.extend(nouns[:2])
