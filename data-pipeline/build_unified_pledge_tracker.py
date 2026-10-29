@@ -165,7 +165,63 @@ def build_bill_data(paths, city):
 
     return bills, bill_embeddings
 
+
+def get_or_create_pledge_embeddings(councilor_list, emb_file):
+    cache = {}
+    if emb_file.exists():
+        try:
+            cache = json.loads(emb_file.read_text(encoding="utf-8"))
+        except Exception:
+            cache = {}
+
+    pending = []
+    for c in councilor_list:
+        spk = clean_name(c.get("speaker") or c.get("name") or "")
+        if not spk:
+            continue
+        for idx, p in enumerate(c.get("pledges", [])):
+            key_num = f"{spk}_{idx+1}"
+            key_p = f"{spk}_p_{idx+1}"
+            p_id = p.get("id")
+            key_id = f"{spk}_{p_id}" if p_id else None
+
+            # 未計算の場合のみキューへ追加（キー形式の差異を吸収）
+            if key_num not in cache:
+                text = f"{p.get('category', '')} {p.get('target_issue', '')} {p.get('headline', '')}".strip()
+                keys = [key_num, key_p]
+                if key_id:
+                    keys.append(key_id)
+                pending.append((keys, text))
+
+    if pending:
+        api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+        if not api_key:
+            print("⚠️ APIキーが見つからないため公約Embedding計算をスキップします。")
+            return cache
+
+        import google.generativeai as genai
+        genai.configure(api_key=api_key)
+
+        print(f"⚡ 公約テキストEmbedding計算: 未計算 {len(pending)} 件...")
+        batch_size = 50
+        for i in range(0, len(pending), batch_size):
+            batch = pending[i : i + batch_size]
+            try:
+                resp = genai.embed_content(model=EMBEDDING_MODEL, content=[item[1] for item in batch])
+                embs = resp.get("embedding", [])
+                for (keys, _), emb in zip(batch, embs):
+                    for k in keys:
+                        cache[k] = emb
+            except Exception as e:
+                print(f"⚠️ 公約Embeddingエラー (offset {i}): {e}")
+
+        emb_file.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+        print(f"✅ 公約Embedding保存完了: {len(cache)} 件 -> {emb_file.name}")
+
+    return cache
+
 def main():
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--city", required=True)
     args = parser.parse_args()
@@ -200,7 +256,7 @@ def main():
         statements = raw_stmts if isinstance(raw_stmts, list) else raw_stmts.get("statements", [])
 
     stmt_embeddings = json.loads(paths["stmt_embeddings"].read_text(encoding="utf-8")) if paths["stmt_embeddings"].exists() else {}
-    pledge_embeddings = json.loads(paths["pledge_embeddings"].read_text(encoding="utf-8")) if paths["pledge_embeddings"].exists() else {}
+    pledge_embeddings = get_or_create_pledge_embeddings(councilor_list, paths["pledge_embeddings"])
     
     bills, bill_embeddings = build_bill_data(paths, city)
 
