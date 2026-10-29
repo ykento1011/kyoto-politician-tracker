@@ -281,39 +281,86 @@ const NAGOYA_CATEGORY_TOPICS = {
 
 
 const YOKOHAMA_CATEGORY_TOPICS = {
+  "財政・行革": [
+    {
+      "id": "yokohama_debt_fund_fiscal_pdca",
+      "title": "減債基金依存からの脱却と持続可能な財政規律・行革推進"
+    },
+    {
+      "id": "yokohama_internal_control_governance",
+      "title": "徴収ミス・時効損失の検証と全庁的な内部統制・ガバナンス強化"
+    }
+  ],
   "子育て・教育": [
     {
       "id": "yokohama_school_lunch_full",
       "title": "中学校全員給食の円滑実施と食育・安全品質管理の検証"
+    },
+    {
+      "id": "yokohama_special_needs_education_ict",
+      "title": "特別支援教育の切れ目ない支援体制と教員ICT・多忙化解消"
     }
   ],
-  "産業・観光・地域経済": [
+  "くらし・環境・エネルギー": [
     {
-      "id": "yokohama_green_expo_2027",
-      "title": "GREEN×EXPO 2027（園芸博）の開催準備と旧上瀬谷通信施設跡地利用"
+      "id": "yokohama_water_works_dx_system",
+      "title": "水道料金徴収システムの刷新と上下水道インフラ老朽化対策"
+    },
+    {
+      "id": "yokohama_decarbon_circular_city",
+      "title": "2050年脱炭素社会の実現とサーキュラーエコノミー・資源循環"
     }
   ],
   "都市再生・交通インフラ": [
     {
       "id": "yokohama_hilly_public_transport",
       "title": "起伏・坂の多い地形に対応する地域交通の確保と敬老パス維持"
+    },
+    {
+      "id": "yokohama_housing_redevelopment_subcenter",
+      "title": "市営住宅・改良住宅の建て替えと郊外住宅団地の再生・まちづくり"
+    }
+  ],
+  "福祉・医療・健康": [
+    {
+      "id": "yokohama_medical_completion_in_city",
+      "title": "病床確保と救急医療・入院医療の「市内完結率」向上"
+    },
+    {
+      "id": "yokohama_cancer_screening_prevention",
+      "title": "がん精密検査受診率の向上とがん予防・重症化予防対策"
     }
   ],
   "防災・減災・治安": [
     {
       "id": "yokohama_disaster_shelter_welfare",
-      "title": "急傾斜地・水害リスク対策と「安心して過ごせる避難所」の環境整備"
-    }
-  ],
-  "財政・行革": [
+      "title": "急傾斜地・がけ地崩落対策と水害リスク・避難所環境整備"
+    },
     {
-      "id": "yokohama_debt_fund_fiscal_pdca",
-      "title": "減債基金依存からの脱却と持続可能な財政規律・行革推進"
+      "id": "yokohama_earthquake_in_home_evacuation",
+      "title": "大地震想定の見直しと在宅避難者支援・生活物資供給マネジメント"
     }
   ],
-  "福祉・医療・健康": [],
-  "くらし・環境・エネルギー": [],
-  "文化・景観・歴史": []
+  "産業・観光・地域経済": [
+    {
+      "id": "yokohama_green_expo_2027",
+      "title": "GREEN×EXPO 2027（園芸博）の開催準備と旧上瀬谷通信施設跡地利用"
+    },
+    {
+      "id": "yokohama_urban_agriculture_sme_support",
+      "title": "都市農業振興と地元中小企業・商店街の物価高騰・事業承継支援"
+    }
+  ],
+  "文化・景観・歴史": [
+    {
+      "id": "yokohama_three_zoos_renewal_legacy",
+      "title": "野毛山動物園等3園のリニューアル整備と動物福祉・財源多角化"
+    },
+    {
+      "id": "yokohama_culture_arts_waterfront_heritage",
+      "title": "歴史的建造物・開港の歴史遺産保全とウォーターフロント文化芸術振興"
+    }
+  ]
 };
 
 export default function MacroTopicMap({
