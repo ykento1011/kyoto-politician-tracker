@@ -17,7 +17,7 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    const dataUrl = getCityDataUrl(cityCode, 'topicSummaries') || '/data/topic_summaries.json';
+    const dataUrl = getCityDataUrl(cityCode, 'topicSummaries') || `/data/${cityCode}_topic_summaries.json`;
     fetch(dataUrl)
       .then((res) => res.json())
       .then((data) => {

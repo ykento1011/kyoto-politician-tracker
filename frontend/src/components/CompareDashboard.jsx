@@ -86,9 +86,9 @@ function getVoteForSpeaker(bill, speakerObj) {
       const cleanK = k.replace(/[\s ]+/g, '');
       if (cleanK === party) return v;
     }
-    const coreParty = party.replace(/京都市会議員団|市会議員団|議員団|市議団/, '');
+    const coreParty = party.replace(/神戸市会議員団|京都市会議員団|横浜市会議員団|名古屋市会議員団|大阪市会議員団|市会議員団|議員団|市議団/, '');
     for (const [k, v] of Object.entries(votes)) {
-      const cleanK = k.replace(/[\s ]+/g, '').replace(/京都市会議員団|市会議員団|議員団|市議団/, '');
+      const cleanK = k.replace(/[\s ]+/g, '').replace(/神戸市会議員団|京都市会議員団|横浜市会議員団|名古屋市会議員団|大阪市会議員団|市会議員団|議員団|市議団/, '');
       if (coreParty && cleanK && (cleanK.includes(coreParty) || coreParty.includes(cleanK))) {
         return v;
       }
@@ -136,7 +136,7 @@ export default function CompareDashboard({
     if (votesData && votesData.length > 0) {
       setInternalVotes(votesData);
     } else {
-      fetch(cityCode === 'kyoto' ? '/data/votes_summary.json' : `/data/${cityCode}_votes_summary.json`)
+      fetch(`/data/${cityCode}_votes_summary.json`)
         .then(res => res.ok ? res.json() : [])
         .then(data => setInternalVotes(data))
         .catch(err => console.error("Failed to load votes:", err));
@@ -146,7 +146,7 @@ export default function CompareDashboard({
   const handleShare = async () => {
     const compareNames = compareList.map(s => s.speaker).join(',');
     const url = `${window.location.origin}/?compare=${encodeURIComponent(compareNames)}`;
-    const cityName = cityCode === 'yokohama' ? '横浜' : cityCode === 'nagoya' ? '名古屋' : cityCode === 'osaka' ? '大阪' : '京都';
+    const cityName = cityCode === 'kobe' ? '神戸' : cityCode === 'yokohama' ? '横浜' : cityCode === 'nagoya' ? '名古屋' : cityCode === 'osaka' ? '大阪' : '京都';
     const text = `議会のミカタ ${cityName}で ${compareList.map(s => s.speaker).join(' vs ')} の質疑スタイル・注力政策を徹底比較しました！`;
 
     try {
@@ -505,7 +505,7 @@ export default function CompareDashboard({
                     {Object.entries(speakersByDistrict).map(([district, spkList]) => (
                       <optgroup key={district} label={district}>
                         {spkList.filter(s => !compareList.some(c => c.speaker === s.speaker)).map(s => (
-                          <option key={s.speaker} value={s.speaker}>{s.speaker} ({s.partyGroup?.replace(/京都市会議員団|議員団/, '')})</option>
+                          <option key={s.speaker} value={s.speaker}>{s.speaker} ({s.partyGroup?.replace(/神戸市会議員団|京都市会議員団|横浜市会議員団|名古屋市会議員団|大阪市会議員団|市会議員団|議員団|市議団/, '')})</option>
                         ))}
                       </optgroup>
                     ))}
