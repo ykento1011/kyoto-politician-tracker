@@ -286,31 +286,18 @@ Phase 4: 議決・賛否データスクレイピング＆AI論点解説
 
 
 -----------------------------------------------------------------------
-Phase 5: 選挙公報原本物理抽出＆セマンティック公約結合
------------------------------------------------------------------------
+【Phase 5】政策トピック・論戦タイムラインの自動結合（B×Cハイブリッド）
+・スクリプト: data-pipeline/generate_unified_topic_summaries.py
+・入力データ:
+   - frontend/public/data/{city}_statements_summary.json (質疑スレッド)
+   - frontend/public/data/{city}_mayor_tracker.json (首長看板政策: Tier 1)
+   - data-pipeline/master/evergreen_topics.json (8大分野16恒久テーマ: Tier 2)
+・手順:
+   1. Phase 6の首長トラッカー（シード/本番データ）が配置されていることを確認する。
+   2. python data-pipeline/generate_unified_topic_summaries.py を実行。
+   3. 手動でのPythonコード編集は一切不要。自動で20〜30件の標準化トピックが frontend/public/data/{city}_topic_summaries.json に生成される。
+   4. 生成されたJSON内の thread_count, timeline_phases が正常にバインドされていることを確認。
 
-1. 選挙公報PDFの一括アーカイブ・配置
-   - 各区選管または国立国会図書館WARPから公式公報原本PDFを取得し、data-pipeline/raw_pdfs/{cityCode}/ に集約する。
-   - 命名規則: 市長選は {cityCode}_mayor_{year}.pdf、市議選は ward_{wardName}.pdf。
-
-2. Pydantic構造化出力による物理抽出
-   - Gemini 2.5 Flash と Pydantic スキーマ（response_schema）を用いて物理抽出スクリプトを実行する。
-   - exact_quote には紙面に印刷された文字テキストをそのまま抜き出す（要約・言い換えは絶対不可）。
-   - 確認できないデータは白紙（未転記）とし、ハルシネーションを完全に防止する。
-
-3. 質疑＆公約 Embedding キャッシュの差分生成
-   [実行コマンド]
-   python data-pipeline/cache_statement_embeddings.py --city {cityCode}
-
-4. 統一公約・採決行動トラッカーのビルド
-   [実行コマンド]
-   python data-pipeline/build_unified_pledge_tracker.py --city {cityCode}
-
-   - 出力先: frontend/public/data/{cityCode}/pledge_tracker.json。
-   - 必ず辞書型（{ "議員名": { "tracked_items": [...] } }）とし、姓名スペース除去キーを同一参照で格納する。
-
-
------------------------------------------------------------------------
 Phase 6: 政策論戦マップ＆首長トラッカーの構築
 -----------------------------------------------------------------------
 
@@ -376,7 +363,7 @@ Phase 8: 3段階多層インテグリティ監査＆Playwright E2E検証
 
 4. デプロイ前自動UI健全性テスト（Playwright全画面巡回）
    [実行コマンド]
-   python run_comprehensive_test.py
+   python run_comprehensive_test.py (※Port 4173 でローカル起動・DNS非依存)
    - 合格基準: 白画面（#root空）、JSランタイムエラー、モーダル展開不能なし。
 
 
