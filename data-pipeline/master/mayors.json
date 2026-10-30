@@ -38,5 +38,11 @@
     "term_end": "2030-10-18",
     "official_profile_url": "https://www.city.yokohama.lg.jp/mayor/profile/profile.html",
     "manifesto_pdf": "raw_pdfs/yokohama/yokohama_mayor_2021.pdf"
+  },
+  "kobe": {
+    "name": "久元 喜造",
+    "term_start": "2021-11-20",
+    "term_end": "2025-11-19",
+    "city": "kobe"
   }
 }
