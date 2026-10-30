@@ -1,5 +1,18 @@
 import React, { useState, useMemo } from 'react';
 import { 
+
+
+  // 賛否データを日本語に正規化するヘルパー関数
+  const normalizeVote = (val) => {
+    if (!val) return '不明';
+    const v = String(val).toLowerCase();
+    if (v === 'for' || v === '賛成') return '賛成';
+    if (v === 'against' || v === '反対') return '反対';
+    if (v === 'split' || v === '対応割れ') return '対応割れ';
+    if (v === 'abstain' || v === '棄権') return '棄権';
+    if (v === 'absent' || v === '欠席') return '欠席';
+    return val;
+  };
   ArrowLeft, Flame, Search, Filter, CheckCircle2, XCircle, 
   Sparkles, ExternalLink, Scale, ChevronDown, Tag, AlertTriangle
 } from 'lucide-react';
@@ -251,15 +264,15 @@ export default function ContestedBillsView({
                   <span className="text-[10px] font-bold text-slate-400 block mb-2">各会派・無所属の評決態度</span>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                     {Object.entries(votes).map(([grp, v]) => {
-                      const isAgree = v === '賛成';
+                      const normV = normalizeVote(v);
+                        const isAgree = normV === '賛成';
                       return (
                         <div key={grp} className="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100 text-xs">
                           <span className="font-bold text-slate-700 truncate mr-2" title={grp}>{grp}</span>
                           <span className={`font-black shrink-0 inline-flex items-center gap-0.5 text-[11px] ${
                             isAgree ? 'text-emerald-600' : 'text-rose-600'
                           }`}>
-                            {isAgree ? <CheckCircle2 className="w-3 h-3" /> : <XCircle className="w-3 h-3" />}
-                            {v}
+                            {isAgree ? <CheckCircle2 className="w-3 h-3" /> : <XCircle className="w-3 h-3" />} {normV}
                           </span>
                         </div>
                       );
