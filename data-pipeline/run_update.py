@@ -1,4 +1,5 @@
-﻿import os
+from pathlib import Path
+import os
 import sys
 import json
 import subprocess
@@ -272,7 +273,10 @@ def run_pre_deploy_test():
     log("🛡️ デプロイ前の自動健全性テスト（Playwright全画面巡回）を実行中...")
     try:
         python_exe = sys.executable
-        res = subprocess.run([python_exe, COMPREHENSIVE_TEST_SCRIPT], capture_output=True, text=True, encoding='utf-8', errors='replace', check=True)
+        res = subprocess.run([python_exe, COMPREHENSIVE_TEST_SCRIPT], capture_output=True, text=True, encoding='utf-8', errors='replace', cwd=PROJECT_ROOT)
+        if res.returncode != 0:
+            log(f"自動健全性テストでエラー終了コード (exit {res.returncode}) を検知しました。\n{res.stdout}\n{res.stderr}", "ERROR")
+            return False, res.stderr or res.stdout
         if any(k in res.stdout for k in ["全画面・全モーダル・全タブ正常", "全ページ正常", "0件でした"]):
             log("✅ 自動健全性テスト合格（UIクラッシュ・404・コンソールエラーなし）")
             return True, ""
@@ -407,6 +411,14 @@ def main():
     if os.path.exists(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT):
         run_script(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT, "横浜市長 政策・予算トラッカーの更新")
     log("--- [首長政策トラッカーの最新化完了] ---")
+
+    # 都市別静的 HTML（クローラー用 OGP エンドポイント）の最新化同期
+    city_html_script = os.path.join(BASE_DIR, 'generate_city_html.py')
+    if os.path.exists(city_html_script):
+        log('都市別静的 HTML（OGP対応）の同期更新を開始...')
+        subprocess.run([sys.executable, str(city_html_script)], cwd=PROJECT_ROOT, check=True)
+        log('都市別静的 HTML 同期完了')
+        
 
     # 8. Git差分チェックと安全なデプロイ
     has_changes = check_for_changes()

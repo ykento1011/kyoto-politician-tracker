@@ -18,7 +18,8 @@
   },
   "summary_stats": {
     "total_pledges": 5,
-    "progress_pledges": 3
+    "progress_pledges": 3,
+    "last_updated": "2026-10-30"
   },
   "kpis": [
     {
