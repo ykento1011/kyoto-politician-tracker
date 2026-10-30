@@ -623,7 +623,7 @@ export default function App() {
             categoryName={currentRoute.categoryName}
             onBack={handleGoHome}
             topicStats={topicStats}
-            topicSummaries={topicSummaries}
+            
             filteredThreads={statements.filter(s => s.category === currentRoute.categoryName)}
             filteredBills={votesData.filter(b => getCategoryForBill(b) === currentRoute.categoryName)}
             speakerStats={speakerStats}
@@ -698,7 +698,7 @@ export default function App() {
             speakerStats={speakerStats}
             speakerFilteredThreads={threadsForSpeaker}
             topicStats={topicStats}
-            topicSummaries={topicSummaries}
+            
             speakerCategory={speakerCategory}
             setSpeakerCategory={setSpeakerCategory}
             speakerSort={speakerSort}
@@ -775,7 +775,7 @@ export default function App() {
         <MacroTopicMap
           cityCode={cityCode}
           topicStats={topicStats}
-            topicSummaries={topicSummaries}
+            
           selectedCategory={selectedCategory}
           onOpenCategoryDetail={handleOpenCategoryDetail}
           getIssueCountForCategory={getIssueCountForCategory}
@@ -797,7 +797,7 @@ export default function App() {
           filteredThreads={filteredThreads}
           filteredBills={filteredBills}
           topicStats={topicStats}
-            topicSummaries={topicSummaries}
+            
           speakerStats={speakerStats}
           selectedDistrict={selectedDistrict}
           setSelectedDistrict={setSelectedDistrict}

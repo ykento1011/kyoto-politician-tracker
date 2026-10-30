@@ -862,7 +862,7 @@ const INITIAL_VISIBLE_COUNT = 15;
 export default function CategoryDetailPage({
     categoryName,
     onBack,
-  topicSummaries = [],
+  
     topicStats,
     filteredThreads = [],
     filteredBills = [],
@@ -895,6 +895,15 @@ export default function CategoryDetailPage({
     lead: `${cityNameLabel}において「${categoryName}」分野に関する質疑が多数記録されています。`,
     key_points: []
   };
+
+  
+  const [topicSummaries, setTopicSummaries] = React.useState([]);
+  React.useEffect(() => {
+    fetch(`/data/${cityCode}_topic_summaries.json`)
+      .then(r => r.json())
+      .then(d => setTopicSummaries(d))
+      .catch(e => console.error(e));
+  }, [cityCode]);
 
   const coreTopics = useMemo(() => {
     if (!Array.isArray(topicSummaries)) return [];

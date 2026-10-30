@@ -647,7 +647,7 @@ import { PieChart, Flame, ArrowRight } from 'lucide-react';
 
 export default function MacroTopicMap({
   topicStats = [],
-   topicSummaries = [],
+   
   cityCode = 'kyoto',
   selectedCategory,
   onOpenCategoryDetail,
@@ -659,6 +659,15 @@ export default function MacroTopicMap({
   }, [topicStats]);
 
   // --- SSOT 動的バインド ---
+  
+  const [topicSummaries, setTopicSummaries] = React.useState([]);
+  React.useEffect(() => {
+    fetch(`/data/${cityCode}_topic_summaries.json`)
+      .then(r => r.json())
+      .then(d => setTopicSummaries(d))
+      .catch(e => console.error(e));
+  }, [cityCode]);
+
   const activeCategoryTopicsMap = useMemo(() => {
     const map = {};
     if (Array.isArray(topicSummaries)) {
