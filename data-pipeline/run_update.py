@@ -33,7 +33,7 @@ SYNC_MASTER_SCRIPT = os.path.join(BASE_DIR, "sync_master_data.py")
 # 【統一アーキテクチャ】4都市共通スクリプト
 CACHE_EMBEDDINGS_SCRIPT = os.path.join(BASE_DIR, "cache_statement_embeddings.py")
 UNIFIED_PLEDGE_SCRIPT = os.path.join(BASE_DIR, "build_unified_pledge_tracker.py")
-UNIFIED_TOPIC_SCRIPT = os.path.join(BASE_DIR, "generate_unified_topic_summaries.py")
+UNIFIED_TOPIC_SCRIPT = os.path.join(BASE_DIR, "run_full_topic_pipeline_fast.py")
 
 # 首長トラッカー
 BUILD_MAYOR_TRACKER_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker.py")
@@ -384,11 +384,10 @@ def main():
     else:
         log("✅ 新しい議事録はありませんでした。")
 
-    # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（4都市統合）
-    log("--- [政策タイムラインの最新化（4都市）] ---")
+    # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（全5都市 Gate Criteria監査版）
+    log("--- [政策タイムラインの最新化（全5都市 Gate Criteria適用）] ---")
     if os.path.exists(UNIFIED_TOPIC_SCRIPT):
-        for city in CITIES:
-            run_script(UNIFIED_TOPIC_SCRIPT, f"政策タイムラインの差分更新（{city.upper()}）", args=["--city", city])
+        run_script(UNIFIED_TOPIC_SCRIPT, "政策論点高解像度タイムライン生成（5都市一括）", args=["all"])
     log("--- [政策タイムラインの最新化完了] ---")
 
     # 7.7 議員看板公約・採決トラッカーの最新化（4都市統一セマンティック結合）
