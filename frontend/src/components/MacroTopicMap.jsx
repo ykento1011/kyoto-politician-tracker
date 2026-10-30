@@ -636,6 +636,12 @@ const ALL_CITY_TOPICS = {
   }
 };
 
+export const KYOTO_CATEGORY_TOPICS = ALL_CITY_TOPICS.kyoto || {};
+export const OSAKA_CATEGORY_TOPICS = ALL_CITY_TOPICS.osaka || {};
+export const NAGOYA_CATEGORY_TOPICS = ALL_CITY_TOPICS.nagoya || {};
+export const YOKOHAMA_CATEGORY_TOPICS = ALL_CITY_TOPICS.yokohama || {};
+export const KOBE_CATEGORY_TOPICS = ALL_CITY_TOPICS.kobe || {};
+
 import React, { useMemo } from 'react';
 import { PieChart, Flame, ArrowRight } from 'lucide-react';
 
