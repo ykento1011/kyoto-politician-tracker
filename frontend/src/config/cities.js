@@ -85,6 +85,28 @@ export const CITIES = {
     canonicalUrl: 'https://gikai-mikata.jp/yokohama/',
     ogpImage: 'https://gikai-mikata.jp/ogp-yokohama.png',
   },
+  kobe: {
+    code: 'kobe',
+    name: '神戸',
+    fullName: '神戸市',
+    councilName: '神戸市会',
+    councilType: 'council',
+    mayorName: '久元市長',
+    accentColor: '#2563eb',
+    active: true,
+    dataPathPrefix: 'kobe_',
+    files: {
+      votesSummary: '/data/kobe_votes_summary.json',
+      billIssues: '/data/kobe_bill_issues.json',
+      mayorTracker: '/data/kobe_mayor_tracker.json',
+      pledgeTracker: '/data/pledge_tracker_kobe.json',
+      topicSummaries: '/data/kobe_topic_summaries.json',
+    },
+    title: '議会のミカタ 神戸 ｜ AIは入口。判断するのは市民です。',
+    description: '神戸市会公式会議録と議決データを客観的に構造化。久元喜造市長の政策トラッカーと市会論戦マップ。一次原本完全バインド。',
+    canonicalUrl: 'https://gikai-mikata.jp/kobe/',
+    ogpImage: 'https://gikai-mikata.jp/ogp-kobe.png',
+  },
 };
 
 export const PORTAL_CONFIG = {
