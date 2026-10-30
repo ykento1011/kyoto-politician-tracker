@@ -1,0 +1,42 @@
+{
+  "kyoto": {
+    "city_name": "京都市",
+    "name": "松井孝治",
+    "hiragana": "まついこうじ",
+    "term": "2024-2028",
+    "term_start": "2024-02-25",
+    "term_end": "2028-02-24",
+    "official_profile_url": "https://www.city.kyoto.lg.jp/sogo/page/0000032584.html",
+    "manifesto_pdf": "raw_pdfs/kyoto/kyoto_mayor_2024.pdf"
+  },
+  "osaka": {
+    "city_name": "大阪市",
+    "name": "横山英幸",
+    "hiragana": "よこやまひでゆき",
+    "term": "2023-2027",
+    "term_start": "2023-04-10",
+    "term_end": "2027-04-09",
+    "official_profile_url": "https://www.city.osaka.lg.jp/seisakukikakushitsu/page/0000013641.html",
+    "manifesto_pdf": "raw_pdfs/osaka/osaka_mayor_2023.pdf"
+  },
+  "nagoya": {
+    "city_name": "名古屋市",
+    "name": "広沢一郎",
+    "hiragana": "ひろさわいちろう",
+    "term": "2024-2028",
+    "term_start": "2024-11-25",
+    "term_end": "2028-11-24",
+    "official_profile_url": "https://www.city.nagoya.jp/mayor/1002561.html",
+    "manifesto_pdf": "raw_pdfs/nagoya/nagoya_mayor_2024.pdf"
+  },
+  "yokohama": {
+    "city_name": "横浜市",
+    "name": "原澤敦美",
+    "hiragana": "はらさわあつみ",
+    "term": "2026-2030",
+    "term_start": "2026-10-19",
+    "term_end": "2030-10-18",
+    "official_profile_url": "https://www.city.yokohama.lg.jp/mayor/profile/profile.html",
+    "manifesto_pdf": "raw_pdfs/yokohama/yokohama_mayor_2021.pdf"
+  }
+}

@@ -2,1393 +2,2437 @@
   "関 勝則": {
     "name": "関 勝則",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "磯子区",
     "aliases": [
       "関勝則"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "関勝則": {
     "name": "関 勝則",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "磯子区",
     "aliases": [
       "関勝則"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "青木 亮祐": {
     "name": "青木 亮祐",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "保土ケ谷区",
     "aliases": [
       "青木亮祐"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "青木亮祐": {
     "name": "青木 亮祐",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "保土ケ谷区",
     "aliases": [
       "青木亮祐"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "長谷川 琢磨": {
     "name": "長谷川 琢磨",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "都筑区",
     "aliases": [
       "長谷川琢磨"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "長谷川琢磨": {
     "name": "長谷川 琢磨",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "都筑区",
     "aliases": [
       "長谷川琢磨"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "藤代 哲夫": {
     "name": "藤代 哲夫",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "神奈川区",
     "aliases": [
       "藤代哲夫"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "藤代哲夫": {
     "name": "藤代 哲夫",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "神奈川区",
     "aliases": [
       "藤代哲夫"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "東 みちよ": {
     "name": "東 みちよ",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "鶴見区",
     "aliases": [
       "東みちよ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "東みちよ": {
     "name": "東 みちよ",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "鶴見区",
     "aliases": [
       "東みちよ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "伊波 俊之助": {
     "name": "伊波 俊之助",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "中区",
     "aliases": [
       "伊波俊之助"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "伊波俊之助": {
     "name": "伊波 俊之助",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "中区",
     "aliases": [
       "伊波俊之助"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "磯部 圭太": {
     "name": "磯部 圭太",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "保土ケ谷区",
     "aliases": [
       "磯部圭太"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "磯部圭太": {
     "name": "磯部 圭太",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "保土ケ谷区",
     "aliases": [
       "磯部圭太"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "おさかべさやか": {
     "name": "おさかべさやか",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "青葉区",
     "aliases": [
       "おさかべさやか"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大桑 正貴": {
     "name": "大桑 正貴",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "栄区",
     "aliases": [
       "大桑正貴"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大桑正貴": {
     "name": "大桑 正貴",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "栄区",
     "aliases": [
       "大桑正貴"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "鴨志田 啓介": {
     "name": "鴨志田 啓介",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "緑区",
     "aliases": [
       "鴨志田啓介"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "鴨志田啓介": {
     "name": "鴨志田 啓介",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "緑区",
     "aliases": [
       "鴨志田啓介"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "川口 広": {
     "name": "川口 広",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "瀬谷区",
     "aliases": [
       "川口広"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "川口広": {
     "name": "川口 広",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "瀬谷区",
     "aliases": [
       "川口広"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "黒川 勝": {
     "name": "黒川 勝",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "金沢区",
     "aliases": [
       "黒川勝"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "黒川勝": {
     "name": "黒川 勝",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "金沢区",
     "aliases": [
       "黒川勝"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "小松 範昭": {
     "name": "小松 範昭",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "神奈川区",
     "aliases": [
       "小松範昭"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "小松範昭": {
     "name": "小松 範昭",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "神奈川区",
     "aliases": [
       "小松範昭"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "佐藤 茂": {
     "name": "佐藤 茂",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "旭区",
     "aliases": [
       "佐藤茂"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "佐藤茂": {
     "name": "佐藤 茂",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "旭区",
     "aliases": [
       "佐藤茂"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "佐藤 祐文": {
     "name": "佐藤 祐文",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港北区",
     "aliases": [
       "佐藤祐文"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "佐藤祐文": {
     "name": "佐藤 祐文",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港北区",
     "aliases": [
       "佐藤祐文"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "酒井 誠": {
     "name": "酒井 誠",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港北区",
     "aliases": [
       "酒井誠"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "酒井誠": {
     "name": "酒井 誠",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港北区",
     "aliases": [
       "酒井誠"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "清水 富雄": {
     "name": "清水 富雄",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "西区",
     "aliases": [
       "清水富雄"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "清水富雄": {
     "name": "清水 富雄",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "西区",
     "aliases": [
       "清水富雄"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "渋谷 健": {
     "name": "渋谷 健",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "南区",
     "aliases": [
       "渋谷健"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "渋谷健": {
     "name": "渋谷 健",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "南区",
     "aliases": [
       "渋谷健"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "白井 亮次": {
     "name": "白井 亮次",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "都筑区",
     "aliases": [
       "白井亮次"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "白井亮次": {
     "name": "白井 亮次",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "都筑区",
     "aliases": [
       "白井亮次"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "鈴木 太郎": {
     "name": "鈴木 太郎",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "戸塚区",
     "aliases": [
       "鈴木太郎"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "鈴木太郎": {
     "name": "鈴木 太郎",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "戸塚区",
     "aliases": [
       "鈴木太郎"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "瀬之間 康浩": {
     "name": "瀬之間 康浩",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港南区",
     "aliases": [
       "瀬之間康浩"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "瀬之間康浩": {
     "name": "瀬之間 康浩",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港南区",
     "aliases": [
       "瀬之間康浩"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "田野井 一雄": {
     "name": "田野井 一雄",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港南区",
     "aliases": [
       "田野井一雄"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "田野井一雄": {
     "name": "田野井 一雄",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港南区",
     "aliases": [
       "田野井一雄"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "福地 茂": {
     "name": "福地 茂",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港北区",
     "aliases": [
       "福地茂"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "福地茂": {
     "name": "福地 茂",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "港北区",
     "aliases": [
       "福地茂"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "伏見 幸枝": {
     "name": "伏見 幸枝",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "戸塚区",
     "aliases": [
       "伏見幸枝"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "伏見幸枝": {
     "name": "伏見 幸枝",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "戸塚区",
     "aliases": [
       "伏見幸枝"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "増永 純女": {
     "name": "増永 純女",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "旭区",
     "aliases": [
       "増永純女"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "増永純女": {
     "name": "増永 純女",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "旭区",
     "aliases": [
       "増永純女"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "松本 研": {
     "name": "松本 研",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "中区",
     "aliases": [
       "松本研"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "松本研": {
     "name": "松本 研",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "中区",
     "aliases": [
       "松本研"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "山下 正人": {
     "name": "山下 正人",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "青葉区",
     "aliases": [
       "山下正人"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "山下正人": {
     "name": "山下 正人",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "青葉区",
     "aliases": [
       "山下正人"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "山田 一誠": {
     "name": "山田 一誠",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "鶴見区",
     "aliases": [
       "山田一誠"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "山田一誠": {
     "name": "山田 一誠",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "鶴見区",
     "aliases": [
       "山田一誠"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "横山 正人": {
     "name": "横山 正人",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "青葉区",
     "aliases": [
       "横山正人"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "横山正人": {
     "name": "横山 正人",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "青葉区",
     "aliases": [
       "横山正人"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "横山 勇太朗": {
     "name": "横山 勇太朗",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "泉区",
     "aliases": [
       "横山勇太朗"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "横山勇太朗": {
     "name": "横山 勇太朗",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "泉区",
     "aliases": [
       "横山勇太朗"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "渡邊 忠則": {
     "name": "渡邊 忠則",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "鶴見区",
     "aliases": [
       "渡邊忠則"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "渡邊忠則": {
     "name": "渡邊 忠則",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "鶴見区",
     "aliases": [
       "渡邊忠則"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "渡辺忠則": {
     "name": "渡邊 忠則",
     "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "鶴見区",
     "aliases": [
       "渡邊忠則"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "斉藤 伸一": {
     "name": "斉藤 伸一",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "保土ケ谷区",
     "aliases": [
       "斉藤伸一"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "斉藤伸一": {
     "name": "斉藤 伸一",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "保土ケ谷区",
     "aliases": [
       "斉藤伸一"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "行田 朝仁": {
     "name": "行田 朝仁",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "青葉区",
     "aliases": [
       "行田朝仁"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "行田朝仁": {
     "name": "行田 朝仁",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "青葉区",
     "aliases": [
       "行田朝仁"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "望月 康弘": {
     "name": "望月 康弘",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "港北区",
     "aliases": [
       "望月康弘"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "望月康弘": {
     "name": "望月 康弘",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "港北区",
     "aliases": [
       "望月康弘"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "安西 英俊": {
     "name": "安西 英俊",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "港南区",
     "aliases": [
       "安西英俊"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "安西英俊": {
     "name": "安西 英俊",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "港南区",
     "aliases": [
       "安西英俊"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "市来 栄美子": {
     "name": "市来 栄美子",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "都筑区",
     "aliases": [
       "市来栄美子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "市来栄美子": {
     "name": "市来 栄美子",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "都筑区",
     "aliases": [
       "市来栄美子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "尾崎 太": {
     "name": "尾崎 太",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "鶴見区",
     "aliases": [
       "尾崎太"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "尾崎太": {
     "name": "尾崎 太",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "鶴見区",
     "aliases": [
       "尾崎太"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "木内 秀一": {
     "name": "木内 秀一",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "旭区",
     "aliases": [
       "木内秀一"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "木内秀一": {
     "name": "木内 秀一",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "旭区",
     "aliases": [
       "木内秀一"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "久保 和弘": {
     "name": "久保 和弘",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "瀬谷区",
     "aliases": [
       "久保和弘"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "久保和弘": {
     "name": "久保 和弘",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "瀬谷区",
     "aliases": [
       "久保和弘"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "髙橋 正治": {
     "name": "髙橋 正治",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "緑区",
     "aliases": [
       "髙橋正治"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "髙橋正治": {
     "name": "髙橋 正治",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "緑区",
     "aliases": [
       "髙橋正治"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "高橋正治": {
     "name": "髙橋 正治",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "緑区",
     "aliases": [
       "髙橋正治"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "竹内 康洋": {
     "name": "竹内 康洋",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "神奈川区",
     "aliases": [
       "竹内康洋"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "竹内康洋": {
     "name": "竹内 康洋",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "神奈川区",
     "aliases": [
       "竹内康洋"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "武田 勝久": {
     "name": "武田 勝久",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "磯子区",
     "aliases": [
       "武田勝久"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "武田勝久": {
     "name": "武田 勝久",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "磯子区",
     "aliases": [
       "武田勝久"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "竹野内 猛": {
     "name": "竹野内 猛",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "金沢区",
     "aliases": [
       "竹野内猛"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "竹野内猛": {
     "name": "竹野内 猛",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "金沢区",
     "aliases": [
       "竹野内猛"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "中島 光徳": {
     "name": "中島 光徳",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "戸塚区",
     "aliases": [
       "中島光徳"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "中島光徳": {
     "name": "中島 光徳",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "戸塚区",
     "aliases": [
       "中島光徳"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "仁田 昌寿": {
     "name": "仁田 昌寿",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "南区",
     "aliases": [
       "仁田昌寿"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "仁田昌寿": {
     "name": "仁田 昌寿",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "南区",
     "aliases": [
       "仁田昌寿"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "福島 直子": {
     "name": "福島 直子",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "中区",
     "aliases": [
       "福島直子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "福島直子": {
     "name": "福島 直子",
     "party": "公明党",
+    "partyGroup": "公明党",
     "district": "中区",
     "aliases": [
       "福島直子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大岩 真善和": {
     "name": "大岩 真善和",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "旭区",
     "aliases": [
       "大岩真善和"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大岩真善和": {
     "name": "大岩 真善和",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "旭区",
     "aliases": [
       "大岩真善和"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "藤崎 浩太郎": {
     "name": "藤崎 浩太郎",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "青葉区",
     "aliases": [
       "藤崎浩太郎"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "藤崎浩太郎": {
     "name": "藤崎 浩太郎",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "青葉区",
     "aliases": [
       "藤崎浩太郎"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "越久田 記子": {
     "name": "越久田 記子",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "緑区",
     "aliases": [
       "越久田記子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "越久田記子": {
     "name": "越久田 記子",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "緑区",
     "aliases": [
       "越久田記子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "かざま あさみ": {
     "name": "かざま あさみ",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "港北区",
     "aliases": [
       "かざまあさみ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "かざまあさみ": {
     "name": "かざま あさみ",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "港北区",
     "aliases": [
       "かざまあさみ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "髙田 修平": {
     "name": "髙田 修平",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "南区",
     "aliases": [
       "髙田修平"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "髙田修平": {
     "name": "髙田 修平",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "南区",
     "aliases": [
       "髙田修平"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "高田修平": {
     "name": "髙田 修平",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "南区",
     "aliases": [
       "髙田修平"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "中山 大輔": {
     "name": "中山 大輔",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "神奈川区",
     "aliases": [
       "中山大輔"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "中山大輔": {
     "name": "中山 大輔",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "神奈川区",
     "aliases": [
       "中山大輔"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "花上 喜代志": {
     "name": "花上 喜代志",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "瀬谷区",
     "aliases": [
       "花上喜代志"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "花上喜代志": {
     "name": "花上 喜代志",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "瀬谷区",
     "aliases": [
       "花上喜代志"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "麓 理恵": {
     "name": "麓 理恵",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "泉区",
     "aliases": [
       "麓理恵"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "麓理恵": {
     "name": "麓 理恵",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "泉区",
     "aliases": [
       "麓理恵"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "森 ひろたか": {
     "name": "森 ひろたか",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "保土ケ谷区",
     "aliases": [
       "森ひろたか"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "森ひろたか": {
     "name": "森 ひろたか",
     "party": "立憲民主党",
+    "partyGroup": "立憲民主党",
     "district": "保土ケ谷区",
     "aliases": [
       "森ひろたか"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "坂井 太": {
     "name": "坂井 太",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "金沢区",
     "aliases": [
       "坂井太"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "坂井太": {
     "name": "坂井 太",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "金沢区",
     "aliases": [
       "坂井太"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "伊藤 くみこ": {
     "name": "伊藤 くみこ",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "青葉区",
     "aliases": [
       "伊藤くみこ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "伊藤くみこ": {
     "name": "伊藤 くみこ",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "青葉区",
     "aliases": [
       "伊藤くみこ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "くしだ 久子": {
     "name": "くしだ 久子",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "旭区",
     "aliases": [
       "くしだ久子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "くしだ久子": {
     "name": "くしだ 久子",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "旭区",
     "aliases": [
       "くしだ久子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "いそべ 尚哉": {
     "name": "いそべ 尚哉",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "都筑区",
     "aliases": [
       "いそべ尚哉"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "いそべ尚哉": {
     "name": "いそべ 尚哉",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "都筑区",
     "aliases": [
       "いそべ尚哉"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大山 しょうじ": {
     "name": "大山 しょうじ",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "港北区",
     "aliases": [
       "大山しょうじ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大山しょうじ": {
     "name": "大山 しょうじ",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "港北区",
     "aliases": [
       "大山しょうじ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "柏原 すぐる": {
     "name": "柏原 すぐる",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "鶴見区",
     "aliases": [
       "柏原すぐる"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "柏原すぐる": {
     "name": "柏原 すぐる",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "鶴見区",
     "aliases": [
       "柏原すぐる"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "田中 紳一": {
     "name": "田中 紳一",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "神奈川区",
     "aliases": [
       "田中紳一"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "田中紳一": {
     "name": "田中 紳一",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "神奈川区",
     "aliases": [
       "田中紳一"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "山浦 英太": {
     "name": "山浦 英太",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "戸塚区",
     "aliases": [
       "山浦英太"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "山浦英太": {
     "name": "山浦 英太",
     "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
     "district": "戸塚区",
     "aliases": [
       "山浦英太"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "こがゆ 康弘": {
     "name": "こがゆ 康弘",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "旭区",
     "aliases": [
       "こがゆ康弘"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "こがゆ康弘": {
     "name": "こがゆ 康弘",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "旭区",
     "aliases": [
       "こがゆ康弘"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "熊本 ちひろ": {
     "name": "熊本 ちひろ",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "南区",
     "aliases": [
       "熊本ちひろ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "熊本ちひろ": {
     "name": "熊本 ちひろ",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "南区",
     "aliases": [
       "熊本ちひろ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "坂本 勝司": {
     "name": "坂本 勝司",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "戸塚区",
     "aliases": [
       "坂本勝司"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "坂本勝司": {
     "name": "坂本 勝司",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "戸塚区",
     "aliases": [
       "坂本勝司"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "深作 祐衣": {
     "name": "深作 祐衣",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "都筑区",
     "aliases": [
       "深作祐衣"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "深作祐衣": {
     "name": "深作 祐衣",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "都筑区",
     "aliases": [
       "深作祐衣"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "二井 くみよ": {
     "name": "二井 くみよ",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "磯子区",
     "aliases": [
       "二井くみよ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "二井くみよ": {
     "name": "二井 くみよ",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "磯子区",
     "aliases": [
       "二井くみよ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "横溝 じゅん子": {
     "name": "横溝 じゅん子",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "金沢区",
     "aliases": [
       "横溝じゅん子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "横溝じゅん子": {
     "name": "横溝 じゅん子",
     "party": "国民民主党",
+    "partyGroup": "国民民主党",
     "district": "金沢区",
     "aliases": [
       "横溝じゅん子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "古谷 靖彦": {
     "name": "古谷 靖彦",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "鶴見区",
     "aliases": [
       "古谷靖彦"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "古谷靖彦": {
     "name": "古谷 靖彦",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "鶴見区",
     "aliases": [
       "古谷靖彦"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "白井 正子": {
     "name": "白井 正子",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "港北区",
     "aliases": [
       "白井正子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "白井正子": {
     "name": "白井 正子",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "港北区",
     "aliases": [
       "白井正子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "宇佐美 さやか": {
     "name": "宇佐美 さやか",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "神奈川区",
     "aliases": [
       "宇佐美さやか"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "宇佐美さやか": {
     "name": "宇佐美 さやか",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "神奈川区",
     "aliases": [
       "宇佐美さやか"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大和田 あきお": {
     "name": "大和田 あきお",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "戸塚区",
     "aliases": [
       "大和田あきお"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大和田あきお": {
     "name": "大和田 あきお",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "戸塚区",
     "aliases": [
       "大和田あきお"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "みわ 智恵美": {
     "name": "みわ 智恵美",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "港南区",
     "aliases": [
       "みわ智恵美"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "みわ智恵美": {
     "name": "みわ 智恵美",
     "party": "日本共産党",
+    "partyGroup": "日本共産党",
     "district": "港南区",
     "aliases": [
       "みわ智恵美"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "山田 桂一郎": {
     "name": "山田 桂一郎",
     "party": "地域政党よこはま",
+    "partyGroup": "地域政党よこはま",
     "district": "港南区",
     "aliases": [
       "山田桂一郎"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "山田桂一郎": {
     "name": "山田 桂一郎",
     "party": "地域政党よこはま",
+    "partyGroup": "地域政党よこはま",
     "district": "港南区",
     "aliases": [
       "山田桂一郎"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "関 嵩史": {
     "name": "関 嵩史",
     "party": "地域政党よこはま",
+    "partyGroup": "地域政党よこはま",
     "district": "保土ケ谷区",
     "aliases": [
       "関嵩史"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "関嵩史": {
     "name": "関 嵩史",
     "party": "地域政党よこはま",
+    "partyGroup": "地域政党よこはま",
     "district": "保土ケ谷区",
     "aliases": [
       "関嵩史"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "太田 正孝": {
     "name": "太田 正孝",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "磯子区",
     "aliases": [
       "太田正孝"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "太田正孝": {
     "name": "太田 正孝",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "磯子区",
     "aliases": [
       "太田正孝"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "谷田部 孝一": {
     "name": "谷田部 孝一",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "金沢区",
     "aliases": [
       "谷田部孝一"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "谷田部孝一": {
     "name": "谷田部 孝一",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "金沢区",
     "aliases": [
       "谷田部孝一"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "井上 さくら": {
     "name": "井上 さくら",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "鶴見区",
     "aliases": [
       "井上さくら"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "井上さくら": {
     "name": "井上 さくら",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "鶴見区",
     "aliases": [
       "井上さくら"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "梶村 充": {
     "name": "梶村 充",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "泉区",
     "aliases": [
       "梶村充"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "梶村充": {
     "name": "梶村 充",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "泉区",
     "aliases": [
       "梶村充"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "斉藤 達也": {
     "name": "斉藤 達也",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "緑区",
     "aliases": [
       "斉藤達也"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "斉藤達也": {
     "name": "斉藤 達也",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "緑区",
     "aliases": [
       "斉藤達也"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "輿石 かつ子": {
     "name": "輿石 かつ子",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "栄区",
     "aliases": [
       "輿石かつ子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "輿石かつ子": {
     "name": "輿石 かつ子",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "栄区",
     "aliases": [
       "輿石かつ子"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "荻原 隆宏": {
     "name": "荻原 隆宏",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "西区",
     "aliases": [
       "荻原隆宏"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "荻原隆宏": {
     "name": "荻原 隆宏",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "西区",
     "aliases": [
       "荻原隆宏"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "田中 ゆき": {
     "name": "田中 ゆき",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "青葉区",
     "aliases": [
       "田中ゆき"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "田中ゆき": {
     "name": "田中 ゆき",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "青葉区",
     "aliases": [
       "田中ゆき"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "長谷川 えつこ": {
     "name": "長谷川 えつこ",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "栄区",
     "aliases": [
       "長谷川えつこ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "長谷川えつこ": {
     "name": "長谷川 えつこ",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "栄区",
     "aliases": [
       "長谷川えつこ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大野 トモイ": {
     "name": "大野 トモイ",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "港北区",
     "aliases": [
       "大野トモイ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   "大野トモイ": {
     "name": "大野 トモイ",
     "party": "無所属",
+    "partyGroup": "無所属",
     "district": "港北区",
     "aliases": [
       "大野トモイ"
-    ]
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   }
 }

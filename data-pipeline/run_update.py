@@ -133,6 +133,56 @@ def run_script(script_path, description, args=None):
         print("--------------------")
         return False, e.stderr
 
+
+def run_master_pipeline():
+    """
+    【Layer 1-5】全4都市の公式名簿スクレイピング、サーキットブレーカー検証、
+    およびマスター同期をパイプラインの最前線で実行する。
+    """
+    log("=== [公式マスター検証 & サーキットブレーカー監査] ===")
+    
+    # 1. スクレイピング & 首長・定数サーキットブレーカー検証
+    scrape_cmd = [sys.executable, SCRAPE_MASTER_SCRIPT, "--city", "all"]
+    proc = subprocess.run(scrape_cmd, capture_output=True, text=True, cwd=BASE_DIR, encoding="utf-8", errors="replace")
+    
+    if proc.returncode == 2:
+        # 首長交代サーキットブレーカー発動
+        log("🚨 首長交代サーキットブレーカーが発動しました。パイプラインを緊急安全停止します。", "ERROR")
+        notify_discord(
+            "🚨 【首長交代検知】パイプライン安全停止",
+            "自治体公式HPにおいて首長交代の可能性を検知しました。\n"
+            "データ破壊を防ぐため、自動更新パイプラインを緊急停止しました。\n"
+            "マスターデータ (`data-pipeline/master/mayors.json`) の確認・更新を行ってください。",
+            status="error",
+            error_detail=proc.stdout + "\n" + proc.stderr
+        )
+        return False
+        
+    elif proc.returncode != 0:
+        # 定数閾値超過等のサーキットブレーカー発動
+        log(f"❌ 定数閾値サーキットブレーカーが発動しました (exit {proc.returncode})。パイプラインを停止します。", "ERROR")
+        notify_discord(
+            "❌ 【定数サーキットブレーカー】パイプライン停止",
+            "議員名簿のスクレイピング取得件数が安全閾値（定数比 95%〜100%）から逸脱しました。\n"
+            "自治体サイトの構造変更によるデータ破損を防ぐため更新を中断しました。",
+            status="error",
+            error_detail=proc.stdout + "\n" + proc.stderr
+        )
+        return False
+        
+    log("✅ 全4都市の首長および議員名簿の検証・オートヒーリングに成功しました。")
+    
+    # 2. 下流データへの同期（speaker_stats / statements）
+    log("=== [公式マスター・発言ログ下流同期] ===")
+    sync_ok, sync_err = run_script(SYNC_MASTER_SCRIPT, "4都市マスター・発言ログ同期", args=["--city", "all"])
+    if not sync_ok:
+        log("❌ マスター下流同期に失敗しました。", "ERROR")
+        notify_discord("❌ マスター同期エラー", "sync_master_data.py の実行に失敗しました。", status="error", error_detail=sync_err)
+        return False
+        
+    log("✅ 公式マスター同期完了。")
+    return True
+
 def load_crawled_ids():
     if os.path.exists(CRAWLED_FILE):
         try:
@@ -267,6 +317,11 @@ def main():
         log("🧪 ドライランモード: GitHub へのデプロイ（commit/push）は行われません")
     print("="*60)
 
+    # 0. 【最優先防護】公式マスター検証・首長サーキットブレーカー・下流同期
+    if not run_master_pipeline():
+        log("マスター検証で異常が検知されたため、パイプラインを完全停止しました。", "ERROR")
+        return
+
     # 1. 取得前の議事録 ID を控える
     before_ids = load_crawled_ids()
     before_count = len(before_ids)
@@ -313,12 +368,9 @@ def main():
             notify_discord("❌ 定期更新エラー: サマリー生成失敗", "statements_summary.json の生成中にエラーが発生しました。", status="error", error_detail=err)
             return
 
-        # 7.1 【SSoT】市議会公式マスターと発言ログの同期（異体字正規化・行政幹部完全自動排除）
+        # 7.1 新着議事録追加に伴う再同期
         if os.path.exists(SYNC_MASTER_SCRIPT):
-            log("--- [公式マスター同期＆行政幹部自動排除フィルタリング] ---")
-            for city in CITIES:
-                run_script(SYNC_MASTER_SCRIPT, f"公式マスター・発言ログ同期（{city.upper()}）", args=["--city", city])
-            log("--- [公式マスター同期＆行政幹部自動排除フィルタリング完了] ---")
+            run_script(SYNC_MASTER_SCRIPT, "新着議事録に対するマスター再同期", args=["--city", "all"])
 
         # 7.5 新着発言の Embedding キャッシュ差分更新
         if os.path.exists(CACHE_EMBEDDINGS_SCRIPT):

@@ -5,7 +5,13 @@
       "青野仁志"
     ],
     "district": "中京区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "赤阪　仁",
@@ -13,7 +19,13 @@
       "赤阪仁"
     ],
     "district": "伏見区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "天方　ひろゆき",
@@ -21,7 +33,13 @@
       "天方ひろゆき"
     ],
     "district": "西京区",
-    "party": "無所属"
+    "party": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "無所属"
   },
   {
     "name": "井﨑　敦子",
@@ -29,7 +47,13 @@
       "井﨑敦子"
     ],
     "district": "左京区",
-    "party": "無所属"
+    "party": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "無所属"
   },
   {
     "name": "井上　よしひろ",
@@ -37,7 +61,13 @@
       "井上よしひろ"
     ],
     "district": "右京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "宇佐美　賢一",
@@ -45,7 +75,13 @@
       "宇佐美賢一"
     ],
     "district": "左京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "江村　理紗",
@@ -53,7 +89,13 @@
       "江村理紗"
     ],
     "district": "右京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "えもと　かよこ",
@@ -61,7 +103,13 @@
       "えもとかよこ"
     ],
     "district": "右京区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "大津　裕太",
@@ -69,7 +117,13 @@
       "大津裕太"
     ],
     "district": "中京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "おんづか　功",
@@ -77,7 +131,13 @@
       "おんづか功"
     ],
     "district": "左京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "片桐　直哉",
@@ -85,7 +145,13 @@
       "片桐直哉"
     ],
     "district": "北区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "加藤　あい",
@@ -93,7 +159,13 @@
       "加藤あい"
     ],
     "district": "左京区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "加藤　昌洋",
@@ -101,7 +173,13 @@
       "加藤昌洋"
     ],
     "district": "中京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "神谷　修平",
@@ -109,7 +187,13 @@
       "神谷修平"
     ],
     "district": "下京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "河合　ようこ",
@@ -117,7 +201,13 @@
       "河合ようこ"
     ],
     "district": "西京区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "かわしま　優子",
@@ -125,7 +215,13 @@
       "かわしま優子"
     ],
     "district": "伏見区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "河村　諒",
@@ -133,7 +229,13 @@
       "河村諒"
     ],
     "district": "左京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "きくち　一秀",
@@ -141,7 +243,13 @@
       "きくち一秀"
     ],
     "district": "右京区",
-    "party": "無所属"
+    "party": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "無所属"
   },
   {
     "name": "北尾　ゆか",
@@ -149,7 +257,13 @@
       "北尾ゆか"
     ],
     "district": "下京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "北川　みき",
@@ -157,7 +271,13 @@
       "北川みき"
     ],
     "district": "西京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "北山　ただお",
@@ -165,7 +285,13 @@
       "北山ただお"
     ],
     "district": "山科区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "久保田　正紀",
@@ -173,7 +299,13 @@
       "久保田正紀"
     ],
     "district": "伏見区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "くまざわ　真昭",
@@ -181,7 +313,13 @@
       "くまざわ真昭"
     ],
     "district": "左京区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "くらた　共子",
@@ -189,7 +327,13 @@
       "くらた共子"
     ],
     "district": "上京区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "こうち　大輔",
@@ -197,7 +341,13 @@
       "こうち大輔"
     ],
     "district": "右京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "小島　信太郎",
@@ -205,7 +355,13 @@
       "小島信太郎"
     ],
     "district": "山科区",
-    "party": "無所属"
+    "party": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "無所属"
   },
   {
     "name": "さくらい　泰広",
@@ -213,7 +369,13 @@
       "さくらい泰広"
     ],
     "district": "左京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "繁　隆夫",
@@ -221,7 +383,13 @@
       "繁隆夫"
     ],
     "district": "伏見区",
-    "party": "無所属"
+    "party": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "無所属"
   },
   {
     "name": "しまもと　京司",
@@ -229,7 +397,13 @@
       "しまもと京司"
     ],
     "district": "南区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "下村　あきら",
@@ -237,7 +411,13 @@
       "下村あきら"
     ],
     "district": "下京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "菅谷　浩平",
@@ -245,7 +425,13 @@
       "菅谷浩平"
     ],
     "district": "北区",
-    "party": "無所属"
+    "party": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "無所属"
   },
   {
     "name": "田中　明秀",
@@ -253,7 +439,13 @@
       "田中明秀"
     ],
     "district": "西京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "田中　たかのり",
@@ -261,7 +453,13 @@
       "田中たかのり"
     ],
     "district": "右京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "谷口　みゆき",
@@ -269,7 +467,13 @@
       "谷口みゆき"
     ],
     "district": "北区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "玉本　なるみ",
@@ -277,7 +481,13 @@
       "玉本なるみ"
     ],
     "district": "北区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "津田　大三",
@@ -285,7 +495,13 @@
       "津田大三"
     ],
     "district": "中京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "寺田　一博",
@@ -293,7 +509,13 @@
       "寺田一博"
     ],
     "district": "上京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "とがし　豊",
@@ -301,7 +523,13 @@
       "とがし豊"
     ],
     "district": "左京区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "富　きくお",
@@ -309,7 +537,13 @@
       "富きくお"
     ],
     "district": "山科区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "中高　しゅうじ",
@@ -317,7 +551,13 @@
       "中高しゅうじ"
     ],
     "district": "上京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "中野　洋一",
@@ -325,7 +565,13 @@
       "中野洋一"
     ],
     "district": "東山区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "中村　まり",
@@ -333,7 +579,13 @@
       "中村まり"
     ],
     "district": "南区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "西野　さち子",
@@ -341,7 +593,13 @@
       "西野さち子"
     ],
     "district": "伏見区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "西村　義直",
@@ -349,7 +607,13 @@
       "西村義直"
     ],
     "district": "西京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "西山　信昌",
@@ -357,7 +621,13 @@
       "西山信昌"
     ],
     "district": "下京区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "橋村　芳和",
@@ -365,7 +635,13 @@
       "橋村芳和"
     ],
     "district": "伏見区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "土方　莉紗",
@@ -373,7 +649,13 @@
       "土方莉紗"
     ],
     "district": "南区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "兵藤　しんいち",
@@ -381,7 +663,13 @@
       "兵藤しんいち"
     ],
     "district": "北区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "平井　良人",
@@ -389,7 +677,13 @@
       "平井良人"
     ],
     "district": "中京区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "平田　圭",
@@ -397,7 +691,13 @@
       "平田圭"
     ],
     "district": "伏見区",
-    "party": "無所属"
+    "party": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "無所属"
   },
   {
     "name": "平山　たかお",
@@ -405,7 +705,13 @@
       "平山たかお"
     ],
     "district": "東山区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "平山　よしかず",
@@ -413,7 +719,13 @@
       "平山よしかず"
     ],
     "district": "西京区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "増成　竜治",
@@ -421,7 +733,13 @@
       "増成竜治"
     ],
     "district": "伏見区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "松田　けい子",
@@ -429,7 +747,13 @@
       "松田けい子"
     ],
     "district": "山科区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "みちはた　弘之",
@@ -437,7 +761,13 @@
       "みちはた弘之"
     ],
     "district": "伏見区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "椋田　隆知",
@@ -445,7 +775,13 @@
       "椋田隆知"
     ],
     "district": "南区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "森　かれん",
@@ -453,7 +789,13 @@
       "森かれん"
     ],
     "district": "上京区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "森田　守",
@@ -461,7 +803,13 @@
       "森田守"
     ],
     "district": "右京区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "森田　ゆみ子",
@@ -469,7 +817,13 @@
       "森田ゆみ子"
     ],
     "district": "南区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "もりもと　英靖",
@@ -477,7 +831,13 @@
       "もりもと英靖"
     ],
     "district": "伏見区",
-    "party": "維新・京都・国民市会議員団"
+    "party": "維新・京都・国民市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新・京都・国民市会議員団"
   },
   {
     "name": "山田　こうじ",
@@ -485,7 +845,13 @@
       "山田こうじ"
     ],
     "district": "右京区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "やまね　智史",
@@ -493,7 +859,13 @@
       "やまね智史"
     ],
     "district": "伏見区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "山本　恵一",
@@ -501,7 +873,13 @@
       "山本恵一"
     ],
     "district": "北区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "山本　しゅうじ",
@@ -509,7 +887,13 @@
       "山本しゅうじ"
     ],
     "district": "山科区",
-    "party": "自由民主党京都市会議員団"
+    "party": "自由民主党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自由民主党京都市会議員団"
   },
   {
     "name": "山本　陽子",
@@ -517,7 +901,13 @@
       "山本陽子"
     ],
     "district": "山科区",
-    "party": "日本共産党京都市会議員団"
+    "party": "日本共産党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "日本共産党京都市会議員団"
   },
   {
     "name": "湯浅　光彦",
@@ -525,7 +915,13 @@
       "湯浅光彦"
     ],
     "district": "右京区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   },
   {
     "name": "吉田　孝雄",
@@ -533,6 +929,12 @@
       "吉田孝雄"
     ],
     "district": "伏見区",
-    "party": "公明党京都市会議員団"
+    "party": "公明党京都市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明党京都市会議員団"
   }
 ]

@@ -5,7 +5,13 @@
       "こんどうだい"
     ],
     "district": "北区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "高山　美佳",
@@ -13,7 +19,13 @@
       "たかやまみか"
     ],
     "district": "北区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "前田　和彦",
@@ -21,7 +33,13 @@
       "まえだかずひこ"
     ],
     "district": "北区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "山本　智子",
@@ -29,7 +47,13 @@
       "やまもとともこ"
     ],
     "district": "北区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "荒木　肇",
@@ -37,7 +61,13 @@
       "あらきはじめ"
     ],
     "district": "都島区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "大西　しょういち",
@@ -45,7 +75,13 @@
       "おおにししょういち"
     ],
     "district": "都島区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "岡田　妥知",
@@ -53,7 +89,13 @@
       "おかだやすとも"
     ],
     "district": "都島区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "太田　勝己",
@@ -61,7 +103,13 @@
       "おおたかつき"
     ],
     "district": "福島区",
-    "party": "自国くらし"
+    "party": "自国くらし",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自国くらし"
   },
   {
     "name": "広田　和美",
@@ -69,7 +117,13 @@
       "ひろたかずみ"
     ],
     "district": "福島区",
-    "party": "福島クラブ"
+    "party": "福島クラブ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "福島クラブ"
   },
   {
     "name": "今田　信行",
@@ -77,7 +131,13 @@
       "いまだのぶゆき"
     ],
     "district": "此花区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "たけち　博幸",
@@ -85,7 +145,13 @@
       "たけちひろゆき"
     ],
     "district": "此花区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "塩中　一成",
@@ -93,7 +159,13 @@
       "しおなかかずしげ"
     ],
     "district": "中央区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "鈴木　理恵",
@@ -101,7 +173,13 @@
       "すずきりえ"
     ],
     "district": "中央区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "野上　らん",
@@ -109,13 +187,25 @@
       "のがみらん"
     ],
     "district": "中央区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "くりた　ゆうや",
     "aliases": [],
     "district": "西区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "西　拓郎",
@@ -123,7 +213,13 @@
       "にしたくろう"
     ],
     "district": "西区",
-    "party": "大阪にし"
+    "party": "大阪にし",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "大阪にし"
   },
   {
     "name": "東　貴之",
@@ -131,7 +227,13 @@
       "ひがしたかゆき"
     ],
     "district": "西区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "西　徳人",
@@ -139,7 +241,13 @@
       "にしのりひと"
     ],
     "district": "港区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "藤田　あきら",
@@ -147,7 +255,13 @@
       "ふじたあきら"
     ],
     "district": "港区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "出雲　輝英",
@@ -155,7 +269,13 @@
       "いずもてるひで"
     ],
     "district": "大正区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "小山　光明",
@@ -163,7 +283,13 @@
       "こやまみつあき"
     ],
     "district": "大正区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "金子　恵美",
@@ -171,7 +297,13 @@
       "かねこえみ"
     ],
     "district": "天王寺区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "須藤　奨太",
@@ -179,7 +311,13 @@
       "すどうしょうた"
     ],
     "district": "天王寺区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "竹下　隆",
@@ -187,7 +325,13 @@
       "たけしたたかし"
     ],
     "district": "浪速区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "森山　よしひさ",
@@ -195,7 +339,13 @@
       "もりやまよしひさ"
     ],
     "district": "浪速区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "佐々木　哲夫",
@@ -203,7 +353,13 @@
       "ささきてつお"
     ],
     "district": "西淀川区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "清水　こう",
@@ -211,7 +367,13 @@
       "しみずこう"
     ],
     "district": "西淀川区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "山田　かな",
@@ -219,7 +381,13 @@
       "やまだかな"
     ],
     "district": "西淀川区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "今村　直人",
@@ -227,7 +395,13 @@
       "いまむらなおと"
     ],
     "district": "淀川区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "坂井　はじめ",
@@ -235,7 +409,13 @@
       "さかいはじめ"
     ],
     "district": "淀川区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "佐竹　りほ",
@@ -243,7 +423,13 @@
       "さたけりほ"
     ],
     "district": "淀川区",
-    "party": "総活躍"
+    "party": "総活躍",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "総活躍"
   },
   {
     "name": "杉田　忠裕",
@@ -251,7 +437,13 @@
       "すぎたただひろ"
     ],
     "district": "淀川区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "南　隆文",
@@ -259,7 +451,13 @@
       "みなみたかふみ"
     ],
     "district": "淀川区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "石川　博紀",
@@ -267,7 +465,13 @@
       "いしかわひろき"
     ],
     "district": "東淀川区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "岩池　きよ",
@@ -275,7 +479,13 @@
       "いわいけきよ"
     ],
     "district": "東淀川区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "橋本　まさと",
@@ -283,13 +493,25 @@
       "はしもとまさと"
     ],
     "district": "東淀川区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "ますもと　さおり",
     "aliases": [],
     "district": "東淀川区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "森　慶吾",
@@ -297,7 +519,13 @@
       "もりけいご"
     ],
     "district": "東淀川区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "近藤　みわ",
@@ -305,7 +533,13 @@
       "こんどうみわ"
     ],
     "district": "東成区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "永瀬　かなこ",
@@ -313,7 +547,13 @@
       "ながせかなこ"
     ],
     "district": "東成区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "藤原　よういち",
@@ -321,7 +561,13 @@
       "ふじわらよういち"
     ],
     "district": "東成区",
-    "party": "自国くらし"
+    "party": "自国くらし",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自国くらし"
   },
   {
     "name": "木下　誠",
@@ -329,7 +575,13 @@
       "きのしたまこと"
     ],
     "district": "生野区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "武　直樹",
@@ -337,7 +589,13 @@
       "たけなおき"
     ],
     "district": "生野区",
-    "party": "自国くらし"
+    "party": "自国くらし",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自国くらし"
   },
   {
     "name": "原口　悠介",
@@ -345,7 +603,13 @@
       "はらぐちゆうすけ"
     ],
     "district": "生野区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "山田　正和",
@@ -353,7 +617,13 @@
       "やまだまさかず"
     ],
     "district": "生野区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "西崎　照明",
@@ -361,7 +631,13 @@
       "にしざきてるあき"
     ],
     "district": "旭区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "福田　武洋",
@@ -369,7 +645,13 @@
       "ふくだたけひろ"
     ],
     "district": "旭区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "宮脇　希",
@@ -377,7 +659,13 @@
       "みやわきのぞみ"
     ],
     "district": "旭区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "明石　直樹",
@@ -385,7 +673,13 @@
       "あかしなおき"
     ],
     "district": "城東区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "馬場　のりゆき",
@@ -393,7 +687,13 @@
       "ばばのりゆき"
     ],
     "district": "城東区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "ホンダ　リエ",
@@ -401,7 +701,13 @@
       "ほんだりえ"
     ],
     "district": "城東区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "山中　智子",
@@ -409,7 +715,13 @@
       "やまなかともこ"
     ],
     "district": "城東区",
-    "party": "共産"
+    "party": "共産",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "共産"
   },
   {
     "name": "わしみ　慎一",
@@ -417,7 +729,13 @@
       "わしみしんいち"
     ],
     "district": "城東区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "大橋　一隆",
@@ -425,7 +743,13 @@
       "おおはしかずたか"
     ],
     "district": "鶴見区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "黒田　まりこ",
@@ -433,7 +757,13 @@
       "くろだまりこ"
     ],
     "district": "鶴見区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "土岐　恭生",
@@ -441,7 +771,13 @@
       "ときやすお"
     ],
     "district": "鶴見区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "梅園　周",
@@ -449,7 +785,13 @@
       "うめぞのまこと"
     ],
     "district": "阿倍野区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "木下　吉信",
@@ -457,7 +799,13 @@
       "きのしたよしのぶ"
     ],
     "district": "阿倍野区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "谷井　正佳",
@@ -465,7 +813,13 @@
       "たにいまさよし"
     ],
     "district": "阿倍野区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "片山　一歩",
@@ -473,7 +827,13 @@
       "かたやまいっぽ"
     ],
     "district": "住之江区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "岸本　栄",
@@ -481,7 +841,13 @@
       "きしもとさかえ"
     ],
     "district": "住之江区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "木村　ひかり",
@@ -489,7 +855,13 @@
       "きむらひかり"
     ],
     "district": "住之江区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "松崎　孔",
@@ -497,7 +869,13 @@
       "まつざきとおる"
     ],
     "district": "住之江区",
-    "party": "自国くらし"
+    "party": "自国くらし",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自国くらし"
   },
   {
     "name": "伊藤　亜実",
@@ -505,7 +883,13 @@
       "いとうあみ"
     ],
     "district": "住吉区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "井上　浩",
@@ -513,7 +897,13 @@
       "いのうえひろし"
     ],
     "district": "住吉区",
-    "party": "共産"
+    "party": "共産",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "共産"
   },
   {
     "name": "上田　智隆",
@@ -521,7 +911,13 @@
       "うえだともたか"
     ],
     "district": "住吉区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "くぼた　亮",
@@ -529,7 +925,13 @@
       "くぼたりょう"
     ],
     "district": "住吉区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "中田　光一郎",
@@ -537,7 +939,13 @@
       "なかたこういちろう"
     ],
     "district": "住吉区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "田辺　信広",
@@ -545,7 +953,13 @@
       "たなべのぶひろ"
     ],
     "district": "東住吉区",
-    "party": "無所属"
+    "party": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "無所属"
   },
   {
     "name": "辻　義隆",
@@ -553,7 +967,13 @@
       "つじよしたか"
     ],
     "district": "東住吉区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "人見　つよし",
@@ -561,7 +981,13 @@
       "ひとみつよし"
     ],
     "district": "東住吉区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "渕上　浩美",
@@ -569,7 +995,13 @@
       "ふちかみひろみ"
     ],
     "district": "東住吉区",
-    "party": "自民市民"
+    "party": "自民市民",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自民市民"
   },
   {
     "name": "杉村　幸太郎",
@@ -577,7 +1009,13 @@
       "すぎむらこうたろう"
     ],
     "district": "平野区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "田中　ひろき",
@@ -585,7 +1023,13 @@
       "たなかひろき"
     ],
     "district": "平野区",
-    "party": "自国くらし"
+    "party": "自国くらし",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "自国くらし"
   },
   {
     "name": "永井　広幸",
@@ -593,7 +1037,13 @@
       "ながいひろゆき"
     ],
     "district": "平野区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "永田　典子",
@@ -601,7 +1051,13 @@
       "ながたのりこ"
     ],
     "district": "平野区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   },
   {
     "name": "松田　まさとし",
@@ -609,7 +1065,13 @@
       "まつだまさとし"
     ],
     "district": "平野区",
-    "party": "大阪平野"
+    "party": "大阪平野",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "大阪平野"
   },
   {
     "name": "吉見　みさこ",
@@ -617,7 +1079,13 @@
       "よしみみさこ"
     ],
     "district": "平野区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "辻　淳子",
@@ -625,7 +1093,13 @@
       "つじじゅんこ"
     ],
     "district": "西成区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "藤岡　寛和",
@@ -633,7 +1107,13 @@
       "ふじおかひろかず"
     ],
     "district": "西成区",
-    "party": "維新"
+    "party": "維新",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "維新"
   },
   {
     "name": "山口　悟朗",
@@ -641,6 +1121,12 @@
       "やまぐちごろう"
     ],
     "district": "西成区",
-    "party": "公明"
+    "party": "公明",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null,
+    "partyGroup": "公明"
   }
 ]

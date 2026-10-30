@@ -6,7 +6,12 @@
     ],
     "district": "千種区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "伊神邦彦",
@@ -15,7 +20,12 @@
     ],
     "district": "千種区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "神ひろし",
@@ -24,7 +34,12 @@
     ],
     "district": "千種区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "北角嘉幸",
@@ -33,7 +48,12 @@
     ],
     "district": "千種区",
     "party": "新生会",
-    "partyGroup": "新生会"
+    "partyGroup": "新生会",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "田辺雄一",
@@ -42,7 +62,12 @@
     ],
     "district": "千種区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "佐藤ゆうこ",
@@ -51,7 +76,12 @@
     ],
     "district": "東区",
     "party": "減税日本ナゴヤ",
-    "partyGroup": "減税日本ナゴヤ"
+    "partyGroup": "減税日本ナゴヤ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "上村みちよ",
@@ -60,7 +90,12 @@
     ],
     "district": "東区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "くにまさ直記",
@@ -69,7 +104,12 @@
     ],
     "district": "東区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "渡辺やすのり",
@@ -78,7 +118,12 @@
     ],
     "district": "北区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "田山宏之",
@@ -87,7 +132,12 @@
     ],
     "district": "北区",
     "party": "減税日本ナゴヤ",
-    "partyGroup": "減税日本ナゴヤ"
+    "partyGroup": "減税日本ナゴヤ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "長谷川由美子",
@@ -96,7 +146,12 @@
     ],
     "district": "北区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "服部将也",
@@ -105,7 +160,12 @@
     ],
     "district": "北区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "岡田ゆき子",
@@ -113,8 +173,13 @@
       "おかだゆきこ"
     ],
     "district": "北区",
-    "party": "日本共産党名古屋市会議員団",
-    "partyGroup": "日本共産党名古屋市会議員団"
+    "party": "無所属",
+    "partyGroup": "無所属",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "浅野有",
@@ -123,7 +188,12 @@
     ],
     "district": "西区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "大田とみひこ",
@@ -132,7 +202,12 @@
     ],
     "district": "西区",
     "party": "減税日本ナゴヤ",
-    "partyGroup": "減税日本ナゴヤ"
+    "partyGroup": "減税日本ナゴヤ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "うえぞの晋介",
@@ -141,7 +216,12 @@
     ],
     "district": "西区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "さわだ晃一",
@@ -150,7 +230,12 @@
     ],
     "district": "西区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "うかい春美",
@@ -159,7 +244,12 @@
     ],
     "district": "中村区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "村瀬きよみ",
@@ -168,7 +258,12 @@
     ],
     "district": "中村区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "小出昭司",
@@ -177,7 +272,12 @@
     ],
     "district": "中村区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "おか千恵",
@@ -186,7 +286,12 @@
     ],
     "district": "中村区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "中田ちづこ",
@@ -195,7 +300,12 @@
     ],
     "district": "中区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "豊田かおる",
@@ -204,7 +314,12 @@
     ],
     "district": "中区",
     "party": "減税日本ナゴヤ",
-    "partyGroup": "減税日本ナゴヤ"
+    "partyGroup": "減税日本ナゴヤ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "塚本つよし",
@@ -213,7 +328,12 @@
     ],
     "district": "中区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "おくむら文悟",
@@ -222,7 +342,12 @@
     ],
     "district": "昭和区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "西川学",
@@ -231,7 +356,12 @@
     ],
     "district": "昭和区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "大村光子",
@@ -240,7 +370,12 @@
     ],
     "district": "昭和区",
     "party": "減税日本ナゴヤ",
-    "partyGroup": "減税日本ナゴヤ"
+    "partyGroup": "減税日本ナゴヤ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "久田邦博",
@@ -249,7 +384,12 @@
     ],
     "district": "瑞穂区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "ふじた和秀",
@@ -258,7 +398,12 @@
     ],
     "district": "瑞穂区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "金城ゆたか",
@@ -267,7 +412,12 @@
     ],
     "district": "瑞穂区",
     "party": "なごや陽向の会",
-    "partyGroup": "なごや陽向の会"
+    "partyGroup": "なごや陽向の会",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "森ともお",
@@ -276,7 +426,12 @@
     ],
     "district": "熱田区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "服部しんのすけ",
@@ -285,7 +440,12 @@
     ],
     "district": "熱田区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "久野美穂",
@@ -294,7 +454,12 @@
     ],
     "district": "中川区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "中川あつし",
@@ -303,7 +468,12 @@
     ],
     "district": "中川区",
     "party": "なごや創政会",
-    "partyGroup": "なごや創政会"
+    "partyGroup": "なごや創政会",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "赤松哲次",
@@ -312,7 +482,12 @@
     ],
     "district": "中川区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "木下優",
@@ -321,7 +496,12 @@
     ],
     "district": "中川区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "浅井正仁",
@@ -330,7 +510,12 @@
     ],
     "district": "中川区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "月森たくや",
@@ -339,7 +524,12 @@
     ],
     "district": "中川区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "加藤一登",
@@ -348,7 +538,12 @@
     ],
     "district": "港区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "吉岡正修",
@@ -357,7 +552,12 @@
     ],
     "district": "港区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "吉田茂",
@@ -366,7 +566,12 @@
     ],
     "district": "港区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "沢田ひとみ",
@@ -375,7 +580,12 @@
     ],
     "district": "港区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "横井利明",
@@ -384,7 +594,12 @@
     ],
     "district": "南区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "さかい大輔",
@@ -393,7 +608,12 @@
     ],
     "district": "南区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "藤沢ちあき",
@@ -402,7 +622,12 @@
     ],
     "district": "南区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "橋本ひろき",
@@ -411,7 +636,12 @@
     ],
     "district": "南区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "小川としゆき",
@@ -420,7 +650,12 @@
     ],
     "district": "守山区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "松井よしのり",
@@ -429,7 +664,12 @@
     ],
     "district": "守山区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "金庭宜雄",
@@ -438,7 +678,12 @@
     ],
     "district": "守山区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "野田留美",
@@ -447,7 +692,12 @@
     ],
     "district": "守山区",
     "party": "なごや陽向の会",
-    "partyGroup": "なごや陽向の会"
+    "partyGroup": "なごや陽向の会",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "北野よしはる",
@@ -456,7 +706,12 @@
     ],
     "district": "守山区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "中里高之",
@@ -465,7 +720,12 @@
     ],
     "district": "緑区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "近藤和博",
@@ -474,7 +734,12 @@
     ],
     "district": "緑区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "岡本やすひろ",
@@ -483,7 +748,12 @@
     ],
     "district": "緑区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "岩本たかひろ",
@@ -492,7 +762,12 @@
     ],
     "district": "緑区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "大谷ともひろ",
@@ -501,7 +776,12 @@
     ],
     "district": "緑区",
     "party": "減税日本ナゴヤ",
-    "partyGroup": "減税日本ナゴヤ"
+    "partyGroup": "減税日本ナゴヤ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "永井ゆり",
@@ -510,7 +790,12 @@
     ],
     "district": "緑区",
     "party": "減税日本ナゴヤ",
-    "partyGroup": "減税日本ナゴヤ"
+    "partyGroup": "減税日本ナゴヤ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "みつなか美由紀",
@@ -519,7 +804,12 @@
     ],
     "district": "緑区",
     "party": "日本共産党名古屋市会議員団",
-    "partyGroup": "日本共産党名古屋市会議員団"
+    "partyGroup": "日本共産党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "日比美咲",
@@ -528,7 +818,12 @@
     ],
     "district": "名東区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "中村しゅうへい",
@@ -537,7 +832,12 @@
     ],
     "district": "名東区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "くずや利枝",
@@ -546,7 +846,12 @@
     ],
     "district": "名東区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "丹羽ひろし",
@@ -555,7 +860,12 @@
     ],
     "district": "名東区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "大島英勲",
@@ -564,7 +874,12 @@
     ],
     "district": "名東区",
     "party": "日本維新の会名古屋市会議員団",
-    "partyGroup": "日本維新の会名古屋市会議員団"
+    "partyGroup": "日本維新の会名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "成田たかゆき",
@@ -573,7 +888,12 @@
     ],
     "district": "天白区",
     "party": "自由民主党名古屋市会議員団",
-    "partyGroup": "自由民主党名古屋市会議員団"
+    "partyGroup": "自由民主党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "田中里佳",
@@ -582,7 +902,12 @@
     ],
     "district": "天白区",
     "party": "名古屋民主市会議員団",
-    "partyGroup": "名古屋民主市会議員団"
+    "partyGroup": "名古屋民主市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "鈴木孝之",
@@ -591,7 +916,12 @@
     ],
     "district": "天白区",
     "party": "減税日本ナゴヤ",
-    "partyGroup": "減税日本ナゴヤ"
+    "partyGroup": "減税日本ナゴヤ",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "辻󠄀まさお",
@@ -600,7 +930,12 @@
     ],
     "district": "天白区",
     "party": "公明党名古屋市会議員団",
-    "partyGroup": "公明党名古屋市会議員団"
+    "partyGroup": "公明党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
   {
     "name": "田口一登",
@@ -609,6 +944,11 @@
     ],
     "district": "天白区",
     "party": "日本共産党名古屋市会議員団",
-    "partyGroup": "日本共産党名古屋市会議員団"
+    "partyGroup": "日本共産党名古屋市会議員団",
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   }
 ]
