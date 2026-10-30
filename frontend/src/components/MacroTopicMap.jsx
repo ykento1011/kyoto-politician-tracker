@@ -1,503 +1,645 @@
 import React, { useMemo } from 'react';
 import { PieChart, Flame, ArrowRight } from 'lucide-react';
 
-const KOBE_CATEGORY_TOPICS = {
-  "都市再生・交通インフラ": [
-    {
-      "id": "kobe-mayor-sannomiya_redevelopment",
-      "title": "都心・三宮再整備（三宮クロススクエア・新バスターミナル）"
-    },
-    {
-      "id": "kobe-mayor-kobe_airport_international",
-      "title": "神戸空港の国際化・機能強化（新サブターミナル整備）"
-    },
-    {
-      "id": "kobe-mayor-tower_mansion_regulation",
-      "title": "都心部タワーマンション建築規制・都心居住適正化"
-    },
-    {
-      "id": "kobe-mayor-suburban_revitalization",
-      "title": "郊外拠点のリノベーション（名谷・西神中央・垂水等の駅前再編）"
-    },
-    {
-      "id": "kobe-core-public-transport-reorganization",
-      "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上"
-    },
-    {
-      "id": "kobe-core-urban-development-infrastructure",
-      "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化"
-    }
-  ],
-  "子育て・教育": [
-    {
-      "id": "kobe-mayor-childcare_education_support",
-      "title": "子育て環境・教育無償化（高校生通学定期代全額補助）"
-    },
-    {
-      "id": "kobe-core-childcare-support-burden",
-      "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策"
-    },
-    {
-      "id": "kobe-core-school-education-environment",
-      "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援"
-    }
-  ],
-  "産業・観光・地域経済": [
-    {
-      "id": "kobe-mayor-biomedical_innovation",
-      "title": "神戸医療産業都市（KBIC）の高度化とスタートアップ支援"
-    },
-    {
-      "id": "kobe-core-sme-business-support",
-      "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援"
-    },
-    {
-      "id": "kobe-core-tourism-local-economy",
-      "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立"
-    }
-  ],
-  "福祉・医療・健康": [
-    {
-      "id": "kobe-mayor-hospital_reorganization",
-      "title": "公立・公的病院の再編統合（済生会兵庫県病院・三田市民病院）"
-    },
-    {
-      "id": "kobe-core-elderly-care-welfare",
-      "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止"
-    },
-    {
-      "id": "kobe-core-community-medical-system",
-      "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成"
-    }
-  ],
-  "財政・行革": [
-    {
-      "id": "kobe-mayor-fiscal_administrative_reform",
-      "title": "行財政改革・市債残高圧縮と行政手続きオンライン化"
-    },
-    {
-      "id": "kobe-core-fiscal-discipline-reform",
-      "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進"
-    },
-    {
-      "id": "kobe-core-digital-gov-dx",
-      "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上"
-    }
-  ],
-  "くらし・環境・エネルギー": [
-    {
-      "id": "kobe-core-zero-carbon-renewable",
-      "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援"
-    },
-    {
-      "id": "kobe-core-waste-reduction-recycling",
-      "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制"
-    }
-  ],
-  "防災・減災・治安": [
-    {
-      "id": "kobe-core-disaster-prevention-resilience",
-      "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善"
-    },
-    {
-      "id": "kobe-core-community-safety-crime-prevention",
-      "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策"
-    }
-  ],
-  "文化・景観・歴史": [
-    {
-      "id": "kobe-core-historical-landscape-conservation",
-      "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用"
-    },
-    {
-      "id": "kobe-core-arts-culture-sports-promotion",
-      "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用"
-    }
-  ]
+// 全都市の正規論点マスター（*_topic_summaries.json から自動同期）
+const ALL_CITY_TOPICS = {
+  "kyoto": {
+    "観光・交通 / 市民生活": [
+      {
+        "id": "kyoto-mayor-P-01",
+        "title": "市バス等の「市民優先価格（2階建て運賃）」導入への挑戦"
+      }
+    ],
+    "財政・税制": [
+      {
+        "id": "kyoto-mayor-P-02",
+        "title": "宿泊税上限引き上げおよび使途の拡大"
+      }
+    ],
+    "子育て・教育": [
+      {
+        "id": "kyoto-mayor-P-03",
+        "title": "全員制中学校給食の早期完全実施（京都方式）"
+      },
+      {
+        "id": "kyoto-core-childcare-support-burden",
+        "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策"
+      },
+      {
+        "id": "kyoto-core-school-education-environment",
+        "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援"
+      }
+    ],
+    "子育て・福祉": [
+      {
+        "id": "kyoto-mayor-P-04",
+        "title": "府市協調子ども医療費助成拡充と第2子以降保育料無償化"
+      }
+    ],
+    "景観・居住": [
+      {
+        "id": "kyoto-mayor-P-05",
+        "title": "京町家保全継承・若年子育て世帯居住支援"
+      }
+    ],
+    "都市計画": [
+      {
+        "id": "kyoto-mayor-P-06",
+        "title": "京都駅周辺・三条京阪都市再生・ビジネス集積"
+      }
+    ],
+    "産業振興": [
+      {
+        "id": "kyoto-mayor-P-07",
+        "title": "スタートアップ創出・京都シリコンバレー化構想"
+      }
+    ],
+    "行政改革": [
+      {
+        "id": "kyoto-mayor-P-08",
+        "title": "しごとの仕方改革・行政DX・BPR推進"
+      }
+    ],
+    "財政規律": [
+      {
+        "id": "kyoto-mayor-P-09",
+        "title": "持続可能な行財政運営・過去負債返済の堅持"
+      }
+    ],
+    "文化政策": [
+      {
+        "id": "kyoto-mayor-P-10",
+        "title": "「双京構想」推進・文化財修理拠点誘致"
+      }
+    ],
+    "環境・美化": [
+      {
+        "id": "kyoto-mayor-P-11",
+        "title": "観光地美化・スマートごみ箱・交通抑制"
+      }
+    ],
+    "郊外再生": [
+      {
+        "id": "kyoto-mayor-P-12",
+        "title": "洛西・向島ニュータウン等郊外再生"
+      }
+    ],
+    "文化・都市": [
+      {
+        "id": "kyoto-mayor-P-13",
+        "title": "北山エリア文化交流拠点化・音楽祭"
+      }
+    ],
+    "保健福祉": [
+      {
+        "id": "kyoto-mayor-P-14",
+        "title": "精神障害者医療費支給・AYA世代支援"
+      }
+    ],
+    "財政・行革": [
+      {
+        "id": "kyoto-core-fiscal-discipline-reform",
+        "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進"
+      },
+      {
+        "id": "kyoto-core-digital-gov-dx",
+        "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上"
+      }
+    ],
+    "くらし・環境・エネルギー": [
+      {
+        "id": "kyoto-core-zero-carbon-renewable",
+        "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援"
+      },
+      {
+        "id": "kyoto-core-waste-reduction-recycling",
+        "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制"
+      }
+    ],
+    "都市再生・交通インフラ": [
+      {
+        "id": "kyoto-core-public-transport-reorganization",
+        "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上"
+      },
+      {
+        "id": "kyoto-core-urban-development-infrastructure",
+        "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化"
+      }
+    ],
+    "産業・観光・地域経済": [
+      {
+        "id": "kyoto-core-sme-business-support",
+        "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援"
+      },
+      {
+        "id": "kyoto-core-tourism-local-economy",
+        "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立"
+      }
+    ],
+    "福祉・医療・健康": [
+      {
+        "id": "kyoto-core-elderly-care-welfare",
+        "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止"
+      },
+      {
+        "id": "kyoto-core-community-medical-system",
+        "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成"
+      }
+    ],
+    "防災・減災・治安": [
+      {
+        "id": "kyoto-core-disaster-prevention-resilience",
+        "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善"
+      },
+      {
+        "id": "kyoto-core-community-safety-crime-prevention",
+        "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策"
+      }
+    ],
+    "文化・景観・歴史": [
+      {
+        "id": "kyoto-core-historical-landscape-conservation",
+        "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用"
+      },
+      {
+        "id": "kyoto-core-arts-culture-sports-promotion",
+        "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用"
+      }
+    ]
+  },
+  "osaka": {
+    "子育て・教育": [
+      {
+        "id": "osaka-mayor-osaka-m01",
+        "title": "0〜2歳児保育料の第2子完全無償化（所得制限撤廃）"
+      },
+      {
+        "id": "osaka-mayor-osaka-m02",
+        "title": "塾代助成事業の全学年・所得制限完全撤廃への拡充"
+      },
+      {
+        "id": "osaka-mayor-osaka-m03",
+        "title": "高等学校・大阪公立大学等の授業料完全無償化（府市協調推進）"
+      },
+      {
+        "id": "osaka-mayor-osaka-m04",
+        "title": "市立小中学校全員給食費の完全無償化の継続定着"
+      },
+      {
+        "id": "osaka-core-childcare-support-burden",
+        "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策"
+      },
+      {
+        "id": "osaka-core-school-education-environment",
+        "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援"
+      }
+    ],
+    "都市再生・交通インフラ": [
+      {
+        "id": "osaka-mayor-osaka-m05",
+        "title": "淀川左岸線延伸部およびベイエリア幹線道路ネットワークの整備"
+      },
+      {
+        "id": "osaka-core-public-transport-reorganization",
+        "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上"
+      },
+      {
+        "id": "osaka-core-urban-development-infrastructure",
+        "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化"
+      }
+    ],
+    "財政・行革": [
+      {
+        "id": "osaka-mayor-osaka-m06",
+        "title": "区役所機能の強化と「書かない窓口」デジタル市役所の推進"
+      },
+      {
+        "id": "osaka-core-fiscal-discipline-reform",
+        "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進"
+      },
+      {
+        "id": "osaka-core-digital-gov-dx",
+        "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上"
+      }
+    ],
+    "福祉・医療・健康": [
+      {
+        "id": "osaka-mayor-osaka-m07",
+        "title": "児童虐待防止体制の強化・専任児童心理司およびケースワーカーの大幅増員"
+      },
+      {
+        "id": "osaka-core-elderly-care-welfare",
+        "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止"
+      },
+      {
+        "id": "osaka-core-community-medical-system",
+        "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成"
+      }
+    ],
+    "防災・減災・治安": [
+      {
+        "id": "osaka-mayor-osaka-m08",
+        "title": "防犯カメラの市内集中増設および通学路防犯体制の強化"
+      },
+      {
+        "id": "osaka-core-disaster-prevention-resilience",
+        "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善"
+      },
+      {
+        "id": "osaka-core-community-safety-crime-prevention",
+        "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策"
+      }
+    ],
+    "くらし・環境・エネルギー": [
+      {
+        "id": "osaka-core-zero-carbon-renewable",
+        "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援"
+      },
+      {
+        "id": "osaka-core-waste-reduction-recycling",
+        "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制"
+      }
+    ],
+    "産業・観光・地域経済": [
+      {
+        "id": "osaka-core-sme-business-support",
+        "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援"
+      },
+      {
+        "id": "osaka-core-tourism-local-economy",
+        "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立"
+      }
+    ],
+    "文化・景観・歴史": [
+      {
+        "id": "osaka-core-historical-landscape-conservation",
+        "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用"
+      },
+      {
+        "id": "osaka-core-arts-culture-sports-promotion",
+        "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用"
+      }
+    ]
+  },
+  "nagoya": {
+    "都市魅力・歴史文化財保全": [
+      {
+        "id": "nagoya-mayor-nagoya_p1",
+        "title": "名古屋城天守閣の木造本物復元推進"
+      }
+    ],
+    "税制・行財政改革": [
+      {
+        "id": "nagoya-mayor-nagoya_p2",
+        "title": "市民税減税の推進と税率拡大検証（5%から10%へ）"
+      }
+    ],
+    "高齢者福祉・移動支援": [
+      {
+        "id": "nagoya-mayor-nagoya_p3",
+        "title": "敬老パス改善（回数制限緩和・翌年繰越・タクシー併給）"
+      }
+    ],
+    "行政改革・特別職報酬適正化": [
+      {
+        "id": "nagoya-mayor-nagoya_p4",
+        "title": "市長給料年額800万円の継続および退職手当の全額不支給"
+      }
+    ],
+    "子育て支援・学校教育相談体制": [
+      {
+        "id": "nagoya-mayor-nagoya_p5",
+        "title": "第2子以降・0歳児からの保育料無償化と子ども応援委員会の拡充"
+      }
+    ],
+    "財政・行革": [
+      {
+        "id": "nagoya-core-fiscal-discipline-reform",
+        "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進"
+      },
+      {
+        "id": "nagoya-core-digital-gov-dx",
+        "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上"
+      }
+    ],
+    "くらし・環境・エネルギー": [
+      {
+        "id": "nagoya-core-zero-carbon-renewable",
+        "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援"
+      },
+      {
+        "id": "nagoya-core-waste-reduction-recycling",
+        "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制"
+      }
+    ],
+    "都市再生・交通インフラ": [
+      {
+        "id": "nagoya-core-public-transport-reorganization",
+        "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上"
+      },
+      {
+        "id": "nagoya-core-urban-development-infrastructure",
+        "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化"
+      }
+    ],
+    "子育て・教育": [
+      {
+        "id": "nagoya-core-childcare-support-burden",
+        "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策"
+      },
+      {
+        "id": "nagoya-core-school-education-environment",
+        "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援"
+      }
+    ],
+    "産業・観光・地域経済": [
+      {
+        "id": "nagoya-core-sme-business-support",
+        "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援"
+      },
+      {
+        "id": "nagoya-core-tourism-local-economy",
+        "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立"
+      }
+    ],
+    "福祉・医療・健康": [
+      {
+        "id": "nagoya-core-elderly-care-welfare",
+        "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止"
+      },
+      {
+        "id": "nagoya-core-community-medical-system",
+        "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成"
+      }
+    ],
+    "防災・減災・治安": [
+      {
+        "id": "nagoya-core-disaster-prevention-resilience",
+        "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善"
+      },
+      {
+        "id": "nagoya-core-community-safety-crime-prevention",
+        "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策"
+      }
+    ],
+    "文化・景観・歴史": [
+      {
+        "id": "nagoya-core-historical-landscape-conservation",
+        "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用"
+      },
+      {
+        "id": "nagoya-core-arts-culture-sports-promotion",
+        "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用"
+      }
+    ]
+  },
+  "yokohama": {
+    "防災・減災・治安": [
+      {
+        "id": "yokohama-mayor-YH-P-01",
+        "title": "災害に強く、危機管理に優れた横浜"
+      },
+      {
+        "id": "yokohama-core-disaster-prevention-resilience",
+        "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善"
+      },
+      {
+        "id": "yokohama-core-community-safety-crime-prevention",
+        "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策"
+      }
+    ],
+    "福祉・医療・健康": [
+      {
+        "id": "yokohama-mayor-YH-P-02",
+        "title": "必要な人に必要な支援が届く福祉"
+      },
+      {
+        "id": "yokohama-core-elderly-care-welfare",
+        "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止"
+      },
+      {
+        "id": "yokohama-core-community-medical-system",
+        "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成"
+      }
+    ],
+    "都市再生・交通インフラ": [
+      {
+        "id": "yokohama-mayor-YH-P-03",
+        "title": "暮らしを支えるインフラを守ります"
+      },
+      {
+        "id": "yokohama-core-public-transport-reorganization",
+        "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上"
+      },
+      {
+        "id": "yokohama-core-urban-development-infrastructure",
+        "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化"
+      }
+    ],
+    "子育て・教育": [
+      {
+        "id": "yokohama-mayor-YH-P-04",
+        "title": "子育て支援を充実させ、安心して子育て"
+      },
+      {
+        "id": "yokohama-core-childcare-support-burden",
+        "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策"
+      },
+      {
+        "id": "yokohama-core-school-education-environment",
+        "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援"
+      }
+    ],
+    "産業・観光・地域経済": [
+      {
+        "id": "yokohama-mayor-YH-P-05",
+        "title": "18区の個性を生かし、地域活力向上"
+      },
+      {
+        "id": "yokohama-mayor-YH-P-07",
+        "title": "GREEN EXPO 2027で横浜の未来を"
+      },
+      {
+        "id": "yokohama-mayor-YH-P-08",
+        "title": "企業誘致で働く場所と新たな雇用創出"
+      },
+      {
+        "id": "yokohama-mayor-YH-P-09",
+        "title": "滞在型観光の拠点化"
+      },
+      {
+        "id": "yokohama-mayor-YH-P-10",
+        "title": "横浜を世界に誇るエンタメ一大拠点に"
+      },
+      {
+        "id": "yokohama-core-sme-business-support",
+        "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援"
+      },
+      {
+        "id": "yokohama-core-tourism-local-economy",
+        "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立"
+      }
+    ],
+    "財政・行革": [
+      {
+        "id": "yokohama-mayor-YH-P-06",
+        "title": "財政基盤強化、将来世代に責任持つ市政"
+      },
+      {
+        "id": "yokohama-mayor-YH-P-11",
+        "title": "公正・適正な官民連携で民間の力活用"
+      },
+      {
+        "id": "yokohama-mayor-YH-P-12",
+        "title": "市職員の笑顔を取り戻し、市民のための市役所"
+      },
+      {
+        "id": "yokohama-core-fiscal-discipline-reform",
+        "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進"
+      },
+      {
+        "id": "yokohama-core-digital-gov-dx",
+        "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上"
+      }
+    ],
+    "くらし・環境・エネルギー": [
+      {
+        "id": "yokohama-core-zero-carbon-renewable",
+        "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援"
+      },
+      {
+        "id": "yokohama-core-waste-reduction-recycling",
+        "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制"
+      }
+    ],
+    "文化・景観・歴史": [
+      {
+        "id": "yokohama-core-historical-landscape-conservation",
+        "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用"
+      },
+      {
+        "id": "yokohama-core-arts-culture-sports-promotion",
+        "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用"
+      }
+    ]
+  },
+  "kobe": {
+    "都市再生・交通インフラ": [
+      {
+        "id": "kobe-mayor-sannomiya_redevelopment",
+        "title": "都心・三宮再整備（三宮クロススクエア・新バスターミナル）"
+      },
+      {
+        "id": "kobe-mayor-kobe_airport_international",
+        "title": "神戸空港の国際化・機能強化（新サブターミナル整備）"
+      },
+      {
+        "id": "kobe-mayor-tower_mansion_regulation",
+        "title": "都心部タワーマンション建築規制・都心居住適正化"
+      },
+      {
+        "id": "kobe-mayor-suburban_revitalization",
+        "title": "郊外拠点のリノベーション（名谷・西神中央・垂水等の駅前再編）"
+      },
+      {
+        "id": "kobe-core-public-transport-reorganization",
+        "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上"
+      },
+      {
+        "id": "kobe-core-urban-development-infrastructure",
+        "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化"
+      }
+    ],
+    "子育て・教育": [
+      {
+        "id": "kobe-mayor-childcare_education_support",
+        "title": "子育て環境・教育無償化（高校生通学定期代全額補助）"
+      },
+      {
+        "id": "kobe-core-childcare-support-burden",
+        "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策"
+      },
+      {
+        "id": "kobe-core-school-education-environment",
+        "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援"
+      }
+    ],
+    "産業・観光・地域経済": [
+      {
+        "id": "kobe-mayor-biomedical_innovation",
+        "title": "神戸医療産業都市（KBIC）の高度化とスタートアップ支援"
+      },
+      {
+        "id": "kobe-core-sme-business-support",
+        "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援"
+      },
+      {
+        "id": "kobe-core-tourism-local-economy",
+        "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立"
+      }
+    ],
+    "福祉・医療・健康": [
+      {
+        "id": "kobe-mayor-hospital_reorganization",
+        "title": "公立・公的病院の再編統合（済生会兵庫県病院・三田市民病院）"
+      },
+      {
+        "id": "kobe-core-elderly-care-welfare",
+        "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止"
+      },
+      {
+        "id": "kobe-core-community-medical-system",
+        "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成"
+      }
+    ],
+    "財政・行革": [
+      {
+        "id": "kobe-mayor-fiscal_administrative_reform",
+        "title": "行財政改革・市債残高圧縮と行政手続きオンライン化"
+      },
+      {
+        "id": "kobe-core-fiscal-discipline-reform",
+        "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進"
+      },
+      {
+        "id": "kobe-core-digital-gov-dx",
+        "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上"
+      }
+    ],
+    "くらし・環境・エネルギー": [
+      {
+        "id": "kobe-core-zero-carbon-renewable",
+        "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援"
+      },
+      {
+        "id": "kobe-core-waste-reduction-recycling",
+        "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制"
+      }
+    ],
+    "防災・減災・治安": [
+      {
+        "id": "kobe-core-disaster-prevention-resilience",
+        "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善"
+      },
+      {
+        "id": "kobe-core-community-safety-crime-prevention",
+        "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策"
+      }
+    ],
+    "文化・景観・歴史": [
+      {
+        "id": "kobe-core-historical-landscape-conservation",
+        "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用"
+      },
+      {
+        "id": "kobe-core-arts-culture-sports-promotion",
+        "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用"
+      }
+    ]
+  }
 };
 
-const KYOTO_CATEGORY_TOPICS = {
-  "都市再生・交通インフラ": [
-    {
-      "id": "bus_fare_priority",
-      "title": "市バス混雑対策と「市民優先価格（二重運賃）」導入"
-    },
-    {
-      "id": "vacant_house_tax",
-      "title": "空き家税（非居住住宅利活用促進税）の施行と若者定住対策"
-    },
-    {
-      "id": "urban_planning_height_relax",
-      "title": "都市計画・高さ制限緩和（若者居住・産業用地確保）"
-    },
-    {
-      "id": "hokuriku_shinkansen_extension",
-      "title": "北陸新幹線延伸（小浜・京都ルート）の財政負担と地下水・環境影響"
-    },
-    {
-      "id": "subway_tozai_extension_management",
-      "title": "地下鉄東西線・烏丸線の経営改善と可動式ホーム柵整備"
-    }
-  ],
-  "産業・観光・地域経済": [
-    {
-      "id": "accommodation_tax_revision",
-      "title": "宿泊税の税率引き上げと使途拡大（市民還元）"
-    },
-    {
-      "id": "overtourism_clean_manners",
-      "title": "オーバーツーリズム対策（スマートごみ箱・マナー啓発）"
-    },
-    {
-      "id": "traditional_industry_succession",
-      "title": "伝統産業・地域企業の事業承継と担い手育成"
-    },
-    {
-      "id": "central_market_redevelopment",
-      "title": "中央卸売市場・食肉市場の施設再整備と活性化"
-    }
-  ],
-  "子育て・教育": [
-    {
-      "id": "school_lunch_free",
-      "title": "全員制中学校給食の導入と給食無償化の財源論争"
-    },
-    {
-      "id": "children_medical_subsidy",
-      "title": "子ども医療費助成の対象拡充（通院助成の上限引き上げ）"
-    },
-    {
-      "id": "teacher_workload_ict",
-      "title": "教員の多忙化解消・働き方改革と学校ICT・不登校対策"
-    },
-    {
-      "id": "nursery_teacher_subsidy_reform",
-      "title": "民間保育施設への京都市独自給与上乗せ補助の見直し"
-    }
-  ],
-  "福祉・医療・健康": [
-    {
-      "id": "senior_bus_pass_reform",
-      "title": "敬老乗車証の制度見直し（自己負担割合・交付基準）"
-    },
-    {
-      "id": "national_health_insurance_burden",
-      "title": "国民健康保険料・介護保険料の負担軽減策"
-    },
-    {
-      "id": "vaccine_public_subsidy",
-      "title": "帯状疱疹ワクチン等の任意予防接種公費助成"
-    },
-    {
-      "id": "poverty_hikikomori_support",
-      "title": "生活困窮者自立支援とひきこもり・ヤングケアラー相談体制"
-    }
-  ],
-  "財政・行革": [
-    {
-      "id": "fiscal_reform_reconstruction",
-      "title": "行財政改革計画と「特別の財政支援」からの完全脱却"
-    },
-    {
-      "id": "council_reform_transparency",
-      "title": "議員定数・報酬および政務活動費の透明性向上"
-    },
-    {
-      "id": "public_facility_management_privatization",
-      "title": "公共施設等総合管理計画と民間委託・資産売却"
-    },
-    {
-      "id": "city_hall_reconstruction_cost",
-      "title": "市役所新庁舎整備事業と分庁舎集約による執務環境適正化"
-    }
-  ],
-  "くらし・環境・エネルギー": [
-    {
-      "id": "waste_charging_recycling",
-      "title": "ごみ処理有料化手数料とプラスチック資源循環"
-    },
-    {
-      "id": "water_tariff_earthquake_pipe",
-      "title": "水道料金体系の改定と基幹管路の耐震化更新"
-    },
-    {
-      "id": "decarbonization_solar_obligation",
-      "title": "脱炭素都市・建築物太陽光パネル設置義務化の推進"
-    },
-    {
-      "id": "bike_sharing_illegal_parking",
-      "title": "放置自転車対策とシェアサイクルポートの全市的展開"
-    }
-  ],
-  "防災・減災・治安": [
-    {
-      "id": "wooden_houses_earthquake_retrofitting",
-      "title": "木造密集市街地・京町家の耐震改修と路地奥防災"
-    },
-    {
-      "id": "flood_control_urban_inundation",
-      "title": "鴨川・桂川水系の内水氾濫対策と雨水幹線整備"
-    },
-    {
-      "id": "landslide_disaster_prevention",
-      "title": "土砂災害警戒区域の安全対策と急傾斜地崩壊防止事業"
-    },
-    {
-      "id": "evacuation_center_bed_women",
-      "title": "避難所における段ボールベッド等の備蓄と女性視点の防災機能"
-    }
-  ],
-  "文化・景観・歴史": [
-    {
-      "id": "culture_agency_relocation_impact",
-      "title": "文化庁京都移転の波及効果創出と文化芸術支援"
-    },
-    {
-      "id": "townscape_wire_undergrounding",
-      "title": "歴史的景観の保全・無電柱化と屋外広告物対策"
-    },
-    {
-      "id": "world_heritage_buffer_zone",
-      "title": "世界遺産周辺のバッファーゾーン保全と開発の調和"
-    },
-    {
-      "id": "kyoto_arts_univ_sujin_impact",
-      "title": "京都市立芸術大学の崇仁移転と地域活性化・アート振興"
-    }
-  ]
-};
-
-const OSAKA_CATEGORY_TOPICS = {
-  "財政・行革": [
-    {
-      "id": "fukushuto_daitoshi_seido",
-      "title": "副首都ビジョンと大都市制度（法定協議会・特別区）"
-    }
-  ],
-  "都市再生・交通インフラ": [
-    {
-      "id": "osaka_expo_legacy_yumeshima",
-      "title": "夢洲まちづくり・第2期区域と万博跡地活用"
-    }
-  ],
-  "産業・観光・地域経済": [
-    {
-      "id": "special_minpaku_regulation",
-      "title": "特区民泊の規制強化と違法民泊・住環境対策"
-    }
-  ],
-  "くらし・環境・エネルギー": [
-    {
-      "id": "street_smoking_ban_spread",
-      "title": "市内全域路上喫煙禁止と喫煙所インフラ整備"
-    }
-  ],
-  "子育て・教育": [
-    {
-      "id": "school_heatstroke_ssr_support",
-      "title": "学校熱中症対策・不登校支援（SSR）の全校拡充"
-    }
-  ],
-  "福祉・医療・健康": [
-    {
-      "id": "kokuho_kaigo_premium_burden",
-      "title": "国民健康保険料・介護保険料の負担軽減と適正化"
-    }
-  ],
-  "防災・減災・治安": [
-    {
-      "id": "bousai_infrastructure_yodogawa",
-      "title": "淀川左岸線延伸と高潮・巨大地震津波対策"
-    }
-  ],
-  "文化・景観・歴史": [
-    {
-      "id": "cultural_heritage_osakajo_naniwagu",
-      "title": "大阪城公園・難波宮跡の歴史遺産保全と賑わい創出"
-    }
-  ]
-};
-
-const NAGOYA_CATEGORY_TOPICS = {
-  "文化・景観・歴史": [
-    {
-      "id": "nagoya_castle_wooden_restoration",
-      "title": "名古屋城天守閣木造復元事業とバリアフリー設備（エレベーター）設置"
-    }
-  ],
-  "福祉・医療・健康": [
-    {
-      "id": "keiro_pass_reform",
-      "title": "敬老パス制度の持続可能性と利用料・上限額の見直し"
-    },
-    {
-      "id": "nagoya_city_univ_hospitals_dx",
-      "title": "名市大附属病院群（東部・西部医療センター等）の機能強化と医療DX"
-    }
-  ],
-  "都市再生・交通インフラ": [
-    {
-      "id": "yatomi_aioiyama_road",
-      "title": "弥富相生山線道路整備事業とヒメボタル生息地保全（折衷案）"
-    },
-    {
-      "id": "meieki_redevelopment_srt",
-      "title": "名古屋駅周辺まちづくりと新たな路面公共交通（SRT）導入"
-    }
-  ],
-  "財政・行革": [
-    {
-      "id": "higashi_ward_office_relocation",
-      "title": "東区役所等庁舎の老朽化と移転整備方針（愛知大学車道校舎・建中寺）"
-    },
-    {
-      "id": "nagoya_shiminzei_genzei",
-      "title": "市民税減税政策の堅持と財政規律・行財政改革の推進"
-    }
-  ],
-  "産業・観光・地域経済": [
-    {
-      "id": "premium_gift_certificate",
-      "title": "地域経済活性化とプレミアム付商品券事業（電子化・物価高騰対策）"
-    },
-    {
-      "id": "monozukuri_mice_tourism_dmo",
-      "title": "中小企業・モノづくり技術継承支援とMICE・DMO観光誘客"
-    }
-  ],
-  "子育て・教育": [
-    {
-      "id": "school_lunch_free_and_reform",
-      "title": "学校給食費無償化と中学校スクールランチ（選択制・全員喫食）の展開"
-    },
-    {
-      "id": "futoukou_freeschool_support",
-      "title": "不登校児童生徒への支援（学びの多様化学校・フリースクール助成）"
-    }
-  ],
-  "くらし・環境・エネルギー": [
-    {
-      "id": "waste_carry_out_prevention_ordinance",
-      "title": "家庭廃棄物・資源ごみ持ち去り防止条例の制定と生活困窮者支援"
-    },
-    {
-      "id": "nagoya_heatstroke_climate_action",
-      "title": "猛暑・熱中症対策の全庁横断推進と脱炭素・環境学習プラン2030"
-    }
-  ],
-  "防災・減災・治安": [
-    {
-      "id": "minato_disaster_prevention_center",
-      "title": "港防災センター移転改築と南海トラフ地震・避難所対策の強化"
-    }
-  ]
-};
-
-
-
-const YOKOHAMA_CATEGORY_TOPICS = {
-  "財政・行革": [
-    {
-      "id": "yokohama_debt_fund_fiscal_pdca",
-      "title": "減債基金依存からの脱却と持続可能な財政規律・行革推進"
-    },
-    {
-      "id": "yokohama_internal_control_governance",
-      "title": "徴収ミス・時効損失の検証と全庁的な内部統制・ガバナンス強化"
-    }
-  ],
-  "子育て・教育": [
-    {
-      "id": "yokohama_school_lunch_full",
-      "title": "中学校全員給食の円滑実施と食育・安全品質管理の検証"
-    },
-    {
-      "id": "yokohama_special_needs_education_ict",
-      "title": "特別支援教育の切れ目ない支援体制と教員ICT・多忙化解消"
-    }
-  ],
-  "くらし・環境・エネルギー": [
-    {
-      "id": "yokohama_water_works_dx_system",
-      "title": "水道料金徴収システムの刷新と上下水道インフラ老朽化対策"
-    },
-    {
-      "id": "yokohama_decarbon_circular_city",
-      "title": "2050年脱炭素社会の実現とサーキュラーエコノミー・資源循環"
-    }
-  ],
-  "都市再生・交通インフラ": [
-    {
-      "id": "yokohama_hilly_public_transport",
-      "title": "起伏・坂の多い地形に対応する地域交通の確保と敬老パス維持"
-    },
-    {
-      "id": "yokohama_housing_redevelopment_subcenter",
-      "title": "市営住宅・改良住宅の建て替えと郊外住宅団地の再生・まちづくり"
-    }
-  ],
-  "福祉・医療・健康": [
-    {
-      "id": "yokohama_medical_completion_in_city",
-      "title": "病床確保と救急医療・入院医療の「市内完結率」向上"
-    },
-    {
-      "id": "yokohama_cancer_screening_prevention",
-      "title": "がん精密検査受診率の向上とがん予防・重症化予防対策"
-    }
-  ],
-  "防災・減災・治安": [
-    {
-      "id": "yokohama_disaster_shelter_welfare",
-      "title": "急傾斜地・がけ地崩落対策と水害リスク・避難所環境整備"
-    },
-    {
-      "id": "yokohama_earthquake_in_home_evacuation",
-      "title": "大地震想定の見直しと在宅避難者支援・生活物資供給マネジメント"
-    }
-  ],
-  "産業・観光・地域経済": [
-    {
-      "id": "yokohama_green_expo_2027",
-      "title": "GREEN×EXPO 2027（園芸博）の開催準備と旧上瀬谷通信施設跡地利用"
-    },
-    {
-      "id": "yokohama_urban_agriculture_sme_support",
-      "title": "都市農業振興と地元中小企業・商店街の物価高騰・事業承継支援"
-    }
-  ],
-  "文化・景観・歴史": [
-    {
-      "id": "yokohama_three_zoos_renewal_legacy",
-      "title": "野毛山動物園等3園のリニューアル整備と動物福祉・財源多角化"
-    },
-    {
-      "id": "yokohama_culture_arts_waterfront_heritage",
-      "title": "歴史的建造物・開港の歴史遺産保全とウォーターフロント文化芸術振興"
-    }
-  ]
-};
-
-export default function MacroTopicMap({
-  topicStats = [],
-  cityCode = 'kyoto',
-  selectedCategory,
-  onOpenCategoryDetail,
-  getIssueCountForCategory,
-  onOpenTopicDetail
-}) {
-  const totalThreadsCount = useMemo(() => {
-    return topicStats.reduce((sum, t) => sum + (t.count || 0), 0);
-  }, [topicStats]);
-
-  const ALL_CITY_TOPICS = {
-    kyoto: KYOTO_CATEGORY_TOPICS,
-    osaka: OSAKA_CATEGORY_TOPICS,
-    nagoya: NAGOYA_CATEGORY_TOPICS,
-    yokohama: YOKOHAMA_CATEGORY_TOPICS,
-    kobe: KOBE_CATEGORY_TOPICS,
-  };
-  const activeCategoryTopicsMap = ALL_CITY_TOPICS[cityCode] || {};
+  const activeCategoryTopicsMap = ALL_CITY_TOPICS[cityCode] || ALL_CITY_TOPICS.kyoto || {};
 
   return (
     <section className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">

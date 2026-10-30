@@ -17,13 +17,34 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    const TOPIC_ALIASES = {
+  "nagoya_city_univ_hospitals_dx": "nagoya-core-community-medical-system",
+  "nagoya_castle_wooden_restoration": "nagoya-mayor-nagoya_p1",
+  "nagoya_citizen_tax_cut": "nagoya-mayor-nagoya_p2",
+  "nagoya_keiro_pass_reform": "nagoya-mayor-nagoya_p3",
+  "nagoya_childcare_support": "nagoya-mayor-nagoya_p5",
+  "nagoya_fiscal_reform": "nagoya-core-fiscal-discipline-reform",
+  "nagoya_school_education": "nagoya-core-school-education-environment"
+};
+    const targetTopicId = TOPIC_ALIASES[topicId] || topicId;
+
     const dataUrl = getCityDataUrl(cityCode, 'topicSummaries') || `/data/${cityCode}_topic_summaries.json`;
     fetch(dataUrl)
       .then((res) => res.json())
       .then((data) => {
-        const found = data.find((t) => t.topic_id === topicId);
+        if (!Array.isArray(data) || data.length === 0) {
+          setTopic(null);
+          setIsLoading(false);
+          return;
+        }
+        // 1. 完全一致探索 (エイリアス解決後)
+        let found = data.find((t) => t.topic_id === targetTopicId);
+        // 2. 部分一致探索（旧IDの部分一致）
+        if (!found && topicId) {
+          found = data.find((t) => t.topic_id.includes(topicId) || topicId.includes(t.topic_id));
+        }
+        // 3. 見つからない場合は先頭トピックをフォールバック表示
         setTopic(found || data[0]);
-        setTopic(found);
         setIsLoading(false);
       })
       .catch((err) => {
