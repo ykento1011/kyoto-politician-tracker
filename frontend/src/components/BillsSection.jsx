@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flame, Check, CheckCircle2, XCircle, ArrowRight, ExternalLink, Sparkles, Scale } from 'lucide-react';
 
+export default function BillsSection({
 
   // 賛否データを日本語に正規化するヘルパー関数
   const normalizeVote = (val) => {
@@ -13,8 +14,7 @@ import { Flame, Check, CheckCircle2, XCircle, ArrowRight, ExternalLink, Sparkles
     if (v === 'absent' || v === '欠席') return '欠席';
     return val;
   };
-
-export default function BillsSection({ filteredBills, onlyContestedBills, setOnlyContestedBills, issuesMap, onSelectBill }) {
+ filteredBills, onlyContestedBills, setOnlyContestedBills, issuesMap, onSelectBill }) {
   return (
     <section className="space-y-6 animate-in fade-in duration-300">
       <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">

@@ -1,6 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { 
+  ArrowLeft, Flame, Search, Filter, CheckCircle2, XCircle, 
+  Sparkles, ExternalLink, Scale, ChevronDown, Tag, AlertTriangle
+} from 'lucide-react';
 
+export default function ContestedBillsView({
 
   // 賛否データを日本語に正規化するヘルパー関数
   const normalizeVote = (val) => {
@@ -13,11 +17,7 @@ import {
     if (v === 'absent' || v === '欠席') return '欠席';
     return val;
   };
-  ArrowLeft, Flame, Search, Filter, CheckCircle2, XCircle, 
-  Sparkles, ExternalLink, Scale, ChevronDown, Tag, AlertTriangle
-} from 'lucide-react';
 
-export default function ContestedBillsView({
   initialCategory = '',
   billIssues = [],
   votesData = [],
