@@ -11,8 +11,8 @@
     "party": "無所属（自民・立憲・公明・国民推薦）",
     "profile_image": "/councilors/kobe/hisamoto_kizo.jpg",
     "fallback_image": null,
-    "bulletin_pdf": "https://hisamoto-kizo.com/",
-    "bulletin_label": "神戸市政基本方針・マニフェスト",
+    "bulletin_pdf": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
+    "bulletin_label": "市長選マニフェスト原本（100の政策PDF）",
     "strategy_main_pdf": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
     "strategy_main_label": "神戸2025ビジョン（基本計画）"
   },
@@ -34,11 +34,12 @@
       "stage_level": 4,
       "stage_label": "4.条例提出・審議",
       "election_promise": {
-        "quote": "将来ビジョン策定から10年、姿が大きく変わり始めた都心三宮・ウォーターフロントの再整備",
-        "document_type": "市長マニフェスト原本",
-        "source_name": "久元きぞう 公式公約集",
-        "source_url": "https://hisamoto-kizo.com/",
-        "bulletin_url": "https://hisamoto-kizo.com/"
+        "quote": "三宮再整備・ウォーターフロントの再整備を加速させ、三宮クロススクエアの整備や中・長距離バスターミナルの整備を進めます。",
+        "document_type": "選挙公約・マニフェスト原本（100の政策）",
+        "source_name": "久元きぞう 100の政策（マニフェスト原本PDF）",
+        "source_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
+        "bulletin_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
+        "note": "【強靭で力強いまち】都心・三宮の再整備と回遊性の向上、神戸三宮阪急ビル・新バスターミナル等の一体開発"
       },
       "official_plan": {
         "plan_name": "『神戸2025ビジョン』基本目標3「多様な文化・芸術・魅力づくり」都心・三宮再整備の推進と回遊性の向上",
@@ -70,11 +71,12 @@
       "stage_level": 4,
       "stage_label": "4.条例提出・審議",
       "election_promise": {
-        "quote": "神戸空港における2030年前後の「国際定期便就航」と「発着枠の大幅拡大」の道筋、国際チャーター便の就航開始",
-        "document_type": "市長マニフェスト原本",
-        "source_name": "久元きぞう 公式公約集",
-        "source_url": "https://hisamoto-kizo.com/",
-        "bulletin_url": "https://hisamoto-kizo.com/"
+        "quote": "神戸空港の国際化（国際チャーター便・定期便就航）の実現と、発着枠の拡大・運用時間延長に取り組みます。",
+        "document_type": "選挙公約・マニフェスト原本（100の政策）",
+        "source_name": "久元きぞう 100の政策（マニフェスト原本PDF）",
+        "source_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
+        "bulletin_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
+        "note": "【強靭で力強いまち】関西3空港の一体運用と神戸空港の機能強化・2030年前後の国際定期便就航"
       },
       "official_plan": {
         "plan_name": "『神戸2025ビジョン』基本目標1「魅力的な仕事の創出と産学連携による経済成長」（関西3空港懇談会合意に基づく機能強化）",
@@ -106,11 +108,12 @@
       "stage_level": 5,
       "stage_label": "5.成立・執行",
       "election_promise": {
-        "quote": "都心の商業業務機能を発展させる「タワマン規制」",
-        "document_type": "市長マニフェスト原本",
-        "source_name": "久元きぞう 公式公約集",
-        "source_url": "https://hisamoto-kizo.com/",
-        "bulletin_url": "https://hisamoto-kizo.com/"
+        "quote": "都心部における過度な住宅供給を抑え、商業・業務機能の集積を誘導する都市計画規制（タワマン規制）の推進。",
+        "document_type": "選挙公約・マニフェスト原本（100の政策）",
+        "source_name": "久元きぞう 100の政策（マニフェスト原本PDF）",
+        "source_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
+        "bulletin_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
+        "note": "【持続可能な都市空間】都心機能誘導地区の指定・人口バランスと商業業務機能の適正配置"
       },
       "official_plan": {
         "plan_name": "『神戸2025ビジョン』基本目標6「将来にわたって持続可能な都市空間・インフラ」都心機能誘導地区の指定・適正配置",
