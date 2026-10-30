@@ -1,1049 +1,2987 @@
 [
   {
-    "topic_id": "fukushuto_daitoshi_seido",
-    "category": "財政・行革",
-    "title": "副首都ビジョンと大都市制度（法定協議会・特別区）",
-    "lead_summary": "副首都・大阪の都市格確立に向け、大都市制度の議論が再燃。法定協議会の設置議案や住民投票の時期、府市連携のあり方を巡り活発な質疑が展開。",
-    "current_status": "法定協議会設置の判断や市民への説明プロセス、大都市制度の名称や効果について議会側から厳しい検証と質疑が継続中。",
-    "conflict_axes": [
-      "特別区設置構想および副首都法案における特別区の位置づけ・削除の必要性を巡る議論",
-      "不交付団体化に伴う財政上の不利と、自立に向けた国への制度改正要請のあり方",
-      "副首都推進局における公文書管理の不備や情報公開に関する説明責任と再発防止策"
-    ],
-    "thread_count": 34,
-    "last_updated": "2026-05-22",
+    "topic_id": "osaka-mayor-osaka-m01",
+    "category": "子育て・教育",
+    "title": "0〜2歳児保育料の第2子完全無償化（所得制限撤廃）",
+    "lead_summary": "国の制度に先駆け、所得制限を設けずに第2子以降の0〜2歳児の保育料を無償化し、子育て世帯の経済的負担を抜本的に軽減する。",
+    "current_status": 5,
+    "conflict_axes": "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及",
+    "thread_count": 0,
+    "last_updated": "2026-10-30",
     "timeline_phases": [
       {
-        "period": "2023年（令和5年）以前",
-        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
-        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
+        "period": "現任期（2023年〜現在）",
+        "phase_title": "本会議・委員会における論点審議",
+        "city_stance": "市執行部は基本方針・実施計画に基づき施策を推進する姿勢を維持。",
         "key_points": [
-          "議員による「副首都ビジョンと大都市制度（法定協議会・特別区）」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+          "市長方針・公約の確実な推進"
+        ],
+        "exchanges": []
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-mayor-osaka-m02",
+    "category": "子育て・教育",
+    "title": "塾代助成事業の全学年・所得制限完全撤廃への拡充",
+    "lead_summary": "中学生および小学5〜6年生を対象としていた月額1万円の塾代助成について、所得制限を撤廃してすべての子どもを対象とする。",
+    "current_status": 5,
+    "conflict_axes": "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及",
+    "thread_count": 0,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "現任期（2023年〜現在）",
+        "phase_title": "本会議・委員会における論点審議",
+        "city_stance": "市執行部は基本方針・実施計画に基づき施策を推進する姿勢を維持。",
+        "key_points": [
+          "市長方針・公約の確実な推進"
+        ],
+        "exchanges": []
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-mayor-osaka-m03",
+    "category": "子育て・教育",
+    "title": "高等学校・大阪公立大学等の授業料完全無償化（府市協調推進）",
+    "lead_summary": "大阪府と協調し、府内居住の全世帯を対象に所得制限のない大学・高校等の授業料完全無償化制度を段階的に推進する。",
+    "current_status": 4,
+    "conflict_axes": "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及",
+    "thread_count": 0,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "現任期（2023年〜現在）",
+        "phase_title": "本会議・委員会における論点審議",
+        "city_stance": "市執行部は基本方針・実施計画に基づき施策を推進する姿勢を維持。",
+        "key_points": [
+          "市長方針・公約の確実な推進"
+        ],
+        "exchanges": []
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-mayor-osaka-m04",
+    "category": "子育て・教育",
+    "title": "市立小中学校全員給食費の完全無償化の継続定着",
+    "lead_summary": "市立小学校および中学校における学校給食費の無償化を臨時措置で終わらせず、恒久的に無償提供を継続する。",
+    "current_status": 5,
+    "conflict_axes": "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及",
+    "thread_count": 0,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "現任期（2023年〜現在）",
+        "phase_title": "本会議・委員会における論点審議",
+        "city_stance": "市執行部は基本方針・実施計画に基づき施策を推進する姿勢を維持。",
+        "key_points": [
+          "市長方針・公約の確実な推進"
+        ],
+        "exchanges": []
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-mayor-osaka-m05",
+    "category": "都市再生・交通インフラ",
+    "title": "淀川左岸線延伸部およびベイエリア幹線道路ネットワークの整備",
+    "lead_summary": "新名神高速道路や都心部・湾岸部を直結する淀川左岸線延伸部の早期完成に向けた整備を着実に推進する。",
+    "current_status": 4,
+    "conflict_axes": "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及",
+    "thread_count": 0,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "現任期（2023年〜現在）",
+        "phase_title": "本会議・委員会における論点審議",
+        "city_stance": "市執行部は基本方針・実施計画に基づき施策を推進する姿勢を維持。",
+        "key_points": [
+          "市長方針・公約の確実な推進"
+        ],
+        "exchanges": []
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-mayor-osaka-m06",
+    "category": "財政・行革",
+    "title": "区役所機能の強化と「書かない窓口」デジタル市役所の推進",
+    "lead_summary": "全24区役所での行政手続きオンライン化、窓口での申請書記入を不要とするDX化を推進し、市民の利便性を向上させる。",
+    "current_status": 5,
+    "conflict_axes": "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及",
+    "thread_count": 0,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "現任期（2023年〜現在）",
+        "phase_title": "本会議・委員会における論点審議",
+        "city_stance": "市執行部は基本方針・実施計画に基づき施策を推進する姿勢を維持。",
+        "key_points": [
+          "市長方針・公約の確実な推進"
+        ],
+        "exchanges": []
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-mayor-osaka-m07",
+    "category": "福祉・医療・健康",
+    "title": "児童虐待防止体制の強化・専任児童心理司およびケースワーカーの大幅増員",
+    "lead_summary": "こども相談センター（児童相談所）の機能強化と、重大事案の未然防止に向けた専門職スタッフの増員・24時間対応体制を確立する。",
+    "current_status": 5,
+    "conflict_axes": "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及",
+    "thread_count": 0,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "現任期（2023年〜現在）",
+        "phase_title": "本会議・委員会における論点審議",
+        "city_stance": "市執行部は基本方針・実施計画に基づき施策を推進する姿勢を維持。",
+        "key_points": [
+          "市長方針・公約の確実な推進"
+        ],
+        "exchanges": []
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-mayor-osaka-m08",
+    "category": "防災・減災・治安",
+    "title": "防犯カメラの市内集中増設および通学路防犯体制の強化",
+    "lead_summary": "通学路や繁華街における街頭防犯カメラの設置補助を拡充し、見守り活動と連携した街頭治安向上を図る。",
+    "current_status": 5,
+    "conflict_axes": "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及",
+    "thread_count": 0,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "現任期（2023年〜現在）",
+        "phase_title": "本会議・委員会における論点審議",
+        "city_stance": "市執行部は基本方針・実施計画に基づき施策を推進する姿勢を維持。",
+        "key_points": [
+          "市長方針・公約の確実な推進"
+        ],
+        "exchanges": []
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-fiscal-discipline-reform",
+    "category": "財政・行革",
+    "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進",
+    "lead_summary": "社会保障費の自然増や老朽インフラ更新に伴う将来財政負担を見据え、収支均衡の維持と公共施設の集約・長寿命化を巡る審議。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "将来負担軽減・歳出削減の断行 vs 市民サービス・現場予算の維持",
+    "thread_count": 2,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2024-11-12〜2025-03-10",
+        "phase_title": "本会議・委員会における集中論戦",
+        "city_stance": "市執行部による答弁と各会派の対案・課題追及。",
+        "key_points": [
+          "将来負担軽減・歳出削減の断行"
         ],
         "exchanges": [
           {
-            "statement_id": "th_5300890_53",
-            "meeting_id": "5300890",
-            "sequence_number": 53,
-            "meeting_date": "2023-09-25",
-            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（財政総務）  09月25日－01号",
-            "speaker": "福田　武洋",
-            "statement_text": "情報公開請求における文書不存在回答事案について",
-            "speech_text": "情報公開請求における文書不存在回答事案について",
-            "statement_summary": "情報公開請求における文書不存在回答事案について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3528&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3528&schedule_id=2"
+            "id": "th_5301308_3",
+            "speaker": "近藤　大",
+            "meeting_id": "5301308",
+            "meeting_date": "2024-11-12",
+            "meeting_title": "大阪市  令和６年10月～11月決算特別委員会（令和５年度決算）  11月12日－02号",
+            "category": "財政・行革",
+            "summary": "令和5年度決算の特徴や財政健全化の状況、法人市民税の超過課税の継続方針、中小規模公園の魅力向上に向けた民間活力導入の検討状況について質問し、行政側からそれぞれ現状や今後の対応方針について説明があった。",
+            "statement_text": "令和5年度決算と財政健全化および中小規模公園の魅力向上に向けた官民連携について",
+            "keywords": [
+              "決算",
+              "超過課税",
+              "中小規模公園",
+              "マーケットサウンディング",
+              "官民連携"
+            ],
+            "reasoning": "令和5年度決算の数値や法人市民税の超過課税額などの公的データや決算資料を参照した質疑。決算の特徴、超過課税の継続方針、中小規模公園の民間活力導入事業の具体化と広報周知について質問し、行政側から財政状況や事業化に向けた詳細な検討状況について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 5,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=3",
+            "scoring_reasoning": "令和5年度決算の数値や法人市民税の超過課税額などの公的データや決算資料を参照した質疑。決算の特徴、超過課税の継続方針、中小規模公園の民間活力導入事業の具体化と広報周知について質問し、行政側から財政状況や事業化に向けた詳細な検討状況について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "北区",
+            "ward": "北区",
+            "sequence_number": 3
           },
           {
-            "statement_id": "th_5300905_1",
-            "meeting_id": "5300905",
-            "sequence_number": 1,
-            "meeting_date": "2023-10-16",
-            "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（大都市・税財政制度特別委員会）  10月16日－01号",
-            "speaker": "上田　智隆",
-            "statement_text": "大都市・税財政制度特別委員会における報告事項の聴取",
-            "speech_text": "大都市・税財政制度特別委員会における報告事項の聴取",
-            "statement_summary": "大都市・税財政制度特別委員会における報告事項の聴取",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3535&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3535&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5300905_60",
-            "meeting_id": "5300905",
-            "sequence_number": 60,
-            "meeting_date": "2023-10-16",
-            "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（大都市・税財政制度特別委員会）  10月16日－01号",
-            "speaker": "山中　智子",
-            "statement_text": "大阪府市の一体的行政運営と副首都推進本部の在り方",
-            "speech_text": "大阪府市の一体的行政運営と副首都推進本部の在り方",
-            "statement_summary": "大阪府市の一体的行政運営と副首都推進本部の在り方",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3535&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3535&schedule_id=2"
+            "id": "th_5301441_56",
+            "speaker": "木下　吉信",
+            "meeting_id": "5301441",
+            "meeting_date": "2025-03-10",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（財政総務・通常予算）  03月10日－04号",
+            "category": "財政・行革",
+            "summary": "木下吉信議員が財政規律や子育て支援施策の財政負担、財政局長の任用経緯について質問し、阿形財政局長と新海人事課長らが財政運営の方針や人事管理の理由について説明した。",
+            "statement_text": "本市の財政規律と外部人材の任用方針について",
+            "keywords": [
+              "財政規律",
+              "収支均衡",
+              "財政局長任用",
+              "職員基本条例"
+            ],
+            "reasoning": "大阪市職員基本条例やこれまでの予算編成を参照した質疑。財政規律や将来の財政見通し、財政局長の任用経緯について質問し、行政側から収支均衡を原則とした予算編成やガバナンス強化を理由とした外部登用について説明があった質疑として整理されています。",
+            "evidence_score": 2,
+            "solution_score": 2,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3635&schedule_id=5",
+            "scoring_reasoning": "大阪市職員基本条例やこれまでの予算編成を参照した質疑。財政規律や将来の財政見通し、財政局長の任用経緯について質問し、行政側から収支均衡を原則とした予算編成やガバナンス強化を理由とした外部登用について説明があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "阿倍野区",
+            "ward": "阿倍野区",
+            "sequence_number": 56
           }
         ]
-      },
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-digital-gov-dx",
+    "category": "財政・行革",
+    "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上",
+    "lead_summary": "書かない窓口の導入や各種行政手続きのオンライン化による市役所業務の効率化と、デジタルデバイド対策の両立を巡る議論。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "業務効率化・ペーパーレス推進 vs デジタル弱者（高齢者等）対策・セキュリティ担保",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
       {
-        "period": "2024年（令和6年）",
-        "phase_title": "具体策の審議・実施計画への反映",
-        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "period": "2024-02-21〜2024-03-08",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
         "key_points": [
-          "議員による「副首都ビジョンと大都市制度（法定協議会・特別区）」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+          "業務効率化・ペーパーレス推進"
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301013_1",
+            "id": "th_5301013_76",
+            "speaker": "前田　和彦",
             "meeting_id": "5301013",
-            "sequence_number": 1,
             "meeting_date": "2024-02-21",
             "meeting_title": "大阪市  令和６年１月、２月特別委員会（大都市・税財政制度特別委員会）  02月21日－01号",
-            "speaker": "上田　智隆",
-            "statement_text": "大都市・税財政制度特別委員会の活動経過及び関連する国等の動向について",
-            "speech_text": "大都市・税財政制度特別委員会の活動経過及び関連する国等の動向について",
-            "statement_summary": "大都市・税財政制度特別委員会の活動経過及び関連する国等の動向について",
+            "category": "財政・行革",
+            "summary": "前田和彦議員が大阪市のDX戦略、標準準拠システム移行、生成AI活用の取り組みについて質問し、行政側がそれぞれの推進状況や課題について説明した。",
+            "statement_text": "大阪市のDX推進と標準準拠システム移行、生成AI活用について",
+            "keywords": [
+              "大阪市DX戦略",
+              "標準準拠システム",
+              "生成AI"
+            ],
+            "reasoning": "第33次地方制度調査会の答申や大阪市のDX戦略、補正予算額などのデータ等を参照した質疑。大阪市のDX推進の具体策や標準準拠システムの移行、生成AIの活用と課題について質問し、行政側から各取組の現状と対応について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3555&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3555&schedule_id=2"
+            "scoring_reasoning": "第33次地方制度調査会の答申や大阪市のDX戦略、補正予算額などのデータ等を参照した質疑。大阪市のDX推進の具体策や標準準拠システムの移行、生成AIの活用と課題について質問し、行政側から各取組の現状と対応について説明・答弁があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "北区",
+            "ward": "北区",
+            "sequence_number": 76
           },
           {
-            "statement_id": "th_5301318_1",
-            "meeting_id": "5301318",
-            "sequence_number": 1,
-            "meeting_date": "2024-11-08",
-            "meeting_title": "大阪市  令和６年10月、11月、12月特別委員会（大都市・税財政制度特別委員会）  11月08日－01号",
-            "speaker": "金子　恵美",
-            "statement_text": "大都市・税財政制度特別委員会の活動経過及び関連資料についての報告",
-            "speech_text": "大都市・税財政制度特別委員会の活動経過及び関連資料についての報告",
-            "statement_summary": "大都市・税財政制度特別委員会の活動経過及び関連資料についての報告",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3610&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3610&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301059_2",
-            "meeting_id": "5301059",
-            "sequence_number": 2,
-            "meeting_date": "2024-03-12",
-            "meeting_title": "大阪市  令和６年３月定例会常任委員会（財政総務・通常予算）  03月12日－05号",
-            "speaker": "馬場　のりゆき",
-            "statement_text": "外国人情報発信やフルコスト意識定着等の施策について",
-            "speech_text": "外国人情報発信やフルコスト意識定着等の施策について",
-            "statement_summary": "外国人情報発信やフルコスト意識定着等の施策について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=6"
-          }
-        ]
-      },
-      {
-        "period": "2025年〜2026年（令和7・8年）",
-        "phase_title": "本格実施・制度拡充と持続可能性の検証",
-        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
-        "key_points": [
-          "議員による「副首都ビジョンと大都市制度（法定協議会・特別区）」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5301707_126",
-            "meeting_id": "5301707",
-            "sequence_number": 126,
-            "meeting_date": "2025-11-07",
-            "meeting_title": "大阪市  令和７年10月～11月決算特別委員会（令和６年度決算）  11月07日－08号",
-            "speaker": "藤田　あきら",
-            "statement_text": "指定管理者制度や外郭団体経営、公教育の多様化、副首都の取組等に関する質疑",
-            "speech_text": "指定管理者制度や外郭団体経営、公教育の多様化、副首都の取組等に関する質疑",
-            "statement_summary": "指定管理者制度や外郭団体経営、公教育の多様化、副首都の取組等に関する質疑",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=9",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=9"
-          },
-          {
-            "statement_id": "th_5301826_60",
-            "meeting_id": "5301826",
-            "sequence_number": 60,
-            "meeting_date": "2026-03-12",
-            "meeting_title": "大阪市  令和８年３月定例会常任委員会（財政総務・通常予算）  03月12日－04号",
-            "speaker": "松田　まさとし",
-            "statement_text": "大阪公立大学の管理、地域連携、未利用地活用及び副首都の要件とバックアップ機能の推進について",
-            "speech_text": "大阪公立大学の管理、地域連携、未利用地活用及び副首都の要件とバックアップ機能の推進について",
-            "statement_summary": "大阪公立大学の管理、地域連携、未利用地活用及び副首都の要件とバックアップ機能の推進について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=5",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=5"
-          },
-          {
-            "statement_id": "th_5301827_21",
-            "meeting_id": "5301827",
-            "sequence_number": 21,
-            "meeting_date": "2026-03-13",
-            "meeting_title": "大阪市  令和８年３月定例会常任委員会（財政総務・通常予算）  03月13日－05号",
-            "speaker": "高山　美佳",
-            "statement_text": "大阪の副首都構想と副首都ビジョンの位置づけ及び副首都実現に向けた行政体制について",
-            "speech_text": "大阪の副首都構想と副首都ビジョンの位置づけ及び副首都実現に向けた行政体制について",
-            "statement_summary": "大阪の副首都構想と副首都ビジョンの位置づけ及び副首都実現に向けた行政体制について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=6",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=6"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "topic_id": "osaka_expo_legacy_yumeshima",
-    "category": "都市再生・交通インフラ",
-    "title": "夢洲まちづくり・第2期区域と万博跡地活用",
-    "lead_summary": "2025年大阪・関西万博の舞台である夢洲の第2期区域マスタープラン策定と跡地活用、地盤沈下対策や財源負担を巡る議論。",
-    "current_status": "マスタープラン公表に向けた民間提案の検証、地盤沈下の観測データ公開、万博閉幕後の恒久インフラ整備が審議されている。",
-    "conflict_axes": [
-      "夢洲第2期の整備費用と市財政への長期的な負担・リスク",
-      "万博レガシーの継承とIR・MICE拠点開発のバランス",
-      "軟弱地盤・防災インフラの安全性確保と民間投資の誘致"
-    ],
-    "thread_count": 59,
-    "last_updated": "2026-05-20",
-    "timeline_phases": [
-      {
-        "period": "2023年（令和5年）以前",
-        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
-        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
-        "key_points": [
-          "議員による「夢洲まちづくり・第2期区域と万博跡地活用」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5300777_15",
-            "meeting_id": "5300777",
-            "sequence_number": 15,
-            "meeting_date": "2023-05-31",
-            "meeting_title": "大阪市  令和５年５・６月定例会常任委員会（市政改革）  05月31日－01号",
-            "speaker": "永井　広幸",
-            "statement_text": "平野区における市営住宅跡地等の未利用地を活用したまちづくりの推進",
-            "speech_text": "平野区における市営住宅跡地等の未利用地を活用したまちづくりの推進",
-            "statement_summary": "平野区における市営住宅跡地等の未利用地を活用したまちづくりの推進",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3507&schedule_id=3",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3507&schedule_id=3"
-          },
-          {
-            "statement_id": "th_5300903_123",
-            "meeting_id": "5300903",
-            "sequence_number": 123,
-            "meeting_date": "2023-09-12",
-            "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（2025大阪・関西万博推進特別委員会）  09月12日－01号",
-            "speaker": "渕上　浩美",
-            "statement_text": "大阪・関西万博における工事車両の渋滞対策と物流交通対策について",
-            "speech_text": "大阪・関西万博における工事車両の渋滞対策と物流交通対策について",
-            "statement_summary": "大阪・関西万博における工事車両の渋滞対策と物流交通対策について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3534&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3534&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5300891_128",
-            "meeting_id": "5300891",
-            "sequence_number": 128,
-            "meeting_date": "2023-09-21",
-            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（都市経済）  09月21日－01号",
-            "speaker": "前田　和彦",
-            "statement_text": "大阪・関西万博における空飛ぶクルマの安全性確保と物流・工事車両の円滑な交通対策について",
-            "speech_text": "大阪・関西万博における空飛ぶクルマの安全性確保と物流・工事車両の円滑な交通対策について",
-            "statement_summary": "大阪・関西万博における空飛ぶクルマの安全性確保と物流・工事車両の円滑な交通対策について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3529&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3529&schedule_id=2"
-          }
-        ]
-      },
-      {
-        "period": "2024年（令和6年）",
-        "phase_title": "具体策の審議・実施計画への反映",
-        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
-        "key_points": [
-          "議員による「夢洲まちづくり・第2期区域と万博跡地活用」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5301028_54",
-            "meeting_id": "5301028",
-            "sequence_number": 54,
-            "meeting_date": "2024-02-16",
-            "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（都市経済）  02月16日－01号",
-            "speaker": "前田　和彦",
-            "statement_text": "万博開催時の交通影響と渋滞対策およびIR工事車両との調整について",
-            "speech_text": "万博開催時の交通影響と渋滞対策およびIR工事車両との調整について",
-            "statement_summary": "万博開催時の交通影響と渋滞対策およびIR工事車両との調整について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3562&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3562&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301085_128",
-            "meeting_id": "5301085",
-            "sequence_number": 128,
-            "meeting_date": "2024-05-21",
-            "meeting_title": "大阪市  令和６年５月定例会常任委員会（都市経済）  05月21日－01号",
-            "speaker": "藤田　あきら",
-            "statement_text": "万博跡地活用におけるマーケット・サウンディングと今後のマスタープラン募集について",
-            "speech_text": "万博跡地活用におけるマーケット・サウンディングと今後のマスタープラン募集について",
-            "statement_summary": "万博跡地活用におけるマーケット・サウンディングと今後のマスタープラン募集について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3580&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3580&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301317_18",
-            "meeting_id": "5301317",
-            "sequence_number": 18,
-            "meeting_date": "2024-12-25",
-            "meeting_title": "大阪市  令和６年10月、11月、12月特別委員会（2025大阪・関西万博推進特別委員会）  12月25日－01号",
-            "speaker": "吉見　みさこ",
-            "statement_text": "大阪・関西万博における交通・通信インフラの整備状況と運行ルール",
-            "speech_text": "大阪・関西万博における交通・通信インフラの整備状況と運行ルール",
-            "statement_summary": "大阪・関西万博における交通・通信インフラの整備状況と運行ルール",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=3",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=3"
-          }
-        ]
-      },
-      {
-        "period": "2025年〜2026年（令和7・8年）",
-        "phase_title": "本格実施・制度拡充と持続可能性の検証",
-        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
-        "key_points": [
-          "議員による「夢洲まちづくり・第2期区域と万博跡地活用」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5301405_20",
-            "meeting_id": "5301405",
-            "sequence_number": 20,
-            "meeting_date": "2025-02-17",
-            "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（都市経済）  02月17日－01号",
-            "speaker": "今村　直人",
-            "statement_text": "夢洲第２期区域マスタープラン策定の募集プロセスと情報公開について",
-            "speech_text": "夢洲第２期区域マスタープラン策定の募集プロセスと情報公開について",
-            "statement_summary": "夢洲第２期区域マスタープラン策定の募集プロセスと情報公開について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301405_27",
-            "meeting_id": "5301405",
-            "sequence_number": 27,
-            "meeting_date": "2025-02-17",
-            "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（都市経済）  02月17日－01号",
-            "speaker": "森　慶吾",
-            "statement_text": "夢洲第2期区域マスタープラン策定に係る提案募集の公平性とプロセスについて",
-            "speech_text": "夢洲第2期区域マスタープラン策定に係る提案募集の公平性とプロセスについて",
-            "statement_summary": "夢洲第2期区域マスタープラン策定に係る提案募集の公平性とプロセスについて",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301409_44",
-            "meeting_id": "5301409",
-            "sequence_number": 44,
-            "meeting_date": "2025-02-19",
-            "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（建設港湾）  02月19日－01号",
-            "speaker": "山口　悟朗",
-            "statement_text": "下水道の緊急点検や水道事業計画、夢洲第２期区域のまちづくりに関する質疑",
-            "speech_text": "下水道の緊急点検や水道事業計画、夢洲第２期区域のまちづくりに関する質疑",
-            "statement_summary": "下水道の緊急点検や水道事業計画、夢洲第２期区域のまちづくりに関する質疑",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=2"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "topic_id": "special_minpaku_regulation",
-    "category": "産業・観光・地域経済",
-    "title": "特区民泊の規制強化と違法民泊・住環境対策",
-    "lead_summary": "インバウンド急増に伴う国家戦略特区民泊の急拡大に対し、立入検査の実施状況、行政処分、近隣住民との生活トラブル防止が論点化。",
-    "current_status": "市は重点監視対象施設への指導や立入検査（300件超）を実施。国への法改正要望と市の要領による運用強化を進める。",
-    "conflict_axes": [
-      "観光経済活性化と住宅街における静穏な生活環境の保全",
-      "違法民泊・指導無視施設に対する市の行政権限行使の限界",
-      "宿泊税の活用や事業者へのルール周知徹底の実効性"
-    ],
-    "thread_count": 21,
-    "last_updated": "2026-05-20",
-    "timeline_phases": [
-      {
-        "period": "2024年（令和6年）",
-        "phase_title": "具体策の審議・実施計画への反映",
-        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
-        "key_points": [
-          "議員による「特区民泊の規制強化と違法民泊・住環境対策」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5301317_6",
-            "meeting_id": "5301317",
-            "sequence_number": 6,
-            "meeting_date": "2024-12-25",
-            "meeting_title": "大阪市  令和６年10月、11月、12月特別委員会（2025大阪・関西万博推進特別委員会）  12月25日－01号",
-            "speaker": "馬場　のりゆき",
-            "statement_text": "観光客数及び宿泊施設・民泊の現状について",
-            "speech_text": "観光客数及び宿泊施設・民泊の現状について",
-            "statement_summary": "馬場のりゆき議員が外国人観光客数やホテル客室数の現状と民泊の申請状況を質問し、行政側が推計数値や宿泊施設数のデータ、民泊の許認可期間等を説明した。",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=3",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=3"
-          }
-        ]
-      },
-      {
-        "period": "2025年〜2026年（令和7・8年）",
-        "phase_title": "本格実施・制度拡充と持続可能性の検証",
-        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
-        "key_points": [
-          "議員による「特区民泊の規制強化と違法民泊・住環境対策」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5301833_36",
-            "meeting_id": "5301833",
-            "sequence_number": 36,
-            "meeting_date": "2026-03-13",
-            "meeting_title": "大阪市  令和８年３月定例会常任委員会（都市経済・通常予算）  03月13日－05号",
-            "speaker": "梅園　周",
-            "statement_text": "屋外広告基準の見直しやエリアマネジメント支援策、観光・文化事業等に関する質疑",
-            "speech_text": "屋外広告基準の見直しやエリアマネジメント支援策、観光・文化事業等に関する質疑",
-            "statement_summary": "屋外広告基準の見直しやエリアマネジメント支援策、観光・文化事業等に関する質疑",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=6",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=6"
-          },
-          {
-            "statement_id": "th_5336593_40",
-            "meeting_id": "5336593",
-            "sequence_number": 40,
-            "meeting_date": "2026-05-20",
-            "meeting_title": "大阪市  令和８年５・６月定例会常任委員会（都市経済）  05月20日－01号",
-            "speaker": "わしみ　慎一",
-            "statement_text": "国家戦略特別区域外国人滞在施設経営事業条例案の附帯決議に関する報告",
-            "speech_text": "国家戦略特別区域外国人滞在施設経営事業条例案の附帯決議に関する報告",
-            "statement_summary": "国家戦略特別区域外国人滞在施設経営事業条例案の附帯決議に関する報告",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3729&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3729&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301576_35",
-            "meeting_id": "5301576",
-            "sequence_number": 35,
-            "meeting_date": "2025-05-19",
-            "meeting_title": "大阪市  令和７年５月定例会常任委員会（都市経済）  05月19日－01号",
-            "speaker": "伊藤　亜実",
-            "statement_text": "特区民泊に関する附帯決議にかかる報告の聴取",
-            "speech_text": "特区民泊に関する附帯決議にかかる報告の聴取",
-            "statement_summary": "特区民泊に関する附帯決議にかかる報告の聴取",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3655&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3655&schedule_id=2"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "topic_id": "street_smoking_ban_spread",
-    "category": "くらし・環境・エネルギー",
-    "title": "市内全域路上喫煙禁止と喫煙所インフラ整備",
-    "lead_summary": "大阪市全域での路上喫煙禁止方針に伴い、ミナミ・キタ等の繁華街における喫煙所設置の遅れ、民間補助金、過料徴収の実効性が争点。",
-    "current_status": "喫煙所整備計画の進捗遅れに対し、補助金の再公募やコンビニ・民間店舗への協力要請、案内サインの多言語対応を急ぐ。",
-    "conflict_axes": [
-      "市内一円禁止の導入スピードと受け皿となる喫煙所整備の遅れ",
-      "民間事業者（コンビニ等）への負担と公費補助のあり方",
-      "来街者・外国人観光客への周知徹底と指導員の適正配置"
-    ],
-    "thread_count": 45,
-    "last_updated": "2026-05-22",
-    "timeline_phases": [
-      {
-        "period": "2023年（令和5年）以前",
-        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
-        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
-        "key_points": [
-          "議員による「市内全域路上喫煙禁止と喫煙所インフラ整備」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5300906_53",
-            "meeting_id": "5300906",
-            "sequence_number": 53,
-            "meeting_date": "2023-09-07",
-            "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（環境対策特別委員会）  09月07日－01号",
-            "speaker": "鈴木　理恵",
-            "statement_text": "市内全域の路上喫煙禁止と条例改正の検討状況について",
-            "speech_text": "市内全域の路上喫煙禁止と条例改正の検討状況について",
-            "statement_summary": "市内全域の路上喫煙禁止と条例改正の検討状況について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5300906_86",
-            "meeting_id": "5300906",
-            "sequence_number": 86,
-            "meeting_date": "2023-09-07",
-            "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（環境対策特別委員会）  09月07日－01号",
-            "speaker": "田中　ひろき",
-            "statement_text": "市有施設のアスベスト調査と公設喫煙所の整備について",
-            "speech_text": "市有施設のアスベスト調査と公設喫煙所の整備について",
-            "statement_summary": "市有施設のアスベスト調査と公設喫煙所の整備について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5300918_19",
-            "meeting_id": "5300918",
-            "sequence_number": 19,
-            "meeting_date": "2023-12-08",
-            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（建設港湾）  12月08日－01号",
-            "speaker": "森山　よしひさ",
-            "statement_text": "各種陳情に対する環境局および建設局の見解",
-            "speech_text": "各種陳情に対する環境局および建設局の見解",
-            "statement_summary": "議員が提出された陳情案件に対する理事者の見解を求め、環境局および建設局から路上喫煙禁止方針、環境アセスメント、ヒートアイランド対策、公園樹・街路樹の安全対策に関する説明と答弁が行われた。",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3541&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3541&schedule_id=2"
-          }
-        ]
-      },
-      {
-        "period": "2024年（令和6年）",
-        "phase_title": "具体策の審議・実施計画への反映",
-        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
-        "key_points": [
-          "議員による「市内全域路上喫煙禁止と喫煙所インフラ整備」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5301038_106",
-            "meeting_id": "5301038",
-            "sequence_number": 106,
+            "id": "th_5301056_80",
+            "speaker": "原口　悠介",
+            "meeting_id": "5301056",
             "meeting_date": "2024-03-07",
-            "meeting_title": "大阪市  令和６年３月定例会常任委員会（建設港湾・通常予算）  03月07日－02号",
-            "speaker": "金子　恵美",
-            "statement_text": "ごみ収集車ドラレコ映像の活用と喫煙所整備の進捗",
-            "speech_text": "ごみ収集車ドラレコ映像の活用と喫煙所整備の進捗",
-            "statement_summary": "ごみ収集車ドラレコ映像の活用と喫煙所整備の進捗",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=3",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=3"
+            "meeting_title": "大阪市  令和６年３月定例会常任委員会（財政総務・通常予算）  03月07日－02号",
+            "category": "財政・行革",
+            "summary": "議員は公共工事の不調不落やマイナンバーカードの利活用、アナログ規制の見直しについて質問し、行政側は入札状況や次年度のシステム導入予定、国のマニュアルに基づく対応方針について説明した。",
+            "statement_text": "公共工事の入札不調・不落および行政DX・アナログ規制の見直しに関する質疑",
+            "keywords": [
+              "公共工事",
+              "不調・不落",
+              "マイナンバーカード",
+              "アナログ規制",
+              "デジタル改革"
+            ],
+            "reasoning": "大阪市の入札実績データや国のマニュアル等の公的資料を参照した質疑。公共工事の不調不落対策、マイナンバーカードの利活用、デジタル原則に則ったアナログ規制の見直しや業務改革について質問・提案し、行政側から入札状況の調査結果、自動交付端末の導入予定、国の方針に沿った各所属での検討支援について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=3",
+            "scoring_reasoning": "大阪市の入札実績データや国のマニュアル等の公的資料を参照した質疑。公共工事の不調不落対策、マイナンバーカードの利活用、デジタル原則に則ったアナログ規制の見直しや業務改革について質問・提案し、行政側から入札状況の調査結果、自動交付端末の導入予定、国の方針に沿った各所属での検討支援について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "生野区",
+            "ward": "生野区",
+            "sequence_number": 80
           },
           {
-            "statement_id": "th_5301039_62",
-            "meeting_id": "5301039",
-            "sequence_number": 62,
+            "id": "th_5301057_79",
+            "speaker": "辻　義隆",
+            "meeting_id": "5301057",
             "meeting_date": "2024-03-08",
-            "meeting_title": "大阪市  令和６年３月定例会常任委員会（建設港湾・通常予算）  03月08日－03号",
-            "speaker": "山本　智子",
-            "statement_text": "水道局マイページ導入や路上喫煙対策等の取組について",
-            "speech_text": "水道局マイページ導入や路上喫煙対策等の取組について",
-            "statement_summary": "水道局マイページ導入や路上喫煙対策等の取組について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=4",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=4"
-          },
-          {
-            "statement_id": "th_5301040_2",
-            "meeting_id": "5301040",
-            "sequence_number": 2,
-            "meeting_date": "2024-03-11",
-            "meeting_title": "大阪市  令和６年３月定例会常任委員会（建設港湾・通常予算）  03月11日－04号",
-            "speaker": "石川　博紀",
-            "statement_text": "路上喫煙防止条例改正やオンライン申請、鯨処分に関する質疑",
-            "speech_text": "路上喫煙防止条例改正やオンライン申請、鯨処分に関する質疑",
-            "statement_summary": "路上喫煙防止条例改正やオンライン申請、鯨処分に関する質疑",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=5",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3564&schedule_id=5"
+            "meeting_title": "大阪市  令和６年３月定例会常任委員会（財政総務・通常予算）  03月08日－03号",
+            "category": "財政・行革",
+            "summary": "辻義隆議員が未利用地売却、ライドシェア、書かない窓口について質問し、行政側がそれぞれの実績や今後の活用方針、安全対策、高齢者等への支援体制について説明した。",
+            "statement_text": "未利用地活用、ライドシェアおよび書かない窓口の取組について",
+            "keywords": [
+              "未利用地売却",
+              "ライドシェア",
+              "書かない窓口"
+            ],
+            "reasoning": "令和4年度の未利用地売却実績約168億円や大阪市内のタクシードライバー数の推移等の公的データを参照した質疑。未利用地の活用手法、ライドシェアの導入目的、書かない窓口における支援体制について質問し、行政側からそれぞれの現状や今後の対応方針について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3567&schedule_id=4",
+            "scoring_reasoning": "令和4年度の未利用地売却実績約168億円や大阪市内のタクシードライバー数の推移等の公的データを参照した質疑。未利用地の活用手法、ライドシェアの導入目的、書かない窓口における支援体制について質問し、行政側からそれぞれの現状や今後の対応方針について説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "東住吉区",
+            "ward": "東住吉区",
+            "sequence_number": 79
           }
         ]
       },
       {
-        "period": "2025年〜2026年（令和7・8年）",
-        "phase_title": "本格実施・制度拡充と持続可能性の検証",
-        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "period": "2025-03-06〜2026-03-10",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
         "key_points": [
-          "議員による「市内全域路上喫煙禁止と喫煙所インフラ整備」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+          "デジタル弱者（高齢者等）対策・セキュリティ担保"
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301423_2",
-            "meeting_id": "5301423",
-            "sequence_number": 2,
-            "meeting_date": "2025-03-10",
-            "meeting_title": "大阪市  令和７年３月定例会常任委員会（建設港湾・通常予算）  03月10日－04号",
-            "speaker": "福田　武洋",
-            "statement_text": "万博機運醸成事業、市有地売却及び路上喫煙対策の推進状況について",
-            "speech_text": "万博機運醸成事業、市有地売却及び路上喫煙対策の推進状況について",
-            "statement_summary": "万博機運醸成事業、市有地売却及び路上喫煙対策の推進状況について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3632&schedule_id=5",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3632&schedule_id=5"
+            "id": "th_5301439_56",
+            "speaker": "佐竹　りほ",
+            "meeting_id": "5301439",
+            "meeting_date": "2025-03-06",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（財政総務・通常予算）  03月06日－02号",
+            "category": "財政・行革",
+            "summary": "選挙公報のQRコード掲載やAI電話導入、HRテック試行などについて質問し、行政側から今後の検討状況や調査結果について説明があった質疑。",
+            "statement_text": "選挙公報の閲覧環境改善や行政DX・人事制度改革について",
+            "keywords": [
+              "選挙公報",
+              "AI電話",
+              "HRテック",
+              "防災士養成講座"
+            ],
+            "reasoning": "過去の決算特別委員会や他事業の実施実績を参照した質疑。選挙公報のQRコード掲載やHRテックの試行結果の活用、防災士養成講座の分割実施等について質問・提案し、行政側から検討状況や今後の対応について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3635&schedule_id=3",
+            "scoring_reasoning": "過去の決算特別委員会や他事業の実施実績を参照した質疑。選挙公報のQRコード掲載やHRテックの試行結果の活用、防災士養成講座の分割実施等について質問・提案し、行政側から検討状況や今後の対応について説明・答弁があった質疑として整理されています。",
+            "party": "無所属",
+            "district": "淀川区",
+            "ward": "淀川区",
+            "sequence_number": 56
           },
           {
-            "statement_id": "th_5301411_3",
-            "meeting_id": "5301411",
-            "sequence_number": 3,
-            "meeting_date": "2025-03-21",
-            "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（建設港湾）  03月21日－01号",
-            "speaker": "野上　らん",
-            "statement_text": "喫煙所整備や公園樹・街路樹の撤去及び植え替えに関する陳情の審査",
-            "speech_text": "喫煙所整備や公園樹・街路樹の撤去及び植え替えに関する陳情の審査",
-            "statement_summary": "喫煙所整備や公園樹・街路樹の撤去及び植え替えに関する陳情の審査",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=4",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3628&schedule_id=4"
+            "id": "th_5301706_96",
+            "speaker": "渕上　浩美",
+            "meeting_id": "5301706",
+            "meeting_date": "2025-11-06",
+            "meeting_title": "大阪市  令和７年10月～11月決算特別委員会（令和６年度決算）  11月06日－07号",
+            "category": "財政・行革",
+            "summary": "マイナンバーカードを活用した申請書作成支援システムの導入状況や学校の契約事務の見直し、放置自転車対策の収支について質問し、行政側から各区の利用状況や今後の対応について説明があった。",
+            "statement_text": "行政手続のデジタル化、学校契約事務、放置自転車対策の現状と運用改善について",
+            "keywords": [
+              "マイナンバーカード",
+              "学校契約事務",
+              "放置自転車対策",
+              "撤去保管料"
+            ],
+            "reasoning": "マイナンバーカードの申請書作成支援システムの利用実績や放置自転車の撤去・返還台数などの具体的数値データを参照した質疑。各区の活用状況の差や学校の契約事務の見直し、放置自転車の原因者負担について質問し、行政側から利用促進の取組やルールに基づく事務処理の状況について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=8",
+            "scoring_reasoning": "マイナンバーカードの申請書作成支援システムの利用実績や放置自転車の撤去・返還台数などの具体的数値データを参照した質疑。各区の活用状況の差や学校の契約事務の見直し、放置自転車の原因者負担について質問し、行政側から利用促進の取組やルールに基づく事務処理の状況について説明・答弁があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "東住吉区",
+            "ward": "東住吉区",
+            "sequence_number": 96
           },
           {
-            "statement_id": "th_5301699_63",
+            "id": "th_5301824_62",
+            "speaker": "くぼた　亮",
+            "meeting_id": "5301824",
+            "meeting_date": "2026-03-10",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（財政総務・通常予算）  03月10日－02号",
+            "category": "財政・行革",
+            "summary": "行政手続のオンライン化目標や未対応の手続数について質問し、行政側から今後の利用促進やデジタル化の取組方針について説明があった。",
+            "statement_text": "行政手続のオンライン化とデジタル化の推進に関する質疑",
+            "keywords": [
+              "行政手続",
+              "オンライン化",
+              "デジタル庁"
+            ],
+            "reasoning": "大阪市DX戦略や令和7年度末のオンライン化目標数などの公的数値や計画を参照した質疑。オンライン化の現状や未対応の約900件の手続について質問し、行政側から今後の利便性向上や利用促進に向けた取組について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3710&schedule_id=3",
+            "scoring_reasoning": "大阪市DX戦略や令和7年度末のオンライン化目標数などの公的数値や計画を参照した質疑。オンライン化の現状や未対応の約900件の手続について質問し、行政側から今後の利便性向上や利用促進に向けた取組について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "住吉区",
+            "ward": "住吉区",
+            "sequence_number": 62
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-zero-carbon-renewable",
+    "category": "くらし・環境・エネルギー",
+    "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援",
+    "lead_summary": "2050年カーボンニュートラル達成に向けた市庁舎・市内企業の再エネ転換や、省エネ住宅・EV導入支援策を巡る論争。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "再エネ・EV導入の義務化・加速 vs 中小企業・家計へのコスト負担配慮",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2023-09-07〜2025-10-20",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "再エネ・EV導入の義務化・加速"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5300906_12",
+            "speaker": "馬場　のりゆき",
+            "meeting_id": "5300906",
+            "meeting_date": "2023-09-07",
+            "meeting_title": "大阪市  令和５年９月、10月、11月特別委員会（環境対策特別委員会）  09月07日－01号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "議員は万博を契機とした観光分野における温室効果ガス排出量の可視化と脱炭素化ツアー事業について質問し、行政側は現在の進捗状況や今後のプロモーション予定について説明した。",
+            "statement_text": "万博を契機とした観光分野の温室効果ガス可視化と脱炭素化支援事業について",
+            "keywords": [
+              "万博",
+              "脱炭素化ツアー",
+              "温室効果ガス"
+            ],
+            "reasoning": "万博の来場者数やCO2排出量の想定数値等を参照した質疑。観光分野における温室効果ガスの排出量可視化や脱炭素化ツアーの取り組み状況について質問し、行政側から委託事業者の選定やセミナー実施等の進捗と今後の予定について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3536&schedule_id=2",
+            "scoring_reasoning": "万博の来場者数やCO2排出量の想定数値等を参照した質疑。観光分野における温室効果ガスの排出量可視化や脱炭素化ツアーの取り組み状況について質問し、行政側から委託事業者の選定やセミナー実施等の進捗と今後の予定について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "城東区",
+            "ward": "城東区",
+            "sequence_number": 12
+          },
+          {
+            "id": "th_5301014_63",
+            "speaker": "森　慶吾",
+            "meeting_id": "5301014",
+            "meeting_date": "2024-02-26",
+            "meeting_title": "大阪市  令和６年１月、２月特別委員会（環境対策特別委員会）  02月26日－01号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "森慶吾議員が大阪IR事業における温室効果ガス削減目標や再生可能エネルギー・カーボンクレジットの導入について質問し、行政側が環境影響評価準備書に基づく計画や今後の指導方針について答弁した。",
+            "statement_text": "大阪IR事業における温室効果ガス削減と脱炭素の取組",
+            "keywords": [
+              "大阪IR事業",
+              "温室効果ガス",
+              "カーボンニュートラル",
+              "再生可能エネルギー",
+              "カーボン・クレジット"
+            ],
+            "reasoning": "大阪市環境白書や環境影響評価準備書の数値、東京証券取引所のカーボン・クレジット取引価格等を参照した質疑。大阪IR事業における温室効果ガス削減目標や再エネ導入計画、クレジット活用について質問し、行政側から準備書の記載内容や今後の指導方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 5,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3556&schedule_id=2",
+            "scoring_reasoning": "大阪市環境白書や環境影響評価準備書の数値、東京証券取引所のカーボン・クレジット取引価格等を参照した質疑。大阪IR事業における温室効果ガス削減目標や再エネ導入計画、クレジット活用について質問し、行政側から準備書の記載内容や今後の指導方針について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "東淀川区",
+            "ward": "東淀川区",
+            "sequence_number": 63
+          },
+          {
+            "id": "th_5301699_44",
+            "speaker": "山口　悟朗",
             "meeting_id": "5301699",
-            "sequence_number": 63,
             "meeting_date": "2025-10-20",
             "meeting_title": "大阪市  令和７年５月、９月、10月特別委員会（環境対策特別委員会）  10月20日－01号",
-            "speaker": "渕上　浩美",
-            "statement_text": "児童遊園の路上喫煙禁止指定手続とコールセンターの対応状況について",
-            "speech_text": "児童遊園の路上喫煙禁止指定手続とコールセンターの対応状況について",
-            "statement_summary": "児童遊園の路上喫煙禁止指定手続とコールセンターの対応状況について",
+            "category": "くらし・環境・エネルギー",
+            "summary": "万博での脱炭素技術の展開について質問し、行政側から温室効果ガス排出量の現状やペロブスカイト太陽電池等の社会実装に向けた方針や国の協議会での動向について説明があった。",
+            "statement_text": "大阪市における脱炭素技術の導入と今後の展開について",
+            "keywords": [
+              "山口悟朗",
+              "温室効果ガス",
+              "万博",
+              "ペロブスカイト太陽電池",
+              "脱炭素技術"
+            ],
+            "reasoning": "大阪市の温室効果ガス排出量の推移や万博での脱炭素技術を参照した質疑。ペロブスカイト太陽電池などの新技術の都市部への展開や市有施設への率先導入について質問し、行政側から国の官民協議会における動向や社会実装に向けた方針について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3683&schedule_id=3",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3683&schedule_id=3"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "topic_id": "school_heatstroke_ssr_support",
-    "category": "子育て・教育",
-    "title": "学校熱中症対策・不登校支援（SSR）の全校拡充",
-    "lead_summary": "猛暑下の市立学校における水分補給環境（ウォータークーラー等）の整備と、不登校児童生徒のための校内支援室（SSR）80校拡充の推進。",
-    "current_status": "SSRの選定基準と指導体制の強化が進む一方、猛暑に対する学校設備の全校均等配備や教員の多忙化軽減が求められている。",
-    "conflict_axes": [
-      "SSR全校拡充に向けた専門スタッフ・教員人員の確保",
-      "熱中症対策設備の導入スピードと学校間格差の解消",
-      "不登校の早期発見とアウトリーチ型支援の実効性"
-    ],
-    "thread_count": 33,
-    "last_updated": "2026-05-21",
-    "timeline_phases": [
-      {
-        "period": "2023年（令和5年）以前",
-        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
-        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
-        "key_points": [
-          "議員による「学校熱中症対策・不登校支援（SSR）の全校拡充」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5300783_31",
-            "meeting_id": "5300783",
-            "sequence_number": 31,
-            "meeting_date": "2023-05-31",
-            "meeting_title": "大阪市  令和５年５・６月定例会常任委員会（教育こども）  05月31日－01号",
-            "speaker": "ますもと　さおり",
-            "statement_text": "体育授業等のマスク着用と熱中症対策",
-            "speech_text": "体育授業等のマスク着用と熱中症対策",
-            "statement_summary": "議員が中学校の体育大会における生徒のマスク着用状況について質問し、行政側が熱中症対策を最優先しマスクを外すよう指導する方針と通知の再発出について答弁した。",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3509&schedule_id=4",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3509&schedule_id=4"
-          },
-          {
-            "statement_id": "th_5300888_65",
-            "meeting_id": "5300888",
-            "sequence_number": 65,
-            "meeting_date": "2023-09-22",
-            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（教育こども）  09月22日－01号",
-            "speaker": "坂井　はじめ",
-            "statement_text": "教育委員会及びこども青少年局関連の陳情に関する理事者の見解",
-            "speech_text": "教育委員会及びこども青少年局関連の陳情に関する理事者の見解",
-            "statement_summary": "教育委員会及びこども青少年局関連の陳情に関する理事者の見解",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5300888_81",
-            "meeting_id": "5300888",
-            "sequence_number": 81,
-            "meeting_date": "2023-09-22",
-            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（教育こども）  09月22日－01号",
-            "speaker": "西崎　照明",
-            "statement_text": "中学校夜間学級の統合移転方針と今後の教育体制について",
-            "speech_text": "中学校夜間学級の統合移転方針と今後の教育体制について",
-            "statement_summary": "中学校夜間学級の統合移転方針と今後の教育体制について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3526&schedule_id=2"
+            "scoring_reasoning": "大阪市の温室効果ガス排出量の推移や万博での脱炭素技術を参照した質疑。ペロブスカイト太陽電池などの新技術の都市部への展開や市有施設への率先導入について質問し、行政側から国の官民協議会における動向や社会実装に向けた方針について説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "西成区",
+            "ward": "西成区",
+            "sequence_number": 44
           }
         ]
       },
       {
-        "period": "2024年（令和6年）",
-        "phase_title": "具体策の審議・実施計画への反映",
-        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "period": "2025-10-20〜2025-12-15",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
         "key_points": [
-          "議員による「学校熱中症対策・不登校支援（SSR）の全校拡充」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+          "中小企業・家計へのコスト負担配慮"
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301045_84",
-            "meeting_id": "5301045",
-            "sequence_number": 84,
-            "meeting_date": "2024-03-08",
-            "meeting_title": "大阪市  令和６年３月定例会常任委員会（教育こども・通常予算）  03月08日－03号",
-            "speaker": "西　徳人",
-            "statement_text": "夜間中学校の広報・ニーズ把握および学校へのウォーターサーバー設置について",
-            "speech_text": "夜間中学校の広報・ニーズ把握および学校へのウォーターサーバー設置について",
-            "statement_summary": "夜間中学校の広報・ニーズ把握および学校へのウォーターサーバー設置について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3565&schedule_id=4",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3565&schedule_id=4"
-          },
-          {
-            "statement_id": "th_5301079_30",
-            "meeting_id": "5301079",
-            "sequence_number": 30,
-            "meeting_date": "2024-05-22",
-            "meeting_title": "大阪市  令和６年５月定例会常任委員会（教育こども）  05月22日－01号",
-            "speaker": "西崎　照明",
-            "statement_text": "大阪・関西万博の児童・生徒招待事業における安全確保と学校現場への対応",
-            "speech_text": "大阪・関西万博の児童・生徒招待事業における安全確保と学校現場への対応",
-            "statement_summary": "大阪・関西万博の児童・生徒招待事業における安全確保と学校現場への対応",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3577&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3577&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301020_26",
-            "meeting_id": "5301020",
-            "sequence_number": 26,
-            "meeting_date": "2024-02-19",
-            "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（教育こども）  02月19日－01号",
-            "speaker": "坂井　はじめ",
-            "statement_text": "委員会における教育および子育て関連陳情の審査",
-            "speech_text": "委員会における教育および子育て関連陳情の審査",
-            "statement_summary": "委員会における教育および子育て関連陳情の審査",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3559&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3559&schedule_id=2"
-          }
-        ]
-      },
-      {
-        "period": "2025年〜2026年（令和7・8年）",
-        "phase_title": "本格実施・制度拡充と持続可能性の検証",
-        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
-        "key_points": [
-          "議員による「学校熱中症対策・不登校支援（SSR）の全校拡充」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5333398_12",
-            "meeting_id": "5333398",
-            "sequence_number": 12,
-            "meeting_date": "2026-03-19",
-            "meeting_title": "大阪市  令和８年２・３月定例会常任委員会（教育こども）  03月19日－01号",
-            "speaker": "明石　直樹",
-            "statement_text": "中学校夜間学級の入学状況と教育機会確保法に基づく体制整備について",
-            "speech_text": "中学校夜間学級の入学状況と教育機会確保法に基づく体制整備について",
-            "statement_summary": "中学校夜間学級の入学状況と教育機会確保法に基づく体制整備について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3701&schedule_id=4",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3701&schedule_id=4"
-          },
-          {
-            "statement_id": "th_5301428_108",
-            "meeting_id": "5301428",
-            "sequence_number": 108,
-            "meeting_date": "2025-03-07",
-            "meeting_title": "大阪市  令和７年３月定例会常任委員会（教育こども・通常予算）  03月07日－03号",
-            "speaker": "杉田　忠裕",
-            "statement_text": "不登校対策、保育無償化、給食室空調整備についての質疑",
-            "speech_text": "不登校対策、保育無償化、給食室空調整備についての質疑",
-            "statement_summary": "不登校対策、保育無償化、給食室空調整備についての質疑",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=4",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=4"
-          },
-          {
-            "statement_id": "th_5301430_74",
-            "meeting_id": "5301430",
-            "sequence_number": 74,
-            "meeting_date": "2025-03-11",
-            "meeting_title": "大阪市  令和７年３月定例会常任委員会（教育こども・通常予算）  03月11日－05号",
-            "speaker": "藤田　あきら",
-            "statement_text": "不登校対策のスクリーニング機能と学校の魅力化に関する質疑",
-            "speech_text": "不登校対策のスクリーニング機能と学校の魅力化に関する質疑",
-            "statement_summary": "不登校対策のスクリーニング機能と学校の魅力化に関する質疑",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "topic_id": "kokuho_kaigo_premium_burden",
-    "category": "福祉・医療・健康",
-    "title": "国民健康保険料・介護保険料の負担軽減と適正化",
-    "lead_summary": "府内統一基準に伴う国民健康保険料の改定と、高齢化に伴う介護保険料引き上げに対し、低所得世帯や現役世代への減免措置・負担軽減が議論。",
-    "current_status": "基金の取り崩しによる急激な保険料上昇の緩和策や、介護現場の処遇改善・人材確保に向けた公的支援のあり方が追及されている。",
-    "conflict_axes": [
-      "保険財政の持続可能性と低所得世帯・年金生活者への過重な負担感",
-      "府内統一算定方式における大阪市独自の減免措置のあり方",
-      "介護報酬改定に伴う事業所倒産防止と公費補填の限界"
-    ],
-    "thread_count": 33,
-    "last_updated": "2026-05-20",
-    "timeline_phases": [
-      {
-        "period": "2023年（令和5年）以前",
-        "phase_title": "制度の検証・課題の浮き彫りと初期提案",
-        "city_stance": "議会からの指摘を踏まえ、現状の運用課題の整理や他都市事例の調査研究、実態把握に着手する姿勢を示した。",
-        "key_points": [
-          "議員による「国民健康保険料・介護保険料の負担軽減と適正化」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5300889_24",
-            "meeting_id": "5300889",
-            "sequence_number": 24,
-            "meeting_date": "2023-09-21",
-            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（民生保健）  09月21日－01号",
-            "speaker": "永田　典子",
-            "statement_text": "福祉局関連等に関する陳情書の審査と理事者の見解表明",
-            "speech_text": "福祉局関連等に関する陳情書の審査と理事者の見解表明",
-            "statement_summary": "福祉局関連等に関する陳情書の審査と理事者の見解表明",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3527&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3527&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5300889_31",
-            "meeting_id": "5300889",
-            "sequence_number": 31,
-            "meeting_date": "2023-09-21",
-            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（民生保健）  09月21日－01号",
+            "id": "th_5301699_74",
             "speaker": "武　直樹",
-            "statement_text": "介護保険料の負担軽減策と訪日外国人の医療体制について",
-            "speech_text": "介護保険料の負担軽減策と訪日外国人の医療体制について",
-            "statement_summary": "介護保険料の負担軽減策と訪日外国人の医療体制について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3527&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3527&schedule_id=2"
+            "meeting_id": "5301699",
+            "meeting_date": "2025-10-20",
+            "meeting_title": "大阪市  令和７年５月、９月、10月特別委員会（環境対策特別委員会）  10月20日－01号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "武直樹議員が大阪市の温室効果ガス削減目標の進捗や各主体の取組について質問し、行政側が排出量推計の仕組みや計画に基づく施策の実施状況について説明した。",
+            "statement_text": "大阪市の地球温暖化対策実行計画と削減目標の進捗管理について",
+            "keywords": [
+              "武直樹",
+              "温室効果ガス削減目標",
+              "大阪市地球温暖化対策実行計画",
+              "脱炭素アクション"
+            ],
+            "reasoning": "大阪市地球温暖化対策実行計画〔区域施策編〕の数値や排出量実績を参照した質疑。2030年度目標に向けた各主体による削減量の把握方法や進捗管理について質問し、行政側から統計値に基づく推計や施策の実施状況について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3683&schedule_id=3",
+            "scoring_reasoning": "大阪市地球温暖化対策実行計画〔区域施策編〕の数値や排出量実績を参照した質疑。2030年度目標に向けた各主体による削減量の把握方法や進捗管理について質問し、行政側から統計値に基づく推計や施策の実施状況について説明があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "生野区",
+            "ward": "生野区",
+            "sequence_number": 74
           },
           {
-            "statement_id": "th_5300920_1",
-            "meeting_id": "5300920",
-            "sequence_number": 1,
-            "meeting_date": "2023-12-06",
-            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（民生保健）  12月06日－01号",
-            "speaker": "永田　典子",
-            "statement_text": "福祉局・健康局関係の提出案件に関する審議",
-            "speech_text": "福祉局・健康局関係の提出案件に関する審議",
-            "statement_summary": "福祉局および健康局の関係議案について各局長から説明があり、国民健康保険条例の一部改正や新病院建設工事、ワクチンの取得に関する追認などの提出案件について質疑が進行した。",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3543&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3543&schedule_id=2"
+            "id": "th_5301709_16",
+            "speaker": "黒田　まりこ",
+            "meeting_id": "5301709",
+            "meeting_date": "2025-12-15",
+            "meeting_title": "大阪市  令和７年12月、令和８年３月特別委員会（環境対策特別委員会）  12月15日－01号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "森之宮工場跡地売却収入を活用した脱炭素施策、アミティ舞洲での帯水層蓄熱実証事業、およびイベントにおけるリユース食器の活用促進について質問し、行政側からそれぞれの検討状況や今後の取組方針について説明があった。",
+            "statement_text": "脱炭素化の推進とイベントにおけるリユース食器の活用",
+            "keywords": [
+              "ゼロカーボンおおさか",
+              "環境創造基金",
+              "帯水層蓄熱システム",
+              "リユース食器",
+              "イベントごみ減量"
+            ],
+            "reasoning": "大阪市地球温暖化対策実行計画や環境創造基金の補正予算額、他都市のイベントごみ減量マニュアルなどを参照した質疑。脱炭素化施策の基金活用、アミティ舞洲での実証事業、イベントでのリユース食器活用について質問し、行政側から環境審議会での検討状況、再生可能エネルギー活用の実証効果、ホームページでの周知や啓発資料作成の予定について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 5,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3685&schedule_id=2",
+            "scoring_reasoning": "大阪市地球温暖化対策実行計画や環境創造基金の補正予算額、他都市のイベントごみ減量マニュアルなどを参照した質疑。脱炭素化施策の基金活用、アミティ舞洲での実証事業、イベントでのリユース食器活用について質問し、行政側から環境審議会での検討状況、再生可能エネルギー活用の実証効果、ホームページでの周知や啓発資料作成の予定について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "鶴見区",
+            "ward": "鶴見区",
+            "sequence_number": 16
+          },
+          {
+            "id": "th_5301709_62",
+            "speaker": "武　直樹",
+            "meeting_id": "5301709",
+            "meeting_date": "2025-12-15",
+            "meeting_title": "大阪市  令和７年12月、令和８年３月特別委員会（環境対策特別委員会）  12月15日－01号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "市有施設への太陽光発電導入方針と粗大ごみ削減・リユース施策の進捗状況について質問し、行政側から導入目標の設定や民間活用、粗大ごみ収集量の実績とリユース連携の効果について説明があった質疑。",
+            "statement_text": "太陽光発電導入拡大と粗大ごみ削減・リユース施策",
+            "keywords": [
+              "太陽光発電",
+              "再エネ導入方針",
+              "粗大ごみ削減",
+              "リユース",
+              "ジモティー"
+            ],
+            "reasoning": "第7次エネルギー基本計画の数値や市有施設の導入実績、粗大ごみ収集量の推移等の公式データや数値を参照した質疑。太陽光発電の導入手法やジモティースポット等の他都市事例を挙げた対策について質問し、行政側から導入目標や既存の取組状況について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3685&schedule_id=2",
+            "scoring_reasoning": "第7次エネルギー基本計画の数値や市有施設の導入実績、粗大ごみ収集量の推移等の公式データや数値を参照した質疑。太陽光発電の導入手法やジモティースポット等の他都市事例を挙げた対策について質問し、行政側から導入目標や既存の取組状況について説明があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "生野区",
+            "ward": "生野区",
+            "sequence_number": 62
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-waste-reduction-recycling",
+    "category": "くらし・環境・エネルギー",
+    "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制",
+    "lead_summary": "プラスチック分別収集の拡大や食品ロス削減対策、適正な収集運搬体制の持続可能性を巡る審議。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "資源循環・有料化による排出抑制 vs 住民負担増・分別徹底の周知",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2025-10-20〜2025-12-15",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "資源循環・有料化による排出抑制"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301699_51",
+            "speaker": "佐々木　哲夫",
+            "meeting_id": "5301699",
+            "meeting_date": "2025-10-20",
+            "meeting_title": "大阪市  令和７年５月、９月、10月特別委員会（環境対策特別委員会）  10月20日－01号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "佐々木哲夫議員がSAFの原料となる家庭系廃食用油の回収事例について質問し、行政側から他都市の回収方法や審議会での検討状況、今後の取組手法の検討について答弁があった。",
+            "statement_text": "家庭系廃食用油の回収とSAFリサイクルの推進について",
+            "keywords": [
+              "SAF",
+              "廃食用油リサイクル",
+              "家庭系廃食用油",
+              "環境先進都市"
+            ],
+            "reasoning": "各種報道や他都市の取組事例を参照した質疑。家庭系廃食用油の回収状況や推進に向けた手法について質問し、行政側から他都市の回収方法や審議会での検討状況について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3683&schedule_id=3",
+            "scoring_reasoning": "各種報道や他都市の取組事例を参照した質疑。家庭系廃食用油の回収状況や推進に向けた手法について質問し、行政側から他都市の回収方法や審議会での検討状況について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "西淀川区",
+            "ward": "西淀川区",
+            "sequence_number": 51
+          },
+          {
+            "id": "th_5301704_32",
+            "speaker": "片山　一歩",
+            "meeting_id": "5301704",
+            "meeting_date": "2025-10-31",
+            "meeting_title": "大阪市  令和７年10月～11月決算特別委員会（令和６年度決算）  10月31日－05号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "片山議員は粉浜幼稚園の現状や住之江区の食品ロス削減策を例に挙げ、市全体のネットワークづくりを提案し、行政側が各取組や留意点を説明した。",
+            "statement_text": "粉浜幼稚園の存続と食品ロス削減に向けた市のネットワーク構築",
+            "keywords": [
+              "粉浜幼稚園",
+              "食品ロス削減",
+              "官民連携"
+            ],
+            "reasoning": "粉浜幼稚園の園児数や民間保育所との距離・預かり時間の比較データ、総務省の女性就業率調査を参照した質疑。粉浜幼稚園の存続策と市全体の食品ロス削減ネットワークづくりについて質問・提案し、行政側から住之江区の取組や廃棄物処理法の留意点について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=6",
+            "scoring_reasoning": "粉浜幼稚園の園児数や民間保育所との距離・預かり時間の比較データ、総務省の女性就業率調査を参照した質疑。粉浜幼稚園の存続策と市全体の食品ロス削減ネットワークづくりについて質問・提案し、行政側から住之江区の取組や廃棄物処理法の留意点について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "住之江区",
+            "ward": "住之江区",
+            "sequence_number": 32
+          },
+          {
+            "id": "th_5301709_4",
+            "speaker": "ますもと　さおり",
+            "meeting_id": "5301709",
+            "meeting_date": "2025-12-15",
+            "meeting_title": "大阪市  令和７年12月、令和８年３月特別委員会（環境対策特別委員会）  12月15日－01号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "議員が事業系食品ロスの削減策や食品寄附のネットワークづくりについて質問し、行政側が推進店の登録やフードバンク等との連携推進について答弁した。",
+            "statement_text": "事業系食品ロスの削減と食品寄附のネットワークづくりについて",
+            "keywords": [
+              "事業系食品ロス",
+              "食べ残しゼロ推進店",
+              "食品寄附",
+              "フードバンク"
+            ],
+            "reasoning": "過去の決算特別委員会での答弁等を参照した質疑。事業系食品ロスの削減に向けた市の取組やフードバンク等を活用した食品寄附のネットワークづくりについて質問し、行政側から推進店の登録や実態調査、事業者への周知などの取組について説明があった質疑として整理されています。",
+            "evidence_score": 2,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3685&schedule_id=2",
+            "scoring_reasoning": "過去の決算特別委員会での答弁等を参照した質疑。事業系食品ロスの削減に向けた市の取組やフードバンク等を活用した食品寄附のネットワークづくりについて質問し、行政側から推進店の登録や実態調査、事業者への周知などの取組について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "東淀川区",
+            "ward": "東淀川区",
+            "sequence_number": 4
           }
         ]
       },
       {
-        "period": "2024年（令和6年）",
-        "phase_title": "具体策の審議・実施計画への反映",
-        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "period": "2025-12-15〜2026-03-11",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
         "key_points": [
-          "議員による「国民健康保険料・介護保険料の負担軽減と適正化」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+          "住民負担増・分別徹底の周知"
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301051_10",
-            "meeting_id": "5301051",
-            "sequence_number": 10,
-            "meeting_date": "2024-03-08",
-            "meeting_title": "大阪市  令和６年３月定例会常任委員会（民生保健・通常予算）  03月08日－03号",
-            "speaker": "岸本　栄",
-            "statement_text": "健診・保健事業におけるナッジ理論を活用した受診勧奨",
-            "speech_text": "健診・保健事業におけるナッジ理論を活用した受診勧奨",
-            "statement_summary": "健診・保健事業におけるナッジ理論を活用した受診勧奨",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=4",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=4"
+            "id": "th_5301709_51",
+            "speaker": "山口　悟朗",
+            "meeting_id": "5301709",
+            "meeting_date": "2025-12-15",
+            "meeting_title": "大阪市  令和７年12月、令和８年３月特別委員会（環境対策特別委員会）  12月15日－01号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "西成区の化製場における悪臭苦情件数や測定結果と対策、及び太陽光パネルのリサイクルに関する国の動向と市の対応について質問し、行政側から現状と今後の対応方針について説明が行われた。",
+            "statement_text": "化製場の悪臭問題と太陽光パネルリサイクル対策",
+            "keywords": [
+              "化製場",
+              "悪臭苦情",
+              "太陽光パネルリサイクル",
+              "環境白書",
+              "不法投棄防止"
+            ],
+            "reasoning": "大阪市環境白書の行政区別新規苦情件数データや臭いの測定結果数値を参照した質疑。化製場の悪臭対策の現状と太陽光パネルリサイクルの法制度の動向について質問し、行政側から立入検査の状況や国の検討状況について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 5,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3685&schedule_id=2",
+            "scoring_reasoning": "大阪市環境白書の行政区別新規苦情件数データや臭いの測定結果数値を参照した質疑。化製場の悪臭対策の現状と太陽光パネルリサイクルの法制度の動向について質問し、行政側から立入検査の状況や国の検討状況について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "西成区",
+            "ward": "西成区",
+            "sequence_number": 51
           },
           {
-            "statement_id": "th_5301052_2",
-            "meeting_id": "5301052",
-            "sequence_number": 2,
-            "meeting_date": "2024-03-11",
-            "meeting_title": "大阪市  令和６年３月定例会常任委員会（民生保健・通常予算）  03月11日－04号",
+            "id": "th_5301807_81",
             "speaker": "鈴木　理恵",
-            "statement_text": "大阪市の医療提供体制と介護保険料・認定の適正化について",
-            "speech_text": "大阪市の医療提供体制と介護保険料・認定の適正化について",
-            "statement_summary": "大阪市の医療提供体制と介護保険料・認定の適正化について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=5",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=5"
+            "meeting_id": "5301807",
+            "meeting_date": "2026-03-11",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（建設港湾・通常予算）  03月11日－03号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "鈴木議員の質問に対し、中部環境局事業部一般廃棄物指導課長から事業系食品ロス削減の取組状況や新規施策について説明が行われた。",
+            "statement_text": "事業系食品ロス削減の取組と今後の展開について",
+            "keywords": [
+              "事業系食品ロス",
+              "食べ残しゼロ推進店",
+              "ドギーバッグ"
+            ],
+            "reasoning": "令和8年2月末時点の登録店舗数の数値データを参照した質疑。事業系食品ロスの削減に向けた登録制度や持ち帰り促進策について質問し、行政側から小盛りメニューの普及や多言語版カードの配布等の取組について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3707&schedule_id=4",
+            "scoring_reasoning": "令和8年2月末時点の登録店舗数の数値データを参照した質疑。事業系食品ロスの削減に向けた登録制度や持ち帰り促進策について質問し、行政側から小盛りメニューの普及や多言語版カードの配布等の取組について説明があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "中央区",
+            "ward": "中央区",
+            "sequence_number": 81
           },
           {
-            "statement_id": "th_5301024_31",
-            "meeting_id": "5301024",
-            "sequence_number": 31,
-            "meeting_date": "2024-03-18",
-            "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（民生保健）  03月18日－01号",
-            "speaker": "永田　典子",
-            "statement_text": "福祉局および健康局関連の陳情書に対する見解について",
-            "speech_text": "福祉局および健康局関連の陳情書に対する見解について",
-            "statement_summary": "福祉局および健康局関連の陳情書に対する見解について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3560&schedule_id=3",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3560&schedule_id=3"
-          }
-        ]
-      },
-      {
-        "period": "2025年〜2026年（令和7・8年）",
-        "phase_title": "本格実施・制度拡充と持続可能性の検証",
-        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
-        "key_points": [
-          "議員による「国民健康保険料・介護保険料の負担軽減と適正化」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
-          {
-            "statement_id": "th_5301435_134",
-            "meeting_id": "5301435",
-            "sequence_number": 134,
-            "meeting_date": "2025-03-10",
-            "meeting_title": "大阪市  令和７年３月定例会常任委員会（民生保健・通常予算）  03月10日－04号",
-            "speaker": "西　拓郎",
-            "statement_text": "国保保険料改定、新保健所整備および骨髄バンクドナー支援について",
-            "speech_text": "国保保険料改定、新保健所整備および骨髄バンクドナー支援について",
-            "statement_summary": "国保保険料改定、新保健所整備および骨髄バンクドナー支援について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3634&schedule_id=5",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3634&schedule_id=5"
-          },
-          {
-            "statement_id": "th_5301676_153",
-            "meeting_id": "5301676",
-            "sequence_number": 153,
-            "meeting_date": "2025-12-05",
-            "meeting_title": "大阪市  令和７年９～12月定例会常任委員会（教育こども）  12月05日－01号",
-            "speaker": "明石　直樹",
-            "statement_text": "産後ケア事業の申請におけるオンライン化と面接手法の見直しについて",
-            "speech_text": "産後ケア事業の申請におけるオンライン化と面接手法の見直しについて",
-            "statement_summary": "産後ケア事業の申請におけるオンライン化と面接手法の見直しについて",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3674&schedule_id=5",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3674&schedule_id=5"
-          },
-          {
-            "statement_id": "th_5336589_12",
-            "meeting_id": "5336589",
-            "sequence_number": 12,
-            "meeting_date": "2026-05-20",
-            "meeting_title": "大阪市  令和８年５・６月定例会常任委員会（民生保健）  05月20日－01号",
-            "speaker": "宮脇　希",
-            "statement_text": "国民健康保険の府内統一保険料の経緯と令和8年度の改定要因について",
-            "speech_text": "国民健康保険の府内統一保険料の経緯と令和8年度の改定要因について",
-            "statement_summary": "国民健康保険の府内統一保険料の経緯と令和8年度の改定要因について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3727&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3727&schedule_id=2"
+            "id": "th_5301807_84",
+            "speaker": "今田　信行",
+            "meeting_id": "5301807",
+            "meeting_date": "2026-03-11",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（建設港湾・通常予算）  03月11日－03号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "今田議員が家庭系食品ロスの広報、プロギングの開催検討、此花区の環境美化プロジェクトについて質問し、行政側がポスター作成やイベント実施、アプリ導入などの取り組み状況についてそれぞれ説明した。",
+            "statement_text": "食品ロス削減やプロギング、地域環境美化の取組について",
+            "keywords": [
+              "家庭系食品ロス",
+              "プロギング",
+              "このはなごみゼロプロジェクト"
+            ],
+            "reasoning": "他都市実績や区の個別事業の具体的事例を参照した質疑。家庭系食品ロスの広報充実、プロギングの開催手法、此花区の環境美化プロジェクトについて質問し、行政側からポスター作成やアプリ導入等の対応について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3707&schedule_id=4",
+            "scoring_reasoning": "他都市実績や区の個別事業の具体的事例を参照した質疑。家庭系食品ロスの広報充実、プロギングの開催手法、此花区の環境美化プロジェクトについて質問し、行政側からポスター作成やアプリ導入等の対応について説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "此花区",
+            "ward": "此花区",
+            "sequence_number": 84
           }
         ]
       }
     ]
   },
   {
-    "topic_id": "bousai_infrastructure_yodogawa",
-    "category": "防災・減災・治安",
-    "title": "淀川左岸線延伸と高潮・巨大地震津波対策",
-    "lead_summary": "南海トラフ巨大地震や高潮・内水氾濫に対する防潮堤・水門の耐震化と、淀川左岸線延伸部の工期見直し・安全確保に関する議論。",
-    "current_status": "津波避難ビルの指定拡大や水防体制の点検が進む一方、淀川左岸線2期事業の工事安全対策と早期供用開始が求められている。",
-    "conflict_axes": [
-      "難工事に伴う工期延伸・事業費増額と大規模災害への備えの緊急性",
-      "ゼロメートル地帯における避難体制と外国人・来訪者への避難誘導",
-      "老朽下水管・河川インフラの耐震補強と財政負担の平準化"
-    ],
-    "thread_count": 2,
-    "last_updated": "2024-10-07",
+    "topic_id": "osaka-core-public-transport-reorganization",
+    "category": "都市再生・交通インフラ",
+    "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上",
+    "lead_summary": "深刻化するバス・タクシー運転手不足への対応と、郊外・丘陵地における生活交通ネットワークの維持・再編を巡る議論。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "採算性・経営効率化 vs 移動弱者・郊外住宅地の移動権確保",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
     "timeline_phases": [
       {
-        "period": "2024年（令和6年）",
-        "phase_title": "具体策の審議・実施計画への反映",
-        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
+        "period": "2024-02-21〜2024-02-21",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
         "key_points": [
-          "議員による「淀川左岸線延伸と高潮・巨大地震津波対策」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+          "採算性・経営効率化"
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301018_74",
-            "meeting_id": "5301018",
-            "sequence_number": 74,
-            "meeting_date": "2024-02-20",
-            "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（建設港湾）  02月20日－01号",
-            "speaker": "井上　浩",
-            "statement_text": "都市公園の樹木管理、夢洲の土地利用および防災インフラ整備に関する質疑",
-            "speech_text": "都市公園の樹木管理、夢洲の土地利用および防災インフラ整備に関する質疑",
-            "statement_summary": "都市公園の樹木管理、夢洲の土地利用および防災インフラ整備に関する質疑",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3558&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3558&schedule_id=2"
-          },
-          {
-            "statement_id": "th_5301316_6",
-            "meeting_id": "5301316",
-            "sequence_number": 6,
-            "meeting_date": "2024-10-07",
-            "meeting_title": "大阪市  令和６年10月、11月、12月特別委員会（2025大阪・関西万博推進特別委員会）  10月07日－01号",
+            "id": "th_5301013_7",
             "speaker": "近藤　大",
-            "statement_text": "淀川左岸線（2期）の暫定利用と万博の備蓄食料について",
-            "speech_text": "淀川左岸線（2期）の暫定利用と万博の備蓄食料について",
-            "statement_summary": "淀川左岸線（2期）の暫定利用と万博の備蓄食料について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3609&schedule_id=2"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "topic_id": "cultural_heritage_osakajo_naniwagu",
-    "category": "文化・景観・歴史",
-    "title": "大阪城公園・難波宮跡の歴史遺産保全と賑わい創出",
-    "lead_summary": "特別史跡大坂城跡・難波宮跡の保存活用計画と、民間PMOによるパークPFI導入、歴史的景観保全と観光振興の調和を巡る議論。",
-    "current_status": "難波宮跡の整備基本構想に基づく発掘調査と公園整備が進められる一方、イベント利用における遺構保全への配慮が審議されている。",
-    "conflict_axes": [
-      "国指定特別史跡としての学術的価値・遺構保全と民間活力導入による集客",
-      "市民の憩いの場・歴史学習拠点としての機能と商業的利用のバランス",
-      "周辺エリア（天満橋・上町台地）との歴史回遊ルートの形成と案内機能の充実"
-    ],
-    "thread_count": 3,
-    "last_updated": "2025-03-10",
-    "timeline_phases": [
-      {
-        "period": "2024年（令和6年）",
-        "phase_title": "具体策の審議・実施計画への反映",
-        "city_stance": "関係局との連携体制を整え、モデル事業の検証や基本計画の策定、制度見直しに向けた具体的検討を進めた。",
-        "key_points": [
-          "議員による「大阪城公園・難波宮跡の歴史遺産保全と賑わい創出」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
-        ],
-        "exchanges": [
+            "meeting_id": "5301013",
+            "meeting_date": "2024-02-21",
+            "meeting_title": "大阪市  令和６年１月、２月特別委員会（大都市・税財政制度特別委員会）  02月21日－01号",
+            "category": "都市再生・交通インフラ",
+            "summary": "議員が大阪府市におけるライドシェア導入の目的や国との制度案の乖離について質問し、行政側が有識者会議の経過や安全確保策等を説明した。",
+            "statement_text": "大阪府市におけるライドシェアの導入検討と制度案について",
+            "keywords": [
+              "ライドシェア",
+              "大阪・関西万博",
+              "副首都推進本部会議",
+              "道路運送法第78条第3号"
+            ],
+            "reasoning": "副首都推進本部会議や規制改革推進会議の中間答申などの動向を参照した質疑。大阪が目指すライドシェア制度の目的や国との差異、安全確保策、運行区域について質問し、行政側から有識者会議の設置経過や事業者要件、万博に向けた取り組みについて説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 5,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3555&schedule_id=2",
+            "scoring_reasoning": "副首都推進本部会議や規制改革推進会議の中間答申などの動向を参照した質疑。大阪が目指すライドシェア制度の目的や国との差異、安全確保策、運行区域について質問し、行政側から有識者会議の設置経過や事業者要件、万博に向けた取り組みについて説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "北区",
+            "ward": "北区",
+            "sequence_number": 7
+          },
           {
-            "statement_id": "th_5301085_6",
-            "meeting_id": "5301085",
-            "sequence_number": 6,
-            "meeting_date": "2024-05-21",
-            "meeting_title": "大阪市  令和６年５月定例会常任委員会（都市経済）  05月21日－01号",
-            "speaker": "高山　美佳",
-            "statement_text": "豊臣期石垣公開施設整備工事の契約変更に関する詳細と経緯の確認",
-            "speech_text": "豊臣期石垣公開施設整備工事の契約変更に関する詳細と経緯の確認",
-            "statement_summary": "豊臣期石垣公開施設整備工事の契約変更に関する詳細と経緯の確認",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3580&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3580&schedule_id=2"
+            "id": "th_5301013_47",
+            "speaker": "須藤　奨太",
+            "meeting_id": "5301013",
+            "meeting_date": "2024-02-21",
+            "meeting_title": "大阪市  令和６年１月、２月特別委員会（大都市・税財政制度特別委員会）  02月21日－01号",
+            "category": "都市再生・交通インフラ",
+            "summary": "電子契約導入やサイバー対策、万博におけるライドシェアやタクシーの運行計画について質問し、行政側からシステムの再構築方針や交通需要の試算、事業者へのアンケート結果について説明があった。",
+            "statement_text": "DX推進、情報セキュリティ確保および万博ライドシェアについて",
+            "keywords": [
+              "電子調達システム",
+              "情報セキュリティポリシー",
+              "ライドシェア"
+            ],
+            "reasoning": "電子調達システムの契約件数や万博の交通需要試算、事業者アンケート結果等の数値データを参照した質疑。DX推進やライドシェア導入における運用方針について質問し、行政側から次期システムのクラウド化や運行計画、タクシー会社の参入意向について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3555&schedule_id=2",
+            "scoring_reasoning": "電子調達システムの契約件数や万博の交通需要試算、事業者アンケート結果等の数値データを参照した質疑。DX推進やライドシェア導入における運用方針について質問し、行政側から次期システムのクラウド化や運行計画、タクシー会社の参入意向について説明があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "天王寺区",
+            "ward": "天王寺区",
+            "sequence_number": 47
+          },
+          {
+            "id": "th_5301013_89",
+            "speaker": "武　直樹",
+            "meeting_id": "5301013",
+            "meeting_date": "2024-02-21",
+            "meeting_title": "大阪市  令和６年１月、２月特別委員会（大都市・税財政制度特別委員会）  02月21日－01号",
+            "category": "都市再生・交通インフラ",
+            "summary": "海外視察でのライドシェア体験を踏まえ、安全性確保の具体策やタクシー事業者からの意見、国の規制改革推進会議における検討課題について質問し、行政側からそれぞれ説明と答弁があった質疑。",
+            "statement_text": "ライドシェアの安全性確保と今後の導入に向けた国の検討状況について",
+            "keywords": [
+              "ライドシェア",
+              "海外視察",
+              "安全性確保",
+              "タクシー事業者",
+              "規制改革推進会議"
+            ],
+            "reasoning": "大阪府・大阪市ライドシェア有識者会議や規制改革推進に関する中間答申などの資料を参照した質疑。大阪の案における安全性の担保やタクシー事業者へのヒアリング結果、国の規制改革推進会議での検討課題について質問し、行政側からキャッシュレス決済の導入やドライバーの安全管理等の契約内容、タクシー業界への影響に関する意見、今後の検討課題について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3555&schedule_id=2",
+            "scoring_reasoning": "大阪府・大阪市ライドシェア有識者会議や規制改革推進に関する中間答申などの資料を参照した質疑。大阪の案における安全性の担保やタクシー事業者へのヒアリング結果、国の規制改革推進会議での検討課題について質問し、行政側からキャッシュレス決済の導入やドライバーの安全管理等の契約内容、タクシー業界への影響に関する意見、今後の検討課題について説明があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "生野区",
+            "ward": "生野区",
+            "sequence_number": 89
           }
         ]
       },
       {
-        "period": "2025年〜2026年（令和7・8年）",
-        "phase_title": "本格実施・制度拡充と持続可能性の検証",
-        "city_stance": "予算措置や条例整備を進めつつ、市民意見の反映や財政状況・物価高騰を踏まえた持続可能な運用の確保に努めている。",
+        "period": "2024-02-21〜2025-09-19",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
         "key_points": [
-          "議員による「大阪城公園・難波宮跡の歴史遺産保全と賑わい創出」に関する論点指摘と行政答弁の確認",
-          "市民益の向上と事業の実効性・財政負担を両立させる制度設計の審議"
+          "移動弱者・郊外住宅地の移動権確保"
         ],
         "exchanges": [
           {
-            "statement_id": "th_5301405_71",
+            "id": "th_5301013_96",
+            "speaker": "山中　智子",
+            "meeting_id": "5301013",
+            "meeting_date": "2024-02-21",
+            "meeting_title": "大阪市  令和６年１月、２月特別委員会（大都市・税財政制度特別委員会）  02月21日－01号",
+            "category": "都市再生・交通インフラ",
+            "summary": "議員は大阪におけるタクシー不足のエビデンスやライドシェア導入の妥当性について質問し、行政側は万博等に伴う交通需要や安全管理と共存共栄を図る方針について説明した。",
+            "statement_text": "大阪市におけるライドシェア導入の妥当性とタクシー不足の現状について",
+            "keywords": [
+              "ライドシェア",
+              "タクシー不足",
+              "大阪・関西万博",
+              "公共交通"
+            ],
+            "reasoning": "万博開催時の交通需要推算や規制改革推進に関する中間答申を参照した質疑。大阪市におけるタクシー不足の根拠やライドシェア導入の是非について質問し、行政側から万博期間中の交通需要増大の試算や、既存事業者との共存共栄を図る方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3555&schedule_id=2",
+            "scoring_reasoning": "万博開催時の交通需要推算や規制改革推進に関する中間答申を参照した質疑。大阪市におけるタクシー不足の根拠やライドシェア導入の是非について質問し、行政側から万博期間中の交通需要増大の試算や、既存事業者との共存共栄を図る方針について説明・答弁があった質疑として整理されています。",
+            "party": "日本共産党",
+            "district": "城東区",
+            "ward": "城東区",
+            "sequence_number": 96
+          },
+          {
+            "id": "th_5301405_87",
+            "speaker": "吉見　みさこ",
             "meeting_id": "5301405",
-            "sequence_number": 71,
             "meeting_date": "2025-02-17",
             "meeting_title": "大阪市  令和７年２・３月定例会常任委員会（都市経済）  02月17日－01号",
-            "speaker": "伊藤　亜実",
-            "statement_text": "大阪城公園パークマネジメント事業の5年評価報告",
-            "speech_text": "大阪城公園パークマネジメント事業の5年評価報告",
-            "statement_summary": "大阪城公園パークマネジメント事業の5年評価報告",
+            "category": "都市再生・交通インフラ",
+            "summary": "Osaka Metro中央線のワンマン運転の実施経緯と地下鉄の自動運転に向けた実証実験の取組について質問し、行政側から安全対策や自動運転化の検討状況について説明が行われた。",
+            "statement_text": "Osaka Metro中央線のワンマン運転および地下鉄の自動運転に向けた取組",
+            "keywords": [
+              "Osaka Metro",
+              "中央線",
+              "ワンマン運転",
+              "自動運転",
+              "実証実験"
+            ],
+            "reasoning": "Osaka Metro中央線のワンマン運転の経緯や他都市事例を参照した質疑。地下鉄における自動運転の導入に関する取組について質問し、行政側から夢洲駅・大阪港駅間での実証実験や自動化レベルの検証予定について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
             "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3626&schedule_id=2"
+            "scoring_reasoning": "Osaka Metro中央線のワンマン運転の経緯や他都市事例を参照した質疑。地下鉄における自動運転の導入に関する取組について質問し、行政側から夢洲駅・大阪港駅間での実証実験や自動化レベルの検証予定について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "平野区",
+            "ward": "平野区",
+            "sequence_number": 87
           },
           {
-            "statement_id": "th_5301447_121",
-            "meeting_id": "5301447",
-            "sequence_number": 121,
+            "id": "th_5301695_46",
+            "speaker": "永田　典子",
+            "meeting_id": "5301695",
+            "meeting_date": "2025-09-19",
+            "meeting_title": "大阪市  令和７年５月、９月、10月特別委員会（2025大阪・関西万博推進特別委員会）  09月19日－01号",
+            "category": "防災・減災・治安",
+            "summary": "万博開催中の鉄道運行トラブルに関する原因究明と再発防止策、情報発信の改善、来場者増加に伴う中央線の輸送力と夢洲駅の安全対策について質問し、行政側から各対策と今後の対応について説明があった質疑。",
+            "statement_text": "大阪市営地下鉄中央線の輸送トラブルと再発防止策について",
+            "keywords": [
+              "中央線",
+              "運行トラブル",
+              "万博輸送",
+              "再発防止策",
+              "夢洲駅"
+            ],
+            "reasoning": "Osaka Metroが公表した報告書等の資料を参照した質疑。中央線の停電原因、再発防止策、情報発信方法、混雑時の輸送力と安全対策について質問し、行政側から延焼防止シートの清掃や増便等の対応について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 5,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3681&schedule_id=3",
+            "scoring_reasoning": "Osaka Metroが公表した報告書等の資料を参照した質疑。中央線の停電原因、再発防止策、情報発信方法、混雑時の輸送力と安全対策について質問し、行政側から延焼防止シートの清掃や増便等の対応について説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "平野区",
+            "ward": "平野区",
+            "sequence_number": 46
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-urban-development-infrastructure",
+    "category": "都市再生・交通インフラ",
+    "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化",
+    "lead_summary": "拠点駅周辺の都市再生・再開発事業の進捗と、市内全域に及ぶ道路・橋梁・上下水道の予防保全型マネジメントを巡る審議。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "都心拠点開発・インフラ集中投資 vs 周辺区・生活道路の保全改修",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2026-03-10〜2026-03-11",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "都心拠点開発・インフラ集中投資"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301830_150",
+            "speaker": "黒田　まりこ",
+            "meeting_id": "5301830",
+            "meeting_date": "2026-03-10",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（都市経済・通常予算）  03月10日－02号",
+            "category": "都市再生・交通インフラ",
+            "summary": "議員が交通バリアフリーマップの更新頻度や認知度向上、オープンデータ活用の検討について質問し、行政側が年1回の定期更新のほか随時更新に向けたデータ整備やSNS等による広報、データ活用の研究を進めると説明した。",
+            "statement_text": "交通バリアフリーマップの更新と情報提供の強化について",
+            "keywords": [
+              "交通バリアフリーマップ",
+              "バリアフリー",
+              "オープンデータ"
+            ],
+            "reasoning": "国土交通省の移動支援データ整備や他都市事例を参照した質疑。交通バリアフリーマップの迅速な情報更新やオープンデータ活用の在り方について質問し、行政側から年1回の定期更新に加え随時更新に向けたデータ作業の改善、およびデータ活用の研究を行っていくと説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=3",
+            "scoring_reasoning": "国土交通省の移動支援データ整備や他都市事例を参照した質疑。交通バリアフリーマップの迅速な情報更新やオープンデータ活用の在り方について質問し、行政側から年1回の定期更新に加え随時更新に向けたデータ作業の改善、およびデータ活用の研究を行っていくと説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "鶴見区",
+            "ward": "鶴見区",
+            "sequence_number": 150
+          },
+          {
+            "id": "th_5301806_72",
+            "speaker": "原口　悠介",
+            "meeting_id": "5301806",
+            "meeting_date": "2026-03-10",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（建設港湾・通常予算）  03月10日－02号",
+            "category": "都市再生・交通インフラ",
+            "summary": "議員は緑の基本計画に基づく樹木管理や南港魚つり園護岸の閉鎖状況と再開見通しについて質問し、行政側は目標樹形の設定や4月下旬の開放を目指した新スキームでの事業者公募について説明した。",
+            "statement_text": "緑のまちづくり推進と南港魚つり園護岸の再開",
+            "keywords": [
+              "緑の基本計画＜2026＞",
+              "街路樹・公園樹マネジメント戦略",
+              "南港魚つり園護岸"
+            ],
+            "reasoning": "緑の基本計画や街路樹・公園樹マネジメント戦略、南港魚つり園護岸を参照した質疑。今後の維持管理方針や魚つり園の閉鎖状況と再開に向けた事業者公募について質問し、行政側から目標樹形の設定や4月下旬の開放見通しについて説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3707&schedule_id=3",
+            "scoring_reasoning": "緑の基本計画や街路樹・公園樹マネジメント戦略、南港魚つり園護岸を参照した質疑。今後の維持管理方針や魚つり園の閉鎖状況と再開に向けた事業者公募について質問し、行政側から目標樹形の設定や4月下旬の開放見通しについて説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "生野区",
+            "ward": "生野区",
+            "sequence_number": 72
+          },
+          {
+            "id": "th_5301807_4",
+            "speaker": "今田　信行",
+            "meeting_id": "5301807",
+            "meeting_date": "2026-03-11",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（建設港湾・通常予算）  03月11日－03号",
+            "category": "都市再生・交通インフラ",
+            "summary": "今田議員は北港テクノポート線北ルートの整備に向けた検討状況や夢洲のまちづくりについて質問し、行政側はJR桜島線延伸に向けた事業化検討調査の実施予定やインフラ整備の進捗状況を説明した。",
+            "statement_text": "北港テクノポート線北ルート整備と夢洲のまちづくり",
+            "keywords": [
+              "北港テクノポート線",
+              "JR桜島線延伸",
+              "夢洲"
+            ],
+            "reasoning": "運輸政策審議会答申や費用便益分析の数値等を参照した質疑。北港テクノポート線北ルートの事業化に向けた検討状況や夢洲のまちづくりについて質問し、行政側からJR桜島線延伸に関する予算計上やインフラ整備の進捗について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 5,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3707&schedule_id=4",
+            "scoring_reasoning": "運輸政策審議会答申や費用便益分析の数値等を参照した質疑。北港テクノポート線北ルートの事業化に向けた検討状況や夢洲のまちづくりについて質問し、行政側からJR桜島線延伸に関する予算計上やインフラ整備の進捗について説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "此花区",
+            "ward": "此花区",
+            "sequence_number": 4
+          }
+        ]
+      },
+      {
+        "period": "2026-03-11〜2026-03-13",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "周辺区・生活道路の保全改修"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301831_145",
+            "speaker": "杉田　忠裕",
+            "meeting_id": "5301831",
+            "meeting_date": "2026-03-11",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（都市経済・通常予算）  03月11日－03号",
+            "category": "都市再生・交通インフラ",
+            "summary": "議員は十三駅エリア計画の内容やもと淀川区役所跡地の複合施設における図書館移転と集客イベントの検討状況を質問し、行政側から計画の方向性とイルミネーション実施に向けた課題や今後の取り組みについて説明があった。",
+            "statement_text": "十三駅エリアのまちづくりと集客イベントの検討状況",
+            "keywords": [
+              "十三駅エリア計画",
+              "もと淀川区役所跡地",
+              "淀川図書館",
+              "イルミネーション"
+            ],
+            "reasoning": "十三駅エリア計画やもと淀川区役所跡地の複合施設に関する資料を参照した質疑。十三駅エリアのまちづくりの内容やイルミネーションを含めた集客イベントの検討状況について質問し、行政側から計画の概要や実施に向けた課題と今後の対応について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 5,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=4",
+            "scoring_reasoning": "十三駅エリア計画やもと淀川区役所跡地の複合施設に関する資料を参照した質疑。十三駅エリアのまちづくりの内容やイルミネーションを含めた集客イベントの検討状況について質問し、行政側から計画の概要や実施に向けた課題と今後の対応について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "淀川区",
+            "ward": "淀川区",
+            "sequence_number": 145
+          },
+          {
+            "id": "th_5301801_68",
+            "speaker": "森　慶吾",
+            "meeting_id": "5301801",
+            "meeting_date": "2026-03-11",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（市政改革・通常予算）  03月11日－03号",
+            "category": "都市再生・交通インフラ",
+            "summary": "森慶吾議員が天下茶屋駅前の市有地活用における市場調査の結果と周辺エリアのまちづくり施策について質問し、行政側がサウンディング結果や社会実験イベントの実施状況について答弁した。",
+            "statement_text": "天下茶屋駅前のまちづくりと市有地活用について",
+            "keywords": [
+              "天下茶屋駅",
+              "マーケットサウンディング",
+              "まちづくり方針"
+            ],
+            "reasoning": "天下茶屋駅前の市有地活用に関する市場調査結果や周辺エリアのまちづくり施策を参照した質疑。天下茶屋駅前の市有地活用結果と社会実験イベントの実施内容について質問し、行政側から事業者の提案状況や今年度の取組内容について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 5,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3706&schedule_id=4",
+            "scoring_reasoning": "天下茶屋駅前の市有地活用に関する市場調査結果や周辺エリアのまちづくり施策を参照した質疑。天下茶屋駅前の市有地活用結果と社会実験イベントの実施内容について質問し、行政側から事業者の提案状況や今年度の取組内容について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "東淀川区",
+            "ward": "東淀川区",
+            "sequence_number": 68
+          },
+          {
+            "id": "th_5301809_72",
+            "speaker": "上田　智隆",
+            "meeting_id": "5301809",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（建設港湾・通常予算）  03月13日－05号",
+            "category": "都市再生・交通インフラ",
+            "summary": "天保山客船ターミナルのリニューアル効果や中央突堤北岸壁の整備スケジュール、無電柱化や南海高野線立体交差化の進捗について質問し、行政側から整備計画や今後の対応方針について説明があった。",
+            "statement_text": "港湾施設の機能強化、無電柱化および南海高野線立体交差化の推進",
+            "keywords": [
+              "天保山客船ターミナル",
+              "無電柱化",
+              "南海高野線立体交差化"
+            ],
+            "reasoning": "クルーズ客船の入港隻数や世界市場の統計データ、令和11年度供用開始等の具体的なスケジュールを参照した質疑。天保山岸壁の逼迫に対応する中央突堤北岸壁の整備や無電柱化の課題解消に向けた包括委託の導入、南海高野線の立体交差化および踏切安全対策について質問し、行政側から各事業の具体的な実施内容や検討状況について説明があった質疑として整理されています。",
+            "evidence_score": 5,
+            "solution_score": 5,
+            "local_focus_score": 5,
+            "constructive_score": 5,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3707&schedule_id=6",
+            "scoring_reasoning": "クルーズ客船の入港隻数や世界市場の統計データ、令和11年度供用開始等の具体的なスケジュールを参照した質疑。天保山岸壁の逼迫に対応する中央突堤北岸壁の整備や無電柱化の課題解消に向けた包括委託の導入、南海高野線の立体交差化および踏切安全対策について質問し、行政側から各事業の具体的な実施内容や検討状況について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "住吉区",
+            "ward": "住吉区",
+            "sequence_number": 72
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-childcare-support-burden",
+    "category": "子育て・教育",
+    "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策",
+    "lead_summary": "子ども医療費助成の拡充や小中学校給食費の無償化、放課後児童クラブの受け入れ拡大と保育士処遇改善を巡る論争。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "所得制限撤廃・完全無償化の推進 vs 恒久財源の確保・格差是正",
+    "thread_count": 5,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2024-03-07〜2024-11-20",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "所得制限撤廃・完全無償化の推進"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301044_98",
+            "speaker": "今村　直人",
+            "meeting_id": "5301044",
+            "meeting_date": "2024-03-07",
+            "meeting_title": "大阪市  令和６年３月定例会常任委員会（教育こども・通常予算）  03月07日－02号",
+            "category": "子育て・教育",
+            "summary": "今村直人議員が待機児童対策や保育所等整備、地域型保育事業の支援、産後ケア事業、妊産婦等生活援助事業について質問し、行政側がそれぞれの事業の実施状況や新規・拡充施策について説明した。",
+            "statement_text": "待機児童対策と子育て・母子支援施策の取組",
+            "keywords": [
+              "待機児童対策",
+              "保育所等整備",
+              "産後ケア事業",
+              "妊産婦等生活援助事業",
+              "地域型保育事業"
+            ],
+            "reasoning": "令和6・7年度の保育所整備計画や予算額、補助制度の拡充額等の具体的数値データを参照した質疑。保育ニーズに対する受皿確保や各種子育て支援事業の改善策について質問し、行政側から制度拡充や新規事業の実施について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3565&schedule_id=3",
+            "scoring_reasoning": "令和6・7年度の保育所整備計画や予算額、補助制度の拡充額等の具体的数値データを参照した質疑。保育ニーズに対する受皿確保や各種子育て支援事業の改善策について質問し、行政側から制度拡充や新規事業の実施について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "淀川区",
+            "ward": "淀川区",
+            "sequence_number": 98
+          },
+          {
+            "id": "th_5301314_131",
+            "speaker": "山田　正和",
+            "meeting_id": "5301314",
+            "meeting_date": "2024-11-20",
+            "meeting_title": "大阪市  令和６年10月～11月決算特別委員会（令和５年度決算）  11月20日－08号",
+            "category": "福祉・医療・健康",
+            "summary": "議員は性暴力支援や保育士確保、介護マークの普及について質問・要望を行い、行政側は各関係機関との連携強化や今後の対応方針について説明した。",
+            "statement_text": "性暴力支援、保育士確保および介護マーク普及の取組について",
+            "keywords": [
+              "性暴力支援",
+              "保育士採用",
+              "介護マーク"
+            ],
+            "reasoning": "他都市の保育士採用試験の受験者数や競争倍率、指定都市における保育所長の役職状況などの数値や公的資料を参照した質疑。保育士のキャリアパスや介護マークの広報周知について質問・提案し、行政側から今後の情報共有やホームページ等を活用した周知について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=9",
+            "scoring_reasoning": "他都市の保育士採用試験の受験者数や競争倍率、指定都市における保育所長の役職状況などの数値や公的資料を参照した質疑。保育士のキャリアパスや介護マークの広報周知について質問・提案し、行政側から今後の情報共有やホームページ等を活用した周知について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "生野区",
+            "ward": "生野区",
+            "sequence_number": 131
+          }
+        ]
+      },
+      {
+        "period": "2025-03-06〜2026-03-10",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "恒久財源の確保・格差是正"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301427_2",
+            "speaker": "近藤　みわ",
+            "meeting_id": "5301427",
+            "meeting_date": "2025-03-06",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（教育こども・通常予算）  03月06日－02号",
+            "category": "子育て・教育",
+            "summary": "議員は保育人材確保策や待機児童対策、心の天気の活用状況とスクールカウンセラーによる情報共有の進捗について質問し、行政側は各種補助金や整備実績、閲覧環境の整備状況について説明した。",
+            "statement_text": "保育人材確保、待機児童対策および学校における心の天気等の活用状況について",
+            "keywords": [
+              "保育人材確保",
+              "待機児童対策",
+              "心の天気",
+              "スクールカウンセラー"
+            ],
+            "reasoning": "各種補助金の申請割合や整備目標数などの具体的数値データを参照した質疑。保育人材確保策や受皿整備、端末ツールの活用・情報共有について質問し、行政側から補助金実績やスクールカウンセラーの利用環境整備状況等について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=3",
+            "scoring_reasoning": "各種補助金の申請割合や整備目標数などの具体的数値データを参照した質疑。保育人材確保策や受皿整備、端末ツールの活用・情報共有について質問し、行政側から補助金実績やスクールカウンセラーの利用環境整備状況等について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "東成区",
+            "ward": "東成区",
+            "sequence_number": 2
+          },
+          {
+            "id": "th_5301798_61",
+            "speaker": "井上　浩",
+            "meeting_id": "5301798",
+            "meeting_date": "2025-03-25",
+            "meeting_title": "大阪市  令和７年12月、令和８年３月特別委員会（大都市・税財政制度特別委員会）  03月25日－01号",
+            "category": "財政・行革",
+            "summary": "学校給食費の無償化に係る国の財政措置と本市負担の見込み額について質問し、行政側が小学校分約60億円や国の支援基準額等を説明した。",
+            "statement_text": "学校給食費無償化に係る国の財政措置と本市の負担軽減について",
+            "keywords": [
+              "学校給食費無償化",
+              "財政措置",
+              "夢洲２期区域"
+            ],
+            "reasoning": "文部科学省の調査や過去の予算額を参照した質疑。学校給食費無償化に係る国の財政措置や夢洲２期区域の土地課題対策について質問し、行政側から小学校分に係る予算額やＩＲ用地との対応の違いについて説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3705&schedule_id=2",
+            "scoring_reasoning": "文部科学省の調査や過去の予算額を参照した質疑。学校給食費無償化に係る国の財政措置や夢洲２期区域の土地課題対策について質問し、行政側から小学校分に係る予算額やＩＲ用地との対応の違いについて説明・答弁があった質疑として整理されています。",
+            "party": "日本共産党",
+            "district": "住吉区",
+            "ward": "住吉区",
+            "sequence_number": 61
+          },
+          {
+            "id": "th_5301812_66",
+            "speaker": "伊藤　亜実",
+            "meeting_id": "5301812",
+            "meeting_date": "2026-03-10",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（教育こども・通常予算）  03月10日－02号",
+            "category": "子育て・教育",
+            "summary": "伊藤亜実議員は保育料無償化に伴う待機児童対策や既存施設の有効活用、保育利用申請のオンライン化、母子健康手帳のデザインリニューアルについて質問し、行政側から各事業の実施方針や予算措置について説明があった。",
+            "statement_text": "保育料無償化に伴う待機児童対策と手続のオンライン化等について",
+            "keywords": [
+              "保育料無償化",
+              "待機児童対策",
+              "オンライン申請",
+              "母子健康手帳"
+            ],
+            "reasoning": "令和7年4月の利用保留児童数や事業者の応募数等の統計や予算規模等を参照した質疑。既存施設の有効活用による1歳児受入枠拡大やオンライン申請の導入手順について質問し、行政側から関連事業の補助金交付やモデル区での試行実施について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3708&schedule_id=3",
+            "scoring_reasoning": "令和7年4月の利用保留児童数や事業者の応募数等の統計や予算規模等を参照した質疑。既存施設の有効活用による1歳児受入枠拡大やオンライン申請の導入手順について質問し、行政側から関連事業の補助金交付やモデル区での試行実施について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "住吉区",
+            "ward": "住吉区",
+            "sequence_number": 66
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-school-education-environment",
+    "category": "子育て・教育",
+    "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援",
+    "lead_summary": "公立学校現場における教員未配置問題の解消と、GIGAスクール端末の活用、不登校児童生徒への居場所支援を巡る審議。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "教員の多忙化解消・配置改善 vs 学習指導の質向上・多様な学びの場づくり",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2025-03-11〜2025-06-10",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "教員の多忙化解消・配置改善"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301430_74",
+            "speaker": "藤田　あきら",
+            "meeting_id": "5301430",
+            "meeting_date": "2025-03-11",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（教育こども・通常予算）  03月11日－05号",
+            "category": "子育て・教育",
+            "summary": "藤田あきら議員が不登校対策としてのスクリーニングや学校の魅力化・人事制度について質問し、教育委員会がシステムのバージョンアップや特色ある教育の推進、校長の人事配置について説明した。",
+            "statement_text": "不登校対策のスクリーニング機能と学校の魅力化に関する質疑",
+            "keywords": [
+              "不登校対策",
+              "スクールライフノート",
+              "学校の魅力化",
+              "校長人事"
+            ],
+            "reasoning": "文科省の生徒指導提要や大阪市の不登校児童数等の公的データ・資料を参照した質疑。スクリーニングの登録率向上策や学校の魅力化、校長の任期やマネジメント力向上について質問・提案し、行政側からシステムのポップアップ機能や学習デザインの工夫、人事配置の方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3633&schedule_id=6",
+            "scoring_reasoning": "文科省の生徒指導提要や大阪市の不登校児童数等の公的データ・資料を参照した質疑。スクリーニングの登録率向上策や学校の魅力化、校長の任期やマネジメント力向上について質問・提案し、行政側からシステムのポップアップ機能や学習デザインの工夫、人事配置の方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "港区",
+            "ward": "港区",
+            "sequence_number": 74
+          },
+          {
+            "id": "th_5301570_5",
+            "speaker": "たけち　博幸",
+            "meeting_id": "5301570",
+            "meeting_date": "2025-05-20",
+            "meeting_title": "大阪市  令和７年５月定例会常任委員会（教育こども）  05月20日－01号",
+            "category": "子育て・教育",
+            "summary": "たけち博幸議員が学習者用端末の更新予算や落札額、仕様、配備スケジュール、利用状況について質問し、行政側が予算額119億円余りや落札額、OS統一などの仕様、令和8年3月までの配備計画について説明した。",
+            "statement_text": "GIGAスクール端末の更新及び活用状況に関する質疑",
+            "keywords": [
+              "学習者用端末",
+              "GIGAスクール構想",
+              "端末更新",
+              "配備スケジュール",
+              "ICT活用状況"
+            ],
+            "reasoning": "予算額や落札金額、全国学力・学習状況調査の統計データを参照した質疑。次期学習者用端末の仕様選定、配備スケジュール、および最新のICT活用状況について質問し、行政側から入札結果やOS統一の理由、配備計画について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 5,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3652&schedule_id=2",
+            "scoring_reasoning": "予算額や落札金額、全国学力・学習状況調査の統計データを参照した質疑。次期学習者用端末の仕様選定、配備スケジュール、および最新のICT活用状況について質問し、行政側から入札結果やOS統一の理由、配備計画について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "此花区",
+            "ward": "此花区",
+            "sequence_number": 5
+          },
+          {
+            "id": "th_5301589_78",
+            "speaker": "南　隆文",
+            "meeting_id": "5301589",
+            "meeting_date": "2025-06-10",
+            "meeting_title": "大阪市  令和７年６月常任委員会（教育こども）  06月10日－01号",
+            "category": "子育て・教育",
+            "summary": "南隆文議員が教員の働き方改革に関する啓発チラシの目的や配布方法、地域での混乱に対するフォローについて質問し、行政側が作成経緯や地域・学校園への対応方針について説明した。",
+            "statement_text": "教員の働き方改革に関する啓発チラシの配布と地域への影響について",
+            "keywords": [
+              "教員の働き方改革",
+              "地域行事",
+              "市長メッセージ"
+            ],
+            "reasoning": "教員の働き方改革に関する啓発チラシの作成目的や地域への配布方法、地域住民からの不安の声に対するフォロー体制について質問し、行政側からチラシ作成の経緯や今後の学校園と地域との連携方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3660&schedule_id=2",
+            "scoring_reasoning": "教員の働き方改革に関する啓発チラシの作成目的や地域への配布方法、地域住民からの不安の声に対するフォロー体制について質問し、行政側からチラシ作成の経緯や今後の学校園と地域との連携方針について説明・答弁があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "淀川区",
+            "ward": "淀川区",
+            "sequence_number": 78
+          }
+        ]
+      },
+      {
+        "period": "2026-03-13〜2026-03-19",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "学習指導の質向上・多様な学びの場づくり"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301815_46",
+            "speaker": "藤岡　寛和",
+            "meeting_id": "5301815",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（教育こども・通常予算）  03月13日－05号",
+            "category": "子育て・教育",
+            "summary": "藤岡寛和議員がスクールソーシャルワーカー、５歳児健診、スクールカウンセラーの配置や実施計画について質問し、行政側がそれぞれの目的、検討状況、専門職確保や今後の体制見直しの方針について説明した。",
+            "statement_text": "教員の働き方改革及び児童生徒への専門職による支援体制について",
+            "keywords": [
+              "課題解決支援員",
+              "5歳児健診",
+              "スクールカウンセラー",
+              "専門職確保"
+            ],
+            "reasoning": "母子保健医療対策総合支援事業の通知や令和8年度予算額（約300万円）などの具体的数値を参照した質疑。5歳児健診の実施方式やスクールカウンセラーの配置・実態調査について質問し、行政側から2段階方式の導入や体制拡充の検討状況について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3708&schedule_id=6",
+            "scoring_reasoning": "母子保健医療対策総合支援事業の通知や令和8年度予算額（約300万円）などの具体的数値を参照した質疑。5歳児健診の実施方式やスクールカウンセラーの配置・実態調査について質問し、行政側から2段階方式の導入や体制拡充の検討状況について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "西成区",
+            "ward": "西成区",
+            "sequence_number": 46
+          },
+          {
+            "id": "th_5301815_102",
+            "speaker": "藤田　あきら",
+            "meeting_id": "5301815",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（教育こども・通常予算）  03月13日－05号",
+            "category": "子育て・教育",
+            "summary": "藤田議員が私立幼稚園の特別支援教育費補助制度の実績や拡充について質問し、行政側が受入れ件数や金額等を答弁した。また、外国につながる児童生徒の支援に関するプレクラス機能の強化について質問した。",
+            "statement_text": "私立幼稚園の特別支援教育補助制度と外国籍児童支援について",
+            "keywords": [
+              "特別支援教育費補助金",
+              "要支援児受入促進指定園",
+              "プレクラス"
+            ],
+            "reasoning": "私立幼稚園における特別支援教育費補助金の金額や要支援児受入促進指定園の受入れ実績等の数値データを参照した質疑。補助制度の現状や対象拡大、外国につながる児童生徒に対するプレクラス機能の強化について質問し、行政側から受入れ実績や今後の対応について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3708&schedule_id=6",
+            "scoring_reasoning": "私立幼稚園における特別支援教育費補助金の金額や要支援児受入促進指定園の受入れ実績等の数値データを参照した質疑。補助制度の現状や対象拡大、外国につながる児童生徒に対するプレクラス機能の強化について質問し、行政側から受入れ実績や今後の対応について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "港区",
+            "ward": "港区",
+            "sequence_number": 102
+          },
+          {
+            "id": "th_5333398_35",
+            "speaker": "山中　智子",
+            "meeting_id": "5333398",
+            "meeting_date": "2026-03-19",
+            "meeting_title": "大阪市  令和８年２・３月定例会常任委員会（教育こども）  03月19日－01号",
+            "category": "子育て・教育",
+            "summary": "文部科学省の不登校の要因分析調査結果や校則変更の事例等を挙げ、画一的な学校環境の見直しや少人数学級の必要性について質問し、行政側からCOCOLOプラン等に基づき多様な学びの場の確保や安心できる環境整備に努める旨の答弁があった。",
+            "statement_text": "不登校要因の分析と画一的学校環境の見直しについて",
+            "keywords": [
+              "不登校",
+              "COCOLOプラン",
+              "校則見直し"
+            ],
+            "reasoning": "文部科学省の不登校の要因分析に関する調査研究報告書等を参照した質疑。不登校の原因分析や画一的な学校環境の見直し、少人数学級の必要性について質問・提案し、行政側から国のCOCOLOプラン等を踏まえた対応方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 2,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3701&schedule_id=4",
+            "scoring_reasoning": "文部科学省の不登校の要因分析に関する調査研究報告書等を参照した質疑。不登校の原因分析や画一的な学校環境の見直し、少人数学級の必要性について質問・提案し、行政側から国のCOCOLOプラン等を踏まえた対応方針について説明・答弁があった質疑として整理されています。",
+            "party": "日本共産党",
+            "district": "城東区",
+            "ward": "城東区",
+            "sequence_number": 35
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-sme-business-support",
+    "category": "産業・観光・地域経済",
+    "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援",
+    "lead_summary": "エネルギー・原材料高騰に直面する市内中小企業への支援策と、事業承継・持続的な賃上げ環境の整備を巡る議論。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "即効性のある直接給付・金融支援 vs 生産性向上・業態転換への構造支援",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2025-03-07〜2025-03-11",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "即効性のある直接給付・金融支援"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301446_113",
+            "speaker": "辻　義隆",
+            "meeting_id": "5301446",
+            "meeting_date": "2025-03-07",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（都市経済・通常予算）  03月07日－03号",
+            "category": "産業・観光・地域経済",
+            "summary": "辻義隆議員が大阪市のスタートアップ支援の現状とKPI設定について質問し、行政側が大阪イノベーションハブの実績や計画に基づく数値目標の達成状況について説明した。",
+            "statement_text": "大阪市のスタートアップ支援の現状と数値目標について",
+            "keywords": [
+              "スタートアップ・エコシステム",
+              "大阪イノベーションハブ",
+              "KPI"
+            ],
+            "reasoning": "他都市事例や市内の企業数等の統計データを参照した質疑。スタートアップ支援の現状、うめきた地区のソフト支援、KPI設定と進捗目標について質問し、行政側から大阪イノベーションハブの活動実績や計画期間中のKPI達成状況について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=4",
+            "scoring_reasoning": "他都市事例や市内の企業数等の統計データを参照した質疑。スタートアップ支援の現状、うめきた地区のソフト支援、KPI設定と進捗目標について質問し、行政側から大阪イノベーションハブの活動実績や計画期間中のKPI達成状況について説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "東住吉区",
+            "ward": "東住吉区",
+            "sequence_number": 113
+          },
+          {
+            "id": "th_5301448_14",
+            "speaker": "高山　美佳",
+            "meeting_id": "5301448",
+            "meeting_date": "2025-03-11",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（都市経済・通常予算）  03月11日－05号",
+            "category": "産業・観光・地域経済",
+            "summary": "高山美佳議員が万博の機運醸成やレガシー継承、スタートアップの公共調達等について質問し、行政側が各事業の取組状況や今後の検討方針について説明した。",
+            "statement_text": "万博のレガシー継承とスタートアップ支援の推進について",
+            "keywords": [
+              "万博推進局",
+              "ヘルスケアパビリオン",
+              "スタートアップ",
+              "公共調達"
+            ],
+            "reasoning": "マスタープランの記載やパビリオンの耐用年数等の具体的数値や計画を参照した質疑。ヘルスケアパビリオン跡地の利活用方針やスタートアップの公共調達に関する取組について質問し、行政側から実施時期や今後の調査方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=6",
+            "scoring_reasoning": "マスタープランの記載やパビリオンの耐用年数等の具体的数値や計画を参照した質疑。ヘルスケアパビリオン跡地の利活用方針やスタートアップの公共調達に関する取組について質問し、行政側から実施時期や今後の調査方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "北区",
+            "ward": "北区",
+            "sequence_number": 14
+          },
+          {
+            "id": "th_5301448_88",
+            "speaker": "高山　美佳",
+            "meeting_id": "5301448",
+            "meeting_date": "2025-03-11",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（都市経済・通常予算）  03月11日－05号",
+            "category": "産業・観光・地域経済",
+            "summary": "大阪来てな！キャンペーンや万博関連の誘客事業、商店街施設整備支援事業の予算拡充、および水辺の新たな技術導入について質問し、行政側から各取り組みの現状と今後の方向性が説明された。",
+            "statement_text": "観光プロモーションと商店街支援および水辺の活用について",
+            "keywords": [
+              "大阪来てな！キャンペーン",
+              "商店街共同施設等整備支援事業",
+              "水都大阪コンソーシアム"
+            ],
+            "reasoning": "令和7年度当初予算額や前年度からの増額幅、ウェブアンケート結果等の数値や事業実績を参照した質疑。観光プロモーション、商店街の予算拡充や担い手不足、水辺の環境配慮型船舶の導入等について質問し、行政側から具体的な実施方針や支援策について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=6",
+            "scoring_reasoning": "令和7年度当初予算額や前年度からの増額幅、ウェブアンケート結果等の数値や事業実績を参照した質疑。観光プロモーション、商店街の予算拡充や担い手不足、水辺の環境配慮型船舶の導入等について質問し、行政側から具体的な実施方針や支援策について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "北区",
+            "ward": "北区",
+            "sequence_number": 88
+          }
+        ]
+      },
+      {
+        "period": "2025-10-28〜2026-03-12",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "生産性向上・業態転換への構造支援"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301701_44",
+            "speaker": "佐竹　りほ",
+            "meeting_id": "5301701",
+            "meeting_date": "2025-10-28",
+            "meeting_title": "大阪市  令和７年10月～11月決算特別委員会（令和６年度決算）  10月28日－02号",
+            "category": "産業・観光・地域経済",
+            "summary": "商店街支援策の申請手続き改善やあきない伝道師事業の活用、空き店舗再生事業の経過について質問し、行政側から周知や派遣実績、今後の対象予定について説明があった。",
+            "statement_text": "商店街支援策の申請改善と空き店舗再生の経過について",
+            "keywords": [
+              "商店街魅力向上事業",
+              "あきない伝道師",
+              "空き店舗を活用した商店街再生事業",
+              "公式ライセンス商品",
+              "天王寺動物園"
+            ],
+            "reasoning": "商店街の助成金申請件数やあきない伝道師の派遣実績等の実績を参照した質疑。申請手続きのひな形用意や専門家派遣事業の活用について質問し、行政側から記入例の改善や最大7回までの無料派遣実績について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=3",
+            "scoring_reasoning": "商店街の助成金申請件数やあきない伝道師の派遣実績等の実績を参照した質疑。申請手続きのひな形用意や専門家派遣事業の活用について質問し、行政側から記入例の改善や最大7回までの無料派遣実績について説明があった質疑として整理されています。",
+            "party": "無所属",
+            "district": "淀川区",
+            "ward": "淀川区",
+            "sequence_number": 44
+          },
+          {
+            "id": "th_5301687_5",
+            "speaker": "たけち　博幸",
+            "meeting_id": "5301687",
+            "meeting_date": "2025-12-04",
+            "meeting_title": "大阪市  令和７年９～12月定例会常任委員会（都市経済）  12月04日－01号",
+            "category": "産業・観光・地域経済",
+            "summary": "たけち博幸議員はTech Osaka Summitの実施概要と実績を問い、行政側は約3,500人の参加や商談実績等を答弁した。続いて議員はアンケートの改善や支援施策への接続を提案し、行政側は今後の施策充実を図ると答弁した。",
+            "statement_text": "Tech Osaka Summitの事業実績と今後のスタートアップ支援策について",
+            "keywords": [
+              "Tech Osaka Summit",
+              "スタートアップ",
+              "ビジネスマッチング",
+              "アンケート調査"
+            ],
+            "reasoning": "イベントの参加者数や商談件数等の実績データを参照した質疑。Tech Osaka Summitのアンケート調査内容の拡充や、得られた声を今後のスタートアップ支援施策へつなげることについて質問・提案し、行政側からアンケートや個別ヒアリングの実施状況と今後の支援策充実についての説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3677&schedule_id=5",
+            "scoring_reasoning": "イベントの参加者数や商談件数等の実績データを参照した質疑。Tech Osaka Summitのアンケート調査内容の拡充や、得られた声を今後のスタートアップ支援施策へつなげることについて質問・提案し、行政側からアンケートや個別ヒアリングの実施状況と今後の支援策充実についての説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "此花区",
+            "ward": "此花区",
+            "sequence_number": 5
+          },
+          {
+            "id": "th_5301832_17",
+            "speaker": "渕上　浩美",
+            "meeting_id": "5301832",
+            "meeting_date": "2026-03-12",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（都市経済・通常予算）  03月12日－04号",
+            "category": "産業・観光・地域経済",
+            "summary": "渕上浩美議員が卸売市場の在り方、交通バリアフリー基本構想の変更、中小企業の海外展開支援等について質問し、行政側がそれぞれの現状や今後の取組方針について説明した。",
+            "statement_text": "市場の機能維持、バリアフリー基本構想、およびスタートアップ支援事業について",
+            "keywords": [
+              "東部市場",
+              "交通バリアフリー基本構想",
+              "ビジネスミッション団",
+              "スタートアップ支援機能強化事業"
+            ],
+            "reasoning": "平成18年策定の交通バリアフリー基本構想や他都市のスタートアップ海外展開支援事業を参照した質疑。市場の統合反対やバリアフリー基本構想の変更メンバーへの工営所追加、海外展開支援の具体策について質問し、行政側から進捗状況や今後の支援内容について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=5",
+            "scoring_reasoning": "平成18年策定の交通バリアフリー基本構想や他都市のスタートアップ海外展開支援事業を参照した質疑。市場の統合反対やバリアフリー基本構想の変更メンバーへの工営所追加、海外展開支援の具体策について質問し、行政側から進捗状況や今後の支援内容について説明があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "東住吉区",
+            "ward": "東住吉区",
+            "sequence_number": 17
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-tourism-local-economy",
+    "category": "産業・観光・地域経済",
+    "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立",
+    "lead_summary": "インバウンド回復に伴う経済波及効果の市内全域への拡大と、混雑・マナー違反等による市民生活への影響緩和策を巡る審議。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "観光消費額の最大化・誘客促進 vs 市民生活の平穏確保・環境負荷軽減",
+    "thread_count": 3,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2024-03-07〜2024-03-07",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "観光消費額の最大化・誘客促進"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301062_66",
+            "speaker": "岩池　きよ",
+            "meeting_id": "5301062",
+            "meeting_date": "2024-03-07",
+            "meeting_title": "大阪市  令和６年３月定例会常任委員会（都市経済・通常予算）  03月07日－02号",
+            "category": "産業・観光・地域経済",
+            "summary": "新今宮エリアブランド向上事業の成果やガイドブック掲載について質問し、行政側からメディアでの紹介状況や今後の連携方針について説明があった。また、改正空家法に基づく対策や区役所間連携について質問し、行政側から計画改定や共同取組の状況が答弁された。",
+            "statement_text": "新今宮エリアの観光振興及び改正空家法に基づく空き家対策について",
+            "keywords": [
+              "新今宮スタディツアー",
+              "大阪デスティネーションキャンペーン",
+              "管理不全空家等",
+              "空家等対策計画"
+            ],
+            "reasoning": "大阪都市魅力創造戦略2025や住宅・土地統計調査の数値データを参照した質疑。新今宮エリアのブランド向上や改正空家法に基づく管理不全空家等への対策について質問し、行政側からガイドブック掲載や計画改定の状況について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 5,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3568&schedule_id=3",
+            "scoring_reasoning": "大阪都市魅力創造戦略2025や住宅・土地統計調査の数値データを参照した質疑。新今宮エリアのブランド向上や改正空家法に基づく管理不全空家等への対策について質問し、行政側からガイドブック掲載や計画改定の状況について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "東淀川区",
+            "ward": "東淀川区",
+            "sequence_number": 66
+          }
+        ]
+      },
+      {
+        "period": "2024-03-12〜2025-03-10",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "市民生活の平穏確保・環境負荷軽減"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301065_101",
+            "speaker": "梅園　周",
+            "meeting_id": "5301065",
+            "meeting_date": "2024-03-12",
+            "meeting_title": "大阪市  令和６年３月定例会常任委員会（都市経済・通常予算）  03月12日－05号",
+            "category": "産業・観光・地域経済",
+            "summary": "美術館・博物館のプロモーション、万博の機運醸成、エリアマネジメント制度、金融資産運用特区について質問し、行政側から各取組の現状や今後の計画、国への提案内容等について説明があった。",
+            "statement_text": "文化・観光振興およびエリアマネジメント等に関する質疑",
+            "keywords": [
+              "博物館機構",
+              "大阪・関西万博",
+              "エリアマネジメント",
+              "金融資産運用特区"
+            ],
+            "reasoning": "昨年度のアンケート結果や第2期中期目標等の数値・公的計画を参照した質疑。博物館機構の広報、万博の機運醸成、大阪版BID制度および金融資産運用特区の提案内容について質問し、行政側から各事業の運用実績や今後の対応方針について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3568&schedule_id=6",
+            "scoring_reasoning": "昨年度のアンケート結果や第2期中期目標等の数値・公的計画を参照した質疑。博物館機構の広報、万博の機運醸成、大阪版BID制度および金融資産運用特区の提案内容について質問し、行政側から各事業の運用実績や今後の対応方針について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "阿倍野区",
+            "ward": "阿倍野区",
+            "sequence_number": 101
+          },
+          {
+            "id": "th_5301441_34",
+            "speaker": "須藤　奨太",
+            "meeting_id": "5301441",
             "meeting_date": "2025-03-10",
-            "meeting_title": "大阪市  令和７年３月定例会常任委員会（都市経済・通常予算）  03月10日－04号",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（財政総務・通常予算）  03月10日－04号",
+            "category": "財政・行革",
+            "summary": "大阪府の宿泊税収に関する見込みや、未利用地の活用条件設定、区役所窓口におけるAI音声認識ツールの導入・横展開について質問し、行政側から制度概要や活用事例、今後の検証予定等について答弁があった。",
+            "statement_text": "宿泊税、未利用地活用および窓口AI音声認識ツールの導入について",
+            "keywords": [
+              "宿泊税",
+              "未利用地活用",
+              "AI音声認識ツール"
+            ],
+            "reasoning": "大阪府の宿泊税決算額約25億円や平年度ベースの税収見込み、宿泊者数等の公的データや具体的数値、天王寺区等の個別事例を参照した質疑。宿泊税の還元や未利用地の条件付売却、区役所窓口のAI音声認識ツールの横展開について質問し、行政側から制度の仕組みや過去の活用事例、今後の効果検証について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 5,
+            "solution_score": 4,
+            "local_focus_score": 5,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3635&schedule_id=5",
+            "scoring_reasoning": "大阪府の宿泊税決算額約25億円や平年度ベースの税収見込み、宿泊者数等の公的データや具体的数値、天王寺区等の個別事例を参照した質疑。宿泊税の還元や未利用地の条件付売却、区役所窓口のAI音声認識ツールの横展開について質問し、行政側から制度の仕組みや過去の活用事例、今後の効果検証について説明・答弁があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "天王寺区",
+            "ward": "天王寺区",
+            "sequence_number": 34
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-elderly-care-welfare",
+    "category": "福祉・医療・健康",
+    "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止",
+    "lead_summary": "超高齢化に伴う介護ニーズ増大に対し、深刻な介護人材不足への対策と地域共生社会の構築を巡る議論。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "介護職員の処遇改善・公的助成 vs 介護保険料の上昇抑制",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2024-03-08〜2025-03-11",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "介護職員の処遇改善・公的助成"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301051_90",
+            "speaker": "杉田　忠裕",
+            "meeting_id": "5301051",
+            "meeting_date": "2024-03-08",
+            "meeting_title": "大阪市  令和６年３月定例会常任委員会（民生保健・通常予算）  03月08日－03号",
+            "category": "福祉・医療・健康",
+            "summary": "杉田議員はベジファーストの普及、歯周病検診の対象拡充と受診勧奨、訪問介護の報酬改定、長居障がい者スポーツセンターの整備等を質問し、行政側は各施策の取組状況や方針について説明した。",
+            "statement_text": "健康寿命延伸、歯周病検診、介護報酬改定および障がい者スポーツセンター整備に関する質疑",
+            "keywords": [
+              "ベジファースト",
+              "歯周病検診",
+              "介護報酬改定",
+              "長居障がい者スポーツセンター"
+            ],
+            "reasoning": "国・市の食育計画や歯周病検診の受診者数等の数値データを参照した質疑。ベジファーストの推進、歯周病検診の対象年齢の拡充や個別通知の送付、介護報酬改定、長居障がい者スポーツセンターの整備等について質問し、行政側から次期計画の方向性や受診者数の推移、個別通知の拡大方針、整備基本計画案の内容について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3566&schedule_id=4",
+            "scoring_reasoning": "国・市の食育計画や歯周病検診の受診者数等の数値データを参照した質疑。ベジファーストの推進、歯周病検診の対象年齢の拡充や個別通知の送付、介護報酬改定、長居障がい者スポーツセンターの整備等について質問し、行政側から次期計画の方向性や受診者数の推移、個別通知の拡大方針、整備基本計画案の内容について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "淀川区",
+            "ward": "淀川区",
+            "sequence_number": 90
+          },
+          {
+            "id": "th_5301314_47",
+            "speaker": "宮脇　希",
+            "meeting_id": "5301314",
+            "meeting_date": "2024-11-20",
+            "meeting_title": "大阪市  令和６年10月～11月決算特別委員会（令和５年度決算）  11月20日－08号",
+            "category": "福祉・医療・健康",
+            "summary": "議員はオーラルフレイル予防の周知啓発とチェックリスト活用を提案し、行政はホームページ掲載やチラシ配布による情報提供を進めると答弁した。また区役所DXの背景や変革について質問し、行政はプロジェクトチームでの検討状況と今後の展望を説明した。",
+            "statement_text": "オーラルフレイル予防の周知啓発と区役所DXの推進について",
+            "keywords": [
+              "オーラルフレイル",
+              "チェックリスト",
+              "区役所DX"
+            ],
+            "reasoning": "大阪市DX戦略や関連学会のチェック項目等の公的資料を参照した質疑。オーラルフレイル予防の周知啓発及び区役所DX実行計画の推進について質問し、行政側からホームページ等でのチェックリスト掲載やプロジェクトチームによる事業検討について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=9",
+            "scoring_reasoning": "大阪市DX戦略や関連学会のチェック項目等の公的資料を参照した質疑。オーラルフレイル予防の周知啓発及び区役所DX実行計画の推進について質問し、行政側からホームページ等でのチェックリスト掲載やプロジェクトチームによる事業検討について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "旭区",
+            "ward": "旭区",
+            "sequence_number": 47
+          },
+          {
+            "id": "th_5301436_165",
+            "speaker": "ホンダ　リエ",
+            "meeting_id": "5301436",
+            "meeting_date": "2025-03-11",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（民生保健・通常予算）  03月11日－05号",
+            "category": "福祉・医療・健康",
+            "summary": "議員は地域包括ケアシステムにおける多機関連携の必要性について福祉局長の答弁を求め、局長は高齢者や動物多頭飼育問題を例に分野を超えた連携の重要性を述べた。",
+            "statement_text": "地域包括ケアシステムと多機関連携の推進について",
+            "keywords": [
+              "地域包括ケアシステム",
+              "福祉局",
+              "多頭飼育",
+              "多機関連携",
+              "相談支援機関"
+            ],
+            "reasoning": "配付資料の記載事項を参照した質疑。地域包括ケアシステムにおける福祉局の発信や多機関連携の必要性について質問し、行政側からつながる場の活用や分野を超えた支援ネットワークの重要性について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 2,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3634&schedule_id=6",
+            "scoring_reasoning": "配付資料の記載事項を参照した質疑。地域包括ケアシステムにおける福祉局の発信や多機関連携の必要性について質問し、行政側からつながる場の活用や分野を超えた支援ネットワークの重要性について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "城東区",
+            "ward": "城東区",
+            "sequence_number": 165
+          }
+        ]
+      },
+      {
+        "period": "2026-03-11〜2026-03-13",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "介護保険料の上昇抑制"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301819_12",
+            "speaker": "山本　智子",
+            "meeting_id": "5301819",
+            "meeting_date": "2026-03-11",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（民生保健・通常予算）  03月11日－03号",
+            "category": "福祉・医療・健康",
+            "summary": "議員は認知症疾患医療センターの機能維持や介護未経験者の支援事業等について質問し、行政側は各事業の実績や今後の取組方針について説明した。",
+            "statement_text": "認知症施策・福祉介護人材確保および健康医療施策に関する質疑",
+            "keywords": [
+              "認知症疾患医療センター",
+              "福祉・介護人材確保",
+              "歯周病検診",
+              "HPVワクチン"
+            ],
+            "reasoning": "大阪市の認知症高齢者数約10万人や鑑別診断・専門相談の実績数、他都市の歯周病検診無償化事例などの公的データや数値等を参照した質疑。認知症医療センターの機能維持、介護人材支援事業の効果、歯周病検診の無償化に伴う広報周知、HPVワクチンの接種状況と情報周知について質問し、行政側から各事業の現状や今後の対応方針について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3709&schedule_id=4",
+            "scoring_reasoning": "大阪市の認知症高齢者数約10万人や鑑別診断・専門相談の実績数、他都市の歯周病検診無償化事例などの公的データや数値等を参照した質疑。認知症医療センターの機能維持、介護人材支援事業の効果、歯周病検診の無償化に伴う広報周知、HPVワクチンの接種状況と情報周知について質問し、行政側から各事業の現状や今後の対応方針について説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "北区",
+            "ward": "北区",
+            "sequence_number": 12
+          },
+          {
+            "id": "th_5301821_22",
+            "speaker": "宮脇　希",
+            "meeting_id": "5301821",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（民生保健・通常予算）  03月13日－05号",
+            "category": "福祉・医療・健康",
+            "summary": "特別養護老人ホーム等の大規模修繕助成や成年後見制度の見直し、オーラルフレイル予防に関する現状と今後の取組について質問し、行政側から整備状況や周知啓発の方針について説明があった。",
+            "statement_text": "高齢者福祉施設の長寿命化支援と成年後見制度・オーラルフレイル予防の推進について",
+            "keywords": [
+              "特別養護老人ホーム",
+              "大規模修繕助成",
+              "成年後見制度",
+              "オーラルフレイル予防",
+              "歯周病検診"
+            ],
+            "reasoning": "大阪家庭裁判所の統計や令和8年度予算額の具体的数値データを参照した質疑。特養の整備状況、大規模修繕助成の要件、成年後見制度の利用状況と法改正に伴う対応、オーラルフレイル予防の周知啓発について質問し、行政側からそれぞれの現状や今後の運用方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3709&schedule_id=6",
+            "scoring_reasoning": "大阪家庭裁判所の統計や令和8年度予算額の具体的数値データを参照した質疑。特養の整備状況、大規模修繕助成の要件、成年後見制度の利用状況と法改正に伴う対応、オーラルフレイル予防の周知啓発について質問し、行政側からそれぞれの現状や今後の運用方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "旭区",
+            "ward": "旭区",
+            "sequence_number": 22
+          },
+          {
+            "id": "th_5301821_118",
+            "speaker": "竹下　隆",
+            "meeting_id": "5301821",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（民生保健・通常予算）  03月13日－05号",
+            "category": "福祉・医療・健康",
+            "summary": "竹下議員は健康寿命延伸に向けた健康器具の設置整理と情報発信を質問し、健康局はロゴ表示やマップ公開等の検討を答弁した。また福島区長は区役所等での設置や広報について関係局と連携した検討を進めると答弁した。",
+            "statement_text": "健康寿命延伸に向けた健康器具の設置と情報発信について",
+            "keywords": [
+              "健康器具",
+              "すこやか大阪21",
+              "健康寿命"
+            ],
+            "reasoning": "配付資料や堺市の事例、市内約800基の設置データ等を参照した質疑。健康器具の設置とすこやか大阪21の関連性整理、ロゴ表示やQRコードの活用、区役所での設置と広報について質問し、健康局と福島区長から来年度早期の整理着手や区長会議での議論検討について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3709&schedule_id=6",
+            "scoring_reasoning": "配付資料や堺市の事例、市内約800基の設置データ等を参照した質疑。健康器具の設置とすこやか大阪21の関連性整理、ロゴ表示やQRコードの活用、区役所での設置と広報について質問し、健康局と福島区長から来年度早期の整理着手や区長会議での議論検討について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "浪速区",
+            "ward": "浪速区",
+            "sequence_number": 118
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-community-medical-system",
+    "category": "福祉・医療・健康",
+    "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成",
+    "lead_summary": "救急搬送困難事案の抑制や夜間・休日診療体制の維持、各種任意予防接種（帯状疱疹等）の公費助成を巡る審議。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "公的医療体制の維持・公費助成拡大 vs 医療機能の再編・適正化",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2025-03-06〜2025-09-24",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "公的医療体制の維持・公費助成拡大"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301433_2",
+            "speaker": "松田　まさとし",
+            "meeting_id": "5301433",
+            "meeting_date": "2025-03-06",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（民生保健・通常予算）  03月06日－02号",
+            "category": "福祉・医療・健康",
+            "summary": "議員は就労選択支援やがん検診等の施策について質問し、行政側は新規サービスの概要や利用見込み、選挙期間中の検診実施に向けた各区との調整状況、夜間・休日急病診療所の予算増額理由について説明した。",
+            "statement_text": "障害福祉サービス、がん検診受診率向上策及び夜間・休日急病診療所について",
+            "keywords": [
+              "就労選択支援",
+              "がん検診受診率向上策",
+              "夜間・休日急病診療所"
+            ],
+            "reasoning": "令和7年度当初予算額や過去の受診者数等の数値データを参照した質疑。就労選択支援の指定要件やがん検診の啓発方法等について質問し、行政側から制度の概要やスケジュール、受診者数の見込みについて説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3634&schedule_id=3",
+            "scoring_reasoning": "令和7年度当初予算額や過去の受診者数等の数値データを参照した質疑。就労選択支援の指定要件やがん検診の啓発方法等について質問し、行政側から制度の概要やスケジュール、受診者数の見込みについて説明があった質疑として整理されています。",
+            "party": "無所属",
+            "district": "平野区",
+            "ward": "平野区",
+            "sequence_number": 2
+          },
+          {
+            "id": "th_5301434_2",
+            "speaker": "今田　信行",
+            "meeting_id": "5301434",
+            "meeting_date": "2025-03-07",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（民生保健・通常予算）  03月07日－03号",
+            "category": "福祉・医療・健康",
+            "summary": "がんアピアランスケア支援の申請状況や複数回助成、全身脱毛症への支援、帯状疱疹ワクチンの定期接種における自己負担額や有効性・安全性等について質問し、行政側から各対応や国の制度等について説明があった。",
+            "statement_text": "がん支援と帯状疱疹ワクチン定期接種に関する質疑",
+            "keywords": [
+              "アピアランスケア支援",
+              "全身脱毛症",
+              "帯状疱疹ワクチン",
+              "定期接種"
+            ],
+            "reasoning": "国立がん研究センター等の統計や事業の申請件数などの公的データを参照した質疑。がん患者のアピアランスケア複数回助成や帯状疱疹ワクチンの自己負担額・周知方法について質問し、行政側から申請状況や事業の在り方、ワクチンの有効性・安全性等について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3634&schedule_id=4",
+            "scoring_reasoning": "国立がん研究センター等の統計や事業の申請件数などの公的データを参照した質疑。がん患者のアピアランスケア複数回助成や帯状疱疹ワクチンの自己負担額・周知方法について質問し、行政側から申請状況や事業の在り方、ワクチンの有効性・安全性等について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "此花区",
+            "ward": "此花区",
+            "sequence_number": 2
+          },
+          {
+            "id": "th_5301678_30",
+            "speaker": "宮脇　希",
+            "meeting_id": "5301678",
+            "meeting_date": "2025-09-24",
+            "meeting_title": "大阪市  令和７年９～12月定例会常任委員会（民生保健）  09月24日－01号",
+            "category": "福祉・医療・健康",
+            "summary": "議員はツルミ診療所の契約延長と土地利用について質問し、行政側は借地契約の期間満了と返還方針、西成区の医療体制の現状について説明した。",
+            "statement_text": "ツルミ診療所の借地契約と西成区の地域医療体制について",
+            "keywords": [
+              "ツルミ診療所",
+              "事業用定期借地権",
+              "西成区",
+              "地域医療",
+              "市有地活用"
+            ],
+            "reasoning": "陳情書の内容や西成区内の診療所数に関する統計データを参照した質疑。ツルミ診療所にかかる事業用定期借地権設定契約の経緯と西成区の地域医療の現状について質問し、行政側から期間満了に伴う土地返還の方針と区内の診療所数に関するデータについて説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 3,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3675&schedule_id=2",
+            "scoring_reasoning": "陳情書の内容や西成区内の診療所数に関する統計データを参照した質疑。ツルミ診療所にかかる事業用定期借地権設定契約の経緯と西成区の地域医療の現状について質問し、行政側から期間満了に伴う土地返還の方針と区内の診療所数に関するデータについて説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "旭区",
+            "ward": "旭区",
+            "sequence_number": 30
+          }
+        ]
+      },
+      {
+        "period": "2025-09-24〜2026-03-13",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "医療機能の再編・適正化"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301678_47",
+            "speaker": "辻　義隆",
+            "meeting_id": "5301678",
+            "meeting_date": "2025-09-24",
+            "meeting_title": "大阪市  令和７年９～12月定例会常任委員会（民生保健）  09月24日－01号",
+            "category": "福祉・医療・健康",
+            "summary": "辻義隆議員はツルミ診療所の契約延長と地域医療の継続を求め、行政側は診療所の果たす役割を認めつつ公平性の観点から直接関与は困難と答弁した。",
+            "statement_text": "ツルミ診療所の存続と地域医療の継続性について",
+            "keywords": [
+              "ツルミ診療所",
+              "西成区",
+              "かかりつけ医"
+            ],
+            "reasoning": "平成19年の事業用定期借地権設定契約や西成区の診療所数などのデータ・状況を参照した質疑。ツルミ診療所の設置経緯や地域での役割、契約終了に伴う存続と支援について質問し、行政側から診療所としての役割を認識しつつ公平性の観点から継続への直接関与は困難であると説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 4,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3675&schedule_id=2",
+            "scoring_reasoning": "平成19年の事業用定期借地権設定契約や西成区の診療所数などのデータ・状況を参照した質疑。ツルミ診療所の設置経緯や地域での役割、契約終了に伴う存続と支援について質問し、行政側から診療所としての役割を認識しつつ公平性の観点から継続への直接関与は困難であると説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "東住吉区",
+            "ward": "東住吉区",
+            "sequence_number": 47
+          },
+          {
+            "id": "th_5301705_38",
+            "speaker": "馬場　のりゆき",
+            "meeting_id": "5301705",
+            "meeting_date": "2025-11-05",
+            "meeting_title": "大阪市  令和７年10月～11月決算特別委員会（令和６年度決算）  11月05日－06号",
+            "category": "福祉・医療・健康",
+            "summary": "選挙公報のQRコード掲載や障害福祉サービスの運営指導体制、歯科の救急医療体制について質問し、行政側から実施状況や今後の検討について説明があった。",
+            "statement_text": "選挙情報の周知、障害福祉サービスの指導体制および歯科救急医療に関する質疑",
+            "keywords": [
+              "選挙公報",
+              "QRコード",
+              "就労継続支援B型",
+              "運営指導",
+              "歯科救急医療"
+            ],
+            "reasoning": "予算額や決算額、件数等の具体的数値データを参照した質疑。選挙公報のQRコード掲載範囲拡大、障害福祉サービスの運営指導体制強化およびDX活用、歯科救急医療体制の実態把握について質問・提案し、行政側から実施状況や今後の検討方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 5,
+            "solution_score": 5,
+            "local_focus_score": 3,
+            "constructive_score": 5,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=7",
+            "scoring_reasoning": "予算額や決算額、件数等の具体的数値データを参照した質疑。選挙公報のQRコード掲載範囲拡大、障害福祉サービスの運営指導体制強化およびDX活用、歯科救急医療体制の実態把握について質問・提案し、行政側から実施状況や今後の検討方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "城東区",
+            "ward": "城東区",
+            "sequence_number": 38
+          },
+          {
+            "id": "th_5301821_8",
+            "speaker": "馬場　のりゆき",
+            "meeting_id": "5301821",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（民生保健・通常予算）  03月13日－05号",
+            "category": "福祉・医療・健康",
+            "summary": "議員は城東区の予約なしがん検診の成果や今後の実施、がん検診等DXの目的・スケジュール、女子車椅子バスケットボール大会の成果について質問し、行政側は各区での実施調整、DXの令和11年度稼働に向けたプロポーザル実施、大会による障がい理解促進の成果等を答弁した。",
+            "statement_text": "予約なしがん検診の拡大とがん検診等DXの推進について",
+            "keywords": [
+              "予約なしがん検診",
+              "がん検診等DX推進事業",
+              "国際親善女子車椅子バスケットボール大阪大会"
+            ],
+            "reasoning": "過去の実施結果や自治体検診DXの国の動向等を参照した質疑。予約なしがん検診の拡大やDX推進のスケジュールについて質問し、行政側から令和11年度のシステム稼働に向けた今後の取組予定等について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3709&schedule_id=6",
+            "scoring_reasoning": "過去の実施結果や自治体検診DXの国の動向等を参照した質疑。予約なしがん検診の拡大やDX推進のスケジュールについて質問し、行政側から令和11年度のシステム稼働に向けた今後の取組予定等について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "城東区",
+            "ward": "城東区",
+            "sequence_number": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-disaster-prevention-resilience",
+    "category": "防災・減災・治安",
+    "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善",
+    "lead_summary": "南海トラフ等の大地震や激甚化する風水害に備え、木造密集地の耐震改修と避難所機能の高度化を巡る審議。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "ハード防災インフラの重点整備 vs 避難所TKB（トイレ・キッチン・ベッド）等ソフト対策",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2024-11-13〜2026-03-10",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "ハード防災インフラの重点整備"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301309_111",
+            "speaker": "小山　光明",
+            "meeting_id": "5301309",
+            "meeting_date": "2024-11-13",
+            "meeting_title": "大阪市  令和６年10月～11月決算特別委員会（令和５年度決算）  11月13日－03号",
+            "category": "防災・減災・治安",
+            "summary": "民間住宅の耐震化率や津波避難ビルの備蓄品、市営住宅の住み替え制度、避難所の鍵管理などについて質問し、行政側から計画目標や各施策の検討状況について答弁があった。",
+            "statement_text": "民間住宅の耐震化と防災・減災対策について",
+            "keywords": [
+              "耐震改修促進計画",
+              "津波避難ビル",
+              "市営住宅住み替え",
+              "避難所鍵管理",
+              "自転車ヘルメット"
+            ],
+            "reasoning": "住宅・土地統計調査や予算・決算額、事故統計などの公的数値データを参照した質疑。耐震補助限度額の拡充や市営住宅の住み替え制度等について質問・提案し、行政側から計画に基づく今後の検討状況について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 5,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=4",
+            "scoring_reasoning": "住宅・土地統計調査や予算・決算額、事故統計などの公的数値データを参照した質疑。耐震補助限度額の拡充や市営住宅の住み替え制度等について質問・提案し、行政側から計画に基づく今後の検討状況について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "大正区",
+            "ward": "大正区",
+            "sequence_number": 111
+          },
+          {
+            "id": "th_5301800_2",
+            "speaker": "永瀬　かなこ",
+            "meeting_id": "5301800",
+            "meeting_date": "2026-03-10",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（市政改革・通常予算）  03月10日－02号",
+            "category": "防災・減災・治安",
+            "summary": "議員は密集市街地の整備状況や中央区ビル火災の再発防止策について質問し、行政側は危険密集市街地の解消に向けた補助制度拡充や消防隊員の安全確保のための資器材導入について説明した。",
+            "statement_text": "密集市街地の解消と消防隊員の安全確保に係る再発防止策",
+            "keywords": [
+              "密集住宅市街地整備プログラム",
+              "危険密集市街地",
+              "中央区ビル火災事故調査報告書",
+              "消防隊員の安全確保"
+            ],
+            "reasoning": "令和3年策定のプログラム指標や補助金実績の数値等を参照した質疑。密集市街地の補助制度拡充や消防用資器材の導入について質問し、行政側から除却費補助の引き上げや熱画像直視装置等の配備計画について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3706&schedule_id=3",
+            "scoring_reasoning": "令和3年策定のプログラム指標や補助金実績の数値等を参照した質疑。密集市街地の補助制度拡充や消防用資器材の導入について質問し、行政側から除却費補助の引き上げや熱画像直視装置等の配備計画について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "東成区",
+            "ward": "東成区",
+            "sequence_number": 2
+          },
+          {
+            "id": "th_5301806_48",
+            "speaker": "人見　つよし",
+            "meeting_id": "5301806",
+            "meeting_date": "2026-03-10",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（建設港湾・通常予算）  03月10日－02号",
+            "category": "防災・減災・治安",
+            "summary": "避難所の耐震給水栓や洗浄型マンホールトイレの整備計画について質問し、行政側から今後の実施方針や調査内容について説明があった。",
+            "statement_text": "避難所における水道・トイレ環境の整備について",
+            "keywords": [
+              "耐震給水栓",
+              "マンホールトイレ",
+              "避難所QOL向上"
+            ],
+            "reasoning": "能登半島地震や他都市事例等の情報を参照した質疑。避難所の耐震給水栓設置や洗浄型マンホールトイレの整備計画について質問し、行政側から令和17年度までの完了予定や令和8年度の調査方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3707&schedule_id=3",
+            "scoring_reasoning": "能登半島地震や他都市事例等の情報を参照した質疑。避難所の耐震給水栓設置や洗浄型マンホールトイレの整備計画について質問し、行政側から令和17年度までの完了予定や令和8年度の調査方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "東住吉区",
+            "ward": "東住吉区",
+            "sequence_number": 48
+          }
+        ]
+      },
+      {
+        "period": "2026-03-11〜2026-03-13",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "避難所TKB（トイレ・キッチン・ベッド）等ソフト対策"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301801_76",
+            "speaker": "西崎　照明",
+            "meeting_id": "5301801",
+            "meeting_date": "2026-03-11",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（市政改革・通常予算）  03月11日－03号",
+            "category": "防災・減災・治安",
+            "summary": "消防職員の防火服管理やＡＩ活用した指揮支援システム、災害対策マニュアルの庁内共有、女性視点の避難所運営とリーダー育成について質問し、行政側から管理の標準化やガイドラインの周知等について答弁があった。",
+            "statement_text": "消防職員の安全確保および女性視点を反映した避難所運営体制",
+            "keywords": [
+              "防火服",
+              "ＡＩ・デジタル技術",
+              "災害対策マニュアル",
+              "避難所運営",
+              "女性ファシリテーター"
+            ],
+            "reasoning": "大阪市中央区のビル火災報告書や男女共同参画基本計画などの公的資料を参照した質疑。防火服の管理体制見直しやＡＩを活用した指揮支援、避難所運営における女性リーダー育成について質問し、行政側からデジタル技術による一元管理の検討やファシリテーター養成事業への協力について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3706&schedule_id=4",
+            "scoring_reasoning": "大阪市中央区のビル火災報告書や男女共同参画基本計画などの公的資料を参照した質疑。防火服の管理体制見直しやＡＩを活用した指揮支援、避難所運営における女性リーダー育成について質問し、行政側からデジタル技術による一元管理の検討やファシリテーター養成事業への協力について説明があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "旭区",
+            "ward": "旭区",
+            "sequence_number": 76
+          },
+          {
+            "id": "th_5301803_2",
+            "speaker": "永瀬　かなこ",
+            "meeting_id": "5301803",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（市政改革・通常予算）  03月13日－05号",
+            "category": "防災・減災・治安",
+            "summary": "議員が防災DXや東成区の地域力、消防車両の整備計画について質問し、行政側がデジタル活用ビジョンや車両の配備状況・調達手法について説明した。",
+            "statement_text": "防災対策のデジタル活用と消防車両の整備方針",
+            "keywords": [
+              "防災DX",
+              "個別避難計画",
+              "高所活動車",
+              "東成区将来ビジョン"
+            ],
+            "reasoning": "大阪市防災情報システムや高所活動車の配備数などの具体的数値データを参照した質疑。防災対策のデジタル活用ビジョンや消防車両の調達手法について質問し、行政側から今後の計画策定や検討状況について説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3706&schedule_id=6",
+            "scoring_reasoning": "大阪市防災情報システムや高所活動車の配備数などの具体的数値データを参照した質疑。防災対策のデジタル活用ビジョンや消防車両の調達手法について質問し、行政側から今後の計画策定や検討状況について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "東成区",
+            "ward": "東成区",
+            "sequence_number": 2
+          },
+          {
+            "id": "th_5301803_136",
+            "speaker": "出雲　輝英",
+            "meeting_id": "5301803",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（市政改革・通常予算）  03月13日－05号",
+            "category": "防災・減災・治安",
+            "summary": "南海トラフ地震の被害想定増加や医療救護体制、避難所運営、消防栓の初期消火活用について質問し、行政側から今後の対策やマニュアル作成等について説明があった。",
+            "statement_text": "大正区の防災対策と消防栓の初期消火活用について",
+            "keywords": [
+              "南海トラフ地震",
+              "医療救護体制",
+              "避難所運営",
+              "消火栓の活用"
+            ],
+            "reasoning": "昨年の国や大阪府の被害想定見直しの公的データや区の協定等を参照した質疑。大正区の防災対策や消火栓の初期消火活用について質問し、行政側から浸水想定や医療救護所の開設協定、消火栓活用マニュアル等の取り組みについて説明があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 5,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3706&schedule_id=6",
+            "scoring_reasoning": "昨年の国や大阪府の被害想定見直しの公的データや区の協定等を参照した質疑。大正区の防災対策や消火栓の初期消火活用について質問し、行政側から浸水想定や医療救護所の開設協定、消火栓活用マニュアル等の取り組みについて説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "大正区",
+            "ward": "大正区",
+            "sequence_number": 136
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-community-safety-crime-prevention",
+    "category": "防災・減災・治安",
+    "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策",
+    "lead_summary": "子どもの通学路安全対策や高齢者を狙う特殊詐欺の防止、地域防犯カメラ設置補助を巡る議論。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "監視カメラ・ICT活用による抑止 vs プライバシー保護・自主防災組織支援",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2024-11-15〜2025-03-11",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "監視カメラ・ICT活用による抑止"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301311_82",
+            "speaker": "わしみ　慎一",
+            "meeting_id": "5301311",
+            "meeting_date": "2024-11-15",
+            "meeting_title": "大阪市  令和６年10月～11月決算特別委員会（令和５年度決算）  11月15日－05号",
+            "category": "くらし・環境・エネルギー",
+            "summary": "わしみ議員は空き家対策や高齢者の見守り事業について質問し、行政側は管理不全空家の指定や水道閉栓情報の活用状況、ICT機器を活用した見守りや認知症行方不明者捜索の取り組みについて説明した。",
+            "statement_text": "空き家対策および高齢者・認知症見守り事業について",
+            "keywords": [
+              "空き家対策",
+              "管理不全空家",
+              "高齢者見守り",
+              "認知症",
+              "ICT活用"
+            ],
+            "reasoning": "空家法改正や住宅・統計調査の数値、他都市事例を参照した質疑。空き家の実態調査手法や固定資産税の課税強化、高齢者見守り事業等の改善について質問し、行政側から各区の対応状況や制度の運用方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=6",
+            "scoring_reasoning": "空家法改正や住宅・統計調査の数値、他都市事例を参照した質疑。空き家の実態調査手法や固定資産税の課税強化、高齢者見守り事業等の改善について質問し、行政側から各区の対応状況や制度の運用方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "城東区",
+            "ward": "城東区",
+            "sequence_number": 82
+          },
+          {
+            "id": "th_5301312_30",
+            "speaker": "ますもと　さおり",
+            "meeting_id": "5301312",
+            "meeting_date": "2024-11-18",
+            "meeting_title": "大阪市  令和６年10月～11月決算特別委員会（令和５年度決算）  11月18日－06号",
+            "category": "都市再生・交通インフラ",
+            "summary": "乳幼児健診の着脱スペースや万博パビリオン、動物園リニューアル、電動キックボードの安全対策について質問し、行政側から各事業の状況や対応方針について説明があった。",
+            "statement_text": "乳幼児健診の環境整備や万博関連事業及び交通安全対策について",
+            "keywords": [
+              "乳幼児健診",
+              "大阪ヘルスケアパビリオン",
+              "天王寺動物園",
+              "電動キックボード"
+            ],
+            "reasoning": "各区の乳幼児健診の実施状況や万博パビリオンの契約・解体費用、動物園の進捗データ等を参照した質疑。乳幼児健診の着脱スペースや万博レガシーの継承、動物園の安全確保、電動キックボードの事故件数と啓発について質問し、行政側から各取組の現状と対応方針について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3608&schedule_id=7",
+            "scoring_reasoning": "各区の乳幼児健診の実施状況や万博パビリオンの契約・解体費用、動物園の進捗データ等を参照した質疑。乳幼児健診の着脱スペースや万博レガシーの継承、動物園の安全確保、電動キックボードの事故件数と啓発について質問し、行政側から各取組の現状と対応方針について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "東淀川区",
+            "ward": "東淀川区",
+            "sequence_number": 30
+          },
+          {
+            "id": "th_5301418_48",
+            "speaker": "木下　誠",
+            "meeting_id": "5301418",
+            "meeting_date": "2025-03-11",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（市政改革・通常予算）  03月11日－05号",
+            "category": "防災・減災・治安",
+            "summary": "多文化共生の地域づくり、区役所窓口の多言語対応機器の導入、保護司の面接場所確保、および防犯カメラの設置状況と更新補助事業について質問し、行政側から各取組の実施状況や今後の方向性が説明された。",
+            "statement_text": "多文化共生施策、窓口DX、再犯防止、防犯カメラの推進について",
+            "keywords": [
+              "多文化共生",
+              "区役所窓口",
+              "保護司",
+              "防犯カメラ",
+              "再犯防止"
+            ],
+            "reasoning": "令和7年度市民局運営方針や区内犯罪認知件数などのデータを参照した質疑。多文化共生エリアプログラム、区役所窓口の専用端末やAI音声認識ツールの導入、保護司の面接場所確保、防犯カメラの更新補助事業について質問し、行政側から各事業の実施状況や今後の対応方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3631&schedule_id=6",
+            "scoring_reasoning": "令和7年度市民局運営方針や区内犯罪認知件数などのデータを参照した質疑。多文化共生エリアプログラム、区役所窓口の専用端末やAI音声認識ツールの導入、保護司の面接場所確保、防犯カメラの更新補助事業について質問し、行政側から各事業の実施状況や今後の対応方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "生野区",
+            "ward": "生野区",
+            "sequence_number": 48
+          }
+        ]
+      },
+      {
+        "period": "2025-03-11〜2026-03-13",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "プライバシー保護・自主防災組織支援"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301418_88",
+            "speaker": "木下　誠",
+            "meeting_id": "5301418",
+            "meeting_date": "2025-03-11",
+            "meeting_title": "大阪市  令和７年３月定例会常任委員会（市政改革・通常予算）  03月11日－05号",
+            "category": "防災・減災・治安",
+            "summary": "議員は防犯カメラの維持管理、客引き対策の効果と拡充、災害時のペット避難に関するガイドライン策定について質問し、行政側は補助金の活用方針やパトロールスタッフの配置実績、ガイドライン作成の検討状況を説明した。",
+            "statement_text": "防犯カメラの維持管理、客引き対策及び災害時のペット避難について",
+            "keywords": [
+              "防犯カメラ",
+              "客引き行為等適正化",
+              "ペット同行避難"
+            ],
+            "reasoning": "大阪・関西万博や能登半島地震等の事例を参照した質疑。防犯カメラの更新設置、キタ・ミナミ地区等の客引き対策のKPI、ペット同行避難対応ガイドラインの策定状況について質問し、行政側から地活協補助金の活用やパトロールスタッフの配置、ガイドライン作成の検討状況について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3631&schedule_id=6",
+            "scoring_reasoning": "大阪・関西万博や能登半島地震等の事例を参照した質疑。防犯カメラの更新設置、キタ・ミナミ地区等の客引き対策のKPI、ペット同行避難対応ガイドラインの策定状況について質問し、行政側から地活協補助金の活用やパトロールスタッフの配置、ガイドライン作成の検討状況について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "生野区",
+            "ward": "生野区",
+            "sequence_number": 88
+          },
+          {
+            "id": "th_5301707_118",
+            "speaker": "伊藤　亜実",
+            "meeting_id": "5301707",
+            "meeting_date": "2025-11-07",
+            "meeting_title": "大阪市  令和７年10月～11月決算特別委員会（令和６年度決算）  11月07日－08号",
+            "category": "子育て・教育",
+            "summary": "伊藤亜実議員が通学路の見守り活動への表彰制度や保育利用申請のオンライン化について質問し、行政側が現状の取組やシステム上の課題について説明した。",
+            "statement_text": "通学路見守り活動の表彰と保育利用申請のオンライン化",
+            "keywords": [
+              "通学路安全対策",
+              "見守り活動",
+              "保育利用申請オンライン化",
+              "行政DX"
+            ],
+            "reasoning": "文科省の通知や他都市の事例を参照した質疑。見守り活動への表彰制度や保育利用申請のオンライン化について質問・提案し、行政側から現状の取り組みやシステム連携等の課題について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3684&schedule_id=9",
+            "scoring_reasoning": "文科省の通知や他都市の事例を参照した質疑。見守り活動への表彰制度や保育利用申請のオンライン化について質問・提案し、行政側から現状の取り組みやシステム連携等の課題について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "住吉区",
+            "ward": "住吉区",
+            "sequence_number": 118
+          },
+          {
+            "id": "th_5301821_80",
+            "speaker": "大橋　一隆",
+            "meeting_id": "5301821",
+            "meeting_date": "2026-03-13",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（民生保健・通常予算）  03月13日－05号",
+            "category": "福祉・医療・健康",
+            "summary": "大橋議員は認知症高齢者見守りネットワークの他市連携と認知症理解促進の取組を質問し、行政は府を通じた情報発信の仕組みやチームオレンジサポーター等の支援状況について説明した。",
+            "statement_text": "認知症高齢者見守りネットワークの広域連携と理解促進",
+            "keywords": [
+              "認知症高齢者",
+              "見守りネットワーク",
+              "チームオレンジ",
+              "認知症サポーター"
+            ],
+            "reasoning": "警察庁の公表データや他市に隣接する地元鶴見区の事例を参照した質疑。見守りネットワークの市域を越えた情報発信と認知症に対する理解を深める取組について質問し、行政側から府を通じた他市町村への協力要請の仕組みやチームオレンジの活動支援について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 3,
+            "local_focus_score": 3,
+            "constructive_score": 3,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3709&schedule_id=6",
+            "scoring_reasoning": "警察庁の公表データや他市に隣接する地元鶴見区の事例を参照した質疑。見守りネットワークの市域を越えた情報発信と認知症に対する理解を深める取組について質問し、行政側から府を通じた他市町村への協力要請の仕組みやチームオレンジの活動支援について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "鶴見区",
+            "ward": "鶴見区",
+            "sequence_number": 80
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-historical-landscape-conservation",
+    "category": "文化・景観・歴史",
+    "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用",
+    "lead_summary": "歴史的な街並みや文化遺産の保護と、人口減少下の都市活力維持に向けた景観・建築規制のあり方を巡る議論。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "歴史都市のアイデンティティ・景観死守 vs 若者定住・経済活動のための規制緩和",
+    "thread_count": 4,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2024-02-16〜2025-09-26",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "歴史都市のアイデンティティ・景観死守"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301028_14",
+            "speaker": "高山　美佳",
+            "meeting_id": "5301028",
+            "meeting_date": "2024-02-16",
+            "meeting_title": "大阪市  令和６年２・３月定例会常任委員会（都市経済）  02月16日－01号",
+            "category": "文化・景観・歴史",
+            "summary": "高山議員は御堂筋の景観計画変更の意義や屋外広告物の誘導手法について質問し、行政側はデザインガイドラインや他地区での取り組み、基本届出区域における周知方法について答弁した。",
+            "statement_text": "御堂筋の景観計画変更と屋外広告物の景観誘導について",
+            "keywords": [
+              "御堂筋",
+              "都市景観条例",
+              "屋外広告物"
+            ],
+            "reasoning": "御堂筋デザインガイドラインや都市計画審議会でのやり取りを参照した質疑。御堂筋の景観計画変更の意義や市域全体での屋外広告物の誘導方針について質問し、行政側から条例に基づく許可手続きや景観形成方針の周知に向けたチラシ作成等の連携策について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3562&schedule_id=2",
+            "scoring_reasoning": "御堂筋デザインガイドラインや都市計画審議会でのやり取りを参照した質疑。御堂筋の景観計画変更の意義や市域全体での屋外広告物の誘導方針について質問し、行政側から条例に基づく許可手続きや景観形成方針の周知に向けたチラシ作成等の連携策について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "北区",
+            "ward": "北区",
+            "sequence_number": 14
+          },
+          {
+            "id": "th_5301671_87",
+            "speaker": "野上　らん",
+            "meeting_id": "5301671",
+            "meeting_date": "2025-09-26",
+            "meeting_title": "大阪市  令和７年９～12月定例会常任委員会（建設港湾）  09月26日－01号",
+            "category": "防災・減災・治安",
+            "summary": "道頓堀川沿いの火災事案を踏まえ、屋外広告物条例や建築基準法に基づく壁面広告の許認可基準や、両局が連携して実施する調査・是正指導の現状と今後の連携方針について質問し、行政側から説明が行われた。",
+            "statement_text": "道頓堀川沿いの屋外広告物調査及び是正指導について",
+            "keywords": [
+              "道頓堀川",
+              "屋外広告物条例",
+              "建築基準法",
+              "建設局",
+              "計画調整局"
+            ],
+            "reasoning": "大阪市屋外広告物条例および建築基準法の規定や火災事案を参照した質疑。道頓堀川沿いの壁面広告に関する調査実施状況や両局の連携について質問し、行政側から今後の調査スケジュールや是正指導の計画について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 5,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3673&schedule_id=2",
+            "scoring_reasoning": "大阪市屋外広告物条例および建築基準法の規定や火災事案を参照した質疑。道頓堀川沿いの壁面広告に関する調査実施状況や両局の連携について質問し、行政側から今後の調査スケジュールや是正指導の計画について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "中央区",
+            "ward": "中央区",
+            "sequence_number": 87
+          }
+        ]
+      },
+      {
+        "period": "2025-09-26〜2026-03-10",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "若者定住・経済活動のための規制緩和"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301671_94",
+            "speaker": "永田　典子",
+            "meeting_id": "5301671",
+            "meeting_date": "2025-09-26",
+            "meeting_title": "大阪市  令和７年９～12月定例会常任委員会（建設港湾）  09月26日－01号",
+            "category": "防災・減災・治安",
+            "summary": "永田典子議員は大阪市内の屋外広告物の許可件数や無許可広告物への調査手法について質問し、行政側は条例に基づく許可件数が約8,000件であり、4年で市内を一巡する調査を実施していると答弁した。",
+            "statement_text": "大阪市における屋外広告物の調査手法と安全確保について",
+            "keywords": [
+              "屋外広告物",
+              "無許可広告物",
+              "道頓堀川",
+              "建設局",
+              "建築基準法"
+            ],
+            "reasoning": "大阪市屋外広告物条例に基づく許可件数約8,000件や、4年で市内一巡する調査方式などの数値や実態を参照した質疑。繁華街における調査頻度の見直しや建築基準法に基づく調査・指導について質問し、行政側から今後の調査のあり方の検討や道頓堀川沿いでの調査実施について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 5,
+            "constructive_score": 5,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3673&schedule_id=2",
+            "scoring_reasoning": "大阪市屋外広告物条例に基づく許可件数約8,000件や、4年で市内一巡する調査方式などの数値や実態を参照した質疑。繁華街における調査頻度の見直しや建築基準法に基づく調査・指導について質問し、行政側から今後の調査のあり方の検討や道頓堀川沿いでの調査実施について説明・答弁があった質疑として整理されています。",
+            "party": "公明党",
+            "district": "平野区",
+            "ward": "平野区",
+            "sequence_number": 94
+          },
+          {
+            "id": "th_5301830_66",
+            "speaker": "辻　淳子",
+            "meeting_id": "5301830",
+            "meeting_date": "2026-03-10",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（都市経済・通常予算）  03月10日－02号",
+            "category": "防災・減災・治安",
+            "summary": "辻淳子議員が屋外広告物の確認申請や防火規定の基準、ミナミエリアでの調査結果について質問し、行政側が建築基準法の適合状況や建設局との連携による今後の適正化策について答弁した。",
+            "statement_text": "屋外広告物の防火規定遵守と適正化の取組について",
+            "keywords": [
+              "屋外広告物",
+              "防火規定",
+              "建築基準法",
+              "防火地域",
+              "ミナミエリア"
+            ],
+            "reasoning": "建築基準法や屋外広告物条例に関する法令規定や調査結果を参照した質疑。屋外広告物の防火規定の適合確認や今後の適正化に向けた関係局との事務連携、実態調査の範囲拡大について質問し、行政側から規定の対象要件や今後の調査・指導方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=3",
+            "scoring_reasoning": "建築基準法や屋外広告物条例に関する法令規定や調査結果を参照した質疑。屋外広告物の防火規定の適合確認や今後の適正化に向けた関係局との事務連携、実態調査の範囲拡大について質問し、行政側から規定の対象要件や今後の調査・指導方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "西成区",
+            "ward": "西成区",
+            "sequence_number": 66
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topic_id": "osaka-core-arts-culture-sports-promotion",
+    "category": "文化・景観・歴史",
+    "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用",
+    "lead_summary": "老朽化した文化・スポーツ劇場の再整備計画と、地域密着の文化活動支援を巡る審議。",
+    "current_status": "継続審議・推進中",
+    "conflict_axes": "文化発信・施設の大規模改修投資 vs 費用対効果・民活（PFI等）導入",
+    "thread_count": 6,
+    "last_updated": "2026-10-30",
+    "timeline_phases": [
+      {
+        "period": "2023-12-06〜2023-12-06",
+        "phase_title": "基本方針の提示と各会派による初期論点質疑",
+        "city_stance": "計画策定および初期予算措置に関する市側の説明。",
+        "key_points": [
+          "文化発信・施設の大規模改修投資"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5300924_5",
+            "speaker": "岩池　きよ",
+            "meeting_id": "5300924",
+            "meeting_date": "2023-12-06",
+            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（都市経済）  12月06日－01号",
+            "category": "文化・景観・歴史",
+            "summary": "大阪市博物館機構の第1期業務実績と第2期中期目標について質問し、行政側から来館者サービスの向上や万博連携、中之島美術館のコレクション常設展示等の取り組みについて説明があった。",
+            "statement_text": "大阪市博物館機構の第2期中期目標と美術館の魅力向上について",
+            "keywords": [
+              "大阪市博物館機構",
+              "第2期中期目標",
+              "大阪中之島美術館",
+              "大阪・関西万博"
+            ],
+            "reasoning": "大阪市博物館機構の第1期業務実績や第2期中期目標、大阪中之島美術館のコレクション数などの数値情報を参照した質疑。万博を契機とした来館者獲得策やコレクションの常設展示・事前情報発信について提案・質問し、行政側から今後の具体的な指示方針について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3545&schedule_id=2",
+            "scoring_reasoning": "大阪市博物館機構の第1期業務実績や第2期中期目標、大阪中之島美術館のコレクション数などの数値情報を参照した質疑。万博を契機とした来館者獲得策やコレクションの常設展示・事前情報発信について提案・質問し、行政側から今後の具体的な指示方針について説明・答弁があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "東淀川区",
+            "ward": "東淀川区",
+            "sequence_number": 5
+          },
+          {
+            "id": "th_5300924_19",
+            "speaker": "前田　和彦",
+            "meeting_id": "5300924",
+            "meeting_date": "2023-12-06",
+            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（都市経済）  12月06日－01号",
+            "category": "文化・景観・歴史",
+            "summary": "前田和彦議員はスポーツ施設の指定管理や文化財の石碑移設費用について質問し、行政側から指定期間の選択制や代行料の増額、石碑の設置経緯や移設費用の負担に関する検討状況について答弁があった。",
+            "statement_text": "スポーツ施設の指定管理と文化財石碑の移設費用について",
+            "keywords": [
+              "指定管理者",
+              "業務代行料",
+              "佐伯祐三生誕の地",
+              "石碑移設"
+            ],
+            "reasoning": "昭和62年に教育委員会が設置した佐伯祐三生誕の地の石碑等の公式データや数値を参照した質疑。施設の指定管理公募における条件変更や文化財石碑の移設費用負担について質問し、行政側から代行料の増額や法的な精査を含めた検討状況について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 4,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3545&schedule_id=2",
+            "scoring_reasoning": "昭和62年に教育委員会が設置した佐伯祐三生誕の地の石碑等の公式データや数値を参照した質疑。施設の指定管理公募における条件変更や文化財石碑の移設費用負担について質問し、行政側から代行料の増額や法的な精査を含めた検討状況について説明・答弁があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "北区",
+            "ward": "北区",
+            "sequence_number": 19
+          },
+          {
+            "id": "th_5300924_40",
             "speaker": "田中　ひろき",
-            "statement_text": "難波宮跡の保存活用と文化財協会の解散に伴う業務継承について",
-            "speech_text": "難波宮跡の保存活用と文化財協会の解散に伴う業務継承について",
-            "statement_summary": "難波宮跡の保存活用と文化財協会の解散に伴う業務継承について",
-            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=5",
-            "source_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3636&schedule_id=5"
+            "meeting_id": "5300924",
+            "meeting_date": "2023-12-06",
+            "meeting_title": "大阪市  令和５年９～12月定例会常任委員会（都市経済）  12月06日－01号",
+            "category": "文化・景観・歴史",
+            "summary": "田中ひろき議員が中之島美術館の常設展示やソフト面の充実、子供向けプログラムや周辺施設との連携強化について質問し、行政側が第２期中期目標での位置づけや広報強化の方針について説明した。",
+            "statement_text": "中之島美術館の集客化とソフト面の取組",
+            "keywords": [
+              "中之島美術館",
+              "ユニークベニュー",
+              "広報連携"
+            ],
+            "reasoning": "中之島美術館の開館後における実績や第２期中期目標への反映、周辺施設との広報連携について質問し、行政側からユニークベニューの活用や子供向けプログラムの実施、ネットワークを活用した広報強化について説明があった質疑として整理されています。",
+            "evidence_score": 2,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3545&schedule_id=2",
+            "scoring_reasoning": "中之島美術館の開館後における実績や第２期中期目標への反映、周辺施設との広報連携について質問し、行政側からユニークベニューの活用や子供向けプログラムの実施、ネットワークを活用した広報強化について説明があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "平野区",
+            "ward": "平野区",
+            "sequence_number": 40
+          }
+        ]
+      },
+      {
+        "period": "2025-12-05〜2026-03-12",
+        "phase_title": "事業本格化に伴う実効性検証と対立論戦",
+        "city_stance": "進捗と課題に対する執行部答弁および制度改善の議論。",
+        "key_points": [
+          "費用対効果・民活（PFI等）導入"
+        ],
+        "exchanges": [
+          {
+            "id": "th_5301676_17",
+            "speaker": "松田　まさとし",
+            "meeting_id": "5301676",
+            "meeting_date": "2025-12-05",
+            "meeting_title": "大阪市  令和７年９～12月定例会常任委員会（教育こども）  12月05日－01号",
+            "category": "文化・景観・歴史",
+            "summary": "平野区の総合工芸施設クラフトパークの指定管理者の公募結果や新事業者からの提案内容、子ども向けの学びの機会提供について質問し、行政側から事業者の選定経過や出前授業等の提案内容について説明があった。",
+            "statement_text": "クラフトパークの指定管理者の選定と今後の運営方針について",
+            "keywords": [
+              "クラフトパーク",
+              "指定管理者",
+              "ジェイコムウエスト",
+              "ものづくり学習"
+            ],
+            "reasoning": "平野区の総合工芸施設クラフトパークの指定管理者公募における応募数や選定結果、事業者の過去の実績や新提案について質問し、行政側から説明会への参加事業者数やジェイコムウエストの選定経緯、子ども向け教室や出前授業の提案内容について答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3674&schedule_id=5",
+            "scoring_reasoning": "平野区の総合工芸施設クラフトパークの指定管理者公募における応募数や選定結果、事業者の過去の実績や新提案について質問し、行政側から説明会への参加事業者数やジェイコムウエストの選定経緯、子ども向け教室や出前授業の提案内容について答弁があった質疑として整理されています。",
+            "party": "無所属",
+            "district": "平野区",
+            "ward": "平野区",
+            "sequence_number": 17
+          },
+          {
+            "id": "th_5301800_156",
+            "speaker": "吉見　みさこ",
+            "meeting_id": "5301800",
+            "meeting_date": "2026-03-10",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（市政改革・通常予算）  03月10日－02号",
+            "category": "防災・減災・治安",
+            "summary": "市営住宅の指定管理者の交代に伴う引継ぎ状況や住民サービス維持に向けた市の関与について質問し、行政側から3者会議の開催や職員の立会いなどの対応状況について説明があった。",
+            "statement_text": "市営住宅指定管理者の引継ぎと住民サービス確保",
+            "keywords": [
+              "市営住宅",
+              "指定管理者",
+              "東急コミュニティー",
+              "業務引継ぎ",
+              "市民サービス"
+            ],
+            "reasoning": "契約管財局の通知や他業務での民間委託の事例等を参照した質疑。指定管理者の交代に伴う引継ぎの具体的方法や市の関与について質問し、行政側から3者会議や職員の立会いなどの対応について説明があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 3,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3706&schedule_id=3",
+            "scoring_reasoning": "契約管財局の通知や他業務での民間委託の事例等を参照した質疑。指定管理者の交代に伴う引継ぎの具体的方法や市の関与について質問し、行政側から3者会議や職員の立会いなどの対応について説明があった質疑として整理されています。",
+            "party": "大阪維新の会",
+            "district": "平野区",
+            "ward": "平野区",
+            "sequence_number": 156
+          },
+          {
+            "id": "th_5301832_3",
+            "speaker": "渕上　浩美",
+            "meeting_id": "5301832",
+            "meeting_date": "2026-03-12",
+            "meeting_title": "大阪市  令和８年３月定例会常任委員会（都市経済・通常予算）  03月12日－04号",
+            "category": "文化・景観・歴史",
+            "summary": "文化振興計画における上方伝統芸能の継承や海外公演、若手育成について質問し、行政側からプログラム開催や人材育成に取り組むと説明があった。",
+            "statement_text": "文化振興計画と伝統芸能継承および中央卸売市場の工事について",
+            "keywords": [
+              "文化振興計画",
+              "上方伝統芸能",
+              "中央卸売市場",
+              "建設改良費",
+              "入札不調"
+            ],
+            "reasoning": "大阪市文化振興計画や中央卸売市場の予算額等を参照した質疑。上方伝統芸能の支援策や市場の入札不調の原因について質問し、行政側から今後の取組予定や業者への調査結果について説明・答弁があった質疑として整理されています。",
+            "evidence_score": 3,
+            "solution_score": 4,
+            "local_focus_score": 4,
+            "constructive_score": 4,
+            "official_url": "https://ssp.kaigiroku.net/tenant/cityosaka/MinuteView.html?council_id=3711&schedule_id=5",
+            "scoring_reasoning": "大阪市文化振興計画や中央卸売市場の予算額等を参照した質疑。上方伝統芸能の支援策や市場の入札不調の原因について質問し、行政側から今後の取組予定や業者への調査結果について説明・答弁があった質疑として整理されています。",
+            "party": "自由民主党",
+            "district": "東住吉区",
+            "ward": "東住吉区",
+            "sequence_number": 3
           }
         ]
       }
