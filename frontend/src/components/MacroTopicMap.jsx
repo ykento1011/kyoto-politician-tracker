@@ -672,9 +672,10 @@ export default function MacroTopicMap({
     const map = {};
     if (Array.isArray(topicSummaries)) {
       topicSummaries.forEach(t => {
-        if (!t.category || !t.id || !t.title) return;
+        const tId = t.id || t.topic_id;
+        if (!t.category || !tId || !t.title) return;
         if (!map[t.category]) map[t.category] = [];
-        map[t.category].push({ id: t.id, title: t.title });
+        map[t.category].push({ id: tId, title: t.title });
       });
     }
     return map;

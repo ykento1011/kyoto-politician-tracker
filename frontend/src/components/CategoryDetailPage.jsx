@@ -910,7 +910,7 @@ export default function CategoryDetailPage({
     if (!Array.isArray(topicSummaries)) return [];
     return topicSummaries
       .filter(t => t.category === categoryName)
-      .map(t => ({ id: t.id, title: t.title }));
+      .map(t => ({ id: t.id || t.topic_id, title: t.title }));
   }, [topicSummaries, categoryName]);
 
 
