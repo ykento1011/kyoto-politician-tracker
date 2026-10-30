@@ -862,6 +862,7 @@ const INITIAL_VISIBLE_COUNT = 15;
 export default function CategoryDetailPage({
     categoryName,
     onBack,
+  topicSummaries = [],
     topicStats,
     filteredThreads = [],
     filteredBills = [],
@@ -876,15 +877,32 @@ export default function CategoryDetailPage({
     onOpenTopicDetail, cityCode = 'kyoto'
 }) {
     const stat = topicStats.find(t => t.name === categoryName) || { count: filteredThreads.length, percentage: 0 };
-    const cityOverviews = CITY_CATEGORY_OVERVIEWS[cityCode] || {};
-    const cityTopicsMap = CITY_CATEGORY_TOPICS[cityCode] || {};
+    
+  const [dynamicOverview, setDynamicOverview] = useState(null);
 
-    const cityNameLabel = cityCode === 'kobe' ? '神戸市会' : cityCode === 'nagoya' ? '名古屋市会' : (cityCode === 'osaka' ? '大阪市会' : '京都市会');
-    const overview = cityOverviews[categoryName] || {
-        lead: `${cityNameLabel}において「${categoryName}」分野に関する質疑が多数記録されています。`,
-        key_points: []
-    };
-    const coreTopics = cityTopicsMap[categoryName] || [];
+  useEffect(() => {
+    fetch(`/data/${cityCode}_category_overviews.json`)
+      .then(r => r.json())
+      .then(data => {
+        if(data[categoryName]) {
+          setDynamicOverview(data[categoryName]);
+        }
+      })
+      .catch(e => console.error("overview fetch error", e));
+  }, [cityCode, categoryName]);
+
+  const overview = dynamicOverview || {
+    lead: `${cityNameLabel}において「${categoryName}」分野に関する質疑が多数記録されています。`,
+    key_points: []
+  };
+
+  const coreTopics = useMemo(() => {
+    if (!Array.isArray(topicSummaries)) return [];
+    return topicSummaries
+      .filter(t => t.category === categoryName)
+      .map(t => ({ id: t.id, title: t.title }));
+  }, [topicSummaries, categoryName]);
+
 
     // 絞り込みフィルター用のステート
     const [selectedYear, setSelectedYear] = useState('');

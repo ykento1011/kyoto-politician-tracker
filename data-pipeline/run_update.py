@@ -390,6 +390,14 @@ def main():
         run_script(UNIFIED_TOPIC_SCRIPT, "政策論点高解像度タイムライン生成（5都市一括）", args=["all"])
     log("--- [政策タイムラインの最新化完了] ---")
 
+    # 7.6.5 政策カテゴリー包括解説（論戦総括）の生成
+    overview_script = os.path.join(BASE_DIR, "generate_category_overviews.py")
+    if os.path.exists(overview_script):
+        log("--- [政策カテゴリー包括解説（論戦総括）の生成] ---")
+        run_script(overview_script, "AI包括解説生成（全5都市一括）", args=["all"])
+        log("--- [政策カテゴリー包括解説の生成完了] ---")
+
+
     # 7.7 議員看板公約・採決トラッカーの最新化（4都市統一セマンティック結合）
     log("--- [議員公約・採決トラッカーの最新化（4都市）] ---")
     if os.path.exists(UNIFIED_PLEDGE_SCRIPT):
