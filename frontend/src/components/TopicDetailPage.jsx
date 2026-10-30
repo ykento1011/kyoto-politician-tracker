@@ -208,14 +208,47 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
             </p>
           </div>
 
-          <div className="space-y-2">
-            <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider">
-              論点の全体像・背景
-            </h2>
-            <p className="text-sm leading-relaxed text-slate-700 font-medium">
-              {topic.lead_summary}
-            </p>
-          </div>
+                      <div className="space-y-3">
+              <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider flex items-center justify-between">
+                <span>論点の全体像・背景・根拠資料</span>
+                {typeof topic.lead_summary === 'object' && topic.lead_summary?.doc_url && (
+                  <a
+                    href={topic.lead_summary.doc_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50/70 hover:bg-indigo-100/80 px-2.5 py-1 rounded-lg border border-indigo-200/60 transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    <span>公式計画・行政資料を開く</span>
+                  </a>
+                )}
+              </h2>
+
+              {typeof topic.lead_summary === 'object' && topic.lead_summary !== null ? (
+                <div className="space-y-3">
+                  {(topic.lead_summary.plan_name || topic.lead_summary.source_name) && (
+                    <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 flex flex-wrap items-center justify-between gap-2 text-xs">
+                      <div className="flex items-center gap-2 font-bold text-slate-800">
+                        <Landmark className="w-3.5 h-3.5 text-indigo-600" />
+                        <span>{topic.lead_summary.plan_name || topic.lead_summary.source_name}</span>
+                      </div>
+                      {topic.lead_summary.date && (
+                        <span className="text-[11px] font-medium text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
+                          {topic.lead_summary.date}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  <p className="text-sm leading-relaxed text-slate-700 font-medium whitespace-pre-line">
+                    {topic.lead_summary.summary || topic.lead_summary.description || JSON.stringify(topic.lead_summary)}
+                  </p>
+                </div>
+              ) : (
+                <p className="text-sm leading-relaxed text-slate-700 font-medium whitespace-pre-line">
+                  {topic.lead_summary || '詳細な政策背景は現在編集中です。'}
+                </p>
+              )}
+            </div>
 
           {topic.conflict_axes?.length > 0 && (
             <div className="pt-4 border-t border-slate-100 space-y-2.5">
