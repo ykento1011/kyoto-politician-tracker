@@ -891,6 +891,7 @@ export default function CategoryDetailPage({
       .catch(e => console.error("overview fetch error", e));
   }, [cityCode, categoryName]);
 
+  const cityNameLabel = cityCode === 'kobe' ? '神戸市会' : cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'yokohama' ? '横浜市会' : (cityCode === 'osaka' ? '大阪市会' : '京都市会');
   const overview = dynamicOverview || {
     lead: `${cityNameLabel}において「${categoryName}」分野に関する質疑が多数記録されています。`,
     key_points: []
