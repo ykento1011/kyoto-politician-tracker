@@ -1,0 +1,267 @@
+{
+  "city_code": "nagoya",
+  "city_name": "名古屋市",
+  "mayor_name": "広沢一郎",
+  "term": "2024年11月就任〜",
+  "mayor_info": {
+    "name": "広沢一郎",
+    "title": "名古屋市長",
+    "city_label": "名古屋市",
+    "term": "2024年11月就任〜",
+    "party": "日本保守党・減税日本 推薦",
+    "profile_image": "/councilors/hirosawa_ichiro.jpg",
+    "fallback_image": null,
+    "bulletin_pdf": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html",
+    "bulletin_label": "選管公式 選挙公報原本",
+    "strategy_main_pdf": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html",
+    "strategy_main_label": "名古屋市総合計画2028"
+  },
+  "summary_stats": {
+    "total_pledges": 5,
+    "progress_pledges": 3
+  },
+  "kpis": [
+    {
+      "label": "重点公約追跡",
+      "value": "5件",
+      "subtext": "選挙公約原本を照合",
+      "badge": "全件照合"
+    },
+    {
+      "label": "予算化・実証中",
+      "value": "3件",
+      "subtext": "当初予算・計画連動",
+      "badge": "推進中"
+    },
+    {
+      "label": "条例成立・執行",
+      "value": "1件",
+      "subtext": "市長給料特例条例可決",
+      "badge": "条例成立"
+    }
+  ],
+  "lifecycle_definition": {
+    "title": "公文書・議決・予算書に基づく政策ライフサイクル検証",
+    "description": "市長選挙公報に掲載された看板公約原本が「名古屋市総合計画2028」に位置づけられ、主要事業説明書における予算措置を経て、名古屋市会での「条例提出・議決」に至った過程を一次資料で客観追跡しています。"
+  },
+  "pledges": [
+    {
+      "id": "nagoya_p1",
+      "pledge_id": "PLEDGE-01",
+      "category": "都市魅力・歴史文化財保全",
+      "headline": "名古屋城天守閣の木造本物復元推進",
+      "title": "名古屋城天守閣の木造本物復元推進",
+      "stage_level": 2,
+      "stage_label": "2.市公式計画化・協議中",
+      "election_promise": {
+        "quote": "史実に忠実な復元を必ず完遂。本丸外を無料開放。名古屋城全体を極力江戸時代の風情に。名古屋城木造化をきっかけとして公共建築、高層建築などへ木材活用をすすめる",
+        "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
+      },
+      "official_plan": {
+        "plan_name": "名古屋市総合計画2028 施策27「歴史・文化の継承と魅力発信」",
+        "date": "令和5年3月策定（令和6年度実施状況反映）",
+        "summary": "特別史跡名古屋城跡の適切な保存管理を図り、木造復元を一体とした現状変更許可取得に向け、事業を着実に推進する。",
+        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和6・7年度",
+          "project_name": "特別史跡名古屋城跡保存活用事業費（天守閣木造復元関連経費）",
+          "amount_display": "調査設計・保全対策費計上",
+          "doc_source": "観光文化交流局主要事業説明書",
+          "doc_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
+        }
+      ],
+      "milestone": {
+        "date": "2024年11月〜",
+        "title": "新技術エレベーターの導入協議について文化庁および有識者・関係団体との意見交換を継続",
+        "evidence_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
+      },
+      "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010542/1010543.html",
+      "evidence_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
+    },
+    {
+      "id": "nagoya_p2",
+      "pledge_id": "PLEDGE-02",
+      "category": "税制・行財政改革",
+      "headline": "市民税減税の推進と税率拡大検証（5%から10%へ）",
+      "title": "市民税減税の推進と税率拡大検証（5%から10%へ）",
+      "stage_level": 3,
+      "stage_label": "3.予算計上・制度継続運用",
+      "election_promise": {
+        "quote": "市民税5%減税を10%減税へ。さらに市民の皆さまへ減税でお返しします。日本で唯一の恒久的な市民税減税。平成22年から14年間累計1,496億円の減税で3,087億円の市税増収。",
+        "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
+      },
+      "official_plan": {
+        "plan_name": "名古屋市総合計画2028 基本目標「都市基盤の充実と持続可能な行財政運営」",
+        "date": "令和5年3月策定",
+        "summary": "市民税減税の適切な運用と安定的な税収基盤の確保を両立し、持続可能な財政運営を行う。",
+        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和7年度",
+          "project_name": "市民税減税に伴う歳入減対策（税負担軽減措置）",
+          "amount_display": "平年約120〜130億円減収織込",
+          "doc_source": "財政局主要事業説明書（一般財源）",
+          "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html"
+        }
+      ],
+      "legislative_bill": {
+        "session_name": "令和6年11月定例会",
+        "bill_number": "市長提出議案",
+        "bill_title": "名古屋市市税条例の一部を改正する条例案",
+        "result": "可決",
+        "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html",
+        "party_votes": {
+          "自民": "賛成",
+          "減税": "賛成",
+          "公明": "賛成",
+          "民主": "反対",
+          "共産": "反対"
+        }
+      },
+      "milestone": {
+        "date": "2024年11月29日",
+        "title": "市長会見にて10%拡大の方向性を堅持しつつ段階的検証を進める意向を表明",
+        "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
+      },
+      "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html",
+      "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
+    },
+    {
+      "id": "nagoya_p3",
+      "pledge_id": "PLEDGE-03",
+      "category": "高齢者福祉・移動支援",
+      "headline": "敬老パス改善（回数制限緩和・翌年繰越・タクシー併給）",
+      "title": "敬老パス改善（回数制限緩和・翌年繰越・タクシー併給）",
+      "stage_level": 2,
+      "stage_label": "2.市公式計画化・電算設計中",
+      "election_promise": {
+        "quote": "利用料を5,000円⇒3,000円、3,000円→2,000円に値下げ。年間730回の余った利用回数を翌年に繰り越し可能に。回数制限を年間730回→1000回に。障がい者タクシー助成制度と敬老パスの併給を可能に。",
+        "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
+      },
+      "official_plan": {
+        "plan_name": "名古屋市総合計画2028 施策24「高齢者の生きがいと健康づくりの推進」",
+        "date": "令和5年3月策定",
+        "summary": "高齢者の社会参加を促進し生きがいづくりと介護予防を図るため、敬老パスの適切な交付と運用を行う。",
+        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和7年度",
+          "project_name": "敬老パス交付事業費（交付経費・運行補填・併給設計）",
+          "amount_display": "約140億〜150億円規模",
+          "doc_source": "健康福祉局主要事業説明書",
+          "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf"
+        }
+      ],
+      "milestone": {
+        "date": "2025年1月",
+        "title": "障がい者タクシー助成との併給制度設計および電算システム改修工程の精査を開始",
+        "evidence_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf"
+      },
+      "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf",
+      "evidence_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf"
+    },
+    {
+      "id": "nagoya_p4",
+      "pledge_id": "PLEDGE-04",
+      "category": "行政改革・特別職報酬適正化",
+      "headline": "市長給料年額800万円の継続および退職手当の全額不支給",
+      "title": "市長給料年額800万円の継続および退職手当の全額不支給",
+      "stage_level": 4,
+      "stage_label": "4.条例案可決・成立執行",
+      "election_promise": {
+        "quote": "市長報酬800万円、退職金全額返上。市長報酬2,830万円⇒800万円、4年ごとの退職金4,220万円⇒0円。市民並み給与を継承！",
+        "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
+      },
+      "official_plan": {
+        "plan_name": "名古屋市総合計画2028 基本目標「行財政改革・適正な人事給与管理の推進」",
+        "date": "令和5年3月策定",
+        "summary": "特別職報酬等の適正化を推進し、簡素で効率的な行財政運営を確立する。",
+        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和7年度",
+          "project_name": "総務局 特別職給料等経費（市長給与）",
+          "amount_display": "年額約800万円（年2,030万円削減）",
+          "doc_source": "総務局主要事業説明書（退職金4,220万円削減）",
+          "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/031/917/01.pdf"
+        }
+      ],
+      "legislative_bill": {
+        "session_name": "令和7年2月定例会",
+        "bill_number": "市長提出議案",
+        "bill_title": "市長等の給料及び退職手当の特例に関する条例の制定について",
+        "result": "可決",
+        "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html",
+        "party_votes": {
+          "自民": "賛成",
+          "減税": "賛成",
+          "公明": "賛成",
+          "民主": "反対",
+          "共産": "反対"
+        }
+      },
+      "milestone": {
+        "date": "2025年3月10日",
+        "title": "市会本会議採決にて特例条例が賛成多数（自民・減税・公明）で可決成立",
+        "evidence_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html"
+      },
+      "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html",
+      "evidence_url": "https://www.city.nagoya.jp/shisei/jouhou/1028672/1028675/1028758/1037190/1037191/1045338.html"
+    },
+    {
+      "id": "nagoya_p5",
+      "pledge_id": "PLEDGE-05",
+      "category": "子育て支援・学校教育相談体制",
+      "headline": "第2子以降・0歳児からの保育料無償化と子ども応援委員会の拡充",
+      "title": "第2子以降・0歳児からの保育料無償化と子ども応援委員会の拡充",
+      "stage_level": 3,
+      "stage_label": "3.予算計上・段階的拡充",
+      "election_promise": {
+        "quote": "保育料0歳児から完全無償。子ども応援委員会常勤スクールカウンセラー(SC)、スクールソーシャルワーカー(SSW)を中学校の規模に応じて加配を行う。常勤スクールカウンセラーの管理職も増員してスクールカウンセラーが育成できる体制強化。",
+        "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
+      },
+      "official_plan": {
+        "plan_name": "名古屋市総合計画2028 施策19「妊娠期から子育て期までの切れ目のない支援」/ 施策20「子どもの権利の尊重と健全育成」",
+        "date": "令和5年3月策定",
+        "summary": "多子世帯等への経済的負担軽減を推進するとともに、子ども応援委員会の充実によりいじめ・不登校対策等の相談機能を強化する。",
+        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和7年度",
+          "project_name": "保育所等運営給付費（第2子軽減枠拡大）／子ども応援委員会設置運営事業費",
+          "amount_display": "当初予算計上",
+          "doc_source": "子ども青少年局・教育委員会主要事業説明書",
+          "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf"
+        }
+      ],
+      "legislative_bill": {
+        "session_name": "令和7年2月定例会",
+        "bill_number": "第1号議案",
+        "bill_title": "令和7年度名古屋市一般会計予算案（子ども青少年局・教育委員会関係費）",
+        "result": "可決",
+        "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf",
+        "party_votes": {
+          "自民": "賛成",
+          "減税": "賛成",
+          "公明": "賛成",
+          "民主": "反対",
+          "共産": "反対"
+        }
+      },
+      "milestone": {
+        "date": "2024年12月",
+        "title": "所信表明にて0歳児保育料無償化の試算と第2子軽減の先行着手を表明し、令和7年度予算案に反映",
+        "evidence_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=621&schedule_id=26",
+        "url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=621&schedule_id=26"
+      },
+      "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf",
+      "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
+    }
+  ]
+}
