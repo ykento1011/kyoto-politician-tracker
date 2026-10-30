@@ -1,7 +1,4 @@
-import React, { useMemo } from 'react';
-import { PieChart, Flame, ArrowRight } from 'lucide-react';
-
-// 全都市の正規論点マスター（*_topic_summaries.json から自動同期）
+// 全都市の正規論点マスター（各都市の topic_summaries.json と完全連動）
 const ALL_CITY_TOPICS = {
   "kyoto": {
     "観光・交通 / 市民生活": [
@@ -639,6 +636,28 @@ const ALL_CITY_TOPICS = {
   }
 };
 
+import React, { useMemo } from 'react';
+import { PieChart, Flame, ArrowRight } from 'lucide-react';
+
+export default function MacroTopicMap({
+  topicStats = [],
+  cityCode = 'kyoto',
+  selectedCategory,
+  onOpenCategoryDetail,
+  getIssueCountForCategory,
+  onOpenTopicDetail
+}) {
+  const totalThreadsCount = useMemo(() => {
+    return topicStats.reduce((sum, t) => sum + (t.count || 0), 0);
+  }, [topicStats]);
+
+  const ALL_CITY_TOPICS = {
+    kyoto: KYOTO_CATEGORY_TOPICS,
+    osaka: OSAKA_CATEGORY_TOPICS,
+    nagoya: NAGOYA_CATEGORY_TOPICS,
+    yokohama: YOKOHAMA_CATEGORY_TOPICS,
+    kobe: KOBE_CATEGORY_TOPICS,
+  };
   const activeCategoryTopicsMap = ALL_CITY_TOPICS[cityCode] || ALL_CITY_TOPICS.kyoto || {};
 
   return (
