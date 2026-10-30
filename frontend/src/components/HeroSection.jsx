@@ -1,6 +1,15 @@
 import React from "react";
 import { Search, Sparkles, Compass, ArrowRight, ExternalLink, AlertCircle, Flag } from "lucide-react";
 
+const KOBE_HOT_TOPICS = [
+  "三宮再開発・バスターミナル",
+  "タワーマンション規制・都心居住",
+  "神戸空港国際化",
+  "医療産業都市",
+  "中学校給食・全員喫食",
+  "行財政改革・人口減少対策",
+];
+
 const KYOTO_HOT_TOPICS = [
   "オーバーツーリズム",
   "市バス",
@@ -48,7 +57,11 @@ export default function HeroSection({
   let hotTopics = KYOTO_HOT_TOPICS;
   let scopeText = "本会議・全常任委員会・特別委員会（12万件超の発言・5,100超の質疑・全67議員・300件の議案賛否）";
 
-  if (cityCode === "osaka") {
+  if (cityCode === "kobe") {
+    cityName = "神戸市会";
+    hotTopics = KOBE_HOT_TOPICS;
+    scopeText = "久元喜造市長政策トラッカー・全常任委員会・本会議質疑スレッド・議案採決ログ";
+  } else if (cityCode === "osaka") {
     cityName = "大阪市会";
     hotTopics = OSAKA_HOT_TOPICS;
     scopeText = "本会議および全委員会（現職81議員・1,260超の質疑スレッド・議案賛否）";

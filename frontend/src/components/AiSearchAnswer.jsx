@@ -20,13 +20,9 @@ export default function AiSearchAnswer({ query, filteredThreads, cityCode = 'kyo
       return;
     }
 
-    const topicUrl = getCityDataUrl 
-      ? getCityDataUrl(cityCode, 'topic_summaries') 
-      : `/data/${cityCode === 'kyoto' ? '' : cityCode + '_'}topic_summaries.json`;
+    const topicUrl = (getCityDataUrl && getCityDataUrl(cityCode, 'topicSummaries')) || `/data/${cityCode === 'kyoto' ? '' : cityCode + '_'}topic_summaries.json`;
     
-    const pledgeUrl = getCityDataUrl 
-      ? getCityDataUrl(cityCode, 'pledge_tracker') 
-      : `/data/pledge_tracker_${cityCode}.json`;
+    const pledgeUrl = (getCityDataUrl && getCityDataUrl(cityCode, 'pledgeTracker')) || `/data/${cityCode === 'kyoto' ? '' : cityCode + '_'}pledge_tracker.json`;
 
     // 1. 論点サマリーと公約トラッカーを並行フェッチ
     Promise.all([
