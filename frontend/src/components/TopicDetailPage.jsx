@@ -7,7 +7,7 @@ import {
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
 export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', onViewContext, statements = [] }) {
-  const cityName = cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
+  const cityName = cityCode === 'kobe' ? '神戸市会' : cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
   const [topic, setTopic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [copiedShare, setCopiedShare] = useState(false);

@@ -221,6 +221,120 @@ const CITY_CATEGORY_OVERVIEWS = {
 
 // 8大カテゴリーの都市別主要論点マスター（正規ID準拠）
 const CITY_CATEGORY_TOPICS = {
+    kobe: {
+      "都市再生・交通インフラ": [
+            {
+                  "id": "kobe-mayor-sannomiya_redevelopment",
+                  "title": "都心・三宮再整備（三宮クロススクエア・新バスターミナル）"
+            },
+            {
+                  "id": "kobe-mayor-kobe_airport_international",
+                  "title": "神戸空港の国際化・機能強化（新サブターミナル整備）"
+            },
+            {
+                  "id": "kobe-mayor-tower_mansion_regulation",
+                  "title": "都心部タワーマンション建築規制・都心居住適正化"
+            },
+            {
+                  "id": "kobe-mayor-suburban_revitalization",
+                  "title": "郊外拠点のリノベーション（名谷・西神中央・垂水等の駅前再編）"
+            },
+            {
+                  "id": "kobe-core-public-transport-reorganization",
+                  "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上"
+            },
+            {
+                  "id": "kobe-core-urban-development-infrastructure",
+                  "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化"
+            }
+      ],
+      "子育て・教育": [
+            {
+                  "id": "kobe-mayor-childcare_education_support",
+                  "title": "子育て環境・教育無償化（高校生通学定期代全額補助）"
+            },
+            {
+                  "id": "kobe-core-childcare-support-burden",
+                  "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策"
+            },
+            {
+                  "id": "kobe-core-school-education-environment",
+                  "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援"
+            }
+      ],
+      "産業・観光・地域経済": [
+            {
+                  "id": "kobe-mayor-biomedical_innovation",
+                  "title": "神戸医療産業都市（KBIC）の高度化とスタートアップ支援"
+            },
+            {
+                  "id": "kobe-core-sme-business-support",
+                  "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援"
+            },
+            {
+                  "id": "kobe-core-tourism-local-economy",
+                  "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立"
+            }
+      ],
+      "福祉・医療・健康": [
+            {
+                  "id": "kobe-mayor-hospital_reorganization",
+                  "title": "公立・公的病院の再編統合（済生会兵庫県病院・三田市民病院）"
+            },
+            {
+                  "id": "kobe-core-elderly-care-welfare",
+                  "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止"
+            },
+            {
+                  "id": "kobe-core-community-medical-system",
+                  "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成"
+            }
+      ],
+      "財政・行革": [
+            {
+                  "id": "kobe-mayor-fiscal_administrative_reform",
+                  "title": "行財政改革・市債残高圧縮と行政手続きオンライン化"
+            },
+            {
+                  "id": "kobe-core-fiscal-discipline-reform",
+                  "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進"
+            },
+            {
+                  "id": "kobe-core-digital-gov-dx",
+                  "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上"
+            }
+      ],
+      "くらし・環境・エネルギー": [
+            {
+                  "id": "kobe-core-zero-carbon-renewable",
+                  "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援"
+            },
+            {
+                  "id": "kobe-core-waste-reduction-recycling",
+                  "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制"
+            }
+      ],
+      "防災・減災・治安": [
+            {
+                  "id": "kobe-core-disaster-prevention-resilience",
+                  "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善"
+            },
+            {
+                  "id": "kobe-core-community-safety-crime-prevention",
+                  "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策"
+            }
+      ],
+      "文化・景観・歴史": [
+            {
+                  "id": "kobe-core-historical-landscape-conservation",
+                  "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用"
+            },
+            {
+                  "id": "kobe-core-arts-culture-sports-promotion",
+                  "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用"
+            }
+      ]
+},
     kyoto: {
         '都市再生・交通インフラ': [
             { id: 'bus_fare_priority', title: '市バス混雑対策と「市民優先価格（二重運賃）」導入' },
@@ -351,10 +465,10 @@ export default function CategoryDetailPage({
     onOpenTopicDetail, cityCode = 'kyoto'
 }) {
     const stat = topicStats.find(t => t.name === categoryName) || { count: filteredThreads.length, percentage: 0 };
-    const cityOverviews = CITY_CATEGORY_OVERVIEWS[cityCode] || CITY_CATEGORY_OVERVIEWS.kyoto;
-    const cityTopicsMap = CITY_CATEGORY_TOPICS[cityCode] || CITY_CATEGORY_TOPICS.kyoto;
+    const cityOverviews = CITY_CATEGORY_OVERVIEWS[cityCode] || {};
+    const cityTopicsMap = CITY_CATEGORY_TOPICS[cityCode] || {};
 
-    const cityNameLabel = cityCode === 'nagoya' ? '名古屋市会' : (cityCode === 'osaka' ? '大阪市会' : '京都市議会');
+    const cityNameLabel = cityCode === 'kobe' ? '神戸市会' : cityCode === 'nagoya' ? '名古屋市会' : (cityCode === 'osaka' ? '大阪市会' : '京都市会');
     const overview = cityOverviews[categoryName] || {
         lead: `${cityNameLabel}において「${categoryName}」分野に関する質疑が多数記録されています。`,
         key_points: []
