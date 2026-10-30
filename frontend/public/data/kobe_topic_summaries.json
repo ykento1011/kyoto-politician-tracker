@@ -6,7 +6,12 @@
     "title": "都心・三宮再整備（三宮クロススクエア・新バスターミナル）",
     "lead_summary": "雲井通5丁目再開発（新バスターミナルⅠ期・新ホール等）の工事が進展。本庁舎2号館再整備や三宮クロススクエア第1段階の空間再編など、一部供用と段階的施工が同時並行で進行中。",
     "current_status": "段階4",
-    "conflict_axes": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+    "conflict_axes": [
+      {
+        "axis": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -199,7 +204,12 @@
     "title": "神戸空港の国際化・機能強化（新サブターミナル整備）",
     "lead_summary": "関西3空港懇談会合意を受け、2025年国際チャーター便受け入れに向けたサブターミナル建設およびエプロン西側拡張の整備が完了・運用段階に到達。2030年前後の国際定期便運用を見据えた段階的供用中。",
     "current_status": "段階4",
-    "conflict_axes": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+    "conflict_axes": [
+      {
+        "axis": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -394,7 +404,12 @@
     "title": "都心部タワーマンション建築規制・都心居住適正化",
     "lead_summary": "「神戸市民の住環境等をまもる街づくり条例」等により、三宮駅周辺の都心機能誘導地区における住宅建設禁止および容積率制限が条例制定・都市計画決定され完全施行・運用監視中。",
     "current_status": "段階5",
-    "conflict_axes": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+    "conflict_axes": [
+      {
+        "axis": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -585,7 +600,12 @@
     "title": "子育て環境・教育無償化（高校生通学定期代全額補助）",
     "lead_summary": "市内在住で市内高校等に通う生徒の通学定期代完全無料化（市外通学は半額補助）を制度化し全面実施。令和8年度には送迎補助新設など拡充も図られ、公約施策が制度的・予算的に全面達成。",
     "current_status": "段階5",
-    "conflict_axes": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+    "conflict_axes": [
+      {
+        "axis": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -781,7 +801,12 @@
     "title": "郊外拠点のリノベーション（名谷・西神中央・垂水等の駅前再編）",
     "lead_summary": "西神中央駅前の新西図書館や名谷駅「tete名谷」など各拠点の公共施設・商業機能が順次供用開始。垂水駅前再開発など、郊外核拠点の再編プロジェクトが継続的・段階的に開業中。",
     "current_status": "段階4",
-    "conflict_axes": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+    "conflict_axes": [
+      {
+        "axis": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -977,7 +1002,12 @@
     "title": "神戸医療産業都市（KBIC）の高度化とスタートアップ支援",
     "lead_summary": "ANCHOR KOBEの開設およびマイクロソフトAI共創拠点の稼働を達成。360社を超える先端企業・研究機関が集積し、次世代手術支援ロボットや医療機器開発の産学官連携が継続運用中。",
     "current_status": "段階4",
-    "conflict_axes": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+    "conflict_axes": [
+      {
+        "axis": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -1168,7 +1198,12 @@
     "title": "公立・公的病院の再編統合（済生会兵庫県病院・三田市民病院）",
     "lead_summary": "神戸市・三田市・両病院による四者協約および市会連携協約の締結を完了。神戸市北区長尾町宅原の候補地において敷地造成事業や環境影響評価が進められ、2028年度開院に向けた事業着手段階。",
     "current_status": "段階3",
-    "conflict_axes": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+    "conflict_axes": [
+      {
+        "axis": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -1360,7 +1395,12 @@
     "title": "行財政改革・市債残高圧縮と行政手続きオンライン化",
     "lead_summary": "実質収支黒字（14.1億円）やPB黒字（444億円）を堅持し市債残高を適正管理。行政手続きスマート化では対象140手続きへのオンライン申請拡大や区役所来庁削減が進捗し、段階的適用中。",
     "current_status": "段階4",
-    "conflict_axes": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+    "conflict_axes": [
+      {
+        "axis": "市長方針・公約の計画的推進 vs 財政負担・市民合意・波及効果の検証",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -1556,7 +1596,12 @@
     "title": "持続可能な財政規律の堅持と公共施設マネジメント・行革推進",
     "lead_summary": "社会保障費の自然増や老朽インフラ更新に伴う将来財政負担を見据え、収支均衡の維持と公共施設の集約・長寿命化を巡る審議。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "将来負担軽減・歳出削減の断行 vs 市民サービス・現場予算の維持",
+    "conflict_axes": [
+      {
+        "axis": "将来負担軽減・歳出削減の断行 vs 市民サービス・現場予算の維持",
+        "description": ""
+      }
+    ],
     "thread_count": 2,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -1631,7 +1676,12 @@
     "title": "行政DXの推進と窓口ワンストップ化・市民利便性向上",
     "lead_summary": "書かない窓口の導入や各種行政手続きのオンライン化による市役所業務の効率化と、デジタルデバイド対策の両立を巡る議論。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "業務効率化・ペーパーレス推進 vs デジタル弱者（高齢者等）対策・セキュリティ担保",
+    "conflict_axes": [
+      {
+        "axis": "業務効率化・ペーパーレス推進 vs デジタル弱者（高齢者等）対策・セキュリティ担保",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -1823,7 +1873,12 @@
     "title": "脱炭素社会（ゼロカーボン）推進と再エネ導入・省エネ支援",
     "lead_summary": "2050年カーボンニュートラル達成に向けた市庁舎・市内企業の再エネ転換や、省エネ住宅・EV導入支援策を巡る論争。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "再エネ・EV導入の義務化・加速 vs 中小企業・家計へのコスト負担配慮",
+    "conflict_axes": [
+      {
+        "axis": "再エネ・EV導入の義務化・加速 vs 中小企業・家計へのコスト負担配慮",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -2015,7 +2070,12 @@
     "title": "一般廃棄物減量・プラスチック資源循環とごみ収集体制",
     "lead_summary": "プラスチック分別収集の拡大や食品ロス削減対策、適正な収集運搬体制の持続可能性を巡る審議。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "資源循環・有料化による排出抑制 vs 住民負担増・分別徹底の周知",
+    "conflict_axes": [
+      {
+        "axis": "資源循環・有料化による排出抑制 vs 住民負担増・分別徹底の周知",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -2212,7 +2272,12 @@
     "title": "地域公共交通（地下鉄・市バス・コミュニティバス）の維持と利便性向上",
     "lead_summary": "深刻化するバス・タクシー運転手不足への対応と、郊外・丘陵地における生活交通ネットワークの維持・再編を巡る議論。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "採算性・経営効率化 vs 移動弱者・郊外住宅地の移動権確保",
+    "conflict_axes": [
+      {
+        "axis": "採算性・経営効率化 vs 移動弱者・郊外住宅地の移動権確保",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -2406,7 +2471,12 @@
     "title": "主要駅周辺まちづくり・都市再生と老朽道路・橋梁の長寿命化",
     "lead_summary": "拠点駅周辺の都市再生・再開発事業の進捗と、市内全域に及ぶ道路・橋梁・上下水道の予防保全型マネジメントを巡る審議。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "都心拠点開発・インフラ集中投資 vs 周辺区・生活道路の保全改修",
+    "conflict_axes": [
+      {
+        "axis": "都心拠点開発・インフラ集中投資 vs 周辺区・生活道路の保全改修",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -2598,7 +2668,12 @@
     "title": "子育て世帯の経済的負担軽減（医療費・給食費無償化）と待機児童対策",
     "lead_summary": "子ども医療費助成の拡充や小中学校給食費の無償化、放課後児童クラブの受け入れ拡大と保育士処遇改善を巡る論争。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "所得制限撤廃・完全無償化の推進 vs 恒久財源の確保・格差是正",
+    "conflict_axes": [
+      {
+        "axis": "所得制限撤廃・完全無償化の推進 vs 恒久財源の確保・格差是正",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -2797,7 +2872,12 @@
     "title": "公立小中学校の教員不足対策・ICT教育推進と不登校支援",
     "lead_summary": "公立学校現場における教員未配置問題の解消と、GIGAスクール端末の活用、不登校児童生徒への居場所支援を巡る審議。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "教員の多忙化解消・配置改善 vs 学習指導の質向上・多様な学びの場づくり",
+    "conflict_axes": [
+      {
+        "axis": "教員の多忙化解消・配置改善 vs 学習指導の質向上・多様な学びの場づくり",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -2991,7 +3071,12 @@
     "title": "中小企業・商店街の物価高騰対策と事業承継・賃上げ支援",
     "lead_summary": "エネルギー・原材料高騰に直面する市内中小企業への支援策と、事業承継・持続的な賃上げ環境の整備を巡る議論。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "即効性のある直接給付・金融支援 vs 生産性向上・業態転換への構造支援",
+    "conflict_axes": [
+      {
+        "axis": "即効性のある直接給付・金融支援 vs 生産性向上・業態転換への構造支援",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -3184,7 +3269,12 @@
     "title": "観光振興とオーバーツーリズム（混雑・マナー問題）対策の両立",
     "lead_summary": "インバウンド回復に伴う経済波及効果の市内全域への拡大と、混雑・マナー違反等による市民生活への影響緩和策を巡る審議。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "観光消費額の最大化・誘客促進 vs 市民生活の平穏確保・環境負荷軽減",
+    "conflict_axes": [
+      {
+        "axis": "観光消費額の最大化・誘客促進 vs 市民生活の平穏確保・環境負荷軽減",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -3374,7 +3464,12 @@
     "title": "高齢者介護基盤の確保（介護人材・施設）と健康寿命延伸・孤立防止",
     "lead_summary": "超高齢化に伴う介護ニーズ増大に対し、深刻な介護人材不足への対策と地域共生社会の構築を巡る議論。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "介護職員の処遇改善・公的助成 vs 介護保険料の上昇抑制",
+    "conflict_axes": [
+      {
+        "axis": "介護職員の処遇改善・公的助成 vs 介護保険料の上昇抑制",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -3568,7 +3663,12 @@
     "title": "地域医療体制（小児・周産期・救急医療）の確保と予防医療・ワクチン助成",
     "lead_summary": "救急搬送困難事案の抑制や夜間・休日診療体制の維持、各種任意予防接種（帯状疱疹等）の公費助成を巡る審議。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "公的医療体制の維持・公費助成拡大 vs 医療機能の再編・適正化",
+    "conflict_axes": [
+      {
+        "axis": "公的医療体制の維持・公費助成拡大 vs 医療機能の再編・適正化",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -3761,7 +3861,12 @@
     "title": "大規模地震・風水害対策（耐震化・無電柱化・治水対策）と避難所環境改善",
     "lead_summary": "南海トラフ等の大地震や激甚化する風水害に備え、木造密集地の耐震改修と避難所機能の高度化を巡る審議。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "ハード防災インフラの重点整備 vs 避難所TKB（トイレ・キッチン・ベッド）等ソフト対策",
+    "conflict_axes": [
+      {
+        "axis": "ハード防災インフラの重点整備 vs 避難所TKB（トイレ・キッチン・ベッド）等ソフト対策",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -3960,7 +4065,12 @@
     "title": "地域防犯体制（防犯カメラ設置・通学路安全確保）と特殊詐欺対策",
     "lead_summary": "子どもの通学路安全対策や高齢者を狙う特殊詐欺の防止、地域防犯カメラ設置補助を巡る議論。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "監視カメラ・ICT活用による抑止 vs プライバシー保護・自主防災組織支援",
+    "conflict_axes": [
+      {
+        "axis": "監視カメラ・ICT活用による抑止 vs プライバシー保護・自主防災組織支援",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -4157,7 +4267,12 @@
     "title": "歴史的景観・伝統的建造物の保全と調和ある都市利用",
     "lead_summary": "歴史的な街並みや文化遺産の保護と、人口減少下の都市活力維持に向けた景観・建築規制のあり方を巡る議論。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "歴史都市のアイデンティティ・景観死守 vs 若者定住・経済活動のための規制緩和",
+    "conflict_axes": [
+      {
+        "axis": "歴史都市のアイデンティティ・景観死守 vs 若者定住・経済活動のための規制緩和",
+        "description": ""
+      }
+    ],
     "thread_count": 1,
     "last_updated": "2026-10-30",
     "timeline_phases": [
@@ -4208,7 +4323,12 @@
     "title": "文化芸術・スポーツ振興と文化施設の老朽化対策・利活用",
     "lead_summary": "老朽化した文化・スポーツ劇場の再整備計画と、地域密着の文化活動支援を巡る審議。",
     "current_status": "継続審議・推進中",
-    "conflict_axes": "文化発信・施設の大規模改修投資 vs 費用対効果・民活（PFI等）導入",
+    "conflict_axes": [
+      {
+        "axis": "文化発信・施設の大規模改修投資 vs 費用対効果・民活（PFI等）導入",
+        "description": ""
+      }
+    ],
     "thread_count": 6,
     "last_updated": "2026-10-30",
     "timeline_phases": [

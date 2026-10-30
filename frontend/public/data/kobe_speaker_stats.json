@@ -1,0 +1,1143 @@
+[
+  {
+    "speaker": "河南 忠和",
+    "district": "中央区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 58,
+    "avg_evidence": 2.69,
+    "avg_solution": 3.19,
+    "avg_local_focus": 3.21,
+    "avg_constructive": 3.17,
+    "categories": {
+      "都市再生・交通インフラ": 17,
+      "くらし・環境・エネルギー": 4,
+      "財政・行革": 15,
+      "防災・減災・治安": 2,
+      "産業・観光・地域経済": 7,
+      "福祉・医療・健康": 5,
+      "文化・景観・歴史": 4,
+      "子育て・教育": 4
+    }
+  },
+  {
+    "speaker": "山下 てんせい",
+    "district": "西区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 66,
+    "avg_evidence": 2.45,
+    "avg_solution": 2.89,
+    "avg_local_focus": 3.05,
+    "avg_constructive": 2.83,
+    "categories": {
+      "都市再生・交通インフラ": 17,
+      "子育て・教育": 20,
+      "福祉・医療・健康": 12,
+      "くらし・環境・エネルギー": 3,
+      "財政・行革": 6,
+      "防災・減災・治安": 1,
+      "産業・観光・地域経済": 6,
+      "文化・景観・歴史": 1
+    }
+  },
+  {
+    "speaker": "あわはら 富夫",
+    "district": "中央区",
+    "party": "つなぐ",
+    "partyGroup": "つなぐ",
+    "count": 85,
+    "avg_evidence": 2.61,
+    "avg_solution": 3.0,
+    "avg_local_focus": 3.18,
+    "avg_constructive": 3.04,
+    "categories": {
+      "都市再生・交通インフラ": 27,
+      "産業・観光・地域経済": 12,
+      "文化・景観・歴史": 9,
+      "防災・減災・治安": 2,
+      "くらし・環境・エネルギー": 11,
+      "財政・行革": 10,
+      "福祉・医療・健康": 6,
+      "子育て・教育": 8
+    }
+  },
+  {
+    "speaker": "山本 のりかず",
+    "district": "北区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 68,
+    "avg_evidence": 2.72,
+    "avg_solution": 3.12,
+    "avg_local_focus": 3.28,
+    "avg_constructive": 2.79,
+    "categories": {
+      "都市再生・交通インフラ": 33,
+      "産業・観光・地域経済": 6,
+      "くらし・環境・エネルギー": 4,
+      "子育て・教育": 15,
+      "福祉・医療・健康": 4,
+      "財政・行革": 5,
+      "文化・景観・歴史": 1
+    }
+  },
+  {
+    "speaker": "坂口 有希子",
+    "district": "長田区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 16,
+    "avg_evidence": 2.19,
+    "avg_solution": 2.75,
+    "avg_local_focus": 2.69,
+    "avg_constructive": 2.19,
+    "categories": {
+      "都市再生・交通インフラ": 2,
+      "産業・観光・地域経済": 1,
+      "子育て・教育": 8,
+      "くらし・環境・エネルギー": 2,
+      "福祉・医療・健康": 2,
+      "財政・行革": 1
+    }
+  },
+  {
+    "speaker": "味口 としゆき",
+    "district": "灘区",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "count": 126,
+    "avg_evidence": 2.59,
+    "avg_solution": 2.75,
+    "avg_local_focus": 2.8,
+    "avg_constructive": 2.81,
+    "categories": {
+      "子育て・教育": 24,
+      "福祉・医療・健康": 40,
+      "財政・行革": 24,
+      "くらし・環境・エネルギー": 15,
+      "都市再生・交通インフラ": 14,
+      "防災・減災・治安": 9
+    }
+  },
+  {
+    "speaker": "村野 誠一",
+    "district": "須磨区",
+    "party": "新しい自民党",
+    "partyGroup": "新しい自民党",
+    "count": 101,
+    "avg_evidence": 2.39,
+    "avg_solution": 2.9,
+    "avg_local_focus": 2.84,
+    "avg_constructive": 2.9,
+    "categories": {
+      "子育て・教育": 36,
+      "防災・減災・治安": 9,
+      "財政・行革": 21,
+      "くらし・環境・エネルギー": 14,
+      "福祉・医療・健康": 9,
+      "都市再生・交通インフラ": 11,
+      "産業・観光・地域経済": 1
+    }
+  },
+  {
+    "speaker": "菅野 吉記",
+    "district": "兵庫区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 27,
+    "avg_evidence": 3.04,
+    "avg_solution": 3.15,
+    "avg_local_focus": 3.04,
+    "avg_constructive": 3.04,
+    "categories": {
+      "子育て・教育": 13,
+      "福祉・医療・健康": 4,
+      "都市再生・交通インフラ": 1,
+      "文化・景観・歴史": 1,
+      "産業・観光・地域経済": 2,
+      "防災・減災・治安": 5,
+      "くらし・環境・エネルギー": 1
+    }
+  },
+  {
+    "speaker": "かじ 幸夫",
+    "district": "西区",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "count": 44,
+    "avg_evidence": 2.45,
+    "avg_solution": 2.91,
+    "avg_local_focus": 2.82,
+    "avg_constructive": 2.82,
+    "categories": {
+      "子育て・教育": 11,
+      "財政・行革": 9,
+      "都市再生・交通インフラ": 12,
+      "くらし・環境・エネルギー": 2,
+      "産業・観光・地域経済": 2,
+      "福祉・医療・健康": 4,
+      "文化・景観・歴史": 1,
+      "防災・減災・治安": 3
+    }
+  },
+  {
+    "speaker": "さとう まちこ",
+    "district": "垂水区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 77,
+    "avg_evidence": 2.44,
+    "avg_solution": 2.99,
+    "avg_local_focus": 2.77,
+    "avg_constructive": 2.79,
+    "categories": {
+      "子育て・教育": 38,
+      "防災・減災・治安": 4,
+      "福祉・医療・健康": 14,
+      "財政・行革": 8,
+      "都市再生・交通インフラ": 2,
+      "文化・景観・歴史": 3,
+      "くらし・環境・エネルギー": 2,
+      "産業・観光・地域経済": 6
+    }
+  },
+  {
+    "speaker": "吉田 健吾",
+    "district": "灘区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 32,
+    "avg_evidence": 2.19,
+    "avg_solution": 2.25,
+    "avg_local_focus": 2.31,
+    "avg_constructive": 2.22,
+    "categories": {
+      "子育て・教育": 6,
+      "財政・行革": 7,
+      "くらし・環境・エネルギー": 6,
+      "福祉・医療・健康": 7,
+      "産業・観光・地域経済": 5,
+      "防災・減災・治安": 1
+    }
+  },
+  {
+    "speaker": "浅井 美佳",
+    "district": "灘区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 24,
+    "avg_evidence": 2.46,
+    "avg_solution": 3.08,
+    "avg_local_focus": 2.83,
+    "avg_constructive": 2.62,
+    "categories": {
+      "福祉・医療・健康": 5,
+      "子育て・教育": 9,
+      "財政・行革": 3,
+      "くらし・環境・エネルギー": 1,
+      "都市再生・交通インフラ": 5,
+      "産業・観光・地域経済": 1
+    }
+  },
+  {
+    "speaker": "上原 みなみ",
+    "district": "北区",
+    "party": "無所属",
+    "partyGroup": "無所属",
+    "count": 57,
+    "avg_evidence": 2.58,
+    "avg_solution": 3.0,
+    "avg_local_focus": 3.11,
+    "avg_constructive": 2.79,
+    "categories": {
+      "福祉・医療・健康": 3,
+      "子育て・教育": 15,
+      "都市再生・交通インフラ": 11,
+      "防災・減災・治安": 5,
+      "くらし・環境・エネルギー": 6,
+      "文化・景観・歴史": 1,
+      "財政・行革": 9,
+      "産業・観光・地域経済": 7
+    }
+  },
+  {
+    "speaker": "三木 しんじろう",
+    "district": "中央区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 36,
+    "avg_evidence": 2.78,
+    "avg_solution": 3.14,
+    "avg_local_focus": 2.92,
+    "avg_constructive": 3.19,
+    "categories": {
+      "子育て・教育": 25,
+      "福祉・医療・健康": 4,
+      "財政・行革": 1,
+      "都市再生・交通インフラ": 4,
+      "産業・観光・地域経済": 1,
+      "くらし・環境・エネルギー": 1
+    }
+  },
+  {
+    "speaker": "前田 あきら",
+    "district": "須磨区",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "count": 42,
+    "avg_evidence": 2.83,
+    "avg_solution": 3.29,
+    "avg_local_focus": 3.19,
+    "avg_constructive": 2.88,
+    "categories": {
+      "都市再生・交通インフラ": 8,
+      "くらし・環境・エネルギー": 2,
+      "財政・行革": 7,
+      "防災・減災・治安": 2,
+      "子育て・教育": 20,
+      "福祉・医療・健康": 2,
+      "産業・観光・地域経済": 1
+    }
+  },
+  {
+    "speaker": "赤田 かつのり",
+    "district": "垂水区",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "count": 42,
+    "avg_evidence": 3.1,
+    "avg_solution": 3.07,
+    "avg_local_focus": 3.19,
+    "avg_constructive": 3.0,
+    "categories": {
+      "産業・観光・地域経済": 7,
+      "くらし・環境・エネルギー": 6,
+      "財政・行革": 11,
+      "文化・景観・歴史": 4,
+      "都市再生・交通インフラ": 8,
+      "福祉・医療・健康": 4,
+      "子育て・教育": 2
+    }
+  },
+  {
+    "speaker": "諫山 大介",
+    "district": "灘区",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "count": 34,
+    "avg_evidence": 2.62,
+    "avg_solution": 2.82,
+    "avg_local_focus": 2.79,
+    "avg_constructive": 2.76,
+    "categories": {
+      "文化・景観・歴史": 2,
+      "都市再生・交通インフラ": 4,
+      "子育て・教育": 14,
+      "産業・観光・地域経済": 5,
+      "財政・行革": 4,
+      "福祉・医療・健康": 4,
+      "くらし・環境・エネルギー": 1
+    }
+  },
+  {
+    "speaker": "川口 まさる",
+    "district": "灘区",
+    "party": "躍動の会",
+    "partyGroup": "躍動の会",
+    "count": 41,
+    "avg_evidence": 2.51,
+    "avg_solution": 2.66,
+    "avg_local_focus": 2.85,
+    "avg_constructive": 2.63,
+    "categories": {
+      "福祉・医療・健康": 4,
+      "財政・行革": 13,
+      "都市再生・交通インフラ": 15,
+      "くらし・環境・エネルギー": 6,
+      "防災・減災・治安": 2,
+      "産業・観光・地域経済": 1
+    }
+  },
+  {
+    "speaker": "香川 真二",
+    "district": "西区",
+    "party": "つなぐ",
+    "partyGroup": "つなぐ",
+    "count": 78,
+    "avg_evidence": 2.26,
+    "avg_solution": 2.6,
+    "avg_local_focus": 2.85,
+    "avg_constructive": 2.58,
+    "categories": {
+      "文化・景観・歴史": 1,
+      "福祉・医療・健康": 19,
+      "子育て・教育": 4,
+      "財政・行革": 14,
+      "くらし・環境・エネルギー": 16,
+      "防災・減災・治安": 12,
+      "産業・観光・地域経済": 4,
+      "都市再生・交通インフラ": 8
+    }
+  },
+  {
+    "speaker": "植中 雅子",
+    "district": "北区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 56,
+    "avg_evidence": 2.61,
+    "avg_solution": 2.84,
+    "avg_local_focus": 2.89,
+    "avg_constructive": 2.54,
+    "categories": {
+      "くらし・環境・エネルギー": 12,
+      "財政・行革": 6,
+      "福祉・医療・健康": 22,
+      "防災・減災・治安": 1,
+      "都市再生・交通インフラ": 2,
+      "子育て・教育": 12,
+      "産業・観光・地域経済": 1
+    }
+  },
+  {
+    "speaker": "大野 陽平",
+    "district": "東灘区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 17,
+    "avg_evidence": 2.29,
+    "avg_solution": 2.47,
+    "avg_local_focus": 2.76,
+    "avg_constructive": 2.47,
+    "categories": {
+      "福祉・医療・健康": 2,
+      "財政・行革": 5,
+      "都市再生・交通インフラ": 4,
+      "子育て・教育": 4,
+      "産業・観光・地域経済": 1,
+      "防災・減災・治安": 1
+    }
+  },
+  {
+    "speaker": "宮田 公子",
+    "district": "西区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 31,
+    "avg_evidence": 2.81,
+    "avg_solution": 3.0,
+    "avg_local_focus": 3.03,
+    "avg_constructive": 2.61,
+    "categories": {
+      "子育て・教育": 4,
+      "福祉・医療・健康": 15,
+      "くらし・環境・エネルギー": 4,
+      "産業・観光・地域経済": 2,
+      "防災・減災・治安": 1,
+      "財政・行革": 2,
+      "都市再生・交通インフラ": 3
+    }
+  },
+  {
+    "speaker": "細谷 典功",
+    "district": "垂水区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 30,
+    "avg_evidence": 2.53,
+    "avg_solution": 2.93,
+    "avg_local_focus": 3.3,
+    "avg_constructive": 2.53,
+    "categories": {
+      "福祉・医療・健康": 3,
+      "くらし・環境・エネルギー": 4,
+      "防災・減災・治安": 6,
+      "都市再生・交通インフラ": 14,
+      "子育て・教育": 1,
+      "財政・行革": 2
+    }
+  },
+  {
+    "speaker": "平野 達司",
+    "district": "兵庫区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 21,
+    "avg_evidence": 2.48,
+    "avg_solution": 2.95,
+    "avg_local_focus": 3.14,
+    "avg_constructive": 2.86,
+    "categories": {
+      "財政・行革": 2,
+      "都市再生・交通インフラ": 8,
+      "防災・減災・治安": 3,
+      "文化・景観・歴史": 1,
+      "福祉・医療・健康": 4,
+      "子育て・教育": 1,
+      "産業・観光・地域経済": 2
+    }
+  },
+  {
+    "speaker": "ながさわ 淳一",
+    "district": "長田区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 25,
+    "avg_evidence": 2.64,
+    "avg_solution": 2.6,
+    "avg_local_focus": 2.8,
+    "avg_constructive": 2.48,
+    "categories": {
+      "都市再生・交通インフラ": 2,
+      "産業・観光・地域経済": 5,
+      "防災・減災・治安": 1,
+      "文化・景観・歴史": 1,
+      "財政・行革": 10,
+      "福祉・医療・健康": 1,
+      "子育て・教育": 1,
+      "くらし・環境・エネルギー": 4
+    }
+  },
+  {
+    "speaker": "松本 のり子",
+    "district": "東灘区",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "count": 69,
+    "avg_evidence": 2.67,
+    "avg_solution": 2.96,
+    "avg_local_focus": 3.22,
+    "avg_constructive": 2.72,
+    "categories": {
+      "財政・行革": 10,
+      "都市再生・交通インフラ": 29,
+      "くらし・環境・エネルギー": 13,
+      "福祉・医療・健康": 8,
+      "産業・観光・地域経済": 3,
+      "子育て・教育": 6
+    }
+  },
+  {
+    "speaker": "大かわら 鈴子",
+    "district": "兵庫区",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "count": 27,
+    "avg_evidence": 2.33,
+    "avg_solution": 2.37,
+    "avg_local_focus": 2.74,
+    "avg_constructive": 1.89,
+    "categories": {
+      "くらし・環境・エネルギー": 6,
+      "産業・観光・地域経済": 3,
+      "子育て・教育": 1,
+      "財政・行革": 9,
+      "福祉・医療・健康": 3,
+      "文化・景観・歴史": 1,
+      "防災・減災・治安": 2,
+      "都市再生・交通インフラ": 2
+    }
+  },
+  {
+    "speaker": "やの こうじ",
+    "district": "東灘区",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "count": 40,
+    "avg_evidence": 2.55,
+    "avg_solution": 2.95,
+    "avg_local_focus": 2.85,
+    "avg_constructive": 2.42,
+    "categories": {
+      "子育て・教育": 22,
+      "財政・行革": 3,
+      "産業・観光・地域経済": 2,
+      "福祉・医療・健康": 8,
+      "くらし・環境・エネルギー": 2,
+      "防災・減災・治安": 1,
+      "都市再生・交通インフラ": 2
+    }
+  },
+  {
+    "speaker": "吉田 謙治",
+    "district": "西区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 46,
+    "avg_evidence": 2.11,
+    "avg_solution": 2.41,
+    "avg_local_focus": 1.83,
+    "avg_constructive": 2.09,
+    "categories": {
+      "福祉・医療・健康": 2,
+      "くらし・環境・エネルギー": 12,
+      "財政・行革": 20,
+      "文化・景観・歴史": 2,
+      "都市再生・交通インフラ": 2,
+      "子育て・教育": 3,
+      "防災・減災・治安": 3,
+      "産業・観光・地域経済": 2
+    }
+  },
+  {
+    "speaker": "上畠 寛弘",
+    "district": "東灘区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 44,
+    "avg_evidence": 2.3,
+    "avg_solution": 2.77,
+    "avg_local_focus": 2.82,
+    "avg_constructive": 2.48,
+    "categories": {
+      "財政・行革": 16,
+      "産業・観光・地域経済": 3,
+      "都市再生・交通インフラ": 14,
+      "くらし・環境・エネルギー": 5,
+      "福祉・医療・健康": 2,
+      "防災・減災・治安": 3,
+      "文化・景観・歴史": 1
+    }
+  },
+  {
+    "speaker": "住本 かずのり",
+    "district": "須磨区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 23,
+    "avg_evidence": 2.78,
+    "avg_solution": 3.04,
+    "avg_local_focus": 3.35,
+    "avg_constructive": 3.22,
+    "categories": {
+      "財政・行革": 3,
+      "くらし・環境・エネルギー": 5,
+      "防災・減災・治安": 2,
+      "子育て・教育": 2,
+      "都市再生・交通インフラ": 3,
+      "産業・観光・地域経済": 7,
+      "福祉・医療・健康": 1
+    }
+  },
+  {
+    "speaker": "のまち 圭一",
+    "district": "中央区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 41,
+    "avg_evidence": 2.66,
+    "avg_solution": 3.27,
+    "avg_local_focus": 3.46,
+    "avg_constructive": 3.17,
+    "categories": {
+      "都市再生・交通インフラ": 21,
+      "財政・行革": 3,
+      "くらし・環境・エネルギー": 2,
+      "産業・観光・地域経済": 8,
+      "文化・景観・歴史": 3,
+      "福祉・医療・健康": 3,
+      "子育て・教育": 1
+    }
+  },
+  {
+    "speaker": "岩佐 けんや",
+    "district": "東灘区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 39,
+    "avg_evidence": 2.77,
+    "avg_solution": 2.97,
+    "avg_local_focus": 2.9,
+    "avg_constructive": 2.67,
+    "categories": {
+      "福祉・医療・健康": 10,
+      "産業・観光・地域経済": 9,
+      "文化・景観・歴史": 4,
+      "防災・減災・治安": 3,
+      "財政・行革": 2,
+      "子育て・教育": 5,
+      "くらし・環境・エネルギー": 6
+    }
+  },
+  {
+    "speaker": "森田 たき子",
+    "district": "西区",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "count": 44,
+    "avg_evidence": 3.02,
+    "avg_solution": 3.07,
+    "avg_local_focus": 3.36,
+    "avg_constructive": 3.09,
+    "categories": {
+      "くらし・環境・エネルギー": 14,
+      "産業・観光・地域経済": 5,
+      "文化・景観・歴史": 6,
+      "子育て・教育": 5,
+      "都市再生・交通インフラ": 5,
+      "財政・行革": 1,
+      "防災・減災・治安": 2,
+      "福祉・医療・健康": 6
+    }
+  },
+  {
+    "speaker": "よこはた 和幸",
+    "district": "中央区",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "count": 23,
+    "avg_evidence": 2.04,
+    "avg_solution": 1.87,
+    "avg_local_focus": 1.74,
+    "avg_constructive": 1.74,
+    "categories": {
+      "財政・行革": 10,
+      "文化・景観・歴史": 1,
+      "くらし・環境・エネルギー": 6,
+      "福祉・医療・健康": 1,
+      "防災・減災・治安": 3,
+      "産業・観光・地域経済": 1,
+      "都市再生・交通インフラ": 1
+    }
+  },
+  {
+    "speaker": "平井 真千子",
+    "district": "長田区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 30,
+    "avg_evidence": 2.43,
+    "avg_solution": 3.1,
+    "avg_local_focus": 2.6,
+    "avg_constructive": 2.6,
+    "categories": {
+      "財政・行革": 11,
+      "子育て・教育": 6,
+      "防災・減災・治安": 3,
+      "福祉・医療・健康": 5,
+      "都市再生・交通インフラ": 3,
+      "産業・観光・地域経済": 1,
+      "くらし・環境・エネルギー": 1
+    }
+  },
+  {
+    "speaker": "伊藤 めぐみ",
+    "district": "北区",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "count": 40,
+    "avg_evidence": 2.55,
+    "avg_solution": 2.92,
+    "avg_local_focus": 3.12,
+    "avg_constructive": 2.75,
+    "categories": {
+      "福祉・医療・健康": 2,
+      "都市再生・交通インフラ": 6,
+      "産業・観光・地域経済": 11,
+      "防災・減災・治安": 8,
+      "文化・景観・歴史": 6,
+      "財政・行革": 3,
+      "くらし・環境・エネルギー": 2,
+      "子育て・教育": 2
+    }
+  },
+  {
+    "speaker": "平野 章三",
+    "district": "垂水区",
+    "party": "無所属",
+    "partyGroup": "無所属",
+    "count": 39,
+    "avg_evidence": 2.23,
+    "avg_solution": 2.79,
+    "avg_local_focus": 2.51,
+    "avg_constructive": 2.69,
+    "categories": {
+      "都市再生・交通インフラ": 6,
+      "財政・行革": 17,
+      "文化・景観・歴史": 2,
+      "産業・観光・地域経済": 10,
+      "くらし・環境・エネルギー": 1,
+      "子育て・教育": 3
+    }
+  },
+  {
+    "speaker": "なんの ゆうこ",
+    "district": "東灘区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 37,
+    "avg_evidence": 2.3,
+    "avg_solution": 2.65,
+    "avg_local_focus": 2.59,
+    "avg_constructive": 2.19,
+    "categories": {
+      "都市再生・交通インフラ": 7,
+      "くらし・環境・エネルギー": 6,
+      "防災・減災・治安": 5,
+      "財政・行革": 6,
+      "文化・景観・歴史": 1,
+      "産業・観光・地域経済": 1,
+      "福祉・医療・健康": 4,
+      "子育て・教育": 7
+    }
+  },
+  {
+    "speaker": "しらくに 高太郎",
+    "district": "垂水区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 37,
+    "avg_evidence": 2.27,
+    "avg_solution": 2.49,
+    "avg_local_focus": 2.16,
+    "avg_constructive": 2.32,
+    "categories": {
+      "福祉・医療・健康": 3,
+      "財政・行革": 11,
+      "くらし・環境・エネルギー": 6,
+      "文化・景観・歴史": 1,
+      "子育て・教育": 9,
+      "都市再生・交通インフラ": 2,
+      "産業・観光・地域経済": 1,
+      "防災・減災・治安": 4
+    }
+  },
+  {
+    "speaker": "黒田 武志",
+    "district": "西区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 40,
+    "avg_evidence": 2.65,
+    "avg_solution": 2.98,
+    "avg_local_focus": 2.85,
+    "avg_constructive": 2.92,
+    "categories": {
+      "防災・減災・治安": 1,
+      "くらし・環境・エネルギー": 3,
+      "財政・行革": 17,
+      "都市再生・交通インフラ": 10,
+      "文化・景観・歴史": 1,
+      "産業・観光・地域経済": 4,
+      "福祉・医療・健康": 1,
+      "子育て・教育": 3
+    }
+  },
+  {
+    "speaker": "岩谷 しげなり",
+    "district": "兵庫区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 30,
+    "avg_evidence": 2.3,
+    "avg_solution": 2.73,
+    "avg_local_focus": 2.43,
+    "avg_constructive": 2.73,
+    "categories": {
+      "産業・観光・地域経済": 4,
+      "財政・行革": 10,
+      "くらし・環境・エネルギー": 6,
+      "文化・景観・歴史": 2,
+      "都市再生・交通インフラ": 3,
+      "防災・減災・治安": 4,
+      "子育て・教育": 1
+    }
+  },
+  {
+    "speaker": "大井 としひろ",
+    "district": "須磨区",
+    "party": "躍動の会",
+    "partyGroup": "躍動の会",
+    "count": 31,
+    "avg_evidence": 2.48,
+    "avg_solution": 2.68,
+    "avg_local_focus": 3.0,
+    "avg_constructive": 2.65,
+    "categories": {
+      "財政・行革": 9,
+      "くらし・環境・エネルギー": 3,
+      "文化・景観・歴史": 2,
+      "都市再生・交通インフラ": 10,
+      "防災・減災・治安": 1,
+      "産業・観光・地域経済": 4,
+      "福祉・医療・健康": 2
+    }
+  },
+  {
+    "speaker": "岡田 ゆうじ",
+    "district": "垂水区",
+    "party": "新しい自民党",
+    "partyGroup": "新しい自民党",
+    "count": 69,
+    "avg_evidence": 2.93,
+    "avg_solution": 3.2,
+    "avg_local_focus": 2.99,
+    "avg_constructive": 2.97,
+    "categories": {
+      "くらし・環境・エネルギー": 14,
+      "福祉・医療・健康": 35,
+      "財政・行革": 8,
+      "都市再生・交通インフラ": 8,
+      "防災・減災・治安": 4
+    }
+  },
+  {
+    "speaker": "徳山 敏子",
+    "district": "北区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 23,
+    "avg_evidence": 2.65,
+    "avg_solution": 2.74,
+    "avg_local_focus": 3.17,
+    "avg_constructive": 2.65,
+    "categories": {
+      "くらし・環境・エネルギー": 5,
+      "子育て・教育": 3,
+      "財政・行革": 3,
+      "福祉・医療・健康": 1,
+      "産業・観光・地域経済": 1,
+      "防災・減災・治安": 1,
+      "文化・景観・歴史": 1,
+      "都市再生・交通インフラ": 8
+    }
+  },
+  {
+    "speaker": "外海 開三",
+    "district": "東灘区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 25,
+    "avg_evidence": 2.92,
+    "avg_solution": 2.68,
+    "avg_local_focus": 3.0,
+    "avg_constructive": 2.44,
+    "categories": {
+      "福祉・医療・健康": 12,
+      "くらし・環境・エネルギー": 6,
+      "都市再生・交通インフラ": 4,
+      "防災・減災・治安": 2,
+      "財政・行革": 1
+    }
+  },
+  {
+    "speaker": "高橋 としえ",
+    "district": "西区",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "count": 20,
+    "avg_evidence": 2.9,
+    "avg_solution": 3.05,
+    "avg_local_focus": 3.2,
+    "avg_constructive": 2.85,
+    "categories": {
+      "福祉・医療・健康": 8,
+      "産業・観光・地域経済": 2,
+      "くらし・環境・エネルギー": 7,
+      "財政・行革": 1,
+      "都市再生・交通インフラ": 2
+    }
+  },
+  {
+    "speaker": "川内 清尚",
+    "district": "垂水区",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "count": 25,
+    "avg_evidence": 2.08,
+    "avg_solution": 2.28,
+    "avg_local_focus": 2.56,
+    "avg_constructive": 2.32,
+    "categories": {
+      "福祉・医療・健康": 13,
+      "財政・行革": 4,
+      "都市再生・交通インフラ": 3,
+      "防災・減災・治安": 2,
+      "くらし・環境・エネルギー": 3
+    }
+  },
+  {
+    "speaker": "堂下 豊史",
+    "district": "北区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 52,
+    "avg_evidence": 3.1,
+    "avg_solution": 3.42,
+    "avg_local_focus": 3.4,
+    "avg_constructive": 3.54,
+    "categories": {
+      "福祉・医療・健康": 16,
+      "くらし・環境・エネルギー": 11,
+      "都市再生・交通インフラ": 8,
+      "子育て・教育": 17
+    }
+  },
+  {
+    "speaker": "朝倉 えつ子",
+    "district": "北区",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "count": 82,
+    "avg_evidence": 2.57,
+    "avg_solution": 2.74,
+    "avg_local_focus": 3.21,
+    "avg_constructive": 2.72,
+    "categories": {
+      "防災・減災・治安": 5,
+      "くらし・環境・エネルギー": 13,
+      "都市再生・交通インフラ": 26,
+      "財政・行革": 13,
+      "福祉・医療・健康": 9,
+      "子育て・教育": 4,
+      "産業・観光・地域経済": 4,
+      "文化・景観・歴史": 8
+    }
+  },
+  {
+    "speaker": "うえなか 美貴子",
+    "district": "北区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 9,
+    "avg_evidence": 2.67,
+    "avg_solution": 3.22,
+    "avg_local_focus": 3.44,
+    "avg_constructive": 2.89,
+    "categories": {
+      "防災・減災・治安": 3,
+      "くらし・環境・エネルギー": 2,
+      "都市再生・交通インフラ": 1,
+      "福祉・医療・健康": 2,
+      "子育て・教育": 1
+    }
+  },
+  {
+    "speaker": "門田 まゆみ",
+    "district": "須磨区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 25,
+    "avg_evidence": 2.56,
+    "avg_solution": 2.76,
+    "avg_local_focus": 3.0,
+    "avg_constructive": 2.6,
+    "categories": {
+      "防災・減災・治安": 4,
+      "くらし・環境・エネルギー": 4,
+      "都市再生・交通インフラ": 6,
+      "財政・行革": 5,
+      "子育て・教育": 3,
+      "福祉・医療・健康": 3
+    }
+  },
+  {
+    "speaker": "松本 しゅうじ",
+    "district": "須磨区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 24,
+    "avg_evidence": 2.42,
+    "avg_solution": 2.83,
+    "avg_local_focus": 3.17,
+    "avg_constructive": 2.92,
+    "categories": {
+      "産業・観光・地域経済": 6,
+      "防災・減災・治安": 3,
+      "子育て・教育": 3,
+      "都市再生・交通インフラ": 6,
+      "くらし・環境・エネルギー": 2,
+      "文化・景観・歴史": 1,
+      "財政・行革": 3
+    }
+  },
+  {
+    "speaker": "村上 立真",
+    "district": "兵庫区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 32,
+    "avg_evidence": 2.47,
+    "avg_solution": 3.03,
+    "avg_local_focus": 3.25,
+    "avg_constructive": 3.03,
+    "categories": {
+      "防災・減災・治安": 3,
+      "文化・景観・歴史": 4,
+      "産業・観光・地域経済": 4,
+      "都市再生・交通インフラ": 12,
+      "子育て・教育": 2,
+      "財政・行革": 4,
+      "くらし・環境・エネルギー": 3
+    }
+  },
+  {
+    "speaker": "萩原 泰三",
+    "district": "中央区",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "count": 24,
+    "avg_evidence": 2.79,
+    "avg_solution": 3.12,
+    "avg_local_focus": 3.21,
+    "avg_constructive": 2.58,
+    "categories": {
+      "くらし・環境・エネルギー": 7,
+      "都市再生・交通インフラ": 13,
+      "防災・減災・治安": 1,
+      "財政・行革": 3
+    }
+  },
+  {
+    "speaker": "木戸 さだかず",
+    "district": "須磨区",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "count": 24,
+    "avg_evidence": 2.38,
+    "avg_solution": 2.62,
+    "avg_local_focus": 2.92,
+    "avg_constructive": 2.38,
+    "categories": {
+      "くらし・環境・エネルギー": 5,
+      "都市再生・交通インフラ": 12,
+      "財政・行革": 5,
+      "子育て・教育": 1,
+      "産業・観光・地域経済": 1
+    }
+  },
+  {
+    "speaker": "西 ただす",
+    "district": "東灘区",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "count": 2,
+    "avg_evidence": 2.5,
+    "avg_solution": 2.5,
+    "avg_local_focus": 2.0,
+    "avg_constructive": 3.0,
+    "categories": {
+      "産業・観光・地域経済": 1,
+      "都市再生・交通インフラ": 1
+    }
+  },
+  {
+    "speaker": "山口 由美",
+    "district": "西区",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "count": 13,
+    "avg_evidence": 2.31,
+    "avg_solution": 2.23,
+    "avg_local_focus": 2.23,
+    "avg_constructive": 2.31,
+    "categories": {
+      "福祉・医療・健康": 2,
+      "財政・行革": 3,
+      "くらし・環境・エネルギー": 4,
+      "子育て・教育": 2,
+      "防災・減災・治安": 2
+    }
+  }
+]

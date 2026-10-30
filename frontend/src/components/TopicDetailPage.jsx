@@ -202,7 +202,7 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
                 主な対立軸・残された課題
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {topic.conflict_axes.map((axis, i) => (
+                {(Array.isArray(topic.conflict_axes) ? topic.conflict_axes : []).map((axis, i) => (
                   <div key={i} className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 text-xs font-medium text-slate-700 flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1 shrink-0" />
                     <span>{axis}</span>
