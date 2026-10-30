@@ -19,6 +19,15 @@ FRONTEND_DIST = PROJECT_ROOT / "frontend" / "dist" / "data"
 
 # 都市別設定マッピング
 CITY_CONFIG = {
+    "kobe": {
+        "name": "神戸市会",
+        "votes_file": FRONTEND_DATA / "kobe_votes_summary.json",
+        "statements_file": FRONTEND_DATA / "kobe_statements_summary.json",
+        "output_files": [
+            FRONTEND_DATA / "kobe_bill_issues.json",
+            FRONTEND_DIST / "kobe_bill_issues.json"
+        ]
+    },
     "kyoto": {
         "name": "京都市会",
         "votes_file": FRONTEND_DATA / "votes_summary.json",
@@ -159,7 +168,7 @@ def analyze_bill(client, model_name, city_name, bill, ctx):
 
 def main():
     parser = argparse.ArgumentParser(description="3都市共通 対立議案AI論点解説パイプライン")
-    parser.add_argument("--city", default="kyoto", choices=["kyoto", "osaka", "nagoya", "yokohama"], help="対象都市コード")
+    parser.add_argument("--city", default="kyoto", choices=["kyoto", "osaka", "nagoya", "yokohama", "kobe"], help="対象都市コード")
     parser.add_argument("--workers", type=int, default=8, help="並列ワーカー数")
     parser.add_argument("--model", default="gemini-2.5-flash", help="使用モデル名")
     args = parser.parse_args()
@@ -191,7 +200,7 @@ def main():
     contested_bills = []
     for b in votes:
         v_vals = list(b.get("votes", {}).values())
-        if "賛成" in v_vals and "反対" in v_vals:
+        if ("賛成" in v_vals and "反対" in v_vals) or ("for" in v_vals and "against" in v_vals) or b.get("is_contested"):
             contested_bills.append(b)
 
     total_target = len(contested_bills)
@@ -223,6 +232,14 @@ def main():
             if res:
                 existing_issues[b_key] = {
                     "id": f"{b_key}_{bill.get('title', '')[:10]}",
+                    "bill_id": b_key,
+                    "bill_name": bill.get("title"),
+                    "session": bill.get("session_name"),
+                    "decision_date": bill.get("decision_date", ""),
+                    "result": bill.get("result", "可決"),
+                    "key_point": res.get("key_conflict", ""),
+                    "discussion_summary": res.get("background", ""),
+                    "votes": bill.get("votes", {}),
                     "session_name": bill.get("session_name"),
                     "bill_number": bill.get("bill_number"),
                     "title": bill.get("title"),

@@ -1,4 +1,4 @@
-import argparse
+﻿import argparse
 import json
 import sys
 from pathlib import Path
@@ -40,7 +40,7 @@ def check_progress(city_code):
     phases[0]["status"] = "✅ 完了" if p1_ok else "🔄 進行中 / 未着手"
 
     # --- Phase 2 チェック ---
-    master_c = PIPELINE / "master" / f"councilors_{city}.json"
+    master_c = PIPELINE / "master" / f"{city}_councilors.json"
     override_c = PIPELINE / "master" / f"manual_overrides_{city}.json"
     stats_c = FRONTEND_DATA / f"{city}_speaker_stats.json"
     p2_score = 0
@@ -150,3 +150,4 @@ if __name__ == "__main__":
     parser.add_argument("--city", required=True, help="対象都市コード (例: kobe, kyoto)")
     args = parser.parse_args()
     check_progress(args.city)
+

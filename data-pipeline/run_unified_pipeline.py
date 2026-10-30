@@ -1,3 +1,4 @@
+from kobe_adapter import KobeAdapter
 from yokohama_adapter import YokohamaAdapter
 import json, os, sys, time, threading, re, argparse
 from pathlib import Path
@@ -362,6 +363,8 @@ ADAPTERS = {
     "osaka": OsakaAdapter,
     "nagoya": NagoyaAdapter,
     "yokohama": YokohamaAdapter
+,
+    "kobe": KobeAdapter
 }
 
 def run_pipeline(city_code, limit=None):
@@ -371,7 +374,10 @@ def run_pipeline(city_code, limit=None):
     adapter = ADAPTERS[city_code]
     client = bigquery.Client(project="gen-lang-client-0253904061")
 
-    raw_stmts = adapter.fetch_data(client)
+    if city_code == "kobe":
+        raw_stmts = adapter.fetch_data()
+    else:
+        raw_stmts = adapter.fetch_data(client)
     threads = adapter.build_threads(raw_stmts)
 
     checkpoint_file = PROJECT_ROOT / "pipeline" / f"{city_code}_eval_checkpoint.json"
@@ -440,7 +446,8 @@ def run_pipeline(city_code, limit=None):
         json.dump(eval_cache, f, ensure_ascii=False, indent=2)
 
     frontend_data = []
-    for th in threads:
+    export_threads = [th for th in threads if th["thread_id"] in eval_cache] if (limit is not None and limit > 0) else threads
+    for th in export_threads:
         tid = th["thread_id"]
         res = eval_cache.get(tid, {})
         scores = res.get("scores", {})
@@ -460,7 +467,11 @@ def run_pipeline(city_code, limit=None):
             "solution_score": scores.get("solution", 3),
             "local_focus_score": scores.get("local_focus", 3),
             "constructive_score": scores.get("constructive", 3),
-            "official_url": th.get("official_url") or adapter.official_minute_url
+            "official_url": th.get("official_url") or adapter.official_minute_url,
+            "party": th.get("party", "無所属"),
+            "district": th.get("district", ""),
+            "ward": th.get("ward", ""),
+            "sequence_number": th.get("sequence_number", 1)
         })
 
     frontend_data.sort(key=lambda x: x["meeting_date"], reverse=True)
@@ -473,7 +484,7 @@ def run_pipeline(city_code, limit=None):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="議会のミカタ 統合データパイプライン")
-    parser.add_argument("--city", required=True, choices=["osaka", "nagoya", "yokohama"], help="対象都市コード")
+    parser.add_argument("--city", required=True, choices=["osaka", "nagoya", "yokohama", "kobe"], help="対象都市コード")
     parser.add_argument("--limit", type=int, default=None, help="サンプリング実行件数")
     args = parser.parse_args()
     run_pipeline(args.city, limit=args.limit)

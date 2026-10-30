@@ -9,7 +9,7 @@ PIPELINE_DIR = PROJECT_ROOT / "data-pipeline"
 FRONTEND_DATA = PROJECT_ROOT / "frontend" / "public" / "data"
 MASTER_DIR = PIPELINE_DIR / "master"
 
-CITIES = ["kyoto", "osaka", "nagoya", "yokohama"]
+CITIES = ["kyoto", "osaka", "nagoya", "yokohama", "kobe"]
 
 def load_json(filepath):
     if not filepath.exists():
@@ -21,6 +21,10 @@ def load_json(filepath):
         return None
 
 def load_mayor_policies(city):
+    if city == "kobe":
+        k_path = Path("data-pipeline/master/kobe_mayor_policies.json")
+        if k_path.exists():
+            return json.loads(k_path.read_text(encoding="utf-8"))
     targets = [
         FRONTEND_DATA / f"{city}_mayor_tracker.json",
         FRONTEND_DATA / "mayor_tracker.json" if city == "kyoto" else None
@@ -144,7 +148,7 @@ def generate_city_topics(city):
         lead = p.get("summary") or p.get("official_plan") or p.get("election_promise") or f"{title}に関する市議会での論戦ログ。"
         axes = p.get("conflict_axes") or "市長方針・公約の確実な推進 vs 実効性・財源・市民合意の追及"
         
-        kw_source = [title]
+        kw_source = list(p.get("keywords", [])) or [title]
         if p.get("election_promise"):
             kw_source.append(str(p.get("election_promise"))[:30])
         if p.get("official_plan"):
@@ -159,6 +163,7 @@ def generate_city_topics(city):
         
         final_topics.append({
             "topic_id": topic_id,
+            "id": topic_id,
             "category": category,
             "title": title,
             "lead_summary": lead,
@@ -189,6 +194,7 @@ def generate_city_topics(city):
         
         final_topics.append({
             "topic_id": topic_id,
+            "id": topic_id,
             "category": category,
             "title": title,
             "lead_summary": lead,
@@ -206,12 +212,18 @@ def generate_city_topics(city):
     print(f"  ✅ 出力完了: {out_file.name} (計 {len(final_topics)} トピック)")
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="政策トピック自動統合エンジン")
+    parser.add_argument("--city", default="all", choices=["all", "kyoto", "osaka", "nagoya", "yokohama", "kobe"], help="対象都市")
+    args = parser.parse_args()
+
     print("=" * 65)
     print("🚀 政策トピック自動統合エンジン（B×Cハイブリッド版）を実行")
     print("=" * 65)
-    for city in CITIES:
+    target_cities = [args.city] if args.city != "all" else ["kyoto", "osaka", "nagoya", "yokohama", "kobe"]
+    for city in target_cities:
         generate_city_topics(city)
-    print("\n🎉 全4都市の政策トピック自動再構築が完了しました。")
+    print("\n🎉 政策トピック自動再構築が完了しました。")
 
 if __name__ == "__main__":
     main()

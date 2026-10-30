@@ -1,4 +1,4 @@
-import json
+﻿import json
 import re
 import unicodedata
 import argparse
@@ -24,7 +24,7 @@ def normalize_name(t: str) -> str:
 
 def sync_master_data(city: str):
     city = city.lower()
-    master_file = MASTER_DIR / f"councilors_{city}.json"
+    master_file = MASTER_DIR / f"{city}_councilors.json"
     override_file = MASTER_DIR / f"manual_overrides_{city}.json"
     
     if not master_file.exists():
@@ -151,3 +151,4 @@ if __name__ == "__main__":
     cities = ["kyoto", "osaka", "nagoya", "yokohama"] if args.city.lower() == "all" else [args.city]
     for c in cities:
         sync_master_data(c)
+

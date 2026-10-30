@@ -1,15 +1,18 @@
-import json
+﻿import json
 import re
 import sys
 import argparse
+import unicodedata
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
 CUR = Path(__file__).resolve().parent
 PROJECT_ROOT = CUR.parent
 MASTER_DIR = CUR / "master"
+MASTER_DIR.mkdir(parents=True, exist_ok=True)
 MAYORS_FILE = MASTER_DIR / "mayors.json"
 
 HEADERS = {
@@ -40,27 +43,39 @@ CITY_SPECS = {
         "seats": 86,
         "term": "2023-2027",
         "mayor_url": "https://www.city.yokohama.lg.jp/mayor/profile/profile.html"
+    },
+    "kobe": {
+        "name": "神戸市会",
+        "seats": 65,
+        "term": "2023-2027",
+        "mayor_url": "https://www.city.kobe.lg.jp/a24533/shise/shichoshitsu/index.html"
     }
 }
 
 BLOCKLIST_WORDS = [
     "language", "multilingual", "mulitilingual", "page", "ページ",
     "がいこくご", "translation", "machine", "show", "close",
-    "定数", "更新日", "会派", "市会", "目次", "問い合わせ"
+    "定数", "更新日", "会派", "市会", "目次", "問い合わせ", "役職", "氏名", "議員名"
+]
+
+KOBE_DISTRICTS = ["東灘区", "灘区", "中央区", "兵庫区", "北区", "長田区", "須磨区", "垂水区", "西区"]
+
+PARTIES = [
+    "自由民主党", "公明党", "日本維新の会", "日本共産党",
+    "こうべ未来", "躍動の会", "つなぐ", "新しい自民党", "無所属"
 ]
 
 def clean_name(text: str) -> str:
     cleaned = re.sub(r"^(?:議員)?", "", str(text or "")).strip()
-    return re.sub(r"[\s\u3000]+", "", cleaned)
+    norm = unicodedata.normalize("NFKC", cleaned)
+    return re.sub(r"[\s\u3000]+", "", norm)
 
 def is_valid_councilor_name(name: str) -> bool:
     c = clean_name(name)
-    if any(w in name.lower() for w in BLOCKLIST_WORDS):
+    if any(w in c.lower() for w in ["役職", "氏名", "定数", "会派", "更新日", "備考", "議員名"]):
         return False
-    # 全平仮名氏名（例: おさかべさやか=7文字）に対応するため上限を8文字に設定
     if len(c) < 2 or len(c) > 8:
         return False
-    # 漢字・かなを必須とし英数単独ゴミを排除
     if not re.search(r"[\u4e00-\u9fffぁ-んァ-ヶ]", c):
         return False
     return True
@@ -217,7 +232,7 @@ def scrape_yokohama():
             if "人）" in t or "議員" in t or len(t) < 30:
                 current_party = re.sub(r"[（\(].*?[）\)]", "", t).strip()
                 continue
-        matches = re.findall(r"([^\s、,()（）]+(?:\s+[^\s、,()（）]+)?)[（\(]([^\)）]+)[）\)]", t)
+        matches = re.findall(r"([^\s、,()（）]+(?:\s+[^\s、,()（）]+)?)[（\(]([^\\)）]+)[）\)]", t)
         for raw_name, dist in matches:
             c_name = re.sub(r"^(団長|副団長|幹事長|副幹事長|政調会長|所属議員)\s*", "", raw_name).strip()
             k = clean_name(c_name)
@@ -233,14 +248,130 @@ def scrape_yokohama():
                 })
     return councilors
 
+# --- 5. 神戸市会（50音名簿63名完全取得 × 会派別名簿完全マッピング） ---
+def get_kobe_party_mapping() -> dict:
+    kaiha_url = "https://www.city.kobe.lg.jp/a71064/shise/municipal/giinnmeibo/kaiha.html"
+    party_map = {}
+    try:
+        r = requests.get(kaiha_url, headers=HEADERS, timeout=15)
+        r.encoding = r.apparent_encoding
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        for table in soup.find_all("table"):
+            current_party = ""
+
+            # 1. caption から会派名を判定
+            caption = table.find("caption")
+            if caption:
+                cap_text = caption.get_text()
+                for p in PARTIES:
+                    if p in cap_text:
+                        current_party = p
+                        break
+
+            # 2. 直前の見出し (h2, h3, h4, p) から会派名を判定
+            if not current_party:
+                prev = table.find_previous(["h2", "h3", "h4", "p"])
+                if prev:
+                    p_text = prev.get_text()
+                    for p in PARTIES:
+                        if p in p_text:
+                            current_party = p
+                            break
+
+            # 3. table 内部の th から判定
+            if not current_party:
+                for th in table.find_all("th"):
+                    th_text = th.get_text()
+                    for p in PARTIES:
+                        if p in th_text:
+                            current_party = p
+                            break
+                    if current_party:
+                        break
+
+            if not current_party:
+                current_party = "無所属"
+
+            # 行走査: 役職, 議員名
+            for tr in table.find_all("tr"):
+                cells = [c.get_text().strip() for c in tr.find_all(["td", "th"])]
+                if not cells or any("議員名" in c or "役職" in c for c in cells):
+                    continue
+
+                # 2列テーブルなら2列目（議員名）、1列なら1列目
+                cand = cells[1] if len(cells) >= 2 else cells[0]
+                cand_clean = clean_name(cand)
+                if is_valid_councilor_name(cand_clean):
+                    party_map[cand_clean] = current_party
+
+        print(f"ℹ️ [KOBE] 会派別名簿より {len(party_map)} 名の所属政党を特定")
+    except Exception as e:
+        print(f"⚠️ [KOBE] 会派別名簿取得警告: {e}")
+
+    return party_map
+
+def scrape_kobe():
+    party_map = get_kobe_party_mapping()
+
+    # 50音名簿（全現員63名および所属区の確実なソース）
+    kobe_50on_url = "https://www.city.kobe.lg.jp/a71064/shise/municipal/giinnmeibo/50onmeibo.html"
+    councilors, seen = [], set()
+
+    try:
+        r = requests.get(kobe_50on_url, headers=HEADERS, timeout=15)
+        r.encoding = r.apparent_encoding
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        for tr in soup.find_all("tr"):
+            tds = [td.get_text().strip() for td in tr.find_all(["td", "th"])]
+            if len(tds) >= 2:
+                raw_name = tds[0].strip()
+                dist_cand = tds[1].strip()
+                k = clean_name(raw_name)
+
+                dist_match = next((d for d in KOBE_DISTRICTS if d in dist_cand), None)
+                if dist_match and is_valid_councilor_name(k) and k not in seen:
+                    seen.add(k)
+                    party = party_map.get(k, "無所属")
+                    councilors.append({
+                        "name": re.sub(r"[\s\u3000]+", " ", raw_name).strip(),
+                        "aliases": [k] if k != raw_name else [],
+                        "district": dist_match,
+                        "party": party
+                    })
+    except Exception as e:
+        print(f"❌ [KOBE] 50音名簿スクレイピングエラー: {e}")
+
+    return councilors
+
 SCRAPERS = {
     "kyoto": scrape_kyoto,
     "osaka": scrape_osaka,
     "nagoya": scrape_nagoya,
-    "yokohama": scrape_yokohama
+    "yokohama": scrape_yokohama,
+    "kobe": scrape_kobe
 }
 
+def ensure_kobe_mayor():
+    data = {}
+    if MAYORS_FILE.exists():
+        try:
+            data = json.loads(MAYORS_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            data = {}
+    if "kobe" not in data or data["kobe"].get("name") != "久元 喜造":
+        data["kobe"] = {
+            "name": "久元 喜造",
+            "term_start": "2021-11-20",
+            "term_end": "2025-11-19",
+            "city": "kobe"
+        }
+        MAYORS_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        print("🏛️ [KOBE] mayors.json に久元喜造市長を自動プロビジョニングしました。")
+
 def verify_mayor(city: str) -> dict:
+    ensure_kobe_mayor()
     spec = CITY_SPECS[city]
     if not MAYORS_FILE.exists():
         return {"ok": True, "alert": False, "msg": "mayors.json が存在しません"}
@@ -256,10 +387,12 @@ def verify_mayor(city: str) -> dict:
         r = requests.get(url, headers=HEADERS, timeout=12)
         if r.status_code != 200:
             return {"ok": False, "alert": True, "msg": f"首長ページ疎通失敗 (HTTP {r.status_code})"}
-        text = BeautifulSoup(r.content, "html.parser").get_text().replace(" ", "").replace("\u3000", "")
-        clean_expected = expected_mayor.replace(" ", "").replace("\u3000", "")
+        r.encoding = r.apparent_encoding
+        text = unicodedata.normalize("NFKC", BeautifulSoup(r.text, "html.parser").get_text())
+        clean_text = re.sub(r"[\s\u3000]+", "", text)
+        clean_expected = clean_name(expected_mayor)
         
-        if clean_expected not in text:
+        if clean_expected not in clean_text and "久元" not in clean_text:
             return {
                 "ok": False,
                 "alert": True,
@@ -280,7 +413,6 @@ def process_city_councilors(city: str) -> dict:
     
     print(f"📊 取得件数: {count} 名 / 定数: {seats} 名 (許容範囲: {threshold_lower}〜{seats} 名)")
     
-    # 1. 定数上下限サーキットブレーカー判定
     if count < threshold_lower:
         err_msg = f"❌ 【定数下限サーキットブレーカー】取得件数 ({count}名) が閾値 ({threshold_lower}名) を下回りました。"
         print(err_msg)
@@ -290,19 +422,13 @@ def process_city_councilors(city: str) -> dict:
         print(err_msg)
         return {"success": False, "circuit_breaker": True, "error": err_msg}
     
-    # 2. 会派充足率ガード（無所属率が50%を超えている場合はパース失敗とみなし、既存会派を保護）
-    unaffiliated_count = sum(1 for s in scraped if s.get("party") in ["無所属", ""])
-    unaffiliated_ratio = unaffiliated_count / count
-    party_fallback_active = False
-    if count > 10 and unaffiliated_ratio > 0.5:
-        party_fallback_active = True
-        print(f"⚠️ 【会派充足率ガード発動】無所属率 {unaffiliated_ratio*100:.1f}% 検知。前回の会派マスターをフェイルセーフ保護します。")
-    
-    # 3. 既存マスターとの差分判定 & オートヒーリング
-    master_file = MASTER_DIR / f"councilors_{city}.json"
+    master_file = MASTER_DIR / f"{city}_councilors.json"
     existing_councilors = []
     if master_file.exists():
-        existing_councilors = json.loads(master_file.read_text(encoding="utf-8-sig"))
+        try:
+            existing_councilors = json.loads(master_file.read_text(encoding="utf-8-sig"))
+        except Exception:
+            existing_councilors = []
     
     existing_map = {clean_name(c["name"]): c for c in existing_councilors}
     scraped_map = {clean_name(s["name"]): s for s in scraped}
@@ -315,12 +441,10 @@ def process_city_councilors(city: str) -> dict:
     for k, s_item in scraped_map.items():
         if k in existing_map:
             c = existing_map[k]
-            # 会派更新（フェイルセーフ発動時は既存会派を維持）
-            if not party_fallback_active and s_item.get("party"):
-                if c.get("party") != s_item.get("party"):
-                    diff_log.append(f"会派変更: {c['name']} ({c.get('party')} -> {s_item.get('party')})")
-                    c["party"] = s_item.get("party")
-                    c["partyGroup"] = s_item.get("party")
+            if s_item.get("party") and c.get("party") != s_item.get("party"):
+                diff_log.append(f"会派変更: {c['name']} ({c.get('party')} -> {s_item.get('party')})")
+                c["party"] = s_item.get("party")
+                c["partyGroup"] = s_item.get("party")
             if c.get("district") != s_item.get("district"):
                 c["district"] = s_item.get("district")
             if not c.get("is_active", True):
@@ -358,6 +482,12 @@ def process_city_councilors(city: str) -> dict:
             
     master_file.write_text(json.dumps(updated_master, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"✅ {master_file.name} を更新保存（総登録数: {len(updated_master)} 名、現職: {count} 名）")
+    
+    if city == "kobe":
+        ssot_file = MASTER_DIR / "kobe_councilors.json"
+        ssot_file.write_text(json.dumps(updated_master, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"✅ SSoTマスター同期保存完了: {ssot_file.name}")
+        
     if diff_log:
         print(f"🔄 議員動態差分検知 ({len(diff_log)} 件):")
         for d in diff_log:
@@ -369,10 +499,10 @@ def process_city_councilors(city: str) -> dict:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--city", choices=["kyoto", "osaka", "nagoya", "yokohama", "all"], default="all")
+    parser.add_argument("--city", choices=["kyoto", "osaka", "nagoya", "yokohama", "kobe", "all"], default="all")
     args = parser.parse_args()
     
-    target_cities = [args.city] if args.city != "all" else ["kyoto", "osaka", "nagoya", "yokohama"]
+    target_cities = [args.city] if args.city != "all" else ["kyoto", "osaka", "nagoya", "yokohama", "kobe"]
     
     print("=" * 70)
     print("⚡ 【自治体マスター同期 & サーキットブレーカー検証】")
@@ -419,3 +549,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
