@@ -397,6 +397,13 @@ def main():
         run_script(overview_script, "AI包括解説生成（全5都市一括）", args=["all"])
         log("--- [政策カテゴリー包括解説の生成完了] ---")
 
+    # 7.6.6 議案賛否データの日本語正規化 (English -> Japanese)
+    normalize_script = os.path.join(BASE_DIR, "normalize_vote_data.py")
+    if os.path.exists(normalize_script):
+        log("--- [議案賛否データの日本語正規化] ---")
+        run_script(normalize_script, "データ正規化（賛否フォーマット統一）")
+
+
 
     # 7.7 議員看板公約・採決トラッカーの最新化（4都市統一セマンティック結合）
     log("--- [議員公約・採決トラッカーの最新化（4都市）] ---")

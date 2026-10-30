@@ -467,12 +467,7 @@ export default function App() {
     if (selectedResult) list = list.filter(b => b.result === selectedResult);
     if (onlyContestedBills) {
       list = list.filter(bill => {
-        const votes = Object.values(bill.votes || {}).map(v => {
-            const str = String(v).toLowerCase();
-            if(str==='for') return '賛成';
-            if(str==='against') return '反対';
-            return str;
-          });
+        const votes = Object.values(bill.votes || {});
           return votes.includes('賛成') && votes.includes('反対');
       });
     }
