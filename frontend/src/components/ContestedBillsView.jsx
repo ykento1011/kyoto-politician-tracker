@@ -4,20 +4,19 @@ import {
   Sparkles, ExternalLink, Scale, ChevronDown, Tag, AlertTriangle
 } from 'lucide-react';
 
+// 賛否データを日本語に正規化するヘルパー関数
+const normalizeVote = (val) => {
+  if (!val) return '不明';
+  const v = String(val).toLowerCase();
+  if (v === 'for' || v === '賛成') return '賛成';
+  if (v === 'against' || v === '反対') return '反対';
+  if (v === 'split' || v === '対応割れ') return '対応割れ';
+  if (v === 'abstain' || v === '棄権') return '棄権';
+  if (v === 'absent' || v === '欠席') return '欠席';
+  return val;
+};
+
 export default function ContestedBillsView({
-
-  // 賛否データを日本語に正規化するヘルパー関数
-  const normalizeVote = (val) => {
-    if (!val) return '不明';
-    const v = String(val).toLowerCase();
-    if (v === 'for' || v === '賛成') return '賛成';
-    if (v === 'against' || v === '反対') return '反対';
-    if (v === 'split' || v === '対応割れ') return '対応割れ';
-    if (v === 'abstain' || v === '棄権') return '棄権';
-    if (v === 'absent' || v === '欠席') return '欠席';
-    return val;
-  };
-
   initialCategory = '',
   billIssues = [],
   votesData = [],
