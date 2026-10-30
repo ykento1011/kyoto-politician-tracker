@@ -92,7 +92,9 @@ export default function App() {
       const params = new URLSearchParams(window.location.search);
       const hash = window.location.hash || '';
 
-      if (path.startsWith('/yokohama') || params.get('city') === 'yokohama') {
+      if (path.startsWith('/kobe') || params.get('city') === 'kobe') {
+        return 'kobe';
+      } else if (path.startsWith('/yokohama') || params.get('city') === 'yokohama') {
         return 'yokohama';
       } else if (path.startsWith('/nagoya') || params.get('city') === 'nagoya') {
         return 'nagoya';
@@ -203,7 +205,9 @@ export default function App() {
       const currentParams = new URLSearchParams(window.location.search);
       let detectedCity = null;
       
-      if (currentPath.startsWith('/yokohama') || currentParams.get('city') === 'yokohama') {
+      if (currentPath.startsWith('/kobe') || currentParams.get('city') === 'kobe') {
+        detectedCity = 'kobe';
+      } else if (currentPath.startsWith('/yokohama') || currentParams.get('city') === 'yokohama') {
         detectedCity = 'yokohama';
       } else if (currentPath.startsWith('/nagoya') || currentParams.get('city') === 'nagoya') {
         detectedCity = 'nagoya';
@@ -243,7 +247,12 @@ export default function App() {
     let canonicalUrl = "https://gikai-mikata.jp/";
     let ogpImage = "https://gikai-mikata.jp/ogp-portal.png";
 
-    if (cityCode === 'yokohama') {
+    if (cityCode === 'kobe') {
+      title = '議会のミカタ 神戸 ｜ AIは入口。判断するのは市民です。';
+      description = '神戸市会公式会議録と議決データを客観的に構造化。久元市長政策進捗トラッカーを一次情報で確認。';
+      canonicalUrl = 'https://gikai-mikata.jp/kobe/';
+      ogpImage = 'https://gikai-mikata.jp/ogp-kobe.png';
+    } else if (cityCode === 'yokohama') {
       title = '議会のミカタ 横浜 ｜ AIは入口。判断するのは市民です。';
       canonicalUrl = 'https://gikai-mikata.jp/yokohama/';
       ogpImage = 'https://gikai-mikata.jp/ogp-yokohama.png';
@@ -298,7 +307,7 @@ export default function App() {
     let finalUrl = url;
     if (cityCode) {
       const basePath = `/${cityCode}`;
-      if (url.startsWith('/kyoto') || url.startsWith('/osaka') || url.startsWith('/nagoya')) {
+      if (url.startsWith('/kyoto') || url.startsWith('/osaka') || url.startsWith('/nagoya') || url.startsWith('/yokohama') || url.startsWith('/kobe')) {
         finalUrl = url;
       } else if (url === '/') {
         finalUrl = `${basePath}/`;

@@ -20,7 +20,7 @@ export default function Footer({ onOpenMethodology , cityCode = 'kyoto'}) {
               分析対象データと期間
             </div>
             <p className="leading-relaxed">
-              {cityCode === 'yokohama' ? '横浜市会 公式' : cityCode === 'nagoya' ? '名古屋市会 公式' : cityCode === 'osaka' ? '大阪市会 公式' : '京都市会 公式'}会議録（<strong>現任期：2023年5月〜最新公開分</strong>）<br />
+              {cityCode === 'kobe' ? '神戸市会 公式' : cityCode === 'yokohama' ? '横浜市会 公式' : cityCode === 'nagoya' ? '名古屋市会 公式' : cityCode === 'osaka' ? '大阪市会 公式' : '京都市会 公式'}会議録（<strong>現任期：2023年5月〜最新公開分</strong>）<br />
               本会議（代表質問・個人質疑）・全常任委員会・特別委員会の全質疑スレッド
             </p>
           </div>
@@ -77,7 +77,9 @@ export default function Footer({ onOpenMethodology , cityCode = 'kyoto'}) {
       <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-slate-800 text-center md:text-left text-[11px] text-slate-400 flex flex-col md:flex-row justify-between items-center gap-2">
         <span>&copy; {new Date().getFullYear()} 株式会社KICKs All rights reserved.</span>
                   <span>
-            {cityCode === 'yokohama'
+            {cityCode === 'kobe'
+              ? '神戸市会議員・政策トラッカー「議会のミカタ 神戸」'
+              : cityCode === 'yokohama'
               ? '横浜市会議員・政策トラッカー「議会のミカタ 横浜」'
               : cityCode === 'nagoya'
               ? '名古屋市会議員トラッカー「議会のミカタ 名古屋」'
