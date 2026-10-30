@@ -1,48 +1,6 @@
 import React from "react";
-import { Search, Sparkles, Compass, ArrowRight, ExternalLink, AlertCircle, Flag } from "lucide-react";
-
-const KOBE_HOT_TOPICS = [
-  "三宮再開発・バスターミナル",
-  "タワーマンション規制・都心居住",
-  "神戸空港国際化",
-  "医療産業都市",
-  "中学校給食・全員喫食",
-  "行財政改革・人口減少対策",
-];
-
-const KYOTO_HOT_TOPICS = [
-  "オーバーツーリズム",
-  "市バス",
-  "中小企業支援",
-  "空き家対策",
-  "伝統産業",
-  "子育て支援",
-];
-
-const OSAKA_HOT_TOPICS = [
-  "万博・夢洲跡地",
-  "副首都ビジョン",
-  "特区民泊",
-  "路上喫煙禁止",
-  "学校 熱中症",
-];
-
-const YOKOHAMA_HOT_TOPICS = [
-  "中学校給食全員実施",
-  "小児医療費無償化",
-  "防災・激甚災害対策",
-  "都心臨海部・港湾GX",
-  "敬老パス・シニア支援",
-  "行財政改革・DX推進",
-];
-
-const NAGOYA_HOT_TOPICS = [
-  "名古屋城木造復元",
-  "市民税減税",
-  "敬老パス",
-  "子ども応援委員会",
-  "アジア競技大会",
-];
+import { Search, Sparkles, Compass, ArrowRight, ExternalLink, Flag } from "lucide-react";
+import { getCityConfig } from "../config/cities";
 
 export default function HeroSection({
   searchQuery,
@@ -52,32 +10,18 @@ export default function HeroSection({
   onOpenGuide,
   cityCode = "kyoto"
 }) {
-  // 都市ごとの分岐設定
-  let cityName = "京都市会";
-  let hotTopics = KYOTO_HOT_TOPICS;
-  let scopeText = "本会議・全常任委員会・特別委員会（12万件超の発言・5,100超の質疑・全67議員・300件の議案賛否）";
+  const config = getCityConfig(cityCode) || {
+    councilName: "市会",
+    hotTopics: [],
+    scopeText: "公式会議録・議決データ"
+  };
 
-  if (cityCode === "kobe") {
-    cityName = "神戸市会";
-    hotTopics = KOBE_HOT_TOPICS;
-    scopeText = "久元喜造市長政策トラッカー・全常任委員会・本会議質疑スレッド・議案採決ログ";
-  } else if (cityCode === "osaka") {
-    cityName = "大阪市会";
-    hotTopics = OSAKA_HOT_TOPICS;
-    scopeText = "本会議および全委員会（現職81議員・1,260超の質疑スレッド・議案賛否）";
-  } else if (cityCode === "nagoya") {
-    cityName = "名古屋市会";
-    hotTopics = NAGOYA_HOT_TOPICS;
-    scopeText = "本会議および各委員会・電子採決ログ（現職68議員の議案賛否・首長トラッカー）";
-  } else if (cityCode === "yokohama") {
-    cityName = "横浜市会";
-    hotTopics = YOKOHAMA_HOT_TOPICS;
-    scopeText = "2026年10月就任 原澤敦美市長重点12公約トラッカー・18区現職86議員（本会議・常任委員会論戦移行期）";
-  }
+  const cityName = config.councilName;
+  const hotTopics = config.hotTopics || [];
+  const scopeText = config.scopeText;
 
   return (
     <section className="text-center py-6 md:py-10 space-y-4">
-      {/* サービスバッジ */}
       <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-black shadow-2xs">
         <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
         {cityName} 公開データ × 生成AI分析
@@ -95,7 +39,6 @@ export default function HeroSection({
         </p>
       </div>
 
-      {/* 分析対象バッジ */}
       <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-100/80 border border-slate-200 text-[11px] text-slate-600 font-bold">
         <span className="flex items-center gap-1 text-indigo-700">
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse" />
@@ -106,7 +49,6 @@ export default function HeroSection({
         <span>{scopeText}</span>
       </div>
 
-      {/* できることページへの直通バナー */}
       <div className="pt-1">
         <button
           onClick={onOpenGuide}
@@ -118,7 +60,6 @@ export default function HeroSection({
         </button>
       </div>
 
-      {/* 一次資料の検証・不備報告バナー（旗マーク案内） */}
       <div className="max-w-xl mx-auto pt-2 text-left">
         <div className="bg-amber-50/90 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-start gap-2.5">
@@ -148,7 +89,6 @@ export default function HeroSection({
         </div>
       </div>
 
-      {/* 検索入力窓 */}
       <div className="max-w-xl mx-auto pt-2">
         <form onSubmit={onSearchSubmit} className="relative flex items-center">
           <Search className="w-5 h-5 text-slate-400 absolute left-4 pointer-events-none" />
@@ -167,7 +107,6 @@ export default function HeroSection({
           </button>
         </form>
 
-        {/* 注目の論点タグ */}
         <div className="flex items-center gap-1.5 flex-wrap justify-center mt-3 text-xs">
           <span className="text-[11px] font-bold text-slate-400">注目の論点:</span>
           {hotTopics.map((topic) => (
