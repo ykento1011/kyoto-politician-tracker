@@ -1,4 +1,4 @@
-// 各都市の基本メタデータ、表示呼称、データファイルパス規則の一元管理
+// 各都市の基本メタデータ、表示呼称、データファイルパス規定の一元管理
 export const CITIES = {
   kyoto: {
     code: 'kyoto',
@@ -9,16 +9,17 @@ export const CITIES = {
     mayorName: '松井市長',
     accentColor: '#4f46e5',
     active: true,
-    dataPathPrefix: '',
+    dataPathPrefix: 'kyoto_',
     files: {
-      votesSummary: `/data/${cityCode}_votes_summary.json`,
-      billIssues: `/data/${cityCode}_bill_issues.json`,
-      mayorTracker: `/data/${cityCode}_mayor_tracker.json`,
+      votesSummary: '/data/kyoto_votes_summary.json',
+      billIssues: '/data/kyoto_bill_issues.json',
+      mayorTracker: '/data/kyoto_mayor_tracker.json',
       pledgeTracker: '/data/pledge_tracker.json',
-      topicSummaries: `/data/${cityCode}_topic_summaries.json`,
+      topicSummaries: '/data/kyoto_topic_summaries.json',
     },
     title: '議会のミカタ 京都 ｜ AIは入口。判断するのは市民です。',
-    description: '京都市会公式会議録12万発言と議決データを客観的に構造化。4軸による質疑分析、賛否が分かれた議案の記録、看板公約の照合オープンデータ基盤。',
+    description: '京都市会公式会議録12万発言と議決データを客観的に構造化。4軸による質疑分析、賛否が分かれた議案の記録、選挙公約の照合オープンデータ基盤。',
+    canonicalUrl: 'https://gikai-mikata.jp/kyoto/',
     ogpImage: 'https://gikai-mikata.jp/ogp-kyoto.png',
   },
   osaka: {
@@ -40,6 +41,7 @@ export const CITIES = {
     },
     title: '議会のミカタ 大阪 ｜ AIは入口。判断するのは市民です。',
     description: '大阪市会公式会議録と議決データを客観的に構造化。現職81議員の質疑スレッド分析、賛否ログ、横山市長政策進捗トラッカーを一次情報で確認。',
+    canonicalUrl: 'https://gikai-mikata.jp/osaka/',
     ogpImage: 'https://gikai-mikata.jp/ogp-osaka.png',
   },
   nagoya: {
@@ -61,6 +63,7 @@ export const CITIES = {
     },
     title: '議会のミカタ 名古屋 ｜ AIは入口。判断するのは市民です。',
     description: '名古屋市会公式会議録と電子採決ログを客観的に構造化。現職68議員の質疑スレッド分析、議案賛否ログ、広沢市長政策進捗トラッカーを一次情報で確認。',
+    canonicalUrl: 'https://gikai-mikata.jp/nagoya/',
     ogpImage: 'https://gikai-mikata.jp/ogp-nagoya.png',
   },
   yokohama: {
