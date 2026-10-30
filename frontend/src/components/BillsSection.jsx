@@ -45,8 +45,13 @@ export default function BillsSection({ filteredBills, onlyContestedBills, setOnl
         {filteredBills.map((bill, idx) => {
           const issue = issuesMap[`${bill.session_name}_${bill.bill_number}`];
           const votes = bill.votes || {};
-          const vValues = Object.values(votes);
-          const isContested = vValues.includes('賛成') && vValues.includes('反対');
+          const vValues = Object.values(votes).map(v => {
+              const str = String(v).toLowerCase();
+              if(str==='for') return '賛成';
+              if(str==='against') return '反対';
+              return str;
+            });
+            const isContested = vValues.includes('賛成') && vValues.includes('反対');
 
           return (
             <article key={idx} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
