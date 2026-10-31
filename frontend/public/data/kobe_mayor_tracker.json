@@ -9,11 +9,12 @@
     "city_label": "神戸市",
     "term": "2025年10月改選（第4期）〜",
     "party": "無所属（自民・公明・立憲等推薦）",
-    "profile_image": "/councilors/kobe/mayor.jpg",
+    "profile_image": "/councilors/kobe/hisamoto_kizo.jpg",
     "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
     "bulletin_label": "市長選挙公報原本（神戸市選管）",
     "strategy_main_pdf": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-    "strategy_main_label": "神戸2025ビジョン（神戸市基本構想）"
+    "strategy_main_label": "神戸2025ビジョン（神戸市基本構想）",
+    "fallback_image": "/councilors/kobe/mayor.jpg"
   },
   "summary_stats": {
     "total_pledges": 5,
@@ -35,9 +36,9 @@
     },
     {
       "label": "関連予算総額",
-      "value": "¥134.1億",
-      "subtext": "令和8年度予算説明書紐付け",
-      "badge": "透明性担保"
+      "value": "10件",
+      "subtext": "神戸市会公式会議録原本直結",
+      "badge": "任期連動"
     }
   ],
   "lifecycle_definition": {
@@ -105,19 +106,19 @@
       "debate_statements": [
         {
           "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "93: ◯市長(久元喜造君) 岩佐議員の御質問のうち、まず、歴史資源・文化財を生かした観光政策につきましてお答えを申し上げます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_93"
+          "quote_summary": "28: ◯市長(久元喜造君) 平野達司議員の御質問のうち、私からは既成市街地におけるエリア価値向上と住宅・子育て環境の整備につきましてお答えを申し上げます。 御指摘にありましたように、神戸市としては、2030年までに5,...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_28"
         },
         {
           "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "198: ◯副市長(小松恵一君) 私からは、落書き対策について御答弁をさせていただきます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_198"
+          "quote_summary": "128: ◯市長(久元喜造君) 森田議員の御質問のうち、私からは、高校生の通学定期補助につきましてお答えを申し上げます。 この通学定期費補助制度は、当初は子育て世帯の経済的負担の軽減を目的といたしまして、令和4年にスター...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_128"
         }
       ]
     },
@@ -177,19 +178,19 @@
       "debate_statements": [
         {
           "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "28: ◯市長(久元喜造君) 平野達司議員の御質問のうち、私からは既成市街地におけるエリア価値向上と住宅・子育て環境の整備につきましてお答えを申し上げます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_28"
+          "quote_summary": "58: ◯市長(久元喜造君) のまち議員の御質問のうち、まず神戸空港島の将来構想につきましてお答えを申し上げます。 神戸空港島は、臨海部に残された貴重な土地でありまして、様々な都市機能の立地が進む都心・三宮やウオーターフ...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_58"
         },
         {
           "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "128: ◯市長(久元喜造君) 森田議員の御質問のうち、私からは、高校生の通学定期補助につきましてお答えを申し上げます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_128"
+          "quote_summary": "212: ◯市長(久元喜造君) 2月議会の終了に当たり、一言御挨拶を申し上げます。 本定例市会には、令和8年度予算案及びこれに関連する多数の議案並びに令和7年度補正予算案などの諸議案を御提案申し上げました。 議員各位にお...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_212"
         }
       ]
     },
@@ -253,19 +254,19 @@
       "debate_statements": [
         {
           "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "4: ◯市長(久元喜造君) 上畠議員の御質問のうち、まず私から、神戸空港において中国便が運航中であることを踏まえた今後の対応につきましてお答えを申し上げます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_4"
+          "quote_summary": "4: ◯市長(久元喜造君) 赤田議員の御質問にお答えを申し上げます。 まず、物価高騰対策です。 先日の議案質疑でも御答弁申し上げましたが、本市では国の交付金を有効に活用すべく、物価高騰の影響、時間的効果、公益性・社会的有...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9424#voice_4"
         },
         {
-          "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "date": "2026-05-11",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "6: ◯副市長(今西正男君) 私からのほうから残りの3点について御答弁を申し上げます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_6"
+          "quote_summary": "5: ◯市長(久元喜造君) 三木議員の御質問のうち、まず、神戸空港、空港島と周辺地域の一体的発展につきましてお答えを申し上げます。 神戸空港は、国内外からの来訪者が最初に訪れる空の玄関口でありまして、利便性はもとより、神...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/154186?Template=document&Id=9562#voice_5"
         }
       ]
     },
@@ -329,19 +330,19 @@
       "debate_statements": [
         {
           "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "28: ◯市長(久元喜造君) 平野達司議員の御質問のうち、私からは既成市街地におけるエリア価値向上と住宅・子育て環境の整備につきましてお答えを申し上げます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_28"
+          "quote_summary": "93: ◯市長(久元喜造君) 岩佐議員の御質問のうち、まず、歴史資源・文化財を生かした観光政策につきましてお答えを申し上げます。 神戸には多様な顔があり、様々な歴史文化遺産に恵まれています。このような資源を生かした観光誘...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_93"
         },
         {
-          "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "date": "2026-05-11",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "62: ◯副市長(小松恵一君) 私からは3点お答えをさせていただきます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_62"
+          "quote_summary": "5: ◯市長(久元喜造君) 三木議員の御質問のうち、まず、神戸空港、空港島と周辺地域の一体的発展につきましてお答えを申し上げます。 神戸空港は、国内外からの来訪者が最初に訪れる空の玄関口でありまして、利便性はもとより、神...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/154186?Template=document&Id=9562#voice_5"
         }
       ]
     },
@@ -401,19 +402,19 @@
       "debate_statements": [
         {
           "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "28: ◯市長(久元喜造君) 平野達司議員の御質問のうち、私からは既成市街地におけるエリア価値向上と住宅・子育て環境の整備につきましてお答えを申し上げます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_28"
+          "quote_summary": "93: ◯市長(久元喜造君) 岩佐議員の御質問のうち、まず、歴史資源・文化財を生かした観光政策につきましてお答えを申し上げます。 神戸には多様な顔があり、様々な歴史文化遺産に恵まれています。このような資源を生かした観光誘...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_93"
         },
         {
           "date": "2026-02-17",
-          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "session_name": "本会議・委員会",
           "speaker": "久元喜造 市長",
           "role": "市長答弁",
-          "quote_summary": "60: ◯副市長(今西正男君) 私のほうから2点お答えを申し上げます",
-          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_60"
+          "quote_summary": "194: ◯市長(久元喜造君) よこはた議員の御質問のうち、まず、人口減少下における自治体経営の在り方につきましてお答えを申し上げます。 いつの時代でも市民参画は重要ですが、人口減少下におきましては、とりわけ市民の皆さん...",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_194"
         }
       ]
     }
