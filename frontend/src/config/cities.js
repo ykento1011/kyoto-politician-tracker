@@ -1,6 +1,14 @@
 ﻿// 各都市の基本メタデータ、表示呼称、データファイルパス規定の一元管理 (SSoT)
 export const CITIES = {
   kyoto: {
+    mayorName: '松井 孝治',
+    mayorTitle: '京都市長',
+    term: '2024年2月就任〜',
+    party: '無所属（自民・立憲・公明・国民推薦）',
+    bulletinPdf: 'https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf',
+    bulletinLabel: '市長公約原本（京都市選管）',
+    strategyPdf: 'https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/sinkyotosenryaku.pdf',
+    strategyLabel: '新・京都戦略',
     code: 'kyoto',
     name: '京都',
     fullName: '京都市',
@@ -17,6 +25,14 @@ export const CITIES = {
     ogpImage: 'https://gikai-mikata.jp/ogp-kyoto.png',
   },
   osaka: {
+    mayorName: '横山 秀幸',
+    mayorTitle: '大阪市長',
+    term: '2023年4月就任〜',
+    party: '大阪維新の会',
+    bulletinPdf: 'https://prod-cdn.go2senkyo.com/public/senkyo_koho/26972/20260201%E5%A4%A7%E9%98%AA%E5%B8%82%E9%95%B7%E9%81%B8%E6%8C%99.pdf',
+    bulletinLabel: '市長公約原本（大阪市選管）',
+    strategyPdf: 'https://www.city.osaka.lg.jp/keikakuchosei/page/0000508821.html',
+    strategyLabel: '大阪市総合計画',
     code: 'osaka',
     name: '大阪',
     fullName: '大阪市',
@@ -33,6 +49,14 @@ export const CITIES = {
     ogpImage: 'https://gikai-mikata.jp/ogp-osaka.png',
   },
   nagoya: {
+    mayorName: '広沢 一郎',
+    mayorTitle: '名古屋市長',
+    term: '2024年11月就任〜',
+    party: '日本保守党・減税日本推薦',
+    bulletinPdf: 'https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html',
+    bulletinLabel: '市長公約原本（名古屋市選管）',
+    strategyPdf: 'https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html',
+    strategyLabel: '名古屋市総合計画2028',
     code: 'nagoya',
     name: '名古屋',
     fullName: '名古屋市',
@@ -49,6 +73,14 @@ export const CITIES = {
     ogpImage: 'https://gikai-mikata.jp/ogp-nagoya.png',
   },
   yokohama: {
+    mayorName: '原澤 あつみ',
+    mayorTitle: '横浜市長',
+    term: '2026年10月就任〜',
+    party: '無所属',
+    bulletinPdf: 'https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf',
+    bulletinLabel: '市長公約原本（横浜市選管）',
+    strategyPdf: 'https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html',
+    strategyLabel: '横浜市中期計画',
     code: 'yokohama',
     name: '横浜',
     fullName: '横浜市',
@@ -117,5 +149,9 @@ export function getCityDataUrl(cityCode, fileKey) {
   const fileName = FILE_KEY_MAP[fileKey] || `${fileKey}.json`;
   return `/data/${cityCode}_${fileName}`;
 }
+
+
+
+
 
 
