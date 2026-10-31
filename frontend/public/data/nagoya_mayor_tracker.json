@@ -1,7 +1,7 @@
 {
   "city_code": "nagoya",
   "city_name": "名古屋市",
-  "mayor_name": "広沢一郎",
+  "mayor_name": "広沢 一郎",
   "term": "2024年11月就任〜",
   "mayor_info": {
     "name": "広沢一郎",
@@ -9,17 +9,17 @@
     "city_label": "名古屋市",
     "term": "2024年11月就任〜",
     "party": "日本保守党・減税日本 推薦",
-    "profile_image": "/councilors/hirosawa_ichiro.jpg",
-    "fallback_image": null,
+    "profile_image": "/councilors/nagoya/hirosawa_ichiro.jpg",
+    "fallback_image": "/councilors/nagoya/mayor.jpg",
     "bulletin_pdf": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html",
-    "bulletin_label": "選管公式 選挙公報原本",
+    "bulletin_label": "市長選挙公報原本（一次資料PDF）",
     "strategy_main_pdf": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html",
     "strategy_main_label": "名古屋市総合計画2028"
   },
   "summary_stats": {
     "total_pledges": 5,
     "progress_pledges": 3,
-    "last_updated": "2026-10-30"
+    "last_updated": "2026-10-31"
   },
   "kpis": [
     {
@@ -36,9 +36,9 @@
     },
     {
       "label": "条例成立・執行",
-      "value": "1件",
-      "subtext": "市長給料特例条例可決",
-      "badge": "条例成立"
+      "value": "0件",
+      "subtext": "名古屋市会公式会議録原本直結",
+      "badge": "広沢市長任期連動"
     }
   ],
   "lifecycle_definition": {
