@@ -1,12 +1,20 @@
 {
   "mayor_info": {
-    "name": "松井孝治",
+    "name": "松井 孝治",
+    "title": "京都市長",
+    "city_label": "京都市",
+    "term": "2024年2月就任〜",
+    "party": "無所属（自民・立憲・公明・国民推薦）",
+    "profile_image": "/councilors/kyoto/matsui_koji.jpg",
+    "fallback_image": "/councilors/kyoto/mayor.jpg",
+    "bulletin_pdf": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+    "bulletin_label": "市長選挙公報原本（京都市選管）",
+    "strategy_main_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/sinkyotosenryaku.pdf",
+    "strategy_main_label": "新・京都戦略（京都市基本構想）",
+    "strategy_policy_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
     "term_number": 27,
     "term_start": "2024-02-25",
-    "election_date": "2024-02-04",
-    "bulletin_pdf": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
-    "strategy_main_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/sinkyotosenryaku.pdf",
-    "strategy_policy_pdf": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf"
+    "election_date": "2024-02-04"
   },
   "summary_stats": {
     "total_pledges": 14,
@@ -893,6 +901,28 @@
         "title": "精神障害者通院医療費助成の拡充施行",
         "status": "achieved"
       }
+    }
+  ],
+  "city_name": "京都市",
+  "mayor_name": "松井 孝治",
+  "kpis": [
+    {
+      "label": "公約推進・予算化率",
+      "value": "85.7%",
+      "subtext": "12/14事業で予算措置・成立",
+      "badge": "重点推進中"
+    },
+    {
+      "label": "関連予算措置総額",
+      "value": "104億1,316万円",
+      "subtext": "令和6〜8年度主要事業説明書",
+      "badge": "公文書計上額"
+    },
+    {
+      "label": "宿泊税見込 / 財源規律",
+      "value": "132億円 / 年",
+      "subtext": "年間35億円ペース堅持",
+      "badge": "特定財源活用"
     }
   ]
 }
