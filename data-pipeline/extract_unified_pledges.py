@@ -30,6 +30,14 @@ for env_path in [CUR / ".env", PROJECT_ROOT / ".env"]:
                 os.environ[k.strip()] = v.strip().strip("'\"")
 
 CITY_CONFIGS = {
+    "kobe": {
+        "name": "神戸市",
+        "election_name": "神戸市議会議員一般選挙",
+        "pdf_dirs": [CUR / "raw_pdfs" / "kobe", CUR / "bulletins_kobe"],
+        "base_url": "https://www.city.kobe.lg.jp/documents/23740/",
+        "canonical_map": {}
+    },
+
     "kyoto": {
         "name": "京都市",
         "election_name": "京都市議会議員一般選挙",
@@ -82,6 +90,7 @@ def clean_name(name: str) -> str:
 
 def load_master_councilors(city: str) -> set:
     candidates = [
+        FRONTEND_DATA / f"{city}_councilors.json",
         FRONTEND_DATA / f"{city}_statements_summary.json",
         FRONTEND_DATA / f"statements_summary_{city}.json",
         FRONTEND_DATA / "statements_summary.json" if city == "kyoto" else None
@@ -90,7 +99,7 @@ def load_master_councilors(city: str) -> set:
         if path.exists():
             try:
                 data = json.loads(path.read_text(encoding="utf-8"))
-                return {clean_name(d.get("speaker", "")) for d in data if d.get("speaker")}
+                return {clean_name(d.get("name") or d.get("speaker", "")) for d in data if (d.get("name") or d.get("speaker"))}
             except Exception:
                 pass
     return set()
@@ -152,7 +161,7 @@ def parse_pdf(client: genai.Client, pdf_path: Path, city_cfg: dict, valid_names:
 
 def main():
     parser = argparse.ArgumentParser(description="全都市統合公報PDF公約抽出パイプライン（差分キャッシュ対応）")
-    parser.add_argument("--city", required=True, choices=["kyoto", "osaka", "nagoya", "yokohama"])
+    parser.add_argument("--city", required=True, choices=list(CITY_CONFIGS.keys()))
     parser.add_argument("--file", help="特定PDFファイルのみ指定")
     parser.add_argument("--force", action="store_true", help="既存データを無視して全再取得")
     args = parser.parse_args()

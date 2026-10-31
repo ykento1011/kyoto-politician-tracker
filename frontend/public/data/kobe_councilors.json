@@ -12,7 +12,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/赤田かつのり.jpg"
+    "image_url": "/councilors/kobe/赤田かつのり.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "浅井 美佳",
@@ -27,7 +28,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/浅井美佳.jpg"
+    "image_url": "/councilors/kobe/浅井美佳.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf"
   },
   {
     "name": "朝倉 えつ子",
@@ -42,7 +44,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/朝倉えつ子.jpg"
+    "image_url": "/councilors/kobe/朝倉えつ子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf"
   },
   {
     "name": "味口 としゆき",
@@ -57,7 +60,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/味口としゆき.jpg"
+    "image_url": "/councilors/kobe/味口としゆき.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf"
   },
   {
     "name": "あわはら 富夫",
@@ -72,7 +76,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/あわはら富夫.jpg"
+    "image_url": "/councilors/kobe/あわはら富夫.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf"
   },
   {
     "name": "諫山 大介",
@@ -87,7 +92,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/諫山大介.jpg"
+    "image_url": "/councilors/kobe/諫山大介.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf"
   },
   {
     "name": "伊藤 めぐみ",
@@ -102,7 +108,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/伊藤めぐみ.jpg"
+    "image_url": "/councilors/kobe/伊藤めぐみ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf"
   },
   {
     "name": "岩佐 けんや",
@@ -117,7 +124,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/岩佐けんや.jpg"
+    "image_url": "/councilors/kobe/岩佐けんや.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "岩谷 しげなり",
@@ -132,7 +140,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/岩谷しげなり.jpg"
+    "image_url": "/councilors/kobe/岩谷しげなり.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf"
   },
   {
     "name": "植中 雅子",
@@ -147,7 +156,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/植中雅子.jpg"
+    "image_url": "/councilors/kobe/植中雅子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf"
   },
   {
     "name": "うえなか 美貴子",
@@ -162,7 +172,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/うえなか美貴子.jpg"
+    "image_url": "/councilors/kobe/うえなか美貴子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf"
   },
   {
     "name": "上畠 寛弘",
@@ -177,7 +188,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/上畠寛弘.jpg"
+    "image_url": "/councilors/kobe/上畠寛弘.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "上原 みなみ",
@@ -192,7 +204,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/上原みなみ.jpg"
+    "image_url": "/councilors/kobe/上原みなみ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf"
   },
   {
     "name": "大井 としひろ",
@@ -207,7 +220,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/大井としひろ.jpg"
+    "image_url": "/councilors/kobe/大井としひろ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf"
   },
   {
     "name": "大かわら 鈴子",
@@ -222,7 +236,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/大かわら鈴子.jpg"
+    "image_url": "/councilors/kobe/大かわら鈴子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf"
   },
   {
     "name": "大野 陽平",
@@ -237,7 +252,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/大野陽平.jpg"
+    "image_url": "/councilors/kobe/大野陽平.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "岡田 ゆうじ",
@@ -252,7 +268,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/岡田ゆうじ.jpg"
+    "image_url": "/councilors/kobe/岡田ゆうじ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "香川 真二",
@@ -267,7 +284,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/香川真二.jpg"
+    "image_url": "/councilors/kobe/香川真二.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   },
   {
     "name": "かじ 幸夫",
@@ -282,7 +300,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/かじ幸夫.jpg"
+    "image_url": "/councilors/kobe/かじ幸夫.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   },
   {
     "name": "門田 まゆみ",
@@ -297,7 +316,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/門田まゆみ.jpg"
+    "image_url": "/councilors/kobe/門田まゆみ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf"
   },
   {
     "name": "川内 清尚",
@@ -312,7 +332,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/川内清尚.jpg"
+    "image_url": "/councilors/kobe/川内清尚.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "川口 まさる",
@@ -327,7 +348,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/川口まさる.jpg"
+    "image_url": "/councilors/kobe/川口まさる.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf"
   },
   {
     "name": "河南 忠和",
@@ -342,7 +364,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/河南忠和.jpg"
+    "image_url": "/councilors/kobe/河南忠和.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf"
   },
   {
     "name": "木戸 さだかず",
@@ -357,7 +380,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/木戸さだかず.jpg"
+    "image_url": "/councilors/kobe/木戸さだかず.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf"
   },
   {
     "name": "黒田 武志",
@@ -372,7 +396,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/黒田武志.jpg"
+    "image_url": "/councilors/kobe/黒田武志.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   },
   {
     "name": "坂口 有希子",
@@ -387,7 +412,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/坂口有希子.jpg"
+    "image_url": "/councilors/kobe/坂口有希子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf"
   },
   {
     "name": "さとう まちこ",
@@ -402,7 +428,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/さとうまちこ.jpg"
+    "image_url": "/councilors/kobe/さとうまちこ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "しらくに 高太郎",
@@ -417,7 +444,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/しらくに高太郎.jpg"
+    "image_url": "/councilors/kobe/しらくに高太郎.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "菅野 吉記",
@@ -432,7 +460,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/菅野吉記.jpg"
+    "image_url": "/councilors/kobe/菅野吉記.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf"
   },
   {
     "name": "住本 かずのり",
@@ -447,7 +476,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/住本かずのり.jpg"
+    "image_url": "/councilors/kobe/住本かずのり.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf"
   },
   {
     "name": "外海 開三",
@@ -462,7 +492,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/外海開三.jpg"
+    "image_url": "/councilors/kobe/外海開三.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "髙瀬 勝也",
@@ -477,7 +508,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/髙瀬勝也.jpg"
+    "image_url": "/councilors/kobe/髙瀬勝也.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf"
   },
   {
     "name": "高橋 としえ",
@@ -492,7 +524,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/高橋としえ.jpg"
+    "image_url": "/councilors/kobe/高橋としえ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   },
   {
     "name": "堂下 豊史",
@@ -507,7 +540,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/堂下豊史.jpg"
+    "image_url": "/councilors/kobe/堂下豊史.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf"
   },
   {
     "name": "徳山 敏子",
@@ -522,7 +556,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/徳山敏子.jpg"
+    "image_url": "/councilors/kobe/徳山敏子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf"
   },
   {
     "name": "ながさわ 淳一",
@@ -537,7 +572,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/ながさわ淳一.jpg"
+    "image_url": "/councilors/kobe/ながさわ淳一.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf"
   },
   {
     "name": "なんの ゆうこ",
@@ -552,7 +588,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/なんのゆうこ.jpg"
+    "image_url": "/councilors/kobe/なんのゆうこ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "西 ただす",
@@ -567,7 +604,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/西ただす.jpg"
+    "image_url": "/councilors/kobe/西ただす.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "のまち 圭一",
@@ -582,7 +620,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/のまち圭一.jpg"
+    "image_url": "/councilors/kobe/のまち圭一.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf"
   },
   {
     "name": "萩原 泰三",
@@ -597,7 +636,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/萩原泰三.jpg"
+    "image_url": "/councilors/kobe/萩原泰三.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf"
   },
   {
     "name": "原 直樹",
@@ -612,7 +652,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/原直樹.jpg"
+    "image_url": "/councilors/kobe/原直樹.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "平井 真千子",
@@ -627,7 +668,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/平井真千子.jpg"
+    "image_url": "/councilors/kobe/平井真千子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf"
   },
   {
     "name": "平田 正",
@@ -642,7 +684,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/平田正.jpg"
+    "image_url": "/councilors/kobe/平田正.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "平野 章三",
@@ -657,7 +700,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/平野章三.jpg"
+    "image_url": "/councilors/kobe/平野章三.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "平野 達司",
@@ -672,7 +716,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/平野達司.jpg"
+    "image_url": "/councilors/kobe/平野達司.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf"
   },
   {
     "name": "細谷 典功",
@@ -687,7 +732,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/細谷典功.jpg"
+    "image_url": "/councilors/kobe/細谷典功.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "前田 あきら",
@@ -702,7 +748,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/前田あきら.jpg"
+    "image_url": "/councilors/kobe/前田あきら.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf"
   },
   {
     "name": "松本 しゅうじ",
@@ -717,7 +764,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/松本しゅうじ.jpg"
+    "image_url": "/councilors/kobe/松本しゅうじ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf"
   },
   {
     "name": "松本 のり子",
@@ -732,7 +780,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/松本のり子.jpg"
+    "image_url": "/councilors/kobe/松本のり子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "三木 しんじろう",
@@ -747,7 +796,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/三木しんじろう.jpg"
+    "image_url": "/councilors/kobe/三木しんじろう.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf"
   },
   {
     "name": "壬生 潤",
@@ -762,7 +812,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/壬生潤.jpg"
+    "image_url": "/councilors/kobe/壬生潤.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf"
   },
   {
     "name": "宮田 公子",
@@ -777,7 +828,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/宮田公子.jpg"
+    "image_url": "/councilors/kobe/宮田公子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   },
   {
     "name": "村上 立真",
@@ -792,7 +844,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/村上立真.jpg"
+    "image_url": "/councilors/kobe/村上立真.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf"
   },
   {
     "name": "村野 誠一",
@@ -807,7 +860,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/村野誠一.jpg"
+    "image_url": "/councilors/kobe/村野誠一.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf"
   },
   {
     "name": "森田 たき子",
@@ -822,7 +876,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/森田たき子.jpg"
+    "image_url": "/councilors/kobe/森田たき子.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   },
   {
     "name": "森本 真",
@@ -837,7 +892,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/森本真.jpg"
+    "image_url": "/councilors/kobe/森本真.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf"
   },
   {
     "name": "やの こうじ",
@@ -852,7 +908,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/やのこうじ.jpg"
+    "image_url": "/councilors/kobe/やのこうじ.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf"
   },
   {
     "name": "山口 由美",
@@ -867,7 +924,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/山口由美.jpg"
+    "image_url": "/councilors/kobe/山口由美.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   },
   {
     "name": "山下 てんせい",
@@ -882,7 +940,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/山下てんせい.jpg"
+    "image_url": "/councilors/kobe/山下てんせい.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   },
   {
     "name": "山本 のりかず",
@@ -897,7 +956,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/山本のりかず.jpg"
+    "image_url": "/councilors/kobe/山本のりかず.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf"
   },
   {
     "name": "よこはた 和幸",
@@ -912,7 +972,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/よこはた和幸.jpg"
+    "image_url": "/councilors/kobe/よこはた和幸.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf"
   },
   {
     "name": "吉田 健吾",
@@ -927,7 +988,8 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/吉田健吾.jpg"
+    "image_url": "/councilors/kobe/吉田健吾.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf"
   },
   {
     "name": "吉田 謙治",
@@ -942,6 +1004,7 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null,
-    "image_url": "/councilors/kobe/吉田謙治.jpg"
+    "image_url": "/councilors/kobe/吉田謙治.jpg",
+    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf"
   }
 ]

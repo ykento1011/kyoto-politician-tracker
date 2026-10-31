@@ -70,7 +70,10 @@ def get_paths(city):
 
     stmt_path = next((p for p in stmt_candidates if p.exists()), None)
 
-    out_files = [FRONTEND_DATA / f"pledge_tracker_{city}.json"]
+    out_files = [
+        FRONTEND_DATA / f"pledge_tracker_{city}.json",
+        FRONTEND_DATA / f"{city}_pledge_tracker.json"
+    ]
     if city == "kyoto":
         out_files.append(FRONTEND_DATA / "pledge_tracker.json")
     elif city == "osaka":
