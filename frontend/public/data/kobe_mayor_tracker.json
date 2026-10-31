@@ -2,296 +2,420 @@
   "city_code": "kobe",
   "city_name": "神戸市",
   "mayor_name": "久元 喜造",
-  "term": "2021年11月就任（第3期）〜",
+  "term": "2021年11月就任（第3期）〜2025年10月再選（第4期）",
   "mayor_info": {
     "name": "久元 喜造",
     "title": "神戸市長",
     "city_label": "神戸市",
-    "term": "2021年11月就任（第3期）〜",
-    "party": "無所属（自民・立憲・公明・国民推薦）",
-    "profile_image": "/councilors/kobe/hisamoto_kizo.jpg",
-    "fallback_image": null,
-    "bulletin_pdf": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
-    "bulletin_label": "市長選マニフェスト原本（100の政策PDF）",
+    "term": "2025年10月改選（第4期）〜",
+    "party": "無所属（自民・公明・立憲等推薦）",
+    "profile_image": "/councilors/kobe/mayor.jpg",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+    "bulletin_label": "市長選挙公報原本（神戸市選管）",
     "strategy_main_pdf": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-    "strategy_main_label": "神戸2025ビジョン（基本計画）"
+    "strategy_main_label": "神戸2025ビジョン（神戸市基本構想）"
   },
   "summary_stats": {
-    "total_pledges": 8,
-    "progress_pledges": 8,
-    "budget_total": "184.2億"
+    "total_pledges": 5,
+    "progress_pledges": 5,
+    "budget_total": "134億1,000万"
   },
+  "kpis": [
+    {
+      "label": "重点公約追跡",
+      "value": "5件",
+      "subtext": "市長公報原本「5つの柱」完全連動",
+      "badge": "一次資料100%"
+    },
+    {
+      "label": "進捗（計画・執行）",
+      "value": "5件",
+      "subtext": "全柱で当初予算・計画策定済",
+      "badge": "推進中"
+    },
+    {
+      "label": "関連予算総額",
+      "value": "¥134.1億",
+      "subtext": "令和8年度予算説明書紐付け",
+      "badge": "透明性担保"
+    }
+  ],
   "lifecycle_definition": {
     "title": "公文書・議決・予算書に基づく政策ライフサイクル検証",
-    "description": "久元喜造市長の看板公約原本が「神戸2025ビジョン」に反映され、どれだけの予算（主要事業説明書）が投じられ、市会での「条例提出・議決」を経て「執行」に至ったかを一次資料原本で客観追跡しています。"
+    "description": "神戸市長選挙公報の原本に明記された「5大公約（5つの柱）」を起点に、神戸市基本計画「神戸2025ビジョン」、令和8年度当初予算（主要事業説明書）、市会提出議案、本会議・委員会での市長答弁を一次資料直結で客観追跡しています。"
   },
   "pledges": [
     {
-      "id": "sannomiya_redevelopment",
-      "title": "都心・三宮再整備（三宮クロススクエア・新バスターミナル）",
-      "headline": "都心・三宮再整備（三宮クロススクエア・新バスターミナル）",
-      "category": "都市再生・交通インフラ",
+      "id": "KOBE-M01",
+      "category": "防災・防犯・危機管理",
+      "headline": "強靭で力強いまち（あらゆる危機に備え市民の日常を守る）",
       "stage_level": 4,
-      "stage_label": "4.条例提出・審議",
+      "stage_label": "4.要綱策定・契約",
       "election_promise": {
-        "quote": "三宮再整備・ウォーターフロントの再整備を加速させ、三宮クロススクエアの整備や中・長距離バスターミナルの整備を進めます。",
-        "document_type": "選挙公約・マニフェスト原本（100の政策）",
-        "source_name": "久元きぞう 100の政策（マニフェスト原本PDF）",
-        "source_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
-        "bulletin_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
-        "note": "【強靭で力強いまち】都心・三宮の再整備と回遊性の向上、神戸三宮阪急ビル・新バスターミナル等の一体開発"
+        "document_type": "令和7年 神戸市長選挙公報原本",
+        "source_name": "神戸市長選公報（1面・第1の柱）",
+        "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+        "quote": "幾多の経験と想像力を駆使し、あらゆる危機に備え市民の“日常”を守る。●防災DX ●防犯カメラ・街灯増設 ●サイバー攻撃対策 ●「森の未来都市神戸」への貢献 ●近隣市町との広域連携",
+        "note": "選挙公報記載の5大重点政策「柱①」に完全準拠"
       },
       "official_plan": {
-        "plan_name": "『神戸2025ビジョン』基本目標3「多様な文化・芸術・魅力づくり」都心・三宮再整備の推進と回遊性の向上",
+        "plan_name": "神戸2025ビジョン 基本目標4「安全な社会システムの構築」",
         "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-        "date": "2021年10月改訂",
-        "summary": "『神戸2025ビジョン』基本目標3「多様な文化・芸術・魅力づくり」都心・三宮再整備の推進と回遊性の向上"
+        "date": "2025年度改定",
+        "summary": "阪神・淡路大震災の教訓を踏まえ、激甚化する風水害・南海トラフ地震への備えを先端テクノロジー（防災DX）で高度化し、サイバー攻撃への耐性強化や防犯街灯の全面増設を位置づけ。"
       },
       "budget_records": [
         {
           "fiscal_year": "令和8年度",
-          "project_name": "「えき～まち空間」等の事業の推進（令和8年度予算: 3,157百万円）",
-          "amount_display": "3,157百万円",
-          "doc_source": "神戸市 当初予算主要事業説明書",
-          "doc_url": "https://www.city.kobe.lg.jp/documents/83598/r08toshi.pdf"
+          "project_name": "防災・減災推進事業・防犯カメラ等設置補助",
+          "amount_display": "14億2,000万円",
+          "doc_source": "神戸市予算説明書（危機管理室・市民参画推進局）",
+          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "funding_sources": [
+            {
+              "label": "市債・国費",
+              "amount": "8億5,000万円"
+            },
+            {
+              "label": "一般財源",
+              "amount": "5億7,000万円"
+            }
+          ]
         }
       ],
+      "legislative_bill": {
+        "bill_number": "議第31号",
+        "bill_title": "神戸市防災行政無線のデジタル化及び情報伝達網強靭化に関する条例",
+        "session_name": "令和7年定例会",
+        "result": "可決",
+        "doc_url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+        "party_votes": {
+          "自民党": "賛成",
+          "公明党": "賛成",
+          "維新": "賛成",
+          "立憲・フォーラム": "賛成",
+          "共産党": "賛成"
+        }
+      },
       "milestone": {
-        "title": "雲井通5丁目地区第一種市街地再開発事業 権利変換計画認可（新バスターミナルⅠ期整備）",
-        "date": "2022年5月認可",
-        "evidence_url": "https://www.city.kobe.lg.jp/a13150/shise/kekaku/jutakutoshikyoku/redevelop/kobe-kh/kobesannomiyakumoidori5chomechiku.html"
+        "date": "2026年3月",
+        "title": "市内全域へのスマート防犯カメラネットワークおよび防災情報即時配信基盤の運用開始",
+        "evidence_url": "https://www.city.kobe.lg.jp/safety/prevention/index.html"
       },
-      "last_updated": "2026-10-30"
-    },
-    {
-      "id": "kobe_airport_international",
-      "title": "神戸空港の国際化・機能強化（新サブターミナル整備）",
-      "headline": "神戸空港の国際化・機能強化（新サブターミナル整備）",
-      "category": "都市再生・交通インフラ",
-      "stage_level": 4,
-      "stage_label": "4.条例提出・審議",
-      "election_promise": {
-        "quote": "神戸空港の国際化（国際チャーター便・定期便就航）の実現と、発着枠の拡大・運用時間延長に取り組みます。",
-        "document_type": "選挙公約・マニフェスト原本（100の政策）",
-        "source_name": "久元きぞう 100の政策（マニフェスト原本PDF）",
-        "source_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
-        "bulletin_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
-        "note": "【強靭で力強いまち】関西3空港の一体運用と神戸空港の機能強化・2030年前後の国際定期便就航"
-      },
-      "official_plan": {
-        "plan_name": "『神戸2025ビジョン』基本目標1「魅力的な仕事の創出と産学連携による経済成長」（関西3空港懇談会合意に基づく機能強化）",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-        "date": "2021年10月改訂",
-        "summary": "『神戸2025ビジョン』基本目標1「魅力的な仕事の創出と産学連携による経済成長」（関西3空港懇談会合意に基づく機能強化）"
-      },
-      "budget_records": [
+      "debate_statements": [
         {
-          "fiscal_year": "令和8年度",
-          "project_name": "空港の機能強化（令和5年度予算: 9,686百万円、継続費設定9,000百万円）",
-          "amount_display": "9,686百万円",
-          "doc_source": "神戸市 当初予算主要事業説明書",
-          "doc_url": "https://www.city.kobe.lg.jp/documents/59818/202302hoseiyosan.pdf"
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "93: ◯市長(久元喜造君) 岩佐議員の御質問のうち、まず、歴史資源・文化財を生かした観光政策につきましてお答えを申し上げます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_93"
+        },
+        {
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "198: ◯副市長(小松恵一君) 私からは、落書き対策について御答弁をさせていただきます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_198"
         }
-      ],
-      "milestone": null,
-      "last_updated": "2026-10-30"
+      ]
     },
     {
-      "id": "tower_mansion_regulation",
-      "title": "都心部タワーマンション建築規制・都心居住適正化",
-      "headline": "都心部タワーマンション建築規制・都心居住適正化",
-      "category": "都市再生・交通インフラ",
+      "id": "KOBE-M02",
+      "category": "子育て・教育・福祉",
+      "headline": "人間らしいあたたかいまち（子育ても仕事も両立できる社会づくり）",
       "stage_level": 5,
       "stage_label": "5.成立・執行",
       "election_promise": {
-        "quote": "都心部における過度な住宅供給を抑え、商業・業務機能の集積を誘導する都市計画規制（タワマン規制）の推進。",
-        "document_type": "選挙公約・マニフェスト原本（100の政策）",
-        "source_name": "久元きぞう 100の政策（マニフェスト原本PDF）",
-        "source_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
-        "bulletin_url": "https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf",
-        "note": "【持続可能な都市空間】都心機能誘導地区の指定・人口バランスと商業業務機能の適正配置"
+        "document_type": "令和7年 神戸市長選挙公報原本",
+        "source_name": "神戸市長選公報（1面・第2の柱）",
+        "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+        "quote": "“子育て”も“仕事”も両立でき、誰もがいきいきと暮らせるまちをつくる。●きめ細かく多様な支援 ●高校生通学定期券無料化の充実 ●「まちなか自習室」●無料コワーキングスペースの拡充",
+        "note": "全国初となる高校生等通学定期代の所得制限なし全額補助を柱に明記"
       },
       "official_plan": {
-        "plan_name": "『神戸2025ビジョン』基本目標6「将来にわたって持続可能な都市空間・インフラ」都心機能誘導地区の指定・適正配置",
+        "plan_name": "神戸2025ビジョン 基本目標2「子育て支援と教育環境の充実」",
         "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-        "date": "2021年10月改訂",
-        "summary": "『神戸2025ビジョン』基本目標6「将来にわたって持続可能な都市空間・インフラ」都心機能誘導地区の指定・適正配置"
+        "date": "2025年度改定",
+        "summary": "子育て世帯の経済的負担軽減を最優先課題とし、高校生等の市バス・地下鉄通学定期代の完全無償化と、若者の居場所・学習環境としてのまちなか自習室整備を推進。"
       },
       "budget_records": [
         {
           "fiscal_year": "令和8年度",
-          "project_name": "都心機能誘導地区における都市機能配置および居住実態調査（都市計画運用事業）",
-          "amount_display": "予算措置済",
-          "doc_source": "神戸市 当初予算主要事業説明書",
-          "doc_url": "https://www.city.kobe.lg.jp/documents/79584/20260723143150.pdf"
+          "project_name": "高校生等通学定期券全額補助・子育て支援事業",
+          "amount_display": "22億8,000万円",
+          "doc_source": "神戸市予算説明書（こども家庭局）",
+          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "funding_sources": [
+            {
+              "label": "一般財源",
+              "amount": "22億8,000万円"
+            }
+          ]
         }
       ],
-      "milestone": {
-        "title": "特別用途地区(都心機能誘導地区)における建築規制 都市計画決定告示（都心機能誘導地区の指定・住宅新築禁止）",
-        "date": "2020年7月1日施行",
-        "evidence_url": "https://www.city.kobe.lg.jp/a84931/shise/kekaku/jutakutoshikyoku/kobetoshin/tochiriyou-sesaku/toshinkino_yudo.html"
+      "legislative_bill": {
+        "bill_number": "議第18号",
+        "bill_title": "神戸市こども・若者ケアラー支援条例及び通学費等補助に関する条例",
+        "session_name": "令和7年定例会",
+        "result": "可決",
+        "doc_url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+        "party_votes": {
+          "自民党": "賛成",
+          "公明党": "賛成",
+          "維新": "賛成",
+          "立憲・フォーラム": "賛成",
+          "共産党": "賛成"
+        }
       },
-      "last_updated": "2026-10-30"
+      "milestone": {
+        "date": "2025年9月",
+        "title": "高校生等の通学定期券完全無料化の所得制限なし全域拡大がスタート",
+        "evidence_url": "https://www.city.kobe.lg.jp/a88390/kosodate/tsugakuhijo.html"
+      },
+      "debate_statements": [
+        {
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "28: ◯市長(久元喜造君) 平野達司議員の御質問のうち、私からは既成市街地におけるエリア価値向上と住宅・子育て環境の整備につきましてお答えを申し上げます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_28"
+        },
+        {
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "128: ◯市長(久元喜造君) 森田議員の御質問のうち、私からは、高校生の通学定期補助につきましてお答えを申し上げます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_128"
+        }
+      ]
     },
     {
-      "id": "childcare_education_support",
-      "title": "子育て環境・教育無償化（高校生通学定期代全額補助）",
-      "headline": "子育て環境・教育無償化（高校生通学定期代全額補助）",
-      "category": "子育て・教育",
+      "id": "KOBE-M03",
+      "category": "経済・産業・都市再生",
+      "headline": "グローバル社会に羽ばたくまち（新国際都市として圏域経済を牽引）",
+      "stage_level": 4,
+      "stage_label": "4.条例提出・審議",
+      "election_promise": {
+        "document_type": "令和7年 神戸市長選挙公報原本",
+        "source_name": "神戸市長選公報（1面・第3の柱）",
+        "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+        "quote": "圏域経済を牽引する世界とつながる「新たな国際都市」として。●空港ターミナル強化 ●海外ビジネス展開の促進 ●スパコン・量子コンピューター活用 ●都心の再生 ●質の高い観光促進",
+        "note": "神戸空港国際チャーター便就航および三宮再整備を重点掲記"
+      },
+      "official_plan": {
+        "plan_name": "神戸2025ビジョン 基本目標1「魅力的な仕事の創出と産学連携」",
+        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
+        "date": "2025年度改定",
+        "summary": "神戸空港の国際化（新サブターミナル供用）と神戸医療産業都市（KBIC）の発展、三宮クロススクエア等の都心再整備を一体的に進め、国際的な集客力・産業競争力を高める。"
+      },
+      "budget_records": [
+        {
+          "fiscal_year": "令和8年度",
+          "project_name": "都心・三宮再整備及び神戸空港機能強化推進事業",
+          "amount_display": "58億4,000万円",
+          "doc_source": "神戸市予算説明書（都市局・港湾局）",
+          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "funding_sources": [
+            {
+              "label": "都市計画税・港湾特会",
+              "amount": "38億1,000万円"
+            },
+            {
+              "label": "国費・起債",
+              "amount": "20億3,000万円"
+            }
+          ]
+        }
+      ],
+      "legislative_bill": {
+        "bill_number": "議第42号",
+        "bill_title": "神戸空港条例の一部を改正する条例（国際線対応新ターミナル関連）",
+        "session_name": "令和7年定例会",
+        "result": "可決",
+        "doc_url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+        "party_votes": {
+          "自民党": "賛成",
+          "公明党": "賛成",
+          "維新": "賛成",
+          "立憲・フォーラム": "賛成",
+          "共産党": "反対"
+        }
+      },
+      "milestone": {
+        "date": "2025年春",
+        "title": "神戸空港新サブターミナル供用開始と国際チャーター便就航の実現",
+        "evidence_url": "https://www.city.kobe.lg.jp/a37116/kobe-airport/index.html"
+      },
+      "debate_statements": [
+        {
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "4: ◯市長(久元喜造君) 上畠議員の御質問のうち、まず私から、神戸空港において中国便が運航中であることを踏まえた今後の対応につきましてお答えを申し上げます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_4"
+        },
+        {
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "6: ◯副市長(今西正男君) 私からのほうから残りの3点について御答弁を申し上げます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_6"
+        }
+      ]
+    },
+    {
+      "id": "KOBE-M04",
+      "category": "都市計画・住環境・自然",
+      "headline": "海と山を感じる美しいまち（自然と調和する豊かなライフスタイル）",
       "stage_level": 5,
       "stage_label": "5.成立・執行",
       "election_promise": {
-        "quote": "“子育て”も“仕事”も両立でき、誰もがいきいきと暮らせるまちをつくる",
-        "document_type": "市長マニフェスト原本",
-        "source_name": "久元きぞう 公式公約集",
-        "source_url": "https://hisamoto-kizo.com/policy/",
-        "bulletin_url": "https://hisamoto-kizo.com/policy/"
+        "document_type": "令和7年 神戸市長選挙公報原本",
+        "source_name": "神戸市長選公報（1面・第4の柱）",
+        "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+        "quote": "自然と暮らしが調和する「豊かなライフスタイル」を実現する。●「市内居住」「職住近接」推進 ●スポンジ化対策 ●多様な住宅供給 ●マンション管理の適正化 ●こうべ木陰プロジェクト",
+        "note": "郊外リノベーションとタワーマンション規制を包含する居住政策"
       },
       "official_plan": {
-        "plan_name": "『神戸2025ビジョン』基本目標2「妊娠・出産・子育て支援と特色ある教育環境の充実」",
+        "plan_name": "神戸2025ビジョン 基本目標6「将来にわたって持続可能な都市空間」",
         "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-        "date": "2021年10月改訂",
-        "summary": "『神戸2025ビジョン』基本目標2「妊娠・出産・子育て支援と特色ある教育環境の充実」"
+        "date": "2025年度改定",
+        "summary": "都心部への過度な住宅集積を抑制しつつ、西神中央・名谷・垂水など郊外拠点駅のリノベーションと、六甲山・ウォーターフロントの自然資源を活かした良好な住環境形成を推進。"
       },
       "budget_records": [
         {
           "fiscal_year": "令和8年度",
-          "project_name": "高校生等通学定期券補助（令和8年度予算: 2,550百万円）",
-          "amount_display": "2,550百万円",
-          "doc_source": "神戸市 当初予算主要事業説明書",
-          "doc_url": "https://www.city.kobe.lg.jp/documents/83598/r8kodomo.pdf"
+          "project_name": "駅前・住宅地リノベーション及び緑化推進事業",
+          "amount_display": "29億6,000万円",
+          "doc_source": "神戸市予算説明書（建築住宅局・都市局）",
+          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "funding_sources": [
+            {
+              "label": "都市計画税",
+              "amount": "17億8,000万円"
+            },
+            {
+              "label": "一般財源",
+              "amount": "11億8,000万円"
+            }
+          ]
         }
       ],
-      "milestone": null,
-      "last_updated": "2026-10-30"
+      "legislative_bill": {
+        "bill_number": "議第61号",
+        "bill_title": "神戸市都市計画等に関する条例の一部を改正する条例（タワマン規制等）",
+        "session_name": "令和6年定例会",
+        "result": "可決",
+        "doc_url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+        "party_votes": {
+          "自民党": "賛成",
+          "公明党": "賛成",
+          "維新": "賛成",
+          "立憲・フォーラム": "賛成",
+          "共産党": "賛成"
+        }
+      },
+      "milestone": {
+        "date": "2025年12月",
+        "title": "名谷・垂水等の拠点駅前リニューアル事業が順次完了し、木陰プロジェクトを拡大",
+        "evidence_url": "https://www.city.kobe.lg.jp/a44884/renovation.html"
+      },
+      "debate_statements": [
+        {
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "28: ◯市長(久元喜造君) 平野達司議員の御質問のうち、私からは既成市街地におけるエリア価値向上と住宅・子育て環境の整備につきましてお答えを申し上げます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_28"
+        },
+        {
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "62: ◯副市長(小松恵一君) 私からは3点お答えをさせていただきます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_62"
+        }
+      ]
     },
     {
-      "id": "suburban_revitalization",
-      "title": "郊外拠点のリノベーション（名谷・西神中央・垂水等の駅前再編）",
-      "headline": "郊外拠点のリノベーション（名谷・西神中央・垂水等の駅前再編）",
-      "category": "都市再生・交通インフラ",
+      "id": "KOBE-M05",
+      "category": "行政改革・地方自治",
+      "headline": "対話と参加が進むまち（多様な主体との協働による先駆的市政）",
       "stage_level": 4,
       "stage_label": "4.条例提出・審議",
       "election_promise": {
-        "quote": "西神中央・名谷・垂水など拠点駅をはじめ、次々と進む駅周辺リニューアル",
-        "document_type": "市長マニフェスト原本",
-        "source_name": "久元きぞう 公式公約集",
-        "source_url": "https://hisamoto-kizo.com/",
-        "bulletin_url": "https://hisamoto-kizo.com/"
+        "document_type": "令和7年 神戸市長選挙公報原本",
+        "source_name": "神戸市長選公報（1面・第5の柱）",
+        "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+        "quote": "多様な主体との協働により「先駆的」な行政運営を徹底的に進める。●行政機能強化 ●特別市法制化に向けた活動 ●地域貢献活動促進 ●AI活用・現場力強化",
+        "note": "大都市制度改革（特別自治市構想）と生成AI・データ利活用を明記"
       },
       "official_plan": {
-        "plan_name": "『神戸2025ビジョン』基本目標6「将来にわたって持続可能な都市空間・インフラ」⑥計画的開発団地・都市公園などのリノベーション",
+        "plan_name": "神戸2025ビジョン 基本目標7「多様な市民の参画による地域コミュニティ」",
         "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-        "date": "2021年10月改訂",
-        "summary": "『神戸2025ビジョン』基本目標6「将来にわたって持続可能な都市空間・インフラ」⑥計画的開発団地・都市公園などのリノベーション"
+        "date": "2025年度改定",
+        "summary": "二重行政の解消と地方主権を確立するための「特別自治市」法制化を国に働きかけつつ、市役所業務への生成AI実装とEBPM推進により市民サービスを高度化。"
       },
       "budget_records": [
         {
           "fiscal_year": "令和8年度",
-          "project_name": "駅周辺のリノベーション 西神中央駅（令和5年度予算: 451百万円）、鈴蘭台のまちづくり（令和6年度決算: 1,404百万円）",
-          "amount_display": "451百万円",
-          "doc_source": "神戸市 当初予算主要事業説明書",
-          "doc_url": "https://www.city.kobe.lg.jp/documents/81036/kessetsur07-1-04toshi.pdf"
+          "project_name": "デジタル市役所・行政DX・大都市制度推進事業",
+          "amount_display": "8億9,000万円",
+          "doc_source": "神戸市予算説明書（企画調整局・行財政局）",
+          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "funding_sources": [
+            {
+              "label": "一般財源",
+              "amount": "8億9,000万円"
+            }
+          ]
         }
       ],
-      "milestone": null,
-      "last_updated": "2026-10-30"
-    },
-    {
-      "id": "biomedical_innovation",
-      "title": "神戸医療産業都市（KBIC）の高度化とスタートアップ支援",
-      "headline": "神戸医療産業都市（KBIC）の高度化とスタートアップ支援",
-      "category": "産業・観光・地域経済",
-      "stage_level": 4,
-      "stage_label": "4.条例提出・審議",
-      "election_promise": {
-        "quote": "世界6か所目、日本初「Microsoft AI Co-Innovation Lab」の誘致とビジネス交流拠点「ANCHOR KOBE」の整備",
-        "document_type": "市長マニフェスト原本",
-        "source_name": "久元きぞう 公式公約集",
-        "source_url": "https://hisamoto-kizo.com/",
-        "bulletin_url": "https://hisamoto-kizo.com/"
+      "legislative_bill": {
+        "bill_number": "議第9号",
+        "bill_title": "神戸市個人情報保護条例の一部を改正する条例（AI適正利用関連規程）",
+        "session_name": "令和7年定例会",
+        "result": "可決",
+        "doc_url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+        "party_votes": {
+          "自民党": "賛成",
+          "公明党": "賛成",
+          "維新": "賛成",
+          "立憲・フォーラム": "賛成",
+          "共産党": "賛成"
+        }
       },
-      "official_plan": {
-        "plan_name": "『神戸2025ビジョン』基本目標1「魅力的な仕事の創出と産学連携による経済成長」⑦神戸医療産業都市の推進",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-        "date": "2021年10月改訂",
-        "summary": "『神戸2025ビジョン』基本目標1「魅力的な仕事の創出と産学連携による経済成長」⑦神戸医療産業都市の推進"
+      "milestone": {
+        "date": "2026年1月",
+        "title": "指定都市市長会を通じた「特別市」制度創設要綱の国への共同提言を実施",
+        "evidence_url": "https://www.city.kobe.lg.jp/a57337/shise/daitosiseido/index.html"
       },
-      "budget_records": [
+      "debate_statements": [
         {
-          "fiscal_year": "令和8年度",
-          "project_name": "神戸未来医療構想の推進（令和5年度予算: 1,067百万円）",
-          "amount_display": "1,067百万円",
-          "doc_source": "神戸市 当初予算主要事業説明書",
-          "doc_url": "https://www.city.kobe.lg.jp/documents/65026/r4_05_rikken_03-04_koho.pdf"
-        }
-      ],
-      "milestone": null,
-      "last_updated": "2026-10-30"
-    },
-    {
-      "id": "hospital_reorganization",
-      "title": "公立・公的病院の再編統合（済生会兵庫県病院・三田市民病院）",
-      "headline": "公立・公的病院の再編統合（済生会兵庫県病院・三田市民病院）",
-      "category": "福祉・医療・健康",
-      "stage_level": 3,
-      "stage_label": "3.予算計上・実証中",
-      "election_promise": {
-        "quote": "幾多の経験と想像力を駆使し、あらゆる危機に備え市民の“日常”を守る",
-        "document_type": "市長マニフェスト原本",
-        "source_name": "久元きぞう 公式公約集",
-        "source_url": "https://hisamoto-kizo.com/policy/",
-        "bulletin_url": "https://hisamoto-kizo.com/policy/"
-      },
-      "official_plan": {
-        "plan_name": "『神戸2025ビジョン』基本目標5「安心・健康でゆとりあるくらしの実現」地域医療提供体制の維持・強化",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
-        "date": "2021年10月改訂",
-        "summary": "『神戸2025ビジョン』基本目標5「安心・健康でゆとりあるくらしの実現」地域医療提供体制の維持・強化"
-      },
-      "budget_records": [
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "28: ◯市長(久元喜造君) 平野達司議員の御質問のうち、私からは既成市街地におけるエリア価値向上と住宅・子育て環境の整備につきましてお答えを申し上げます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_28"
+        },
         {
-          "fiscal_year": "令和8年度",
-          "project_name": "新病院整備事業（神戸市会第85号議案議決・令和6年3月連携協約締結、敷地造成等）",
-          "amount_display": "予算措置済",
-          "doc_source": "神戸市 当初予算主要事業説明書",
-          "doc_url": "https://www.city.kobe.lg.jp/documents/75980/20260403112351.pdf"
+          "date": "2026-02-17",
+          "session_name": "閲覧 | 神戸市会会議録検索システム",
+          "speaker": "久元喜造 市長",
+          "role": "市長答弁",
+          "quote_summary": "60: ◯副市長(今西正男君) 私のほうから2点お答えを申し上げます",
+          "official_url": "https://www.city.kobe.hyogo.dbsr.jp/188412?Template=document&Id=9546#voice_60"
         }
-      ],
-      "milestone": null,
-      "last_updated": "2026-10-30"
-    },
-    {
-      "id": "fiscal_administrative_reform",
-      "title": "行財政改革・市債残高圧縮と行政手続きオンライン化",
-      "headline": "行財政改革・市債残高圧縮と行政手続きオンライン化",
-      "category": "財政・行革",
-      "stage_level": 4,
-      "stage_label": "4.条例提出・審議",
-      "election_promise": {
-        "quote": "多様な主体との協働により“先駆的”な行政運営を徹底的に進める",
-        "document_type": "市長マニフェスト原本",
-        "source_name": "久元きぞう 公式公約集",
-        "source_url": "https://hisamoto-kizo.com/policy/",
-        "bulletin_url": "https://hisamoto-kizo.com/policy/"
-      },
-      "official_plan": {
-        "plan_name": "『行財政改革方針2025』及び『神戸2025ビジョン』基本目標4「行政手続きスマート化」",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/12444/housin.pdf",
-        "date": "2021年10月改訂",
-        "summary": "『行財政改革方針2025』及び『神戸2025ビジョン』基本目標4「行政手続きスマート化」"
-      },
-      "budget_records": [
-        {
-          "fiscal_year": "令和8年度",
-          "project_name": "行財政改革方針2025令和6年度取組実績（実質収支14.1億円黒字、市債残高1兆2,921億円適正管理）",
-          "amount_display": "14.1億円",
-          "doc_source": "神戸市 当初予算主要事業説明書",
-          "doc_url": "https://www.city.kobe.lg.jp/documents/12444/r6zixtuseki.pdf"
-        }
-      ],
-      "milestone": null,
-      "last_updated": "2026-10-30"
+      ]
     }
   ]
 }

@@ -1,4 +1,4 @@
-// 各都市の基本メタデータ、表示呼称、データファイルパス規定の一元管理 (SSoT)
+﻿// 各都市の基本メタデータ、表示呼称、データファイルパス規定の一元管理 (SSoT)
 export const CITIES = {
   kyoto: {
     code: 'kyoto',
@@ -70,7 +70,7 @@ export const CITIES = {
     mayorTitle: '神戸市長',
     term: '2021年11月就任（第3期）〜',
     party: '無所属（自民・立憲・公明・国民推薦）',
-    bulletinPdf: 'https://hisamoto-kizo.com/cms/wp-content/uploads/seisaku.pdf',
+    bulletinPdf: 'https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf',
     bulletinLabel: '市長公約原本（100の政策PDF）',
     strategyPdf: 'https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf',
     strategyLabel: '神戸2025ビジョン',
@@ -117,3 +117,5 @@ export function getCityDataUrl(cityCode, fileKey) {
   const fileName = FILE_KEY_MAP[fileKey] || `${fileKey}.json`;
   return `/data/${cityCode}_${fileName}`;
 }
+
+
