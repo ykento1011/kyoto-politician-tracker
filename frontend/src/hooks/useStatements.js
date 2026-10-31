@@ -86,7 +86,7 @@ export function useStatements(cityCode = 'kyoto') {
 
       // 1. 静的ステートメントサマリーの取得
       try {
-        const res = await fetch(`/data/${prefix}statements_summary.json`);
+        const res = await fetch(`/data/${cityCode}_statements_summary.json`);
         if (res.ok) {
           const text = await res.text();
           if (text.trim().startsWith('[') || text.trim().startsWith('{')) {
@@ -124,7 +124,10 @@ export function useStatements(cityCode = 'kyoto') {
       // 3. 発言データがまだない都市（名古屋等）の場合、生成済みの議員マスタ(speaker_stats.json)を直接読み込む
       // [修正] 議員マスタ常時読み込み化 (if条件解除)
         try {
-          const spkRes = await fetch(`/data/${prefix}speaker_stats.json`);
+          let spkRes = await fetch(`/data/${cityCode}_speaker_stats.json`);
+          if (!spkRes.ok && cityCode === 'kyoto') {
+            spkRes = await fetch(`/data/speaker_stats.json`);
+          }
           if (spkRes.ok) {
             const spkText = await spkRes.text();
             const trimmed = spkText.trim();
