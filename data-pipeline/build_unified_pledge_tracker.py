@@ -76,7 +76,28 @@ def get_paths(city):
     ]
     if city == "kyoto":
         out_files.append(FRONTEND_DATA / "pledge_tracker.json")
-    elif city == "osaka":
+            elif city == "kobe":
+            kobe_district_map = {
+                "東灘区": "01higashinada.pdf",
+                "灘区": "02nada.pdf",
+                "中央区": "03chuo.pdf",
+                "兵庫区": "04hyogo.pdf",
+                "北区": "05kita.pdf",
+                "長田区": "06nagata.pdf",
+                "須磨区": "07suma.pdf",
+                "垂水区": "08tarumi.pdf",
+                "西区": "09nishi.pdf"
+            }
+            cand_dist = c.get("district", "")
+            for d_name, d_file in kobe_district_map.items():
+                if d_name in cand_dist:
+                    bulletin_url = f"https://www.city.kobe.lg.jp/documents/23740/{d_file}"
+                    break
+            if "東灘区" in cand_dist and c_name == "平田正":
+                bulletin_url = "https://www.city.kobe.lg.jp/documents/23740/senkyokouhouhigashinadakusikaihoketu.pdf"
+            elif "北区" in cand_dist and c_name == "うえなか美貴子":
+                bulletin_url = "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoukitakusikaihoketu.pdf"
+        elif city == "osaka":
         out_files.append(FRONTEND_DATA / "osaka" / "pledge_tracker.json")
 
     return {
@@ -309,6 +330,27 @@ def main():
         # 公式選管原本URLの正規化（大阪・横浜のSOP準拠ルール）
         if city == "yokohama":
             bulletin_url = "https://www.city.yokohama.lg.jp/city-info/senkyo/data/kako_senkyokoho.files/r5shigikai.pdf"
+                elif city == "kobe":
+            kobe_district_map = {
+                "東灘区": "01higashinada.pdf",
+                "灘区": "02nada.pdf",
+                "中央区": "03chuo.pdf",
+                "兵庫区": "04hyogo.pdf",
+                "北区": "05kita.pdf",
+                "長田区": "06nagata.pdf",
+                "須磨区": "07suma.pdf",
+                "垂水区": "08tarumi.pdf",
+                "西区": "09nishi.pdf"
+            }
+            cand_dist = c.get("district", "")
+            for d_name, d_file in kobe_district_map.items():
+                if d_name in cand_dist:
+                    bulletin_url = f"https://www.city.kobe.lg.jp/documents/23740/{d_file}"
+                    break
+            if "東灘区" in cand_dist and c_name == "平田正":
+                bulletin_url = "https://www.city.kobe.lg.jp/documents/23740/senkyokouhouhigashinadakusikaihoketu.pdf"
+            elif "北区" in cand_dist and c_name == "うえなか美貴子":
+                bulletin_url = "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoukitakusikaihoketu.pdf"
         elif city == "osaka":
             osaka_district_map = {
                 "北区": "01", "都島区": "02", "福島区": "03", "此花区": "04", "中央区": "05",

@@ -2,7 +2,7 @@
   "おかむら正之": {
     "district": "中央区",
     "party": "自由民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "okamura_1",
@@ -98,7 +98,7 @@
   "萩原泰三": {
     "district": "中央区",
     "party": "公明党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "hagiwara_1",
@@ -178,7 +178,7 @@
   "さかたに敏生": {
     "district": "中央区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "sakatani_1",
@@ -226,7 +226,7 @@
   "のまち圭一": {
     "district": "中央区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "nomachi_1",
@@ -370,7 +370,7 @@
   "河南忠和": {
     "district": "中央区",
     "party": "自由民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "kawanami_1",
@@ -514,7 +514,7 @@
   "あわはら富夫": {
     "district": "中央区",
     "party": "新社会党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "awahara_1",
@@ -578,7 +578,7 @@
   "大野さとみ": {
     "district": "中央区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "ohno_1",
@@ -690,7 +690,7 @@
   "よこはた和幸": {
     "district": "中央区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "yokohata_1",
@@ -866,7 +866,7 @@
   "うにやきよかず": {
     "district": "中央区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "uniya_1",
@@ -986,7 +986,7 @@
   "三木しんじろう": {
     "district": "中央区",
     "party": "立憲民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/中央区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
     "pledges": [
       {
         "id": "openkobe_1",
@@ -1106,7 +1106,7 @@
   "平野達司": {
     "district": "兵庫区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/兵庫区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
     "pledges": [
       {
         "id": "hirano_tatsuji_1",
@@ -1362,7 +1362,7 @@
   "大かわら鈴子": {
     "district": "兵庫区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/兵庫区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
     "pledges": [
       {
         "id": "okawara_suzuko_1",
@@ -1490,7 +1490,7 @@
   "守屋隆司": {
     "district": "兵庫区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/兵庫区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
     "pledges": [
       {
         "id": "moriya_ryuji_1",
@@ -1554,7 +1554,7 @@
   "松田弘": {
     "district": "兵庫区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/兵庫区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
     "pledges": [
       {
         "id": "matsuda_hiromu_1",
@@ -1618,7 +1618,7 @@
   "岩谷しげなり": {
     "district": "兵庫区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/兵庫区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
     "pledges": [
       {
         "id": "iwaya_shigenari_1",
@@ -1682,7 +1682,7 @@
   "村上立真": {
     "district": "兵庫区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/兵庫区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
     "pledges": [
       {
         "id": "murakami_tatsuma_1",
@@ -1730,7 +1730,7 @@
   "山本のりかず": {
     "district": "北区",
     "party": "日本維新の会公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "yamamoto_norikazu_01",
@@ -1842,7 +1842,7 @@
   "かわかみ雅子": {
     "district": "北区",
     "party": "日本維新の会公認 新人",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "kawakami_masako_01",
@@ -1914,7 +1914,7 @@
   "朝倉えつ子": {
     "district": "北区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "asakura_etsuko_01",
@@ -1986,7 +1986,7 @@
   "坊やすなが": {
     "district": "北区",
     "party": "自民党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "bo_yasunaga_01",
@@ -2042,7 +2042,7 @@
   "ごとうだいすけ": {
     "district": "北区",
     "party": "自民党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "goto_daisuke_01",
@@ -2090,7 +2090,7 @@
   "徳山敏子": {
     "district": "北区",
     "party": "公明党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "tokuyama_toshiko_01",
@@ -2130,7 +2130,7 @@
   "村本しんいち": {
     "district": "北区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "muramoto_shinichi_01",
@@ -2202,7 +2202,7 @@
   "植中雅子": {
     "district": "北区",
     "party": "自民党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "uenaka_masako_01",
@@ -2266,7 +2266,7 @@
   "上原みなみ": {
     "district": "北区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "miuehara_masako_01",
@@ -2298,7 +2298,7 @@
   "中西たけし": {
     "district": "北区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "nakanishi_takeshi_01",
@@ -2346,7 +2346,7 @@
   "藤本まさひろ": {
     "district": "北区",
     "party": "神戸維新の会公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "fujimoto_masahiro_01",
@@ -2402,7 +2402,7 @@
   "池田りんたろう": {
     "district": "北区",
     "party": "立憲民主党公認 連合兵庫・社民党兵庫県連合推薦",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "ikeda_rintaro_01",
@@ -2442,7 +2442,7 @@
   "堂下豊史": {
     "district": "北区",
     "party": "公明党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "doshita_toyoji_01",
@@ -2498,7 +2498,7 @@
   "伊藤めぐみ": {
     "district": "北区",
     "party": "立憲民主党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/北区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
     "pledges": [
       {
         "id": "ito_megumi_01",
@@ -2530,7 +2530,7 @@
   "細谷典功": {
     "district": "垂水区",
     "party": "公明党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -2618,7 +2618,7 @@
   "川内清尚": {
     "district": "垂水区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -2706,7 +2706,7 @@
   "川上りょうや": {
     "district": "垂水区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -2786,7 +2786,7 @@
   "原直樹": {
     "district": "垂水区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -2842,7 +2842,7 @@
   "高橋ひでのり": {
     "district": "垂水区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -2930,7 +2930,7 @@
   "しらくに高太郎": {
     "district": "垂水区",
     "party": "自由民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3018,7 +3018,7 @@
   "赤田かつのり": {
     "district": "垂水区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3138,7 +3138,7 @@
   "たなびき剛": {
     "district": "垂水区",
     "party": "立憲民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3250,7 +3250,7 @@
   "岡田ゆうじ": {
     "district": "垂水区",
     "party": "自由民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3290,7 +3290,7 @@
   "永野あつこ": {
     "district": "垂水区",
     "party": "国民民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3370,7 +3370,7 @@
   "こじま啓司": {
     "district": "垂水区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3434,7 +3434,7 @@
   "平野章三": {
     "district": "垂水区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3498,7 +3498,7 @@
   "壬生潤": {
     "district": "垂水区",
     "party": "公明党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3554,7 +3554,7 @@
   "とば卓朗": {
     "district": "垂水区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3690,7 +3690,7 @@
   "ときたかおり": {
     "district": "垂水区",
     "party": "たるみ元気の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3770,7 +3770,7 @@
   "さとうまちこ": {
     "district": "垂水区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/垂水区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
     "pledges": [
       {
         "id": "1",
@@ -3922,7 +3922,7 @@
   "外海開三": {
     "district": "東灘区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-1-1",
@@ -4050,7 +4050,7 @@
   "松本のり子": {
     "district": "東灘区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-2-1",
@@ -4122,7 +4122,7 @@
   "西ただす": {
     "district": "東灘区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-3-1",
@@ -4226,7 +4226,7 @@
   "清水りょうすけ": {
     "district": "東灘区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-4-1",
@@ -4290,7 +4290,7 @@
   "なんのゆうこ": {
     "district": "東灘区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-5-1",
@@ -4498,7 +4498,7 @@
   "木原くにや": {
     "district": "東灘区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-6-1",
@@ -4530,7 +4530,7 @@
   "上畠寛弘": {
     "district": "東灘区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-7-1",
@@ -4738,7 +4738,7 @@
   "中村健": {
     "district": "東灘区",
     "party": "立憲民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-8-1",
@@ -4778,7 +4778,7 @@
   "つじがく": {
     "district": "東灘区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-9-1",
@@ -4866,7 +4866,7 @@
   "やのこうじ": {
     "district": "東灘区",
     "party": "公明党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-10-1",
@@ -4938,7 +4938,7 @@
   "岩佐けんや": {
     "district": "東灘区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-11-1",
@@ -5010,7 +5010,7 @@
   "うらがみ忠文": {
     "district": "東灘区",
     "party": "無所属・つなぐ市会議員団",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-12-1",
@@ -5026,7 +5026,7 @@
   "あみの隆介": {
     "district": "東灘区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-13-1",
@@ -5066,7 +5066,7 @@
   "大野陽平": {
     "district": "東灘区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/東灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
     "pledges": [
       {
         "id": "pledge-14-1",
@@ -5114,7 +5114,7 @@
   "池本しん": {
     "district": "灘区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "池本しん_1",
@@ -5178,7 +5178,7 @@
   "浅井美佳": {
     "district": "灘区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "浅井みか_1",
@@ -5226,7 +5226,7 @@
   "髙瀬勝也": {
     "district": "灘区",
     "party": "公明党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "たかせ勝也_1",
@@ -5258,7 +5258,7 @@
   "うらきけんご": {
     "district": "灘区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "うらきけんご_1",
@@ -5338,7 +5338,7 @@
   "味口としゆき": {
     "district": "灘区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "味口としゆき_1",
@@ -5354,7 +5354,7 @@
   "小林るみ子": {
     "district": "灘区",
     "party": "新社会党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "小林るみ子_1",
@@ -5418,7 +5418,7 @@
   "吉田健吾": {
     "district": "灘区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "吉田健吾_1",
@@ -5466,7 +5466,7 @@
   "川口まさる": {
     "district": "灘区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "川口まさる_1",
@@ -5506,7 +5506,7 @@
   "諫山大介": {
     "district": "灘区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/灘区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
     "pledges": [
       {
         "id": "いさやま大介_1",
@@ -5546,7 +5546,7 @@
   "寺尾好弘": {
     "district": "西区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "寺尾好弘-1",
@@ -5634,7 +5634,7 @@
   "森田たき子": {
     "district": "西区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "森田たき子-1",
@@ -5706,7 +5706,7 @@
   "かじ幸夫": {
     "district": "西区",
     "party": "立憲民主党公認・連合兵庫",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "かじ幸夫-1",
@@ -5786,7 +5786,7 @@
   "津村正茂": {
     "district": "西区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "津村正茂-1",
@@ -5834,7 +5834,7 @@
   "黒田武志": {
     "district": "西区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "黒田武志-1",
@@ -5930,7 +5930,7 @@
   "坊池正": {
     "district": "西区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "坊池正-1",
@@ -5994,7 +5994,7 @@
   "山口由美": {
     "district": "西区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "山口由美-1",
@@ -6074,7 +6074,7 @@
   "原やすひこ": {
     "district": "西区",
     "party": "参政党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "原やすひこ-1",
@@ -6154,7 +6154,7 @@
   "香川真二": {
     "district": "西区",
     "party": "神戸志民党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "香川しんじ-1",
@@ -6202,7 +6202,7 @@
   "宮田公子": {
     "district": "西区",
     "party": "公明党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "宮田公子-1",
@@ -6234,7 +6234,7 @@
   "小川かおる": {
     "district": "西区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "小川かおる-1",
@@ -6314,7 +6314,7 @@
   "高橋としえ": {
     "district": "西区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "高橋としえ-1",
@@ -6394,7 +6394,7 @@
   "田中しんや": {
     "district": "西区",
     "party": "無所属 保守",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "田中しんや-1",
@@ -6426,7 +6426,7 @@
   "吉田謙治": {
     "district": "西区",
     "party": "公明党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "吉田けんじ-1",
@@ -6482,7 +6482,7 @@
   "山下てんせい": {
     "district": "西区",
     "party": "自民党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/西区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
     "pledges": [
       {
         "id": "山下てんせい-1",
@@ -6578,7 +6578,7 @@
   "ひぐちたつや": {
     "district": "長田区",
     "party": "議員削減党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/長田区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
     "pledges": [
       {
         "id": "ひぐちたつや-1",
@@ -6610,7 +6610,7 @@
   "杉原秀幸": {
     "district": "長田区",
     "party": "改革派即戦力",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/長田区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
     "pledges": [
       {
         "id": "杉原秀幸-1",
@@ -6690,7 +6690,7 @@
   "森本真": {
     "district": "長田区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/長田区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
     "pledges": [
       {
         "id": "森本真-1",
@@ -6802,7 +6802,7 @@
   "きじまひろつぐ": {
     "district": "長田区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/長田区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
     "pledges": [
       {
         "id": "きじまひろつぐ-1",
@@ -6914,7 +6914,7 @@
   "平井真千子": {
     "district": "長田区",
     "party": "自民党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/長田区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
     "pledges": [
       {
         "id": "平井まち子-1",
@@ -6986,7 +6986,7 @@
   "ながさわ淳一": {
     "district": "長田区",
     "party": "日本維新の会公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/長田区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
     "pledges": [
       {
         "id": "ながさわ淳一-1",
@@ -7138,7 +7138,7 @@
   "坂口有希子": {
     "district": "長田区",
     "party": "公明党公認",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/長田区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
     "pledges": [
       {
         "id": "さかぐちあき子-1",
@@ -7170,7 +7170,7 @@
   "門田まゆみ": {
     "district": "須磨区",
     "party": "公明党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "かど田まゆみ-1",
@@ -7202,7 +7202,7 @@
   "大井としひろ": {
     "district": "須磨区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "大井としひろ-1",
@@ -7298,7 +7298,7 @@
   "あだち和彦": {
     "district": "須磨区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "あだち和彦-1",
@@ -7346,7 +7346,7 @@
   "住本かずのり": {
     "district": "須磨区",
     "party": "日本維新の会",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "住本かずのり-1",
@@ -7394,7 +7394,7 @@
   "前田あきら": {
     "district": "須磨区",
     "party": "日本共産党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "前田あきら-1",
@@ -7514,7 +7514,7 @@
   "村野誠一": {
     "district": "須磨区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "むらの誠一-1",
@@ -7658,7 +7658,7 @@
   "さかい大起": {
     "district": "須磨区",
     "party": "無所属",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "さかい大起-1",
@@ -7738,7 +7738,7 @@
   "松本しゅうじ": {
     "district": "須磨区",
     "party": "自民党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "松本しゅうじ-1",
@@ -7810,7 +7810,7 @@
   "木戸さだかず": {
     "district": "須磨区",
     "party": "立憲民主党",
-    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/須磨区.pdf",
+    "bulletin_pdf": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
     "pledges": [
       {
         "id": "木戸さだかず-1",
