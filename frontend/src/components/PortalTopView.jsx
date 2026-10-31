@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { 
   Building2, 
   MapPin, 
@@ -77,11 +77,11 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenGuide, 
           </p>
 
           <p className="text-xs sm:text-sm font-black text-indigo-950">
-            京都・大阪・名古屋・横浜の議会データを公開中
+            京都・大阪・名古屋・横浜・神戸の議会データを公開中
           </p>
         </section>
 
-        {/* 自治体選択グリッド（4都市） */}
+        {/* 自治体選択グリッド（5都市） */}
         <section className="space-y-6">
           <div className="flex items-center justify-between flex-wrap gap-2 border-b border-slate-200 pb-3">
             <div>
@@ -91,10 +91,10 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenGuide, 
               </h2>
               <p className="text-xs text-slate-500 font-medium">現在運用中の議会ダッシュボードへ直接アクセスできます</p>
             </div>
-            <span className="text-[11px] font-mono text-slate-400 font-bold">4 CITIES ONLINE</span>
+            <span className="text-[11px] font-mono text-slate-400 font-bold">5 CITIES ONLINE</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* ① 京都市会カード (京都・紫藍: indigo) */}
             <div 
@@ -292,6 +292,56 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenGuide, 
               <div className="pt-2 flex items-center justify-between border-t border-slate-100">
                 <span className="text-xs font-bold text-cyan-600 group-hover:underline">横浜市会ダッシュボードを開く</span>
                 <div className="w-8 h-8 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </div>
+            </div>
+
+            {/* ⑤ 神戸市会カード (港町・山緑: teal) */}
+            <div 
+              onClick={() => onSelectCity('kobe')}
+              className="bg-white rounded-3xl border-2 border-slate-200 hover:border-teal-500 p-6 shadow-xs hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between space-y-5 relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50/50 rounded-bl-full pointer-events-none -mr-6 -mt-6 group-hover:scale-110 transition-transform" />
+
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-black">
+                    運用中
+                  </span>
+                  <span className="text-xs font-mono font-bold text-slate-400">/kobe/</span>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-black text-slate-900 group-hover:text-teal-600 transition-colors">
+                    神戸市会
+                  </h3>
+                  <p className="text-xs text-slate-500 font-bold mt-1">Kobe City Council</p>
+                </div>
+
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                  久元市長「神戸2025ビジョン」主要公約の予算・公文書原本トラッカー。全63議員の公式顔写真、選挙公報看板公約と議決ログを完全配備。
+                </p>
+
+                <div className="grid grid-cols-3 gap-1.5 pt-1 text-center">
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">現職議員</span>
+                    <span className="text-sm font-black text-slate-900">63名</span>
+                  </div>
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">重点政策</span>
+                    <span className="text-sm font-black text-slate-900">5分野</span>
+                  </div>
+                  <div className="p-2 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="text-[10px] font-bold text-slate-400 block">公報原本</span>
+                    <span className="text-sm font-black text-slate-900">100%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+                <span className="text-xs font-bold text-teal-600 group-hover:underline">神戸市会ダッシュボードを開く</span>
+                <div className="w-8 h-8 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-colors">
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
