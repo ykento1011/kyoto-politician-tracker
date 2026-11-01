@@ -30,7 +30,7 @@ GENERATE_ISSUES_SCRIPT = os.path.join(BASE_DIR, "generate_bill_issues.py")
 SCRAPE_MASTER_SCRIPT = os.path.join(BASE_DIR, "scrape_councilors_master.py")
 SYNC_MASTER_SCRIPT = os.path.join(BASE_DIR, "sync_master_data.py")
 
-# 【統一アーキテクチャ】4都市共通スクリプト
+# 【統一アーキテクチャ】5都市共通スクリプト
 CACHE_EMBEDDINGS_SCRIPT = os.path.join(BASE_DIR, "cache_statement_embeddings.py")
 UNIFIED_PLEDGE_SCRIPT = os.path.join(BASE_DIR, "build_unified_pledge_tracker.py")
 UNIFIED_TOPIC_SCRIPT = os.path.join(BASE_DIR, "run_full_topic_pipeline_fast.py")
@@ -40,11 +40,13 @@ BUILD_MAYOR_TRACKER_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker.py")
 BUILD_MAYOR_TRACKER_OSAKA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_osaka.py")
 BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT = os.path.join(BASE_DIR, "build_mayor_tracker_nagoya.py")
 BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT = os.path.join(BASE_DIR, "build_yokohama_mayor_tracker.py")
+BUILD_MAYOR_TRACKER_KOBE_SCRIPT = os.path.join(BASE_DIR, "build_kobe_mayor_tracker.py")
 
 # 監査スクリプト
 AUDIT_INTEGRITY_SCRIPT = os.path.join(BASE_DIR, "audit_unified_integrity.py")
 AUDIT_PLEDGE_VOTES_SCRIPT = os.path.join(BASE_DIR, "audit_pledge_votes.py")
 AUDIT_PLEDGES_QUALITY_SCRIPT = os.path.join(BASE_DIR, "audit_pledges_quality.py")
+AUDIT_EVIDENCE_HEALTH_SCRIPT = os.path.join(BASE_DIR, "audit_evidence_health.py")
 
 # 自動テストスクリプト（ルート直下）
 COMPREHENSIVE_TEST_SCRIPT = os.path.join(PROJECT_ROOT, "run_comprehensive_test.py")
@@ -52,7 +54,7 @@ COMPREHENSIVE_TEST_SCRIPT = os.path.join(PROJECT_ROOT, "run_comprehensive_test.p
 # 出力・監視対象のファイル
 CRAWLED_FILE = os.path.join(BASE_DIR, "sagebase_crawled_data.json")
 
-CITIES = ["kyoto", "osaka", "nagoya", "yokohama"]
+CITIES = ["kyoto", "osaka", "nagoya", "yokohama", "kobe"]
 
 def load_webhook_url():
     """data-pipeline/.env から DISCORD_WEBHOOK_URL を安全に読み込む"""
@@ -137,7 +139,7 @@ def run_script(script_path, description, args=None):
 
 def run_master_pipeline():
     """
-    【Layer 1-5】全4都市の公式名簿スクレイピング、サーキットブレーカー検証、
+    【Layer 1-5】全5都市の公式名簿スクレイピング、サーキットブレーカー検証、
     およびマスター同期をパイプラインの最前線で実行する。
     """
     log("=== [公式マスター検証 & サーキットブレーカー監査] ===")
@@ -171,11 +173,11 @@ def run_master_pipeline():
         )
         return False
         
-    log("✅ 全4都市の首長および議員名簿の検証・オートヒーリングに成功しました。")
+    log("✅ 全5都市の首長および議員名簿の検証・オートヒーリングに成功しました。")
     
     # 2. 下流データへの同期（speaker_stats / statements）
     log("=== [公式マスター・発言ログ下流同期] ===")
-    sync_ok, sync_err = run_script(SYNC_MASTER_SCRIPT, "4都市マスター・発言ログ同期", args=["--city", "all"])
+    sync_ok, sync_err = run_script(SYNC_MASTER_SCRIPT, "5都市マスター・発言ログ同期", args=["--city", "all"])
     if not sync_ok:
         log("❌ マスター下流同期に失敗しました。", "ERROR")
         notify_discord("❌ マスター同期エラー", "sync_master_data.py の実行に失敗しました。", status="error", error_detail=sync_err)
@@ -228,12 +230,12 @@ def run_integrity_audit():
     """デプロイ直前の自動インテグリティ監査（モーダル到達率 & 公約品質 & 採決結合検証）"""
     # 1. UI到達性・生発言率監査
     if os.path.exists(AUDIT_INTEGRITY_SCRIPT):
-        log("🛡️ [監査 1/3] 全自動インテグリティ監査（全4都市カード到達率・生発言率）を実行中...")
+        log("🛡️ [監査 1/3] 全自動インテグリティ監査（全5都市カード到達率・生発言率）を実行中...")
         try:
             python_exe = sys.executable
             res = subprocess.run([python_exe, AUDIT_INTEGRITY_SCRIPT], capture_output=True, text=True, check=True)
             if "ALL PASS" in res.stdout:
-                log("✅ インテグリティ監査合格（全4都市モーダル到達率 98% 以上・生発言率 90% 以上確認）")
+                log("✅ インテグリティ監査合格（全5都市モーダル到達率 98% 以上・生発言率 90% 以上確認）")
             else:
                 log("❌ インテグリティ監査で未到達・不整合が検知されました", "ERROR")
                 return False, res.stdout
@@ -243,7 +245,7 @@ def run_integrity_audit():
 
     # 2. 公約データ品質監査
     if os.path.exists(AUDIT_PLEDGES_QUALITY_SCRIPT):
-        log("🛡️ [監査 2/3] 公約データ品質監査（全4都市カバレッジ100%検証）を実行中...")
+        log("🛡️ [監査 2/3] 公約データ品質監査（全5都市カバレッジ100%検証）を実行中...")
         try:
             python_exe = sys.executable
             res = subprocess.run([python_exe, AUDIT_PLEDGES_QUALITY_SCRIPT], capture_output=True, text=True, check=True)
@@ -302,7 +304,7 @@ def push_to_github(custom_detail=""):
         if custom_detail:
             commit_msg = f"Auto-update: {custom_detail} を追加・反映 ({now_str})"
         else:
-            commit_msg = f"Auto-update: 4都市（京都・大阪・名古屋・横浜）議決・公約・政策タイムライン最新化 ({now_str})"
+            commit_msg = f"Auto-update: 5都市（京都・大阪・名古屋・横浜・神戸）議決・公約・政策タイムライン最新化 ({now_str})"
             
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push", "origin", "main"], check=True)
@@ -316,7 +318,7 @@ def main():
     is_dry_run = "--dry-run" in sys.argv or "--no-push" in sys.argv
 
     print("\n" + "="*60)
-    log("定期監視・全自動データ更新パイプライン（4都市 統合セマンティック版）を開始")
+    log("定期監視・全自動データ更新パイプライン（5都市 統合セマンティック版）を開始")
     if is_dry_run:
         log("🧪 ドライランモード: GitHub へのデプロイ（commit/push）は行われません")
     print("="*60)
@@ -403,10 +405,8 @@ def main():
         log("--- [議案賛否データの日本語正規化] ---")
         run_script(normalize_script, "データ正規化（賛否フォーマット統一）")
 
-
-
-    # 7.7 議員看板公約・採決トラッカーの最新化（4都市統一セマンティック結合）
-    log("--- [議員公約・採決トラッカーの最新化（4都市）] ---")
+    # 7.7 議員看板公約・採決トラッカーの最新化（5都市統一セマンティック結合）
+    log("--- [議員公約・採決トラッカーの最新化（5都市）] ---")
     if os.path.exists(UNIFIED_PLEDGE_SCRIPT):
         for city in CITIES:
             p_ok, _ = run_script(UNIFIED_PLEDGE_SCRIPT, f"議員看板公約トラッカー再結合（{city.upper()}）", args=["--city", city])
@@ -414,7 +414,7 @@ def main():
                 log(f"{city.upper()}公約トラッカー更新で警告が出ましたが続行します", "WARN")
     log("--- [議員公約・採決トラッカーの最新化完了] ---")
 
-    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（4都市）
+    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（5都市）
     log("--- [首長政策トラッカーの最新化] ---")
     if os.path.exists(BUILD_MAYOR_TRACKER_SCRIPT):
         run_script(BUILD_MAYOR_TRACKER_SCRIPT, "京都市長 政策・予算トラッカーの更新")
@@ -424,6 +424,8 @@ def main():
         run_script(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT, "名古屋市長 政策・予算トラッカーの更新")
     if os.path.exists(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT):
         run_script(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT, "横浜市長 政策・予算トラッカーの更新")
+    if os.path.exists(BUILD_MAYOR_TRACKER_KOBE_SCRIPT):
+        run_script(BUILD_MAYOR_TRACKER_KOBE_SCRIPT, "神戸市長 政策・予算トラッカーの更新")
     log("--- [首長政策トラッカーの最新化完了] ---")
 
     # 都市別静的 HTML（クローラー用 OGP エンドポイント）の最新化同期
@@ -432,7 +434,14 @@ def main():
         log('都市別静的 HTML（OGP対応）の同期更新を開始...')
         subprocess.run([sys.executable, str(city_html_script)], cwd=PROJECT_ROOT, check=True)
         log('都市別静的 HTML 同期完了')
-        
+
+    # 7.9 一次公文書エビデンス死活監視（Health Check）
+    log("--- [一次公文書エビデンス死活監視] ---")
+    if os.path.exists(AUDIT_EVIDENCE_HEALTH_SCRIPT):
+        h_ok, h_out = run_script(AUDIT_EVIDENCE_HEALTH_SCRIPT, "全5都市 一次公文書エビデンス死活監視", args=["--queue-only"])
+        if not h_ok:
+            log("⚠️ 一次資料死活監視でアクセス不能リンクが検知されました（調査キューに登録）", "WARN")
+    log("--- [一次公文書エビデンス死活監視完了] ---")
 
     # 8. Git差分チェックと安全なデプロイ
     has_changes = check_for_changes()
@@ -459,8 +468,8 @@ def main():
         else:
             push_ok, push_msg = push_to_github(new_detail_str)
             if push_ok:
-                detail_desc = f"**更新内容:** {new_detail_str}\n4都市（京都・大阪・名古屋・横浜）の最新データを自動検証の上、GitHub (`main`) へ安全にデプロイしました。" if new_detail_str else "4都市（京都・大阪・名古屋・横浜）の議決・公約・首長トラッカーを自動検証の上、GitHub へデプロイしました。"
-                notify_discord("🎉 定期更新完了: 4都市の最新データを反映", detail_desc, status="success")
+                detail_desc = f"**更新内容:** {new_detail_str}\n5都市（京都・大阪・名古屋・横浜・神戸）の最新データを自動検証の上、GitHub (`main`) へ安全にデプロイしました。" if new_detail_str else "5都市（京都・大阪・名古屋・横浜・神戸）の議決・公約・首長トラッカーを自動検証の上、GitHub へデプロイしました。"
+                notify_discord("🎉 定期更新完了: 5都市の最新データを反映", detail_desc, status="success")
             else:
                 notify_discord("⚠️ 定期更新警告: Gitプッシュ失敗", f"データ生成は成功しましたが、GitHub へのプッシュに失敗しました。\n`{push_msg}`", status="warn")
     else:
