@@ -8,7 +8,14 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "PR_CREATED",
+    "agent_note": "JSON update failed: Pledge ID unknown not found",
+    "notified_discord": true,
+    "new_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html",
+    "new_title": "kyoto.lg.jp",
+    "verified_at": "2026-11-01T15:00:31.759168",
+    "pr_url": "https://github.com/ykento1011/kyoto-politician-tracker/pull/1"
   },
   {
     "city": "kyoto",
@@ -20,9 +27,11 @@
     "method": "HEAD",
     "error": "HTTP 404",
     "detected_at": "2026-11-01T13:57:59.494613",
-    "agent_status": "AUTO_FIX_CANDIDATE",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
     "new_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html",
-    "new_title": "宿泊税制度について（行財政局公式）"
+    "new_title": "宿泊税制度について（行財政局公式）",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -34,9 +43,13 @@
     "method": "HEAD",
     "error": "HTTP 404",
     "detected_at": "2026-11-01T13:57:59.494613",
-    "agent_status": "AUTO_FIX_CANDIDATE",
+    "agent_status": "PR_CREATED",
     "new_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html",
-    "new_title": "「全員制中学校給食」について（教育委員会公式）"
+    "new_title": "kyoto.lg.jp",
+    "agent_note": "JSON update failed: Pledge ID unknown not found",
+    "notified_discord": true,
+    "verified_at": "2026-11-01T15:03:29.068335",
+    "pr_url": "https://github.com/ykento1011/kyoto-politician-tracker/pull/2"
   },
   {
     "city": "kyoto",
