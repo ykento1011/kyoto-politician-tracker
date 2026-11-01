@@ -27,8 +27,8 @@
     "method": "HEAD",
     "error": "HTTP 404",
     "detected_at": "2026-11-01T13:57:59.494613",
-    "agent_status": "MANUAL_REVIEW_REQUIRED",
-    "new_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html",
+    "agent_status": "MANUAL_RESOLVED",
+    "new_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000275019.html",
     "new_title": "宿泊税制度について（行財政局公式）",
     "agent_note": "Gemini Search で該当候補なし",
     "notified_discord": true
