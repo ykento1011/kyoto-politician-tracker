@@ -60,7 +60,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -71,7 +74,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -82,7 +88,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "全候補がFail-Closedバリデータで遮断されました",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -93,7 +102,12 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "PR_CREATED",
+    "new_url": "https://www.city.kyoto.lg.jp/tokei/page/0000330039.html",
+    "new_title": "kyoto.lg.jp",
+    "verified_at": "2026-11-01T15:47:29.034804",
+    "pr_url": "https://github.com/ykento1011/kyoto-politician-tracker/pull/3"
   },
   {
     "city": "kyoto",
@@ -104,7 +118,12 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "PR_CREATED",
+    "new_url": "https://www.city.kyoto.lg.jp/menu2/category/26-13-0-0-0-0-0-0-0-0.html",
+    "new_title": "kyoto.lg.jp",
+    "verified_at": "2026-11-01T15:47:54.693763",
+    "pr_url": "https://github.com/ykento1011/kyoto-politician-tracker/pull/4"
   },
   {
     "city": "kyoto",
@@ -115,7 +134,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -126,7 +148,12 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "PR_CREATED",
+    "new_url": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html",
+    "new_title": "kyoto.lg.jp",
+    "verified_at": "2026-11-01T15:48:32.632116",
+    "pr_url": "https://github.com/ykento1011/kyoto-politician-tracker/pull/5"
   },
   {
     "city": "kyoto",
@@ -137,7 +164,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "全候補がFail-Closedバリデータで遮断されました",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -148,7 +178,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "全候補がFail-Closedバリデータで遮断されました",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -159,7 +192,12 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "PR_CREATED",
+    "new_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000284994.html",
+    "new_title": "kyoto.lg.jp",
+    "verified_at": "2026-11-01T15:49:30.176523",
+    "pr_url": "https://github.com/ykento1011/kyoto-politician-tracker/pull/6"
   },
   {
     "city": "kyoto",
@@ -170,7 +208,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -181,7 +222,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -192,7 +236,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "全候補がFail-Closedバリデータで遮断されました",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -203,7 +250,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "kyoto",
@@ -214,7 +264,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "yokohama",
@@ -225,7 +278,10 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   },
   {
     "city": "yokohama",
@@ -236,7 +292,12 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "PR_CREATED",
+    "new_url": "https://www.city.yokohama.lg.jp/city-info/saiyo-jinji/jinji/ikenboshu.html",
+    "new_title": "yokohama.lg.jp",
+    "verified_at": "2026-11-01T15:51:25.851063",
+    "pr_url": "https://github.com/ykento1011/kyoto-politician-tracker/pull/7"
   },
   {
     "city": "yokohama",
@@ -247,7 +308,12 @@
     "status_code": 404,
     "method": "HEAD",
     "error": "HTTP 404",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "PR_CREATED",
+    "new_url": "https://www.city.yokohama.lg.jp/city-info/saiyo-jinji/jinji/WEplan.html",
+    "new_title": "yokohama.lg.jp",
+    "verified_at": "2026-11-01T15:51:54.116469",
+    "pr_url": "https://github.com/ykento1011/kyoto-politician-tracker/pull/8"
   },
   {
     "city": "kyoto",
@@ -258,6 +324,9 @@
     "status_code": 404,
     "method": "MOCK",
     "error": "Intentional Test 404 Not Found",
-    "detected_at": "2026-11-01T13:57:59.494613"
+    "detected_at": "2026-11-01T13:57:59.494613",
+    "agent_status": "MANUAL_REVIEW_REQUIRED",
+    "agent_note": "Gemini Search で該当候補なし",
+    "notified_discord": true
   }
 ]

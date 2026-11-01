@@ -336,14 +336,16 @@ def main():
         print(f"📋 要調査キューから {len(queue_items)} 件を読み込みました。")
         success_count = 0
         
-        # 実データ検証（先頭3件をサンプリング実行）
-        for item in queue_items[:3]:
+        target_items = [i for i in queue_items if i.get('agent_status') not in ['PR_CREATED', 'MANUAL_RESOLVED']]
+        print(f'🎯 探索対象（未解決アイテム）: {len(target_items)} 件 / 全 {len(queue_items)} 件')
+        for idx, item in enumerate(target_items, 1):
+            print(f'\n[{idx}/{len(target_items)}] ----------------------------------------')
             ok, new_url = process_item(item, dry_run=args.dry_run)
             if ok:
                 success_count += 1
 
         print("\n" + "=" * 75)
-        print(f" 🏁 キュー検証サマリー: 3件中 {success_count} 件で新公式ページを安全に特定")
+        print(f" 🏁 キュー検証サマリー: {len(target_items)}件中 {success_count} 件で新公式ページを安全に特定")
         print("=" * 75)
 
         if not args.dry_run:
