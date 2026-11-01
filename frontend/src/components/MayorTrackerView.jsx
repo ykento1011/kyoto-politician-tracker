@@ -351,10 +351,10 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                         </span>
                         {p.official_plan?.doc_url && (
                           <a 
-                            href={p.official_plan.doc_url} 
+                            href={p.official_plan.is_broken ? "#" : p.official_plan.doc_url} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="text-blue-600 hover:text-blue-800"
+                            className={`text-blue-600 ${p.official_plan.is_broken ? "opacity-40 cursor-not-allowed" : "hover:text-blue-800"}`} onClick={(e) => p.official_plan.is_broken && e.preventDefault()}
                             title="計画公文書を開く"
                           >
                             <ExternalLink className="w-3 h-3" />
@@ -372,12 +372,12 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                       <div className="pt-2.5 mt-2 border-t border-slate-200/60">
                         <div className="flex items-center justify-between gap-1">
                           <a 
-                          href={p.official_plan.doc_url} 
+                          href={p.official_plan.is_broken ? "#" : p.official_plan.doc_url} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[10px] font-bold text-blue-600 hover:underline"
+                          className={`inline-flex items-center gap-1 text-[10px] font-bold ${p.official_plan.is_broken ? "text-slate-400 cursor-not-allowed" : "text-blue-600 hover:underline"}`} onClick={(e) => p.official_plan.is_broken && e.preventDefault()}
                         >
-                          公式計画原本を確認 <ExternalLink className="w-2.5 h-2.5" />
+                          {p.official_plan.is_broken ? "サイト改編のため追跡中" : "公式計画原本を確認"} {!p.official_plan.is_broken && <ExternalLink className="w-2.5 h-2.5" />}
                         </a>
                           <ReportIssueButton
                             targetUrl={p.official_plan.doc_url}
@@ -401,10 +401,10 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                         </span>
                         {p.budget_records?.[0]?.doc_url && (
                           <a 
-                            href={p.budget_records[0].doc_url} 
+                            href={p.budget_records[0].is_broken ? "#" : p.budget_records[0].doc_url} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="text-amber-600 hover:text-amber-800"
+                            className={`text-amber-600 ${p.budget_records[0].is_broken ? "opacity-40 cursor-not-allowed" : "hover:text-amber-800"}`} onClick={(e) => p.budget_records[0].is_broken && e.preventDefault()}
                             title="予算書PDF原本を開く"
                           >
                             <ExternalLink className="w-3 h-3" />
@@ -456,12 +456,12 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                       <div className="pt-2.5 mt-2 border-t border-slate-200/60">
                         <div className="flex items-center justify-between gap-1">
                           <a 
-                          href={p.budget_records[0].doc_url} 
+                          href={p.budget_records[0].is_broken ? "#" : p.budget_records[0].doc_url} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 hover:underline"
+                          className={`inline-flex items-center gap-1 text-[10px] font-bold ${p.budget_records[0].is_broken ? "text-slate-400 cursor-not-allowed" : "text-amber-700 hover:underline"}`} onClick={(e) => p.budget_records[0].is_broken && e.preventDefault()}
                         >
-                          主要事業説明書PDF原本で確認 <ExternalLink className="w-2.5 h-2.5" />
+                          {p.budget_records[0].is_broken ? "サイト改編のため追跡中" : "主要事業説明書PDF原本で確認"} {!p.budget_records[0].is_broken && <ExternalLink className="w-2.5 h-2.5" />}
                         </a>
                           <ReportIssueButton
                             targetUrl={p.budget_records[0].doc_url}
@@ -511,12 +511,12 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                       <div className="pt-2.5 mt-2 border-t border-slate-200/60">
                         <div className="flex items-center justify-between gap-1">
                           <a 
-                          href={p.milestone.evidence_url} 
+                          href={p.milestone.is_broken ? "#" : p.milestone.evidence_url} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 hover:underline"
+                          className={`inline-flex items-center gap-1 text-[10px] font-bold ${p.milestone.is_broken ? "text-slate-400 cursor-not-allowed" : "text-emerald-700 hover:underline"}`} onClick={(e) => p.milestone.is_broken && e.preventDefault()}
                         >
-                          確定エビデンス（報道発表等） <ExternalLink className="w-2.5 h-2.5" />
+                          {p.milestone.is_broken ? "サイト改編のため追跡中" : "確定エビデンス（報道発表等）"} {!p.milestone.is_broken && <ExternalLink className="w-2.5 h-2.5" />}
                         </a>
                           <ReportIssueButton
                             targetUrl={p.milestone.evidence_url}
