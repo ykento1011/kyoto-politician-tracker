@@ -104,8 +104,9 @@
       },
       "milestone": {
         "date": "2024-06-01",
-        "title": "観光特急バス（EX100・EX101系統）運行開始",
-        "status": "achieved"
+        "title": "京都市交通局：市バス・地下鉄利用案内トップ（観光特急バス案内）",
+        "status": "achieved",
+        "evidence_url": "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/bus/index_bus.html"
       }
     },
     {
@@ -158,8 +159,9 @@
       },
       "milestone": {
         "date": "2025-12-15",
-        "title": "市会本会議にて宿泊税条例改正案が賛成多数で可決",
-        "status": "achieved"
+        "title": "「宿泊税の制度の在り方の検討」に関する答申について（行財政局）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000334383.html"
       }
     },
     {
@@ -224,7 +226,7 @@
             }
           ],
           "doc_source": "令和8年度予算案主要事業説明書 p.12",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000348/348991/R8_jigyo_kyoiku.pdf"
+          "doc_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html"
         }
       ],
       "legislative_bill": {
@@ -241,8 +243,9 @@
       },
       "milestone": {
         "date": "2025-10-24",
-        "title": "給食センター事業実施契約議案が市会で可決・着工",
-        "status": "achieved"
+        "title": "「全員制中学校給食」について（教育委員会公式）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html"
       }
     },
     {
@@ -324,8 +327,9 @@
       },
       "milestone": {
         "date": "2024-09-01",
-        "title": "通院医療費月200円上限の対象を小学校卒業まで完全拡充",
-        "status": "achieved"
+        "title": "市長記者会見「2人目以降の保育料無償化の開始へ」等",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/page/0000336304.html"
       }
     },
     {
@@ -396,8 +400,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2024-10-01",
-        "title": "京町家カルテ制度のデジタル化・流通プラットフォーム運用開始",
-        "status": "achieved"
+        "title": "京町家の保全・継承に向けた新たな支援制度等について（都市計画局）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/tokei/page/0000353156.html"
       }
     },
     {
@@ -450,8 +455,9 @@
       },
       "milestone": {
         "date": "2024-12-01",
-        "title": "京都駅東南部エリアのまちづくり方針改定案公表",
-        "status": "achieved"
+        "title": "都市再生緊急整備地域＜京都駅周辺・京都南部油小路通沿道地域＞",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/tokei/page/0000335447.html"
       }
     },
     {
@@ -505,8 +511,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2024-07-04",
-        "title": "国内最大級スタートアップカンファレンス「IVS京都」開催支援",
-        "status": "achieved"
+        "title": "京都市特定創業支援等事業について（産業観光局）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/sankan/page/0000170009.html"
       }
     },
     {
@@ -565,8 +572,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2024-04-01",
-        "title": "市長直轄「政策企画・改革推進室」の新設",
-        "status": "achieved"
+        "title": "令和5年度 行財政局主要事業の取組状況等（書かない窓口・窓口DX市会資料）",
+        "status": "achieved",
+        "evidence_url": "https://www2.city.kyoto.lg.jp/shikai/img/iinkai/soumushoubou/R06/date/060926gyozai3.pdf"
       }
     },
     {
@@ -636,8 +644,9 @@
       },
       "milestone": {
         "date": "2024-08-01",
-        "title": "2年連続の財政再生団体転落危機の完全回避確認",
-        "status": "achieved"
+        "title": "令和8年度当初予算(案) 会見資料（公債費・財政健全化抜粋スライド）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf"
       }
     },
     {
@@ -685,8 +694,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2024-11-20",
-        "title": "文部科学大臣に対する文化財保存修理体制強化に関する政策要望書の提出",
-        "status": "achieved"
+        "title": "令和7年度 文化市民局 主要事業説明書（文化財修理サイクル確立等）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/02-8_bunkashimin.pdf"
       }
     },
     {
@@ -734,8 +744,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2024-08-01",
-        "title": "嵐山・清水・祇園エリアへのスマートごみ箱40基配備",
-        "status": "achieved"
+        "title": "スマートごみ箱の設置について（株式会社木下カンセー寄付報道発表）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/kankyo/page/0000355036.html"
       }
     },
     {
@@ -789,8 +800,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2024-07-01",
-        "title": "洛西SAKAIBA共創拠点オープン",
-        "status": "achieved"
+        "title": "洛西“SAIKO”プロジェクト みんなで進める！実行策（公式ポータル）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/tokei/page/0000312065.html"
       }
     },
     {
@@ -838,8 +850,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2024-12-01",
-        "title": "府市北山エリア整備連絡会議の再開",
-        "status": "achieved"
+        "title": "令和7年度 文化市民局 予算広報資料（北山エリア文化交流推進）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/03_bunsi_kouhou.pdf"
       }
     },
     {
@@ -898,8 +911,9 @@
       },
       "milestone": {
         "date": "2025-01-01",
-        "title": "精神障害者通院医療費助成の拡充施行",
-        "status": "achieved"
+        "title": "京都市若年がん患者の在宅療養生活支援事業について（保健福祉局）",
+        "status": "achieved",
+        "evidence_url": "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000323924.html"
       }
     }
   ],
