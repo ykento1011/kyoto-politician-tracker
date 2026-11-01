@@ -1,11 +1,16 @@
 ﻿import os
 from PIL import Image, ImageDraw, ImageFont
 
-# 出力先ディレクトリ
-output_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "frontend", "public"))
+# 出力先ディレクトリ (data-pipeline から親ディレクトリを経由して frontend/public を解決)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+if os.path.basename(base_dir) == "data-pipeline":
+    output_dir = os.path.abspath(os.path.join(base_dir, "..", "frontend", "public"))
+else:
+    output_dir = os.path.abspath(os.path.join(base_dir, "frontend", "public"))
+
 os.makedirs(output_dir, exist_ok=True)
 
-# フォントの設定 (Windows標準フォント「メイリオ ボールド」)
+# フォントの設定 (Windows標準フォント)
 font_path = "C:\\Windows\\Fonts\\meiryob.ttc"
 if not os.path.exists(font_path):
     font_path = "C:\\Windows\\Fonts\\msgothic.ttc"
@@ -59,7 +64,7 @@ def create_ogp(badge_text, title_text, sub_text, desc_lines, filename, accent_co
 
 # 1. メイン総合 OGP (ogp.png)
 create_ogp(
-    badge_text="京都・大阪・名古屋 市会公開データ × 一次資料検証基盤",
+    badge_text="5大政令市（京都・大阪・名古屋・横浜・神戸）公開データ × 一次資料検証基盤",
     title_text="議会のミカタ",
     sub_text="AIは入口。判断するのは市民です。",
     desc_lines=[
@@ -73,12 +78,12 @@ create_ogp(
 
 # 2. 京都専用 OGP (ogp-kyoto.png)
 create_ogp(
-    badge_text="京都市会 公式会議録 × 松井市長政策トラッカー",
+    badge_text="京都市会 公式会議録 × 市長政策トラッカー",
     title_text="議会のミカタ 京都",
     sub_text="対話がわかる。政策が見える。",
     desc_lines=[
         "京都市会12万件超の発言記録と会派賛否ログを構造化。",
-        "「新京都戦略」に基づく主要14施策の予算・条例・マイルストーンを可視化。"
+        "基本計画に基づく主要施策の予算・条例・マイルストーン進捗を可視化。"
     ],
     filename="ogp-kyoto.png",
     accent_color="#4f46e5"
@@ -86,12 +91,12 @@ create_ogp(
 
 # 3. 大阪専用 OGP (ogp-osaka.png)
 create_ogp(
-    badge_text="大阪市会 公式会議録 × 横山市長政策トラッカー",
+    badge_text="大阪市会 公式会議録 × 市長政策トラッカー",
     title_text="議会のミカタ 大阪",
     sub_text="対話がわかる。政策が見える。",
     desc_lines=[
         "大阪市会会議録発言記録と議案採決ログを客観的に構造化。",
-        "マニフェスト24重点公約の予算措置・関連条例・成立執行進捗を完全追跡。"
+        "マニフェスト重点公約の予算措置・関連条例・成立執行進捗を完全追跡。"
     ],
     filename="ogp-osaka.png",
     accent_color="#0284c7"
@@ -99,13 +104,39 @@ create_ogp(
 
 # 4. 名古屋専用 OGP (ogp-nagoya.png)
 create_ogp(
-    badge_text="名古屋市会 公式会議録 × 広沢市長政策トラッカー",
+    badge_text="名古屋市会 公式会議録 × 市長政策トラッカー",
     title_text="議会のミカタ 名古屋",
     sub_text="対話がわかる。政策が見える。",
     desc_lines=[
         "名古屋市会公式会議録と電子採決ログを客観的に構造化。",
-        "現職68議員の質疑スレッド分析と広沢市長政策トラッカーを完全追跡。"
+        "現職議員の質疑スレッド分析と市長政策トラッカーを完全追跡。"
     ],
     filename="ogp-nagoya.png",
-    accent_color="#d97706"  # 名古屋城・金鯱アンバー
+    accent_color="#d97706"
+)
+
+# 5. 横浜専用 OGP (ogp-yokohama.png)
+create_ogp(
+    badge_text="横浜市会 公式会議録 × 市長政策トラッカー",
+    title_text="議会のミカタ 横浜",
+    sub_text="対話がわかる。政策が見える。",
+    desc_lines=[
+        "横浜市会会議録発言記録と常任委員会・本会議採決ログを客観的に構造化。",
+        "市政重点計画・重要政策の予算・条例・執行状況を完全追跡。"
+    ],
+    filename="ogp-yokohama.png",
+    accent_color="#2563eb"
+)
+
+# 6. 神戸専用 OGP (ogp-kobe.png)
+create_ogp(
+    badge_text="神戸市会 公式会議録 × 市長政策トラッカー",
+    title_text="議会のミカタ 神戸",
+    sub_text="対話がわかる。政策が見える。",
+    desc_lines=[
+        "神戸市会本会議・予算決算委員会会議録と採決ログを客観的に構造化。",
+        "基本計画に基づく重点施策の予算計上・マイルストーンを可視化。"
+    ],
+    filename="ogp-kobe.png",
+    accent_color="#0d9488"
 )
