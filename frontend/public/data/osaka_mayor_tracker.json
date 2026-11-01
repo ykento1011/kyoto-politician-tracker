@@ -60,8 +60,8 @@
         "note": "選挙公報原本に実績・重点方針として明記"
       },
       "official_plan": {
-        "plan_name": "0～2歳児保育無償化方針（令和8年2月市長会見）",
-        "doc_url": "https://www.city.osaka.lg.jp/seisakukikakushitsu/page/0000673959.html",
+        "plan_name": "0〜2歳児保育料無償化公式制度案内（第2子無償化・第1子完全無償化ロードマップ）",
+        "doc_url": "https://www.city.osaka.lg.jp/kodomo/page/0000608688.html",
         "date": "2026年2月",
         "summary": "認可保育所・児童発達支援について所得制限なしで第1子・第2子保育料を無償化する方針を確定。"
       },
@@ -77,8 +77,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2026年9月",
-        "title": "0〜2歳児保育料の第1子完全無償化の制度適用開始",
-        "evidence_url": "https://www.city.osaka.lg.jp/seisakukikakushitsu/page/0000673959.html"
+        "title": "令和8年9月から認可保育施設を利用するすべての子どもの保育料を無償化します（こども青少年局）",
+        "evidence_url": "https://www.city.osaka.lg.jp/kodomo/page/0000608688.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {
@@ -105,7 +106,7 @@
         "note": "月額1万円助成の所得制限を完全撤廃"
       },
       "official_plan": {
-        "plan_name": "大阪市習い事・塾代助成事業 施策計画",
+        "plan_name": "大阪市習い事・塾代助成事業（所得制限完全撤廃・令和8年4月デジタルクーポン移行）",
         "doc_url": "https://www.city.osaka.lg.jp/kodomo/page/0000661365.html",
         "date": "2024年10月施行",
         "summary": "小学5年生から中学3年生までの全生徒を対象に所得制限を撤廃し、対象者を約10万人に倍増。"
@@ -122,8 +123,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2024年10月",
-        "title": "所得制限撤廃に伴う助成利用開始（令和8年4月よりデジタルクーポン移行）",
-        "evidence_url": "https://www.city.osaka.lg.jp/seisakukikakushitsu/page/0000623680.html"
+        "title": "大阪市習い事・塾代助成事業（こども青少年局公式案内）",
+        "evidence_url": "https://www.city.osaka.lg.jp/kodomo/page/0000661365.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {
@@ -150,8 +152,8 @@
         "note": "ベイエリア・夢洲の万博レガシー継承と新産業拠点化"
       },
       "official_plan": {
-        "plan_name": "夢洲まちづくり基本方針（公文書PDF）",
-        "doc_url": "https://www.city.osaka.lg.jp/osakatokei/cmsfiles/contents/0000473/473459/housinhp.pdf",
+        "plan_name": "万博レガシーを継承した夢洲第2期区域まちづくり方針（大屋根リング残置・記念公園等）",
+        "doc_url": "https://www.city.osaka.lg.jp/osakatokei/page/0000683343.html",
         "date": "令和8年6月改定",
         "summary": "万博大屋根リングの一部残置を含む記念公園ゾーン整備および国際観光拠点の形成。"
       },
@@ -167,8 +169,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2026年8月",
-        "title": "夢洲第2期区域マスタープランVer. 3.0の策定公表",
-        "evidence_url": "https://www.city.osaka.lg.jp/osakatokei/page/0000685933.html"
+        "title": "万博レガシーを継承した夢洲第2期区域のまちづくり（大阪都市計画局）",
+        "evidence_url": "https://www.city.osaka.lg.jp/osakatokei/page/0000683343.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {
@@ -195,8 +198,8 @@
         "note": "二重行政の解消と副首都機能の確立"
       },
       "official_plan": {
-        "plan_name": "副首都ビジョン【改定版】",
-        "doc_url": "https://www.city.osaka.lg.jp/fukushutosuishin/page/0000679241.html",
+        "plan_name": "副首都ビジョン推進ポータル（府市一体成長戦略・首都機能バックアップ等）",
+        "doc_url": "https://www.city.osaka.lg.jp/fukushutosuishin/page/0000540938.html",
         "date": "2026年度改定",
         "summary": "東西二軸での日本経済牽引を果たす副首都機能の確立と、若者・女性のチャレンジにあふれる都市づくり。"
       },
@@ -212,8 +215,9 @@
       "legislative_bill": null,
       "milestone": {
         "date": "2026年6月",
-        "title": "副首都ビジョン改定版の策定および副首都推進本部会議での決定",
-        "evidence_url": "https://www.city.osaka.lg.jp/fukushutosuishin/page/0000679241.html"
+        "title": "大阪の副首都構想（副首都ビジョンの推進等・副首都推進局）",
+        "evidence_url": "https://www.city.osaka.lg.jp/fukushutosuishin/page/0000540938.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {

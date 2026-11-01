@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Flag } from 'lucide-react';
 import ReportIssueModal from './ReportIssueModal';
 
@@ -6,6 +6,7 @@ export default function ReportIssueButton({
   targetUrl,
   speaker = '',
   meetingDate = '',
+  docTitle = '',
   targetId = '',
   municipality = '京都市'
 }) {
@@ -35,6 +36,7 @@ export default function ReportIssueButton({
           targetUrl,
           speaker,
           meetingDate,
+          docTitle: docTitle || meetingDate,
           targetId,
           municipality
         }}

@@ -60,8 +60,8 @@
         "note": "選挙公報記載の5大重点政策「柱①」に完全準拠"
       },
       "official_plan": {
-        "plan_name": "神戸2025ビジョン 基本目標4「安全な社会システムの構築」",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
+        "plan_name": "神戸市カメラ見る&守る（防犯カメラ市直営化モデル・2026年度末5,500台増設計画）",
+        "doc_url": "https://www.city.kobe.lg.jp/a62348/cameratyokuei.html",
         "date": "2025年度改定",
         "summary": "阪神・淡路大震災の教訓を踏まえ、激甚化する風水害・南海トラフ地震への備えを先端テクノロジー（防災DX）で高度化し、サイバー攻撃への耐性強化や防犯街灯の全面増設を位置づけ。"
       },
@@ -71,7 +71,7 @@
           "project_name": "防災・減災推進事業・防犯カメラ等設置補助",
           "amount_display": "14億2,000万円",
           "doc_source": "神戸市予算説明書（危機管理室・市民参画推進局）",
-          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "doc_url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
           "funding_sources": [
             {
               "label": "市債・国費",
@@ -81,7 +81,8 @@
               "label": "一般財源",
               "amount": "5億7,000万円"
             }
-          ]
+          ],
+          "doc_title": "神戸市当初予算の概要（公式公文書原本）"
         }
       ],
       "legislative_bill": {
@@ -100,8 +101,9 @@
       },
       "milestone": {
         "date": "2026年3月",
-        "title": "市内全域へのスマート防犯カメラネットワークおよび防災情報即時配信基盤の運用開始",
-        "evidence_url": "https://www.city.kobe.lg.jp/safety/prevention/index.html"
+        "title": "神戸市カメラ見る&守る（危機管理局公式）",
+        "evidence_url": "https://www.city.kobe.lg.jp/a62348/cameratyokuei.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {
@@ -136,8 +138,8 @@
         "note": "全国初となる高校生等通学定期代の所得制限なし全額補助を柱に明記"
       },
       "official_plan": {
-        "plan_name": "神戸2025ビジョン 基本目標2「子育て支援と教育環境の充実」",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
+        "plan_name": "高校生等通学定期券補助制度（所得制限なし完全無料化・e-KOBE電子申請案内）",
+        "doc_url": "https://www.city.kobe.lg.jp/a64411/kosodate/seshonen/kokoteiki/kokoteiki.html",
         "date": "2025年度改定",
         "summary": "子育て世帯の経済的負担軽減を最優先課題とし、高校生等の市バス・地下鉄通学定期代の完全無償化と、若者の居場所・学習環境としてのまちなか自習室整備を推進。"
       },
@@ -147,13 +149,14 @@
           "project_name": "高校生等通学定期券全額補助・子育て支援事業",
           "amount_display": "22億8,000万円",
           "doc_source": "神戸市予算説明書（こども家庭局）",
-          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "doc_url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
           "funding_sources": [
             {
               "label": "一般財源",
               "amount": "22億8,000万円"
             }
-          ]
+          ],
+          "doc_title": "神戸市当初予算の概要（公式公文書原本）"
         }
       ],
       "legislative_bill": {
@@ -172,8 +175,9 @@
       },
       "milestone": {
         "date": "2025年9月",
-        "title": "高校生等の通学定期券完全無料化の所得制限なし全域拡大がスタート",
-        "evidence_url": "https://www.city.kobe.lg.jp/a88390/kosodate/tsugakuhijo.html"
+        "title": "高校生通学定期券の補助制度（こども家庭局公式）",
+        "evidence_url": "https://www.city.kobe.lg.jp/a64411/kosodate/seshonen/kokoteiki/kokoteiki.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {
@@ -208,8 +212,8 @@
         "note": "神戸空港国際チャーター便就航および三宮再整備を重点掲記"
       },
       "official_plan": {
-        "plan_name": "神戸2025ビジョン 基本目標1「魅力的な仕事の創出と産学連携」",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
+        "plan_name": "神戸空港の機能強化（2025年4月国際チャーター便就航・第2ターミナル供用開始・2030年定期便マイルストーン）",
+        "doc_url": "https://www.city.kobe.lg.jp/a11380/kurashi/access/airport/index.html",
         "date": "2025年度改定",
         "summary": "神戸空港の国際化（新サブターミナル供用）と神戸医療産業都市（KBIC）の発展、三宮クロススクエア等の都心再整備を一体的に進め、国際的な集客力・産業競争力を高める。"
       },
@@ -219,7 +223,7 @@
           "project_name": "都心・三宮再整備及び神戸空港機能強化推進事業",
           "amount_display": "58億4,000万円",
           "doc_source": "神戸市予算説明書（都市局・港湾局）",
-          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "doc_url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
           "funding_sources": [
             {
               "label": "都市計画税・港湾特会",
@@ -229,7 +233,8 @@
               "label": "国費・起債",
               "amount": "20億3,000万円"
             }
-          ]
+          ],
+          "doc_title": "神戸市当初予算の概要（公式公文書原本）"
         }
       ],
       "legislative_bill": {
@@ -248,8 +253,9 @@
       },
       "milestone": {
         "date": "2025年春",
-        "title": "神戸空港新サブターミナル供用開始と国際チャーター便就航の実現",
-        "evidence_url": "https://www.city.kobe.lg.jp/a37116/kobe-airport/index.html"
+        "title": "神戸空港の機能強化（港湾局公式）",
+        "evidence_url": "https://www.city.kobe.lg.jp/a11380/kurashi/access/airport/index.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {
@@ -284,8 +290,8 @@
         "note": "郊外リノベーションとタワーマンション規制を包含する居住政策"
       },
       "official_plan": {
-        "plan_name": "神戸2025ビジョン 基本目標6「将来にわたって持続可能な都市空間」",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
+        "plan_name": "名谷活性化プラン（リノベーション・神戸／tete名谷・須磨パティオ・新北須磨支所・住みかえーる）",
+        "doc_url": "https://www.city.kobe.lg.jp/i73375/kuyakusho/sumaku/syokaitorikumi/sumanewtown/myodani.html",
         "date": "2025年度改定",
         "summary": "都心部への過度な住宅集積を抑制しつつ、西神中央・名谷・垂水など郊外拠点駅のリノベーションと、六甲山・ウォーターフロントの自然資源を活かした良好な住環境形成を推進。"
       },
@@ -295,7 +301,7 @@
           "project_name": "駅前・住宅地リノベーション及び緑化推進事業",
           "amount_display": "29億6,000万円",
           "doc_source": "神戸市予算説明書（建築住宅局・都市局）",
-          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "doc_url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
           "funding_sources": [
             {
               "label": "都市計画税",
@@ -305,7 +311,8 @@
               "label": "一般財源",
               "amount": "11億8,000万円"
             }
-          ]
+          ],
+          "doc_title": "神戸市当初予算の概要（公式公文書原本）"
         }
       ],
       "legislative_bill": {
@@ -324,8 +331,9 @@
       },
       "milestone": {
         "date": "2025年12月",
-        "title": "名谷・垂水等の拠点駅前リニューアル事業が順次完了し、木陰プロジェクトを拡大",
-        "evidence_url": "https://www.city.kobe.lg.jp/a44884/renovation.html"
+        "title": "名谷活性化プラン～躍動する多世代共生のまちへ～（須磨区公式）",
+        "evidence_url": "https://www.city.kobe.lg.jp/i73375/kuyakusho/sumaku/syokaitorikumi/sumanewtown/myodani.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {
@@ -360,8 +368,8 @@
         "note": "大都市制度改革（特別自治市構想）と生成AI・データ利活用を明記"
       },
       "official_plan": {
-        "plan_name": "神戸2025ビジョン 基本目標7「多様な市民の参画による地域コミュニティ」",
-        "doc_url": "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf",
+        "plan_name": "多様な大都市制度シンポジウム（特別市法制化に向けた市民参加型アジェンダセッティング）",
+        "doc_url": "https://www.city.kobe.lg.jp/a89138/028840038990.html",
         "date": "2025年度改定",
         "summary": "二重行政の解消と地方主権を確立するための「特別自治市」法制化を国に働きかけつつ、市役所業務への生成AI実装とEBPM推進により市民サービスを高度化。"
       },
@@ -371,13 +379,14 @@
           "project_name": "デジタル市役所・行政DX・大都市制度推進事業",
           "amount_display": "8億9,000万円",
           "doc_source": "神戸市予算説明書（企画調整局・行財政局）",
-          "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
+          "doc_url": "https://www.city.kobe.lg.jp/documents/48584/2025yosanngaiyou.pdf",
           "funding_sources": [
             {
               "label": "一般財源",
               "amount": "8億9,000万円"
             }
-          ]
+          ],
+          "doc_title": "神戸市当初予算の概要（公式公文書原本）"
         }
       ],
       "legislative_bill": {
@@ -396,8 +405,9 @@
       },
       "milestone": {
         "date": "2026年1月",
-        "title": "指定都市市長会を通じた「特別市」制度創設要綱の国への共同提言を実施",
-        "evidence_url": "https://www.city.kobe.lg.jp/a57337/shise/daitosiseido/index.html"
+        "title": "多様な大都市制度シンポジウム～多極分散型社会の形成に向けて～（企画調整局）",
+        "evidence_url": "https://www.city.kobe.lg.jp/a89138/028840038990.html",
+        "status": "achieved"
       },
       "debate_statements": [
         {

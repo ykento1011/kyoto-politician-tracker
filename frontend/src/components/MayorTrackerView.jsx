@@ -1,4 +1,5 @@
 ﻿import React, { useState, useMemo } from 'react';
+import ReportIssueButton from './ReportIssueButton';
 import { 
   CheckCircle2, Clock, AlertCircle, ExternalLink, 
   FileText, Landmark, ShieldCheck, ChevronRight, 
@@ -109,7 +110,8 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
               {/* 一次資料原本リンクボタン群 */}
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 pt-2">
                 {mayor_info?.bulletin_pdf && (
-                  <a 
+                  <div className="inline-flex items-center gap-1">
+                    <a 
                     href={mayor_info.bulletin_pdf} 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -119,9 +121,18 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                     <span>{mayor_info.bulletin_label || '選挙公報原本（一次資料PDF）'}</span>
                     <ExternalLink className="w-3 h-3 opacity-80" />
                   </a>
+                    <ReportIssueButton
+                      targetUrl={mayor_info.bulletin_pdf}
+                      speaker={mayor_info.name}
+                      docTitle={mayor_info.bulletin_label || "市長選挙公約原本PDF"}
+                      targetId="mayor_bulletin_pdf"
+                      municipality={mayor_info.city_label || "該当自治体"}
+                    />
+                  </div>
                 )}
                 {mayor_info?.strategy_main_pdf && (
-                  <a 
+                  <div className="inline-flex items-center gap-1">
+                    <a 
                     href={mayor_info.strategy_main_pdf} 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -131,6 +142,14 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                     <span>{mayor_info.strategy_main_label || '市総合計画（基本構想）'}</span>
                     <ExternalLink className="w-3 h-3 opacity-60" />
                   </a>
+                    <ReportIssueButton
+                      targetUrl={mayor_info.strategy_main_pdf}
+                      speaker={mayor_info.name}
+                      docTitle={mayor_info.strategy_main_label || "市総合計画（基本方針）"}
+                      targetId="mayor_strategy_main_pdf"
+                      municipality={mayor_info.city_label || "該当自治体"}
+                    />
+                  </div>
                 )}
               </div>
             </div>
@@ -296,7 +315,8 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                         {p.election_promise.source_name || '選挙公報 原文引用'}
                       </span>
                       {p.election_promise.bulletin_url && (
-                        <a 
+                        <div className="inline-flex items-center gap-1">
+                          <a 
                           href={p.election_promise.bulletin_url} 
                           target="_blank" 
                           rel="noopener noreferrer"
@@ -304,6 +324,14 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                         >
                           公報原本で確認 <ExternalLink className="w-2.5 h-2.5" />
                         </a>
+                          <ReportIssueButton
+                            targetUrl={p.election_promise.bulletin_url}
+                            speaker={mayor_info?.name}
+                            docTitle={`${p.headline}（公約原本）`}
+                            targetId={`pledge_${p.pledge_id || p.headline}_bulletin`}
+                            municipality={mayor_info?.city_label || "該当自治体"}
+                          />
+                        </div>
                       )}
                     </div>
                     “{p.election_promise.quote}”
@@ -342,7 +370,8 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                     </div>
                     {p.official_plan?.doc_url && (
                       <div className="pt-2.5 mt-2 border-t border-slate-200/60">
-                        <a 
+                        <div className="flex items-center justify-between gap-1">
+                          <a 
                           href={p.official_plan.doc_url} 
                           target="_blank" 
                           rel="noopener noreferrer"
@@ -350,6 +379,14 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                         >
                           公式計画原本を確認 <ExternalLink className="w-2.5 h-2.5" />
                         </a>
+                          <ReportIssueButton
+                            targetUrl={p.official_plan.doc_url}
+                            speaker={mayor_info?.name}
+                            docTitle={`${p.headline}（${p.official_plan?.plan_name || "公式計画"}）`}
+                            targetId={`pledge_${p.pledge_id || p.headline}_plan`}
+                            municipality={mayor_info?.city_label || "該当自治体"}
+                          />
+                        </div>
                       </div>
                     )}
                   </div>
@@ -417,7 +454,8 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
 
                     {p.budget_records?.[0]?.doc_url && (
                       <div className="pt-2.5 mt-2 border-t border-slate-200/60">
-                        <a 
+                        <div className="flex items-center justify-between gap-1">
+                          <a 
                           href={p.budget_records[0].doc_url} 
                           target="_blank" 
                           rel="noopener noreferrer"
@@ -425,6 +463,14 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                         >
                           主要事業説明書PDF原本で確認 <ExternalLink className="w-2.5 h-2.5" />
                         </a>
+                          <ReportIssueButton
+                            targetUrl={p.budget_records[0].doc_url}
+                            speaker={mayor_info?.name}
+                            docTitle={`${p.headline}（主要事業説明書・予算原本）`}
+                            targetId={`pledge_${p.pledge_id || p.headline}_budget`}
+                            municipality={mayor_info?.city_label || "該当自治体"}
+                          />
+                        </div>
                       </div>
                     )}
                   </div>
@@ -463,7 +509,8 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
 
                     {p.milestone?.evidence_url && (
                       <div className="pt-2.5 mt-2 border-t border-slate-200/60">
-                        <a 
+                        <div className="flex items-center justify-between gap-1">
+                          <a 
                           href={p.milestone.evidence_url} 
                           target="_blank" 
                           rel="noopener noreferrer"
@@ -471,6 +518,14 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                         >
                           確定エビデンス（報道発表等） <ExternalLink className="w-2.5 h-2.5" />
                         </a>
+                          <ReportIssueButton
+                            targetUrl={p.milestone.evidence_url}
+                            speaker={mayor_info?.name}
+                            docTitle={`${p.headline}（${p.milestone?.title || "確定エビデンス"}）`}
+                            targetId={`pledge_${p.pledge_id || p.headline}_milestone`}
+                            municipality={mayor_info?.city_label || "該当自治体"}
+                          />
+                        </div>
                       </div>
                     )}
                   </div>

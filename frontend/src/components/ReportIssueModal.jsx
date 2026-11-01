@@ -83,7 +83,11 @@ export default function ReportIssueModal({ isOpen, onClose, reportContext }) {
             <div className="mb-5 bg-slate-50 border border-slate-200 rounded-lg p-3 text-[13px] text-slate-600 space-y-1.5">
               <div className="flex font-medium text-slate-700">
                 <span className="w-16 shrink-0 text-slate-500 font-normal">対象資料:</span>
-                <span className="truncate">{reportContext?.speaker || reportContext?.municipality || "不明"} / {reportContext?.meetingDate || "不明"}</span>
+                <span className="truncate" title={`${reportContext?.speaker || reportContext?.municipality || "首長"} / ${reportContext?.docTitle || reportContext?.meetingDate || "公式資料"}`}>
+                    <span className="font-bold text-slate-800">{reportContext?.speaker || reportContext?.municipality || "首長"}</span>
+                    <span className="text-slate-400 mx-1.5">/</span>
+                    <span>{reportContext?.docTitle || reportContext?.meetingDate || "公式資料"}</span>
+                  </span>
               </div>
               <div className="flex">
                 <span className="w-16 shrink-0 text-slate-500">URL:</span>

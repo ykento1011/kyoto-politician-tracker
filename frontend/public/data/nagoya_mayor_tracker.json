@@ -59,10 +59,10 @@
         "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
       },
       "official_plan": {
-        "plan_name": "名古屋市総合計画2028 施策27「歴史・文化の継承と魅力発信」",
+        "plan_name": "天守閣整備事業におけるバリアフリーの考え方（垂直昇降設備技術公募・当事者協議）",
         "date": "令和5年3月策定（令和6年度実施状況反映）",
         "summary": "特別史跡名古屋城跡の適切な保存管理を図り、木造復元を一体とした現状変更許可取得に向け、事業を着実に推進する。",
-        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+        "doc_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
       },
       "budget_records": [
         {
@@ -75,8 +75,9 @@
       ],
       "milestone": {
         "date": "2024年11月〜",
-        "title": "新技術エレベーターの導入協議について文化庁および有識者・関係団体との意見交換を継続",
-        "evidence_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
+        "title": "天守閣整備事業におけるバリアフリーの考え方（名古屋城公式）",
+        "evidence_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/",
+        "status": "achieved"
       },
       "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010542/1010543.html",
       "evidence_url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/"
@@ -94,10 +95,10 @@
         "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
       },
       "official_plan": {
-        "plan_name": "名古屋市総合計画2028 基本目標「都市基盤の充実と持続可能な行財政運営」",
+        "plan_name": "個人の市民税減税の概要（一律5%減税ロジック・世帯年収別減税額モデルケース）",
         "date": "令和5年3月策定",
         "summary": "市民税減税の適切な運用と安定的な税収基盤の確保を両立し、持続可能な財政運営を行う。",
-        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+        "doc_url": "https://www.city.nagoya.jp/kurashi/zeikin/1037356/1011880/1012157/1033970.html"
       },
       "budget_records": [
         {
@@ -124,8 +125,9 @@
       },
       "milestone": {
         "date": "2024年11月29日",
-        "title": "市長会見にて10%拡大の方向性を堅持しつつ段階的検証を進める意向を表明",
-        "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
+        "title": "個人の市民税の減税の概要（財政局公式）",
+        "evidence_url": "https://www.city.nagoya.jp/kurashi/zeikin/1037356/1011880/1012157/1033970.html",
+        "status": "achieved"
       },
       "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html",
       "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
@@ -143,10 +145,10 @@
         "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
       },
       "official_plan": {
-        "plan_name": "名古屋市総合計画2028 施策24「高齢者の生きがいと健康づくりの推進」",
+        "plan_name": "敬老パス制度改善案内（730回上限・私鉄拡充・90分以内乗り継ぎ1回カウント緩和）",
         "date": "令和5年3月策定",
         "summary": "高齢者の社会参加を促進し生きがいづくりと介護予防を図るため、敬老パスの適切な交付と運用を行う。",
-        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+        "doc_url": "https://www.city.nagoya.jp/kenkofukushi/koureisha/1016534/1016423.html"
       },
       "budget_records": [
         {
@@ -159,8 +161,9 @@
       ],
       "milestone": {
         "date": "2025年1月",
-        "title": "障がい者タクシー助成との併給制度設計および電算システム改修工程の精査を開始",
-        "evidence_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf"
+        "title": "令和6年2月1日から敬老パスの利用回数の数えかたが変わりました！（健康福祉局）",
+        "evidence_url": "https://www.city.nagoya.jp/kenkofukushi/koureisha/1016534/1016423.html",
+        "status": "achieved"
       },
       "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf",
       "evidence_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf"
@@ -178,10 +181,10 @@
         "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
       },
       "official_plan": {
-        "plan_name": "名古屋市総合計画2028 基本目標「行財政改革・適正な人事給与管理の推進」",
+        "plan_name": "市長給料年額800万円特例および期末手当不支給の執行実績（記者発表資料）",
         "date": "令和5年3月策定",
         "summary": "特別職報酬等の適正化を推進し、簡素で効率的な行財政運営を確立する。",
-        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+        "doc_url": "https://www.city.nagoya.jp/houdou/pressr7/3002887/3003057.html"
       },
       "budget_records": [
         {
@@ -208,8 +211,9 @@
       },
       "milestone": {
         "date": "2025年3月10日",
-        "title": "市会本会議採決にて特例条例が賛成多数（自民・減税・公明）で可決成立",
-        "evidence_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html"
+        "title": "令和6年12月期末・勤勉手当の支給等（総務局 記者発表資料）",
+        "evidence_url": "https://www.city.nagoya.jp/houdou/pressr7/3002887/3003057.html",
+        "status": "achieved"
       },
       "doc_url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html",
       "evidence_url": "https://www.city.nagoya.jp/shisei/jouhou/1028672/1028675/1028758/1037190/1037191/1045338.html"
@@ -227,10 +231,10 @@
         "bulletin_url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html"
       },
       "official_plan": {
-        "plan_name": "名古屋市総合計画2028 施策19「妊娠期から子育て期までの切れ目のない支援」/ 施策20「子どもの権利の尊重と健全育成」",
+        "plan_name": "なごや子ども応援委員会支援体制（17ブロック専門職配置・相談ルート体系案内）",
         "date": "令和5年3月策定",
         "summary": "多子世帯等への経済的負担軽減を推進するとともに、子ども応援委員会の充実によりいじめ・不登校対策等の相談機能を強化する。",
-        "doc_url": "https://www.city.nagoya.jp/shisei/keikaku/1010854/1010856/1010858.html"
+        "doc_url": "https://www.city.nagoya.jp/kodomo/schools/1017052/1017057.html"
       },
       "budget_records": [
         {
@@ -257,9 +261,10 @@
       },
       "milestone": {
         "date": "2024年12月",
-        "title": "所信表明にて0歳児保育料無償化の試算と第2子軽減の先行着手を表明し、令和7年度予算案に反映",
-        "evidence_url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=621&schedule_id=26",
-        "url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=621&schedule_id=26"
+        "title": "なごや子ども応援委員会について（教育委員会公式）",
+        "evidence_url": "https://www.city.nagoya.jp/kodomo/schools/1017052/1017057.html",
+        "url": "https://ssp.kaigiroku.net/tenant/nagoya/MinuteView.html?council_id=621&schedule_id=26",
+        "status": "achieved"
       },
       "doc_url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf",
       "evidence_url": "https://www.city.nagoya.jp/mayor/press/1002217/1002223.html"
