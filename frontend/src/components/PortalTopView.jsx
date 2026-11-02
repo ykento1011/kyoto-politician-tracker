@@ -491,7 +491,7 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenGuide, 
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] sm:text-xs text-slate-500">
           <div className="space-y-1 text-center md:text-left">
             <div className="font-black text-slate-800 text-xs sm:text-sm">議会のミカタ（Gikai no Mikata）</div>
-            <p>非営利・独立シビックテックプロジェクト（運営：株式会社KICKs 代表 山本健人）</p>
+            <p>独立シビックテックプロジェクト（運営：株式会社KICKs 代表 山本健人）</p>
           </div>
 
           <div className="flex items-center gap-4 flex-wrap justify-center font-bold">
@@ -512,3 +512,4 @@ export default function PortalTopView({ onSelectCity, onOpenAbout, onOpenGuide, 
     </div>
   );
 }
+

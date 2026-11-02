@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   ArrowLeft, Compass, Search, Milestone, Users, Flag,
   Scale, Landmark, CheckCircle2, ArrowRight, ShieldCheck,
@@ -198,17 +198,17 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
             </div>
           </section>
 
-          {/* ⑥ 全5,100件の横断検索 */}
+          {/* ⑥ 議事録の網羅的な検索と絞り込み */}
           <section className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-4 hover:border-indigo-200 transition-colors">
             <div className="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-wider">
               <Search className="w-4 h-4" />
               機能 06 / 議事録の網羅的な検索と絞り込み
             </div>
             <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-snug">
-              5,100件超の質疑から「関心のある話題」を瞬時に探せる
+              数千件に及ぶ質疑スレッドから「関心のある話題」を瞬時に探せる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              本会議から常任委員会・特別委員会まで、全任期の実質質疑スレッド（5,100件以上）を軽量インデックス化。キーワード検索はもちろん、<strong>政策カテゴリー・行政区・年次・会議体</strong>を掛け合わせて瞬時に絞り込めます。
+              本会議から常任委員会・特別委員会まで、対象自治体の実質質疑スレッドを軽量インデックス化。キーワード検索はもちろん、<strong>政策カテゴリー・行政区・年次・会議体</strong>を掛け合わせて瞬時に絞り込めます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-1.5">
               <div className="font-black text-slate-900 flex items-center gap-1.5">
@@ -232,7 +232,7 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
               公報・会議録・予算書原本をワンクリックで直接検証できる
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              AI要約やスコアは議論を広く見渡すための補助線に過ぎません。当サイトでは、選挙管理委員会の<strong>選挙公報PDF</strong>、京都市会の<strong>会議録原本</strong>、行財政担当部局の<strong>主要事業説明書PDF</strong>への直リンクを完備。気になる点があればいつでも公的な一次公文書を開いて裏取りを行えます。
+              AI要約やスコアは議論を広く見渡すための補助線に過ぎません。当サイトでは、各選挙管理委員会の<strong>選挙公報PDF</strong>、各市会（市議会）の<strong>公式会議録原本</strong>、各行財政担当部局の<strong>主要事業説明書PDF</strong>への直リンクを完備。気になる点があればいつでも公的な一次公文書を開いて裏取りを行えます。
             </p>
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 text-xs text-slate-700 space-y-2.5">
               <div>
@@ -300,3 +300,4 @@ export default function GuidePage({ onBack, onOpenMethodology, onOpenAbout }) {
     </div>
   );
 }
+
