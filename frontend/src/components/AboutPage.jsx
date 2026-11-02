@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   ArrowLeft, Compass, Search, Lightbulb, User,
   ExternalLink, Mail, Award, Shield, Milestone, Landmark, Layers, FileCheck, Scale, Coins, BookmarkCheck
@@ -75,7 +75,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
               本サイトは、特定の政治的主張を支持・批判したり、「公約違反」といった主観的なラベリングを行うものではありません。
             </p>
             <p>
-              首長と議会がそれぞれ持つ権能（予算編成権と議決権）に即し、公式選挙公報、新京都戦略、主要事業説明書、会議録原本という公文書のファクトのみを並列提示しています。事実の解釈と判断は、常に主権者である市民自身に委ねられています。
+              首長と議会がそれぞれ持つ権能（予算編成権と議決権）に即し、公式選挙公報、自治体の総合計画、主要事業説明書、会議録原本という公文書のファクトのみを並列提示しています。事実の解釈と判断は、常に主権者である市民自身に委ねられています。
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export default function AboutPage({ onBack, onOpenMethodology }) {
               <span>一次公文書への接続性とトレーサビリティ</span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
-              AIによる要約やスコアリングは入口を広げるための補助線です。私たちはAIによる要約や評価に誤りが生じる可能性を考慮し、すべての質疑スレッド、公約引用カード、予算定量データに、<strong>選挙管理委員会・京都市会・京都市行財政担当部局の公式原本（PDF／Web）への直リンク</strong>を完備しています。
+              AIによる要約やスコアリングは入口を広げるための補助線です。私たちはAIによる要約や評価に誤りが生じる可能性を考慮し、すべての質疑スレッド、公約引用カード、予算定量データに、<strong>各自治体の選挙管理委員会・各市会（市議会）・各行財政担当部局の公式原本（PDF／Web）への直リンク</strong>を完備しています。
             </p>
             <p className="text-xs text-slate-600 leading-relaxed">
               疑わしい点があればいつでも原本を開き、直接数字や前後の発言を確認できるよう設計しています。また、万が一資料のリンク切れや不備を発見した場合、資料リンク横の「旗マーク（⚑）」から1タップで運営へ通知できる自動フィードバック機能を備えており、継続的なデータ品質の向上に努めています。

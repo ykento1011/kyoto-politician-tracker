@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   ArrowLeft, ShieldCheck, Database, Sliders, Scale,
   AlertCircle, ExternalLink, Sparkles, CheckCircle2, FileText, Calendar, Landmark, Layers, BookmarkCheck, Coins, BookCheck, Flame
@@ -144,7 +144,7 @@ export default function Methodology({ onBack }) {
                 <Landmark className="w-4 h-4 text-slate-700" /> 公的原本へのトレーサビリティ（監査可能性の技術仕様）
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                全5,100件以上の質疑スレッドに対して、各議会公式サーバー上の原本ページ（MinuteView）へ直接遷移する固有URL（council_id / schedule_id / view_years）を結合。利用者はボタン1つで公的機関の一次情報に直接アクセスし、文脈の確認を行えます。
+                各自治体の全質疑スレッドに対して、各議会公式サーバー上の原本ページ（MinuteView等）へ直接遷移する固有URLを結合。利用者はボタン1つで公的機関の一次情報に直接アクセスし、文脈の確認を行えます。
               </p>
               <div className="mt-3 p-3 bg-white rounded-lg border border-slate-200">
                 <p className="text-[11px] font-bold text-slate-700 mb-1 flex items-center gap-1.5"><AlertCircle className="w-3.5 h-3.5 text-rose-500" /> データ健全性を担保するユーザー参加型監査システム</p>

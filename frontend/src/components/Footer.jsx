@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Scale, Mail, Calendar, ExternalLink } from 'lucide-react';
 import GithubIcon from './GithubIcon';
 import { getCityConfig } from '../config/cities';
@@ -88,3 +88,4 @@ export default function Footer({ onOpenMethodology, cityCode = 'kyoto' }) {
     </footer>
   );
 }
+

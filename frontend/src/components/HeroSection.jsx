@@ -22,9 +22,14 @@ export default function HeroSection({
 
   return (
     <section className="text-center py-6 md:py-10 space-y-4">
-      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-black shadow-2xs">
-        <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
-        {cityName} 公開データ × 生成AI分析
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 text-white text-[11px] font-black shadow-2xs">
+          <span>全国5大政令市（365議席）網羅</span>
+        </div>
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-[11px] font-black shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
+          <span>{cityName} 公開データ × 生成AI分析</span>
+        </div>
       </div>
 
       {/* スマホでは文節ごとに綺麗に折り返し、文字の途中泣き別れを防止 */}
@@ -126,3 +131,4 @@ export default function HeroSection({
     </section>
   );
 }
+
