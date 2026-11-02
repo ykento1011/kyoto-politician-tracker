@@ -332,12 +332,17 @@ def main():
     before_ids = load_crawled_ids()
     before_count = len(before_ids)
 
-    # 2. 議事録データの取得 (fetch_sagebase)
-    success, output = run_script(FETCH_SCRIPT, "新着議事録データの取得")
-    if not success:
-        log("データ取得で致命的エラー。パイプラインを中断します。", "ERROR")
-        notify_discord("❌ 定期更新エラー: 議事録取得失敗", "データ取得スクリプトの実行中にエラーが発生しました。", status="error", error_detail=output)
-        return
+    # 2. 議事録データの取得 (fetch_sagebase) - Phase 1 コスト0保護ガード
+    if os.path.exists(CRAWLED_FILE):
+        log("ℹ️ 発言録ローカルキャッシュが存在するため、Sagebase BQ 取得をスキップします（コスト0保護）")
+    else:
+        # キャッシュがない場合のみ実行（ただし dry-run または安全弁必須）
+        if os.path.exists(FETCH_SCRIPT):
+            success, output = run_script(FETCH_SCRIPT, "Sagebase データ取得")
+            if not success:
+                log("データ取得で致命的エラー。パイプラインを中断します。", "ERROR")
+                notify_discord("❌ 定期更新エラー: 議事録取得失敗", "データ取得スクリプトの実行中にエラーが発生しました。", status="error", error_detail=output)
+                return
 
     # 3. 議決・賛否データの更新
     log("--- [議決・賛否データの更新チェック] ---")

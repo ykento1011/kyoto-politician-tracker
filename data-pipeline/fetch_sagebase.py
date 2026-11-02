@@ -1,6 +1,11 @@
 import json
 from google.cloud import bigquery
 
+# Phase 1 安全弁: 最大許容スキャンサイズ 100MB（約0.1円未満・超過時は例外で安全停止）
+SAFE_MAX_BYTES = 100 * 1024 * 1024
+SAFE_JOB_CONFIG = bigquery.QueryJobConfig(maximum_bytes_billed=SAFE_MAX_BYTES)
+
+
 PROJECT_ID = "gen-lang-client-0253904061"
 DATASET_ID = "sagebase_data"
 KYOTO_GOV_ID = "gov_5aa370b2fe3f4dbf916a989810440ab8"
@@ -12,7 +17,7 @@ def inspect_schema(client):
         WHERE table_name IN ('minutes', 'conferences')
         ORDER BY table_name, ordinal_position
     """
-    results = list(client.query(schema_query).result())
+    results = list(client.query(schema_query, job_config=SAFE_JOB_CONFIG).result())
     return {f"{r.table_name}.{r.column_name}" for r in results}
 
 def fetch_kyoto_data():
@@ -54,7 +59,7 @@ def fetch_kyoto_data():
     """
 
     try:
-        query_job = client.query(query)
+        query_job = client.query(query, job_config=SAFE_JOB_CONFIG)
         results = query_job.result()
 
         formatted_data = []
