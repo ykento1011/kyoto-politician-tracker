@@ -316,6 +316,7 @@ def push_to_github(custom_detail=""):
 
 def main():
     is_dry_run = "--dry-run" in sys.argv or "--no-push" in sys.argv
+    is_force_full = "--force-full" in sys.argv or "--force-rebuild" in sys.argv
 
     print("\n" + "="*60)
     log("定期監視・全自動データ更新パイプライン（5都市 統合セマンティック版）を開始")
@@ -391,47 +392,55 @@ def main():
     else:
         log("✅ 新しい議事録はありませんでした。")
 
-    # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（全5都市 Gate Criteria監査版）
-    log("--- [政策タイムラインの最新化（全5都市 Gate Criteria適用）] ---")
-    if os.path.exists(UNIFIED_TOPIC_SCRIPT):
-        run_script(UNIFIED_TOPIC_SCRIPT, "政策論点高解像度タイムライン生成（5都市一括）", args=["all"])
-    log("--- [政策タイムラインの最新化完了] ---")
+    # 7.6〜7.8 重い全件再計算処理のスマートガード（新着データがある場合、または手動強制時のみ実行）
+    needs_heavy_rebuild = minutes_updated or is_force_full
 
-    # 7.6.5 政策カテゴリー包括解説（論戦総括）の生成
-    overview_script = os.path.join(BASE_DIR, "generate_category_overviews.py")
-    if os.path.exists(overview_script):
-        log("--- [政策カテゴリー包括解説（論戦総括）の生成] ---")
-        run_script(overview_script, "AI包括解説生成（全5都市一括）", args=["all"])
-        log("--- [政策カテゴリー包括解説の生成完了] ---")
+    if needs_heavy_rebuild:
+        log("🔄 新着議事録検知または強制オプション指定のため、全件再計算パイプラインを開始...")
 
-    # 7.6.6 議案賛否データの日本語正規化 (English -> Japanese)
-    normalize_script = os.path.join(BASE_DIR, "normalize_vote_data.py")
-    if os.path.exists(normalize_script):
-        log("--- [議案賛否データの日本語正規化] ---")
-        run_script(normalize_script, "データ正規化（賛否フォーマット統一）")
+        # 7.6 政策タイムライン（マクロ論戦マップ）の最新化（全5都市 Gate Criteria監査版）
+        log("--- [政策タイムラインの最新化（全5都市 Gate Criteria適用）] ---")
+        if os.path.exists(UNIFIED_TOPIC_SCRIPT):
+            run_script(UNIFIED_TOPIC_SCRIPT, "政策論点高解像度タイムライン生成（5都市一括）", args=["all"])
+        log("--- [政策タイムラインの最新化完了] ---")
 
-    # 7.7 議員看板公約・採決トラッカーの最新化（5都市統一セマンティック結合）
-    log("--- [議員公約・採決トラッカーの最新化（5都市）] ---")
-    if os.path.exists(UNIFIED_PLEDGE_SCRIPT):
-        for city in CITIES:
-            p_ok, _ = run_script(UNIFIED_PLEDGE_SCRIPT, f"議員看板公約トラッカー再結合（{city.upper()}）", args=["--city", city])
-            if not p_ok:
-                log(f"{city.upper()}公約トラッカー更新で警告が出ましたが続行します", "WARN")
-    log("--- [議員公約・採決トラッカーの最新化完了] ---")
+        # 7.6.5 政策カテゴリー包括解説（論戦総括）の生成
+        overview_script = os.path.join(BASE_DIR, "generate_category_overviews.py")
+        if os.path.exists(overview_script):
+            log("--- [政策カテゴリー包括解説（論戦総括）の生成] ---")
+            run_script(overview_script, "AI包括解説生成（全5都市一括）", args=["all"])
+            log("--- [政策カテゴリー包括解説の生成完了] ---")
 
-    # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（5都市）
-    log("--- [首長政策トラッカーの最新化] ---")
-    if os.path.exists(BUILD_MAYOR_TRACKER_SCRIPT):
-        run_script(BUILD_MAYOR_TRACKER_SCRIPT, "京都市長 政策・予算トラッカーの更新")
-    if os.path.exists(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT):
-        run_script(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT, "大阪市長 政策・予算トラッカーの更新")
-    if os.path.exists(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT):
-        run_script(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT, "名古屋市長 政策・予算トラッカーの更新")
-    if os.path.exists(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT):
-        run_script(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT, "横浜市長 政策・予算トラッカーの更新")
-    if os.path.exists(BUILD_MAYOR_TRACKER_KOBE_SCRIPT):
-        run_script(BUILD_MAYOR_TRACKER_KOBE_SCRIPT, "神戸市長 政策・予算トラッカーの更新")
-    log("--- [首長政策トラッカーの最新化完了] ---")
+        # 7.6.6 議案賛否データの日本語正規化 (English -> Japanese)
+        normalize_script = os.path.join(BASE_DIR, "normalize_vote_data.py")
+        if os.path.exists(normalize_script):
+            log("--- [議案賛否データの日本語正規化] ---")
+            run_script(normalize_script, "データ正規化（賛否フォーマット統一）")
+
+        # 7.7 議員看板公約・採決トラッカーの最新化（5都市統一セマンティック結合）
+        log("--- [議員公約・採決トラッカーの最新化（5都市）] ---")
+        if os.path.exists(UNIFIED_PLEDGE_SCRIPT):
+            for city in CITIES:
+                p_ok, _ = run_script(UNIFIED_PLEDGE_SCRIPT, f"議員看板公約トラッカー再結合（{city.upper()}）", args=["--city", city])
+                if not p_ok:
+                    log(f"{city.upper()}公約トラッカー更新で警告が出ましたが続行します", "WARN")
+        log("--- [議員公約・採決トラッカーの最新化完了] ---")
+
+        # 7.8 首長 政策ライフサイクル×予算トラッカーの最新化（5都市）
+        log("--- [首長政策トラッカーの最新化] ---")
+        if os.path.exists(BUILD_MAYOR_TRACKER_SCRIPT):
+            run_script(BUILD_MAYOR_TRACKER_SCRIPT, "京都市長 政策・予算トラッカーの更新")
+        if os.path.exists(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT):
+            run_script(BUILD_MAYOR_TRACKER_OSAKA_SCRIPT, "大阪市長 政策・予算トラッカーの更新")
+        if os.path.exists(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT):
+            run_script(BUILD_MAYOR_TRACKER_NAGOYA_SCRIPT, "名古屋市長 政策・予算トラッカーの更新")
+        if os.path.exists(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT):
+            run_script(BUILD_MAYOR_TRACKER_YOKOHAMA_SCRIPT, "横浜市長 政策・予算トラッカーの更新")
+        if os.path.exists(BUILD_MAYOR_TRACKER_KOBE_SCRIPT):
+            run_script(BUILD_MAYOR_TRACKER_KOBE_SCRIPT, "神戸市長 政策・予算トラッカーの更新")
+        log("--- [首長政策トラッカーの最新化完了] ---")
+    else:
+        log("ℹ️ 新着議事録がないため、重い全件再計算（タイムライン・包括解説・首長トラッカー）を安全にスキップします（高速実行モード。強制実行は --force-full を指定）")
 
     # 都市別静的 HTML（クローラー用 OGP エンドポイント）の最新化同期
     city_html_script = os.path.join(BASE_DIR, 'generate_city_html.py')
