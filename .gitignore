@@ -25,3 +25,5 @@ sagebase_crawled_data.json
 # Semantic Embedding Caches (exceeds GitHub 100MB limit)
 **/embeddings_*.json
 
+
+data-pipeline/scraper_pipeline.log
