@@ -20,16 +20,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ------------------------------------------------------------
+      # 1. Python環境セットアップ & 全自動インテグリティ監査
+      # ------------------------------------------------------------
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: "pip"
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run Unified Integrity Audit (Fail-Closed)
         run: |
@@ -37,6 +34,9 @@ jobs:
           python data-pipeline/audit_unified_integrity.py
           echo "::endgroup::"
 
+      # ------------------------------------------------------------
+      # 2. Node.js環境セットアップ & プロダクションビルド
+      # ------------------------------------------------------------
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -50,6 +50,9 @@ jobs:
       - name: Build frontend (Vite / Cloudflare Pages)
         run: npm --prefix frontend run build
 
+      # ------------------------------------------------------------
+      # 3. Cloudflare Pages へのデプロイ
+      # ------------------------------------------------------------
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
