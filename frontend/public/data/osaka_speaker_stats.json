@@ -3364,5 +3364,50 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null
+  },
+  "司 隆史": {
+    "name": "司 隆史",
+    "party": "公明党大阪市会議員団",
+    "partyGroup": "公明党",
+    "district": "東成区",
+    "aliases": [
+      "司隆史",
+      "つかさ隆史"
+    ],
+    "term": "2023-2025",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2025-06",
+    "resigned_reason": "参議院議員選挙出馬のため辞職"
+  },
+  "司隆史": {
+    "name": "司 隆史",
+    "party": "公明党大阪市会議員団",
+    "partyGroup": "公明党",
+    "district": "東成区",
+    "aliases": [
+      "司隆史",
+      "つかさ隆史"
+    ],
+    "term": "2023-2025",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2025-06",
+    "resigned_reason": "参議院議員選挙出馬のため辞職"
+  },
+  "つかさ隆史": {
+    "name": "司 隆史",
+    "party": "公明党大阪市会議員団",
+    "partyGroup": "公明党",
+    "district": "東成区",
+    "aliases": [
+      "司隆史",
+      "つかさ隆史"
+    ],
+    "term": "2023-2025",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2025-06",
+    "resigned_reason": "参議院議員選挙出馬のため辞職"
   }
 }
