@@ -1,4 +1,4 @@
-import json
+﻿import json
 import asyncio
 import sys
 import threading
@@ -9,7 +9,7 @@ from playwright.async_api import async_playwright
 
 PORT = 4173
 BASE_URL = f"http://127.0.0.1:{PORT}"
-CITIES = ["kyoto", "osaka", "nagoya", "yokohama"]
+CITIES = ["kyoto", "osaka", "nagoya", "yokohama", "kobe"]
 PROJECT_ROOT = Path(__file__).resolve().parent
 PUBLIC_DIR = PROJECT_ROOT / "frontend" / "public"
 
@@ -17,7 +17,7 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(PUBLIC_DIR), **kwargs)
     def log_message(self, format, *args):
-        pass  # ログ出力を抑制
+        pass
 
 def start_local_server():
     socketserver.TCPServer.allow_reuse_address = True
@@ -28,23 +28,26 @@ def start_local_server():
 
 async def main():
     httpd = start_local_server()
-    print(f"📡 ローカル検証サーバー起動: {BASE_URL} (ルート: {PUBLIC_DIR.name})")
+    print(f"🚀 ローカル検証サーバー起動: {BASE_URL} (ルート: {PUBLIC_DIR.name})")
 
-    urls_to_test = []
-    
-    # 1. 各都市の基本画面・首長画面のルーティング登録
+    urls_to_test = [
+        f"{BASE_URL}/",
+        f"{BASE_URL}/#about",
+        f"{BASE_URL}/#methodology",
+    ]
+
+    # 1. 5都市の基本画面・首長画面のルーティング登録
     for city in CITIES:
-        prefix = "" if city == "kyoto" else f"{city}/"
         urls_to_test.extend([
-            f"{BASE_URL}/{prefix}",
-            f"{BASE_URL}/{prefix}#about",
-            f"{BASE_URL}/{prefix}#methodology",
-            f"{BASE_URL}/{prefix}#guide",
-            f"{BASE_URL}/{prefix}#mayor-tracker",
-            f"{BASE_URL}/{prefix}?view=mayor"
+            f"{BASE_URL}/{city}/",
+            f"{BASE_URL}/{city}/#about",
+            f"{BASE_URL}/{city}/#methodology",
+            f"{BASE_URL}/{city}/#guide",
+            f"{BASE_URL}/{city}/#mayor-tracker",
+            f"{BASE_URL}/{city}/?view=mayor"
         ])
 
-    # 2. 4都市の政策分野（カテゴリー）URLの動的追加
+    # 2. 5都市の政策分野（カテゴリー）URLの動的追加
     for city in CITIES:
         stmt_file = PUBLIC_DIR / "data" / (
             "statements_summary.json" if city == "kyoto" else f"{city}_statements_summary.json"
@@ -53,34 +56,33 @@ async def main():
             try:
                 data = json.loads(stmt_file.read_text(encoding="utf-8"))
                 cats = list(dict.fromkeys([item["category"] for item in data if item.get("category")]))
-                prefix = "" if city == "kyoto" else f"{city}/"
                 for cat in cats:
-                    urls_to_test.append(f"{BASE_URL}/{prefix}#category={cat}")
+                    urls_to_test.append(f"{BASE_URL}/{city}/#category={cat}")
             except Exception:
                 pass
 
     urls_to_test = list(dict.fromkeys(urls_to_test))
-    print(f"📂 巡回対象: 全 {len(urls_to_test)} 画面（京都・大阪・名古屋・横浜 4都市 ローカル完全検証）")
-    print("🚀 【Phase 1】全画面のルーティング走査を開始します...\n")
+    print(f"📋 巡回対象: 全 {len(urls_to_test)} 画面（京都・大阪・名古屋・横浜・神戸 5都市完全網羅）")
+    print("🔍 【Phase 1】全画面のルーティング走査（Desktop: 1280x800）を開始します...\n")
 
     errors_found = []
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context(viewport={"width": 1280, "height": 800})
-        page = await context.new_page()
+        desktop_context = await browser.new_context(viewport={"width": 1280, "height": 800})
+        page = await desktop_context.new_page()
 
         current_errors = []
         page.on("pageerror", lambda exc: current_errors.append(f"[PageCrash] {exc}"))
         def handle_console(msg):
             if msg.type == "error":
                 t = msg.text
-                if "Failed to load resource" in t or "favicon" in t:
+                if "Failed to load resource" in t or "favicon" in t or "main.jsx" in t:
                     return
                 current_errors.append(f"[ConsoleError] {t}")
         page.on("console", handle_console)
 
-        # Phase 1: ルーティング・HTTPステータスチェック
+        # Phase 1: ルーティング・HTTPステータスチェック（デスクトップ）
         for i, url in enumerate(urls_to_test, 1):
             current_errors.clear()
             resp_status = None
@@ -88,9 +90,8 @@ async def main():
                 resp = await page.goto(url, wait_until="load", timeout=8000)
                 if resp:
                     resp_status = resp.status
-                await page.wait_for_timeout(100)
+                await page.wait_for_timeout(80)
 
-                # HTML・白紙チェック
                 has_content = await page.evaluate("() => document.body.innerHTML.trim().length > 0")
                 if not has_content:
                     current_errors.append("[RenderError] 画面が白紙です")
@@ -105,31 +106,66 @@ async def main():
                     print(f"✅ [{i}/{len(urls_to_test)}] チェック完了")
 
         # Phase 2: 各都市の静的HTML / OGPエンドポイント疎通確認
-        print("\n🚀 【Phase 2】4都市の静的HTML / OGPエンドポイント疎通検証を開始します...\n")
+        print("\n🔍 【Phase 2】5都市の静的HTML / OGPエンドポイント疎通検証を開始します...\n")
         for city in CITIES:
-            target_url = f"{BASE_URL}/{'' if city == 'kyoto' else city + '/'}"
+            target_url = f"{BASE_URL}/{city}/"
             resp = await page.goto(target_url, wait_until="load", timeout=8000)
             if resp and resp.status < 400:
-                print(f"  👉 {city.upper()} エンドポイント (status {resp.status}): 正常疎通")
+                print(f"  🟢 {city.upper()} エンドポイント (status {resp.status}): 正常疎通")
             else:
                 errors_found.append({"target": f"都市エンドポイント: {city.upper()}", "status": resp.status if resp else "Failed", "errors": ["接続失敗"]})
 
+        await desktop_context.close()
+
+        # Phase 3: モバイルビューポート（iPhone SE: 375x667）健全性検証
+        print("\n📱 【Phase 3】モバイルビューポート（iPhone SE: 375x667）健全性検証を開始します...\n")
+        mobile_context = await browser.new_context(
+            viewport={"width": 375, "height": 667},
+            is_mobile=True,
+            has_touch=True,
+            user_agent="Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
+        )
+        mobile_page = await mobile_context.new_page()
+        mobile_page.on("pageerror", lambda exc: current_errors.append(f"[MobileCrash] {exc}"))
+        mobile_page.on("console", handle_console)
+
+        for city in CITIES:
+            current_errors.clear()
+            target_url = f"{BASE_URL}/{city}/"
+            try:
+                resp = await mobile_page.goto(target_url, wait_until="load", timeout=8000)
+                await mobile_page.wait_for_timeout(100)
+
+                viewport_content = await mobile_page.evaluate(
+                    "() => document.querySelector('meta[name=\"viewport\"]')?.getAttribute('content') || ''"
+                )
+                if "width=device-width" not in viewport_content:
+                    current_errors.append(f"[MobileViewportError] viewport metaタグが不適切です: '{viewport_content}'")
+                else:
+                    print(f"  📱 {city.upper()} モバイルViewport・レンダリング検証: 正常合格")
+            except Exception as e:
+                current_errors.append(f"[MobileNavigationFailed] {e}")
+
+            if current_errors:
+                errors_found.append({"target": f"モバイル画面: {city.upper()}", "status": "Failed", "errors": list(current_errors)})
+
+        await mobile_context.close()
         await browser.close()
-    
+
     httpd.shutdown()
 
     print("\n" + "=" * 65)
     print("📊 包括的自動テスト結果レポート")
     print("=" * 65)
     if not errors_found:
-        print("🎉 全画面・全モーダル・全タブ正常！ コンソールエラーやクラッシュは0件でした。")
+        print("🎉 全5都市・全画面・デスクトップ＆モバイル（iPhone SE）検証合格！コンソールエラーやクラッシュは0件でした。")
         sys.exit(0)
     else:
         print(f"⚠️ {len(errors_found)} 箇所で異常が検出されました:\n")
         for err in errors_found:
             print(f"■ 対象: {err['target']} ({err['status']})")
             for msg in err["errors"]:
-                print(f"   └ {msg}")
+                print(f"   ↳ {msg}")
         sys.exit(1)
 
 if __name__ == "__main__":

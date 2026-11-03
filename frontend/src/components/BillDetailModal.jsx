@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import useScrollLock from '../hooks/useScrollLock';
+import { useSwipeToClose } from '../hooks/useSwipeToClose';
 import { 
   X, CheckCircle2, XCircle, Sparkles, ExternalLink, User, 
   Flame, BookmarkCheck, ArrowRight, MinusCircle 
@@ -39,6 +40,7 @@ export default function BillDetailModal({
   cityCode = 'kyoto'
 }) {
   useScrollLock(isOpen);
+  const swipeHandlers = useSwipeToClose(onClose, 60);
   if (!isOpen || !bill) return null;
 
   // 1. 各議員の所属会派・無所属ステータスに基づき、賛成議員・反対議員を特定
@@ -144,7 +146,10 @@ export default function BillDetailModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* モバイル専用ドラッグハンドル */}
-        <div className="w-12 h-1.5 bg-slate-300 rounded-full mx-auto my-3 shrink-0 sm:hidden" />
+        <div
+        className="w-12 h-1.5 bg-slate-300 rounded-full mx-auto my-3 shrink-0 sm:hidden cursor-grab touch-none active:bg-slate-400 transition-colors"
+        {...swipeHandlers}
+      />
         {/* モーダルヘッダー */}
         <div className="p-6 border-b border-slate-100 flex items-start justify-between bg-slate-50/70">
           <div className="space-y-1.5 flex-1 pr-4">

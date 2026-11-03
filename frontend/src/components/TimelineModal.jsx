@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { MessageCircle, X, Loader2, ChevronUp, Landmark, ExternalLink } from 'lucide-react';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 import useScrollLock from '../hooks/useScrollLock';
+import { useSwipeToClose } from '../hooks/useSwipeToClose';
 
 /**
  * 発言録アイテムコンポーネント（チャットバブル & 行数制限アコーディオン）
@@ -85,6 +86,7 @@ export default function TimelineModal({
 }) {
   const [showPrevious, setShowPrevious] = useState(false);
   useScrollLock(isOpen);
+  const swipeHandlers = useSwipeToClose(onClose, 60);
 
   useEffect(() => {
     if (isOpen) {
@@ -124,7 +126,10 @@ export default function TimelineModal({
         "
       >
         {/* モバイル専用ドラッグハンドル */}
-        <div className="w-12 h-1.5 bg-slate-300 rounded-full mx-auto my-3 shrink-0 sm:hidden" />
+        <div
+        className="w-12 h-1.5 bg-slate-300 rounded-full mx-auto my-3 shrink-0 sm:hidden cursor-grab touch-none active:bg-slate-400 transition-colors"
+        {...swipeHandlers}
+      />
 
         {/* モーダルヘッダー */}
         <div className="px-5 py-3 border-b border-slate-100 flex items-center justify-between gap-3 bg-white z-10 shrink-0">
