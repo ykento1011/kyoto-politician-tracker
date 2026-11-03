@@ -62,10 +62,7 @@
    * [京都市会 公式会議録検索システム](https://www2.city.kyoto.lg.jp/shikai/)（本会議・常任委員会・特別委員会の会議録原本）
    * [京都市会 本会議 審議結果](https://www2.city.kyoto.lg.jp/shikai/honkaigi/)（議案採決結果・賛否データ）
    * [京都市選挙管理委員会 選挙公報原本（PDF）](https://www.city.kyoto.lg.jp/senkyo/)（2023年京都市議会議員選挙）
-2. **政治議論データ基盤:**
-   * [Sagebase (セージベース)](https://sage-base.com/)
-   * 会議録の発言構造化、人物同定データを利用しています。
-   * ライセンス: [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.ja)
+
 
 ---
 

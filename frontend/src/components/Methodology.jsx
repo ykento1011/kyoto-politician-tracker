@@ -85,27 +85,6 @@ export default function Methodology({ onBack }) {
                 <li>
                   <strong className="text-slate-700">予算・事業公文書:</strong> 各自治体の行財政担当部局が発行する『主要事業説明書』『予算案概要』等の公式公文書各年度資料
                 </li>
-                <li>
-                  <strong className="text-slate-700">政治議論データ基盤:</strong>{' '}
-                  <a
-                    href="https://sage-base.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 font-bold hover:underline inline-flex items-center gap-0.5"
-                  >
-                    Sagebase <ExternalLink className="w-3 h-3 opacity-60" />
-                  </a>
-                  （発言の構造化・人物同定データを利用 / ライセンス:{' '}
-                  <a
-                    href="https://creativecommons.org/licenses/by/4.0/deed.ja"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:underline"
-                  >
-                    CC BY 4.0
-                  </a>
-                  ）
-                </li>
               </ul>
             </div>
 
