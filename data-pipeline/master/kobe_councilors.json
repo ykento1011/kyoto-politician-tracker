@@ -880,5 +880,22 @@
     "is_active": true,
     "resigned_date": null,
     "resigned_reason": null
+  },
+  {
+    "name": "坊 恭寿",
+    "name_hiragana": "ぼう やすなが",
+    "aliases": [
+      "坊やすなが",
+      "坊 恭寿君",
+      "坊恭寿"
+    ],
+    "district": "北区",
+    "party": "自由民主党神戸市会議員団",
+    "partyGroup": "自由民主党",
+    "term": "2023-2026",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2026-01-27",
+    "resigned_reason": "衆議院議員総選挙出馬のため失職（第105代市会議長）"
   }
 ]

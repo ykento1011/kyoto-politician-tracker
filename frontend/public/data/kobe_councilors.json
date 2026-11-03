@@ -11,12 +11,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/赤田かつのり.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/赤田かつのり.jpg"
+    "resigned_reason": null
   },
   {
     "name": "浅井 美佳",
@@ -30,12 +25,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/浅井美佳.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/浅井美佳.jpg"
+    "resigned_reason": null
   },
   {
     "name": "朝倉 えつ子",
@@ -49,12 +39,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/朝倉えつ子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/朝倉えつ子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "味口 としゆき",
@@ -68,12 +53,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/味口としゆき.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/味口としゆき.jpg"
+    "resigned_reason": null
   },
   {
     "name": "あわはら 富夫",
@@ -87,12 +67,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/あわはら富夫.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/あわはら富夫.jpg"
+    "resigned_reason": null
   },
   {
     "name": "諫山 大介",
@@ -106,12 +81,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/諫山大介.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/諫山大介.jpg"
+    "resigned_reason": null
   },
   {
     "name": "伊藤 めぐみ",
@@ -125,12 +95,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/伊藤めぐみ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/伊藤めぐみ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "岩佐 けんや",
@@ -144,12 +109,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/岩佐けんや.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/岩佐けんや.jpg"
+    "resigned_reason": null
   },
   {
     "name": "岩谷 しげなり",
@@ -163,12 +123,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/岩谷しげなり.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/岩谷しげなり.jpg"
+    "resigned_reason": null
   },
   {
     "name": "植中 雅子",
@@ -182,12 +137,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/植中雅子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/植中雅子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "うえなか 美貴子",
@@ -201,12 +151,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/うえなか美貴子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/うえなか美貴子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "上畠 寛弘",
@@ -220,12 +165,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/上畠寛弘.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/上畠寛弘.jpg"
+    "resigned_reason": null
   },
   {
     "name": "上原 みなみ",
@@ -239,12 +179,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/上原みなみ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/上原みなみ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "大井 としひろ",
@@ -258,12 +193,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/大井としひろ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/大井としひろ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "大かわら 鈴子",
@@ -277,12 +207,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/大かわら鈴子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/大かわら鈴子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "大野 陽平",
@@ -296,12 +221,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/大野陽平.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/大野陽平.jpg"
+    "resigned_reason": null
   },
   {
     "name": "岡田 ゆうじ",
@@ -315,12 +235,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/岡田ゆうじ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/岡田ゆうじ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "香川 真二",
@@ -334,12 +249,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/香川真二.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/香川真二.jpg"
+    "resigned_reason": null
   },
   {
     "name": "かじ 幸夫",
@@ -353,12 +263,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/かじ幸夫.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/かじ幸夫.jpg"
+    "resigned_reason": null
   },
   {
     "name": "門田 まゆみ",
@@ -372,12 +277,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/門田まゆみ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/門田まゆみ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "川内 清尚",
@@ -391,12 +291,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/川内清尚.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/川内清尚.jpg"
+    "resigned_reason": null
   },
   {
     "name": "川口 まさる",
@@ -410,12 +305,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/川口まさる.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/川口まさる.jpg"
+    "resigned_reason": null
   },
   {
     "name": "河南 忠和",
@@ -429,12 +319,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/河南忠和.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/河南忠和.jpg"
+    "resigned_reason": null
   },
   {
     "name": "木戸 さだかず",
@@ -448,12 +333,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/木戸さだかず.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/木戸さだかず.jpg"
+    "resigned_reason": null
   },
   {
     "name": "黒田 武志",
@@ -467,12 +347,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/黒田武志.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/黒田武志.jpg"
+    "resigned_reason": null
   },
   {
     "name": "坂口 有希子",
@@ -486,12 +361,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/坂口有希子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/坂口有希子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "さとう まちこ",
@@ -505,12 +375,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/さとうまちこ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/さとうまちこ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "しらくに 高太郎",
@@ -524,12 +389,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/しらくに高太郎.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/しらくに高太郎.jpg"
+    "resigned_reason": null
   },
   {
     "name": "菅野 吉記",
@@ -543,12 +403,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/菅野吉記.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/菅野吉記.jpg"
+    "resigned_reason": null
   },
   {
     "name": "住本 かずのり",
@@ -562,12 +417,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/住本かずのり.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/住本かずのり.jpg"
+    "resigned_reason": null
   },
   {
     "name": "外海 開三",
@@ -581,12 +431,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/外海開三.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/外海開三.jpg"
+    "resigned_reason": null
   },
   {
     "name": "髙瀬 勝也",
@@ -600,12 +445,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/髙瀬勝也.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/髙瀬勝也.jpg"
+    "resigned_reason": null
   },
   {
     "name": "高橋 としえ",
@@ -619,12 +459,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/高橋としえ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/高橋としえ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "堂下 豊史",
@@ -638,12 +473,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/堂下豊史.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/堂下豊史.jpg"
+    "resigned_reason": null
   },
   {
     "name": "徳山 敏子",
@@ -657,12 +487,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/徳山敏子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/徳山敏子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "ながさわ 淳一",
@@ -676,12 +501,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/ながさわ淳一.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/ながさわ淳一.jpg"
+    "resigned_reason": null
   },
   {
     "name": "なんの ゆうこ",
@@ -695,12 +515,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/なんのゆうこ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/なんのゆうこ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "西 ただす",
@@ -714,12 +529,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/西ただす.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/西ただす.jpg"
+    "resigned_reason": null
   },
   {
     "name": "のまち 圭一",
@@ -733,12 +543,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/のまち圭一.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/のまち圭一.jpg"
+    "resigned_reason": null
   },
   {
     "name": "萩原 泰三",
@@ -752,12 +557,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/萩原泰三.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/萩原泰三.jpg"
+    "resigned_reason": null
   },
   {
     "name": "原 直樹",
@@ -771,12 +571,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/原直樹.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/原直樹.jpg"
+    "resigned_reason": null
   },
   {
     "name": "平井 真千子",
@@ -790,12 +585,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/平井真千子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/平井真千子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "平田 正",
@@ -809,12 +599,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/平田正.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/平田正.jpg"
+    "resigned_reason": null
   },
   {
     "name": "平野 章三",
@@ -828,12 +613,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/平野章三.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/平野章三.jpg"
+    "resigned_reason": null
   },
   {
     "name": "平野 達司",
@@ -847,12 +627,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/平野達司.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/平野達司.jpg"
+    "resigned_reason": null
   },
   {
     "name": "細谷 典功",
@@ -866,12 +641,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/細谷典功.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/細谷典功.jpg"
+    "resigned_reason": null
   },
   {
     "name": "前田 あきら",
@@ -885,12 +655,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/前田あきら.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/前田あきら.jpg"
+    "resigned_reason": null
   },
   {
     "name": "松本 しゅうじ",
@@ -904,12 +669,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/松本しゅうじ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/松本しゅうじ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "松本 のり子",
@@ -923,12 +683,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/松本のり子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/松本のり子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "三木 しんじろう",
@@ -942,12 +697,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/三木しんじろう.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/三木しんじろう.jpg"
+    "resigned_reason": null
   },
   {
     "name": "壬生 潤",
@@ -961,12 +711,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/壬生潤.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/08tarumi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/壬生潤.jpg"
+    "resigned_reason": null
   },
   {
     "name": "宮田 公子",
@@ -980,12 +725,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/宮田公子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/宮田公子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "村上 立真",
@@ -999,12 +739,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/村上立真.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/04hyogo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/村上立真.jpg"
+    "resigned_reason": null
   },
   {
     "name": "村野 誠一",
@@ -1018,12 +753,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/村野誠一.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/07suma.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/村野誠一.jpg"
+    "resigned_reason": null
   },
   {
     "name": "森田 たき子",
@@ -1037,12 +767,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/森田たき子.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/森田たき子.jpg"
+    "resigned_reason": null
   },
   {
     "name": "森本 真",
@@ -1056,12 +781,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/森本真.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/06nagata.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/森本真.jpg"
+    "resigned_reason": null
   },
   {
     "name": "やの こうじ",
@@ -1075,12 +795,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/やのこうじ.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/01higashinada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/やのこうじ.jpg"
+    "resigned_reason": null
   },
   {
     "name": "山口 由美",
@@ -1094,12 +809,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/山口由美.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/山口由美.jpg"
+    "resigned_reason": null
   },
   {
     "name": "山下 てんせい",
@@ -1113,12 +823,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/山下てんせい.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/山下てんせい.jpg"
+    "resigned_reason": null
   },
   {
     "name": "山本 のりかず",
@@ -1132,12 +837,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/山本のりかず.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/05kita.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/山本のりかず.jpg"
+    "resigned_reason": null
   },
   {
     "name": "よこはた 和幸",
@@ -1151,12 +851,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/よこはた和幸.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/03chuo.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/よこはた和幸.jpg"
+    "resigned_reason": null
   },
   {
     "name": "吉田 健吾",
@@ -1170,12 +865,7 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/吉田健吾.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/02nada.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/吉田健吾.jpg"
+    "resigned_reason": null
   },
   {
     "name": "吉田 謙治",
@@ -1189,11 +879,23 @@
     "status": "active",
     "is_active": true,
     "resigned_date": null,
-    "resigned_reason": null,
-    "image_url": "/councilors/kobe/吉田謙治.jpg",
-    "bulletin_url": "https://www.city.kobe.lg.jp/documents/23740/09nishi.pdf",
-    "official_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=6276&schedule_id=4&is_search=false&view_years=2025",
-    "photo_url": "/councilors/kobe/吉田謙治.jpg"
+    "resigned_reason": null
+  },
+  {
+    "name": "坊 恭寿",
+    "name_hiragana": "ぼう やすなが",
+    "aliases": [
+      "坊やすなが",
+      "坊 恭寿君",
+      "坊恭寿"
+    ],
+    "district": "北区",
+    "party": "自由民主党神戸市会議員団",
+    "partyGroup": "自由民主党",
+    "term": "2023-2026",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2026-01-27",
+    "resigned_reason": "衆議院議員総選挙出馬のため失職（第105代市会議長）"
   }
 ]

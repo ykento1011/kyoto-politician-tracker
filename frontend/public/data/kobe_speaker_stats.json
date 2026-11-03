@@ -1,1143 +1,1975 @@
-[
-  {
-    "speaker": "河南 忠和",
-    "district": "中央区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 58,
-    "avg_evidence": 2.69,
-    "avg_solution": 3.19,
-    "avg_local_focus": 3.21,
-    "avg_constructive": 3.17,
-    "categories": {
-      "都市再生・交通インフラ": 17,
-      "くらし・環境・エネルギー": 4,
-      "財政・行革": 15,
-      "防災・減災・治安": 2,
-      "産業・観光・地域経済": 7,
-      "福祉・医療・健康": 5,
-      "文化・景観・歴史": 4,
-      "子育て・教育": 4
-    }
-  },
-  {
-    "speaker": "山下 てんせい",
-    "district": "西区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 66,
-    "avg_evidence": 2.45,
-    "avg_solution": 2.89,
-    "avg_local_focus": 3.05,
-    "avg_constructive": 2.83,
-    "categories": {
-      "都市再生・交通インフラ": 17,
-      "子育て・教育": 20,
-      "福祉・医療・健康": 12,
-      "くらし・環境・エネルギー": 3,
-      "財政・行革": 6,
-      "防災・減災・治安": 1,
-      "産業・観光・地域経済": 6,
-      "文化・景観・歴史": 1
-    }
-  },
-  {
-    "speaker": "あわはら 富夫",
-    "district": "中央区",
-    "party": "つなぐ",
-    "partyGroup": "つなぐ",
-    "count": 85,
-    "avg_evidence": 2.61,
-    "avg_solution": 3.0,
-    "avg_local_focus": 3.18,
-    "avg_constructive": 3.04,
-    "categories": {
-      "都市再生・交通インフラ": 27,
-      "産業・観光・地域経済": 12,
-      "文化・景観・歴史": 9,
-      "防災・減災・治安": 2,
-      "くらし・環境・エネルギー": 11,
-      "財政・行革": 10,
-      "福祉・医療・健康": 6,
-      "子育て・教育": 8
-    }
-  },
-  {
-    "speaker": "山本 のりかず",
-    "district": "北区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 68,
-    "avg_evidence": 2.72,
-    "avg_solution": 3.12,
-    "avg_local_focus": 3.28,
-    "avg_constructive": 2.79,
-    "categories": {
-      "都市再生・交通インフラ": 33,
-      "産業・観光・地域経済": 6,
-      "くらし・環境・エネルギー": 4,
-      "子育て・教育": 15,
-      "福祉・医療・健康": 4,
-      "財政・行革": 5,
-      "文化・景観・歴史": 1
-    }
-  },
-  {
-    "speaker": "坂口 有希子",
-    "district": "長田区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 16,
-    "avg_evidence": 2.19,
-    "avg_solution": 2.75,
-    "avg_local_focus": 2.69,
-    "avg_constructive": 2.19,
-    "categories": {
-      "都市再生・交通インフラ": 2,
-      "産業・観光・地域経済": 1,
-      "子育て・教育": 8,
-      "くらし・環境・エネルギー": 2,
-      "福祉・医療・健康": 2,
-      "財政・行革": 1
-    }
-  },
-  {
-    "speaker": "味口 としゆき",
-    "district": "灘区",
-    "party": "日本共産党",
-    "partyGroup": "日本共産党",
-    "count": 126,
-    "avg_evidence": 2.59,
-    "avg_solution": 2.75,
-    "avg_local_focus": 2.8,
-    "avg_constructive": 2.81,
-    "categories": {
-      "子育て・教育": 24,
-      "福祉・医療・健康": 40,
-      "財政・行革": 24,
-      "くらし・環境・エネルギー": 15,
-      "都市再生・交通インフラ": 14,
-      "防災・減災・治安": 9
-    }
-  },
-  {
-    "speaker": "村野 誠一",
-    "district": "須磨区",
-    "party": "新しい自民党",
-    "partyGroup": "新しい自民党",
-    "count": 101,
-    "avg_evidence": 2.39,
-    "avg_solution": 2.9,
-    "avg_local_focus": 2.84,
-    "avg_constructive": 2.9,
-    "categories": {
-      "子育て・教育": 36,
-      "防災・減災・治安": 9,
-      "財政・行革": 21,
-      "くらし・環境・エネルギー": 14,
-      "福祉・医療・健康": 9,
-      "都市再生・交通インフラ": 11,
-      "産業・観光・地域経済": 1
-    }
-  },
-  {
-    "speaker": "菅野 吉記",
-    "district": "兵庫区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 27,
-    "avg_evidence": 3.04,
-    "avg_solution": 3.15,
-    "avg_local_focus": 3.04,
-    "avg_constructive": 3.04,
-    "categories": {
-      "子育て・教育": 13,
-      "福祉・医療・健康": 4,
-      "都市再生・交通インフラ": 1,
-      "文化・景観・歴史": 1,
-      "産業・観光・地域経済": 2,
-      "防災・減災・治安": 5,
-      "くらし・環境・エネルギー": 1
-    }
-  },
-  {
-    "speaker": "かじ 幸夫",
-    "district": "西区",
-    "party": "こうべ未来",
-    "partyGroup": "こうべ未来",
-    "count": 44,
-    "avg_evidence": 2.45,
-    "avg_solution": 2.91,
-    "avg_local_focus": 2.82,
-    "avg_constructive": 2.82,
-    "categories": {
-      "子育て・教育": 11,
-      "財政・行革": 9,
-      "都市再生・交通インフラ": 12,
-      "くらし・環境・エネルギー": 2,
-      "産業・観光・地域経済": 2,
-      "福祉・医療・健康": 4,
-      "文化・景観・歴史": 1,
-      "防災・減災・治安": 3
-    }
-  },
-  {
-    "speaker": "さとう まちこ",
-    "district": "垂水区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 77,
-    "avg_evidence": 2.44,
-    "avg_solution": 2.99,
-    "avg_local_focus": 2.77,
-    "avg_constructive": 2.79,
-    "categories": {
-      "子育て・教育": 38,
-      "防災・減災・治安": 4,
-      "福祉・医療・健康": 14,
-      "財政・行革": 8,
-      "都市再生・交通インフラ": 2,
-      "文化・景観・歴史": 3,
-      "くらし・環境・エネルギー": 2,
-      "産業・観光・地域経済": 6
-    }
-  },
-  {
-    "speaker": "吉田 健吾",
-    "district": "灘区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 32,
-    "avg_evidence": 2.19,
-    "avg_solution": 2.25,
-    "avg_local_focus": 2.31,
-    "avg_constructive": 2.22,
-    "categories": {
-      "子育て・教育": 6,
-      "財政・行革": 7,
-      "くらし・環境・エネルギー": 6,
-      "福祉・医療・健康": 7,
-      "産業・観光・地域経済": 5,
-      "防災・減災・治安": 1
-    }
-  },
-  {
-    "speaker": "浅井 美佳",
-    "district": "灘区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 24,
-    "avg_evidence": 2.46,
-    "avg_solution": 3.08,
-    "avg_local_focus": 2.83,
-    "avg_constructive": 2.62,
-    "categories": {
-      "福祉・医療・健康": 5,
-      "子育て・教育": 9,
-      "財政・行革": 3,
-      "くらし・環境・エネルギー": 1,
-      "都市再生・交通インフラ": 5,
-      "産業・観光・地域経済": 1
-    }
-  },
-  {
-    "speaker": "上原 みなみ",
-    "district": "北区",
-    "party": "無所属",
-    "partyGroup": "無所属",
-    "count": 57,
-    "avg_evidence": 2.58,
-    "avg_solution": 3.0,
-    "avg_local_focus": 3.11,
-    "avg_constructive": 2.79,
-    "categories": {
-      "福祉・医療・健康": 3,
-      "子育て・教育": 15,
-      "都市再生・交通インフラ": 11,
-      "防災・減災・治安": 5,
-      "くらし・環境・エネルギー": 6,
-      "文化・景観・歴史": 1,
-      "財政・行革": 9,
-      "産業・観光・地域経済": 7
-    }
-  },
-  {
-    "speaker": "三木 しんじろう",
-    "district": "中央区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 36,
-    "avg_evidence": 2.78,
-    "avg_solution": 3.14,
-    "avg_local_focus": 2.92,
-    "avg_constructive": 3.19,
-    "categories": {
-      "子育て・教育": 25,
-      "福祉・医療・健康": 4,
-      "財政・行革": 1,
-      "都市再生・交通インフラ": 4,
-      "産業・観光・地域経済": 1,
-      "くらし・環境・エネルギー": 1
-    }
-  },
-  {
-    "speaker": "前田 あきら",
-    "district": "須磨区",
-    "party": "日本共産党",
-    "partyGroup": "日本共産党",
-    "count": 42,
-    "avg_evidence": 2.83,
-    "avg_solution": 3.29,
-    "avg_local_focus": 3.19,
-    "avg_constructive": 2.88,
-    "categories": {
-      "都市再生・交通インフラ": 8,
-      "くらし・環境・エネルギー": 2,
-      "財政・行革": 7,
-      "防災・減災・治安": 2,
-      "子育て・教育": 20,
-      "福祉・医療・健康": 2,
-      "産業・観光・地域経済": 1
-    }
-  },
-  {
+{
+  "赤田 かつのり": {
+    "name": "赤田 かつのり",
     "speaker": "赤田 かつのり",
-    "district": "垂水区",
     "party": "日本共産党",
     "partyGroup": "日本共産党",
-    "count": 42,
-    "avg_evidence": 3.1,
-    "avg_solution": 3.07,
-    "avg_local_focus": 3.19,
-    "avg_constructive": 3.0,
-    "categories": {
-      "産業・観光・地域経済": 7,
-      "くらし・環境・エネルギー": 6,
-      "財政・行革": 11,
-      "文化・景観・歴史": 4,
-      "都市再生・交通インフラ": 8,
-      "福祉・医療・健康": 4,
-      "子育て・教育": 2
-    }
+    "district": "垂水区",
+    "aliases": [
+      "赤田かつのり"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "諫山 大介",
+  "赤田かつのり": {
+    "name": "赤田 かつのり",
+    "speaker": "赤田 かつのり",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "垂水区",
+    "aliases": [
+      "赤田かつのり"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "浅井 美佳": {
+    "name": "浅井 美佳",
+    "speaker": "浅井 美佳",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "灘区",
-    "party": "こうべ未来",
-    "partyGroup": "こうべ未来",
-    "count": 34,
-    "avg_evidence": 2.62,
-    "avg_solution": 2.82,
-    "avg_local_focus": 2.79,
-    "avg_constructive": 2.76,
-    "categories": {
-      "文化・景観・歴史": 2,
-      "都市再生・交通インフラ": 4,
-      "子育て・教育": 14,
-      "産業・観光・地域経済": 5,
-      "財政・行革": 4,
-      "福祉・医療・健康": 4,
-      "くらし・環境・エネルギー": 1
-    }
+    "aliases": [
+      "浅井美佳"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "川口 まさる",
+  "浅井美佳": {
+    "name": "浅井 美佳",
+    "speaker": "浅井 美佳",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
     "district": "灘区",
-    "party": "躍動の会",
-    "partyGroup": "躍動の会",
-    "count": 41,
-    "avg_evidence": 2.51,
-    "avg_solution": 2.66,
-    "avg_local_focus": 2.85,
-    "avg_constructive": 2.63,
-    "categories": {
-      "福祉・医療・健康": 4,
-      "財政・行革": 13,
-      "都市再生・交通インフラ": 15,
-      "くらし・環境・エネルギー": 6,
-      "防災・減災・治安": 2,
-      "産業・観光・地域経済": 1
-    }
+    "aliases": [
+      "浅井美佳"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "香川 真二",
-    "district": "西区",
+  "朝倉 えつ子": {
+    "name": "朝倉 えつ子",
+    "speaker": "朝倉 えつ子",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "北区",
+    "aliases": [
+      "朝倉えつ子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "朝倉えつ子": {
+    "name": "朝倉 えつ子",
+    "speaker": "朝倉 えつ子",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "北区",
+    "aliases": [
+      "朝倉えつ子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "味口 としゆき": {
+    "name": "味口 としゆき",
+    "speaker": "味口 としゆき",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "灘区",
+    "aliases": [
+      "味口としゆき"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "味口としゆき": {
+    "name": "味口 としゆき",
+    "speaker": "味口 としゆき",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "灘区",
+    "aliases": [
+      "味口としゆき"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "あわはら 富夫": {
+    "name": "あわはら 富夫",
+    "speaker": "あわはら 富夫",
     "party": "つなぐ",
     "partyGroup": "つなぐ",
-    "count": 78,
-    "avg_evidence": 2.26,
-    "avg_solution": 2.6,
-    "avg_local_focus": 2.85,
-    "avg_constructive": 2.58,
-    "categories": {
-      "文化・景観・歴史": 1,
-      "福祉・医療・健康": 19,
-      "子育て・教育": 4,
-      "財政・行革": 14,
-      "くらし・環境・エネルギー": 16,
-      "防災・減災・治安": 12,
-      "産業・観光・地域経済": 4,
-      "都市再生・交通インフラ": 8
-    }
+    "district": "中央区",
+    "aliases": [
+      "あわはら富夫"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "植中 雅子",
-    "district": "北区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 56,
-    "avg_evidence": 2.61,
-    "avg_solution": 2.84,
-    "avg_local_focus": 2.89,
-    "avg_constructive": 2.54,
-    "categories": {
-      "くらし・環境・エネルギー": 12,
-      "財政・行革": 6,
-      "福祉・医療・健康": 22,
-      "防災・減災・治安": 1,
-      "都市再生・交通インフラ": 2,
-      "子育て・教育": 12,
-      "産業・観光・地域経済": 1
-    }
+  "あわはら富夫": {
+    "name": "あわはら 富夫",
+    "speaker": "あわはら 富夫",
+    "party": "つなぐ",
+    "partyGroup": "つなぐ",
+    "district": "中央区",
+    "aliases": [
+      "あわはら富夫"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "大野 陽平",
-    "district": "東灘区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 17,
-    "avg_evidence": 2.29,
-    "avg_solution": 2.47,
-    "avg_local_focus": 2.76,
-    "avg_constructive": 2.47,
-    "categories": {
-      "福祉・医療・健康": 2,
-      "財政・行革": 5,
-      "都市再生・交通インフラ": 4,
-      "子育て・教育": 4,
-      "産業・観光・地域経済": 1,
-      "防災・減災・治安": 1
-    }
-  },
-  {
-    "speaker": "宮田 公子",
-    "district": "西区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 31,
-    "avg_evidence": 2.81,
-    "avg_solution": 3.0,
-    "avg_local_focus": 3.03,
-    "avg_constructive": 2.61,
-    "categories": {
-      "子育て・教育": 4,
-      "福祉・医療・健康": 15,
-      "くらし・環境・エネルギー": 4,
-      "産業・観光・地域経済": 2,
-      "防災・減災・治安": 1,
-      "財政・行革": 2,
-      "都市再生・交通インフラ": 3
-    }
-  },
-  {
-    "speaker": "細谷 典功",
-    "district": "垂水区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 30,
-    "avg_evidence": 2.53,
-    "avg_solution": 2.93,
-    "avg_local_focus": 3.3,
-    "avg_constructive": 2.53,
-    "categories": {
-      "福祉・医療・健康": 3,
-      "くらし・環境・エネルギー": 4,
-      "防災・減災・治安": 6,
-      "都市再生・交通インフラ": 14,
-      "子育て・教育": 1,
-      "財政・行革": 2
-    }
-  },
-  {
-    "speaker": "平野 達司",
-    "district": "兵庫区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 21,
-    "avg_evidence": 2.48,
-    "avg_solution": 2.95,
-    "avg_local_focus": 3.14,
-    "avg_constructive": 2.86,
-    "categories": {
-      "財政・行革": 2,
-      "都市再生・交通インフラ": 8,
-      "防災・減災・治安": 3,
-      "文化・景観・歴史": 1,
-      "福祉・医療・健康": 4,
-      "子育て・教育": 1,
-      "産業・観光・地域経済": 2
-    }
-  },
-  {
-    "speaker": "ながさわ 淳一",
-    "district": "長田区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 25,
-    "avg_evidence": 2.64,
-    "avg_solution": 2.6,
-    "avg_local_focus": 2.8,
-    "avg_constructive": 2.48,
-    "categories": {
-      "都市再生・交通インフラ": 2,
-      "産業・観光・地域経済": 5,
-      "防災・減災・治安": 1,
-      "文化・景観・歴史": 1,
-      "財政・行革": 10,
-      "福祉・医療・健康": 1,
-      "子育て・教育": 1,
-      "くらし・環境・エネルギー": 4
-    }
-  },
-  {
-    "speaker": "松本 のり子",
-    "district": "東灘区",
-    "party": "日本共産党",
-    "partyGroup": "日本共産党",
-    "count": 69,
-    "avg_evidence": 2.67,
-    "avg_solution": 2.96,
-    "avg_local_focus": 3.22,
-    "avg_constructive": 2.72,
-    "categories": {
-      "財政・行革": 10,
-      "都市再生・交通インフラ": 29,
-      "くらし・環境・エネルギー": 13,
-      "福祉・医療・健康": 8,
-      "産業・観光・地域経済": 3,
-      "子育て・教育": 6
-    }
-  },
-  {
-    "speaker": "大かわら 鈴子",
-    "district": "兵庫区",
-    "party": "日本共産党",
-    "partyGroup": "日本共産党",
-    "count": 27,
-    "avg_evidence": 2.33,
-    "avg_solution": 2.37,
-    "avg_local_focus": 2.74,
-    "avg_constructive": 1.89,
-    "categories": {
-      "くらし・環境・エネルギー": 6,
-      "産業・観光・地域経済": 3,
-      "子育て・教育": 1,
-      "財政・行革": 9,
-      "福祉・医療・健康": 3,
-      "文化・景観・歴史": 1,
-      "防災・減災・治安": 2,
-      "都市再生・交通インフラ": 2
-    }
-  },
-  {
-    "speaker": "やの こうじ",
-    "district": "東灘区",
+  "諫山 大介": {
+    "name": "諫山 大介",
+    "speaker": "諫山 大介",
     "party": "こうべ未来",
     "partyGroup": "こうべ未来",
-    "count": 40,
-    "avg_evidence": 2.55,
-    "avg_solution": 2.95,
-    "avg_local_focus": 2.85,
-    "avg_constructive": 2.42,
-    "categories": {
-      "子育て・教育": 22,
-      "財政・行革": 3,
-      "産業・観光・地域経済": 2,
-      "福祉・医療・健康": 8,
-      "くらし・環境・エネルギー": 2,
-      "防災・減災・治安": 1,
-      "都市再生・交通インフラ": 2
-    }
+    "district": "灘区",
+    "aliases": [
+      "諫山大介"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "吉田 謙治",
-    "district": "西区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 46,
-    "avg_evidence": 2.11,
-    "avg_solution": 2.41,
-    "avg_local_focus": 1.83,
-    "avg_constructive": 2.09,
-    "categories": {
-      "福祉・医療・健康": 2,
-      "くらし・環境・エネルギー": 12,
-      "財政・行革": 20,
-      "文化・景観・歴史": 2,
-      "都市再生・交通インフラ": 2,
-      "子育て・教育": 3,
-      "防災・減災・治安": 3,
-      "産業・観光・地域経済": 2
-    }
-  },
-  {
-    "speaker": "上畠 寛弘",
-    "district": "東灘区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 44,
-    "avg_evidence": 2.3,
-    "avg_solution": 2.77,
-    "avg_local_focus": 2.82,
-    "avg_constructive": 2.48,
-    "categories": {
-      "財政・行革": 16,
-      "産業・観光・地域経済": 3,
-      "都市再生・交通インフラ": 14,
-      "くらし・環境・エネルギー": 5,
-      "福祉・医療・健康": 2,
-      "防災・減災・治安": 3,
-      "文化・景観・歴史": 1
-    }
-  },
-  {
-    "speaker": "住本 かずのり",
-    "district": "須磨区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 23,
-    "avg_evidence": 2.78,
-    "avg_solution": 3.04,
-    "avg_local_focus": 3.35,
-    "avg_constructive": 3.22,
-    "categories": {
-      "財政・行革": 3,
-      "くらし・環境・エネルギー": 5,
-      "防災・減災・治安": 2,
-      "子育て・教育": 2,
-      "都市再生・交通インフラ": 3,
-      "産業・観光・地域経済": 7,
-      "福祉・医療・健康": 1
-    }
-  },
-  {
-    "speaker": "のまち 圭一",
-    "district": "中央区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 41,
-    "avg_evidence": 2.66,
-    "avg_solution": 3.27,
-    "avg_local_focus": 3.46,
-    "avg_constructive": 3.17,
-    "categories": {
-      "都市再生・交通インフラ": 21,
-      "財政・行革": 3,
-      "くらし・環境・エネルギー": 2,
-      "産業・観光・地域経済": 8,
-      "文化・景観・歴史": 3,
-      "福祉・医療・健康": 3,
-      "子育て・教育": 1
-    }
-  },
-  {
-    "speaker": "岩佐 けんや",
-    "district": "東灘区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 39,
-    "avg_evidence": 2.77,
-    "avg_solution": 2.97,
-    "avg_local_focus": 2.9,
-    "avg_constructive": 2.67,
-    "categories": {
-      "福祉・医療・健康": 10,
-      "産業・観光・地域経済": 9,
-      "文化・景観・歴史": 4,
-      "防災・減災・治安": 3,
-      "財政・行革": 2,
-      "子育て・教育": 5,
-      "くらし・環境・エネルギー": 6
-    }
-  },
-  {
-    "speaker": "森田 たき子",
-    "district": "西区",
-    "party": "日本共産党",
-    "partyGroup": "日本共産党",
-    "count": 44,
-    "avg_evidence": 3.02,
-    "avg_solution": 3.07,
-    "avg_local_focus": 3.36,
-    "avg_constructive": 3.09,
-    "categories": {
-      "くらし・環境・エネルギー": 14,
-      "産業・観光・地域経済": 5,
-      "文化・景観・歴史": 6,
-      "子育て・教育": 5,
-      "都市再生・交通インフラ": 5,
-      "財政・行革": 1,
-      "防災・減災・治安": 2,
-      "福祉・医療・健康": 6
-    }
-  },
-  {
-    "speaker": "よこはた 和幸",
-    "district": "中央区",
+  "諫山大介": {
+    "name": "諫山 大介",
+    "speaker": "諫山 大介",
     "party": "こうべ未来",
     "partyGroup": "こうべ未来",
-    "count": 23,
-    "avg_evidence": 2.04,
-    "avg_solution": 1.87,
-    "avg_local_focus": 1.74,
-    "avg_constructive": 1.74,
-    "categories": {
-      "財政・行革": 10,
-      "文化・景観・歴史": 1,
-      "くらし・環境・エネルギー": 6,
-      "福祉・医療・健康": 1,
-      "防災・減災・治安": 3,
-      "産業・観光・地域経済": 1,
-      "都市再生・交通インフラ": 1
-    }
+    "district": "灘区",
+    "aliases": [
+      "諫山大介"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "平井 真千子",
-    "district": "長田区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 30,
-    "avg_evidence": 2.43,
-    "avg_solution": 3.1,
-    "avg_local_focus": 2.6,
-    "avg_constructive": 2.6,
-    "categories": {
-      "財政・行革": 11,
-      "子育て・教育": 6,
-      "防災・減災・治安": 3,
-      "福祉・医療・健康": 5,
-      "都市再生・交通インフラ": 3,
-      "産業・観光・地域経済": 1,
-      "くらし・環境・エネルギー": 1
-    }
-  },
-  {
+  "伊藤 めぐみ": {
+    "name": "伊藤 めぐみ",
     "speaker": "伊藤 めぐみ",
-    "district": "北区",
     "party": "こうべ未来",
     "partyGroup": "こうべ未来",
-    "count": 40,
-    "avg_evidence": 2.55,
-    "avg_solution": 2.92,
-    "avg_local_focus": 3.12,
-    "avg_constructive": 2.75,
-    "categories": {
-      "福祉・医療・健康": 2,
-      "都市再生・交通インフラ": 6,
-      "産業・観光・地域経済": 11,
-      "防災・減災・治安": 8,
-      "文化・景観・歴史": 6,
-      "財政・行革": 3,
-      "くらし・環境・エネルギー": 2,
-      "子育て・教育": 2
-    }
+    "district": "北区",
+    "aliases": [
+      "伊藤めぐみ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "平野 章三",
-    "district": "垂水区",
+  "伊藤めぐみ": {
+    "name": "伊藤 めぐみ",
+    "speaker": "伊藤 めぐみ",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "北区",
+    "aliases": [
+      "伊藤めぐみ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "岩佐 けんや": {
+    "name": "岩佐 けんや",
+    "speaker": "岩佐 けんや",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "東灘区",
+    "aliases": [
+      "岩佐けんや"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "岩佐けんや": {
+    "name": "岩佐 けんや",
+    "speaker": "岩佐 けんや",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "東灘区",
+    "aliases": [
+      "岩佐けんや"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "岩谷 しげなり": {
+    "name": "岩谷 しげなり",
+    "speaker": "岩谷 しげなり",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "兵庫区",
+    "aliases": [
+      "岩谷しげなり"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "岩谷しげなり": {
+    "name": "岩谷 しげなり",
+    "speaker": "岩谷 しげなり",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "兵庫区",
+    "aliases": [
+      "岩谷しげなり"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "植中 雅子": {
+    "name": "植中 雅子",
+    "speaker": "植中 雅子",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "北区",
+    "aliases": [
+      "植中雅子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "植中雅子": {
+    "name": "植中 雅子",
+    "speaker": "植中 雅子",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "北区",
+    "aliases": [
+      "植中雅子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "うえなか 美貴子": {
+    "name": "うえなか 美貴子",
+    "speaker": "うえなか 美貴子",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "北区",
+    "aliases": [
+      "うえなか美貴子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "うえなか美貴子": {
+    "name": "うえなか 美貴子",
+    "speaker": "うえなか 美貴子",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "北区",
+    "aliases": [
+      "うえなか美貴子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "上畠 寛弘": {
+    "name": "上畠 寛弘",
+    "speaker": "上畠 寛弘",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "東灘区",
+    "aliases": [
+      "上畠寛弘"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "上畠寛弘": {
+    "name": "上畠 寛弘",
+    "speaker": "上畠 寛弘",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "東灘区",
+    "aliases": [
+      "上畠寛弘"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "上原 みなみ": {
+    "name": "上原 みなみ",
+    "speaker": "上原 みなみ",
     "party": "無所属",
     "partyGroup": "無所属",
-    "count": 39,
-    "avg_evidence": 2.23,
-    "avg_solution": 2.79,
-    "avg_local_focus": 2.51,
-    "avg_constructive": 2.69,
-    "categories": {
-      "都市再生・交通インフラ": 6,
-      "財政・行革": 17,
-      "文化・景観・歴史": 2,
-      "産業・観光・地域経済": 10,
-      "くらし・環境・エネルギー": 1,
-      "子育て・教育": 3
-    }
+    "district": "北区",
+    "aliases": [
+      "上原みなみ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "なんの ゆうこ",
-    "district": "東灘区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 37,
-    "avg_evidence": 2.3,
-    "avg_solution": 2.65,
-    "avg_local_focus": 2.59,
-    "avg_constructive": 2.19,
-    "categories": {
-      "都市再生・交通インフラ": 7,
-      "くらし・環境・エネルギー": 6,
-      "防災・減災・治安": 5,
-      "財政・行革": 6,
-      "文化・景観・歴史": 1,
-      "産業・観光・地域経済": 1,
-      "福祉・医療・健康": 4,
-      "子育て・教育": 7
-    }
+  "上原みなみ": {
+    "name": "上原 みなみ",
+    "speaker": "上原 みなみ",
+    "party": "無所属",
+    "partyGroup": "無所属",
+    "district": "北区",
+    "aliases": [
+      "上原みなみ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "しらくに 高太郎",
-    "district": "垂水区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 37,
-    "avg_evidence": 2.27,
-    "avg_solution": 2.49,
-    "avg_local_focus": 2.16,
-    "avg_constructive": 2.32,
-    "categories": {
-      "福祉・医療・健康": 3,
-      "財政・行革": 11,
-      "くらし・環境・エネルギー": 6,
-      "文化・景観・歴史": 1,
-      "子育て・教育": 9,
-      "都市再生・交通インフラ": 2,
-      "産業・観光・地域経済": 1,
-      "防災・減災・治安": 4
-    }
-  },
-  {
-    "speaker": "黒田 武志",
-    "district": "西区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 40,
-    "avg_evidence": 2.65,
-    "avg_solution": 2.98,
-    "avg_local_focus": 2.85,
-    "avg_constructive": 2.92,
-    "categories": {
-      "防災・減災・治安": 1,
-      "くらし・環境・エネルギー": 3,
-      "財政・行革": 17,
-      "都市再生・交通インフラ": 10,
-      "文化・景観・歴史": 1,
-      "産業・観光・地域経済": 4,
-      "福祉・医療・健康": 1,
-      "子育て・教育": 3
-    }
-  },
-  {
-    "speaker": "岩谷 しげなり",
-    "district": "兵庫区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 30,
-    "avg_evidence": 2.3,
-    "avg_solution": 2.73,
-    "avg_local_focus": 2.43,
-    "avg_constructive": 2.73,
-    "categories": {
-      "産業・観光・地域経済": 4,
-      "財政・行革": 10,
-      "くらし・環境・エネルギー": 6,
-      "文化・景観・歴史": 2,
-      "都市再生・交通インフラ": 3,
-      "防災・減災・治安": 4,
-      "子育て・教育": 1
-    }
-  },
-  {
+  "大井 としひろ": {
+    "name": "大井 としひろ",
     "speaker": "大井 としひろ",
-    "district": "須磨区",
     "party": "躍動の会",
     "partyGroup": "躍動の会",
-    "count": 31,
-    "avg_evidence": 2.48,
-    "avg_solution": 2.68,
-    "avg_local_focus": 3.0,
-    "avg_constructive": 2.65,
-    "categories": {
-      "財政・行革": 9,
-      "くらし・環境・エネルギー": 3,
-      "文化・景観・歴史": 2,
-      "都市再生・交通インフラ": 10,
-      "防災・減災・治安": 1,
-      "産業・観光・地域経済": 4,
-      "福祉・医療・健康": 2
-    }
+    "district": "須磨区",
+    "aliases": [
+      "大井としひろ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
+  "大井としひろ": {
+    "name": "大井 としひろ",
+    "speaker": "大井 としひろ",
+    "party": "躍動の会",
+    "partyGroup": "躍動の会",
+    "district": "須磨区",
+    "aliases": [
+      "大井としひろ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "大かわら 鈴子": {
+    "name": "大かわら 鈴子",
+    "speaker": "大かわら 鈴子",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "兵庫区",
+    "aliases": [
+      "大かわら鈴子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "大かわら鈴子": {
+    "name": "大かわら 鈴子",
+    "speaker": "大かわら 鈴子",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "兵庫区",
+    "aliases": [
+      "大かわら鈴子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "大野 陽平": {
+    "name": "大野 陽平",
+    "speaker": "大野 陽平",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "東灘区",
+    "aliases": [
+      "大野陽平"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "大野陽平": {
+    "name": "大野 陽平",
+    "speaker": "大野 陽平",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "東灘区",
+    "aliases": [
+      "大野陽平"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "岡田 ゆうじ": {
+    "name": "岡田 ゆうじ",
     "speaker": "岡田 ゆうじ",
-    "district": "垂水区",
     "party": "新しい自民党",
     "partyGroup": "新しい自民党",
-    "count": 69,
-    "avg_evidence": 2.93,
-    "avg_solution": 3.2,
-    "avg_local_focus": 2.99,
-    "avg_constructive": 2.97,
-    "categories": {
-      "くらし・環境・エネルギー": 14,
-      "福祉・医療・健康": 35,
-      "財政・行革": 8,
-      "都市再生・交通インフラ": 8,
-      "防災・減災・治安": 4
-    }
-  },
-  {
-    "speaker": "徳山 敏子",
-    "district": "北区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 23,
-    "avg_evidence": 2.65,
-    "avg_solution": 2.74,
-    "avg_local_focus": 3.17,
-    "avg_constructive": 2.65,
-    "categories": {
-      "くらし・環境・エネルギー": 5,
-      "子育て・教育": 3,
-      "財政・行革": 3,
-      "福祉・医療・健康": 1,
-      "産業・観光・地域経済": 1,
-      "防災・減災・治安": 1,
-      "文化・景観・歴史": 1,
-      "都市再生・交通インフラ": 8
-    }
-  },
-  {
-    "speaker": "外海 開三",
-    "district": "東灘区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 25,
-    "avg_evidence": 2.92,
-    "avg_solution": 2.68,
-    "avg_local_focus": 3.0,
-    "avg_constructive": 2.44,
-    "categories": {
-      "福祉・医療・健康": 12,
-      "くらし・環境・エネルギー": 6,
-      "都市再生・交通インフラ": 4,
-      "防災・減災・治安": 2,
-      "財政・行革": 1
-    }
-  },
-  {
-    "speaker": "高橋 としえ",
-    "district": "西区",
-    "party": "日本維新の会",
-    "partyGroup": "日本維新の会",
-    "count": 20,
-    "avg_evidence": 2.9,
-    "avg_solution": 3.05,
-    "avg_local_focus": 3.2,
-    "avg_constructive": 2.85,
-    "categories": {
-      "福祉・医療・健康": 8,
-      "産業・観光・地域経済": 2,
-      "くらし・環境・エネルギー": 7,
-      "財政・行革": 1,
-      "都市再生・交通インフラ": 2
-    }
-  },
-  {
-    "speaker": "川内 清尚",
     "district": "垂水区",
-    "party": "こうべ未来",
-    "partyGroup": "こうべ未来",
-    "count": 25,
-    "avg_evidence": 2.08,
-    "avg_solution": 2.28,
-    "avg_local_focus": 2.56,
-    "avg_constructive": 2.32,
-    "categories": {
-      "福祉・医療・健康": 13,
-      "財政・行革": 4,
-      "都市再生・交通インフラ": 3,
-      "防災・減災・治安": 2,
-      "くらし・環境・エネルギー": 3
-    }
+    "aliases": [
+      "岡田ゆうじ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "堂下 豊史",
-    "district": "北区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 52,
-    "avg_evidence": 3.1,
-    "avg_solution": 3.42,
-    "avg_local_focus": 3.4,
-    "avg_constructive": 3.54,
-    "categories": {
-      "福祉・医療・健康": 16,
-      "くらし・環境・エネルギー": 11,
-      "都市再生・交通インフラ": 8,
-      "子育て・教育": 17
-    }
+  "岡田ゆうじ": {
+    "name": "岡田 ゆうじ",
+    "speaker": "岡田 ゆうじ",
+    "party": "新しい自民党",
+    "partyGroup": "新しい自民党",
+    "district": "垂水区",
+    "aliases": [
+      "岡田ゆうじ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
   },
-  {
-    "speaker": "朝倉 えつ子",
-    "district": "北区",
-    "party": "日本共産党",
-    "partyGroup": "日本共産党",
-    "count": 82,
-    "avg_evidence": 2.57,
-    "avg_solution": 2.74,
-    "avg_local_focus": 3.21,
-    "avg_constructive": 2.72,
-    "categories": {
-      "防災・減災・治安": 5,
-      "くらし・環境・エネルギー": 13,
-      "都市再生・交通インフラ": 26,
-      "財政・行革": 13,
-      "福祉・医療・健康": 9,
-      "子育て・教育": 4,
-      "産業・観光・地域経済": 4,
-      "文化・景観・歴史": 8
-    }
-  },
-  {
-    "speaker": "うえなか 美貴子",
-    "district": "北区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 9,
-    "avg_evidence": 2.67,
-    "avg_solution": 3.22,
-    "avg_local_focus": 3.44,
-    "avg_constructive": 2.89,
-    "categories": {
-      "防災・減災・治安": 3,
-      "くらし・環境・エネルギー": 2,
-      "都市再生・交通インフラ": 1,
-      "福祉・医療・健康": 2,
-      "子育て・教育": 1
-    }
-  },
-  {
-    "speaker": "門田 まゆみ",
-    "district": "須磨区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 25,
-    "avg_evidence": 2.56,
-    "avg_solution": 2.76,
-    "avg_local_focus": 3.0,
-    "avg_constructive": 2.6,
-    "categories": {
-      "防災・減災・治安": 4,
-      "くらし・環境・エネルギー": 4,
-      "都市再生・交通インフラ": 6,
-      "財政・行革": 5,
-      "子育て・教育": 3,
-      "福祉・医療・健康": 3
-    }
-  },
-  {
-    "speaker": "松本 しゅうじ",
-    "district": "須磨区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 24,
-    "avg_evidence": 2.42,
-    "avg_solution": 2.83,
-    "avg_local_focus": 3.17,
-    "avg_constructive": 2.92,
-    "categories": {
-      "産業・観光・地域経済": 6,
-      "防災・減災・治安": 3,
-      "子育て・教育": 3,
-      "都市再生・交通インフラ": 6,
-      "くらし・環境・エネルギー": 2,
-      "文化・景観・歴史": 1,
-      "財政・行革": 3
-    }
-  },
-  {
-    "speaker": "村上 立真",
-    "district": "兵庫区",
-    "party": "自由民主党",
-    "partyGroup": "自由民主党",
-    "count": 32,
-    "avg_evidence": 2.47,
-    "avg_solution": 3.03,
-    "avg_local_focus": 3.25,
-    "avg_constructive": 3.03,
-    "categories": {
-      "防災・減災・治安": 3,
-      "文化・景観・歴史": 4,
-      "産業・観光・地域経済": 4,
-      "都市再生・交通インフラ": 12,
-      "子育て・教育": 2,
-      "財政・行革": 4,
-      "くらし・環境・エネルギー": 3
-    }
-  },
-  {
-    "speaker": "萩原 泰三",
-    "district": "中央区",
-    "party": "公明党",
-    "partyGroup": "公明党",
-    "count": 24,
-    "avg_evidence": 2.79,
-    "avg_solution": 3.12,
-    "avg_local_focus": 3.21,
-    "avg_constructive": 2.58,
-    "categories": {
-      "くらし・環境・エネルギー": 7,
-      "都市再生・交通インフラ": 13,
-      "防災・減災・治安": 1,
-      "財政・行革": 3
-    }
-  },
-  {
-    "speaker": "木戸 さだかず",
-    "district": "須磨区",
-    "party": "こうべ未来",
-    "partyGroup": "こうべ未来",
-    "count": 24,
-    "avg_evidence": 2.38,
-    "avg_solution": 2.62,
-    "avg_local_focus": 2.92,
-    "avg_constructive": 2.38,
-    "categories": {
-      "くらし・環境・エネルギー": 5,
-      "都市再生・交通インフラ": 12,
-      "財政・行革": 5,
-      "子育て・教育": 1,
-      "産業・観光・地域経済": 1
-    }
-  },
-  {
-    "speaker": "西 ただす",
-    "district": "東灘区",
-    "party": "日本共産党",
-    "partyGroup": "日本共産党",
-    "count": 2,
-    "avg_evidence": 2.5,
-    "avg_solution": 2.5,
-    "avg_local_focus": 2.0,
-    "avg_constructive": 3.0,
-    "categories": {
-      "産業・観光・地域経済": 1,
-      "都市再生・交通インフラ": 1
-    }
-  },
-  {
-    "speaker": "山口 由美",
+  "香川 真二": {
+    "name": "香川 真二",
+    "speaker": "香川 真二",
+    "party": "つなぐ",
+    "partyGroup": "つなぐ",
     "district": "西区",
+    "aliases": [
+      "香川真二"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "香川真二": {
+    "name": "香川 真二",
+    "speaker": "香川 真二",
+    "party": "つなぐ",
+    "partyGroup": "つなぐ",
+    "district": "西区",
+    "aliases": [
+      "香川真二"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "かじ 幸夫": {
+    "name": "かじ 幸夫",
+    "speaker": "かじ 幸夫",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "西区",
+    "aliases": [
+      "かじ幸夫"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "かじ幸夫": {
+    "name": "かじ 幸夫",
+    "speaker": "かじ 幸夫",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "西区",
+    "aliases": [
+      "かじ幸夫"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "門田 まゆみ": {
+    "name": "門田 まゆみ",
+    "speaker": "門田 まゆみ",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "須磨区",
+    "aliases": [
+      "門田まゆみ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "門田まゆみ": {
+    "name": "門田 まゆみ",
+    "speaker": "門田 まゆみ",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "須磨区",
+    "aliases": [
+      "門田まゆみ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "川内 清尚": {
+    "name": "川内 清尚",
+    "speaker": "川内 清尚",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "垂水区",
+    "aliases": [
+      "川内清尚"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "川内清尚": {
+    "name": "川内 清尚",
+    "speaker": "川内 清尚",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "垂水区",
+    "aliases": [
+      "川内清尚"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "川口 まさる": {
+    "name": "川口 まさる",
+    "speaker": "川口 まさる",
+    "party": "躍動の会",
+    "partyGroup": "躍動の会",
+    "district": "灘区",
+    "aliases": [
+      "川口まさる"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "川口まさる": {
+    "name": "川口 まさる",
+    "speaker": "川口 まさる",
+    "party": "躍動の会",
+    "partyGroup": "躍動の会",
+    "district": "灘区",
+    "aliases": [
+      "川口まさる"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "河南 忠和": {
+    "name": "河南 忠和",
+    "speaker": "河南 忠和",
     "party": "自由民主党",
     "partyGroup": "自由民主党",
-    "count": 13,
-    "avg_evidence": 2.31,
-    "avg_solution": 2.23,
-    "avg_local_focus": 2.23,
-    "avg_constructive": 2.31,
-    "categories": {
-      "福祉・医療・健康": 2,
-      "財政・行革": 3,
-      "くらし・環境・エネルギー": 4,
-      "子育て・教育": 2,
-      "防災・減災・治安": 2
-    }
+    "district": "中央区",
+    "aliases": [
+      "河南忠和"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "河南忠和": {
+    "name": "河南 忠和",
+    "speaker": "河南 忠和",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "中央区",
+    "aliases": [
+      "河南忠和"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "木戸 さだかず": {
+    "name": "木戸 さだかず",
+    "speaker": "木戸 さだかず",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "須磨区",
+    "aliases": [
+      "木戸さだかず"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "木戸さだかず": {
+    "name": "木戸 さだかず",
+    "speaker": "木戸 さだかず",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "須磨区",
+    "aliases": [
+      "木戸さだかず"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "黒田 武志": {
+    "name": "黒田 武志",
+    "speaker": "黒田 武志",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "西区",
+    "aliases": [
+      "黒田武志"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "黒田武志": {
+    "name": "黒田 武志",
+    "speaker": "黒田 武志",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "西区",
+    "aliases": [
+      "黒田武志"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "坂口 有希子": {
+    "name": "坂口 有希子",
+    "speaker": "坂口 有希子",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "長田区",
+    "aliases": [
+      "坂口有希子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "坂口有希子": {
+    "name": "坂口 有希子",
+    "speaker": "坂口 有希子",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "長田区",
+    "aliases": [
+      "坂口有希子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "さとう まちこ": {
+    "name": "さとう まちこ",
+    "speaker": "さとう まちこ",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "垂水区",
+    "aliases": [
+      "さとうまちこ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "さとうまちこ": {
+    "name": "さとう まちこ",
+    "speaker": "さとう まちこ",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "垂水区",
+    "aliases": [
+      "さとうまちこ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "しらくに 高太郎": {
+    "name": "しらくに 高太郎",
+    "speaker": "しらくに 高太郎",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "垂水区",
+    "aliases": [
+      "しらくに高太郎"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "しらくに高太郎": {
+    "name": "しらくに 高太郎",
+    "speaker": "しらくに 高太郎",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "垂水区",
+    "aliases": [
+      "しらくに高太郎"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "菅野 吉記": {
+    "name": "菅野 吉記",
+    "speaker": "菅野 吉記",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "兵庫区",
+    "aliases": [
+      "菅野吉記"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "菅野吉記": {
+    "name": "菅野 吉記",
+    "speaker": "菅野 吉記",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "兵庫区",
+    "aliases": [
+      "菅野吉記"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "住本 かずのり": {
+    "name": "住本 かずのり",
+    "speaker": "住本 かずのり",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "須磨区",
+    "aliases": [
+      "住本かずのり"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "住本かずのり": {
+    "name": "住本 かずのり",
+    "speaker": "住本 かずのり",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "須磨区",
+    "aliases": [
+      "住本かずのり"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "外海 開三": {
+    "name": "外海 開三",
+    "speaker": "外海 開三",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "東灘区",
+    "aliases": [
+      "外海開三"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "外海開三": {
+    "name": "外海 開三",
+    "speaker": "外海 開三",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "東灘区",
+    "aliases": [
+      "外海開三"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "髙瀬 勝也": {
+    "name": "髙瀬 勝也",
+    "speaker": "髙瀬 勝也",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "灘区",
+    "aliases": [
+      "髙瀬勝也"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "髙瀬勝也": {
+    "name": "髙瀬 勝也",
+    "speaker": "髙瀬 勝也",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "灘区",
+    "aliases": [
+      "髙瀬勝也"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "高瀬勝也": {
+    "name": "髙瀬 勝也",
+    "speaker": "髙瀬 勝也",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "灘区",
+    "aliases": [
+      "髙瀬勝也"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "高橋 としえ": {
+    "name": "高橋 としえ",
+    "speaker": "高橋 としえ",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "西区",
+    "aliases": [
+      "高橋としえ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "高橋としえ": {
+    "name": "高橋 としえ",
+    "speaker": "高橋 としえ",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "西区",
+    "aliases": [
+      "高橋としえ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "堂下 豊史": {
+    "name": "堂下 豊史",
+    "speaker": "堂下 豊史",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "北区",
+    "aliases": [
+      "堂下豊史"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "堂下豊史": {
+    "name": "堂下 豊史",
+    "speaker": "堂下 豊史",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "北区",
+    "aliases": [
+      "堂下豊史"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "徳山 敏子": {
+    "name": "徳山 敏子",
+    "speaker": "徳山 敏子",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "北区",
+    "aliases": [
+      "徳山敏子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "徳山敏子": {
+    "name": "徳山 敏子",
+    "speaker": "徳山 敏子",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "北区",
+    "aliases": [
+      "徳山敏子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "ながさわ 淳一": {
+    "name": "ながさわ 淳一",
+    "speaker": "ながさわ 淳一",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "長田区",
+    "aliases": [
+      "ながさわ淳一"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "ながさわ淳一": {
+    "name": "ながさわ 淳一",
+    "speaker": "ながさわ 淳一",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "長田区",
+    "aliases": [
+      "ながさわ淳一"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "なんの ゆうこ": {
+    "name": "なんの ゆうこ",
+    "speaker": "なんの ゆうこ",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "東灘区",
+    "aliases": [
+      "なんのゆうこ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "なんのゆうこ": {
+    "name": "なんの ゆうこ",
+    "speaker": "なんの ゆうこ",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "東灘区",
+    "aliases": [
+      "なんのゆうこ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "西 ただす": {
+    "name": "西 ただす",
+    "speaker": "西 ただす",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "東灘区",
+    "aliases": [
+      "西ただす"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "西ただす": {
+    "name": "西 ただす",
+    "speaker": "西 ただす",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "東灘区",
+    "aliases": [
+      "西ただす"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "のまち 圭一": {
+    "name": "のまち 圭一",
+    "speaker": "のまち 圭一",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "中央区",
+    "aliases": [
+      "のまち圭一"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "のまち圭一": {
+    "name": "のまち 圭一",
+    "speaker": "のまち 圭一",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "中央区",
+    "aliases": [
+      "のまち圭一"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "萩原 泰三": {
+    "name": "萩原 泰三",
+    "speaker": "萩原 泰三",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "中央区",
+    "aliases": [
+      "萩原泰三"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "萩原泰三": {
+    "name": "萩原 泰三",
+    "speaker": "萩原 泰三",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "中央区",
+    "aliases": [
+      "萩原泰三"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "原 直樹": {
+    "name": "原 直樹",
+    "speaker": "原 直樹",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "垂水区",
+    "aliases": [
+      "原直樹"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "原直樹": {
+    "name": "原 直樹",
+    "speaker": "原 直樹",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "垂水区",
+    "aliases": [
+      "原直樹"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "平井 真千子": {
+    "name": "平井 真千子",
+    "speaker": "平井 真千子",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "長田区",
+    "aliases": [
+      "平井真千子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "平井真千子": {
+    "name": "平井 真千子",
+    "speaker": "平井 真千子",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "長田区",
+    "aliases": [
+      "平井真千子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "平田 正": {
+    "name": "平田 正",
+    "speaker": "平田 正",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "東灘区",
+    "aliases": [
+      "平田正"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "平田正": {
+    "name": "平田 正",
+    "speaker": "平田 正",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "東灘区",
+    "aliases": [
+      "平田正"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "平野 章三": {
+    "name": "平野 章三",
+    "speaker": "平野 章三",
+    "party": "無所属",
+    "partyGroup": "無所属",
+    "district": "垂水区",
+    "aliases": [
+      "平野章三"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "平野章三": {
+    "name": "平野 章三",
+    "speaker": "平野 章三",
+    "party": "無所属",
+    "partyGroup": "無所属",
+    "district": "垂水区",
+    "aliases": [
+      "平野章三"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "平野 達司": {
+    "name": "平野 達司",
+    "speaker": "平野 達司",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "兵庫区",
+    "aliases": [
+      "平野達司"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "平野達司": {
+    "name": "平野 達司",
+    "speaker": "平野 達司",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "兵庫区",
+    "aliases": [
+      "平野達司"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "細谷 典功": {
+    "name": "細谷 典功",
+    "speaker": "細谷 典功",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "垂水区",
+    "aliases": [
+      "細谷典功"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "細谷典功": {
+    "name": "細谷 典功",
+    "speaker": "細谷 典功",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "垂水区",
+    "aliases": [
+      "細谷典功"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "前田 あきら": {
+    "name": "前田 あきら",
+    "speaker": "前田 あきら",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "須磨区",
+    "aliases": [
+      "前田あきら"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "前田あきら": {
+    "name": "前田 あきら",
+    "speaker": "前田 あきら",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "須磨区",
+    "aliases": [
+      "前田あきら"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "松本 しゅうじ": {
+    "name": "松本 しゅうじ",
+    "speaker": "松本 しゅうじ",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "須磨区",
+    "aliases": [
+      "松本しゅうじ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "松本しゅうじ": {
+    "name": "松本 しゅうじ",
+    "speaker": "松本 しゅうじ",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "須磨区",
+    "aliases": [
+      "松本しゅうじ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "松本 のり子": {
+    "name": "松本 のり子",
+    "speaker": "松本 のり子",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "東灘区",
+    "aliases": [
+      "松本のり子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "松本のり子": {
+    "name": "松本 のり子",
+    "speaker": "松本 のり子",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "東灘区",
+    "aliases": [
+      "松本のり子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "三木 しんじろう": {
+    "name": "三木 しんじろう",
+    "speaker": "三木 しんじろう",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "中央区",
+    "aliases": [
+      "三木しんじろう"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "三木しんじろう": {
+    "name": "三木 しんじろう",
+    "speaker": "三木 しんじろう",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "中央区",
+    "aliases": [
+      "三木しんじろう"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "壬生 潤": {
+    "name": "壬生 潤",
+    "speaker": "壬生 潤",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "垂水区",
+    "aliases": [
+      "壬生潤"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "壬生潤": {
+    "name": "壬生 潤",
+    "speaker": "壬生 潤",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "垂水区",
+    "aliases": [
+      "壬生潤"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "宮田 公子": {
+    "name": "宮田 公子",
+    "speaker": "宮田 公子",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "西区",
+    "aliases": [
+      "宮田公子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "宮田公子": {
+    "name": "宮田 公子",
+    "speaker": "宮田 公子",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "西区",
+    "aliases": [
+      "宮田公子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "村上 立真": {
+    "name": "村上 立真",
+    "speaker": "村上 立真",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "兵庫区",
+    "aliases": [
+      "村上立真"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "村上立真": {
+    "name": "村上 立真",
+    "speaker": "村上 立真",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "兵庫区",
+    "aliases": [
+      "村上立真"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "村野 誠一": {
+    "name": "村野 誠一",
+    "speaker": "村野 誠一",
+    "party": "新しい自民党",
+    "partyGroup": "新しい自民党",
+    "district": "須磨区",
+    "aliases": [
+      "村野誠一"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "村野誠一": {
+    "name": "村野 誠一",
+    "speaker": "村野 誠一",
+    "party": "新しい自民党",
+    "partyGroup": "新しい自民党",
+    "district": "須磨区",
+    "aliases": [
+      "村野誠一"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "森田 たき子": {
+    "name": "森田 たき子",
+    "speaker": "森田 たき子",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "西区",
+    "aliases": [
+      "森田たき子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "森田たき子": {
+    "name": "森田 たき子",
+    "speaker": "森田 たき子",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "西区",
+    "aliases": [
+      "森田たき子"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "森本 真": {
+    "name": "森本 真",
+    "speaker": "森本 真",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "長田区",
+    "aliases": [
+      "森本真"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "森本真": {
+    "name": "森本 真",
+    "speaker": "森本 真",
+    "party": "日本共産党",
+    "partyGroup": "日本共産党",
+    "district": "長田区",
+    "aliases": [
+      "森本真"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "やの こうじ": {
+    "name": "やの こうじ",
+    "speaker": "やの こうじ",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "東灘区",
+    "aliases": [
+      "やのこうじ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "やのこうじ": {
+    "name": "やの こうじ",
+    "speaker": "やの こうじ",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "東灘区",
+    "aliases": [
+      "やのこうじ"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "山口 由美": {
+    "name": "山口 由美",
+    "speaker": "山口 由美",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "西区",
+    "aliases": [
+      "山口由美"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "山口由美": {
+    "name": "山口 由美",
+    "speaker": "山口 由美",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "西区",
+    "aliases": [
+      "山口由美"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "山下 てんせい": {
+    "name": "山下 てんせい",
+    "speaker": "山下 てんせい",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "西区",
+    "aliases": [
+      "山下てんせい"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "山下てんせい": {
+    "name": "山下 てんせい",
+    "speaker": "山下 てんせい",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "西区",
+    "aliases": [
+      "山下てんせい"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "山本 のりかず": {
+    "name": "山本 のりかず",
+    "speaker": "山本 のりかず",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "北区",
+    "aliases": [
+      "山本のりかず"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "山本のりかず": {
+    "name": "山本 のりかず",
+    "speaker": "山本 のりかず",
+    "party": "日本維新の会",
+    "partyGroup": "日本維新の会",
+    "district": "北区",
+    "aliases": [
+      "山本のりかず"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "よこはた 和幸": {
+    "name": "よこはた 和幸",
+    "speaker": "よこはた 和幸",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "中央区",
+    "aliases": [
+      "よこはた和幸"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "よこはた和幸": {
+    "name": "よこはた 和幸",
+    "speaker": "よこはた 和幸",
+    "party": "こうべ未来",
+    "partyGroup": "こうべ未来",
+    "district": "中央区",
+    "aliases": [
+      "よこはた和幸"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "吉田 健吾": {
+    "name": "吉田 健吾",
+    "speaker": "吉田 健吾",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "灘区",
+    "aliases": [
+      "吉田健吾"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "吉田健吾": {
+    "name": "吉田 健吾",
+    "speaker": "吉田 健吾",
+    "party": "自由民主党",
+    "partyGroup": "自由民主党",
+    "district": "灘区",
+    "aliases": [
+      "吉田健吾"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "吉田 謙治": {
+    "name": "吉田 謙治",
+    "speaker": "吉田 謙治",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "西区",
+    "aliases": [
+      "吉田謙治"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "吉田謙治": {
+    "name": "吉田 謙治",
+    "speaker": "吉田 謙治",
+    "party": "公明党",
+    "partyGroup": "公明党",
+    "district": "西区",
+    "aliases": [
+      "吉田謙治"
+    ],
+    "term": "2023-2027",
+    "status": "active",
+    "is_active": true,
+    "resigned_date": null,
+    "resigned_reason": null
+  },
+  "坊 恭寿": {
+    "name": "坊 恭寿",
+    "speaker": "坊 恭寿",
+    "party": "自由民主党神戸市会議員団",
+    "partyGroup": "自由民主党",
+    "district": "北区",
+    "aliases": [
+      "坊やすなが",
+      "坊 恭寿君",
+      "坊恭寿"
+    ],
+    "term": "2023-2026",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2026-01-27",
+    "resigned_reason": "衆議院議員総選挙出馬のため失職（第105代市会議長）"
+  },
+  "坊恭寿": {
+    "name": "坊 恭寿",
+    "speaker": "坊 恭寿",
+    "party": "自由民主党神戸市会議員団",
+    "partyGroup": "自由民主党",
+    "district": "北区",
+    "aliases": [
+      "坊やすなが",
+      "坊 恭寿君",
+      "坊恭寿"
+    ],
+    "term": "2023-2026",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2026-01-27",
+    "resigned_reason": "衆議院議員総選挙出馬のため失職（第105代市会議長）"
+  },
+  "坊やすなが": {
+    "name": "坊 恭寿",
+    "speaker": "坊 恭寿",
+    "party": "自由民主党神戸市会議員団",
+    "partyGroup": "自由民主党",
+    "district": "北区",
+    "aliases": [
+      "坊やすなが",
+      "坊 恭寿君",
+      "坊恭寿"
+    ],
+    "term": "2023-2026",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2026-01-27",
+    "resigned_reason": "衆議院議員総選挙出馬のため失職（第105代市会議長）"
+  },
+  "坊恭寿君": {
+    "name": "坊 恭寿",
+    "speaker": "坊 恭寿",
+    "party": "自由民主党神戸市会議員団",
+    "partyGroup": "自由民主党",
+    "district": "北区",
+    "aliases": [
+      "坊やすなが",
+      "坊 恭寿君",
+      "坊恭寿"
+    ],
+    "term": "2023-2026",
+    "status": "resigned",
+    "is_active": false,
+    "resigned_date": "2026-01-27",
+    "resigned_reason": "衆議院議員総選挙出馬のため失職（第105代市会議長）"
   }
-]
+}

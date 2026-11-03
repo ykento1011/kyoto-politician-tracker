@@ -1,6 +1,7 @@
 {
   "近藤　大": {
     "name": "近藤　大",
+    "speaker": "近藤　大",
     "party": "維新",
     "partyGroup": "維新",
     "district": "北区",
@@ -15,6 +16,7 @@
   },
   "近藤大": {
     "name": "近藤　大",
+    "speaker": "近藤　大",
     "party": "維新",
     "partyGroup": "維新",
     "district": "北区",
@@ -29,6 +31,7 @@
   },
   "こんどうだい": {
     "name": "近藤　大",
+    "speaker": "近藤　大",
     "party": "維新",
     "partyGroup": "維新",
     "district": "北区",
@@ -43,6 +46,7 @@
   },
   "高山　美佳": {
     "name": "高山　美佳",
+    "speaker": "高山　美佳",
     "party": "維新",
     "partyGroup": "維新",
     "district": "北区",
@@ -57,6 +61,7 @@
   },
   "高山美佳": {
     "name": "高山　美佳",
+    "speaker": "高山　美佳",
     "party": "維新",
     "partyGroup": "維新",
     "district": "北区",
@@ -71,6 +76,7 @@
   },
   "たかやまみか": {
     "name": "高山　美佳",
+    "speaker": "高山　美佳",
     "party": "維新",
     "partyGroup": "維新",
     "district": "北区",
@@ -85,6 +91,7 @@
   },
   "前田　和彦": {
     "name": "前田　和彦",
+    "speaker": "前田　和彦",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "北区",
@@ -99,6 +106,7 @@
   },
   "前田和彦": {
     "name": "前田　和彦",
+    "speaker": "前田　和彦",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "北区",
@@ -113,6 +121,7 @@
   },
   "まえだかずひこ": {
     "name": "前田　和彦",
+    "speaker": "前田　和彦",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "北区",
@@ -127,6 +136,7 @@
   },
   "山本　智子": {
     "name": "山本　智子",
+    "speaker": "山本　智子",
     "party": "公明",
     "partyGroup": "公明",
     "district": "北区",
@@ -141,6 +151,7 @@
   },
   "山本智子": {
     "name": "山本　智子",
+    "speaker": "山本　智子",
     "party": "公明",
     "partyGroup": "公明",
     "district": "北区",
@@ -155,6 +166,7 @@
   },
   "やまもとともこ": {
     "name": "山本　智子",
+    "speaker": "山本　智子",
     "party": "公明",
     "partyGroup": "公明",
     "district": "北区",
@@ -169,6 +181,7 @@
   },
   "荒木　肇": {
     "name": "荒木　肇",
+    "speaker": "荒木　肇",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "都島区",
@@ -183,6 +196,7 @@
   },
   "荒木肇": {
     "name": "荒木　肇",
+    "speaker": "荒木　肇",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "都島区",
@@ -197,6 +211,7 @@
   },
   "あらきはじめ": {
     "name": "荒木　肇",
+    "speaker": "荒木　肇",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "都島区",
@@ -211,6 +226,7 @@
   },
   "大西　しょういち": {
     "name": "大西　しょういち",
+    "speaker": "大西　しょういち",
     "party": "維新",
     "partyGroup": "維新",
     "district": "都島区",
@@ -225,6 +241,7 @@
   },
   "大西しょういち": {
     "name": "大西　しょういち",
+    "speaker": "大西　しょういち",
     "party": "維新",
     "partyGroup": "維新",
     "district": "都島区",
@@ -239,6 +256,7 @@
   },
   "おおにししょういち": {
     "name": "大西　しょういち",
+    "speaker": "大西　しょういち",
     "party": "維新",
     "partyGroup": "維新",
     "district": "都島区",
@@ -253,6 +271,7 @@
   },
   "岡田　妥知": {
     "name": "岡田　妥知",
+    "speaker": "岡田　妥知",
     "party": "維新",
     "partyGroup": "維新",
     "district": "都島区",
@@ -267,6 +286,7 @@
   },
   "岡田妥知": {
     "name": "岡田　妥知",
+    "speaker": "岡田　妥知",
     "party": "維新",
     "partyGroup": "維新",
     "district": "都島区",
@@ -281,6 +301,7 @@
   },
   "おかだやすとも": {
     "name": "岡田　妥知",
+    "speaker": "岡田　妥知",
     "party": "維新",
     "partyGroup": "維新",
     "district": "都島区",
@@ -295,6 +316,7 @@
   },
   "太田　勝己": {
     "name": "太田　勝己",
+    "speaker": "太田　勝己",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "福島区",
@@ -309,6 +331,7 @@
   },
   "太田勝己": {
     "name": "太田　勝己",
+    "speaker": "太田　勝己",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "福島区",
@@ -323,6 +346,7 @@
   },
   "おおたかつき": {
     "name": "太田　勝己",
+    "speaker": "太田　勝己",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "福島区",
@@ -337,6 +361,7 @@
   },
   "広田　和美": {
     "name": "広田　和美",
+    "speaker": "広田　和美",
     "party": "福島クラブ",
     "partyGroup": "福島クラブ",
     "district": "福島区",
@@ -351,6 +376,7 @@
   },
   "広田和美": {
     "name": "広田　和美",
+    "speaker": "広田　和美",
     "party": "福島クラブ",
     "partyGroup": "福島クラブ",
     "district": "福島区",
@@ -365,6 +391,7 @@
   },
   "ひろたかずみ": {
     "name": "広田　和美",
+    "speaker": "広田　和美",
     "party": "福島クラブ",
     "partyGroup": "福島クラブ",
     "district": "福島区",
@@ -379,6 +406,7 @@
   },
   "今田　信行": {
     "name": "今田　信行",
+    "speaker": "今田　信行",
     "party": "公明",
     "partyGroup": "公明",
     "district": "此花区",
@@ -393,6 +421,7 @@
   },
   "今田信行": {
     "name": "今田　信行",
+    "speaker": "今田　信行",
     "party": "公明",
     "partyGroup": "公明",
     "district": "此花区",
@@ -407,6 +436,7 @@
   },
   "いまだのぶゆき": {
     "name": "今田　信行",
+    "speaker": "今田　信行",
     "party": "公明",
     "partyGroup": "公明",
     "district": "此花区",
@@ -421,6 +451,7 @@
   },
   "たけち　博幸": {
     "name": "たけち　博幸",
+    "speaker": "たけち　博幸",
     "party": "維新",
     "partyGroup": "維新",
     "district": "此花区",
@@ -435,6 +466,7 @@
   },
   "たけち博幸": {
     "name": "たけち　博幸",
+    "speaker": "たけち　博幸",
     "party": "維新",
     "partyGroup": "維新",
     "district": "此花区",
@@ -449,6 +481,7 @@
   },
   "たけちひろゆき": {
     "name": "たけち　博幸",
+    "speaker": "たけち　博幸",
     "party": "維新",
     "partyGroup": "維新",
     "district": "此花区",
@@ -463,6 +496,7 @@
   },
   "塩中　一成": {
     "name": "塩中　一成",
+    "speaker": "塩中　一成",
     "party": "維新",
     "partyGroup": "維新",
     "district": "中央区",
@@ -477,6 +511,7 @@
   },
   "塩中一成": {
     "name": "塩中　一成",
+    "speaker": "塩中　一成",
     "party": "維新",
     "partyGroup": "維新",
     "district": "中央区",
@@ -491,6 +526,7 @@
   },
   "しおなかかずしげ": {
     "name": "塩中　一成",
+    "speaker": "塩中　一成",
     "party": "維新",
     "partyGroup": "維新",
     "district": "中央区",
@@ -505,6 +541,7 @@
   },
   "鈴木　理恵": {
     "name": "鈴木　理恵",
+    "speaker": "鈴木　理恵",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "中央区",
@@ -519,6 +556,7 @@
   },
   "鈴木理恵": {
     "name": "鈴木　理恵",
+    "speaker": "鈴木　理恵",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "中央区",
@@ -533,6 +571,7 @@
   },
   "すずきりえ": {
     "name": "鈴木　理恵",
+    "speaker": "鈴木　理恵",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "中央区",
@@ -547,6 +586,7 @@
   },
   "野上　らん": {
     "name": "野上　らん",
+    "speaker": "野上　らん",
     "party": "維新",
     "partyGroup": "維新",
     "district": "中央区",
@@ -561,6 +601,7 @@
   },
   "野上らん": {
     "name": "野上　らん",
+    "speaker": "野上　らん",
     "party": "維新",
     "partyGroup": "維新",
     "district": "中央区",
@@ -575,6 +616,7 @@
   },
   "のがみらん": {
     "name": "野上　らん",
+    "speaker": "野上　らん",
     "party": "維新",
     "partyGroup": "維新",
     "district": "中央区",
@@ -589,6 +631,7 @@
   },
   "くりた　ゆうや": {
     "name": "くりた　ゆうや",
+    "speaker": "くりた　ゆうや",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西区",
@@ -601,6 +644,7 @@
   },
   "くりたゆうや": {
     "name": "くりた　ゆうや",
+    "speaker": "くりた　ゆうや",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西区",
@@ -613,6 +657,7 @@
   },
   "西　拓郎": {
     "name": "西　拓郎",
+    "speaker": "西　拓郎",
     "party": "大阪にし",
     "partyGroup": "大阪にし",
     "district": "西区",
@@ -627,6 +672,7 @@
   },
   "西拓郎": {
     "name": "西　拓郎",
+    "speaker": "西　拓郎",
     "party": "大阪にし",
     "partyGroup": "大阪にし",
     "district": "西区",
@@ -641,6 +687,7 @@
   },
   "にしたくろう": {
     "name": "西　拓郎",
+    "speaker": "西　拓郎",
     "party": "大阪にし",
     "partyGroup": "大阪にし",
     "district": "西区",
@@ -655,6 +702,7 @@
   },
   "東　貴之": {
     "name": "東　貴之",
+    "speaker": "東　貴之",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西区",
@@ -669,6 +717,7 @@
   },
   "東貴之": {
     "name": "東　貴之",
+    "speaker": "東　貴之",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西区",
@@ -683,6 +732,7 @@
   },
   "ひがしたかゆき": {
     "name": "東　貴之",
+    "speaker": "東　貴之",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西区",
@@ -697,6 +747,7 @@
   },
   "西　徳人": {
     "name": "西　徳人",
+    "speaker": "西　徳人",
     "party": "公明",
     "partyGroup": "公明",
     "district": "港区",
@@ -711,6 +762,7 @@
   },
   "西徳人": {
     "name": "西　徳人",
+    "speaker": "西　徳人",
     "party": "公明",
     "partyGroup": "公明",
     "district": "港区",
@@ -725,6 +777,7 @@
   },
   "にしのりひと": {
     "name": "西　徳人",
+    "speaker": "西　徳人",
     "party": "公明",
     "partyGroup": "公明",
     "district": "港区",
@@ -739,6 +792,7 @@
   },
   "藤田　あきら": {
     "name": "藤田　あきら",
+    "speaker": "藤田　あきら",
     "party": "維新",
     "partyGroup": "維新",
     "district": "港区",
@@ -753,6 +807,7 @@
   },
   "藤田あきら": {
     "name": "藤田　あきら",
+    "speaker": "藤田　あきら",
     "party": "維新",
     "partyGroup": "維新",
     "district": "港区",
@@ -767,6 +822,7 @@
   },
   "ふじたあきら": {
     "name": "藤田　あきら",
+    "speaker": "藤田　あきら",
     "party": "維新",
     "partyGroup": "維新",
     "district": "港区",
@@ -781,6 +837,7 @@
   },
   "出雲　輝英": {
     "name": "出雲　輝英",
+    "speaker": "出雲　輝英",
     "party": "維新",
     "partyGroup": "維新",
     "district": "大正区",
@@ -795,6 +852,7 @@
   },
   "出雲輝英": {
     "name": "出雲　輝英",
+    "speaker": "出雲　輝英",
     "party": "維新",
     "partyGroup": "維新",
     "district": "大正区",
@@ -809,6 +867,7 @@
   },
   "いずもてるひで": {
     "name": "出雲　輝英",
+    "speaker": "出雲　輝英",
     "party": "維新",
     "partyGroup": "維新",
     "district": "大正区",
@@ -823,6 +882,7 @@
   },
   "小山　光明": {
     "name": "小山　光明",
+    "speaker": "小山　光明",
     "party": "公明",
     "partyGroup": "公明",
     "district": "大正区",
@@ -837,6 +897,7 @@
   },
   "小山光明": {
     "name": "小山　光明",
+    "speaker": "小山　光明",
     "party": "公明",
     "partyGroup": "公明",
     "district": "大正区",
@@ -851,6 +912,7 @@
   },
   "こやまみつあき": {
     "name": "小山　光明",
+    "speaker": "小山　光明",
     "party": "公明",
     "partyGroup": "公明",
     "district": "大正区",
@@ -865,6 +927,7 @@
   },
   "金子　恵美": {
     "name": "金子　恵美",
+    "speaker": "金子　恵美",
     "party": "維新",
     "partyGroup": "維新",
     "district": "天王寺区",
@@ -879,6 +942,7 @@
   },
   "金子恵美": {
     "name": "金子　恵美",
+    "speaker": "金子　恵美",
     "party": "維新",
     "partyGroup": "維新",
     "district": "天王寺区",
@@ -893,6 +957,7 @@
   },
   "かねこえみ": {
     "name": "金子　恵美",
+    "speaker": "金子　恵美",
     "party": "維新",
     "partyGroup": "維新",
     "district": "天王寺区",
@@ -907,6 +972,7 @@
   },
   "須藤　奨太": {
     "name": "須藤　奨太",
+    "speaker": "須藤　奨太",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "天王寺区",
@@ -921,6 +987,7 @@
   },
   "須藤奨太": {
     "name": "須藤　奨太",
+    "speaker": "須藤　奨太",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "天王寺区",
@@ -935,6 +1002,7 @@
   },
   "すどうしょうた": {
     "name": "須藤　奨太",
+    "speaker": "須藤　奨太",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "天王寺区",
@@ -949,6 +1017,7 @@
   },
   "竹下　隆": {
     "name": "竹下　隆",
+    "speaker": "竹下　隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "浪速区",
@@ -963,6 +1032,7 @@
   },
   "竹下隆": {
     "name": "竹下　隆",
+    "speaker": "竹下　隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "浪速区",
@@ -977,6 +1047,7 @@
   },
   "たけしたたかし": {
     "name": "竹下　隆",
+    "speaker": "竹下　隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "浪速区",
@@ -991,6 +1062,7 @@
   },
   "森山　よしひさ": {
     "name": "森山　よしひさ",
+    "speaker": "森山　よしひさ",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "浪速区",
@@ -1005,6 +1077,7 @@
   },
   "森山よしひさ": {
     "name": "森山　よしひさ",
+    "speaker": "森山　よしひさ",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "浪速区",
@@ -1019,6 +1092,7 @@
   },
   "もりやまよしひさ": {
     "name": "森山　よしひさ",
+    "speaker": "森山　よしひさ",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "浪速区",
@@ -1033,6 +1107,7 @@
   },
   "佐々木　哲夫": {
     "name": "佐々木　哲夫",
+    "speaker": "佐々木　哲夫",
     "party": "公明",
     "partyGroup": "公明",
     "district": "西淀川区",
@@ -1047,6 +1122,7 @@
   },
   "佐々木哲夫": {
     "name": "佐々木　哲夫",
+    "speaker": "佐々木　哲夫",
     "party": "公明",
     "partyGroup": "公明",
     "district": "西淀川区",
@@ -1061,6 +1137,7 @@
   },
   "ささきてつお": {
     "name": "佐々木　哲夫",
+    "speaker": "佐々木　哲夫",
     "party": "公明",
     "partyGroup": "公明",
     "district": "西淀川区",
@@ -1075,6 +1152,7 @@
   },
   "清水　こう": {
     "name": "清水　こう",
+    "speaker": "清水　こう",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西淀川区",
@@ -1089,6 +1167,7 @@
   },
   "清水こう": {
     "name": "清水　こう",
+    "speaker": "清水　こう",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西淀川区",
@@ -1103,6 +1182,7 @@
   },
   "しみずこう": {
     "name": "清水　こう",
+    "speaker": "清水　こう",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西淀川区",
@@ -1117,6 +1197,7 @@
   },
   "山田　かな": {
     "name": "山田　かな",
+    "speaker": "山田　かな",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西淀川区",
@@ -1131,6 +1212,7 @@
   },
   "山田かな": {
     "name": "山田　かな",
+    "speaker": "山田　かな",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西淀川区",
@@ -1145,6 +1227,7 @@
   },
   "やまだかな": {
     "name": "山田　かな",
+    "speaker": "山田　かな",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西淀川区",
@@ -1159,6 +1242,7 @@
   },
   "今村　直人": {
     "name": "今村　直人",
+    "speaker": "今村　直人",
     "party": "維新",
     "partyGroup": "維新",
     "district": "淀川区",
@@ -1173,6 +1257,7 @@
   },
   "今村直人": {
     "name": "今村　直人",
+    "speaker": "今村　直人",
     "party": "維新",
     "partyGroup": "維新",
     "district": "淀川区",
@@ -1187,6 +1272,7 @@
   },
   "いまむらなおと": {
     "name": "今村　直人",
+    "speaker": "今村　直人",
     "party": "維新",
     "partyGroup": "維新",
     "district": "淀川区",
@@ -1201,6 +1287,7 @@
   },
   "坂井　はじめ": {
     "name": "坂井　はじめ",
+    "speaker": "坂井　はじめ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "淀川区",
@@ -1215,6 +1302,7 @@
   },
   "坂井はじめ": {
     "name": "坂井　はじめ",
+    "speaker": "坂井　はじめ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "淀川区",
@@ -1229,6 +1317,7 @@
   },
   "さかいはじめ": {
     "name": "坂井　はじめ",
+    "speaker": "坂井　はじめ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "淀川区",
@@ -1243,6 +1332,7 @@
   },
   "佐竹　りほ": {
     "name": "佐竹　りほ",
+    "speaker": "佐竹　りほ",
     "party": "総活躍",
     "partyGroup": "総活躍",
     "district": "淀川区",
@@ -1257,6 +1347,7 @@
   },
   "佐竹りほ": {
     "name": "佐竹　りほ",
+    "speaker": "佐竹　りほ",
     "party": "総活躍",
     "partyGroup": "総活躍",
     "district": "淀川区",
@@ -1271,6 +1362,7 @@
   },
   "さたけりほ": {
     "name": "佐竹　りほ",
+    "speaker": "佐竹　りほ",
     "party": "総活躍",
     "partyGroup": "総活躍",
     "district": "淀川区",
@@ -1285,6 +1377,7 @@
   },
   "杉田　忠裕": {
     "name": "杉田　忠裕",
+    "speaker": "杉田　忠裕",
     "party": "公明",
     "partyGroup": "公明",
     "district": "淀川区",
@@ -1299,6 +1392,7 @@
   },
   "杉田忠裕": {
     "name": "杉田　忠裕",
+    "speaker": "杉田　忠裕",
     "party": "公明",
     "partyGroup": "公明",
     "district": "淀川区",
@@ -1313,6 +1407,7 @@
   },
   "すぎたただひろ": {
     "name": "杉田　忠裕",
+    "speaker": "杉田　忠裕",
     "party": "公明",
     "partyGroup": "公明",
     "district": "淀川区",
@@ -1327,6 +1422,7 @@
   },
   "南　隆文": {
     "name": "南　隆文",
+    "speaker": "南　隆文",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "淀川区",
@@ -1341,6 +1437,7 @@
   },
   "南隆文": {
     "name": "南　隆文",
+    "speaker": "南　隆文",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "淀川区",
@@ -1355,6 +1452,7 @@
   },
   "みなみたかふみ": {
     "name": "南　隆文",
+    "speaker": "南　隆文",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "淀川区",
@@ -1369,6 +1467,7 @@
   },
   "石川　博紀": {
     "name": "石川　博紀",
+    "speaker": "石川　博紀",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "東淀川区",
@@ -1383,6 +1482,7 @@
   },
   "石川博紀": {
     "name": "石川　博紀",
+    "speaker": "石川　博紀",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "東淀川区",
@@ -1397,6 +1497,7 @@
   },
   "いしかわひろき": {
     "name": "石川　博紀",
+    "speaker": "石川　博紀",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "東淀川区",
@@ -1411,6 +1512,7 @@
   },
   "岩池　きよ": {
     "name": "岩池　きよ",
+    "speaker": "岩池　きよ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東淀川区",
@@ -1425,6 +1527,7 @@
   },
   "岩池きよ": {
     "name": "岩池　きよ",
+    "speaker": "岩池　きよ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東淀川区",
@@ -1439,6 +1542,7 @@
   },
   "いわいけきよ": {
     "name": "岩池　きよ",
+    "speaker": "岩池　きよ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東淀川区",
@@ -1453,6 +1557,7 @@
   },
   "橋本　まさと": {
     "name": "橋本　まさと",
+    "speaker": "橋本　まさと",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東淀川区",
@@ -1467,6 +1572,7 @@
   },
   "橋本まさと": {
     "name": "橋本　まさと",
+    "speaker": "橋本　まさと",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東淀川区",
@@ -1481,6 +1587,7 @@
   },
   "はしもとまさと": {
     "name": "橋本　まさと",
+    "speaker": "橋本　まさと",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東淀川区",
@@ -1495,6 +1602,7 @@
   },
   "ますもと　さおり": {
     "name": "ますもと　さおり",
+    "speaker": "ますもと　さおり",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東淀川区",
@@ -1507,6 +1615,7 @@
   },
   "ますもとさおり": {
     "name": "ますもと　さおり",
+    "speaker": "ますもと　さおり",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東淀川区",
@@ -1519,6 +1628,7 @@
   },
   "森　慶吾": {
     "name": "森　慶吾",
+    "speaker": "森　慶吾",
     "party": "公明",
     "partyGroup": "公明",
     "district": "東淀川区",
@@ -1533,6 +1643,7 @@
   },
   "森慶吾": {
     "name": "森　慶吾",
+    "speaker": "森　慶吾",
     "party": "公明",
     "partyGroup": "公明",
     "district": "東淀川区",
@@ -1547,6 +1658,7 @@
   },
   "もりけいご": {
     "name": "森　慶吾",
+    "speaker": "森　慶吾",
     "party": "公明",
     "partyGroup": "公明",
     "district": "東淀川区",
@@ -1561,6 +1673,7 @@
   },
   "近藤　みわ": {
     "name": "近藤　みわ",
+    "speaker": "近藤　みわ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東成区",
@@ -1575,6 +1688,7 @@
   },
   "近藤みわ": {
     "name": "近藤　みわ",
+    "speaker": "近藤　みわ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東成区",
@@ -1589,6 +1703,7 @@
   },
   "こんどうみわ": {
     "name": "近藤　みわ",
+    "speaker": "近藤　みわ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東成区",
@@ -1603,6 +1718,7 @@
   },
   "永瀬　かなこ": {
     "name": "永瀬　かなこ",
+    "speaker": "永瀬　かなこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東成区",
@@ -1617,6 +1733,7 @@
   },
   "永瀬かなこ": {
     "name": "永瀬　かなこ",
+    "speaker": "永瀬　かなこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東成区",
@@ -1631,6 +1748,7 @@
   },
   "ながせかなこ": {
     "name": "永瀬　かなこ",
+    "speaker": "永瀬　かなこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東成区",
@@ -1645,6 +1763,7 @@
   },
   "藤原　よういち": {
     "name": "藤原　よういち",
+    "speaker": "藤原　よういち",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "東成区",
@@ -1659,6 +1778,7 @@
   },
   "藤原よういち": {
     "name": "藤原　よういち",
+    "speaker": "藤原　よういち",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "東成区",
@@ -1673,6 +1793,7 @@
   },
   "ふじわらよういち": {
     "name": "藤原　よういち",
+    "speaker": "藤原　よういち",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "東成区",
@@ -1687,6 +1808,7 @@
   },
   "木下　誠": {
     "name": "木下　誠",
+    "speaker": "木下　誠",
     "party": "維新",
     "partyGroup": "維新",
     "district": "生野区",
@@ -1701,6 +1823,7 @@
   },
   "木下誠": {
     "name": "木下　誠",
+    "speaker": "木下　誠",
     "party": "維新",
     "partyGroup": "維新",
     "district": "生野区",
@@ -1715,6 +1838,7 @@
   },
   "きのしたまこと": {
     "name": "木下　誠",
+    "speaker": "木下　誠",
     "party": "維新",
     "partyGroup": "維新",
     "district": "生野区",
@@ -1729,6 +1853,7 @@
   },
   "武　直樹": {
     "name": "武　直樹",
+    "speaker": "武　直樹",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "生野区",
@@ -1743,6 +1868,7 @@
   },
   "武直樹": {
     "name": "武　直樹",
+    "speaker": "武　直樹",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "生野区",
@@ -1757,6 +1883,7 @@
   },
   "たけなおき": {
     "name": "武　直樹",
+    "speaker": "武　直樹",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "生野区",
@@ -1771,6 +1898,7 @@
   },
   "原口　悠介": {
     "name": "原口　悠介",
+    "speaker": "原口　悠介",
     "party": "維新",
     "partyGroup": "維新",
     "district": "生野区",
@@ -1785,6 +1913,7 @@
   },
   "原口悠介": {
     "name": "原口　悠介",
+    "speaker": "原口　悠介",
     "party": "維新",
     "partyGroup": "維新",
     "district": "生野区",
@@ -1799,6 +1928,7 @@
   },
   "はらぐちゆうすけ": {
     "name": "原口　悠介",
+    "speaker": "原口　悠介",
     "party": "維新",
     "partyGroup": "維新",
     "district": "生野区",
@@ -1813,6 +1943,7 @@
   },
   "山田　正和": {
     "name": "山田　正和",
+    "speaker": "山田　正和",
     "party": "公明",
     "partyGroup": "公明",
     "district": "生野区",
@@ -1827,6 +1958,7 @@
   },
   "山田正和": {
     "name": "山田　正和",
+    "speaker": "山田　正和",
     "party": "公明",
     "partyGroup": "公明",
     "district": "生野区",
@@ -1841,6 +1973,7 @@
   },
   "やまだまさかず": {
     "name": "山田　正和",
+    "speaker": "山田　正和",
     "party": "公明",
     "partyGroup": "公明",
     "district": "生野区",
@@ -1855,6 +1988,7 @@
   },
   "西崎　照明": {
     "name": "西崎　照明",
+    "speaker": "西崎　照明",
     "party": "公明",
     "partyGroup": "公明",
     "district": "旭区",
@@ -1869,6 +2003,7 @@
   },
   "西崎照明": {
     "name": "西崎　照明",
+    "speaker": "西崎　照明",
     "party": "公明",
     "partyGroup": "公明",
     "district": "旭区",
@@ -1883,6 +2018,7 @@
   },
   "にしざきてるあき": {
     "name": "西崎　照明",
+    "speaker": "西崎　照明",
     "party": "公明",
     "partyGroup": "公明",
     "district": "旭区",
@@ -1897,6 +2033,7 @@
   },
   "福田　武洋": {
     "name": "福田　武洋",
+    "speaker": "福田　武洋",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "旭区",
@@ -1911,6 +2048,7 @@
   },
   "福田武洋": {
     "name": "福田　武洋",
+    "speaker": "福田　武洋",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "旭区",
@@ -1925,6 +2063,7 @@
   },
   "ふくだたけひろ": {
     "name": "福田　武洋",
+    "speaker": "福田　武洋",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "旭区",
@@ -1939,6 +2078,7 @@
   },
   "宮脇　希": {
     "name": "宮脇　希",
+    "speaker": "宮脇　希",
     "party": "維新",
     "partyGroup": "維新",
     "district": "旭区",
@@ -1953,6 +2093,7 @@
   },
   "宮脇希": {
     "name": "宮脇　希",
+    "speaker": "宮脇　希",
     "party": "維新",
     "partyGroup": "維新",
     "district": "旭区",
@@ -1967,6 +2108,7 @@
   },
   "みやわきのぞみ": {
     "name": "宮脇　希",
+    "speaker": "宮脇　希",
     "party": "維新",
     "partyGroup": "維新",
     "district": "旭区",
@@ -1981,6 +2123,7 @@
   },
   "明石　直樹": {
     "name": "明石　直樹",
+    "speaker": "明石　直樹",
     "party": "公明",
     "partyGroup": "公明",
     "district": "城東区",
@@ -1995,6 +2138,7 @@
   },
   "明石直樹": {
     "name": "明石　直樹",
+    "speaker": "明石　直樹",
     "party": "公明",
     "partyGroup": "公明",
     "district": "城東区",
@@ -2009,6 +2153,7 @@
   },
   "あかしなおき": {
     "name": "明石　直樹",
+    "speaker": "明石　直樹",
     "party": "公明",
     "partyGroup": "公明",
     "district": "城東区",
@@ -2023,6 +2168,7 @@
   },
   "馬場　のりゆき": {
     "name": "馬場　のりゆき",
+    "speaker": "馬場　のりゆき",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2037,6 +2183,7 @@
   },
   "馬場のりゆき": {
     "name": "馬場　のりゆき",
+    "speaker": "馬場　のりゆき",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2051,6 +2198,7 @@
   },
   "ばばのりゆき": {
     "name": "馬場　のりゆき",
+    "speaker": "馬場　のりゆき",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2065,6 +2213,7 @@
   },
   "ホンダ　リエ": {
     "name": "ホンダ　リエ",
+    "speaker": "ホンダ　リエ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2079,6 +2228,7 @@
   },
   "ホンダリエ": {
     "name": "ホンダ　リエ",
+    "speaker": "ホンダ　リエ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2093,6 +2243,7 @@
   },
   "ほんだりえ": {
     "name": "ホンダ　リエ",
+    "speaker": "ホンダ　リエ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2107,6 +2258,7 @@
   },
   "山中　智子": {
     "name": "山中　智子",
+    "speaker": "山中　智子",
     "party": "共産",
     "partyGroup": "共産",
     "district": "城東区",
@@ -2121,6 +2273,7 @@
   },
   "山中智子": {
     "name": "山中　智子",
+    "speaker": "山中　智子",
     "party": "共産",
     "partyGroup": "共産",
     "district": "城東区",
@@ -2135,6 +2288,7 @@
   },
   "やまなかともこ": {
     "name": "山中　智子",
+    "speaker": "山中　智子",
     "party": "共産",
     "partyGroup": "共産",
     "district": "城東区",
@@ -2149,6 +2303,7 @@
   },
   "わしみ　慎一": {
     "name": "わしみ　慎一",
+    "speaker": "わしみ　慎一",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2163,6 +2318,7 @@
   },
   "わしみ慎一": {
     "name": "わしみ　慎一",
+    "speaker": "わしみ　慎一",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2177,6 +2333,7 @@
   },
   "わしみしんいち": {
     "name": "わしみ　慎一",
+    "speaker": "わしみ　慎一",
     "party": "維新",
     "partyGroup": "維新",
     "district": "城東区",
@@ -2191,6 +2348,7 @@
   },
   "大橋　一隆": {
     "name": "大橋　一隆",
+    "speaker": "大橋　一隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "鶴見区",
@@ -2205,6 +2363,7 @@
   },
   "大橋一隆": {
     "name": "大橋　一隆",
+    "speaker": "大橋　一隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "鶴見区",
@@ -2219,6 +2378,7 @@
   },
   "おおはしかずたか": {
     "name": "大橋　一隆",
+    "speaker": "大橋　一隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "鶴見区",
@@ -2233,6 +2393,7 @@
   },
   "黒田　まりこ": {
     "name": "黒田　まりこ",
+    "speaker": "黒田　まりこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "鶴見区",
@@ -2247,6 +2408,7 @@
   },
   "黒田まりこ": {
     "name": "黒田　まりこ",
+    "speaker": "黒田　まりこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "鶴見区",
@@ -2261,6 +2423,7 @@
   },
   "くろだまりこ": {
     "name": "黒田　まりこ",
+    "speaker": "黒田　まりこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "鶴見区",
@@ -2275,6 +2438,7 @@
   },
   "土岐　恭生": {
     "name": "土岐　恭生",
+    "speaker": "土岐　恭生",
     "party": "公明",
     "partyGroup": "公明",
     "district": "鶴見区",
@@ -2289,6 +2453,7 @@
   },
   "土岐恭生": {
     "name": "土岐　恭生",
+    "speaker": "土岐　恭生",
     "party": "公明",
     "partyGroup": "公明",
     "district": "鶴見区",
@@ -2303,6 +2468,7 @@
   },
   "ときやすお": {
     "name": "土岐　恭生",
+    "speaker": "土岐　恭生",
     "party": "公明",
     "partyGroup": "公明",
     "district": "鶴見区",
@@ -2317,6 +2483,7 @@
   },
   "梅園　周": {
     "name": "梅園　周",
+    "speaker": "梅園　周",
     "party": "維新",
     "partyGroup": "維新",
     "district": "阿倍野区",
@@ -2331,6 +2498,7 @@
   },
   "梅園周": {
     "name": "梅園　周",
+    "speaker": "梅園　周",
     "party": "維新",
     "partyGroup": "維新",
     "district": "阿倍野区",
@@ -2345,6 +2513,7 @@
   },
   "うめぞのまこと": {
     "name": "梅園　周",
+    "speaker": "梅園　周",
     "party": "維新",
     "partyGroup": "維新",
     "district": "阿倍野区",
@@ -2359,6 +2528,7 @@
   },
   "木下　吉信": {
     "name": "木下　吉信",
+    "speaker": "木下　吉信",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "阿倍野区",
@@ -2373,6 +2543,7 @@
   },
   "木下吉信": {
     "name": "木下　吉信",
+    "speaker": "木下　吉信",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "阿倍野区",
@@ -2387,6 +2558,7 @@
   },
   "きのしたよしのぶ": {
     "name": "木下　吉信",
+    "speaker": "木下　吉信",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "阿倍野区",
@@ -2401,6 +2573,7 @@
   },
   "谷井　正佳": {
     "name": "谷井　正佳",
+    "speaker": "谷井　正佳",
     "party": "維新",
     "partyGroup": "維新",
     "district": "阿倍野区",
@@ -2415,6 +2588,7 @@
   },
   "谷井正佳": {
     "name": "谷井　正佳",
+    "speaker": "谷井　正佳",
     "party": "維新",
     "partyGroup": "維新",
     "district": "阿倍野区",
@@ -2429,6 +2603,7 @@
   },
   "たにいまさよし": {
     "name": "谷井　正佳",
+    "speaker": "谷井　正佳",
     "party": "維新",
     "partyGroup": "維新",
     "district": "阿倍野区",
@@ -2443,6 +2618,7 @@
   },
   "片山　一歩": {
     "name": "片山　一歩",
+    "speaker": "片山　一歩",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住之江区",
@@ -2457,6 +2633,7 @@
   },
   "片山一歩": {
     "name": "片山　一歩",
+    "speaker": "片山　一歩",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住之江区",
@@ -2471,6 +2648,7 @@
   },
   "かたやまいっぽ": {
     "name": "片山　一歩",
+    "speaker": "片山　一歩",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住之江区",
@@ -2485,6 +2663,7 @@
   },
   "岸本　栄": {
     "name": "岸本　栄",
+    "speaker": "岸本　栄",
     "party": "公明",
     "partyGroup": "公明",
     "district": "住之江区",
@@ -2499,6 +2678,7 @@
   },
   "岸本栄": {
     "name": "岸本　栄",
+    "speaker": "岸本　栄",
     "party": "公明",
     "partyGroup": "公明",
     "district": "住之江区",
@@ -2513,6 +2693,7 @@
   },
   "きしもとさかえ": {
     "name": "岸本　栄",
+    "speaker": "岸本　栄",
     "party": "公明",
     "partyGroup": "公明",
     "district": "住之江区",
@@ -2527,6 +2708,7 @@
   },
   "木村　ひかり": {
     "name": "木村　ひかり",
+    "speaker": "木村　ひかり",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住之江区",
@@ -2541,6 +2723,7 @@
   },
   "木村ひかり": {
     "name": "木村　ひかり",
+    "speaker": "木村　ひかり",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住之江区",
@@ -2555,6 +2738,7 @@
   },
   "きむらひかり": {
     "name": "木村　ひかり",
+    "speaker": "木村　ひかり",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住之江区",
@@ -2569,6 +2753,7 @@
   },
   "松崎　孔": {
     "name": "松崎　孔",
+    "speaker": "松崎　孔",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "住之江区",
@@ -2583,6 +2768,7 @@
   },
   "松崎孔": {
     "name": "松崎　孔",
+    "speaker": "松崎　孔",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "住之江区",
@@ -2597,6 +2783,7 @@
   },
   "まつざきとおる": {
     "name": "松崎　孔",
+    "speaker": "松崎　孔",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "住之江区",
@@ -2611,6 +2798,7 @@
   },
   "伊藤　亜実": {
     "name": "伊藤　亜実",
+    "speaker": "伊藤　亜実",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2625,6 +2813,7 @@
   },
   "伊藤亜実": {
     "name": "伊藤　亜実",
+    "speaker": "伊藤　亜実",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2639,6 +2828,7 @@
   },
   "いとうあみ": {
     "name": "伊藤　亜実",
+    "speaker": "伊藤　亜実",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2653,6 +2843,7 @@
   },
   "井上　浩": {
     "name": "井上　浩",
+    "speaker": "井上　浩",
     "party": "共産",
     "partyGroup": "共産",
     "district": "住吉区",
@@ -2667,6 +2858,7 @@
   },
   "井上浩": {
     "name": "井上　浩",
+    "speaker": "井上　浩",
     "party": "共産",
     "partyGroup": "共産",
     "district": "住吉区",
@@ -2681,6 +2873,7 @@
   },
   "いのうえひろし": {
     "name": "井上　浩",
+    "speaker": "井上　浩",
     "party": "共産",
     "partyGroup": "共産",
     "district": "住吉区",
@@ -2695,6 +2888,7 @@
   },
   "上田　智隆": {
     "name": "上田　智隆",
+    "speaker": "上田　智隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2709,6 +2903,7 @@
   },
   "上田智隆": {
     "name": "上田　智隆",
+    "speaker": "上田　智隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2723,6 +2918,7 @@
   },
   "うえだともたか": {
     "name": "上田　智隆",
+    "speaker": "上田　智隆",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2737,6 +2933,7 @@
   },
   "くぼた　亮": {
     "name": "くぼた　亮",
+    "speaker": "くぼた　亮",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2751,6 +2948,7 @@
   },
   "くぼた亮": {
     "name": "くぼた　亮",
+    "speaker": "くぼた　亮",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2765,6 +2963,7 @@
   },
   "くぼたりょう": {
     "name": "くぼた　亮",
+    "speaker": "くぼた　亮",
     "party": "維新",
     "partyGroup": "維新",
     "district": "住吉区",
@@ -2779,6 +2978,7 @@
   },
   "中田　光一郎": {
     "name": "中田　光一郎",
+    "speaker": "中田　光一郎",
     "party": "公明",
     "partyGroup": "公明",
     "district": "住吉区",
@@ -2793,6 +2993,7 @@
   },
   "中田光一郎": {
     "name": "中田　光一郎",
+    "speaker": "中田　光一郎",
     "party": "公明",
     "partyGroup": "公明",
     "district": "住吉区",
@@ -2807,6 +3008,7 @@
   },
   "なかたこういちろう": {
     "name": "中田　光一郎",
+    "speaker": "中田　光一郎",
     "party": "公明",
     "partyGroup": "公明",
     "district": "住吉区",
@@ -2821,6 +3023,7 @@
   },
   "田辺　信広": {
     "name": "田辺　信広",
+    "speaker": "田辺　信広",
     "party": "無所属",
     "partyGroup": "無所属",
     "district": "東住吉区",
@@ -2835,6 +3038,7 @@
   },
   "田辺信広": {
     "name": "田辺　信広",
+    "speaker": "田辺　信広",
     "party": "無所属",
     "partyGroup": "無所属",
     "district": "東住吉区",
@@ -2849,6 +3053,7 @@
   },
   "たなべのぶひろ": {
     "name": "田辺　信広",
+    "speaker": "田辺　信広",
     "party": "無所属",
     "partyGroup": "無所属",
     "district": "東住吉区",
@@ -2863,6 +3068,7 @@
   },
   "辻　義隆": {
     "name": "辻　義隆",
+    "speaker": "辻　義隆",
     "party": "公明",
     "partyGroup": "公明",
     "district": "東住吉区",
@@ -2877,6 +3083,7 @@
   },
   "辻義隆": {
     "name": "辻　義隆",
+    "speaker": "辻　義隆",
     "party": "公明",
     "partyGroup": "公明",
     "district": "東住吉区",
@@ -2891,6 +3098,7 @@
   },
   "つじよしたか": {
     "name": "辻　義隆",
+    "speaker": "辻　義隆",
     "party": "公明",
     "partyGroup": "公明",
     "district": "東住吉区",
@@ -2905,6 +3113,7 @@
   },
   "人見　つよし": {
     "name": "人見　つよし",
+    "speaker": "人見　つよし",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東住吉区",
@@ -2919,6 +3128,7 @@
   },
   "人見つよし": {
     "name": "人見　つよし",
+    "speaker": "人見　つよし",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東住吉区",
@@ -2933,6 +3143,7 @@
   },
   "ひとみつよし": {
     "name": "人見　つよし",
+    "speaker": "人見　つよし",
     "party": "維新",
     "partyGroup": "維新",
     "district": "東住吉区",
@@ -2947,6 +3158,7 @@
   },
   "渕上　浩美": {
     "name": "渕上　浩美",
+    "speaker": "渕上　浩美",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "東住吉区",
@@ -2961,6 +3173,7 @@
   },
   "渕上浩美": {
     "name": "渕上　浩美",
+    "speaker": "渕上　浩美",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "東住吉区",
@@ -2975,6 +3188,7 @@
   },
   "ふちかみひろみ": {
     "name": "渕上　浩美",
+    "speaker": "渕上　浩美",
     "party": "自民市民",
     "partyGroup": "自民市民",
     "district": "東住吉区",
@@ -2989,6 +3203,7 @@
   },
   "杉村　幸太郎": {
     "name": "杉村　幸太郎",
+    "speaker": "杉村　幸太郎",
     "party": "維新",
     "partyGroup": "維新",
     "district": "平野区",
@@ -3003,6 +3218,7 @@
   },
   "杉村幸太郎": {
     "name": "杉村　幸太郎",
+    "speaker": "杉村　幸太郎",
     "party": "維新",
     "partyGroup": "維新",
     "district": "平野区",
@@ -3017,6 +3233,7 @@
   },
   "すぎむらこうたろう": {
     "name": "杉村　幸太郎",
+    "speaker": "杉村　幸太郎",
     "party": "維新",
     "partyGroup": "維新",
     "district": "平野区",
@@ -3031,6 +3248,7 @@
   },
   "田中　ひろき": {
     "name": "田中　ひろき",
+    "speaker": "田中　ひろき",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "平野区",
@@ -3045,6 +3263,7 @@
   },
   "田中ひろき": {
     "name": "田中　ひろき",
+    "speaker": "田中　ひろき",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "平野区",
@@ -3059,6 +3278,7 @@
   },
   "たなかひろき": {
     "name": "田中　ひろき",
+    "speaker": "田中　ひろき",
     "party": "自国くらし",
     "partyGroup": "自国くらし",
     "district": "平野区",
@@ -3073,6 +3293,7 @@
   },
   "永井　広幸": {
     "name": "永井　広幸",
+    "speaker": "永井　広幸",
     "party": "公明",
     "partyGroup": "公明",
     "district": "平野区",
@@ -3087,6 +3308,7 @@
   },
   "永井広幸": {
     "name": "永井　広幸",
+    "speaker": "永井　広幸",
     "party": "公明",
     "partyGroup": "公明",
     "district": "平野区",
@@ -3101,6 +3323,7 @@
   },
   "ながいひろゆき": {
     "name": "永井　広幸",
+    "speaker": "永井　広幸",
     "party": "公明",
     "partyGroup": "公明",
     "district": "平野区",
@@ -3115,6 +3338,7 @@
   },
   "永田　典子": {
     "name": "永田　典子",
+    "speaker": "永田　典子",
     "party": "公明",
     "partyGroup": "公明",
     "district": "平野区",
@@ -3129,6 +3353,7 @@
   },
   "永田典子": {
     "name": "永田　典子",
+    "speaker": "永田　典子",
     "party": "公明",
     "partyGroup": "公明",
     "district": "平野区",
@@ -3143,6 +3368,7 @@
   },
   "ながたのりこ": {
     "name": "永田　典子",
+    "speaker": "永田　典子",
     "party": "公明",
     "partyGroup": "公明",
     "district": "平野区",
@@ -3157,6 +3383,7 @@
   },
   "松田　まさとし": {
     "name": "松田　まさとし",
+    "speaker": "松田　まさとし",
     "party": "大阪平野",
     "partyGroup": "大阪平野",
     "district": "平野区",
@@ -3171,6 +3398,7 @@
   },
   "松田まさとし": {
     "name": "松田　まさとし",
+    "speaker": "松田　まさとし",
     "party": "大阪平野",
     "partyGroup": "大阪平野",
     "district": "平野区",
@@ -3185,6 +3413,7 @@
   },
   "まつだまさとし": {
     "name": "松田　まさとし",
+    "speaker": "松田　まさとし",
     "party": "大阪平野",
     "partyGroup": "大阪平野",
     "district": "平野区",
@@ -3199,6 +3428,7 @@
   },
   "吉見　みさこ": {
     "name": "吉見　みさこ",
+    "speaker": "吉見　みさこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "平野区",
@@ -3213,6 +3443,7 @@
   },
   "吉見みさこ": {
     "name": "吉見　みさこ",
+    "speaker": "吉見　みさこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "平野区",
@@ -3227,6 +3458,7 @@
   },
   "よしみみさこ": {
     "name": "吉見　みさこ",
+    "speaker": "吉見　みさこ",
     "party": "維新",
     "partyGroup": "維新",
     "district": "平野区",
@@ -3241,6 +3473,7 @@
   },
   "辻　淳子": {
     "name": "辻　淳子",
+    "speaker": "辻　淳子",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西成区",
@@ -3255,6 +3488,7 @@
   },
   "辻淳子": {
     "name": "辻　淳子",
+    "speaker": "辻　淳子",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西成区",
@@ -3269,6 +3503,7 @@
   },
   "つじじゅんこ": {
     "name": "辻　淳子",
+    "speaker": "辻　淳子",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西成区",
@@ -3283,6 +3518,7 @@
   },
   "藤岡　寛和": {
     "name": "藤岡　寛和",
+    "speaker": "藤岡　寛和",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西成区",
@@ -3297,6 +3533,7 @@
   },
   "藤岡寛和": {
     "name": "藤岡　寛和",
+    "speaker": "藤岡　寛和",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西成区",
@@ -3311,6 +3548,7 @@
   },
   "ふじおかひろかず": {
     "name": "藤岡　寛和",
+    "speaker": "藤岡　寛和",
     "party": "維新",
     "partyGroup": "維新",
     "district": "西成区",
@@ -3325,6 +3563,7 @@
   },
   "山口　悟朗": {
     "name": "山口　悟朗",
+    "speaker": "山口　悟朗",
     "party": "公明",
     "partyGroup": "公明",
     "district": "西成区",
@@ -3339,6 +3578,7 @@
   },
   "山口悟朗": {
     "name": "山口　悟朗",
+    "speaker": "山口　悟朗",
     "party": "公明",
     "partyGroup": "公明",
     "district": "西成区",
@@ -3353,6 +3593,7 @@
   },
   "やまぐちごろう": {
     "name": "山口　悟朗",
+    "speaker": "山口　悟朗",
     "party": "公明",
     "partyGroup": "公明",
     "district": "西成区",
@@ -3367,6 +3608,7 @@
   },
   "司 隆史": {
     "name": "司 隆史",
+    "speaker": "司 隆史",
     "party": "公明党大阪市会議員団",
     "partyGroup": "公明党",
     "district": "東成区",
@@ -3382,6 +3624,7 @@
   },
   "司隆史": {
     "name": "司 隆史",
+    "speaker": "司 隆史",
     "party": "公明党大阪市会議員団",
     "partyGroup": "公明党",
     "district": "東成区",
@@ -3397,6 +3640,7 @@
   },
   "つかさ隆史": {
     "name": "司 隆史",
+    "speaker": "司 隆史",
     "party": "公明党大阪市会議員団",
     "partyGroup": "公明党",
     "district": "東成区",

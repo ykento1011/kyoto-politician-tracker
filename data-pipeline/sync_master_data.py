@@ -19,7 +19,7 @@ KANJI_VARIANTS = str.maketrans({
 
 def normalize_name(t: str) -> str:
     t = unicodedata.normalize("NFKC", str(t or ""))
-    t = re.sub(r"[\s　]+", "", t)
+    t = re.sub(r"[\s ]+", "", t)
     return t.translate(KANJI_VARIANTS)
 
 def sync_master_data(city: str):
@@ -46,13 +46,14 @@ def sync_master_data(city: str):
 
     valid_speaker_map = {}
     speaker_stats_dict = {}
+    updated_master_list = []
 
     for c in master_councilors:
         name = c["name"]
-        raw_clean = re.sub(r"[\s　]+", "", name)
+        raw_clean = re.sub(r"[\s ]+", "", name)
         norm_n = normalize_name(name)
         
-        # 手動オーバーライドの適用（該当議員があれば優先上書き）
+        # 手動オーバーライドの適用
         if name in manual_overrides or raw_clean in manual_overrides:
             ov = manual_overrides.get(name) or manual_overrides.get(raw_clean)
             c.update(ov)
@@ -61,6 +62,7 @@ def sync_master_data(city: str):
         is_active = c.get("is_active", True)
         entry = {
             "name": name,
+            "speaker": name,
             "party": c.get("party", ""),
             "partyGroup": c.get("partyGroup", c.get("party", "")),
             "district": c.get("district", ""),
@@ -72,18 +74,21 @@ def sync_master_data(city: str):
             "resigned_reason": c.get("resigned_reason")
         }
         
+        updated_master_list.append(c)
+
         # 原名・空白除去・正規化名すべてでマッピング
         speaker_stats_dict[name] = entry
         speaker_stats_dict[raw_clean] = entry
         speaker_stats_dict[norm_n] = entry
         
-        # 【重要】退任議員も含めて有効発言者としてマップに保持（過去の質疑ログを削除しない）
+        # 退任議員も含めて有効発言者として保持
+        valid_speaker_map[name] = name
         valid_speaker_map[raw_clean] = name
         valid_speaker_map[norm_n] = name
 
         for al in c.get("aliases", []):
             norm_al = normalize_name(al)
-            clean_al = re.sub(r"[\s　]+", "", al)
+            clean_al = re.sub(r"[\s ]+", "", al)
             speaker_stats_dict[clean_al] = entry
             speaker_stats_dict[norm_al] = entry
             valid_speaker_map[clean_al] = name
@@ -95,7 +100,7 @@ def sync_master_data(city: str):
             m_data = json.loads(MAYORS_FILE.read_text(encoding="utf-8"))
             if city in m_data:
                 m_name = m_data[city]["name"]
-                m_clean = re.sub(r"[\s　]+", "", m_name)
+                m_clean = re.sub(r"[\s ]+", "", m_name)
                 m_norm = normalize_name(m_name)
                 valid_speaker_map[m_clean] = m_name
                 valid_speaker_map[m_norm] = m_name
@@ -103,15 +108,22 @@ def sync_master_data(city: str):
         except Exception:
             pass
 
-    # 4. speaker_stats.json の保存
+    # 4. フロントエンド公開用 councilors.json の保存
     FRONTEND_DATA.mkdir(parents=True, exist_ok=True)
+    frontend_master_file = FRONTEND_DATA / f"{city}_councilors.json"
+    frontend_master_file.write_bytes(json.dumps(updated_master_list, ensure_ascii=False, indent=2).encode("utf-8"))
+    print(f"✅ [{city.upper()}] {frontend_master_file.name} を同期完了（全登録数: {len(updated_master_list)} 名）")
+    if city == "kyoto":
+        (FRONTEND_DATA / "councilors.json").write_bytes(json.dumps(updated_master_list, ensure_ascii=False, indent=2).encode("utf-8"))
+
+    # 5. speaker_stats.json の保存
     stats_file = FRONTEND_DATA / f"{city}_speaker_stats.json"
     stats_file.write_bytes(json.dumps(speaker_stats_dict, ensure_ascii=False, indent=2).encode("utf-8"))
     if city == "kyoto":
         (FRONTEND_DATA / "speaker_stats.json").write_bytes(json.dumps(speaker_stats_dict, ensure_ascii=False, indent=2).encode("utf-8"))
-    print(f"✅ [{city.upper()}] {stats_file.name} を同期完了（全登録数: {len(master_councilors)} 名）")
+    print(f"✅ [{city.upper()}] {stats_file.name} を同期完了（マッピングキー数: {len(speaker_stats_dict)}）")
 
-    # 5. 会議録サマリーの同期（過去発言の保護）
+    # 6. 会議録サマリーの同期（過去発言の保護と発言者名正規化）
     summary_candidates = [
         FRONTEND_DATA / f"{city}_statements_summary.json",
         FRONTEND_DATA / f"statements_summary_{city}.json"
@@ -122,33 +134,34 @@ def sync_master_data(city: str):
     target_files = [p for p in summary_candidates if p.exists()]
     if target_files:
         raw_stmts = json.loads(target_files[0].read_text(encoding="utf-8-sig"))
+        statements = raw_stmts.get("statements", []) if isinstance(raw_stmts, dict) else raw_stmts
         filtered_stmts = []
         excluded_speakers = set()
 
-        for s in raw_stmts:
+        for s in statements:
             spk = s.get("speaker") or s.get("speaker_name") or ""
             norm_spk = normalize_name(spk)
-            clean_spk = re.sub(r"[\s　]+", "", spk)
+            clean_spk = re.sub(r"[\s ]+", "", spk)
 
-            # 正規化名または空白除去名のいずれかがマスターにあれば保持
-            matched_canonical = valid_speaker_map.get(clean_spk) or valid_speaker_map.get(norm_spk)
+            matched_canonical = valid_speaker_map.get(clean_spk) or valid_speaker_map.get(norm_spk) or valid_speaker_map.get(spk)
             if matched_canonical:
                 s["speaker"] = matched_canonical
                 filtered_stmts.append(s)
             else:
                 excluded_speakers.add(spk)
 
+        out_content = filtered_stmts if isinstance(raw_stmts, list) else {**raw_stmts, "statements": filtered_stmts}
         for out_p in target_files:
-            out_p.write_bytes(json.dumps(filtered_stmts, ensure_ascii=False, indent=2).encode("utf-8"))
+            out_p.write_bytes(json.dumps(out_content, ensure_ascii=False, indent=2).encode("utf-8"))
             
-        print(f"✅ [{city.upper()}] 質疑ログ同期完了: {len(filtered_stmts)} 件保持 / 行政幹部排除: {len(excluded_speakers)} 名")
+        print(f"✅ [{city.upper()}] 質疑ログ同期完了: {len(filtered_stmts)} 件保持 / フィルタ対象: {len(excluded_speakers)} 名")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--city", required=True, help="対象都市 (kyoto, yokohama, osaka, nagoya, all)")
+    parser.add_argument("--city", default="all", help="対象都市 (kyoto, osaka, nagoya, yokohama, kobe, all)")
     args = parser.parse_args()
     
-    cities = ["kyoto", "osaka", "nagoya", "yokohama"] if args.city.lower() == "all" else [args.city]
+    target = args.city.lower()
+    cities = ["kyoto", "osaka", "nagoya", "yokohama", "kobe"] if target == "all" else [target]
     for c in cities:
         sync_master_data(c)
-
