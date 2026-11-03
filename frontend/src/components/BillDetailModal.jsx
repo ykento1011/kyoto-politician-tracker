@@ -40,7 +40,6 @@ export default function BillDetailModal({
   cityCode = 'kyoto'
 }) {
   useScrollLock(isOpen);
-  const swipeHandlers = useSwipeToClose(onClose, 60);
   if (!isOpen || !bill) return null;
 
   // 1. 各議員の所属会派・無所属ステータスに基づき、賛成議員・反対議員を特定
@@ -136,6 +135,7 @@ export default function BillDetailModal({
       {/* ボトムシート & デスクトップ中央ポップアップ */}
       <div 
         data-testid="statement-modal"
+        {...swipeHandlers}
         className="
           fixed inset-x-0 bottom-0 z-50 flex flex-col
           max-h-[88vh] rounded-t-3xl bg-white shadow-2xl

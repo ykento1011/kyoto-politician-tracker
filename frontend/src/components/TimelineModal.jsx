@@ -85,8 +85,14 @@ export default function TimelineModal({
   cityCode = 'kyoto'
 }) {
   const [showPrevious, setShowPrevious] = useState(false);
+  const scrollContainerRef = React.useRef(null);
   useScrollLock(isOpen);
-  const swipeHandlers = useSwipeToClose(onClose, 60);
+
+  const swipeHandlers = useSwipeToClose({
+    onClose,
+    threshold: 50,
+    scrollContainerRef,
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -117,6 +123,7 @@ export default function TimelineModal({
       {/* モーダルコンテナ（モバイル: 下部スライドイン / デスクトップ: 中央ポップアップ） */}
       <div 
         data-testid="statement-modal"
+        {...swipeHandlers}
         className="
           fixed inset-x-0 bottom-0 z-50 flex flex-col
           max-h-[88vh] rounded-t-3xl bg-white shadow-2xl
@@ -167,7 +174,8 @@ export default function TimelineModal({
         </div>
 
         {/* タイムラインメッセージ一覧（チャットバブルスレッド） */}
-        <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-5 bg-slate-50/70 space-y-2 relative">
+        <div ref={scrollContainerRef}
+          className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-5 bg-slate-50/70 space-y-2 relative">
           {isLoading ? (
             <div className="flex justify-center py-10">
               <Loader2 className="w-6 h-6 animate-spin text-indigo-600" />

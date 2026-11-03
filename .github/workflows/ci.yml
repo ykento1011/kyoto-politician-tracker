@@ -44,3 +44,10 @@ jobs:
 
       - name: Test frontend build
         run: npm --prefix frontend run build
+
+      # 3. E2E Playwright テスト (Desktop + Mobile Safari + Mobile Chrome)
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E Tests
+        run: npx playwright test --project="Desktop Chrome" --project="Mobile Chrome (Pixel 7)"

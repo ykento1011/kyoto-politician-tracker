@@ -512,6 +512,27 @@ export default function App() {
     );
   }
 
+  const renderModals = () => (
+    <>
+      <BillDetailModal
+        cityCode={cityCode}
+        isOpen={Boolean(selectedBillForModal)}
+        onClose={() => setSelectedBillForModal(null)}
+        bill={selectedBillForModal}
+        issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
+        speakerStats={speakerStats}
+        onSpeakerClick={handleSpeakerClick}
+      />
+      <TimelineModal
+        cityCode={cityCode}
+        isOpen={isPanelOpen}
+        onClose={() => setIsPanelOpen(false)}
+        selectedContext={selectedContext}
+        isLoading={isLoadingContext}
+      />
+    </>
+  );
+
   const renderNavbar = (isCompare = false) => (
     <Navbar
       onLogoClick={handleGoHome}
@@ -540,16 +561,8 @@ export default function App() {
             onOpenMethodology={() => navigateToView('methodology')}
           />
         </div>
-        <BillDetailModal
-          cityCode={cityCode}
-          isOpen={Boolean(selectedBillForModal)}
-          onClose={() => setSelectedBillForModal(null)}
-          bill={selectedBillForModal}
-          issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
-          speakerStats={speakerStats}
-          onSpeakerClick={handleSpeakerClick}
-        />
-        <FeedbackButton />
+          {renderModals()}
+          <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
@@ -600,14 +613,8 @@ export default function App() {
         <div className="flex-grow">
           <TopicDetailPage topicId={currentRoute.topicId} cityCode={cityCode} statements={statements} onBack={handleGoHome} onViewContext={handleViewContext} />
         </div>
-        <TimelineModal
-          cityCode={cityCode}
-          isOpen={isPanelOpen}
-          onClose={() => setIsPanelOpen(false)}
-          selectedContext={selectedContext}
-          isLoading={isLoadingContext}
-        />
-        <FeedbackButton />
+          {renderModals()}
+          <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
@@ -637,7 +644,8 @@ export default function App() {
             onOpenTopicDetail={handleOpenTopicDetail}
           />
         </div>
-        <FeedbackButton />
+          {renderModals()}
+          <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
