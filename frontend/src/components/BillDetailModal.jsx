@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import useScrollLock from '../hooks/useScrollLock';
 import { 
   X, CheckCircle2, XCircle, Sparkles, ExternalLink, User, 
   Flame, BookmarkCheck, ArrowRight, MinusCircle 
@@ -37,6 +38,7 @@ export default function BillDetailModal({
   onSpeakerClick,
   cityCode = 'kyoto'
 }) {
+  useScrollLock(isOpen);
   if (!isOpen || !bill) return null;
 
   // 1. 各議員の所属会派・無所属ステータスに基づき、賛成議員・反対議員を特定
@@ -392,6 +394,16 @@ export default function BillDetailModal({
             </div>
           )}
 
+        </div>
+
+        {/* モバイル向け親指操作用フッターバー (Safe Area対応 & 44px確保) */}
+        <div className="sm:hidden border-t border-slate-200 bg-white p-3 pb-safe flex items-center justify-end gap-2 z-10 shrink-0">
+          <button
+            onClick={onClose}
+            className="w-full inline-flex items-center justify-center min-h-[44px] px-4 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl active:bg-slate-300 cursor-pointer"
+          >
+            閉じる
+          </button>
         </div>
       </div>
     </div>

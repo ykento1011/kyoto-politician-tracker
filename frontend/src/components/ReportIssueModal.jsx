@@ -1,3 +1,4 @@
+import useScrollLock from '../hooks/useScrollLock';
 ﻿import React, { useState } from 'react';
 import { X, Flag, AlertCircle, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
@@ -6,6 +7,7 @@ export default function ReportIssueModal({ isOpen, onClose, reportContext }) {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("idle"); // idle, submitting, success, error
 
+  useScrollLock(isOpen);
   if (!isOpen) return null;
 
   const handleSubmit = async (e) => {

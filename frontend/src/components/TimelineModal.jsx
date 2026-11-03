@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { MessageCircle, X, Loader2, ChevronUp, Landmark, ExternalLink } from 'lucide-react';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
+import useScrollLock from '../hooks/useScrollLock';
 
 export default function TimelineModal({
   isOpen,
@@ -10,6 +11,7 @@ export default function TimelineModal({
   cityCode = 'kyoto'
 }) {
   const [showPrevious, setShowPrevious] = useState(false);
+  useScrollLock(isOpen);
 
   useEffect(() => {
     if (isOpen) {
@@ -59,8 +61,10 @@ export default function TimelineModal({
 
             <button 
               onClick={onClose} 
-              className="p-1.5 text-slate-400 hover:bg-slate-100 rounded-full cursor-pointer transition-colors"
+              data-testid="close-modal"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full cursor-pointer transition-colors"
               title="閉じる"
+              aria-label="閉じる"
             >
               <X className="w-5 h-5" />
             </button>
@@ -68,7 +72,7 @@ export default function TimelineModal({
         </div>
 
         {/* タイムラインメッセージ一覧 */}
-        <div className="flex-1 overflow-y-auto p-5 bg-slate-50 space-y-4 relative">
+        <div className="flex-1 overflow-y-auto overscroll-contain p-5 bg-slate-50 space-y-4 relative">
           {isLoading ? (
             <div className="flex justify-center py-10">
               <Loader2 className="w-6 h-6 animate-spin text-indigo-600" />
@@ -122,6 +126,27 @@ export default function TimelineModal({
           ) : (
             <p className="text-center text-sm text-slate-400">データが見つかりません</p>
           )}
+        </div>
+
+        {/* モバイル向け親指操作用フッターバー (Safe Area対応 & 44px確保) */}
+        <div className="sm:hidden border-t border-slate-200 bg-white p-3 pb-safe flex items-center justify-between gap-2 z-10 shrink-0">
+          {targetStatement && (
+            <button
+              onClick={() => openOfficialMinute(targetStatement, cityCode)}
+              title={getOfficialLinkTooltip(targetStatement, cityCode)}
+              className="flex-1 inline-flex items-center justify-center min-h-[44px] px-3 py-2 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-xl transition-colors cursor-pointer group"
+            >
+              <Landmark className="w-3.5 h-3.5 mr-1 text-indigo-600 shrink-0" />
+              <span className="truncate">原本を確認</span>
+              <ExternalLink className="w-3 h-3 ml-1 text-indigo-400 group-hover:text-indigo-600 shrink-0" />
+            </button>
+          )}
+          <button
+            onClick={onClose}
+            className="flex-1 inline-flex items-center justify-center min-h-[44px] px-4 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl active:bg-slate-300 cursor-pointer"
+          >
+            閉じる
+          </button>
         </div>
       </div>
     </>

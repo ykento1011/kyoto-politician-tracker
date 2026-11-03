@@ -1,4 +1,5 @@
 ﻿import React, { useState, useRef, useEffect } from 'react';
+import CitySelector from './CitySelector';
 import { 
   Landmark, 
   Compass, 
@@ -211,7 +212,7 @@ export default function Navbar({
                 closeAll();
                 onOpenMayor();
               }}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 active:bg-indigo-100 cursor-pointer shrink-0"
+              className="flex items-center gap-1 min-h-[44px] px-3 py-2 rounded-lg text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 active:bg-indigo-100 cursor-pointer shrink-0"
             >
               <Landmark className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
               <span>政策進捗</span>
@@ -224,13 +225,17 @@ export default function Navbar({
                 setIsCityDropdownOpen(false);
                 setIsMobileMenuOpen(!isMobileMenuOpen);
               }}
-              className="p-1.5 rounded-lg text-slate-700 active:bg-slate-100 cursor-pointer shrink-0"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-slate-700 active:bg-slate-100 cursor-pointer shrink-0"
               aria-label="メニュー"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6 text-indigo-600" /> : <Menu className="w-6 h-6 text-slate-800" />}
             </button>
           </div>
 
+        </div>
+        {/* モバイル専用: 1行水平スナップピル都市セレクター (sm:hidden) */}
+        <div className="sm:hidden border-t border-slate-100 bg-slate-50/90 px-3 py-1">
+          <CitySelector currentCity={cityCode} onSelectCity={handleCityChange} />
         </div>
       </header>
 

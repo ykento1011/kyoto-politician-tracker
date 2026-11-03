@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  /* スクロールバー完全非表示（WebKit, Firefox, IE/Edge） */
+  .no-scrollbar::-webkit-scrollbar,
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar,
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* iOS Safari ホームバー (Safe Area) 配慮ユーティリティ */
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+  }
+  .mb-safe {
+    margin-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+  }
+  .pt-safe {
+    padding-top: max(0.5rem, env(safe-area-inset-top, 0.5rem));
+  }
+
+  /* オーバースクロール連動遮断（バウンスによる背面連動を防止） */
+  .overscroll-contain {
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+}
