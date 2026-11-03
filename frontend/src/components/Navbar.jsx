@@ -1,5 +1,4 @@
 ﻿import React, { useState, useRef, useEffect } from 'react';
-import CitySelector from './CitySelector';
 import { 
   Landmark, 
   Compass, 
@@ -233,10 +232,7 @@ export default function Navbar({
           </div>
 
         </div>
-        {/* モバイル専用: 1行水平スナップピル都市セレクター (sm:hidden) */}
-        <div className="sm:hidden border-t border-slate-100 bg-slate-50/90 px-3 py-1">
-          <CitySelector currentCity={cityCode} onSelectCity={handleCityChange} />
-        </div>
+        
       </header>
 
       {/* ========================================================= */}
