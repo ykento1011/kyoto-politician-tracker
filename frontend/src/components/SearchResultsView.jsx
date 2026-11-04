@@ -11,6 +11,7 @@ import { cleanName } from '../utils/styleHelpers';
 
 // activeCityCode フォールバック
 export default function SearchResultsView({
+  cityCode,
   submittedQuery,
   onClearSearch,
   filteredThreads = [],
@@ -27,7 +28,7 @@ export default function SearchResultsView({
   onOpenMethodology,
   onOpenTopicDetail
 }) {
-  const activeCityCode = typeof cityCode !== 'undefined' ? cityCode : (typeof window !== 'undefined' && window.location.pathname.startsWith('/osaka') ? 'osaka' : 'kyoto');
+  const activeCityCode = cityCode || (typeof window !== 'undefined' && window.location.pathname.split('/')[1]) || 'kyoto';
   const [activeTab, setActiveTab] = useState('threads');
 
   // 💡 検索結果が完全に0件かどうかの判定
