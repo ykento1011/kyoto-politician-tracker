@@ -51,16 +51,20 @@ export default function AiSearchAnswer({ query, filteredThreads, cityCode = 'kyo
           const keywords = (t.keywords || []).map(k => String(k).toLowerCase());
 
           // 部分一致・相互含有判定
-          if (title.includes(cleanQuery) || cleanQuery.includes(title)) score += 10;
-          if (keywords.some(k => k.includes(cleanQuery) || cleanQuery.includes(k))) score += 7;
-          if (lead.includes(cleanQuery)) score += 5; // 2点から5点に引き上げ
-          if (cat.includes(cleanQuery)) score += 3;
+            // タイトルまたはキーワードへの明確な合致を必須とし、本文の単語言及のみでの誤選定を排除
+            const titleMatch = title.includes(cleanQuery) || cleanQuery.includes(title);
+            const keywordMatch = keywords.some(k => k.includes(cleanQuery) || cleanQuery.includes(k));
 
-          // 採用閾値を 5 から 4 に緩和
-          if (score > highestScore && score >= 4) {
-            highestScore = score;
-            bestTopic = t;
-          }
+            if (titleMatch) score += 10;
+            if (keywordMatch) score += 7;
+            if (lead.includes(cleanQuery)) score += 2; // 本文言及はボーナス加点に留める
+            if (cat.includes(cleanQuery)) score += 1;
+
+            // 採用条件: タイトルまたはキーワードに明確に合致し、スコア7以上
+            if ((titleMatch || keywordMatch) && score > highestScore && score >= 7) {
+              highestScore = score;
+              bestTopic = t;
+            }
         });
       }
       setTopicMatch(bestTopic);
