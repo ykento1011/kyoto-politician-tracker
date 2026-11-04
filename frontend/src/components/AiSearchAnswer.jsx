@@ -7,6 +7,76 @@ import {
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 import { getCityDataUrl } from '../config/cities';
 
+// 質疑データから動的タイムラインとメタデータを構築する関数
+const buildDynamicTimeline = (query, threads) => {
+  if (!threads || threads.length === 0) return null;
+
+  // 1. 日付順（昇順）にソート
+  const sorted = [...threads].sort((a, b) => 
+    (a.meeting_date || '').localeCompare(b.meeting_date || '')
+  );
+
+  const first = sorted[0];
+  const latest = sorted[sorted.length - 1];
+  const mid = sorted.length > 2 ? sorted[Math.floor(sorted.length / 2)] : null;
+
+  // 2. 頻出の委員会および議員・会派を集計
+  const committeeCounts = {};
+  const speakerCounts = {};
+
+  sorted.forEach(t => {
+    if (t.meeting_title) {
+      committeeCounts[t.meeting_title] = (committeeCounts[t.meeting_title] || 0) + 1;
+    }
+    if (t.speaker) {
+      const label = `${t.speaker}${t.party ? `（${t.party}）` : ''}`;
+      speakerCounts[label] = (speakerCounts[label] || 0) + 1;
+    }
+  });
+
+  const topCommittees = Object.keys(committeeCounts)
+    .sort((a, b) => committeeCounts[b] - committeeCounts[a])
+    .slice(0, 3);
+
+  const topSpeakers = Object.keys(speakerCounts)
+    .sort((a, b) => speakerCounts[b] - speakerCounts[a])
+    .slice(0, 4);
+
+  // 3. フェーズの構成（発端・進展・直近）
+  const phases = [
+    {
+      label: '発端・初期の質疑',
+      badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
+      data: first
+    }
+  ];
+
+  if (mid && mid !== first && mid !== latest) {
+    phases.push({
+      label: '議論の展開・継続審議',
+      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
+      data: mid
+    });
+  }
+
+  if (latest && latest !== first) {
+    phases.push({
+      label: '直近の動向・到達点',
+      badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+      data: latest
+    });
+  }
+
+  return {
+    totalCount: sorted.length,
+    startDate: first.meeting_date,
+    latestDate: latest.meeting_date,
+    topCommittees,
+    topSpeakers,
+    phases
+  };
+};
+
 export default function AiSearchAnswer({ query, filteredThreads, cityCode = 'kyoto', onOpenTopicDetail, onSelectSpeaker }) {
   const [topicMatch, setTopicMatch] = useState(null);
   const [matchingPledges, setMatchingPledges] = useState([]);
@@ -95,37 +165,13 @@ export default function AiSearchAnswer({ query, filteredThreads, cityCode = 'kyo
       matchedCouncilors.sort((a, b) => (b.hasStatements ? 1 : 0) - (a.hasStatements ? 1 : 0));
       setMatchingPledges(matchedCouncilors.slice(0, 4));
 
-      // ③ 論点未ヒット時のフォールバック要約（下部質疑一覧と被らない論点要約パネル）
-      if (!bestTopic && filteredThreads && filteredThreads.length > 0) {
-        // 重複しない委員会・会議体の上位質疑を最大3件抽出
-        const seenMeetings = new Set();
-        const representativeThreads = [];
-        for (const t of filteredThreads) {
-          const key = t.meeting_title || t.id;
-          if (!seenMeetings.has(key)) {
-            seenMeetings.add(key);
-            representativeThreads.push(t);
-            if (representativeThreads.length >= 3) break;
-          }
+        // ③ 論点未ヒット時のフォールバック要約（動的タイムライン生成）
+        if (!bestTopic && filteredThreads && filteredThreads.length > 0) {
+          const timelineData = buildDynamicTimeline(cleanQuery, filteredThreads);
+          setDynamicSummary(timelineData);
+        } else {
+          setDynamicSummary(null);
         }
-        if (representativeThreads.length < 3 && filteredThreads.length > representativeThreads.length) {
-          representativeThreads.push(...filteredThreads.slice(0, 3 - representativeThreads.length));
-        }
-
-        setDynamicSummary({
-          lead: `本議会において「${query}」に関連する質疑が計 ${filteredThreads.length} 件記録されています。`,
-          points: representativeThreads.map(t => ({
-            topicText: t.summary || (t.statement_text ? t.statement_text.slice(0, 110) + '...' : '議会質疑が記録されています。'),
-            speaker: t.speaker,
-            date: t.meeting_date,
-            meetingTitle: t.meeting_title,
-            category: t.category,
-            rawItem: t
-          }))
-        });
-      } else {
-        setDynamicSummary(null);
-      }
     });
   }, [query, filteredThreads, cityCode]);
 
@@ -276,63 +322,85 @@ export default function AiSearchAnswer({ query, filteredThreads, cityCode = 'kyo
         </div>
       )}
 
-      {/* ④ 一般キーワード検索時のフォールバック要約パネル（改善版） */}
-      {!topicMatch && dynamicSummary && (
-        <div className="space-y-3.5">
-          <div className="p-3 bg-slate-50/80 border border-slate-200 rounded-xl flex items-center justify-between text-xs">
-            <span className="text-slate-700 font-medium">{dynamicSummary.lead}</span>
-            <span className="text-[11px] font-bold text-indigo-600 bg-white px-2 py-0.5 rounded border border-slate-200 shrink-0 ml-2">
-              直近の主要論点
-            </span>
-          </div>
+        {/* ④ 一般キーワード検索時の動的タイムライン＆サマリー */}
+        {!topicMatch && dynamicSummary && (
+          <div className="space-y-4">
+            {/* 概要ヘッダーカード */}
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-2">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="font-extrabold text-slate-800 text-sm">
+                  「{query}」に関する議会での議論タイムライン
+                </span>
+                <span className="text-[11px] font-bold text-slate-500">
+                  計 {dynamicSummary.totalCount} 件の関連質疑 ({dynamicSummary.startDate} 〜 {dynamicSummary.latestDate})
+                </span>
+              </div>
 
-          <div className="space-y-2">
-            <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1">
-              <FileText className="w-3.5 h-3.5 text-indigo-500" />
-              直近の委員会・会議における主な論点
-            </h3>
-            <div className="grid grid-cols-1 gap-2">
-              {dynamicSummary.points.map((pt, idx) => (
-                <div key={idx} className="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs text-xs space-y-1.5 hover:border-slate-300 transition-colors">
-                  <div className="flex flex-wrap items-center justify-between gap-1.5">
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-bold text-slate-800">
-                        {pt.speaker ? `${pt.speaker} 議員` : '質疑要旨'}
-                      </span>
-                      {pt.category && (
-                        <span className="text-[10px] font-medium text-slate-500 bg-slate-100 px-1.5 py-0.2 rounded">
-                          {pt.category}
+              {/* 主な審議場所・頻出議員 */}
+              <div className="pt-2 border-t border-slate-200/60 flex flex-wrap gap-y-1.5 gap-x-4 text-[11px] text-slate-600">
+                {dynamicSummary.topCommittees.length > 0 && (
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-bold text-slate-400">主な審議:</span>
+                    <span>{dynamicSummary.topCommittees.join(' / ')}</span>
+                  </div>
+                )}
+                {dynamicSummary.topSpeakers.length > 0 && (
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-bold text-slate-400">主な質問者:</span>
+                    <span>{dynamicSummary.topSpeakers.join(', ')}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* 垂直タイムライン */}
+            <div className="relative pl-4 space-y-4 before:content-[''] before:absolute before:left-1.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-indigo-100">
+              {dynamicSummary.phases.map((phase, idx) => {
+                const item = phase.data;
+                const text = item.summary || (item.statement_text || '').slice(0, 140) + '...';
+                return (
+                  <div key={idx} className="relative space-y-1.5">
+                    {/* タイムラインのポイント丸ポチ */}
+                    <div className="absolute -left-[19px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 ring-4 ring-white" />
+
+                    <div className="flex flex-wrap items-center justify-between gap-1">
+                      <div className="flex items-center gap-2">
+                        <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded border ${phase.badgeColor}`}>
+                          {phase.label}
                         </span>
-                      )}
-                      <span className="text-[10px] text-slate-400">
-                        ({pt.date})
-                      </span>
+                        <span className="text-xs font-bold text-slate-800">
+                          {item.meeting_date}
+                        </span>
+                        <span className="text-xs text-slate-500">
+                          {item.meeting_title}
+                        </span>
+                      </div>
+
+                      {/* 一次情報原本リンク */}
+                      <button
+                        type="button"
+                        onClick={() => openOfficialMinute(item)}
+                        title={getOfficialLinkTooltip(item)}
+                        className="inline-flex items-center text-[10px] font-bold text-slate-700 hover:text-indigo-600 bg-white border border-slate-200 px-2 py-0.5 rounded transition-colors cursor-pointer shrink-0 shadow-2xs"
+                      >
+                        <Landmark className="w-3 h-3 mr-1 text-indigo-600" />
+                        <span>原本を確認</span>
+                        <ExternalLink className="w-2.5 h-2.5 ml-1 text-slate-400" />
+                      </button>
                     </div>
 
-                    <button
-                      onClick={() => openOfficialMinute(pt.rawItem)}
-                      title={getOfficialLinkTooltip(pt.rawItem)}
-                      className="inline-flex items-center text-[10px] font-bold text-slate-600 hover:text-indigo-600 bg-slate-50 hover:bg-slate-100 border border-slate-200 px-2 py-0.5 rounded transition-colors cursor-pointer shrink-0"
-                    >
-                      <Landmark className="w-2.5 h-2.5 mr-1 text-indigo-600" />
-                      原本確認
-                      <ExternalLink className="w-2 h-2 ml-1 text-slate-400" />
-                    </button>
+                    <div className="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed shadow-xs">
+                      <div className="font-bold text-slate-900 mb-1">
+                        🗣️ {item.speaker} {item.party && <span className="font-normal text-slate-500 text-[11px]">({item.party})</span>}
+                      </div>
+                      <p>{text}</p>
+                    </div>
                   </div>
-
-                  <p className="text-slate-700 leading-relaxed font-medium text-[11px] pl-2 border-l-2 border-indigo-200">
-                    {pt.topicText}
-                  </p>
-
-                  <div className="text-[10px] text-slate-400 truncate">
-                    🏛️ {pt.meetingTitle}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
-        </div>
-      )}
+        )}
     </section>
   );
 }
