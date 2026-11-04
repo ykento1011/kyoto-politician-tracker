@@ -2,30 +2,78 @@ import { getCityDataUrl } from '../config/cities';
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   ArrowLeft, MessageCircle, Milestone, Calendar, Landmark, ExternalLink, 
-  Layers, Clock, Share2, Check, ArrowUpDown, ChevronDown, ChevronUp
+  Layers, Clock, Share2, Check, ArrowUpDown, ChevronDown, ChevronUp, Scale
 } from 'lucide-react';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
+
+/**
+ * conflict_axes の文字列（「視点A vs 視点B: 説明」）を構造化オブジェクトにパースする
+ */
+function parseConflictAxis(rawText) {
+  if (!rawText) return null;
+  const text = typeof rawText === 'object' 
+    ? (rawText.axis || rawText.description || JSON.stringify(rawText)) 
+    : String(rawText);
+
+  // 1. コロン（半角・全角）で「論点見出し部」と「詳細説明部」を分割
+  const colonMatch = text.match(/^(.*?)[：:](.*)$/s);
+  let titlePart = text;
+  let descPart = '';
+
+  if (colonMatch) {
+    titlePart = colonMatch[1].trim();
+    descPart = colonMatch[2].trim();
+  }
+
+  // 2. タイトル部を VS (大文字小文字・全角半角対応) で分割
+  const vsParts = titlePart.split(/\s*(?:vs|VS|ｖｓ|ＶＳ)\s*/);
+  const isVs = vsParts.length >= 2;
+  const leftTitle = vsParts[0]?.trim() || '';
+  const rightTitle = vsParts[1]?.trim() || '';
+
+  // 3. 詳細説明部を左右の主張に分離（「一方、」「これに対し」「しかし、」などを境界とする）
+  let leftDesc = '';
+  let rightDesc = '';
+
+  if (descPart) {
+    const splitMatch = descPart.match(/^(.*?(?:一方[、で]|これに対し[て、]?|しかし[、]?))(.*)$/s);
+    if (splitMatch) {
+      leftDesc = splitMatch[1].trim();
+      rightDesc = splitMatch[2].trim();
+    } else {
+      leftDesc = descPart;
+    }
+  }
+
+  return {
+    isVs,
+    leftTitle,
+    rightTitle,
+    leftDesc,
+    rightDesc,
+    rawText: text
+  };
+}
 
 export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', onViewContext, statements = [] }) {
   const cityName = cityCode === 'kobe' ? '神戸市会' : cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
   const [topic, setTopic] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [copiedShare, setCopiedShare] = useState(false);
-  // 💡 デフォルトを「最新順 (desc)」に設定
-  const [sortOrder, setSortOrder] = useState('desc'); // 'desc' (最新順) | 'asc' (時系列順)
+  const [sortOrder, setSortOrder] = useState('desc');
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     const TOPIC_ALIASES = {
-  "nagoya_city_univ_hospitals_dx": "nagoya-core-community-medical-system",
-  "nagoya_castle_wooden_restoration": "nagoya-mayor-nagoya_p1",
-  "nagoya_citizen_tax_cut": "nagoya-mayor-nagoya_p2",
-  "nagoya_keiro_pass_reform": "nagoya-mayor-nagoya_p3",
-  "nagoya_childcare_support": "nagoya-mayor-nagoya_p5",
-  "nagoya_fiscal_reform": "nagoya-core-fiscal-discipline-reform",
-  "nagoya_school_education": "nagoya-core-school-education-environment"
-};
+      "nagoya_city_univ_hospitals_dx": "nagoya-core-community-medical-system",
+      "nagoya_castle_wooden_restoration": "nagoya-mayor-nagoya_p1",
+      "nagoya_citizen_tax_cut": "nagoya-mayor-nagoya_p2",
+      "nagoya_keiro_pass_reform": "nagoya-mayor-nagoya_p3",
+      "nagoya_childcare_support": "nagoya-mayor-nagoya_p5",
+      "nagoya_fiscal_reform": "nagoya-core-fiscal-discipline-reform",
+      "nagoya_school_education": "nagoya-core-school-education-environment"
+    };
     const targetTopicId = TOPIC_ALIASES[topicId] || topicId;
 
     const dataUrl = getCityDataUrl(cityCode, 'topicSummaries') || `/data/${cityCode}_topic_summaries.json`;
@@ -37,13 +85,10 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
           setIsLoading(false);
           return;
         }
-        // 1. 完全一致探索 (エイリアス解決後)
         let found = data.find((t) => t.topic_id === targetTopicId);
-        // 2. 部分一致探索（旧IDの部分一致）
         if (!found && topicId) {
           found = data.find((t) => t.topic_id.includes(topicId) || topicId.includes(t.topic_id));
         }
-        // 3. 見つからない場合は先頭トピックをフォールバック表示
         setTopic(found || data[0]);
         setIsLoading(false);
       })
@@ -53,22 +98,12 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
       });
   }, [topicId, cityCode]);
 
-  // 💡 SpeakerDetailView と完全同一の質疑原本レコード解決ロジック
-  
-
-  // 💡 議員詳細・一覧と完全共通の質疑原本レコード解決・モーダル呼び出し
   const handleViewExchangeContext = (ex) => {
     if (!ex) return;
-    if (typeof onViewContext !== 'function') {
-      console.error('[TopicDetailPage] onViewContext が渡されていません', onViewContext);
-      return;
-    }
+    if (typeof onViewContext !== 'function') return;
     const allStmts = Array.isArray(statements) ? statements : [];
 
-    // 1. statement_id による原本直接探索
     let target = allStmts.find((s) => s.id === (ex.statement_id || ex.id));
-
-    // 2. meeting_id と sequence_number による探索
     if (!target && ex.meeting_id && ex.sequence_number !== undefined) {
       target = allStmts.find(
         (s) =>
@@ -76,8 +111,6 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
           String(s.sequence_number) === String(ex.sequence_number)
       );
     }
-
-    // 3. 原本が見つからない場合のフォールバック（完全なstmt構造を保証）
     if (!target) {
       target = {
         ...ex,
@@ -93,8 +126,6 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
         official_url: ex.official_url || ex.source_url || ex.url
       };
     }
-
-    console.log('[TopicDetailPage] モーダルを開きます:', target);
     onViewContext(target);
   };
 
@@ -106,7 +137,6 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
     }
   };
 
-  // 並び順に応じたフェーズリストの生成
   const sortedPhases = useMemo(() => {
     if (!topic?.timeline_phases) return [];
     const list = [...topic.timeline_phases];
@@ -148,24 +178,22 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
             論戦マップへ戻る
           </button>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handleShare}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-indigo-600 bg-white border border-slate-200 px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer"
-            >
-              {copiedShare ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-emerald-600" />
-                  <span className="text-emerald-700">URLコピー完了</span>
-                </>
-              ) : (
-                <>
-                  <Share2 className="w-3.5 h-3.5 text-slate-400" />
-                  <span>この論点をシェア</span>
-                </>
-              )}
-            </button>
-          </div>
+          <button
+            onClick={handleShare}
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-indigo-600 bg-white border border-slate-200 px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer"
+          >
+            {copiedShare ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-emerald-700">URLコピー完了</span>
+              </>
+            ) : (
+              <>
+                <Share2 className="w-3.5 h-3.5 text-slate-400" />
+                <span>この論点をシェア</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
 
@@ -193,13 +221,105 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
         </header>
 
         {/* ② AI エグゼクティブ・サマリー */}
-        <section className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-5">
+        <section className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6">
           <div className="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-wider">
             <Milestone className="w-4 h-4" />
             AI EXECUTIVE SUMMARY / 政策の現在地と争点
           </div>
 
-          <div className="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100 text-indigo-950 space-y-1">
+          {/* 対立軸（VS構図）カード */}
+          {topic.conflict_axes?.length > 0 && (
+            <div className="space-y-4 pt-1">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                <div className="flex items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-md text-[11px] font-black uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1.5 shadow-2xs">
+                    <Scale className="w-3.5 h-3.5 text-rose-600" />
+                    主な争点・対立軸（VS構図）
+                  </span>
+                  <span className="text-xs font-bold text-slate-500 hidden sm:inline">
+                    議会で議論が分かれているポイント
+                  </span>
+                </div>
+                <span className="text-[11px] font-medium text-slate-400">
+                  全 {topic.conflict_axes.length} 件の論点
+                </span>
+              </div>
+
+              <div className="space-y-4">
+                {(Array.isArray(topic.conflict_axes) ? topic.conflict_axes : []).map((axis, i) => {
+                  const parsed = parseConflictAxis(axis);
+                  if (!parsed || !parsed.isVs) {
+                    return (
+                      <div key={i} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs text-slate-700 font-medium leading-relaxed">
+                        {typeof axis === 'object' ? JSON.stringify(axis) : axis}
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div key={i} className="bg-slate-50/80 border border-slate-200 rounded-2xl p-3.5 sm:p-5 shadow-2xs space-y-3">
+                      <div className="flex items-center justify-between text-[11px] font-black text-slate-400 px-1">
+                        <span>論点 {i + 1}</span>
+                      </div>
+
+                      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-3.5 items-stretch">
+                        
+                        {/* 視点 A */}
+                        <div className="bg-white rounded-xl p-4 border border-indigo-100 shadow-2xs flex flex-col justify-between space-y-3">
+                          <div className="space-y-1.5">
+                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-black bg-indigo-50 text-indigo-700 border border-indigo-200/60">
+                              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
+                              視点 A
+                            </div>
+                            <h4 className="text-sm font-black text-slate-900 leading-snug">
+                              {parsed.leftTitle}
+                            </h4>
+                          </div>
+                          {parsed.leftDesc && (
+                            <p className="text-xs text-slate-600 font-normal leading-relaxed pt-2.5 border-t border-slate-100">
+                              {parsed.leftDesc}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* 中央 VS バッジ */}
+                        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-900 text-white font-black text-[11px] items-center justify-center border-2 border-white shadow-md z-10 pointer-events-none">
+                          VS
+                        </div>
+                        <div className="flex md:hidden items-center justify-center -my-1">
+                          <span className="px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-black text-[10px] shadow-xs">
+                            VS
+                          </span>
+                        </div>
+
+                        {/* 視点 B */}
+                        <div className="bg-white rounded-xl p-4 border border-amber-100 shadow-2xs flex flex-col justify-between space-y-3">
+                          <div className="space-y-1.5">
+                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-black bg-amber-50 text-amber-800 border border-amber-200/60">
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />
+                              視点 B
+                            </div>
+                            <h4 className="text-sm font-black text-slate-900 leading-snug">
+                              {parsed.rightTitle}
+                            </h4>
+                          </div>
+                          {parsed.rightDesc && (
+                            <p className="text-xs text-slate-600 font-normal leading-relaxed pt-2.5 border-t border-slate-100">
+                              {parsed.rightDesc}
+                            </p>
+                          )}
+                        </div>
+
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* 制度設計・検討の現在地 */}
+          <div className="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100 text-indigo-950 space-y-1.5">
             <div className="text-[11px] font-black uppercase tracking-wider text-indigo-800">
               【制度設計・検討の現在地】
             </div>
@@ -208,66 +328,55 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
             </p>
           </div>
 
-                      <div className="space-y-3">
-              <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider flex items-center justify-between">
-                <span>論点の全体像・背景・根拠資料</span>
-                {typeof topic.lead_summary === 'object' && topic.lead_summary?.doc_url && (
-                  <a
-                    href={topic.lead_summary.doc_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50/70 hover:bg-indigo-100/80 px-2.5 py-1 rounded-lg border border-indigo-200/60 transition-colors"
-                  >
-                    <ExternalLink className="w-3 h-3" />
-                    <span>公式計画・行政資料を開く</span>
-                  </a>
-                )}
-              </h2>
+          {/* 背景と根拠資料 */}
+          <div className="space-y-3 pt-2">
+            <h2 className="text-xs font-black text-slate-400 uppercase tracking-wider flex items-center justify-between">
+              <span>論点の全体像・背景・根拠資料</span>
+              {typeof topic.lead_summary === 'object' && topic.lead_summary?.doc_url && (
+                <a
+                  href={topic.lead_summary.doc_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50/70 hover:bg-indigo-100/80 px-2.5 py-1 rounded-lg border border-indigo-200/60 transition-colors"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  <span>公式計画・行政資料を開く</span>
+                </a>
+              )}
+            </h2>
 
-              {typeof topic.lead_summary === 'object' && topic.lead_summary !== null ? (
-                <div className="space-y-3">
-                  {(topic.lead_summary.plan_name || topic.lead_summary.source_name) && (
-                    <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 flex flex-wrap items-center justify-between gap-2 text-xs">
-                      <div className="flex items-center gap-2 font-bold text-slate-800">
-                        <Landmark className="w-3.5 h-3.5 text-indigo-600" />
-                        <span>{topic.lead_summary.plan_name || topic.lead_summary.source_name}</span>
-                      </div>
-                      {topic.lead_summary.date && (
-                        <span className="text-[11px] font-medium text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
-                          {topic.lead_summary.date}
-                        </span>
-                      )}
+            {typeof topic.lead_summary === 'object' && topic.lead_summary !== null ? (
+              <div className="space-y-3">
+                {(topic.lead_summary.plan_name || topic.lead_summary.source_name) && (
+                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <div className="flex items-center gap-2 font-bold text-slate-800">
+                      <Landmark className="w-3.5 h-3.5 text-indigo-600" />
+                      <span>{topic.lead_summary.plan_name || topic.lead_summary.source_name}</span>
                     </div>
-                  )}
-                  <p className="text-sm leading-relaxed text-slate-700 font-medium whitespace-pre-line">
+                    {topic.lead_summary.date && (
+                      <span className="text-[11px] font-medium text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
+                        {topic.lead_summary.date}
+                      </span>
+                    )}
+                  </div>
+                )}
+                <div className="p-4 bg-white border border-slate-200/80 rounded-2xl shadow-2xs">
+                  <p className="text-sm leading-relaxed text-slate-600 font-medium whitespace-pre-line">
                     {topic.lead_summary.summary || topic.lead_summary.description || JSON.stringify(topic.lead_summary)}
                   </p>
                 </div>
-              ) : (
-                <p className="text-sm leading-relaxed text-slate-700 font-medium whitespace-pre-line">
+              </div>
+            ) : (
+              <div className="p-4 bg-white border border-slate-200/80 rounded-2xl shadow-2xs">
+                <p className="text-sm leading-relaxed text-slate-600 font-medium whitespace-pre-line">
                   {topic.lead_summary || '詳細な政策背景は現在編集中です。'}
                 </p>
-              )}
-            </div>
-
-          {topic.conflict_axes?.length > 0 && (
-            <div className="pt-4 border-t border-slate-100 space-y-2.5">
-              <div className="text-[11px] font-black text-slate-500 uppercase tracking-wider">
-                主な対立軸・残された課題
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {(Array.isArray(topic.conflict_axes) ? topic.conflict_axes : []).map((axis, i) => (
-                  <div key={i} className="p-3 bg-slate-50 rounded-xl border border-slate-200/80 text-xs font-medium text-slate-700 flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1 shrink-0" />
-                    <span>{typeof axis === 'object' ? (axis.axis || axis.description || JSON.stringify(axis)) : axis}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </section>
 
-        {/* ③ Policy Timeline（最新順デフォルト ＋ ソート切り替え） */}
+        {/* ③ Policy Timeline */}
         <section className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
             <div>
@@ -280,7 +389,6 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
               </p>
             </div>
 
-            {/* 💡 並び順切り替えトグルボタン */}
             <button
               onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
               className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50/80 hover:bg-indigo-100/70 border border-indigo-200/80 px-3 py-1.5 rounded-xl transition-colors cursor-pointer self-start sm:self-auto"
@@ -291,9 +399,9 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
             </button>
           </div>
 
-          <div className="relative border-l-2 border-indigo-200 ml-4 space-y-10 pl-6 md:pl-8 py-2">
+          <div className="relative border-l-2 border-indigo-200 ml-4 space-y-8 pl-6 md:pl-8 py-2">
             {sortedPhases.map((phase, idx) => (
-              <div key={idx} className="relative space-y-4">
+              <div key={idx} className="relative space-y-3.5">
                 
                 {/* タイムラインマーカー */}
                 <div className="absolute -left-[33px] md:-left-[41px] top-1 w-4 h-4 rounded-full bg-white border-4 border-indigo-600 shadow-sm" />
@@ -317,29 +425,38 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
                   </p>
                 </div>
 
-                {/* 議場での主な発言ログ（肩書なし・原本直リンク） */}
+                {/* 議場での質疑ログ（アコーディオン） */}
                 {phase.exchanges?.length > 0 && (
-                  <div className="space-y-3 pt-1">
-                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider block">
-                      議場での主な質疑と答弁
-                    </span>
+                  <details className="group bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-2xs">
+                    <summary className="flex items-center justify-between p-3.5 cursor-pointer text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                      <span className="flex items-center gap-2">
+                        <MessageCircle className="w-4 h-4 text-slate-400" />
+                        議場での質疑・答弁の詳細（{phase.exchanges.length}件）
+                      </span>
+                      <ChevronDown className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" />
+                    </summary>
 
-                    {phase.exchanges.map((ex, exIdx) => (
-                      <div key={exIdx} onClick={() => handleViewExchangeContext(ex)} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 hover:bg-slate-100/60 hover:border-slate-300 transition-all cursor-pointer group shadow-2xs">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                          <span className="text-xs font-black text-slate-900">
-                            🗣️ {ex.speaker}
-                          </span>
-                          <span className="text-[11px] font-medium text-slate-500">
-                            {ex.meeting_date} {ex.meeting_title}
-                          </span>
-                        </div>
+                    <div className="p-4 border-t border-slate-200 bg-white space-y-3">
+                      {phase.exchanges.map((ex, exIdx) => (
+                        <div 
+                          key={exIdx} 
+                          onClick={() => handleViewExchangeContext(ex)} 
+                          className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3 hover:bg-slate-100/60 hover:border-slate-300 transition-all cursor-pointer group shadow-2xs"
+                        >
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <span className="text-xs font-black text-slate-900">
+                              🗣️ {ex.speaker}
+                            </span>
+                            <span className="text-[11px] font-medium text-slate-500">
+                              {ex.meeting_date} {ex.meeting_title}
+                            </span>
+                          </div>
 
-                        <p className="text-xs text-slate-700 leading-relaxed font-normal">
-                          {ex.statement_summary}
-                        </p>
+                          <p className="text-xs text-slate-700 leading-relaxed font-normal">
+                            {ex.statement_summary}
+                          </p>
 
-                        <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 border-t border-slate-200/70 mt-3">
+                          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 border-t border-slate-200/70 mt-3">
                             <button
                               type="button"
                               onClick={(e) => {
@@ -350,7 +467,7 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
                               className="inline-flex items-center justify-center text-xs font-semibold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 px-3 py-1.5 rounded-xl transition-colors cursor-pointer group shadow-2xs"
                             >
                               <Landmark className="w-3.5 h-3.5 mr-1.5 text-slate-500 group-hover:text-slate-700" />
-                              <span>{cityCode === 'nagoya' ? '名古屋市会 議事録原本を確認' : cityCode === 'osaka' ? '大阪市会 議事録原本を確認' : '議事録原本を確認'}</span>
+                              <span>議事録原本を確認</span>
                               <ExternalLink className="w-3 h-3 ml-1.5 text-slate-400 group-hover:text-slate-600" />
                             </button>
 
@@ -363,9 +480,10 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
                               <span>会議録・質疑の文脈を見る →</span>
                             </button>
                           </div>
-                      </div>
-                    ))}
-                  </div>
+                        </div>
+                      ))}
+                    </div>
+                  </details>
                 )}
 
               </div>
