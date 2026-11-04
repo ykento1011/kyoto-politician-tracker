@@ -230,6 +230,9 @@ export default function App() {
       }
     };
 
+    // 初回マウント時にも実行して URL クエリと cityCode を同期
+    onLocationChange();
+
     window.addEventListener('popstate', onLocationChange);
     window.addEventListener('hashchange', onLocationChange);
     window.addEventListener('app-navigate', onLocationChange);

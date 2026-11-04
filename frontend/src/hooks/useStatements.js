@@ -37,8 +37,15 @@ export function useStatements(cityCode = 'kyoto') {
   const [staticSpeakerStats, setStaticSpeakerStats] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [submittedQuery, setSubmittedQuery] = useState('');
+  const getInitialQuery = () => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('q') || '';
+    }
+    return '';
+  };
+  const [searchQuery, setSearchQuery] = useState(getInitialQuery);
+  const [submittedQuery, setSubmittedQuery] = useState(getInitialQuery);
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedCommittee, setSelectedCommittee] = useState('');
@@ -407,15 +414,42 @@ export function useStatements(cityCode = 'kyoto') {
     window.scrollTo(0, 0);
   };
 
+  // 日本語マルチワードAND検索ヘルパー
+  const matchesQuery = (item, words) => {
+    if (!words || words.length === 0) return true;
+    const textToSearch = [
+      item.summary || '',
+      item.statement_text || '',
+      item.meeting_title || '',
+      item.speaker || '',
+      item.category || ''
+    ].join(' ').toLowerCase();
+
+    return words.every((word) => textToSearch.includes(word));
+  };
+
   const filteredSpeakers = useMemo(() => {
+    const rawQuery = submittedQuery.trim().toLowerCase();
+    const words = rawQuery ? rawQuery.split(/\s+/).filter(Boolean) : [];
+
     let targetSpeakers = new Set(speakerStats.map((s) => s.speaker));
-    if (submittedQuery.trim() !== '') {
-      try {
-        const results = miniSearch.search(submittedQuery);
-        const matchedSpeakers = new Set(results.map((r) => r.speaker));
-        targetSpeakers = new Set([...targetSpeakers].filter((s) => matchedSpeakers.has(s)));
-      } catch (e) { console.warn(e); }
+    if (words.length > 0) {
+      // クエリを含む質疑が存在する議員、または議員名自体がヒットする議員
+      const matched = new Set();
+      statements.forEach((st) => {
+        if (matchesQuery(st, words)) {
+          if (st.speaker) matched.add(st.speaker);
+        }
+      });
+      speakerStats.forEach((sp) => {
+        const nameLower = (sp.speaker || '').toLowerCase();
+        if (words.every((w) => nameLower.includes(w))) {
+          matched.add(sp.speaker);
+        }
+      });
+      targetSpeakers = new Set([...targetSpeakers].filter((s) => matched.has(s)));
     }
+
     let list = speakerStats.filter((s) => targetSpeakers.has(s.speaker));
     if (selectedCategory) {
       list = list.filter((s) => 
@@ -440,17 +474,17 @@ export function useStatements(cityCode = 'kyoto') {
     else if (sortPerspective === 'recent') list.sort((a, b) => new Date(b.latest_date || 0) - new Date(a.latest_date || 0));
     else list = shuffleWithDailySeed(list);
     return list;
-  }, [speakerStats, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch]);
+  }, [speakerStats, statements, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective]);
 
   const filteredThreads = useMemo(() => {
-    let targetIds = new Set(statements.map((s) => s.id));
-    if (submittedQuery.trim() !== '') {
-      try {
-        const results = miniSearch.search(submittedQuery);
-        targetIds = new Set(results.map((r) => r.id));
-      } catch (e) { console.warn(e); }
+    const rawQuery = submittedQuery.trim().toLowerCase();
+    const words = rawQuery ? rawQuery.split(/\s+/).filter(Boolean) : [];
+
+    let list = statements;
+    if (words.length > 0) {
+      list = list.filter((s) => matchesQuery(s, words));
     }
-    let list = statements.filter((s) => targetIds.has(s.id));
+
     if (selectedCategory) list = list.filter((s) => s.category && s.category.includes(selectedCategory));
     if (selectedCommittee) {
       if (selectedCommittee === '予算・決算特別委員会') list = list.filter((s) => s.meeting_title && (s.meeting_title.includes('予算') || s.meeting_title.includes('決算')));
@@ -471,7 +505,7 @@ export function useStatements(cityCode = 'kyoto') {
     else list = shuffleWithDailySeed(list);
 
     return list;
-  }, [statements, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, miniSearch, cityCode]);
+  }, [statements, submittedQuery, selectedCategory, selectedCommittee, selectedDistrict, sortPerspective, cityCode]);
 
   const speakerFilteredThreads = useMemo(() => {
     if (!selectedSpeaker || !selectedSpeaker.statements) return [];
