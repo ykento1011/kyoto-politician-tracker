@@ -7,15 +7,38 @@ import {
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 
 /**
- * conflict_axes の文字列（「視点A vs 視点B: 説明」）を構造化オブジェクトにパースする
+ * conflict_axes を新旧スキーマ問わず安全に構造化オブジェクトへ正規化する
  */
-function parseConflictAxis(rawText) {
-  if (!rawText) return null;
-  const text = typeof rawText === 'object' 
-    ? (rawText.axis || rawText.description || JSON.stringify(rawText)) 
-    : String(rawText);
+function normalizeConflictAxis(rawAxis) {
+  if (!rawAxis) return null;
 
-  // 1. コロン（半角・全角）で「論点見出し部」と「詳細説明部」を分割
+  // ① 新スキーマ（構造化オブジェクト）の場合
+  if (typeof rawAxis === 'object' && rawAxis !== null && (rawAxis.issue_title || rawAxis.side_a)) {
+    return {
+      isStructured: true,
+      isVs: true,
+      issueTitle: rawAxis.issue_title || '',
+      summary: rawAxis.summary || '',
+      sideA: {
+        title: rawAxis.side_a?.title || '推進・改革側の視点',
+        actor: rawAxis.side_a?.actor || '市執行部・推進派',
+        stance: rawAxis.side_a?.stance || '',
+        points: Array.isArray(rawAxis.side_a?.points) ? rawAxis.side_a.points : []
+      },
+      sideB: {
+        title: rawAxis.side_b?.title || '慎重・異論側の視点',
+        actor: rawAxis.side_b?.actor || '議会慎重派・懸念派',
+        stance: rawAxis.side_b?.stance || '',
+        points: Array.isArray(rawAxis.side_b?.points) ? rawAxis.side_b.points : []
+      }
+    };
+  }
+
+  // ② 旧形式（文字列型）の後方互換パース
+  const text = typeof rawAxis === 'object' 
+    ? (rawAxis.axis || rawAxis.description || JSON.stringify(rawAxis)) 
+    : String(rawAxis);
+
   const colonMatch = text.match(/^(.*?)[：:](.*)$/s);
   let titlePart = text;
   let descPart = '';
@@ -25,32 +48,47 @@ function parseConflictAxis(rawText) {
     descPart = colonMatch[2].trim();
   }
 
-  // 2. タイトル部を VS (大文字小文字・全角半角対応) で分割
   const vsParts = titlePart.split(/\s*(?:vs|VS|ｖｓ|ＶＳ)\s*/);
   const isVs = vsParts.length >= 2;
   const leftTitle = vsParts[0]?.trim() || '';
   const rightTitle = vsParts[1]?.trim() || '';
 
-  // 3. 詳細説明部を左右の主張に分離（「一方、」「これに対し」「しかし、」などを境界とする）
   let leftDesc = '';
   let rightDesc = '';
 
   if (descPart) {
-    const splitMatch = descPart.match(/^(.*?(?:一方[、で]|これに対し[て、]?|しかし[、]?))(.*)$/s);
-    if (splitMatch) {
-      leftDesc = splitMatch[1].trim();
-      rightDesc = splitMatch[2].trim();
+    if (/\s*(?:vs|VS|ｖｓ|ＶＳ)\s*/.test(descPart)) {
+      const dParts = descPart.split(/\s*(?:vs|VS|ｖｓ|ＶＳ)\s*/);
+      leftDesc = dParts[0]?.trim() || '';
+      rightDesc = dParts[1]?.trim() || '';
     } else {
-      leftDesc = descPart;
+      const splitMatch = descPart.match(/^(.*?(?:一方[、で]|これに対し[て、]?|しかし[、]?))(.*)$/s);
+      if (splitMatch) {
+        leftDesc = splitMatch[1].trim();
+        rightDesc = splitMatch[2].trim();
+      } else {
+        leftDesc = descPart;
+      }
     }
   }
 
   return {
+    isStructured: false,
     isVs,
-    leftTitle,
-    rightTitle,
-    leftDesc,
-    rightDesc,
+    issueTitle: isVs ? `${leftTitle} vs ${rightTitle}` : titlePart,
+    summary: '',
+    sideA: {
+      title: leftTitle,
+      actor: '視点 A',
+      stance: '',
+      points: leftDesc ? [leftDesc] : []
+    },
+    sideB: {
+      title: rightTitle,
+      actor: '視点 B',
+      stance: '',
+      points: rightDesc ? [rightDesc] : []
+    },
     rawText: text
   };
 }
@@ -228,97 +266,137 @@ export default function TopicDetailPage({ topicId, onBack, cityCode = 'kyoto', o
           </div>
 
           {/* 対立軸（VS構図）カード */}
-          {topic.conflict_axes?.length > 0 && (
-            <div className="space-y-4 pt-1">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-md text-[11px] font-black uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1.5 shadow-2xs">
-                    <Scale className="w-3.5 h-3.5 text-rose-600" />
-                    主な争点・対立軸（VS構図）
-                  </span>
-                  <span className="text-xs font-bold text-slate-500 hidden sm:inline">
-                    議会で議論が分かれているポイント
+            {topic.conflict_axes?.length > 0 && (
+              <div className="space-y-5 pt-1">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded-md text-[11px] font-black uppercase tracking-wider bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1.5 shadow-2xs">
+                      <Scale className="w-3.5 h-3.5 text-rose-600" />
+                      主な争点・対立軸（VS構図）
+                    </span>
+                    <span className="text-xs font-bold text-slate-500 hidden sm:inline">
+                      議会で激論となっている政策的対立構図
+                    </span>
+                  </div>
+                  <span className="text-[11px] font-bold text-slate-400">
+                    全 {topic.conflict_axes.length} 件の論点
                   </span>
                 </div>
-                <span className="text-[11px] font-medium text-slate-400">
-                  全 {topic.conflict_axes.length} 件の論点
-                </span>
-              </div>
 
-              <div className="space-y-4">
-                {(Array.isArray(topic.conflict_axes) ? topic.conflict_axes : []).map((axis, i) => {
-                  const parsed = parseConflictAxis(axis);
-                  if (!parsed || !parsed.isVs) {
+                <div className="space-y-5">
+                  {(Array.isArray(topic.conflict_axes) ? topic.conflict_axes : []).map((axis, i) => {
+                    const item = normalizeConflictAxis(axis);
+                    if (!item || (!item.isVs && !item.isStructured)) {
+                      return (
+                        <div key={i} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs text-slate-700 font-medium leading-relaxed">
+                          {typeof axis === 'object' ? JSON.stringify(axis) : axis}
+                        </div>
+                      );
+                    }
+
                     return (
-                      <div key={i} className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs text-slate-700 font-medium leading-relaxed">
-                        {typeof axis === 'object' ? JSON.stringify(axis) : axis}
+                      <div key={i} className="bg-slate-50/90 border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs space-y-3.5">
+                        {/* 論点ヘッダー */}
+                        <div className="space-y-1.5">
+                          <div className="flex items-center justify-between text-[11px] font-black text-slate-400">
+                            <span className="px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700">論点 {i + 1}</span>
+                          </div>
+                          {item.issueTitle && (
+                            <h3 className="text-base sm:text-lg font-black text-slate-900 leading-snug">
+                              {item.issueTitle}
+                            </h3>
+                          )}
+                          {item.summary && (
+                            <p className="text-xs sm:text-[13px] text-slate-600 font-medium leading-relaxed bg-white/70 p-2.5 rounded-xl border border-slate-200/60">
+                              💡 {item.summary}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* 対立グリッド */}
+                        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch pt-1">
+                          {/* 視点 A */}
+                          <div className="bg-white rounded-xl p-4 sm:p-4.5 border border-indigo-100 shadow-2xs flex flex-col justify-between space-y-3.5">
+                            <div className="space-y-2">
+                              <div className="flex flex-wrap items-center gap-1.5">
+                                <span className="px-2 py-0.5 rounded text-[10px] font-black bg-indigo-50 text-indigo-700 border border-indigo-200/70">
+                                  視点 A
+                                </span>
+                                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                                  👤 {item.sideA.actor}
+                                </span>
+                              </div>
+                              <h4 className="text-sm sm:text-base font-black text-slate-900 leading-snug">
+                                {item.sideA.title}
+                              </h4>
+                              {item.sideA.stance && (
+                                <div className="p-2.5 rounded-lg bg-indigo-50/60 border border-indigo-100/70 text-xs font-bold text-indigo-950 leading-relaxed">
+                                  {item.sideA.stance}
+                                </div>
+                              )}
+                            </div>
+                            {item.sideA.points.length > 0 && (
+                              <ul className="text-xs text-slate-700 space-y-1.5 pt-2.5 border-t border-slate-100">
+                                {item.sideA.points.map((pt, pIdx) => (
+                                  <li key={pIdx} className="flex items-start gap-1.5 leading-relaxed">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
+                                    <span>{pt}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+
+                          {/* 中央 VS バッジ */}
+                          <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-900 text-white font-black text-[11px] items-center justify-center border-2 border-white shadow-md z-10 pointer-events-none">
+                            VS
+                          </div>
+                          <div className="flex md:hidden items-center justify-center -my-1">
+                            <span className="px-3 py-0.5 rounded-full bg-slate-900 text-white font-black text-[10px] shadow-xs">
+                              VS
+                            </span>
+                          </div>
+
+                          {/* 視点 B */}
+                          <div className="bg-white rounded-xl p-4 sm:p-4.5 border border-amber-100 shadow-2xs flex flex-col justify-between space-y-3.5">
+                            <div className="space-y-2">
+                              <div className="flex flex-wrap items-center gap-1.5">
+                                <span className="px-2 py-0.5 rounded text-[10px] font-black bg-amber-50 text-amber-800 border border-amber-200/70">
+                                  視点 B
+                                </span>
+                                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                                  👤 {item.sideB.actor}
+                                </span>
+                              </div>
+                              <h4 className="text-sm sm:text-base font-black text-slate-900 leading-snug">
+                                {item.sideB.title}
+                              </h4>
+                              {item.sideB.stance && (
+                                <div className="p-2.5 rounded-lg bg-amber-50/60 border border-amber-100/70 text-xs font-bold text-amber-950 leading-relaxed">
+                                  {item.sideB.stance}
+                                </div>
+                              )}
+                            </div>
+                            {item.sideB.points.length > 0 && (
+                              <ul className="text-xs text-slate-700 space-y-1.5 pt-2.5 border-t border-slate-100">
+                                {item.sideB.points.map((pt, pIdx) => (
+                                  <li key={pIdx} className="flex items-start gap-1.5 leading-relaxed">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" />
+                                    <span>{pt}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     );
-                  }
-
-                  return (
-                    <div key={i} className="bg-slate-50/80 border border-slate-200 rounded-2xl p-3.5 sm:p-5 shadow-2xs space-y-3">
-                      <div className="flex items-center justify-between text-[11px] font-black text-slate-400 px-1">
-                        <span>論点 {i + 1}</span>
-                      </div>
-
-                      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-3.5 items-stretch">
-                        
-                        {/* 視点 A */}
-                        <div className="bg-white rounded-xl p-4 border border-indigo-100 shadow-2xs flex flex-col justify-between space-y-3">
-                          <div className="space-y-1.5">
-                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-black bg-indigo-50 text-indigo-700 border border-indigo-200/60">
-                              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
-                              視点 A
-                            </div>
-                            <h4 className="text-sm font-black text-slate-900 leading-snug">
-                              {parsed.leftTitle}
-                            </h4>
-                          </div>
-                          {parsed.leftDesc && (
-                            <p className="text-xs text-slate-600 font-normal leading-relaxed pt-2.5 border-t border-slate-100">
-                              {parsed.leftDesc}
-                            </p>
-                          )}
-                        </div>
-
-                        {/* 中央 VS バッジ */}
-                        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-slate-900 text-white font-black text-[11px] items-center justify-center border-2 border-white shadow-md z-10 pointer-events-none">
-                          VS
-                        </div>
-                        <div className="flex md:hidden items-center justify-center -my-1">
-                          <span className="px-2.5 py-0.5 rounded-full bg-slate-900 text-white font-black text-[10px] shadow-xs">
-                            VS
-                          </span>
-                        </div>
-
-                        {/* 視点 B */}
-                        <div className="bg-white rounded-xl p-4 border border-amber-100 shadow-2xs flex flex-col justify-between space-y-3">
-                          <div className="space-y-1.5">
-                            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-black bg-amber-50 text-amber-800 border border-amber-200/60">
-                              <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />
-                              視点 B
-                            </div>
-                            <h4 className="text-sm font-black text-slate-900 leading-snug">
-                              {parsed.rightTitle}
-                            </h4>
-                          </div>
-                          {parsed.rightDesc && (
-                            <p className="text-xs text-slate-600 font-normal leading-relaxed pt-2.5 border-t border-slate-100">
-                              {parsed.rightDesc}
-                            </p>
-                          )}
-                        </div>
-
-                      </div>
-                    </div>
-                  );
-                })}
+                  })}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* 制度設計・検討の現在地 */}
+            {/* 制度設計・検討の現在地 */}
           <div className="p-4 rounded-2xl bg-indigo-50/60 border border-indigo-100 text-indigo-950 space-y-1.5">
             <div className="text-[11px] font-black uppercase tracking-wider text-indigo-800">
               【制度設計・検討の現在地】
