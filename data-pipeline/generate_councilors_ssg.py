@@ -139,8 +139,7 @@ def run_ssg():
                     page_desc = f"{cfg['council_name']}（{c['district']}・{c['party']}）{c['name']}議員。重点公約、議案採決態度、および質疑実績ログの可視化データ。"
 
                     # Schema.org/Person JSON-LD
-                    json_ld = {
-                        "@context": "https://schema.org",
+                    person_entity = {
                         "@type": "Person",
                         "@id": f"{target_url}#person",
                         "name": c["name"],
@@ -167,7 +166,14 @@ def run_ssg():
                         }
                     }
                     if c["same_as"]:
-                        json_ld["sameAs"] = c["same_as"]
+                        person_entity["sameAs"] = c["same_as"]
+
+                    json_ld = {
+                        "@context": "https://schema.org",
+                        "@type": "ProfilePage",
+                        "mainEntity": person_entity
+                    }
+                    
 
                     json_ld_str = json.dumps(json_ld, ensure_ascii=False, indent=2)
 

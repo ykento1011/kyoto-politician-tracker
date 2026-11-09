@@ -32,7 +32,7 @@
   <meta name="twitter:title" content="議会のミカタ ｜ AIは入口。判断するのは市民です。" />
   <meta name="twitter:description" content="5大政令市（京都・大阪・名古屋・横浜・神戸）の市会公式会議録と議決データを客観的に構造化。議員質疑分析、賛否が分かれた議案ログ、市長公約の予算措置・条例可決・執行進捗を一次情報原本で確認できるオープンデータ基盤。" />
   <meta name="twitter:image" content="https://gikai-mikata.jp/ogp.png" />
-    <!-- 💡 クローラー(Googlebot/WRS)向け JSON-LD 即時評価インラインスクリプト -->
+    <!-- 💡 Google リッチリザルト対応: ProfilePage (Person) 即時評価インラインスクリプト -->
     <script>
       (function() {
         try {
@@ -47,14 +47,17 @@
 
             var jsonLd = {
               "@context": "https://schema.org",
-              "@type": "Person",
-              "name": cleanName,
-              "jobTitle": councilName + "議員",
-              "worksFor": {
-                "@type": "GovernmentOrganization",
-                "name": councilName
-              },
-              "url": window.location.href
+              "@type": "ProfilePage",
+              "mainEntity": {
+                "@type": "Person",
+                "name": cleanName,
+                "jobTitle": councilName + "議員",
+                "worksFor": {
+                  "@type": "GovernmentOrganization",
+                  "name": councilName
+                },
+                "url": window.location.href
+              }
             };
             var script = document.createElement('script');
             script.type = 'application/ld+json';

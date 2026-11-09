@@ -306,19 +306,22 @@ export default function App() {
       }
       const jsonLdData = {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": `${canonicalUrl}#person`,
-        "name": activeSpeaker.speaker,
-        "jobTitle": `${cfg.councilName}議員`,
-        "worksFor": { "@type": "GovernmentOrganization", "name": cfg.councilName, "url": cfg.officialUrl },
-        "memberOf": { "@type": "Organization", "name": activeSpeaker.party || '無所属' },
-        "description": description,
-        "image": ogpImage,
-        "url": canonicalUrl,
-        "hasCredential": {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "ElectedOfficial",
-          "recognizedBy": { "@type": "GovernmentOrganization", "name": cfg.election }
+        "@type": "ProfilePage",
+        "mainEntity": {
+          "@type": "Person",
+          "@id": `${canonicalUrl}#person`,
+          "name": activeSpeaker.speaker,
+          "jobTitle": `${cfg.councilName}議員`,
+          "worksFor": { "@type": "GovernmentOrganization", "name": cfg.councilName, "url": cfg.officialUrl },
+          "memberOf": { "@type": "Organization", "name": activeSpeaker.party || '無所属' },
+          "description": description,
+          "image": ogpImage,
+          "url": canonicalUrl,
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "ElectedOfficial",
+            "recognizedBy": { "@type": "GovernmentOrganization", "name": cfg.election }
+          }
         }
       };
       scriptTag.textContent = JSON.stringify(jsonLdData);
