@@ -2,12 +2,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import fs from 'fs'
 import path from 'path'
+import { execSync } from 'child_process'
 import { CITIES } from './src/config/cities.js'
 
 function cloudflareMultiCityPlugin() {
   return {
     name: 'cloudflare-multi-city',
-    closeBundle() {
+    async closeBundle() {
       const distDir = path.resolve(process.cwd(), 'dist')
       const indexPath = path.join(distDir, 'index.html')
 
@@ -45,6 +46,14 @@ function cloudflareMultiCityPlugin() {
         generatedCities.push(`dist/${city.code}/index.html`)
       })
 
+      // 全365議員の SSG (JSON-LD事前注入) & sitemap.xml 自動生成
+      try {
+        console.log('🚀 [SSG] 全365議員の構造化データ (JSON-LD) と sitemap.xml の生成を実行中...');
+        execSync('python ../data-pipeline/generate_councilors_ssg.py', { stdio: 'inherit' });
+      } catch (err) {
+        console.error('⚠️ [SSG] generate_councilors_ssg.py 実行警告:', err.message);
+      }
+
       console.log(`✨ [Cloudflare Pages] ${generatedCities.join(', ')}, dist/404.html を自動生成しました。`)
     }
   }
@@ -53,4 +62,25 @@ function cloudflareMultiCityPlugin() {
 export default defineConfig({
   base: '/',
   plugins: [react(), cloudflareMultiCityPlugin()],
+  build: {
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+            return 'vendor-react';
+          }
+          if (id.includes('node_modules/recharts/')) {
+            return 'vendor-charts';
+          }
+          if (id.includes('node_modules/lucide-react/')) {
+            return 'vendor-icons';
+          }
+          if (id.includes('node_modules/minisearch/') || id.includes('node_modules/@supabase/')) {
+            return 'vendor-core';
+          }
+        }
+      }
+    }
+  }
 })

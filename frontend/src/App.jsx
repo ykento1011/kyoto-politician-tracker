@@ -10,26 +10,26 @@ const safeFetchJson = async (url) => {
     return null;
   }
 };
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HeroSection from './components/HeroSection';
 import PortalTopView from './components/PortalTopView';
 import MainTabView from './components/MainTabView';
 import SpeakerDetailView from './components/SpeakerDetailView';
-import SearchResultsView from './components/SearchResultsView';
-import CompareDashboard from './components/CompareDashboard';
+const SearchResultsView = lazy(() => import('./components/SearchResultsView'));
+const CompareDashboard = lazy(() => import('./components/CompareDashboard'));
 import HighlightedThreads from './components/HighlightedThreads';
 import MacroTopicMap from './components/MacroTopicMap';
-import ContestedBillsView from './components/ContestedBillsView';
-import TopicDetailPage from './components/TopicDetailPage';
-import CategoryDetailPage from './components/CategoryDetailPage';
-import MayorTrackerView from './components/MayorTrackerView';
-import TimelineModal from './components/TimelineModal';
-import BillDetailModal from './components/BillDetailModal';
-import AboutPage from './components/AboutPage';
-import Methodology from './components/Methodology';
-import GuidePage from './components/GuidePage';
+const ContestedBillsView = lazy(() => import('./components/ContestedBillsView'));
+const TopicDetailPage = lazy(() => import('./components/TopicDetailPage'));
+const CategoryDetailPage = lazy(() => import('./components/CategoryDetailPage'));
+const MayorTrackerView = lazy(() => import('./components/MayorTrackerView'));
+const TimelineModal = lazy(() => import('./components/TimelineModal'));
+const BillDetailModal = lazy(() => import('./components/BillDetailModal'));
+const AboutPage = lazy(() => import('./components/AboutPage'));
+const Methodology = lazy(() => import('./components/Methodology'));
+const GuidePage = lazy(() => import('./components/GuidePage'));
 import { useStatements } from './hooks/useStatements';
 import FeedbackButton from './components/FeedbackButton';
 
@@ -45,6 +45,15 @@ function getCategoryForBill(b) {
   if (text.includes('文化') || text.includes('景観') || text.includes('世界遺産') || text.includes('歴史')) return '文化・景観・歴史';
   return '市政全般';
 }
+
+
+const CITY_COUNCIL_CONFIG = {
+  kyoto: { councilName: '京都市会', officialUrl: 'https://www.city.kyoto.lg.jp/shikai/', election: '京都市選挙管理委員会', ogp: 'https://gikai-mikata.jp/ogp-kyoto.png' },
+  osaka: { councilName: '大阪市会', officialUrl: 'https://www.city.osaka.lg.jp/shikai/', election: '大阪市選挙管理委員会', ogp: 'https://gikai-mikata.jp/ogp-osaka.png' },
+  nagoya: { councilName: '名古屋市会', officialUrl: 'https://www.city.nagoya.jp/shikai/', election: '名古屋市選挙管理委員会', ogp: 'https://gikai-mikata.jp/ogp-nagoya.png' },
+  yokohama: { councilName: '横浜市会', officialUrl: 'https://www.city.yokohama.lg.jp/shikai/', election: '横浜市選挙管理委員会', ogp: 'https://gikai-mikata.jp/ogp-yokohama.png' },
+  kobe: { councilName: '神戸市会', officialUrl: 'https://www.city.kobe.lg.jp/shikai/', election: '神戸市選挙管理委員会', ogp: 'https://gikai-mikata.jp/ogp-kobe.png' }
+};
 
 function parseCurrentRoute() {
   const params = new URLSearchParams(window.location.search);
@@ -71,9 +80,14 @@ function parseCurrentRoute() {
     return { type: 'compare', names };
   }
 
-  const speakerParam = params.get('speaker');
-  if (speakerParam) {
-    return { type: 'speaker', speakerName: decodeURIComponent(speakerParam.trim()) };
+  // 💡 パーマリンク (?p= または ?speaker= または /politicians/:id) の解釈
+  const pParam = params.get('p') || params.get('speaker');
+  if (pParam) {
+    return { type: 'speaker', speakerName: decodeURIComponent(pParam.trim()) };
+  }
+  const polMatch = pathname.match(/\/politicians\/([^\/]+)/);
+  if (polMatch) {
+    return { type: 'speaker', speakerName: decodeURIComponent(polMatch[1].trim()) };
   }
 
   const qParam = params.get('q');
@@ -108,7 +122,7 @@ export default function App() {
 
       // 💡 後方互換性保護：ルート(/)なのに古いクエリがある場合は /kyoto/ へ自動リダイレクト
       const hasOldKyotoQuery = Boolean(
-        params.get('speaker') || params.get('view') || params.get('compare') || 
+        params.get('p') || params.get('speaker') || params.get('view') || params.get('compare') || 
         params.get('q') || params.get('cat') || hash.startsWith('#topic=') || hash.startsWith('#category=')
       );
       if (hasOldKyotoQuery) {
@@ -243,8 +257,74 @@ export default function App() {
     };
   }, [setSearchQuery, setSubmittedQuery]);
 
-  // 💡 都市に応じたSEOメタタグの動的書き換え
+  // 💡 都市および議員パーマリンクに応じたSEOメタタグ & JSON-LDの動的同期
   useEffect(() => {
+    // ① 議員個別ビュー時の動的 SEO / Schema.org JSON-LD 更新
+    if (currentRoute.type === 'speaker' && activeSpeaker && cityCode) {
+      const cfg = CITY_COUNCIL_CONFIG[cityCode] || { councilName: '市会', officialUrl: 'https://gikai-mikata.jp/', election: '選挙管理委員会', ogp: 'https://gikai-mikata.jp/ogp-portal.png' };
+      const speakerClean = (activeSpeaker.speaker || '').replace(/\s+/g, '');
+      const districtStr = activeSpeaker.district ? `・${activeSpeaker.district}` : '';
+      const partyStr = activeSpeaker.party ? `・${activeSpeaker.party}` : '';
+      const title = `${activeSpeaker.speaker}（${cfg.councilName}${districtStr}）の政策・公約・採決態度 ｜ 議会のミカタ`;
+      const description = `${cfg.councilName}（${activeSpeaker.district || ''}${partyStr}）${activeSpeaker.speaker}議員。重点公約、議案採決態度、および質疑実績ログの可視化データ。`;
+      const canonicalUrl = `https://gikai-mikata.jp/${cityCode}/?p=${encodeURIComponent(speakerClean)}`;
+      const ogpImage = activeSpeaker.image_url || cfg.ogp;
+
+      document.title = title;
+      const setMeta = (selector, attr, val) => {
+        let el = document.querySelector(selector);
+        if (!el) {
+          el = document.createElement(selector.startsWith('link') ? 'link' : 'meta');
+          if (selector.includes('name=')) el.setAttribute('name', selector.match(/name="(.*?)"/)[1]);
+          if (selector.includes('property=')) el.setAttribute('property', selector.match(/property="(.*?)"/)[1]);
+          if (selector.includes('rel=')) el.setAttribute('rel', selector.match(/rel="(.*?)"/)[1]);
+          document.head.appendChild(el);
+        }
+        el.setAttribute(attr, val);
+      };
+
+      setMeta('meta[name="description"]', 'content', description);
+      setMeta('link[rel="canonical"]', 'href', canonicalUrl);
+      setMeta('meta[property="og:title"]', 'content', title);
+      setMeta('meta[property="og:description"]', 'content', description);
+      setMeta('meta[property="og:url"]', 'content', canonicalUrl);
+      setMeta('meta[property="og:image"]', 'content', ogpImage);
+      setMeta('meta[name="twitter:title"]', 'content', title);
+      setMeta('meta[name="twitter:description"]', 'content', description);
+      setMeta('meta[name="twitter:image"]', 'content', ogpImage);
+
+      // JSON-LD (Schema.org/Person) の動的注入
+      let scriptTag = document.getElementById('speaker-jsonld');
+      if (!scriptTag) {
+        scriptTag = document.createElement('script');
+        scriptTag.id = 'speaker-jsonld';
+        scriptTag.type = 'application/ld+json';
+        document.head.appendChild(scriptTag);
+      }
+      const jsonLdData = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${canonicalUrl}#person`,
+        "name": activeSpeaker.speaker,
+        "jobTitle": `${cfg.councilName}議員`,
+        "worksFor": { "@type": "GovernmentOrganization", "name": cfg.councilName, "url": cfg.officialUrl },
+        "memberOf": { "@type": "Organization", "name": activeSpeaker.party || '無所属' },
+        "description": description,
+        "image": ogpImage,
+        "url": canonicalUrl,
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "ElectedOfficial",
+          "recognizedBy": { "@type": "GovernmentOrganization", "name": cfg.election }
+        }
+      };
+      scriptTag.textContent = JSON.stringify(jsonLdData);
+
+      return () => {
+        const existing = document.getElementById('speaker-jsonld');
+        if (existing) existing.remove();
+      };
+    }
     let title = "議会のミカタ ｜ AIは入口。判断するのは市民です。";
     let description = "京都・大阪の市会公式会議録と議決データを客観的に構造化。4軸による議員質疑分析、賛否が分かれた議案ログ、市長公約の予算措置・条例可決・執行進捗を一次情報で確認・判断できるオープンデータ・プラットフォーム。";
     let canonicalUrl = "https://gikai-mikata.jp/";
@@ -516,7 +596,7 @@ export default function App() {
   }
 
   const renderModals = () => (
-    <>
+    <Suspense fallback={null}>
       <BillDetailModal
         cityCode={cityCode}
         isOpen={Boolean(selectedBillForModal)}
@@ -533,7 +613,7 @@ export default function App() {
         selectedContext={selectedContext}
         isLoading={isLoadingContext}
       />
-    </>
+    </Suspense>
   );
 
   const renderNavbar = (isCompare = false) => (
@@ -550,22 +630,29 @@ export default function App() {
   );
 
   // --- 排他的画面ルーティング ---
+  const suspenseSpinner = (
+    <div className="min-h-[50vh] flex items-center justify-center">
+      <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+    </div>
+  );
 
   if (currentRoute.type === 'mayor') {
     return (
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <MayorTrackerView
-            data={mayorTrackerData}
-            cityCode={cityCode} // 💡 これを追加
-            onBack={handleGoHome}
-            onSelectBill={setSelectedBillForModal}
-            onOpenMethodology={() => navigateToView('methodology')}
-          />
+          <Suspense fallback={suspenseSpinner}>
+            <MayorTrackerView
+              data={mayorTrackerData}
+              cityCode={cityCode}
+              onBack={handleGoHome}
+              onSelectBill={setSelectedBillForModal}
+              onOpenMethodology={() => navigateToView('methodology')}
+            />
+          </Suspense>
         </div>
-          {renderModals()}
-          <FeedbackButton />
+        {renderModals()}
+        <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
@@ -576,7 +663,9 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <GuidePage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />
+          <Suspense fallback={suspenseSpinner}>
+            <GuidePage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} onOpenAbout={() => navigateToView('about')} />
+          </Suspense>
         </div>
         <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
@@ -589,7 +678,9 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <AboutPage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} />
+          <Suspense fallback={suspenseSpinner}>
+            <AboutPage onBack={handleGoHome} onOpenMethodology={() => navigateToView('methodology')} />
+          </Suspense>
         </div>
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
@@ -601,7 +692,9 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <Methodology onBack={handleGoHome} />
+          <Suspense fallback={suspenseSpinner}>
+            <Methodology onBack={handleGoHome} />
+          </Suspense>
         </div>
         <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
@@ -614,10 +707,12 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <TopicDetailPage topicId={currentRoute.topicId} cityCode={cityCode} statements={statements} onBack={handleGoHome} onViewContext={handleViewContext} />
+          <Suspense fallback={suspenseSpinner}>
+            <TopicDetailPage topicId={currentRoute.topicId} cityCode={cityCode} statements={statements} onBack={handleGoHome} onViewContext={handleViewContext} />
+          </Suspense>
         </div>
-          {renderModals()}
-          <FeedbackButton />
+        {renderModals()}
+        <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
@@ -628,27 +723,28 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <CategoryDetailPage
-            cityCode={cityCode}
-            categoryName={currentRoute.categoryName}
-            onBack={handleGoHome}
-            topicStats={topicStats}
-            
-            filteredThreads={statements.filter(s => s.category === currentRoute.categoryName)}
-            filteredBills={votesData.filter(b => getCategoryForBill(b) === currentRoute.categoryName)}
-            speakerStats={speakerStats}
-            issuesMap={issuesMap}
-            onlyContestedBills={onlyContestedBills}
-            setOnlyContestedBills={setOnlyContestedBills}
-            onSpeakerClick={handleSpeakerClick}
-            onViewContext={handleViewContext}
-            onSelectBill={setSelectedBillForModal}
-            onOpenMethodology={() => navigateToView('methodology')}
-            onOpenTopicDetail={handleOpenTopicDetail}
-          />
+          <Suspense fallback={suspenseSpinner}>
+            <CategoryDetailPage
+              cityCode={cityCode}
+              categoryName={currentRoute.categoryName}
+              onBack={handleGoHome}
+              topicStats={topicStats}
+              filteredThreads={statements.filter(s => s.category === currentRoute.categoryName)}
+              filteredBills={votesData.filter(b => getCategoryForBill(b) === currentRoute.categoryName)}
+              speakerStats={speakerStats}
+              issuesMap={issuesMap}
+              onlyContestedBills={onlyContestedBills}
+              setOnlyContestedBills={setOnlyContestedBills}
+              onSpeakerClick={handleSpeakerClick}
+              onViewContext={handleViewContext}
+              onSelectBill={setSelectedBillForModal}
+              onOpenMethodology={() => navigateToView('methodology')}
+              onOpenTopicDetail={handleOpenTopicDetail}
+            />
+          </Suspense>
         </div>
-          {renderModals()}
-          <FeedbackButton />
+        {renderModals()}
+        <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
     );
@@ -659,7 +755,9 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <ContestedBillsView initialCategory={currentRoute.category} billIssues={billIssuesList} votesData={votesData} onClose={handleGoHome} onSpeakerClick={handleSpeakerClick} />
+          <Suspense fallback={suspenseSpinner}>
+            <ContestedBillsView initialCategory={currentRoute.category} billIssues={billIssuesList} votesData={votesData} onClose={handleGoHome} onSpeakerClick={handleSpeakerClick} />
+          </Suspense>
         </div>
         <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
@@ -672,26 +770,30 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(true)}
         <div className="flex-grow">
-          <CompareDashboard
+          <Suspense fallback={suspenseSpinner}>
+            <CompareDashboard
               cityCode={cityCode}
-            compareList={activeCompareList}
-            allSpeakers={speakerStats}
-            onAddSpeaker={handleAddSpeakerToCompare}
-            onRemoveSpeaker={handleRemoveSpeakerFromCompare}
-            onClose={handleGoHome}
-            onViewContext={handleViewContext}
-            onSpeakerClick={handleSpeakerClick}
-            votesData={votesData}
-            issuesMap={issuesMap}
-            onSelectBill={setSelectedBillForModal}
-            onOpenMethodology={() => navigateToView('methodology')}
-          />
+              compareList={activeCompareList}
+              allSpeakers={speakerStats}
+              onAddSpeaker={handleAddSpeakerToCompare}
+              onRemoveSpeaker={handleRemoveSpeakerFromCompare}
+              onClose={handleGoHome}
+              onViewContext={handleViewContext}
+              onSpeakerClick={handleSpeakerClick}
+              votesData={votesData}
+              issuesMap={issuesMap}
+              onSelectBill={setSelectedBillForModal}
+              onOpenMethodology={() => navigateToView('methodology')}
+            />
+          </Suspense>
         </div>
-        <BillDetailModal
-          cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={(spk) => { setSelectedBillForModal(null); handleSpeakerClick(spk); }} />
-        <TimelineModal
-          cityCode={cityCode}
-          isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        <Suspense fallback={null}>
+          <BillDetailModal
+            cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={(spk) => { setSelectedBillForModal(null); handleSpeakerClick(spk); }} />
+          <TimelineModal
+            cityCode={cityCode}
+            isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        </Suspense>
         <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
@@ -709,7 +811,6 @@ export default function App() {
             speakerStats={speakerStats}
             speakerFilteredThreads={threadsForSpeaker}
             topicStats={topicStats}
-            
             speakerCategory={speakerCategory}
             setSpeakerCategory={setSpeakerCategory}
             speakerSort={speakerSort}
@@ -724,11 +825,13 @@ export default function App() {
             onSelectBill={setSelectedBillForModal}
           />
         </div>
-        <TimelineModal
-          cityCode={cityCode}
-          isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
-        <BillDetailModal
-          cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
+        <Suspense fallback={null}>
+          <TimelineModal
+            cityCode={cityCode}
+            isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+          <BillDetailModal
+            cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
+        </Suspense>
         <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
@@ -740,29 +843,33 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <SearchResultsView cityCode={cityCode}
-            submittedQuery={currentRoute.query}
-            onClearSearch={handleGoHome}
-            filteredThreads={filteredThreads}
-            filteredBills={filteredBills}
-            filteredSpeakers={filteredSpeakers}
-            speakerStats={speakerStats}
-            issuesMap={issuesMap}
-            onlyContestedBills={onlyContestedBills}
-            setOnlyContestedBills={setOnlyContestedBills}
-            onSpeakerClick={handleSpeakerClick}
-            onViewContext={handleViewContext}
-            onOpenCompare={(spk) => handleOpenCompare(spk)}
-            onSelectBill={setSelectedBillForModal}
-            onOpenMethodology={() => navigateToView('methodology')}
-            onOpenTopicDetail={handleOpenTopicDetail}
-          />
+          <Suspense fallback={suspenseSpinner}>
+            <SearchResultsView cityCode={cityCode}
+              submittedQuery={currentRoute.query}
+              onClearSearch={handleGoHome}
+              filteredThreads={filteredThreads}
+              filteredBills={filteredBills}
+              filteredSpeakers={filteredSpeakers}
+              speakerStats={speakerStats}
+              issuesMap={issuesMap}
+              onlyContestedBills={onlyContestedBills}
+              setOnlyContestedBills={setOnlyContestedBills}
+              onSpeakerClick={handleSpeakerClick}
+              onViewContext={handleViewContext}
+              onOpenCompare={(spk) => handleOpenCompare(spk)}
+              onSelectBill={setSelectedBillForModal}
+              onOpenMethodology={() => navigateToView('methodology')}
+              onOpenTopicDetail={handleOpenTopicDetail}
+            />
+          </Suspense>
         </div>
-        <BillDetailModal
-          cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
-        <TimelineModal
-          cityCode={cityCode}
-          isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        <Suspense fallback={null}>
+          <BillDetailModal
+            cityCode={cityCode} isOpen={Boolean(selectedBillForModal)} onClose={() => setSelectedBillForModal(null)} bill={selectedBillForModal} issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null} speakerStats={speakerStats} onSpeakerClick={handleSpeakerClick} />
+          <TimelineModal
+            cityCode={cityCode}
+            isOpen={isPanelOpen} onClose={() => setIsPanelOpen(false)} selectedContext={selectedContext} isLoading={isLoadingContext} />
+        </Suspense>
         <FeedbackButton />
         <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
       </div>
@@ -786,7 +893,6 @@ export default function App() {
         <MacroTopicMap
           cityCode={cityCode}
           topicStats={topicStats}
-            
           selectedCategory={selectedCategory}
           onOpenCategoryDetail={handleOpenCategoryDetail}
           getIssueCountForCategory={getIssueCountForCategory}
@@ -808,7 +914,6 @@ export default function App() {
           filteredThreads={filteredThreads}
           filteredBills={filteredBills}
           topicStats={topicStats}
-            
           speakerStats={speakerStats}
           selectedDistrict={selectedDistrict}
           setSelectedDistrict={setSelectedDistrict}
@@ -833,23 +938,25 @@ export default function App() {
         />
       </main>
 
-      <BillDetailModal
-        cityCode={cityCode}
-        isOpen={Boolean(selectedBillForModal)}
-        onClose={() => setSelectedBillForModal(null)}
-        bill={selectedBillForModal}
-        issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
-        speakerStats={speakerStats}
-        onSpeakerClick={handleSpeakerClick}
-      />
+      <Suspense fallback={null}>
+        <BillDetailModal
+          cityCode={cityCode}
+          isOpen={Boolean(selectedBillForModal)}
+          onClose={() => setSelectedBillForModal(null)}
+          bill={selectedBillForModal}
+          issue={selectedBillForModal ? issuesMap[`${selectedBillForModal.session_name}_${selectedBillForModal.bill_number}`] : null}
+          speakerStats={speakerStats}
+          onSpeakerClick={handleSpeakerClick}
+        />
 
-      <TimelineModal
-        cityCode={cityCode}
-        isOpen={isPanelOpen}
-        onClose={() => setIsPanelOpen(false)}
-        selectedContext={selectedContext}
-        isLoading={isLoadingContext}
-      />
+        <TimelineModal
+          cityCode={cityCode}
+          isOpen={isPanelOpen}
+          onClose={() => setIsPanelOpen(false)}
+          selectedContext={selectedContext}
+          isLoading={isLoadingContext}
+        />
+      </Suspense>
       <FeedbackButton />
       <Footer cityCode={cityCode} onOpenMethodology={() => navigateToView('methodology')} />
     </div>
