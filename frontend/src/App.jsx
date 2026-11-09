@@ -267,7 +267,7 @@ export default function App() {
       const partyStr = activeSpeaker.party ? `・${activeSpeaker.party}` : '';
       const title = `${activeSpeaker.speaker}（${cfg.councilName}${districtStr}）の政策・公約・採決態度 ｜ 議会のミカタ`;
       const description = `${cfg.councilName}（${activeSpeaker.district || ''}${partyStr}）${activeSpeaker.speaker}議員。重点公約、議案採決態度、および質疑実績ログの可視化データ。`;
-      const canonicalUrl = `https://gikai-mikata.jp/${cityCode}/?p=${encodeURIComponent(speakerClean)}`;
+      const canonicalUrl = `https://gikai-mikata.jp/${cityCode}/?speaker=${encodeURIComponent(activeSpeaker.speaker)}`;
       const ogpImage = activeSpeaker.image_url || cfg.ogp;
 
       document.title = title;
