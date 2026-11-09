@@ -294,12 +294,15 @@ export default function App() {
       setMeta('meta[name="twitter:image"]', 'content', ogpImage);
 
       // JSON-LD (Schema.org/Person) の動的注入
-      let scriptTag = document.getElementById('speaker-jsonld');
+      // 💡 instant スクリプトが存在すれば統合・詳細上書き
+      let scriptTag = document.getElementById('speaker-jsonld-instant') || document.getElementById('speaker-jsonld');
       if (!scriptTag) {
         scriptTag = document.createElement('script');
         scriptTag.id = 'speaker-jsonld';
         scriptTag.type = 'application/ld+json';
         document.head.appendChild(scriptTag);
+      } else {
+        scriptTag.id = 'speaker-jsonld';
       }
       const jsonLdData = {
         "@context": "https://schema.org",

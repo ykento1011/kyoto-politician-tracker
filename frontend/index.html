@@ -32,7 +32,40 @@
   <meta name="twitter:title" content="議会のミカタ ｜ AIは入口。判断するのは市民です。" />
   <meta name="twitter:description" content="5大政令市（京都・大阪・名古屋・横浜・神戸）の市会公式会議録と議決データを客観的に構造化。議員質疑分析、賛否が分かれた議案ログ、市長公約の予算措置・条例可決・執行進捗を一次情報原本で確認できるオープンデータ基盤。" />
   <meta name="twitter:image" content="https://gikai-mikata.jp/ogp.png" />
-</head>
+    <!-- 💡 クローラー(Googlebot/WRS)向け JSON-LD 即時評価インラインスクリプト -->
+    <script>
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var speaker = params.get('speaker');
+          if (speaker) {
+            var cleanName = decodeURIComponent(speaker).trim();
+            var cityMatch = window.location.pathname.match(/\/(kyoto|osaka|nagoya|yokohama|kobe)/);
+            var city = cityMatch ? cityMatch[1] : 'kyoto';
+            var cityNames = { kyoto: '京都市', osaka: '大阪市', nagoya: '名古屋市', yokohama: '横浜市', kobe: '神戸市' };
+            var councilName = (cityNames[city] || '市') + '会';
+
+            var jsonLd = {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": cleanName,
+              "jobTitle": councilName + "議員",
+              "worksFor": {
+                "@type": "GovernmentOrganization",
+                "name": councilName
+              },
+              "url": window.location.href
+            };
+            var script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.id = 'speaker-jsonld-instant';
+            script.text = JSON.stringify(jsonLd);
+            document.head.appendChild(script);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
 
 <body>
   <div id="root"></div>
