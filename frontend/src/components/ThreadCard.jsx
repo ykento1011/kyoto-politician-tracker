@@ -1,28 +1,77 @@
 import React, { useState } from 'react';
-import { FileText, Lightbulb, MessageCircle, User, Landmark, ExternalLink, ChevronDown } from 'lucide-react';
+import { FileText, Lightbulb, MessageCircle, User, Landmark, ExternalLink, ChevronDown, Link2, Check } from 'lucide-react';
 import { cleanName, cleanAuditorNote } from '../utils/styleHelpers';
 import { openOfficialMinute, getOfficialLinkTooltip, getOfficialMinuteUrl } from '../utils/officialLink';
 import ReportIssueButton from './ReportIssueButton';
 
-export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpeakerClick, onViewContext, showSpeakerHeader = true, cityCode}) {
+export default function ThreadCard({
+  stmt,
+  statement,
+  thread,
+  speakerInfo,
+  onSpeakerClick,
+  onViewContext,
+  showSpeakerHeader = true,
+  cityCode,
+  isHighlighted = false,
+  disableAnchorId = false,
+}) {
   const actualStmt = stmt || statement || thread || {};
   stmt = actualStmt;
-    // statement または thread のいずれかが渡されても受け取れるように防御的処理
-      // URLパス または props/データから大阪を直接判定
-  const isOsakaUrl = typeof window !== 'undefined' && window.location.pathname.startsWith('/osaka');
-  const isOsakaThread = isOsakaUrl || 
-                        cityCode === 'osaka' || 
-                        stmt?.council === '大阪市会' || 
+
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  const isOsakaUrl = pathname.startsWith('/osaka');
+  const isOsakaThread = isOsakaUrl ||
+                        cityCode === 'osaka' ||
+                        stmt?.council === '大阪市会' ||
                         stmt?.council === '大阪市' ||
                         actualStmt?.council === '大阪市会' ||
                         (typeof stmt?.meeting_name === 'string' && stmt.meeting_name.includes('大阪市')) ||
-                        (typeof actualStmt?.meeting_name === 'string' && thread.meeting_name.includes('大阪市')) ||
+                        (typeof actualStmt?.meeting_name === 'string' && thread?.meeting_name?.includes('大阪市')) ||
                         (typeof stmt?.committee_name === 'string' && stmt.committee_name.includes('大阪市')) ||
-                        (typeof actualStmt?.committee_name === 'string' && thread.committee_name.includes('大阪市'));
-  const isNagoyaThread = stmt.official_url?.includes('nagoya') || stmt.meeting_title?.includes('名古屋') || window.location.pathname.includes('/nagoya');
+                        (typeof actualStmt?.committee_name === 'string' && thread?.committee_name?.includes('大阪市'));
+  const isNagoyaThread = stmt.official_url?.includes('nagoya') || stmt.meeting_title?.includes('名古屋') || pathname.includes('/nagoya');
   const councilOriginalLabel = isNagoyaThread ? '名古屋市会 議事録原本を確認' : isOsakaThread ? '大阪市会 議事録原本を確認' : '議事録原本を確認';
 
+  const resolvedCity =
+    cityCode ||
+    (isOsakaThread ? 'osaka' : isNagoyaThread ? 'nagoya' : pathname.startsWith('/kobe') ? 'kobe' : pathname.startsWith('/yokohama') ? 'yokohama' : 'kyoto');
+
   const [isNoteExpanded, setIsNoteExpanded] = useState(false);
+  const [isLinkCopied, setIsLinkCopied] = useState(false);
+
+  const statementId = stmt?.id || stmt?.statement_id || '';
+  const anchorId = !disableAnchorId && statementId ? String(statementId) : undefined;
+
+  const handleCopyDeepLink = async (e) => {
+    e.stopPropagation();
+    const speakerName = stmt?.speaker || speakerInfo?.name || '';
+    const origin =
+      typeof window !== 'undefined' && window.location.origin
+        ? window.location.origin
+        : 'https://gikai-mikata.jp';
+    const query = speakerName ? `?speaker=${encodeURIComponent(speakerName)}` : '';
+    const fragment = statementId ? `#${encodeURIComponent(statementId)}` : '';
+    const deepLinkUrl = `${origin}/${resolvedCity}/${query}${fragment}`;
+
+    try {
+      await navigator.clipboard.writeText(deepLinkUrl);
+    } catch {
+      const textarea = document.createElement('textarea');
+      textarea.value = deepLinkUrl;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+
+    if (typeof window !== 'undefined' && statementId) {
+      window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${encodeURIComponent(statementId)}`);
+    }
+
+    setIsLinkCopied(true);
+    window.setTimeout(() => setIsLinkCopied(false), 2500);
+  };
 
   const activeMetrics = [
     { label: '根拠・データ', val: stmt.evidence_score, color: 'bg-indigo-500' },
@@ -34,8 +83,15 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
   const auditorNoteText = (stmt.scoring_reasoning || stmt.reasoning) ? cleanAuditorNote(stmt.scoring_reasoning || stmt.reasoning) : "";
 
   return (
-    <article className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-      
+    <article
+      id={anchorId}
+      style={{ scrollMarginTop: '90px' }}
+      className={`rounded-xl shadow-sm border overflow-hidden flex flex-col scroll-mt-[90px] transition-all duration-500 ${
+        isHighlighted
+          ? 'bg-amber-50/70 border-amber-400 ring-2 ring-amber-300/80 shadow-md'
+          : 'bg-white border-slate-200'
+      }`}
+    >
       {/* 上部ヘッダー */}
       {showSpeakerHeader ? (
         <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
@@ -70,14 +126,46 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
               {stmt.category}
             </span>
             <span className="text-slate-400 text-xs font-medium shrink-0">{stmt.meeting_date}</span>
+            {statementId && (
+              <button
+                type="button"
+                onClick={handleCopyDeepLink}
+                title="この個別質疑への直リンクURLをコピー"
+                className={`inline-flex items-center gap-1 px-2 py-0.5 rounded border text-[10px] font-bold transition-colors cursor-pointer shrink-0 ${
+                  isLinkCopied
+                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                    : 'bg-white text-slate-500 border-slate-200 hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200'
+                }`}
+              >
+                {isLinkCopied ? <Check className="w-3 h-3" /> : <Link2 className="w-3 h-3" />}
+                <span>{isLinkCopied ? 'コピー済' : '直リンク'}</span>
+              </button>
+            )}
           </div>
         </div>
       ) : (
-        <div className="p-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50/50">
-          <span className="px-2 py-0.5 bg-white text-slate-600 text-[10px] font-bold rounded border border-slate-200">
-            {stmt.category}
-          </span>
-          <span className="text-slate-400 text-xs font-medium">{stmt.meeting_date}</span>
+        <div className="p-4 border-b border-slate-100 flex items-center justify-between gap-3 bg-slate-50/50">
+          <div className="flex items-center gap-3">
+            <span className="px-2 py-0.5 bg-white text-slate-600 text-[10px] font-bold rounded border border-slate-200">
+              {stmt.category}
+            </span>
+            <span className="text-slate-400 text-xs font-medium">{stmt.meeting_date}</span>
+          </div>
+          {statementId && (
+            <button
+              type="button"
+              onClick={handleCopyDeepLink}
+              title="この個別質疑への直リンクURLをコピー"
+              className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md border text-[11px] font-bold transition-colors cursor-pointer shrink-0 ${
+                isLinkCopied
+                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                  : 'bg-white text-slate-600 border-slate-200 hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200'
+              }`}
+            >
+              {isLinkCopied ? <Check className="w-3 h-3" /> : <Link2 className="w-3 h-3" />}
+              <span>{isLinkCopied ? 'URLをコピー済' : 'リンクコピー'}</span>
+            </button>
+          )}
         </div>
       )}
 
@@ -91,11 +179,10 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
         </div>
 
         <div className="md:w-2/5 bg-slate-50 p-4 rounded-xl border border-slate-100 flex flex-col">
-          {/* 💡 修正：「発揮された強み」➔「4軸分析結果」 */}
           <span className="text-[10px] font-bold text-slate-500 uppercase mb-3 block">
             4軸分析結果
           </span>
-          
+
           {activeMetrics.length > 0 ? (
             <div className="space-y-2.5">
               {activeMetrics.map((metric) => (
@@ -114,7 +201,6 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
             <div className="text-center py-2 text-slate-400 text-xs font-medium">初期確認・状況整理の質疑</div>
           )}
 
-          {/* 💡 修正：「AI Auditor Note」➔「分析メモ」 */}
           {activeMetrics.length > 0 && auditorNoteText && (
             <div className="mt-4 pt-3 border-t border-slate-200/60 transition-all">
               <div className="flex items-center justify-between mb-1.5">
@@ -122,7 +208,7 @@ export default function ThreadCard({stmt, statement, thread, speakerInfo, onSpea
                   <Lightbulb className="w-3 h-3 text-amber-500 mr-1 shrink-0" /> 分析メモ
                 </h5>
               </div>
-              
+
               <p className={`text-[11px] text-slate-600 leading-relaxed transition-all ${
                 isNoteExpanded ? '' : 'line-clamp-3'
               }`}>

@@ -321,6 +321,7 @@ export function useStatements(cityCode = 'kyoto') {
       const params = new URLSearchParams(window.location.search);
       const speakerParam = params.get('speaker');
       const compareParam = params.get('compare');
+      const hasHash = Boolean(window.location.hash && window.location.hash.length > 1);
 
       if (compareParam) {
         const names = compareParam.split(',');
@@ -330,10 +331,15 @@ export function useStatements(cityCode = 'kyoto') {
           setIsCompareMode(true);
         }
       } else if (speakerParam) {
-        const speaker = speakerStats.find((s) => s.speaker === speakerParam);
+        const normParam = speakerParam.replace(/\s+/g, '');
+        const speaker =
+          speakerStats.find((s) => s.speaker === speakerParam) ||
+          speakerStats.find((s) => (s.speaker || '').replace(/\s+/g, '') === normParam);
         if (speaker) setSelectedSpeaker(speaker);
       }
-      setTimeout(() => window.scrollTo(0, 0), 100);
+      if (!hasHash) {
+        setTimeout(() => window.scrollTo(0, 0), 100);
+      }
       setInitialRouteSet(true);
     }
   }, [speakerStats, initialRouteSet]);
@@ -343,6 +349,7 @@ export function useStatements(cityCode = 'kyoto') {
       const params = new URLSearchParams(window.location.search);
       const speakerParam = params.get('speaker');
       const compareParam = params.get('compare');
+      const hasHash = Boolean(window.location.hash && window.location.hash.length > 1);
 
       if (compareParam && speakerStats.length > 0) {
         const names = compareParam.split(',');
@@ -351,21 +358,29 @@ export function useStatements(cityCode = 'kyoto') {
         setIsCompareMode(true);
         setSelectedSpeaker(null);
       } else if (speakerParam && speakerStats.length > 0) {
-        const speaker = speakerStats.find((s) => s.speaker === speakerParam);
+        const normParam = speakerParam.replace(/\s+/g, '');
+        const speaker =
+          speakerStats.find((s) => s.speaker === speakerParam) ||
+          speakerStats.find((s) => (s.speaker || '').replace(/\s+/g, '') === normParam);
         setSelectedSpeaker(speaker || null);
         setIsCompareMode(false);
       } else {
         setSelectedSpeaker(null);
         setIsCompareMode(false);
       }
-      window.scrollTo(0, 0);
+      if (!hasHash) {
+        window.scrollTo(0, 0);
+      }
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, [speakerStats]);
 
   const handleSpeakerClick = (speakerName) => {
-    const speaker = speakerStats.find((s) => s.speaker === speakerName);
+    const normTarget = (speakerName || '').replace(/\s+/g, '');
+    const speaker =
+      speakerStats.find((s) => s.speaker === speakerName) ||
+      speakerStats.find((s) => (s.speaker || '').replace(/\s+/g, '') === normTarget);
     if (speaker) {
       setSelectedSpeaker(speaker);
       setIsCompareMode(false);
@@ -374,6 +389,7 @@ export function useStatements(cityCode = 'kyoto') {
       const url = new URL(window.location);
       url.searchParams.set('speaker', speaker.speaker);
       url.searchParams.delete('compare');
+      url.hash = '';
       window.history.pushState({}, '', url);
       window.scrollTo(0, 0);
     }
@@ -385,6 +401,7 @@ export function useStatements(cityCode = 'kyoto') {
     const url = new URL(window.location);
     url.searchParams.delete('speaker');
     url.searchParams.delete('compare');
+    url.hash = '';
     window.history.pushState({}, '', url);
     window.scrollTo(0, 0);
   };
