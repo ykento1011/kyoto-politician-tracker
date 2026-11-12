@@ -127,6 +127,22 @@ def clean_url_string(url: str) -> str:
     return u.strip()
 
 
+def resolve_grounding_redirect_url(url: str, city: str, timeout: float = 6.0) -> str:
+    """vertexaisearch のリダイレクトURLを解決し、遷移先が自治体公式ドメインならそのURLを返す。"""
+    cleaned = clean_url_string(url)
+    if is_allowed_official_url(cleaned, city):
+        return cleaned
+    if "vertexaisearch.cloud.google.com/grounding-api-redirect/" not in cleaned:
+        return ""
+    try:
+        req = urllib.request.Request(cleaned, method="HEAD", headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            final_url = resp.geturl()
+            return final_url if is_allowed_official_url(final_url, city) else ""
+    except Exception:
+        return ""
+
+
 def is_allowed_official_url(url: str, city: str) -> bool:
     """
     自治体公式ドメイン・ホワイトリスト検証。
@@ -827,9 +843,10 @@ def step2_official_domain_deep_research(
                     for chunk in getattr(gm, "grounding_chunks", []) or []:
                         web = getattr(chunk, "web", None)
                         uri = getattr(web, "uri", "") if web else ""
-                        if uri and is_allowed_official_url(uri, city):
-                            if uri not in candidate_urls:
-                                candidate_urls.append(uri)
+                        resolved_uri = resolve_grounding_redirect_url(uri, city) if uri else ""
+                        if resolved_uri:
+                            if resolved_uri not in candidate_urls:
+                                candidate_urls.append(resolved_uri)
                         elif uri:
                             print(f"[BLOCKED] Deep Research 外部ドメインURLを破棄: {uri}", file=sys.stderr)
 
@@ -945,6 +962,8 @@ def build_unified_link_map(
 def resolve_link_placeholders(text: str, link_map: dict[str, str]) -> str:
     pattern = re.compile(r"\[\[\s*LINK\s*:\s*([A-Za-z0-9_-]+)\s*\]\]")
     resolved = pattern.sub(lambda m: link_map.get(m.group(1).strip(), ""), text)
+    # 本文中に残った内部ID参照 (S14) や (S1, S2) を除去
+    resolved = re.sub(r"\s*[（(](?:[SVD]\d+[\s,、]*)+[）)]", "", resolved)
     return sanitize_nested_markdown_links(resolved)
 
 
@@ -963,8 +982,11 @@ def build_step4_system_prompt(city_label: str) -> str:
 2. **推測・創作・断定の厳禁（Fail-Closed）**:
    - 一次資料PDFおよびDBから確認できない契約金額・増減額・工期・変更理由・賛否逆転理由・条例改正内容は絶対に推測で補完せず、明示的に「未確認」または「討論記録なし・理由未確認」と記載してください。
    - **賛否の変化という事実と、その理由に関する推測を混同しないでください。**
-3. **リンク指定（IDプレースホルダ使用）**:
-   - 生URLを自ら記述せず、必ず対応レコードの `[[LINK:S1]]` / `[[LINK:V1]]` / `[[LINK:D1]]` を末尾にそのまま埋め込んでください。
+3. **リンク指定と内部ID表記の禁止**:
+   - 生URLを自ら記述せず、リンクを貼る箇所には必ず `[[LINK:S1]]` / `[[LINK:V1]]` / `[[LINK:D1]]` を記載してください。
+   - 本文中に `(S1, S3...)` や `(S14)` `(V1)` などの**内部レコードID記号を括弧書きで記載することは禁止**します。
+   - 第3章のMarkdownテーブルは必ずヘッダーとデータ行の列数（`|` の数）を一致させてください。
+   - 第5章「主要な一次資料リンク」は `relevance` が `"直接関連"` のレコードのみを掲載し、全体をA4・2ページ以内に収めてください。
 4. **A4・2ページ目標の構成（見出し・項目厳守）**:
    必ず以下の構成で簡潔かつ高密度に作成してください：
 
