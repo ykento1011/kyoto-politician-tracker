@@ -74,13 +74,13 @@ export default function SpeakerDetailView({
   selectedSpeaker: rawSelectedSpeaker,
   speakerStats = [],
   speakerFilteredThreads,
-  topicStats,
+  topicStats = [],
   speakerCategory,
   setSpeakerCategory,
   speakerSort,
   setSpeakerSort,
-  votesData,
-  issuesMap,
+  votesData = [],
+  issuesMap = {},
   onOpenCompare,
   onBack,
   onSpeakerClick,
@@ -117,44 +117,6 @@ export default function SpeakerDetailView({
   const [pledgeTrackerMap, setPledgeTrackerMap] = useState({});
   const [highlightedStatementId, setHighlightedStatementId] = useState(null);
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const handleHashScroll = () => {
-      const rawHash = window.location.hash;
-      if (!rawHash || rawHash.length <= 1) return;
-
-      const targetId = decodeURIComponent(rawHash.slice(1));
-      if (!targetId) return;
-
-      setSpeakerDetailTab('threads');
-
-      const timer = window.setTimeout(() => {
-        const element = document.getElementById(targetId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          setHighlightedStatementId(targetId);
-        }
-      }, 120);
-
-      return () => window.clearTimeout(timer);
-    };
-
-    const cleanupTimer = handleHashScroll();
-    window.addEventListener('hashchange', handleHashScroll);
-    return () => {
-      if (cleanupTimer) cleanupTimer();
-      window.removeEventListener('hashchange', handleHashScroll);
-    };
-  }, [selectedSpeaker, actualThreads]);
-
-  useEffect(() => {
-    if (!highlightedStatementId) return;
-    const timer = window.setTimeout(() => {
-      setHighlightedStatementId(null);
-    }, 4500);
-    return () => window.clearTimeout(timer);
-  }, [highlightedStatementId]);
 
   const cityName = cityCode === 'yokohama' ? '横浜市会' : cityCode === 'nagoya' ? '名古屋市会' : cityCode === 'osaka' ? '大阪市会' : '京都市会';
   const electionAdminName = cityCode === 'nagoya' ? '名古屋市選管' : cityCode === 'osaka' ? '大阪市選管' : '選管';
@@ -372,6 +334,45 @@ export default function SpeakerDetailView({
       return true;
     });
   }, [selectedSpeakerBills, speakerVoteFilter]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleHashScroll = () => {
+      const rawHash = window.location.hash;
+      if (!rawHash || rawHash.length <= 1) return;
+
+      const targetId = decodeURIComponent(rawHash.slice(1));
+      if (!targetId) return;
+
+      setSpeakerDetailTab('threads');
+
+      const timer = window.setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setHighlightedStatementId(targetId);
+        }
+      }, 120);
+
+      return () => window.clearTimeout(timer);
+    };
+
+    const cleanupTimer = handleHashScroll();
+    window.addEventListener('hashchange', handleHashScroll);
+    return () => {
+      if (cleanupTimer) cleanupTimer();
+      window.removeEventListener('hashchange', handleHashScroll);
+    };
+  }, [selectedSpeaker, actualThreads]);
+
+  useEffect(() => {
+    if (!highlightedStatementId) return;
+    const timer = window.setTimeout(() => {
+      setHighlightedStatementId(null);
+    }, 4500);
+    return () => window.clearTimeout(timer);
+  }, [highlightedStatementId]);
 
   if (!selectedSpeaker) {
     return (
