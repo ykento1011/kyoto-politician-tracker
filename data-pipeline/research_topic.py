@@ -5,17 +5,6 @@ Step 1: ローカルDB横断抽出・固有URL紐付けバグ修正・議案PDF�
 Step 2: 自治体公式ドメイン限定 Deep Research（ホワイトリスト検証 ＋ 一次資料PDFダウンロード・テキスト抽出・構造化解析）
 Step 3: 関連性3分類（直接関連／政策背景／参考情報）＆ Fail-Closed 検証状態付与（確認済／一部確認／未確認）
 Step 4: 記者向け改訂版レポート本編（A4・2ページ目標）＋ 別添：一次資料・根拠一覧の自動出力（Markdown / PDF）
-
-※制約遵守:
-  既存の本番環境（frontend/）、データベース（frontend/public/data/*.json）、公開ページは一切変更しません。
-
-Usage:
-    python data-pipeline/research_topic.py \
-        --city kyoto \
-        --keywords "錦林,錦林市営,錦林改良,錦林浴場,新K2,新K3" \
-        --broad-keywords "改良住宅,団地再生,市営浴場,公衆浴場,鹿ヶ谷" \
-        --output reports/research_kinrin_final.md \
-        --pdf
 """
 
 from __future__ import annotations
@@ -37,6 +26,8 @@ from pathlib import Path
 from typing import Any
 
 
+HTTPS_SCHEME = "https" + "://"
+
 CITY_LABELS: dict[str, str] = {
     "kyoto": "京都市",
     "osaka": "大阪市",
@@ -56,36 +47,40 @@ OFFICIAL_DOMAIN_WHITELIST: dict[str, dict[str, Any]] = {
             "www.city.kyoto.lg.jp",
             "www2.city.kyoto.lg.jp",
         ],
-        "kaigiroku_prefix": "[https://ssp.kaigiroku.net/tenant/kyoto/](https://ssp.kaigiroku.net/tenant/kyoto/)",
+        "kaigiroku_host": "ssp.kaigiroku.net",
+        "kaigiroku_path_prefix": "/tenant/kyoto/",
         "site_query": "site:city.kyoto.lg.jp",
     },
     "osaka": {
         "domains": ["city.osaka.lg.jp", "www.city.osaka.lg.jp"],
-        "kaigiroku_prefix": "[https://ssp.kaigiroku.net/tenant/osaka/](https://ssp.kaigiroku.net/tenant/osaka/)",
+        "kaigiroku_host": "ssp.kaigiroku.net",
+        "kaigiroku_path_prefix": "/tenant/osaka/",
         "site_query": "site:city.osaka.lg.jp",
     },
     "kobe": {
         "domains": ["city.kobe.lg.jp", "www.city.kobe.lg.jp"],
-        "kaigiroku_prefix": "[https://ssp.kaigiroku.net/tenant/kobe/](https://ssp.kaigiroku.net/tenant/kobe/)",
+        "kaigiroku_host": "ssp.kaigiroku.net",
+        "kaigiroku_path_prefix": "/tenant/kobe/",
         "site_query": "site:city.kobe.lg.jp",
     },
     "yokohama": {
         "domains": ["city.yokohama.lg.jp", "www.city.yokohama.lg.jp"],
-        "kaigiroku_prefix": "[https://ssp.kaigiroku.net/tenant/yokohama/](https://ssp.kaigiroku.net/tenant/yokohama/)",
+        "kaigiroku_host": "ssp.kaigiroku.net",
+        "kaigiroku_path_prefix": "/tenant/yokohama/",
         "site_query": "site:city.yokohama.lg.jp",
     },
     "nagoya": {
         "domains": ["city.nagoya.jp", "www.city.nagoya.jp"],
-        "kaigiroku_prefix": "[https://ssp.kaigiroku.net/tenant/nagoya/](https://ssp.kaigiroku.net/tenant/nagoya/)",
+        "kaigiroku_host": "ssp.kaigiroku.net",
+        "kaigiroku_path_prefix": "/tenant/nagoya/",
         "site_query": "site:city.nagoya.jp",
     },
 }
 
-KYOTO_GIAN_PDF_BASE = "[https://www2.city.kyoto.lg.jp/shikai/img/honkaigi/gian](https://www2.city.kyoto.lg.jp/shikai/img/honkaigi/gian)"
-GIKAI_MIKATA_BASE = "[https://gikai-mikata.jp](https://gikai-mikata.jp)"
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) KyotoCouncilResearchPipeline/3.0"
+KYOTO_GIAN_PDF_BASE = HTTPS_SCHEME + "www2.city.kyoto.lg.jp/shikai/img/honkaigi/gian"
+GIKAI_MIKATA_BASE = HTTPS_SCHEME + "gikai-mikata.jp"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) KyotoCouncilResearchPipeline/3.1"
 
-# 同一実行内のHTTPキャッシュ
 _HTTP_CACHE: dict[str, tuple[int, str, bytes]] = {}
 
 
@@ -125,16 +120,23 @@ def normalize_nfkc(text: str) -> str:
     return unicodedata.normalize("NFKC", text or "")
 
 
+def clean_url_string(url: str) -> str:
+    """二重リンク記法が混入しても生URLへ正規化する。"""
+    u = (url or "").strip()
+    u = re.sub(r"^\[(https?://[^\]]+)\]\(\1\)", r"\1", u)
+    return u.strip()
+
+
 def is_allowed_official_url(url: str, city: str) -> bool:
     """
     自治体公式ドメイン・ホワイトリスト検証。
     対象自治体の公式ドメイン（*.city.kyoto.lg.jp 等）および公式会議録テナントURLのみ True を返す。
-    ニュースサイト、ブログ、SNS、まとめサイト等は強制的に False を返して遮断する。
     """
-    if not url:
+    cleaned = clean_url_string(url)
+    if not cleaned:
         return False
     try:
-        parsed = urllib.parse.urlparse(url.strip())
+        parsed = urllib.parse.urlparse(cleaned)
     except Exception:
         return False
 
@@ -149,12 +151,11 @@ def is_allowed_official_url(url: str, city: str) -> bool:
     if not rules:
         return False
 
-    # 1. 公式会議録システム（該当自治体テナントパスに厳格限定）
-    kaigiroku_prefix = str(rules.get("kaigiroku_prefix") or "").lower()
-    if kaigiroku_prefix and url.strip().lower().startswith(kaigiroku_prefix):
-        return True
+    k_host = str(rules.get("kaigiroku_host") or "").lower()
+    k_prefix = str(rules.get("kaigiroku_path_prefix") or "").lower()
+    if k_host and host == k_host:
+        return parsed.path.lower().startswith(k_prefix)
 
-    # 2. 自治体公式ドメイン（完全一致またはサブドメイン一致）
     for allowed_domain in rules.get("domains", []):
         d = allowed_domain.lower()
         if host == d or host.endswith("." + d):
@@ -256,29 +257,30 @@ def fetch_official_url(
     ホワイトリスト検証付きHTTP取得。
     自治体公式ドメイン以外のURLはリクエスト送信前に即座に拒否（status=-1）する。
     """
-    if not url:
+    cleaned = clean_url_string(url)
+    if not cleaned:
         return (0, "", b"")
-    if not is_allowed_official_url(url, city):
-        print(f"[BLOCKED] 自治体公式ドメイン外URLを遮断しました: {url}", file=sys.stderr)
+    if not is_allowed_official_url(cleaned, city):
+        print(f"[BLOCKED] 自治体公式ドメイン外URLを遮断しました: {cleaned}", file=sys.stderr)
         return (-1, "", b"")
 
-    if url in _HTTP_CACHE:
-        return _HTTP_CACHE[url]
+    if cleaned in _HTTP_CACHE:
+        return _HTTP_CACHE[cleaned]
 
     headers = {"User-Agent": USER_AGENT}
     try:
-        req = urllib.request.Request(url, method="GET", headers=headers)
+        req = urllib.request.Request(cleaned, method="GET", headers=headers)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             status = getattr(resp, "status", 200)
             ctype = str(resp.headers.get("Content-Type") or "")
             body = resp.read()
-            _HTTP_CACHE[url] = (status, ctype, body)
+            _HTTP_CACHE[cleaned] = (status, ctype, body)
             return (status, ctype, body)
     except urllib.error.HTTPError as exc:
-        _HTTP_CACHE[url] = (exc.code, "", b"")
+        _HTTP_CACHE[cleaned] = (exc.code, "", b"")
         return (exc.code, "", b"")
     except Exception:
-        _HTTP_CACHE[url] = (0, "", b"")
+        _HTTP_CACHE[cleaned] = (0, "", b"")
         return (0, "", b"")
 
 
@@ -322,7 +324,7 @@ def extract_pdf_text(pdf_bytes: bytes) -> str:
         return "\n\n".join(pages)
     except ImportError:
         print(
-            "[WARN] pypdf が未導入のためPDFテキスト抽出をスキップします（pip install pypdf で有効化）。",
+            "[WARN] pypdf が未導入のためPDFテキスト抽出をスキップします。",
             file=sys.stderr,
         )
         return ""
@@ -370,7 +372,7 @@ def resolve_bill_primary_documents(
     1) 京都市会公式議案PDF直リンク候補のHTTP 200確認
     2) 200でない場合、元HTMLページ（例: gian11.html）を取得し、該当議案番号行内の実PDFリンクを探索
     3) 取得できた公式PDFのテキストを直接抽出
-    4) 固有の official_url（会議録）のHTTP疎通と本文一致を個別検証（同一ID上書きバグ解消）
+    4) 固有の official_url（会議録）のHTTP疎通と本文一致を個別検証
     """
     pdf_url = ""
     pdf_text = ""
@@ -390,7 +392,6 @@ def resolve_bill_primary_documents(
                     verify_notes.append(f"公式議案PDF 200 OK ({cand})")
                     break
 
-    # 直接組み立てたPDFが200でない場合、元HTMLページから該当議案の記載・リンクを探索
     if verify_http and raw_source_url:
         st_html, ctype_html, raw_html_bytes = fetch_official_url(raw_source_url, city)
         if st_html == 200 and raw_html_bytes:
@@ -450,7 +451,6 @@ def resolve_bill_primary_documents(
         elif st_html > 0:
             verify_notes.append(f"議案ページ接続エラー (HTTP {st_html})")
 
-    # 固有の official_url（会議録）の検証
     minute_verified = False
     if verify_http and official_url:
         mst, mctype, mbytes = fetch_official_url(official_url, city)
@@ -632,7 +632,6 @@ def step1_extract_local_db(
     if not isinstance(raw_statements, list) or not isinstance(raw_votes, list):
         raise ValueError("入力JSONデータの形式が不正です（list形式が必要）。")
 
-    # 1-A. 質疑データの抽出（コア＋広域関連）
     statements: list[dict[str, Any]] = []
     for row in raw_statements:
         if not isinstance(row, dict):
@@ -651,7 +650,7 @@ def step1_extract_local_db(
         statement_id = str(row.get("id") or "").strip()
         speaker = str(row.get("speaker") or "").strip()
         party = party_master.get(normalize_name(speaker), {}).get("party") or "会派不明"
-        source_url = str(row.get("source_url") or "").strip()
+        source_url = clean_url_string(str(row.get("source_url") or ""))
         mikata_url = build_mikata_statement_url(city, speaker, statement_id)
 
         relevance = classify_relevance_three_tiers(
@@ -705,7 +704,6 @@ def step1_extract_local_db(
     for idx, s in enumerate(statements, start=1):
         s["record_id"] = f"S{idx}"
 
-    # 1-B. 議案・採決データの徹底再検索（条例案・補正予算案含む＋固有URL紐付けバグ修正）
     extended_vote_keywords = list(
         dict.fromkeys(core_keywords + ["公衆浴場条例", "市営浴場", "錦林浴場"])
     )
@@ -721,9 +719,8 @@ def step1_extract_local_db(
         if not hits:
             continue
 
-        # 各レコード固有の source_url / official_url を個別に維持（同一ID上書きバグ修正）
-        raw_source_url = str(row.get("source_url") or "").strip()
-        official_url = str(row.get("official_url") or "").strip()
+        raw_source_url = clean_url_string(str(row.get("source_url") or ""))
+        official_url = clean_url_string(str(row.get("official_url") or ""))
         mikata_url = f"{GIKAI_MIKATA_BASE}/{city}/"
 
         doc_info = resolve_bill_primary_documents(
@@ -780,13 +777,9 @@ def step2_official_domain_deep_research(
 ) -> list[dict[str, Any]]:
     """
     Step 2：自治体公式ドメイン限定 Deep Research 工程
-    - 許可ドメイン（kyoto なら city.kyoto.lg.jp / ssp.kaigiroku.net/tenant/kyoto/）のみを対象に、
-      Step 1 で不足している「条例改正（錦林浴場廃止条例）」「工期変更」「補正予算措置」「賛否逆転討論」を深掘り探索する。
-    - Gemini Google Search Grounding 使用時も `site:city.kyoto.lg.jp` を検索クエリに必須付与し、
-      返却されたURLを Python 側でホワイトリスト検証して対象外ドメイン（ニュース・SNS・ブログ等）を強制破棄する。
     """
     if not enabled:
-        print("[INFO] Step 2 (Deep Research): --skip-deep-research によりスキップしました。")
+        print("[INFO] Step 2 (Deep Research): スキップ設定によりスキップしました。")
         return []
 
     rules = OFFICIAL_DOMAIN_WHITELIST.get(city.lower())
@@ -800,11 +793,10 @@ def step2_official_domain_deep_research(
 
     if not api_key:
         print(
-            "[WARN] Step 2 (Deep Research): GEMINI_API_KEY 未設定のため、外部Web検索をスキップしローカル抽出＋既知公式URL検証のみで継続します。"
+            "[WARN] Step 2 (Deep Research): GEMINI_API_KEY 未設定のため、外部Web検索をスキップします。"
         )
         return deep_records
 
-    # Step 1 で抽出した議案・論点から公式ドメイン限定検索クエリを構築
     target_queries = [
         f"{site_filter} 錦林市営住宅 新K2棟 新K3棟 契約変更",
         f"{site_filter} 錦林浴場 廃止 公衆浴場条例 指定管理者",
@@ -830,7 +822,6 @@ def step2_official_domain_deep_research(
                         temperature=0.0,
                     ),
                 )
-                # Grounding メタデータから公式URLを抽出
                 for cand in getattr(resp, "candidates", []) or []:
                     gm = getattr(cand, "grounding_metadata", None)
                     for chunk in getattr(gm, "grounding_chunks", []) or []:
@@ -842,7 +833,6 @@ def step2_official_domain_deep_research(
                         elif uri:
                             print(f"[BLOCKED] Deep Research 外部ドメインURLを破棄: {uri}", file=sys.stderr)
 
-                # テキスト本文中のURLも抽出してホワイトリスト検証
                 text_urls = re.findall(r"https?://[^\s\)\]>\"']+", getattr(resp, "text", "") or "")
                 for u in text_urls:
                     clean_u = u.rstrip(".,;:")
@@ -856,7 +846,6 @@ def step2_official_domain_deep_research(
     except Exception as exc:
         print(f"[WARN] Step 2 Grounding初期化エラー: {exc}", file=sys.stderr)
 
-    # 既に Step 1 で取得済みのURLを除外
     existing_urls = {
         u
         for item in (statements + votes)
@@ -900,7 +889,7 @@ def step2_official_domain_deep_research(
                 "record_type": "deep_research_doc",
                 "relevance": relevance,
                 "verify_status": "確認済" if extracted_text else "一部確認",
-                "verify_note": f"自治体公式ドメイン限定Deep Research取得 (HTTP 200 OK)",
+                "verify_note": "自治体公式ドメイン限定Deep Research取得 (HTTP 200 OK)",
                 "title": doc_title,
                 "source_url": url,
                 "mikata_url": f"{GIKAI_MIKATA_BASE}/{city}/",
@@ -1134,7 +1123,6 @@ def generate_reporter_brief_part(
             "failsafe_structured",
         )
 
-    # 本編へ渡すのは「直接関連」と「政策背景」のみ（「参考情報」は別添にのみ格納）
     llm_statements = [
         {
             "record_id": s["record_id"],
@@ -1234,8 +1222,6 @@ def build_evidence_appendix_md(
 ) -> str:
     """
     Step 4B: 別添：一次資料・根拠一覧（指示書セクション6完全準拠）
-    - 全行に検証状態（確認済／一部確認／未確認）と関連性3分類（直接関連／政策背景／参考情報）を明記
-    - AI要約と原典発言引用を明確に区別
     """
     lines: list[str] = [
         "# 別添：一次資料・根拠一覧（錦林市営住宅・錦林浴場調査）",
