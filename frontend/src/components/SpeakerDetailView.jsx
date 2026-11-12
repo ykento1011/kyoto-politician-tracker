@@ -71,8 +71,8 @@ const ALIAS_MAP = {
 
 export default function SpeakerDetailView({
   cityCode = 'kyoto',
-  selectedSpeaker,
-  speakerStats,
+  selectedSpeaker: rawSelectedSpeaker,
+  speakerStats = [],
   speakerFilteredThreads,
   topicStats,
   speakerCategory,
@@ -91,6 +91,29 @@ export default function SpeakerDetailView({
   const [relatedTab, setRelatedTab] = useState('district');
   const [speakerDetailTab, setSpeakerDetailTab] = useState('threads');
   const [speakerVoteFilter, setSpeakerVoteFilter] = useState('contested');
+  const selectedSpeaker = useMemo(() => {
+    if (!rawSelectedSpeaker) return null;
+    const safeStmts = Array.isArray(rawSelectedSpeaker.statements) ? rawSelectedSpeaker.statements : [];
+    return {
+      ...rawSelectedSpeaker,
+      speaker: rawSelectedSpeaker.speaker || '名称不明',
+      district: rawSelectedSpeaker.district || '',
+      partyGroup: rawSelectedSpeaker.partyGroup || rawSelectedSpeaker.party || '無所属・その他',
+      party: rawSelectedSpeaker.party || rawSelectedSpeaker.partyGroup || '無所属・その他',
+      count: rawSelectedSpeaker.count ?? safeStmts.length,
+      statements: safeStmts,
+      topCategories: Array.isArray(rawSelectedSpeaker.topCategories) ? rawSelectedSpeaker.topCategories : [],
+      catCounts: rawSelectedSpeaker.catCounts && typeof rawSelectedSpeaker.catCounts === 'object' ? rawSelectedSpeaker.catCounts : {},
+      avg_evidence: Number(rawSelectedSpeaker.avg_evidence || 0),
+      avg_solution: Number(rawSelectedSpeaker.avg_solution || 0),
+      avg_local_focus: Number(rawSelectedSpeaker.avg_local_focus || 0),
+      avg_constructive: Number(rawSelectedSpeaker.avg_constructive || 0),
+      style: rawSelectedSpeaker.style && typeof rawSelectedSpeaker.style === 'object'
+        ? rawSelectedSpeaker.style
+        : { label: '標準', badgeClass: 'bg-slate-100 text-slate-600 border-slate-200', desc: '' },
+    };
+  }, [rawSelectedSpeaker]);
+
   const [pledgeTrackerMap, setPledgeTrackerMap] = useState({});
   const [highlightedStatementId, setHighlightedStatementId] = useState(null);
 
@@ -349,6 +372,23 @@ export default function SpeakerDetailView({
       return true;
     });
   }, [selectedSpeakerBills, speakerVoteFilter]);
+
+  if (!selectedSpeaker) {
+    return (
+      <div className="max-w-xl mx-auto my-12 p-6 bg-white rounded-2xl border border-slate-200 text-center space-y-3">
+        <p className="text-sm font-bold text-slate-700">該当する議員データが見つかりませんでした。</p>
+        {onBack && (
+          <button
+            type="button"
+            onClick={onBack}
+            className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-xs font-bold cursor-pointer"
+          >
+            一覧へ戻る
+          </button>
+        )}
+      </div>
+    );
+  }
 
   return (
     <main className="max-w-5xl mx-auto py-8 px-6 animate-in fade-in slide-in-from-bottom-4 duration-300 w-full">

@@ -3,7 +3,7 @@ import { getCityDataUrl } from '../config/cities';
 import { useState, useEffect, useMemo } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import MiniSearch from 'minisearch';
-import { VALID_COUNCILORS, cleanName, determineCouncilorStyle } from '../utils/styleHelpers';
+import { VALID_COUNCILORS, cleanName, normalizeSpeakerKey, determineCouncilorStyle } from '../utils/styleHelpers';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
@@ -188,7 +188,8 @@ export function useStatements(cityCode = 'kyoto') {
         const speakerName = cleanName ? cleanName(rawSpeaker) : rawSpeaker;
 
         if (cityCode === 'kyoto' && VALID_COUNCILORS && Array.isArray(VALID_COUNCILORS)) {
-          if (!VALID_COUNCILORS.includes(speakerName) && !VALID_COUNCILORS.includes(rawSpeaker)) return;
+          const normValidSet = new Set(VALID_COUNCILORS.map((v) => normalizeSpeakerKey(v)));
+          if (!normValidSet.has(normalizeSpeakerKey(rawSpeaker)) && !VALID_COUNCILORS.includes(speakerName) && !VALID_COUNCILORS.includes(rawSpeaker)) return;
         }
 
         const ev = Number(stmt.evidence_score || 0);
@@ -331,10 +332,36 @@ export function useStatements(cityCode = 'kyoto') {
           setIsCompareMode(true);
         }
       } else if (speakerParam) {
-        const normParam = speakerParam.replace(/\s+/g, '');
-        const speaker =
+        const normParam = normalizeSpeakerKey(speakerParam);
+        let speaker =
           speakerStats.find((s) => s.speaker === speakerParam) ||
-          speakerStats.find((s) => (s.speaker || '').replace(/\s+/g, '') === normParam);
+          speakerStats.find((s) => normalizeSpeakerKey(s.speaker) === normParam);
+        if (!speaker) {
+          const fallbackStmts = statements.filter(
+            (st) => normalizeSpeakerKey(st.speaker) === normParam
+          );
+          if (fallbackStmts.length > 0) {
+            speaker = {
+              speaker: fallbackStmts[0].speaker || speakerParam,
+              partyGroup: '無所属・その他',
+              party: '無所属・その他',
+              district: '',
+              count: fallbackStmts.length,
+              statements: fallbackStmts,
+              topCategories: Array.from(new Set(fallbackStmts.map((s) => s.category).filter(Boolean))),
+              catCounts: {},
+              avg_evidence: 0,
+              avg_solution: 0,
+              avg_local_focus: 0,
+              avg_constructive: 0,
+              style: {
+                label: '標準',
+                badgeClass: 'bg-slate-100 text-slate-600 border-slate-200',
+                desc: '',
+              },
+            };
+          }
+        }
         if (speaker) setSelectedSpeaker(speaker);
       }
       if (!hasHash) {

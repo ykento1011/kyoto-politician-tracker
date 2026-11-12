@@ -17,6 +17,7 @@ import HeroSection from './components/HeroSection';
 import PortalTopView from './components/PortalTopView';
 import MainTabView from './components/MainTabView';
 import SpeakerDetailView from './components/SpeakerDetailView';
+import ErrorBoundary from './components/ErrorBoundary';
 const SearchResultsView = lazy(() => import('./components/SearchResultsView'));
 const CompareDashboard = lazy(() => import('./components/CompareDashboard'));
 import HighlightedThreads from './components/HighlightedThreads';
@@ -811,25 +812,27 @@ export default function App() {
       <div className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
-          <SpeakerDetailView
-            cityCode={cityCode}
-            selectedSpeaker={activeSpeaker}
-            speakerStats={speakerStats}
-            speakerFilteredThreads={threadsForSpeaker}
-            topicStats={topicStats}
-            speakerCategory={speakerCategory}
-            setSpeakerCategory={setSpeakerCategory}
-            speakerSort={speakerSort}
-            setSpeakerSort={setSpeakerSort}
-            votesData={votesData}
-            issuesMap={issuesMap}
-            onOpenCompare={(spk) => handleOpenCompare(spk)}
-            onBack={handleGoHome}
-            onSpeakerClick={handleSpeakerClick}
-            onViewContext={handleViewContext}
-            onOpenMethodology={() => navigateToView('methodology')}
-            onSelectBill={setSelectedBillForModal}
-          />
+          <ErrorBoundary>
+            <SpeakerDetailView
+              cityCode={cityCode}
+              selectedSpeaker={activeSpeaker}
+              speakerStats={speakerStats}
+              speakerFilteredThreads={threadsForSpeaker}
+              topicStats={topicStats}
+              speakerCategory={speakerCategory}
+              setSpeakerCategory={setSpeakerCategory}
+              speakerSort={speakerSort}
+              setSpeakerSort={setSpeakerSort}
+              votesData={votesData}
+              issuesMap={issuesMap}
+              onOpenCompare={(spk) => handleOpenCompare(spk)}
+              onBack={handleGoHome}
+              onSpeakerClick={handleSpeakerClick}
+              onViewContext={handleViewContext}
+              onOpenMethodology={() => navigateToView('methodology')}
+              onSelectBill={setSelectedBillForModal}
+            />
+          </ErrorBoundary>
         </div>
         <Suspense fallback={null}>
           <TimelineModal

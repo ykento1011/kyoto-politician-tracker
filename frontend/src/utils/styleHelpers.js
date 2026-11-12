@@ -150,3 +150,38 @@ export const cleanAuditorNote = (text) => {
 
   return str.trim();
 };
+
+// 異体字・空白・ひらがな表記揺れを吸収する正規化キー生成
+const SPEAKER_CANONICAL_MAP = {
+  '吉田たかお': '吉田孝雄',
+  '吉田孝雄': '吉田孝雄',
+  '井崎敦子': '井﨑敦子',
+  '西山のぶまさ': '西山信昌',
+  '青野ひとし': '青野仁志',
+  '宇佐美けんいち': '宇佐美賢一',
+  '江村りさ': '江村理紗',
+  '大津ゆうた': '大津裕太',
+  '河村りょう': '河村諒',
+  'きくちかずひで': 'きくち一秀',
+  'こじま信太郎': '小島信太郎',
+  '島本きょうじ': 'しまもと京司',
+  '田中あきひで': '田中明秀',
+  '寺田かずひろ': '寺田一博',
+  '土方りさ': '土方莉紗',
+  'はしむら芳和': '橋村芳和',
+  '平田けい': '平田圭',
+  'ますなり竜治': '増成竜治',
+  'ムクダ隆知': '椋田隆知',
+  'ゆあさ光彦': '湯浅光彦',
+};
+
+export function normalizeSpeakerKey(name = '') {
+  const noSpace = String(name || '')
+    .replace(/[\s\u3000]+/g, '')
+    .replace(/𠮷/g, '吉')
+    .replace(/﨑/g, '崎')
+    .replace(/髙/g, '高')
+    .replace(/邊|邉/g, '辺')
+    .replace(/齊|齋/g, '斉');
+  return SPEAKER_CANONICAL_MAP[noSpace] || noSpace;
+}
