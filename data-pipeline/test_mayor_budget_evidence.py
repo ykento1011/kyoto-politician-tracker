@@ -29,6 +29,8 @@ class BudgetEvidenceTests(unittest.TestCase):
         summary = builder.calculate_summary_stats(self.data["pledges"])
         for key in ("total_allocated_budget_raw", "total_allocated_budget_jpy"):
             self.assertEqual(summary[key], self.data["summary_stats"][key])
+        budget_kpi = next(kpi for kpi in self.data["kpis"] if kpi["label"] == "関連予算措置総額")
+        self.assertEqual(budget_kpi["value"], summary["total_allocated_budget_jpy"])
         self.assertEqual(builder.format_budget_total(271000000), "2億7,100万円")
         self.assertEqual(builder.format_budget_total(15000), "2万円")
 
