@@ -78,6 +78,43 @@ jobs:
           )
           PY
 
+      - name: Prepare non-sudo Codex account (ephemeral runner only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Dedicated non-root account with no sudo or Docker access.
+          sudo adduser --system --home /home/codex-guest --shell /bin/bash --group codex-guest
+          test "$(id -u codex-guest)" != "0"
+          if id -nG codex-guest | tr ' ' '\n' | grep -Eq '^(sudo|docker)$'; then
+            echo 'Codex account has forbidden elevated group membership' >&2
+            exit 1
+          fi
+          # Guest may traverse parent paths but receives no runner group membership.
+          for directory in /home/runner /home/runner/work "$(dirname "$GITHUB_WORKSPACE")"; do
+            sudo setfacl -m u:codex-guest:--x "$directory"
+          done
+          # All checkout contents are readable; only docs/ is guest-writable.
+          # In particular, the guest cannot change .git metadata or workflows.
+          sudo chgrp -R codex-guest "$GITHUB_WORKSPACE"
+          sudo chmod -R g-w "$GITHUB_WORKSPACE"
+          sudo chmod -R g+rX "$GITHUB_WORKSPACE"
+          sudo chmod g+ws "$GITHUB_WORKSPACE/docs"
+          sudo -u codex-guest -- git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          sudo -u codex-guest -- test -r "$GITHUB_WORKSPACE/.codex_task_prompt.md"
+          sudo -u codex-guest -- test -w "$GITHUB_WORKSPACE/docs"
+          if sudo -u codex-guest -- test -w "$GITHUB_WORKSPACE/.git/config"; then
+            echo 'Refusing writable .git metadata for Codex' >&2
+            exit 1
+          fi
+          if sudo -u codex-guest -- test -w "$GITHUB_WORKSPACE/.github/workflows/pm-codex-dispatch.yml"; then
+            echo 'Refusing writable workflow for Codex' >&2
+            exit 1
+          fi
+          if sudo -n -u codex-guest -- sudo -n true >/dev/null 2>&1; then
+            echo 'Codex user unexpectedly has sudo access' >&2
+            exit 1
+          fi
+
       - name: Run isolated Codex implementation
         id: run_codex
         uses: openai/codex-action@v1
@@ -85,7 +122,8 @@ jobs:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           prompt-file: .codex_task_prompt.md
           sandbox: workspace-write
-          safety-strategy: drop-sudo
+          safety-strategy: unprivileged-user
+          codex-user: codex-guest
 
       - name: Enforce narrow public patch policy
         id: capture
