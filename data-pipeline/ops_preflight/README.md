@@ -33,8 +33,13 @@ A candidate is a **new, privately prepared** JSON envelope, not a web response:
 `origin_city_by_id` must contain exactly the **added/changed** record IDs and
 explicit originating city. Entries absent from both the baseline and candidate
 are detected as deletion and **rejected**. Existing record fields cannot be
-silently dropped. A wrong city, duplicate ID, missing source URL, stale baseline,
-malformed JSON, or missing origin declaration blocks before stage creation.
+silently dropped. A wrong city, duplicate ID, missing origin URL, stale baseline,
+malformed JSON (including NaN/Infinity), or missing origin declaration
+blocks before stage creation. The saved Kyoto records use `source_url`;
+Osaka, Kobe, Nagoya, and Yokohama use `official_url`. A record must
+have a syntactically valid HTTP(S) URL in each present origin URL field.
+This is a compatibility rule, **not** a claim that any link proves the
+statement's provenance or current truth.
 The origin declaration is supplied by the candidate producer and **is not
 independent proof of city/source authenticity**. An untagged record's origin
 cannot be certified here. No real source rights or freshness are inferred.
@@ -64,13 +69,18 @@ Each stage is exclusive and never overwrites another. The final marker is
 `validated.json` with `machine_validated_pending_pm_review` and
 `publish_permitted:false`; interrupted folders have **no valid marker**.
 Files `candidate.json`, `diff.json`, and `manifest.json` are written *only*
-inside the private root. `inspect` writes nothing.
+inside the private root. The final validation marker is first flushed and
+synced as `validated.json.pending` and then atomically renamed to
+`validated.json`; a failed marker write cannot leave a final marker.
+`inspect` writes nothing.
 
 ## Known limits / next authorization gate
 
-- Tests use synthetic values only; real five-city source fidelity, site freshness,
-  source licensing, stable ID crosswalk, and producer-to-consumer correctness are
-  **not verified**. This adapter is not an update engine or independent source verifier.
+- Synthetic failure tests and a **read-only, no-change saved-public-data**
+  contract test cover the five existing `{city}_statements_summary.json` files.
+  The latter reports `saved_unverified` and does not update public JSON.
+  Actual five-city source fidelity, site freshness, source licensing, stable ID
+  crosswalk, and producer-to-consumer correctness are **not verified**. This adapter is not an update engine or independent source verifier.
 - The pre-existing D1R Kyoto implementation remains separately accepted and
   **unconnected**; this change neither rewrites nor executes it.
 - PM must review city-scoped diffs and evidence before any publication request.
