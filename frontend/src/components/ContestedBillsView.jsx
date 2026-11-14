@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
+import { getVoteType, getVoteLabel, getVoteSummary } from './BillsSection';
 import { 
-  ArrowLeft, Flame, Search, Filter, CheckCircle2, XCircle, 
+  ArrowLeft, Flame, Search, Filter, CheckCircle2, XCircle, MinusCircle,
   Sparkles, ExternalLink, Scale, ChevronDown, Tag, AlertTriangle
 } from 'lucide-react';
 
@@ -54,7 +55,8 @@ export default function ContestedBillsView({
       if (selectedSession && bill.session_name !== selectedSession) return false;
       
       const voteObj = votesMap[`${bill.session_name}_${bill.bill_number}`];
-      const resultText = voteObj ? voteObj.result : '';
+      if (!getVoteSummary(voteObj?.votes).isContested) return false;
+      const resultText = voteObj?.result || '';
       if (resultFilter && !resultText.includes(resultFilter)) return false;
 
       if (searchQuery.trim()) {
@@ -91,7 +93,7 @@ export default function ContestedBillsView({
           <div>
             <h1 className="text-xl md:text-2xl font-black text-slate-900">市議会 激戦・対立議案詳細アーカイブ</h1>
             <p className="text-xs text-slate-500 font-medium mt-0.5">
-              全会一致とならず各会派の理念や政策方針が真っ向から対立した重要議案の全記録
+              賛成と反対の双方が記録されている議案を表示しています
             </p>
           </div>
         </div>
@@ -169,7 +171,7 @@ export default function ContestedBillsView({
       <div className="space-y-4">
         {filteredBills.map((bill, idx) => {
           const voteObj = votesMap[`${bill.session_name}_${bill.bill_number}`];
-          const votes = voteObj ? voteObj.votes : {};
+          const votes = voteObj?.votes || {};
           const result = voteObj ? voteObj.result : '';
           const categoryTag = getCategoryForBill(bill);
 
@@ -251,14 +253,16 @@ export default function ContestedBillsView({
                   <span className="text-[10px] font-bold text-slate-400 block mb-2">各会派・無所属の評決態度</span>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                     {Object.entries(votes).map(([grp, v]) => {
-                      const isAgree = v === '賛成';
+                      const type = getVoteType(v);
+                      const isAgree = type === 'agree';
+                      const isDisagree = type === 'disagree';
                       return (
                         <div key={grp} className="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100 text-xs">
                           <span className="font-bold text-slate-700 truncate mr-2" title={grp}>{grp}</span>
                           <span className={`font-black shrink-0 inline-flex items-center gap-0.5 text-[11px] ${
-                            isAgree ? 'text-emerald-600' : 'text-rose-600'
+                            isAgree ? 'text-emerald-600' : isDisagree ? 'text-rose-600' : 'text-slate-600'
                           }`}>
-                            {isAgree ? <CheckCircle2 className="w-3 h-3" /> : <XCircle className="w-3 h-3" />} {v}
+                            {isAgree ? <CheckCircle2 className="w-3 h-3" /> : isDisagree ? <XCircle className="w-3 h-3" /> : <MinusCircle className="w-3 h-3" />} {getVoteLabel(v)}
                           </span>
                         </div>
                       );
