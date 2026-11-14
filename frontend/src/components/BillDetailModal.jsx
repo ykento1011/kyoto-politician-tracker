@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { getVoteType, getVoteLabel, getVoteSummary } from './BillsSection';
 import useScrollLock from '../hooks/useScrollLock';
 import { useSwipeToClose } from '../hooks/useSwipeToClose';
 import { 
@@ -14,21 +15,6 @@ const ALIAS_MAP = {
   '繁隆夫': '繁隆夫'
 };
 
-// 長文の賛否理由を安全に短縮表示する共通関数
-function formatVoteDisplay(v) {
-  if (!v) return '-';
-  const str = String(v).trim();
-  if (str === '賛成' || str === '〇') return '賛成';
-  if (str === '反対' || str === '×') return '反対';
-  if (str.includes('一身上') || str.includes('除斥')) return '除斥';
-  if (str.includes('議長')) return '議長';
-  if (str.includes('退席')) return '退席';
-  if (str.includes('棄権')) return '棄権';
-  if (str.includes('欠席')) return '欠席';
-  if (str.includes('不参加')) return '不参加';
-  return str.length > 5 ? str.slice(0, 4) + '..' : str;
-}
-
 export default function BillDetailModal({
   isOpen,
   onClose,
@@ -40,19 +26,27 @@ export default function BillDetailModal({
   cityCode = 'kyoto'
 }) {
   useScrollLock(isOpen);
-  if (!isOpen || !bill) return null;
+  const swipeHandlers = useSwipeToClose({ onClose });
 
   // 1. 各議員の所属会派・無所属ステータスに基づき、賛成議員・反対議員を特定
   const { agreeCouncilors, disagreeCouncilors } = useMemo(() => {
     const agree = [];
     const disagree = [];
-    const votes = bill.votes || {};
+    const votes = bill?.votes || {};
 
     speakerStats.forEach(spk => {
       const isIndependent = !spk.partyGroup || spk.partyGroup === '無所属';
-      let voteVal = null;
+      const rawName = spk.speaker || '';
+      const cleanSpkName = rawName.replace(/\s+/g, '');
+      const aliasName = ALIAS_MAP[cleanSpkName] || ALIAS_MAP[rawName];
+      // An explicit individual record (including neutral/unknown) overrides a party vote.
+      const individualVote = Object.entries(votes).find(([key]) => {
+        const cleanKey = key.replace(/\s+/g, '');
+        return cleanSpkName && (cleanKey === cleanSpkName || (aliasName && cleanKey === aliasName));
+      });
+      let voteVal = individualVote ? individualVote[1] : null;
 
-      if (!isIndependent && spk.partyGroup) {
+      if (!individualVote && !isIndependent && spk.partyGroup) {
         for (const [groupName, v] of Object.entries(votes)) {
           if (groupName.includes(spk.partyGroup) || spk.partyGroup.includes(groupName)) {
             voteVal = v;
@@ -61,11 +55,7 @@ export default function BillDetailModal({
         }
       }
 
-      if (!voteVal) {
-        const rawName = spk.speaker || '';
-        const cleanSpkName = rawName.replace(/\s+/g, '');
-        const aliasName = ALIAS_MAP[cleanSpkName] || ALIAS_MAP[rawName];
-
+      if (!individualVote && !voteVal && cleanSpkName) {
         for (const [key, v] of Object.entries(votes)) {
           const cleanKey = key.replace(/\s+/g, '');
           if (
@@ -78,8 +68,8 @@ export default function BillDetailModal({
         }
       }
 
-      if (voteVal === '賛成' || voteVal === '〇') agree.push(spk);
-      else if (voteVal === '反対' || voteVal === '×') disagree.push(spk);
+      if (getVoteType(voteVal) === 'agree') agree.push(spk);
+      else if (getVoteType(voteVal) === 'disagree') disagree.push(spk);
     });
 
     return { agreeCouncilors: agree, disagreeCouncilors: disagree };
@@ -119,10 +109,12 @@ export default function BillDetailModal({
     return results;
   }, [bill, pledgeTrackerData]);
 
-  const votes = bill.votes || {};
-  const vValues = Object.values(votes);
-  const isContested = vValues.includes('賛成') && vValues.includes('反対');
-  const result = bill.result || '';
+  const votes = bill?.votes || {};
+  const { isContested, label: voteSummary } = getVoteSummary(votes);
+  const result = bill?.result || '';
+
+  // Keep hooks unconditional when the same modal is opened and closed.
+  if (!isOpen || !bill) return null;
 
   return (
     <>
@@ -159,11 +151,11 @@ export default function BillDetailModal({
               </span>
               {isContested ? (
                 <span className="text-[10px] font-black px-2 py-0.5 rounded bg-rose-50 text-rose-600 border border-rose-200 flex items-center gap-1">
-                  <Flame className="w-2.5 h-2.5 fill-rose-500 text-rose-500" />激論議案
+                  <Flame className="w-2.5 h-2.5 fill-rose-500 text-rose-500" />{voteSummary}
                 </span>
               ) : (
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200">
-                  全会一致
+                  {voteSummary}
                 </span>
               )}
               {result && (
@@ -231,7 +223,7 @@ export default function BillDetailModal({
             </div>
           ) : (
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 text-xs text-slate-500">
-              {Object.values(bill.votes || {}).includes('反対') ? '会派間で賛否が分かれた重要議案です。' : '全会一致で可決・認定された議案です。会派間の対立論点は生じていません。'}
+              {isContested ? '記録上、賛成と反対の双方があります。' : '表示している賛否は記録のある範囲です。議決結果は原記録を確認してください。'}
             </div>
           )}
 
@@ -248,8 +240,8 @@ export default function BillDetailModal({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {pledgedCouncilors.map((c, i) => {
-                  const isAgree = c.vote === '賛成' || c.vote === '〇';
-                  const isDisagree = c.vote === '反対' || c.vote === '×';
+                  const isAgree = getVoteType(c.vote) === 'agree';
+                  const isDisagree = getVoteType(c.vote) === 'disagree';
                   return (
                     <div 
                       key={i}
@@ -270,7 +262,7 @@ export default function BillDetailModal({
                             ? 'bg-rose-50 text-rose-700 border-rose-200'
                             : 'bg-slate-100 text-slate-600 border-slate-200'
                         }`}>
-                          {formatVoteDisplay(c.vote)}
+                          {getVoteLabel(c.vote)}
                         </span>
                       </div>
                       <div className="text-[11px] text-slate-600 line-clamp-1 font-medium">
@@ -350,7 +342,7 @@ export default function BillDetailModal({
                     </button>
                   ))}
                   {disagreeCouncilors.length === 0 && (
-                    <span className="text-xs text-slate-400">反対議員なし（全会一致）</span>
+                    <span className="text-xs text-slate-400">反対議員データなし</span>
                   )}
                 </div>
               </div>
@@ -364,10 +356,10 @@ export default function BillDetailModal({
               <span className="text-[11px] font-bold text-slate-500 block">会派・無所属別の評決結果</span>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {Object.entries(votes).map(([grp, v]) => {
-                  const isAgree = v === '賛成' || v === '〇';
-                  const isDisagree = v === '反対' || v === '×';
+                  const isAgree = getVoteType(v) === 'agree';
+                  const isDisagree = getVoteType(v) === 'disagree';
                   const isNeutral = !isAgree && !isDisagree;
-                  const label = formatVoteDisplay(v);
+                  const label = getVoteLabel(v);
 
                   return (
                     <div key={grp} className="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-200/80 text-xs">
@@ -375,10 +367,10 @@ export default function BillDetailModal({
                       <span className="font-bold text-slate-700 truncate min-w-0 mr-2" title={grp}>
                         {grp}
                       </span>
-                      {/* 右側の賛否バッジ: shrink-0 で固定幅かつ短縮ラベル */}
+                      {/* 右側の賛否バッジ: 元の記録を省略せず表示 */}
                       <span 
                         title={v}
-                        className={`font-black shrink-0 inline-flex items-center gap-0.5 text-[11px] px-1.5 py-0.5 rounded ${
+                        className={`font-black max-w-[60%] inline-flex items-center gap-0.5 text-[11px] px-1.5 py-0.5 rounded ${
                           isAgree 
                             ? 'bg-emerald-50 text-emerald-600 border border-emerald-200' 
                             : isDisagree 

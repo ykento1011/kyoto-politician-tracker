@@ -1,7 +1,40 @@
 import React from 'react';
-import { Flame, Check, CheckCircle2, XCircle, ArrowRight, ExternalLink, Sparkles, Scale } from 'lucide-react';
+import { Flame, Check, CheckCircle2, XCircle, MinusCircle, ArrowRight, ExternalLink, Sparkles, Scale } from 'lucide-react';
+
+// Only explicit recorded positions count as agreement or opposition.
+export function getVoteType(value) {
+  const vote = String(value ?? '').trim();
+  if (vote === '賛成' || vote === '〇') return 'agree';
+  if (vote === '反対' || vote === '×') return 'disagree';
+  return 'neutral';
+}
+
+export function getVoteLabel(value) {
+  return value == null || String(value).trim() === '' ? '不明' : String(value);
+}
+
+export function getVoteSummary(votes) {
+  const values = Object.values(votes || {});
+  const types = values.map(getVoteType);
+  const isContested = types.includes('agree') && types.includes('disagree');
+  let label = '賛否記録なし';
+  if (isContested) {
+    label = '賛否が分かれた議案';
+  } else if (types.includes('neutral')) {
+    label = values.some(v => /棄権|退席|欠席|不参加|不在|除斥/.test(String(v ?? '')))
+      ? '棄権・退席等あり' : '賛否以外・不明の記録あり';
+  } else if (types.includes('agree')) {
+    label = '賛成の記録のみ';
+  } else if (types.includes('disagree')) {
+    label = '反対の記録のみ';
+  }
+  return { isContested, label };
+}
 
 export default function BillsSection({ filteredBills, onlyContestedBills, setOnlyContestedBills, issuesMap, onSelectBill }) {
+  const displayedBills = onlyContestedBills
+    ? filteredBills.filter(bill => getVoteSummary(bill.votes).isContested)
+    : filteredBills;
   return (
     <section className="space-y-6 animate-in fade-in duration-300">
       <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -20,7 +53,7 @@ export default function BillsSection({ filteredBills, onlyContestedBills, setOnl
           </button>
           
           <span className="text-xs font-bold text-slate-400">
-            {filteredBills.length} 件表示中
+            {displayedBills.length} 件表示中
           </span>
         </div>
 
@@ -30,11 +63,10 @@ export default function BillsSection({ filteredBills, onlyContestedBills, setOnl
       </div>
 
       <div className="space-y-4">
-        {filteredBills.map((bill, idx) => {
+        {displayedBills.map((bill, idx) => {
           const issue = issuesMap[`${bill.session_name}_${bill.bill_number}`];
           const votes = bill.votes || {};
-          const vValues = Object.values(votes);
-            const isContested = vValues.includes('賛成') && vValues.includes('反対');
+          const { isContested, label: voteSummary } = getVoteSummary(votes);
 
           return (
             <article key={idx} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
@@ -46,11 +78,11 @@ export default function BillsSection({ filteredBills, onlyContestedBills, setOnl
                     </span>
                     {isContested ? (
                       <span className="text-[10px] font-black px-2 py-0.5 rounded bg-rose-50 text-rose-600 border border-rose-200 flex items-center gap-1">
-                        <Flame className="w-2.5 h-2.5 fill-rose-500 text-rose-500" />激論議案
+                        <Flame className="w-2.5 h-2.5 fill-rose-500 text-rose-500" />{voteSummary}
                       </span>
                     ) : (
                       <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-50 text-slate-400 border border-slate-200">
-                        全会一致
+                        {voteSummary}
                       </span>
                     )}
                     {bill.result && (
@@ -119,14 +151,16 @@ export default function BillsSection({ filteredBills, onlyContestedBills, setOnl
                   <span className="text-[10px] font-bold text-slate-400 block mb-2">各会派・無所属の評決態度</span>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                     {Object.entries(votes).map(([grp, v]) => {
-                      const isAgree = v === '賛成';
+                      const type = getVoteType(v);
+                      const isAgree = type === 'agree';
+                      const isDisagree = type === 'disagree';
                       return (
                         <div key={grp} className="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100 text-xs">
                           <span className="font-bold text-slate-700 truncate mr-2" title={grp}>{grp}</span>
                           <span className={`font-black shrink-0 inline-flex items-center gap-0.5 text-[11px] ${
-                            isAgree ? 'text-emerald-600' : 'text-rose-600'
+                            isAgree ? 'text-emerald-600' : isDisagree ? 'text-rose-600' : 'text-slate-600'
                           }`}>
-                            {isAgree ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />} {v}
+                            {isAgree ? <CheckCircle2 className="w-3.5 h-3.5" /> : isDisagree ? <XCircle className="w-3.5 h-3.5" /> : <MinusCircle className="w-3.5 h-3.5" />} {getVoteLabel(v)}
                           </span>
                         </div>
                       );
@@ -138,7 +172,7 @@ export default function BillsSection({ filteredBills, onlyContestedBills, setOnl
           );
         })}
 
-        {filteredBills.length === 0 && (
+        {displayedBills.length === 0 && (
           <div className="text-center py-24 bg-white rounded-2xl border border-dashed border-slate-300">
             <Scale className="w-8 h-8 text-slate-300 mx-auto mb-2" />
             <p className="text-slate-500 font-bold text-sm">条件に一致する議案が見つかりませんでした。</p>
