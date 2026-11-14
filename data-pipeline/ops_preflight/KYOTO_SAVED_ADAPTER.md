@@ -92,22 +92,63 @@ The **current legacy code path**, as read in main on 2026-11-14, is:
    `preflight.inspect` → PM assessment. This existing adapter does not
    generate candidate data from `analyzed_kyoto_politicians_term.json`.
 
-**Proposed single future bridge (not yet approved):** confirm that a saved,
-authorized, timestamped `analyzed_kyoto_politicians_term.json` already
-exists and has a documented source version. Extract or adapt the compact
-projection in a **separate no-write-to-public offline function** so its output
-goes only to an owner-only external `kyoto_statements_summary.json`; then
-handoff to the already-approved adapter, with independent per-ID Kyoto origin
-evidence. No live fetch, Gemini batch, or legacy `generate_static_data.py`
-execution is needed or allowed in this cycle.
+## Private-only projection bridge (isolated prototype, NOT deployed)
 
-**Connection gate: NO-GO until verified.** The actual presence, permitted use
-and freshness of the saved analysis; the missing private-only projection;
-ID crosswalk; official-source URL/version; per-ID provenance; and the
-public-filename incompatibility must be resolved before new real-input
-connection. If a new origin acquisition is required, submit **one**
-representative decision covering the official URL, exact source version,
-rights, estimated attempts/cost cap, external private directory, and fail-closed
-stopping rule. Do not infer authorization from a pre-existing URL field or
-GitHub commit. The `run_update.py` command, `--dry-run`, SSP and paid APIs
-remain prohibited.
+The new `kyoto_private_projection.py` is the *one* offline connection from
+an **already-saved** `analyzed_kyoto_politicians_term.json` to
+`kyoto_statements_summary.json` → accepted
+`kyoto_saved_adapter.prepare` → common `preflight.inspect`.
+It does not run the legacy generator or batch producer.
+
+For the reviewed legacy generator at Git blob
+`3b361296ead93c092e60acfa453b7de4a4074e22`, it extracts **only**
+`clean_speaker_name` and `refine_category` plus their literal keyword
+tables from the source syntax tree; `generate_summary` and module top-level
+statements are never executed. The same compact output field mapping,
+`is_evaluated` selection, 120-character snippet, scores and date sort are
+mirrored, while any unreviewed change of the generator source hash blocks.
+The legacy writer is unchanged and remains prohibited to execute.
+
+Private input requirements are deliberately stricter than the old writer:
+every evaluated record must have an **explicit stable string ID** (the old
+`meeting_id_sequence_number` fallback is NOT used), meeting/sequence/date,
+title/speaker/text, a valid source URL, nonempty summary, and four reviewed
+scores. Missing/duplicate ID, empty URL, unsupported JSON/NaN, invalid score,
+wrong embedded city, or any baseline/preflight mismatch blocks. The reader
+uses the accepted offline 32-MiB file limit; exceeding it blocks rather than
+silently truncating. The generator's `source_url` is structural only, **not**
+independent source evidence or a verified official URL.
+
+Run only with a **documented, previously authorized saved analysis** and an
+already-existing owner-only directory outside the repository:
+
+    python -B data-pipeline/ops_preflight/kyoto_private_projection.py \
+      --saved-analysis /authorized-saved/analyzed_kyoto_politicians_term.json \
+      --baseline /read-only-snapshots/kyoto_statements_summary.json \
+      --private-root /outside-repo/owner-only-stage \
+      --origin-declarations /authorized-private/kyoto-origins.json
+
+If no independently supported per-ID origin declarations exist, omit the
+flag: the common preflight **must reject** new/changed records. Never infer
+origin from filenames or the input's city. The script writes one unique,
+owner-only private `kyoto_statements_summary.json` and, only if preflight
+accepts, one distinct private `candidate.json`. It **never calls stage**,
+issues no validation marker, and never changes the baseline or any public
+JSON. Rejected attempts remove the provisional projected file. The CLI emits
+aggregate counts, field names and SHA-256 only; never statement bodies, names,
+private path locations, record IDs or per-ID evidence.
+
+Synthetic end-to-end and negative tests:
+
+    python -B -m unittest discover -s data-pipeline/ops_preflight -p 'test_*.py' -v
+
+**Real-input connection: still NO-GO.** The existence, correct version,
+authorized usage, rights and freshness of the saved analysis have not been
+established. The input file is not part of the committed GitHub repository;
+do not create a dummy "real" input or run the paid producer to obtain it.
+Independent source/origin evidence, ID mapping and Windows ACL are separate
+gates. If a new official acquisition is unavoidable, representative approval
+must state **one official URL + source version, rights, maximum requests/cost,
+private destination, and stop conditions** before *any* network operation.
+The old `run_update.py`, its `--dry-run`, SSP, Gemini and any publication
+remain forbidden. The new prototype is not an update engine.
