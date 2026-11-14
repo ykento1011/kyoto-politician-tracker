@@ -1,0 +1,45 @@
+name: P0-OPS Kyoto Saved History Diff (One Time)
+
+on:
+  pull_request:
+    types: [opened]
+    paths:
+      - '.github/workflows/p0-ops-kyoto-history-once.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  kyoto-history-offline:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'pm/p0-ops-kyoto-historical-diff-20261114'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository code (no persisted credentials)
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Read two pinned saved commits and print aggregate counts only
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          work_dir="$(mktemp -d "$RUNNER_TEMP/kyoto-history-once.XXXXXXXX")"
+          chmod 700 "$work_dir"
+          trap 'rm -rf -- "$work_dir"' EXIT
+          mkdir -m 700 "$work_dir/old" "$work_dir/current"
+          git fetch --quiet --no-tags --depth=1 origin \
+            2490b34a906ed3bfcd28ad3a12ec19a3be88d6af \
+            3d358842828bc5ac1f9a1c5d1bc739888b08071e
+          git show \
+            "2490b34a906ed3bfcd28ad3a12ec19a3be88d6af:frontend/public/data/kyoto_statements_summary.json" \
+            > "$work_dir/old/kyoto_statements_summary.json"
+          git show \
+            "3d358842828bc5ac1f9a1c5d1bc739888b08071e:frontend/public/data/kyoto_statements_summary.json" \
+            > "$work_dir/current/kyoto_statements_summary.json"
+          python3 -B scripts/kyoto_history_compare_once.py \
+            "$work_dir/old/kyoto_statements_summary.json" \
+            "$work_dir/current/kyoto_statements_summary.json"
