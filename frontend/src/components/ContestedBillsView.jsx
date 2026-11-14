@@ -67,7 +67,7 @@ export default function ContestedBillsView({
       if (!isOtherView && resultFilter && !resultText.includes(resultFilter)) return false;
 
       if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
+        const q = searchQuery.trim().toLowerCase();
         const target = `${bill.title} ${bill.key_conflict} ${bill.background} ${bill.agree_logic} ${bill.disagree_logic}`.toLowerCase();
         if (!target.includes(q)) return false;
       }
