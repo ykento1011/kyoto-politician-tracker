@@ -44,3 +44,11 @@ workflowのコードがPRに入っただけでは、運用完成とはしませ�
 - **評価するのは往復削減**：代表の手動転記・Codex起動・ログ貼付の回数と、承認可能な成果が届くまでの時間。1ファイルの作成自体を事業成果とは扱いません。
 - APIキー未設定、課金上限未設定、Actions権限不足、main自動公開の影響未確認なら **STOP**。秘密値をIssue・チャット・ログへ貼らない。既存公開データと非公開Driveのデータは操作しません。
 - GitHub Actionsの`GITHUB_TOKEN`から生成したPRにはCI承認が追加で必要なことがあります。自動PR生成をCI合格・自動マージと混同しません。
+
+## 2026-11-14 初回失敗と非sudo修正候補
+
+- 初回Run `43559806809` はIssueコメント起動とタスク準備まで成功したが、Codex実装前の `drop-sudo` 安全化で `/run/acpid.socket` のACL制御に失敗した。新規Draft PRは作成されなかった。
+- 修正候補は公式 `openai/codex-action@v1` がサポートする `safety-strategy: unprivileged-user`。使い捨てUbuntu runnerに `codex-guest` を作り、sudo/docker権限なし、checkoutは読み取り、`docs/` のみ書き込み可とする。初回Issue #19と固定2行ファイルという既存ゲートは不変。
+- 本変更は **別Draft PRとして審査するためのコード**。既存失敗Runをrerunしても修正後workflowにはならない。CI確認・独立PM審査・経営の別マージGOの後、Issue #19への **新規1回の起動** を改めて許可する。現時点では自動起動・追加API課金は未承認。
+- 安全性のため `unsafe`、`read-only` への退避はしない。GitHub Actionsに載せるコード、repo内の秘密情報、モデルの実行経路をレビューした上で本番や非公開Windows worktreeへ拡大しない。
+- 修正PRをマージする場合、Cloudflare Pagesに意図しない本番ビルドが走らないよう、コミット先頭の `[CF-Pages-Skip]` とCloudflare側の実デプロイ履歴確認を維持する。
