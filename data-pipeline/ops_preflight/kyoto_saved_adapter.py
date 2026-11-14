@@ -92,15 +92,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--origin-declarations", type=Path)
     args = parser.parse_args(argv)
     try:
-        candidate, report, changes, saved_sha = prepare(
+        candidate, report, _private_changes, saved_sha = prepare(
             args.baseline, args.saved, args.private_root, args.origin_declarations
         )
         print(json.dumps({
-            "status": "prepared_pending_pm_review",
+            "status": (
+                "bulk_change_requires_pm_review"
+                if not report["stage_permitted"] else "prepared_pending_pm_review"
+            ),
             "candidate_path": str(candidate),
             "saved_sha256": saved_sha,
             "preflight": report,
-            "diff": changes,
         }, ensure_ascii=False, sort_keys=True))
         return 0
     except (preflight.Blocked, OSError) as exc:

@@ -25,7 +25,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 class Blocked(ValueError):
-    """Candidate cannot proceed to private stage."""
+    """Candidate cannot proceed; diagnostics contain only aggregate field counts."""
+
+    def __init__(self, reason: str, *, diagnostics: dict | None = None) -> None:
+        super().__init__(reason)
+        self.diagnostics = diagnostics
 
 
 def _reject_nonjson_constant(token: str) -> None:
@@ -87,9 +91,22 @@ def _index_records(records: object, *, strict_source: bool) -> dict[str, dict]:
     return result
 
 
-def _fingerprint(value: dict) -> str:
+def _fingerprint(value: object) -> str:
     raw = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return _sha(raw)
+
+
+def _field_changes(before: dict, after: dict) -> dict[str, str]:
+    """Top-level schema field -> change kind; never return a value or record ID."""
+    result = {}
+    for field in before.keys() | after.keys():
+        if field not in before:
+            result[field] = "field_added"
+        elif field not in after:
+            result[field] = "field_removed"
+        elif _fingerprint(before[field]) != _fingerprint(after[field]):
+            result[field] = "value_changed"
+    return result
 
 
 def inspect(city: str, baseline: Path, candidate: Path) -> tuple[dict, bytes, dict]:
@@ -124,38 +141,67 @@ def inspect(city: str, baseline: Path, candidate: Path) -> tuple[dict, bytes, di
         key for key in (base_index.keys() & candidate_index.keys())
         if _fingerprint(base_index[key]) != _fingerprint(candidate_index[key])
     )
-    # Existing records must retain their previous keys, preventing silent field loss.
+
+    # Count top-level field names on CHANGED existing records only; additions
+    # and deletions of whole records remain in counts. Nested values are atomic.
+    changed_rows = []
+    field_counts: dict[str, dict[str, int]] = {}
+    dropped_fields = False
     for key in updated:
-        if not base_index[key].keys() <= candidate_index[key].keys():
-            raise Blocked("Changed record drops existing fields")
+        previous, current = base_index[key], candidate_index[key]
+        changed = _field_changes(previous, current)
+        changed_rows.append({"id": key, "changed_fields": sorted(changed)})
+        if not previous.keys() <= current.keys():
+            dropped_fields = True
+        for field, kind in changed.items():
+            counter = field_counts.setdefault(field, {
+                "value_changed": 0, "field_added": 0, "field_removed": 0,
+            })
+            counter[kind] += 1
+
+    # Diagnostics are safe for inspect stdout/stderr: no records, values,
+    # source URLs or IDs. A change to every existing row is a deterministic
+    # review trigger, not an estimated ratio or source-authenticity judgment.
+    diagnostics = {
+        "counts": {
+            "added": len(added), "updated": len(updated), "deleted": len(deleted),
+        },
+        "field_change_counts": {
+            name: field_counts[name] for name in sorted(field_counts)
+        },
+        "all_existing_rows_changed": bool(base_index) and len(updated) == len(base_index),
+    }
+
+    if dropped_fields:
+        raise Blocked("Changed record drops existing fields", diagnostics=diagnostics)
     for key, record in candidate_index.items():
         if "city_code" in record and record["city_code"] != city:
-            raise Blocked("Embedded record belongs to a different city")
+            raise Blocked("Embedded record belongs to a different city", diagnostics=diagnostics)
 
-    # Each new or changed row needs an explicit per-record city declaration.
-    # This declaration is only a structural check, NOT independent origin proof.
+    # A declarative origin is not independent evidence. Missing or mismatched
+    # declarations continue to reject the candidate, even when the field
+    # summary can be displayed read-only for PM diagnosis.
     touched = set(added) | set(updated)
     if set(declared_origins.keys()) != touched:
-        raise Blocked("Changed/new record origin declarations are incomplete or extraneous")
+        raise Blocked(
+            "Changed/new record origin declarations are incomplete or extraneous",
+            diagnostics=diagnostics,
+        )
     if any(declared_origins[key] != city for key in touched):
-        raise Blocked("Cross-city candidate record detected")
+        raise Blocked("Cross-city candidate record detected", diagnostics=diagnostics)
     if deleted:
-        raise Blocked("Deletion detected: PM must resolve before any stage")
+        raise Blocked("Deletion detected: PM must resolve before any stage", diagnostics=diagnostics)
 
-    # Record-level changes are reviewable; they are never auto-publishable.
+    # Per-ID details are retained ONLY in private diff.json. Report/CLI uses
+    # the aggregate field names and counts above; no value or ID is emitted.
     changes = {
         "added": added,
-        "updated": [
-            {"id": key,
-             "changed_fields": sorted(
-                 field for field in base_index[key].keys() | candidate_index[key].keys()
-                 if base_index[key].get(field) != candidate_index[key].get(field)
-             )}
-            for key in updated
-        ],
+        "updated": changed_rows,
         "deleted": [],
         "unchanged_count": len(candidate_index) - len(added) - len(updated),
+        "field_change_counts": diagnostics["field_change_counts"],
     }
+    bulk_review = diagnostics["all_existing_rows_changed"]
     report = {
         "city_code": city,
         "feature": FEATURE,
@@ -163,10 +209,13 @@ def inspect(city: str, baseline: Path, candidate: Path) -> tuple[dict, bytes, di
         "candidate_sha256": _sha(candidate_bytes),
         "baseline_count": len(base_index),
         "candidate_count": len(candidate_index),
-        "counts": {"added": len(added), "updated": len(updated), "deleted": 0},
+        "counts": diagnostics["counts"],
+        "field_change_counts": diagnostics["field_change_counts"],
+        "all_existing_rows_changed": bulk_review,
+        "stage_permitted": not bulk_review,
         "source_status": envelope["source_status"],
         "source_authenticity": "unverified",
-        "review_state": "pending_pm_review",
+        "review_state": "bulk_change_requires_pm_review" if bulk_review else "pending_pm_review",
         "publish_permitted": False,
     }
     return report, candidate_bytes, changes
@@ -207,6 +256,12 @@ def _write_exclusive(path: Path, payload: bytes) -> None:
 
 def stage(private_root: Path, report: dict, candidate_bytes: bytes, changes: dict) -> str:
     """Non-overwriting private stage; a failed stage never gets a validated marker."""
+    if (
+        report.get("stage_permitted") is not True
+        or report.get("review_state") != "pending_pm_review"
+        or report.get("all_existing_rows_changed") is not False
+    ):
+        raise Blocked("Stage refused: PM must review bulk or unapproved change")
     root = _check_private_root(private_root)
     stage_id = f"{report['city_code']}-{uuid.uuid4().hex}"
     folder = root / stage_id
@@ -251,8 +306,14 @@ def main(argv: list[str] | None = None) -> int:
             report["stage_id"] = stage(args.private_root, report, raw, changes)
         print(json.dumps(report, ensure_ascii=False, sort_keys=True))
         return 0
-    except (Blocked, OSError) as exc:
-        print(json.dumps({"status": "blocked", "reason": str(exc)}, ensure_ascii=False), file=sys.stderr)
+    except Blocked as exc:
+        payload = {"status": "blocked", "reason": str(exc)}
+        if exc.diagnostics is not None:
+            payload["diagnostics"] = exc.diagnostics
+        print(json.dumps(payload, ensure_ascii=False, sort_keys=True), file=sys.stderr)
+        return 2
+    except OSError:
+        print(json.dumps({"status": "blocked", "reason": "Local file operation failed"}), file=sys.stderr)
         return 2
 
 
