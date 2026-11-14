@@ -1,5 +1,6 @@
 ﻿import React, { useState, useMemo } from 'react';
 import ReportIssueButton from './ReportIssueButton';
+import BudgetEvidence, { hasBudgetEvidence } from './BudgetEvidence';
 import { 
   CheckCircle2, Clock, AlertCircle, ExternalLink, 
   FileText, Landmark, ShieldCheck, ChevronRight, 
@@ -31,6 +32,7 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
   }
 
   const { mayor_info, summary_stats, kpis, pledges } = data;
+  const hasEvidenceBudgets = pledges.some(pledge => hasBudgetEvidence(pledge.budget_records));
 
   const categories = useMemo(() => {
     const cats = new Set(pledges.map(p => p.category).filter(Boolean));
@@ -188,14 +190,18 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                   市長政策トラッカーのデータ仕様と定量の完全性
                 </h2>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
-                  一次資料100%厳格準拠
+                  {hasEvidenceBudgets ? '原文確認と関連参考を区別' : '一次資料100%厳格準拠'}
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 現職首長の主要な看板公約を対象に、<strong className="text-white">「①公約表明 ➔ ②市公式確定計画（自治体の公式確定計画） ➔ ③予算措置 ➔ ④条例提出・可決 ➔ ⑤成立・執行」</strong>の5段階を追跡しています。
               </p>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1 border-t border-white/10">
-                予算データに関しては、AIの推論を経由せず、自治体発行の<strong className="text-white">『主要事業説明書』等のPDF原本から直接抽出した「千円単位の計上額」および「特定財源内訳（宿泊税充当額、国費、市債、一般財源）」</strong>を紐付けています。各公約カードから主要事業説明書PDF原本への直接リンクを完備し、原資料を確認できる状態で掲載し検証可能性を担保しています。
+                {hasEvidenceBudgets ? (
+                  <>予算資料で直接確認した内容と、政策の文脈から関連すると考えられる参考情報を区別して表示します。金額の丸め、予算案の区分、確認できた内訳は各資料の注記をご確認ください。予算資料の確認だけで、議決成立や事業の実施・達成を認定するものではありません。</>
+                ) : (
+                  <>予算データに関しては、AIの推論を経由せず、自治体発行の<strong className="text-white">『主要事業説明書』等のPDF原本から直接抽出した「千円単位の計上額」および「特定財源内訳（宿泊税充当額、国費、市債、一般財源）」</strong>を紐付けています。各公約カードから主要事業説明書PDF原本への直接リンクを完備し、原資料を確認できる状態で掲載し検証可能性を担保しています。</>
+                )}
               </p>
             </div>
           </div>
@@ -391,6 +397,10 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                     )}
                   </div>
 
+                  {hasBudgetEvidence(p.budget_records) ? (
+                    <BudgetEvidence records={p.budget_records} pledge={p} mayorInfo={mayor_info} />
+                  ) : (
+                    <>
                   {/* カラム2: ③ 予算措置（定量の完全性・千円単位・特定財源内訳） */}
                   <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100 flex flex-col justify-between">
                     <div>
@@ -474,6 +484,9 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                       </div>
                     )}
                   </div>
+
+                    </>
+                  )}
 
                   {/* カラム3: ④ 条例・最新実績（⑤ 成立・執行） */}
                   <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100 flex flex-col justify-between">
