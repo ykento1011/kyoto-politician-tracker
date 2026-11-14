@@ -41,11 +41,11 @@ class FiveCityOfflinePreflightTests(unittest.TestCase):
 
     def fixture(self, city: str, *, case: str = "update") -> tuple[Path, Path, bytes]:
         baseline = self.baselines / f"{city}_statements_summary.json"
-        old_bytes = save(baseline, [self.row("r1", city)])
-        new_records = [self.row("r1", city, "corrected")]
+        old_bytes = save(baseline, [self.row("r1", city), self.row("r2", city)])
+        new_records = [self.row("r1", city, "corrected"), self.row("r2", city)]
         origins = {"r1": city}
         if case == "unchanged":
-            new_records = [self.row("r1", city)]
+            new_records = [self.row("r1", city), self.row("r2", city)]
             origins = {}
         if case == "delete":
             new_records = []
@@ -89,7 +89,7 @@ class FiveCityOfflinePreflightTests(unittest.TestCase):
                 before = set(self.private.iterdir())
                 nochange, _, diff = preflight.inspect(city, b2, c2)
                 self.assertEqual(nochange["counts"], {"added": 0, "updated": 0, "deleted": 0})
-                self.assertEqual(diff["unchanged_count"], 1)
+                self.assertEqual(diff["unchanged_count"], 2)
                 self.assertEqual(set(self.private.iterdir()), before)
 
     def test_five_cities_fail_closed_delete_corrupt_and_cross_city(self):
