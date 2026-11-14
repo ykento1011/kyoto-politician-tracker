@@ -1,0 +1,78 @@
+# P0-OPS: five-city offline statement preflight (Draft; not deployed)
+
+A deliberately small, **standard-library-only** adapter for `statements_summary` in
+Kyoto, Osaka, Kobe, Nagoya, and Yokohama. It reuses the *existing* published
+`{city}_statements_summary.json` filename contract as a read-only baseline.
+It does **not** run `run_update.py`, a producer, a scraper, cloud APIs, Git, or a
+publish step; it does not connect to private D1R or modify public JSON.
+
+## Input contract
+
+The baseline is an existing JSON array named `{city}_statements_summary.json`.
+A candidate is a **new, privately prepared** JSON envelope, not a web response:
+
+```json
+{
+  "schema_version": 1,
+  "city_code": "kyoto",
+  "feature": "statements_summary",
+  "source_status": "synthetic",
+  "baseline_sha256": "<SHA-256 of exact baseline bytes>",
+  "records": [
+    {
+      "id": "fixture-1",
+      "meeting_id": "sample",
+      "source_url": "https://example.invalid/kyoto/fixture-1",
+      "summary": "synthetic only"
+    }
+  ],
+  "origin_city_by_id": {"fixture-1": "kyoto"}
+}
+```
+
+`origin_city_by_id` must contain exactly the **added/changed** record IDs and
+explicit originating city. Entries absent from both the baseline and candidate
+are detected as deletion and **rejected**. Existing record fields cannot be
+silently dropped. A wrong city, duplicate ID, missing source URL, stale baseline,
+malformed JSON, or missing origin declaration blocks before stage creation.
+The origin declaration is supplied by the candidate producer and **is not
+independent proof of city/source authenticity**. An untagged record's origin
+cannot be certified here. No real source rights or freshness are inferred.
+
+## Offline operation
+
+```bash
+python -B data-pipeline/ops_preflight/preflight.py inspect \
+  --city kyoto \
+  --baseline /read-only-snapshots/kyoto_statements_summary.json \
+  --candidate /private-input/kyoto-candidate.json
+
+python -B data-pipeline/ops_preflight/preflight.py stage \
+  --city kyoto \
+  --baseline /read-only-snapshots/kyoto_statements_summary.json \
+  --candidate /private-input/kyoto-candidate.json \
+  --private-root /outside-repository/owner-only-stage
+
+python -B -m unittest discover -s data-pipeline/ops_preflight -p 'test_*.py' -v
+```
+
+The private stage directory must pre-exist **outside the repository** and be
+owner-only (POSIX mode `0700`; Windows ACL must be independently assessed).
+Symlink/reparse ancestors are rejected; this is a local accident-prevention
+guard, not a security guarantee against a malicious concurrently writing user.
+Each stage is exclusive and never overwrites another. The final marker is
+`validated.json` with `machine_validated_pending_pm_review` and
+`publish_permitted:false`; interrupted folders have **no valid marker**.
+Files `candidate.json`, `diff.json`, and `manifest.json` are written *only*
+inside the private root. `inspect` writes nothing.
+
+## Known limits / next authorization gate
+
+- Tests use synthetic values only; real five-city source fidelity, site freshness,
+  source licensing, stable ID crosswalk, and producer-to-consumer correctness are
+  **not verified**. This adapter is not an update engine or independent source verifier.
+- The pre-existing D1R Kyoto implementation remains separately accepted and
+  **unconnected**; this change neither rewrites nor executes it.
+- PM must review city-scoped diffs and evidence before any publication request.
+  New primary-source acquisition, API usage, live connection, any public JSON
+  change, `main` merge, Cloudflare deployment, and rollback need separate gates.
