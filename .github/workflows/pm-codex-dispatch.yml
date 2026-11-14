@@ -78,6 +78,175 @@ jobs:
           )
           PY
 
+      - name: Prepare non-sudo Codex account (ephemeral runner only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Create a dedicated account. Never give it sudo or Docker privileges.
+          sudo adduser --system --home /home/codex-guest --shell /bin/bash --group codex-guest
+          test "$(id -u codex-guest)" != "0"
+          if id -nG codex-guest | tr ' ' '\n' | grep -Eq '^(sudo|docker)
+
+      - name: Enforce narrow public patch policy
+        id: capture
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .codex_task_prompt.md
+          git add -N --all
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+          changes = subprocess.check_output(['git', 'diff', '--name-status', '-z']).decode().split('\0')
+          files = []
+          pos = 0
+          while pos < len(changes) and changes[pos]:
+              status, path = changes[pos], changes[pos + 1]
+              pos += 2
+              if status not in {'A', 'M'}:
+                  sys.exit(f'Rejected non-add/modify change: {status} {path}')
+              p = Path(path)
+              permitted = status == 'A' and path == 'docs/CODEX_DISPATCH_SMOKE.md'
+              if not permitted or p.is_symlink() or p.stat().st_size > 1000:
+                  sys.exit(f'Rejected unexpected smoke-test change: {status} {path}')
+              expected = ('# Codex issue dispatch smoke test\n'
+                          'This file is a public test of issue-comment-based Codex dispatch.\n')
+              if p.read_text(encoding='utf-8') != expected:
+                  sys.exit('Rejected smoke-test content: not exact two-line fixture')
+              files.append(path)
+          if len(files) > 1:
+              sys.exit('Smoke test permits one new file only')
+          subprocess.run(['git', 'diff', '--check'], check=True)
+          with open('/tmp/codex.patch', 'wb') as f:
+              subprocess.run(['git', 'diff', '--binary', '--full-index'], stdout=f, check=True)
+          if Path('/tmp/codex.patch').stat().st_size > 200000:
+              sys.exit('Patch larger than 200 KB')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('has_patch=' + ('true' if files else 'false') + '\n')
+          print('Allowed changed files:', len(files))
+          PY
+
+      - name: Upload reviewed-scope patch artifact
+        if: steps.capture.outputs.has_patch == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-issue-patch
+          path: /tmp/codex.patch
+          if-no-files-found: error
+          retention-days: 3
+
+  draft_pr:
+    needs: codex
+    if: needs.codex.outputs.has_patch == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Check out public main (no secret in this job)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Download code-only patch
+        uses: actions/download-artifact@v4
+        with:
+          name: codex-issue-patch
+          path: /tmp/codex-patch
+
+      - name: Verify patch and apply without executing it
+        shell: bash
+        run: |
+          set -euo pipefail
+          git apply --check --index /tmp/codex-patch/codex.patch
+          git apply --index /tmp/codex-patch/codex.patch
+          python3 - <<'PY'
+          import subprocess, sys
+          paths = subprocess.check_output(['git', 'diff', '--cached', '--name-only', '-z']).decode().split('\0')
+          paths = [p for p in paths if p]
+          if paths != ['docs/CODEX_DISPATCH_SMOKE.md']:
+              sys.exit('Smoke test requires exactly one new docs file')
+          expected = ('# Codex issue dispatch smoke test\n'
+                      'This file is a public test of issue-comment-based Codex dispatch.\n')
+          with open(paths[0], 'r', encoding='utf-8') as f:
+              if f.read() != expected:
+                  sys.exit('Unexpected smoke-test file contents')
+          subprocess.run(['git', 'diff', '--cached', '--check'], check=True)
+          PY
+
+      - name: Commit only approved patch and open draft PR
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue_number }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          [[ "$ISSUE_NUMBER" =~ ^[1-9][0-9]*$ ]] || exit 1
+          [[ "$RUN_ID" =~ ^[1-9][0-9]*$ ]] || exit 1
+          branch="automation/codex-issue-${ISSUE_NUMBER}-run-${RUN_ID}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -b "$branch"
+          git commit -m "Codex draft for issue #${ISSUE_NUMBER}"
+          git push origin "HEAD:refs/heads/$branch"
+          pr_url="$(gh pr create --base main --head "$branch" --draft \
+            --title "Codex draft for issue #${ISSUE_NUMBER}" \
+            --body "Automated proposal for #${ISSUE_NUMBER}. UNREVIEWED. CI and PM independent acceptance are required. Do not merge or deploy without explicit CEO approval.")"
+          gh issue comment "$ISSUE_NUMBER" --body "Codex dispatched automatically. Draft PR: $pr_url. PM independent review required. No merge or deployment performed."
+
+  no_change:
+    needs: codex
+    if: needs.codex.outputs.has_patch == 'false'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Record safe no-change outcome
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue_number }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body "Codex auto-dispatch completed with no eligible public-code changes. See action run: $RUN_URL. Private/local tasks require a separate authorized runner; nothing was merged or deployed."
+; then
+            echo 'Codex account has forbidden elevated group membership' >&2
+            exit 1
+          fi
+          # Permit directory traversal without granting blanket runner-group membership.
+          for directory in /home/runner /home/runner/work "$(dirname "$GITHUB_WORKSPACE")"; do
+            sudo setfacl -m u:codex-guest:--x "$directory"
+          done
+          # The checkout and .git remain unwritable to the guest. Only docs/
+          # is writable, matching the one-file smoke-test allowlist.
+          sudo chgrp -R codex-guest "$GITHUB_WORKSPACE"
+          sudo chmod -R g-w "$GITHUB_WORKSPACE"
+          sudo chmod -R g+rX "$GITHUB_WORKSPACE"
+          sudo chmod g+ws "$GITHUB_WORKSPACE/docs"
+          sudo -u codex-guest -- git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          sudo -u codex-guest -- test -r "$GITHUB_WORKSPACE/.codex_task_prompt.md"
+          sudo -u codex-guest -- test -w "$GITHUB_WORKSPACE/docs"
+          if sudo -u codex-guest -- test -w "$GITHUB_WORKSPACE/.git/config"; then
+            echo 'Refusing writable .git metadata for Codex' >&2
+            exit 1
+          fi
+          if sudo -u codex-guest -- test -w "$GITHUB_WORKSPACE/.github/workflows/pm-codex-dispatch.yml"; then
+            echo 'Refusing writable workflow for Codex' >&2
+            exit 1
+          fi
+          if sudo -n -u codex-guest -- sudo -n true >/dev/null 2>&1; then
+            echo 'Codex user unexpectedly has sudo access' >&2
+            exit 1
+          fi
+
       - name: Run isolated Codex implementation
         id: run_codex
         uses: openai/codex-action@v1
@@ -85,7 +254,8 @@ jobs:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           prompt-file: .codex_task_prompt.md
           sandbox: workspace-write
-          safety-strategy: drop-sudo
+          safety-strategy: unprivileged-user
+          codex-user: codex-guest
 
       - name: Enforce narrow public patch policy
         id: capture
