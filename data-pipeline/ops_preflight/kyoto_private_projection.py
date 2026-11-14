@@ -90,6 +90,8 @@ def project_records(saved_analysis: object) -> list[dict]:
             raise preflight.Blocked("Analysis evaluation flag is not a boolean")
         if not evaluated:
             continue
+        if "city_code" in statement and statement["city_code"] != "kyoto":
+            raise preflight.Blocked("Saved analysis includes another city")
 
         # In the legacy public writer: id or f"{meeting_id}_{sequence_number}".
         # This private projection intentionally refuses a fabricated fallback.
