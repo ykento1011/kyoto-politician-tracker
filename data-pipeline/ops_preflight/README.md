@@ -48,29 +48,29 @@ cannot be certified here. No real source rights or freshness are inferred.
 
 The preflight now computes **aggregate counts by top-level field name** on
 **changed existing IDs only**. Each name records the number of rows with a
-\`value_changed\`, \`field_added\`, or \`field_removed\` occurrence. Added and
-deleted *records* stay in \`counts\` and are not treated as changed fields.
+`value_changed`, `field_added`, or `field_removed` occurrence. Added and
+deleted *records* stay in `counts` and are not treated as changed fields.
 Nested JSON objects are compared as single field values; key order and JSON
 whitespace do not constitute changes, but changes of type (e.g. boolean to
 integer) do. Values, record IDs, names, and statement text are **not** printed
 by the common inspect CLI. Detailed per-ID diffs remain private in
-\`diff.json\` if and only if staging is allowed.
+`diff.json` if and only if staging is allowed.
 
 A candidate with **every baseline record changed** (nonempty baseline and
-\`updated == baseline_count\`) produces
-\`all_existing_rows_changed: true\`,
-\`review_state: bulk_change_requires_pm_review\`, and
-\`stage_permitted: false\`. Inspection is read-only and may return field
-counts; \`stage\` refuses **before creating a private folder**, even if
+`updated == baseline_count`) produces
+`all_existing_rows_changed: true`,
+`review_state: bulk_change_requires_pm_review`, and
+`stage_permitted: false`. Inspection is read-only and may return field
+counts; `stage` refuses **before creating a private folder**, even if
 origin-city declarations are present. This is an exact-coverage trigger,
 not an arbitrary percentage/volume threshold or a finding that the
 underlying minutes actually changed. Partial changes continue to be machine
 stageable only if all existing preflight guards pass; any stage still has
-\`publish_permitted: false\` and requires PM review.
+`publish_permitted: false` and requires PM review.
 
 When a candidate is structurally comparable but fails an origin declaration,
 deletion, city-tag or existing-field-loss guard, the CLI returns
-\`status: blocked\` plus sanitized \`diagnostics\` containing only record
+`status: blocked` plus sanitized `diagnostics` containing only record
 counts and field-name counts. The rejected candidate is never staged.
 Missing source URLs, bad JSON, duplicates and stale baselines still block
 fail-closed; they need not produce a field breakdown. No producer, source
