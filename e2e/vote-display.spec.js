@@ -337,3 +337,19 @@ test.describe('mobile archive controls', () => {
     expect(errors).toEqual([]);
   });
 });
+
+test('real React archive search ignores surrounding ASCII and fullwidth spaces', async ({ page }) => {
+  const { issues, votes } = archiveFixtures();
+  const errors = await mountArchive(page, issues, votes);
+  const search = page.getByLabel('議案を検索', { exact: true });
+
+  for (const query of ['  学校  ', '　学校　']) {
+    await search.fill(query);
+    await expect(search).toHaveValue(query);
+    await expect(page.locator('article h2')).toHaveText(['学校・賛否両方']);
+    await otherButton(page).click();
+    await expect(page.locator('article h2')).toHaveText(['学校・未照合', '学校・賛成のみ']);
+    await contestedButton(page).click();
+  }
+  expect(errors).toEqual([]);
+});
