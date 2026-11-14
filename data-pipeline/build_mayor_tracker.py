@@ -46,29 +46,48 @@ PLEDGES_MASTER = [
         },
         "budget_records": [
             {
-                "fiscal_year": "令和8年度 当初予算",
-                "project_name": "市民優先価格導入に向けた広報周知及びバスシステム改修支援事業",
+                "fiscal_year": "令和8年度当初予算（案）",
+                "project_name": "市バス等の市民優先価格の制度周知・PRとバスのシステム改修支援（2事業合計）",
                 "department": "交通局自動車部 / 建設局",
                 "amount_jpy": 271000000,
                 "amount_display": "2億7,100万円",
                 "funding_sources": [
-                    {"type": "specific", "label": "宿泊税充当", "amount": "2億7,100万円 (100%)", "color": "bg-indigo-50 text-indigo-700 border-indigo-200"}
+                    {
+                        "type": "specific",
+                        "label": "宿泊税充当",
+                        "amount": "2億7,100万円 (100%)",
+                        "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+                    }
                 ],
-                "doc_source": "令和8年度予算案記者会見資料 p.15",
-                "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf"
+                "doc_source": "市長記者会見資料「新京都戦略の改定及び令和８年度当初予算（案）について」（令和8年2月4日） 印刷p.21／PDF物理22ページ（内訳：印刷p.31／PDF物理32ページ）",
+                "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf",
+                "policy_relation": "direct",
+                "budget_note": "令和9年度の市民優先価格導入を見据えた準備。内訳は、民間バス事業者への支援2億6,100万円、市民周知・PR・システム改修1,000万円。後者は公営企業予算で、市バスのシステム改修は令和8年度は契約のみ。原文に記載された丸め済みの総事業費です（十万円単位を四捨五入）。議決済み予算や政策達成を示すものではありません。"
             },
             {
-                "fiscal_year": "令和8年度 当初予算",
-                "project_name": "旅客流動調査・データ分析基盤整備事業（観光特急バス等検証）",
+                "fiscal_year": "令和8年度当初予算（案）",
+                "project_name": "市バス等の旅客流動調査及びお客様アンケート調査、路線・ダイヤ編成に向けたデータ分析基盤の整備",
                 "department": "交通局自動車部",
                 "amount_jpy": 269000000,
                 "amount_display": "2億6,900万円",
                 "funding_sources": [
-                    {"type": "specific", "label": "宿泊税", "amount": "1億8,000万円", "color": "bg-indigo-50 text-indigo-700 border-indigo-200"},
-                    {"type": "general", "label": "一般財源", "amount": "8,900万円", "color": "bg-slate-50 text-slate-700 border-slate-200"}
+                    {
+                        "type": "specific",
+                        "label": "宿泊税",
+                        "amount": "1億8,000万円",
+                        "color": "bg-indigo-50 text-indigo-700 border-indigo-200"
+                    },
+                    {
+                        "type": "general",
+                        "label": "一般財源",
+                        "amount": "8,900万円",
+                        "color": "bg-slate-50 text-slate-700 border-slate-200"
+                    }
                 ],
-                "doc_source": "令和8年度予算案記者会見資料 p.15",
-                "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf"
+                "doc_source": "市長記者会見資料「新京都戦略の改定及び令和８年度当初予算（案）について」（令和8年2月4日） 印刷p.21／PDF物理22ページ",
+                "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf",
+                "policy_relation": "contextual",
+                "budget_note": "関連する調査・分析予算（参考）。同じ交通政策の文脈から関連性を推定しています。市民優先価格への直接充当額は未確認のため、直接予算の集計には含めません。原文に記載された丸め済みの総事業費です（十万円単位を四捨五入）。議決済み予算や政策達成を示すものではありません。"
             }
         ],
         "legislative_bill": {
@@ -725,6 +744,18 @@ PLEDGES_MASTER = [
     }
 ]
 
+def included_in_budget_total(record):
+    # Existing unannotated policies keep their legacy treatment. Reviewed records
+    # contribute only when directly linked; references/unknown values are excluded.
+    return "policy_relation" not in record or record["policy_relation"] == "direct"
+
+
+def format_budget_total(amount_jpy):
+    total_man = (amount_jpy + 5000) // 10000
+    oku, man = divmod(total_man, 10000)
+    return f"{oku}億{man:,}万円" if oku else f"{man:,}万円"
+
+
 def calculate_summary_stats(pledges):
     total = len(pledges)
     enacted = sum(1 for p in pledges if p["stage_level"] == 4)
@@ -734,7 +765,7 @@ def calculate_summary_stats(pledges):
     reviewing = sum(1 for p in pledges if p["stage_level"] == 1)
 
     total_amount = sum(
-        sum(b["amount_jpy"] for b in p.get("budget_records", []))
+        sum(b["amount_jpy"] for b in p.get("budget_records", []) if included_in_budget_total(b))
         for p in pledges
     )
 
@@ -747,7 +778,7 @@ def calculate_summary_stats(pledges):
             "official_plan_only": official_plan_only,
             "reviewing": reviewing
         },
-        "total_allocated_budget_jpy": "104億1,316万円",
+        "total_allocated_budget_jpy": format_budget_total(total_amount),
         "total_allocated_budget_raw": total_amount,
         "accommodation_tax_revenue_jpy": "132億円（令和8年度見込）",
         "debt_repayment_jpy": "年間35億円ペース堅持"
