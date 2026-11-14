@@ -155,6 +155,84 @@ class FiveCityOfflinePreflightTests(unittest.TestCase):
             with self.assertRaises(preflight.Blocked):
                 preflight._check_private_root(link)
 
+    def test_rejects_nonstandard_json_constants(self):
+        baseline, candidate, raw = self.fixture("kyoto")
+        original = candidate.read_text(encoding="utf-8")
+        self.assertIn('"summary":"corrected"', original)
+        for constant in ("NaN", "Infinity", "-Infinity"):
+            with self.subTest(constant=constant):
+                candidate.write_text(
+                    original.replace('"summary":"corrected"', f'"summary":{constant}', 1),
+                    encoding="utf-8",
+                )
+                with self.assertRaises(preflight.Blocked):
+                    preflight.inspect("kyoto", baseline, candidate)
+                self.assertEqual(baseline.read_bytes(), raw)
+
+    def test_marker_fsync_failure_never_finalizes_validated_marker(self):
+        baseline, candidate, raw = self.fixture("kyoto")
+        report, data, changes = preflight.inspect("kyoto", baseline, candidate)
+        original_fsync = os.fsync
+        calls = 0
+
+        def fail_on_fourth_fsync(fd):
+            nonlocal calls
+            calls += 1
+            if calls == 4:  # candidate, diff, manifest, pending marker
+                raise OSError("simulated validated-marker fsync failure")
+            return original_fsync(fd)
+
+        with patch.object(preflight.os, "fsync", side_effect=fail_on_fourth_fsync):
+            with self.assertRaises(OSError):
+                preflight.stage(self.private, report, data, changes)
+        self.assertEqual(calls, 4)
+        self.assertEqual(baseline.read_bytes(), raw)
+        partials = list(self.private.iterdir())
+        self.assertEqual(len(partials), 1)
+        self.assertFalse((partials[0] / "validated.json").exists())
+
+    def test_saved_public_five_city_contract_offline_read_only(self):
+        # This reads one committed statements-summary JSON per city. It does
+        # not fetch sources, import producers, overwrite JSON, or stage output.
+        public = preflight.PROJECT_ROOT / "frontend" / "public" / "data"
+        for city in sorted(preflight.CITIES):
+            with self.subTest(city=city):
+                baseline = public / f"{city}_{preflight.FEATURE}.json"
+                source_records, raw = preflight._read_json(baseline)
+                self.assertGreater(len(raw), 0)
+                self.assertLessEqual(len(raw), preflight.MAX_FILE_BYTES)
+                index = preflight._index_records(source_records, strict_source=True)
+                self.assertGreater(len(index), 0)
+                self.assertEqual(len(index), len(source_records))
+                expected_origin_key = "source_url" if city == "kyoto" else "official_url"
+                self.assertTrue(
+                    all(expected_origin_key in row for row in source_records),
+                    f"{city}: absent saved origin URL key",
+                )
+                envelope = {
+                    "schema_version": 1,
+                    "city_code": city,
+                    "feature": preflight.FEATURE,
+                    "source_status": "saved_unverified",
+                    "baseline_sha256": hashlib.sha256(raw).hexdigest(),
+                    "records": source_records,
+                    "origin_city_by_id": {},
+                }
+                # Candidate is a no-change private *copy*, not a fresh source.
+                candidate = self.root / f"{city}-saved-candidate.json"
+                save(candidate, envelope)
+                report, _, changes = preflight.inspect(city, baseline, candidate)
+                self.assertEqual(report["counts"], {"added": 0, "updated": 0, "deleted": 0})
+                self.assertEqual(report["source_status"], "saved_unverified")
+                self.assertEqual(report["source_authenticity"], "unverified")
+                self.assertEqual(changes["unchanged_count"], len(source_records))
+                self.assertEqual(baseline.read_bytes(), raw)
+                print(
+                    f"SAVED_CONTRACT city={city} records={len(source_records)} "
+                    f"bytes={len(raw)} url_field={expected_origin_key} PASS"
+                )
+
+
 
 if __name__ == "__main__":
     unittest.main()
