@@ -28,6 +28,10 @@ class Blocked(ValueError):
     """Candidate cannot proceed to private stage."""
 
 
+def _reject_nonjson_constant(token: str) -> None:
+    raise Blocked(f"Nonstandard JSON numeric constant: {token}")
+
+
 def _read_json(path: Path) -> tuple[object, bytes]:
     # A single byte snapshot is checked and subsequently staged, never reloaded.
     if path.is_symlink() or not path.is_file():
@@ -39,7 +43,7 @@ def _read_json(path: Path) -> tuple[object, bytes]:
     if len(raw) > MAX_FILE_BYTES:
         raise Blocked("Input is too large")
     try:
-        value = json.loads(raw.decode("utf-8-sig"))
+        value = json.loads(raw.decode("utf-8-sig"), parse_constant=_reject_nonjson_constant)
     except (ValueError, UnicodeError) as exc:
         raise Blocked("Invalid UTF-8 JSON") from exc
     return value, raw
@@ -56,12 +60,18 @@ def _check_record(record: object, *, strict_source: bool) -> str:
     if not isinstance(record_id, str) or not record_id.strip():
         raise Blocked("Record id must be a nonempty string")
     if strict_source:
-        url = record.get("source_url")
-        if not isinstance(url, str):
-            raise Blocked("Candidate record lacks source_url")
-        parsed = urlparse(url)
-        if parsed.scheme not in {"http", "https"} or not parsed.netloc:
-            raise Blocked("Candidate record source_url is not HTTP(S)")
+        # Existing Kyoto rows use source_url; the other four published cities
+        # use official_url. These are *structural* references, not proof.
+        url_fields = [name for name in ("source_url", "official_url") if name in record]
+        if not url_fields:
+            raise Blocked("Candidate record lacks source_url or official_url")
+        for field in url_fields:
+            url = record[field]
+            if not isinstance(url, str):
+                raise Blocked(f"Candidate record {field} must be a URL")
+            parsed = urlparse(url)
+            if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+                raise Blocked(f"Candidate record {field} is not HTTP(S)")
     return record_id
 
 
@@ -211,10 +221,14 @@ def stage(private_root: Path, report: dict, candidate_bytes: bytes, changes: dic
     _write_exclusive(folder / "manifest.json", json.dumps(
         manifest, ensure_ascii=False, sort_keys=True, indent=2
     ).encode("utf-8"))
-    _write_exclusive(folder / "validated.json", json.dumps({
+    # The final marker name must not exist until its bytes have been flushed
+    # and synced successfully. A failed marker fsync leaves only a .pending file.
+    marker_pending = folder / "validated.json.pending"
+    _write_exclusive(marker_pending, json.dumps({
         "stage_id": stage_id, "state": "machine_validated_pending_pm_review",
         "publish_permitted": False,
     }, sort_keys=True).encode("utf-8"))
+    os.replace(marker_pending, folder / "validated.json")
     return stage_id
 
 
