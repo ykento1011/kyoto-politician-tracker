@@ -95,7 +95,11 @@ class KyotoPrivateProjectionTests(unittest.TestCase):
             "constructive_score", "source_url",
         ])
         self.assertEqual(records[0]["speaker"], "テスト")
-        self.assertEqual(records[0]["category"], "都市再生・交通インフラ")
+        self.assertEqual(records[0]["category"], "産業・観光・地域経済")
+        self.assertEqual(
+            projection._legacy_helpers()[1]("交通", "産業交通水道委員会", "市バス改善"),
+            "都市再生・交通インフラ",
+        )
         self.assertEqual(records[0]["statement_snippet"], "市バスの改善提案 を確認します。")
         self.assertEqual(records[0]["statement_text"], records[0]["statement_snippet"])
         self.assertEqual(
