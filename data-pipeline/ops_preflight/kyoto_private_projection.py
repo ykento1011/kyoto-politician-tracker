@@ -8,10 +8,11 @@ This tool neither stages nor publishes, and asserts no source authenticity.
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
-import importlib.util
 import json
 import os
+import re
 import sys
 import uuid
 from pathlib import Path
@@ -28,7 +29,11 @@ SCORE_FIELDS = ("evidence", "solution", "local_focus", "constructive")
 
 
 def _legacy_helpers():
-    """Load only the inspected generator's pure helpers, never generate_summary."""
+    """Extract only pinned *pure functions*; never import/execute the writer.
+
+    We compile two inspected function definitions plus literal keyword tables.
+    No legacy module top-level statements (including generate_summary) run.
+    """
     source = LEGACY_PROJECTION_SOURCE
     if source.is_symlink() or not source.is_file():
         raise preflight.Blocked("Legacy projection helper is unavailable")
@@ -38,19 +43,42 @@ def _legacy_helpers():
     ).hexdigest()
     if blob != EXPECTED_GENERATOR_GIT_BLOB:
         raise preflight.Blocked("Projection helper code has changed; PM re-review required")
-    spec = importlib.util.spec_from_file_location("_reviewed_kyoto_projection_helpers", source)
-    if spec is None or spec.loader is None:
-        raise preflight.Blocked("Cannot load reviewed projection helpers")
-    module = importlib.util.module_from_spec(spec)
-    # No bytecode/repository write on import even without the -B CLI flag.
-    previous = sys.dont_write_bytecode
-    sys.dont_write_bytecode = True
     try:
-        spec.loader.exec_module(module)
-    finally:
-        sys.dont_write_bytecode = previous
-    return module.clean_speaker_name, module.refine_category
-
+        tree = ast.parse(raw.decode("utf-8-sig"), filename=str(source))
+        constants = {}
+        functions = {}
+        wanted_constants = (
+            "INDUSTRY_KEYWORDS", "CULTURE_KEYWORDS",
+            "TRANSIT_KEYWORDS", "FINANCE_KEYWORDS",
+        )
+        wanted_functions = ("clean_speaker_name", "refine_category")
+        for node in tree.body:
+            if (
+                isinstance(node, ast.Assign) and len(node.targets) == 1
+                and isinstance(node.targets[0], ast.Name)
+                and node.targets[0].id in wanted_constants
+            ):
+                constants[node.targets[0].id] = ast.literal_eval(node.value)
+            elif isinstance(node, ast.FunctionDef) and node.name in wanted_functions:
+                functions[node.name] = node
+        if set(constants) != set(wanted_constants) or set(functions) != set(wanted_functions):
+            raise preflight.Blocked("Reviewed pure helper definitions unavailable")
+        # Literal tables only; no evaluation of arbitrary module statements.
+        if any(
+            not isinstance(value, list)
+            or not all(isinstance(entry, str) for entry in value)
+            for value in constants.values()
+        ):
+            raise preflight.Blocked("Reviewed keyword tables changed")
+        defs = ast.Module(
+            body=[functions["clean_speaker_name"], functions["refine_category"]],
+            type_ignores=[],
+        )
+        scope = {"re": re, **constants}
+        exec(compile(defs, str(source), "exec"), scope)
+        return scope["clean_speaker_name"], scope["refine_category"]
+    except (SyntaxError, UnicodeError, ValueError, TypeError) as exc:
+        raise preflight.Blocked("Invalid reviewed pure projection helpers") from exc
 
 def _nonblank(value: object) -> bool:
     return isinstance(value, str) and bool(value.strip())
