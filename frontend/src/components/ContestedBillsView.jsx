@@ -16,6 +16,9 @@ export default function ContestedBillsView({
   const [selectedSession, setSelectedSession] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [resultFilter, setResultFilter] = useState(''); // '可決', '否決', etc.
+  const [view, setView] = useState('contested');
+  const isOtherView = view === 'other';
+  const viewLabel = isOtherView ? 'その他・照合未確認の議案' : '賛否が分かれた議案';
 
   // 議案番号＋会期で votesData をマップ化（会派別賛否の表示用）
   const votesMap = useMemo(() => {
@@ -26,6 +29,10 @@ export default function ContestedBillsView({
     });
     return map;
   }, [votesData]);
+
+  const contestedCount = useMemo(() => billIssues.filter(bill =>
+    getVoteSummary(votesMap[`${bill.session_name}_${bill.bill_number}`]?.votes).isContested
+  ).length, [billIssues, votesMap]);
 
   // 利用可能な会期一覧の抽出
   const sessions = useMemo(() => {
@@ -55,9 +62,9 @@ export default function ContestedBillsView({
       if (selectedSession && bill.session_name !== selectedSession) return false;
       
       const voteObj = votesMap[`${bill.session_name}_${bill.bill_number}`];
-      if (!getVoteSummary(voteObj?.votes).isContested) return false;
+      if (getVoteSummary(voteObj?.votes).isContested === isOtherView) return false;
       const resultText = voteObj?.result || '';
-      if (resultFilter && !resultText.includes(resultFilter)) return false;
+      if (!isOtherView && resultFilter && !resultText.includes(resultFilter)) return false;
 
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
@@ -66,7 +73,7 @@ export default function ContestedBillsView({
       }
       return true;
     });
-  }, [billIssues, selectedCat, selectedSession, resultFilter, searchQuery, votesMap]);
+  }, [billIssues, selectedCat, selectedSession, resultFilter, searchQuery, votesMap, isOtherView]);
 
   return (
     <main className="max-w-6xl mx-auto py-8 px-6 animate-in fade-in slide-in-from-bottom-4 duration-300 w-full">
@@ -80,7 +87,7 @@ export default function ContestedBillsView({
           <ArrowLeft className="w-3.5 h-3.5 mr-1.5" />トップ画面に戻る
         </button>
         <div className="text-xs font-bold text-slate-400">
-          全任期激戦議案データベース（2023–2026年）
+          議案論点データベース（2023–2026年）
         </div>
       </div>
 
@@ -91,11 +98,32 @@ export default function ContestedBillsView({
             <Flame className="w-5 h-5 fill-rose-500" />
           </div>
           <div>
-            <h1 className="text-xl md:text-2xl font-black text-slate-900">市議会 激戦・対立議案詳細アーカイブ</h1>
+            <h1 className="text-xl md:text-2xl font-black text-slate-900">市議会 {viewLabel}</h1>
             <p className="text-xs text-slate-500 font-medium mt-0.5">
-              賛成と反対の双方が記録されている議案を表示しています
+              {isOtherView
+                ? '議決データの照合有無を区別して、保存済みの議案論点を表示しています。'
+                : '賛成と反対の双方が記録されている議案を表示しています。'}
             </p>
           </div>
+        </div>
+
+        <div role="group" aria-label="議案の閲覧切替" className="mt-5 flex flex-col sm:flex-row gap-2">
+          {[
+            ['contested', '賛否が分かれた議案', contestedCount],
+            ['other', 'その他・照合未確認の議案', billIssues.length - contestedCount]
+          ].map(([value, label, count]) => (
+            <button
+              key={value}
+              type="button"
+              aria-pressed={view === value}
+              onClick={() => { setView(value); if (value === 'other') setResultFilter(''); }}
+              className={`min-h-11 px-4 py-3 rounded-xl border text-sm font-bold focus-visible:outline-2 focus-visible:outline-indigo-600 ${
+                view === value ? 'bg-indigo-50 text-indigo-800 border-indigo-400' : 'bg-white text-slate-600 border-slate-200'
+              }`}
+            >
+              {label}（{count}件）
+            </button>
+          ))}
         </div>
 
         {/* フィルター・検索バー */}
@@ -104,7 +132,8 @@ export default function ContestedBillsView({
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input 
               type="text" 
-              placeholder="議案名・対立軸・キーワード（例: 給食、新幹線、宿泊税）で検索..."
+              aria-label="議案を検索"
+              placeholder="議案名・論点・キーワード（例: 給食、新幹線、宿泊税）で検索..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-bold text-slate-800 placeholder-slate-400 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
@@ -113,6 +142,7 @@ export default function ContestedBillsView({
 
           <div className="flex flex-wrap items-center gap-2">
             <select
+              aria-label="分野"
               value={selectedCat}
               onChange={(e) => setSelectedCat(e.target.value)}
               className="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 outline-none cursor-pointer hover:border-indigo-400"
@@ -129,6 +159,7 @@ export default function ContestedBillsView({
             </select>
 
             <select
+              aria-label="会期"
               value={selectedSession}
               onChange={(e) => setSelectedSession(e.target.value)}
               className="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 outline-none cursor-pointer hover:border-indigo-400"
@@ -138,6 +169,8 @@ export default function ContestedBillsView({
             </select>
 
             <select
+              aria-label="議決結果"
+              disabled={isOtherView}
               value={resultFilter}
               onChange={(e) => setResultFilter(e.target.value)}
               className="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 outline-none cursor-pointer hover:border-indigo-400"
@@ -150,12 +183,15 @@ export default function ContestedBillsView({
             </select>
           </div>
         </div>
+        {isOtherView && (
+          <p className="mt-2 text-xs text-slate-500">この表示では議決結果で絞り込みません（未照合の議案を含みます）。</p>
+        )}
       </div>
 
       {/* 件数表示 */}
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-black text-slate-700">
-          該当する激戦議案: <span className="text-rose-600 text-sm">{filteredBills.length}</span> 件
+          {viewLabel}: <span className="text-slate-700 text-sm" aria-live="polite">{filteredBills.length}</span> 件
         </span>
         {(selectedCat || selectedSession || searchQuery || resultFilter) && (
           <button 
@@ -174,6 +210,9 @@ export default function ContestedBillsView({
           const votes = voteObj?.votes || {};
           const result = voteObj ? voteObj.result : '';
           const categoryTag = getCategoryForBill(bill);
+          const referenceUrls = [...new Set([
+            voteObj?.source_url, bill.official_url, bill.url, bill.source_url
+          ].filter(url => typeof url === 'string' && /^https?:\/\//i.test(url)))];
 
           return (
             <article key={bill.id || idx} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
@@ -188,6 +227,11 @@ export default function ContestedBillsView({
                     <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded flex items-center gap-1">
                       <Tag className="w-2.5 h-2.5" />{categoryTag}
                     </span>
+                    {isOtherView && (
+                      <span className="text-[10px] font-bold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
+                        {voteObj ? '議決データあり：賛否対立を確認できない' : '照合未確認（対応する議決データなし）'}
+                      </span>
+                    )}
                     {result && (
                       <span className={`text-[10px] font-black px-2 py-0.5 rounded ${
                         result.includes('可決') || result.includes('認定') || result.includes('同意')
@@ -203,23 +247,26 @@ export default function ContestedBillsView({
                   </h2>
                 </div>
 
-                {voteObj?.source_url && (
-                  <a 
-                    href={voteObj.source_url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-[11px] font-bold text-slate-400 hover:text-indigo-600 inline-flex items-center gap-1 shrink-0 self-start sm:self-auto bg-slate-50 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg border border-slate-200 transition-colors"
-                  >
-                    市会公式審議結果 <ExternalLink className="w-3 h-3 opacity-60" />
-                  </a>
-                )}
+                <div className="flex flex-wrap gap-2">
+                  {referenceUrls.map((url, index) => (
+                    <a
+                      key={url}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] font-bold text-slate-400 hover:text-indigo-600 inline-flex items-center gap-1 shrink-0 self-start sm:self-auto bg-slate-50 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg border border-slate-200 transition-colors"
+                    >
+                      保存済み参照リンク {index + 1} <ExternalLink className="w-3 h-3 opacity-60" />
+                    </a>
+                  ))}
+                </div>
               </div>
 
               {/* 対立軸 ＆ 概要背景 */}
               <div className="bg-gradient-to-br from-slate-50 to-indigo-50/20 p-4 rounded-xl border border-slate-200/80 space-y-2">
                 <div className="flex items-center gap-1.5 text-xs font-black text-slate-900">
                   <AlertTriangle className="w-4 h-4 text-amber-500" />
-                  対立の核心: {bill.key_conflict}
+                  論点: {bill.key_conflict}
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
                   {bill.background}
@@ -227,19 +274,22 @@ export default function ContestedBillsView({
               </div>
 
               {/* 賛成派の論理 vs 反対派の論理 */}
+              <p className="text-xs font-bold text-slate-500">既存の論点整理（議決賛否の確認ではない）</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
-                <div className="bg-emerald-50/60 p-4 rounded-xl border border-emerald-100/90 space-y-1.5">
-                  <span className="text-xs font-black text-emerald-800 flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />賛成派の政治的論理
+                <div className={`p-4 rounded-xl border space-y-1.5 ${isOtherView ? 'bg-slate-50 border-slate-200' : 'bg-emerald-50/60 border-emerald-100/90'}`}>
+                  <span className={`text-xs font-black flex items-center gap-1 ${isOtherView ? 'text-slate-700' : 'text-emerald-800'}`}>
+                    {isOtherView ? <Scale className="w-3.5 h-3.5" /> : <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />}
+                    賛成側の論点（既存記述）
                   </span>
                   <p className="text-xs text-slate-700 leading-relaxed">
                     {bill.agree_logic}
                   </p>
                 </div>
 
-                <div className="bg-rose-50/60 p-4 rounded-xl border border-rose-100/90 space-y-1.5">
-                  <span className="text-xs font-black text-rose-800 flex items-center gap-1">
-                    <XCircle className="w-3.5 h-3.5 text-rose-600" />反対派の政治的論理
+                <div className={`p-4 rounded-xl border space-y-1.5 ${isOtherView ? 'bg-slate-50 border-slate-200' : 'bg-rose-50/60 border-rose-100/90'}`}>
+                  <span className={`text-xs font-black flex items-center gap-1 ${isOtherView ? 'text-slate-700' : 'text-rose-800'}`}>
+                    {isOtherView ? <Scale className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5 text-rose-600" />}
+                    反対側の論点（既存記述）
                   </span>
                   <p className="text-xs text-slate-700 leading-relaxed">
                     {bill.disagree_logic}
@@ -278,8 +328,8 @@ export default function ContestedBillsView({
         {filteredBills.length === 0 && (
           <div className="text-center py-24 bg-white rounded-2xl border border-dashed border-slate-300">
             <Flame className="w-8 h-8 text-slate-300 mx-auto mb-2" />
-            <p className="text-slate-500 font-bold text-sm">該当する激戦議案は見つかりませんでした。</p>
-            <p className="text-slate-400 text-xs mt-1">検索条件を変更するか、リセットしてください。</p>
+            <p className="text-slate-500 font-bold text-sm">「{viewLabel}」に該当する議案は見つかりませんでした。</p>
+            <p className="text-slate-400 text-xs mt-1">閲覧切替や検索条件を変更するか、条件をリセットしてください。</p>
           </div>
         )}
       </div>
