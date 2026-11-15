@@ -6,6 +6,9 @@ on:
       - 'data-pipeline/mayor_updates/**'
       - 'data-pipeline/tests/test_*mayor*.py'
       - 'data-pipeline/tests/test_kyoto_operations.py'
+      - 'data-pipeline/tests/test_city*.py'
+      - 'data-pipeline/p1_patches/**'
+      - 'config/kobe_m01_trial.json'
       - 'config/mayor_update_sources.json'
       - 'scripts/Export-KyotoWeeklyTask.ps1'
       - '.github/workflows/mayor-updates.yml'
@@ -27,3 +30,10 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_kyoto_operations.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_weekly_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_pdf_mayor.py'
+      - name: Test explicit city scope without network
+        run: python -B -m unittest discover -s data-pipeline/tests -p 'test_city_scope.py' -v
+      - name: Report external P1 integration availability
+        run: |
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_city_p1_offline.py' -v
+          echo '### External P1 integration: NOT VALIDATED' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This hosted job has no approved immutable P1 dependency. Its 13 P1 city tests are skipped; an offline CI pass is not integration acceptance. A separate approved private environment must supply the pinned P1 code before merge.' >> "$GITHUB_STEP_SUMMARY"

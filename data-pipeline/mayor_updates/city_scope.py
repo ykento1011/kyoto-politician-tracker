@@ -1,0 +1,72 @@
+"""Explicit fixed-source city trial scope; no transport, CAS or publication."""
+import hashlib
+import json
+from pathlib import Path
+from urllib.parse import urlsplit
+from .projection import Hold
+from .engine import PrivateOutput
+
+def signature(value):
+    return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+
+def validate_scope(scope):
+    registry=json.loads((Path(__file__).resolve().parents[2]/'config/mayor_update_sources.json').read_text(encoding='utf-8'))['cities']
+    city=scope['city_code']
+    if city not in registry or not scope['policy_ids'] or not set(scope['policy_ids'])<=set(registry[city]['policy_ids']):
+        raise Hold('City/policy scope mismatch')
+    if scope['allowed_hosts'] != ['www.city.'+city+'.lg.jp']:
+        raise Hold('Explicit official host must match city')
+    if any(scope.get(k)!=v for k,v in dict(timeout_seconds=10,redirects=0,retries=0,tls_verify=True).items()):
+        raise Hold('City trial communication safeguards changed')
+    rows=scope['sources']; caps=scope['max_requests_by_media']
+    if (not rows or len(rows)>scope['max_requests'] or scope['max_requests']>2 or
+            caps!={'html':1,'pdf':1} or scope['max_total_bytes']!=4194304):
+        raise Hold('Initial city trial is limited to one HTML and one PDF')
+    seen=set(); ids=set()
+    for s in rows:
+        u=urlsplit(s['url']); medium=s['media_type']
+        if (medium not in caps or u.scheme!='https' or u.netloc not in scope['allowed_hosts'] or
+                u.query or u.fragment or not u.path.endswith('.'+medium) or s['url'] in seen or s['id'] in ids or
+                s['max_bytes']!=2097152 or type(s['fiscal_year']) is not int or not 2019<=s['fiscal_year']<=2100 or
+                s['document_kind'] not in {'budget_index','other_official'} or
+                not s['policy_ids'] or not set(s['policy_ids'])<=set(scope['policy_ids'])):
+            raise Hold('Invalid city fixed document')
+        if s.get('index_url') and s['index_url'] not in [r['url'] for r in rows if r['media_type']=='html']:
+            raise Hold('Index provenance must be a fixed HTML source in this scope')
+        seen.add(s['url']);ids.add(s['id'])
+    if any(sum(s['media_type']==m for s in rows)>cap for m,cap in caps.items()) or sum(s['max_bytes'] for s in rows)>scope['max_total_bytes']:
+        raise Hold('City trial request/receive budget exceeded')
+    return city
+
+def validate_selection(scope,sources,media_type):
+    validate_scope(scope)
+    if not sources or len({s['url'] for s in sources})!=len(sources):
+        raise Hold('Empty or duplicate source selection')
+    for s in sources:
+        if s not in scope['sources'] or s['media_type']!=media_type:
+            raise Hold('Source is not the pinned city/year/kind/policy selection')
+
+def validate_storage(scope,storage,snapshot_root,output):
+    validate_scope(scope)
+    root=PrivateOutput(storage['private_root']).root
+    binding_path=root/'city_binding.json'
+    if hashlib.sha256(binding_path.read_bytes()).hexdigest()!=storage['binding_sha256']:
+        raise Hold('Private city binding SHA mismatch')
+    binding=json.loads(binding_path.read_text(encoding='utf-8'))
+    cas=Path(snapshot_root).resolve();state=Path(storage['state_root']).resolve();out=Path(output).resolve()
+    if (binding['city_code']!=scope['city_code'] or binding['scope_sha256']!=signature(scope) or
+            cas!=Path(binding['snapshot_root']).resolve() or state!=Path(binding['state_root']).resolve() or
+            cas==state or cas in state.parents or state in cas.parents or
+            root not in cas.parents or root not in state.parents or state not in out.parents):
+        raise Hold('Private city/CAS/state scope mismatch')
+    return state
+
+def reserve_request(scope,storage,source):
+    if scope.get('enabled') is not True or scope.get('network_enabled') is not True:
+        raise Hold('City trial network is disabled')
+    state=Path(storage['state_root'])
+    marker=state/('single_request_'+hashlib.sha256(source['url'].encode()).hexdigest()+'.json')
+    try:
+        with marker.open('x',encoding='utf-8') as f: json.dump({'url':source['url'],'scope_sha256':signature(scope),'max_bytes':source['max_bytes']},f)
+    except FileExistsError as exc:
+        raise Hold('This city trial URL was already attempted; no retry') from exc

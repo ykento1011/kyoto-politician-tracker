@@ -6,3 +6,6 @@ data-pipeline/kyoto_one_meeting_guard.py text eol=lf
 data-pipeline/kyoto_private_paths.py text eol=lf
 data-pipeline/minutes_update_guard.py text eol=lf
 tests/test_kyoto_continuation.py text eol=lf
+
+data-pipeline/p1_patches/*.patch text eol=lf
+data-pipeline/p1_patches/*.json text eol=lf

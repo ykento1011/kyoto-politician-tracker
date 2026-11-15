@@ -24,10 +24,14 @@ def normal(text):
 
 
 class P1Bridge:
-    def __init__(self, code_root, snapshot_root):
+    def __init__(self, code_root, snapshot_root, *, city_capable=False):
         self.code_root = Path(code_root).resolve(strict=True)
         self.hashes = {}
-        for name, expected in PINS.items():
+        pins = dict(PINS)
+        if city_capable:
+            spec=json.loads((Path(__file__).resolve().parents[1]/'p1_patches/city_identity.json').read_text(encoding='utf-8'))
+            pins.update({name.removeprefix('budget/'):sha for name,sha in spec['after'].items()})
+        for name, expected in pins.items():
             actual = sha256((self.code_root / 'budget' / name).read_bytes()).hexdigest()
             if actual != expected:
                 raise Hold('P1 approved code pin changed: ' + name)

@@ -1,0 +1,48 @@
+{
+  "city_code": "kobe",
+  "enabled": false,
+  "network_enabled": false,
+  "allowed_hosts": [
+    "www.city.kobe.lg.jp"
+  ],
+  "policy_ids": [
+    "KOBE-M01"
+  ],
+  "max_requests": 2,
+  "max_total_bytes": 4194304,
+  "max_requests_by_media": {
+    "html": 1,
+    "pdf": 1
+  },
+  "timeout_seconds": 10,
+  "redirects": 0,
+  "retries": 0,
+  "tls_verify": true,
+  "sources": [
+    {
+      "id": "kobe_r8_index",
+      "url": "https://www.city.kobe.lg.jp/z/shikaijimukyoku/giann_etc/r8/yosantokubetsu.html",
+      "media_type": "html",
+      "title": "神戸市 令和8年度予算特別委員会（候補）",
+      "document_kind": "budget_index",
+      "fiscal_year": 2026,
+      "max_bytes": 2097152,
+      "policy_ids": [
+        "KOBE-M01"
+      ]
+    },
+    {
+      "id": "kobe_r8_crisis",
+      "url": "https://www.city.kobe.lg.jp/documents/83598/r8kikikanri.pdf",
+      "media_type": "pdf",
+      "title": "神戸市 令和8年度危機管理資料（候補）",
+      "document_kind": "other_official",
+      "fiscal_year": 2026,
+      "max_bytes": 2097152,
+      "policy_ids": [
+        "KOBE-M01"
+      ],
+      "index_url": "https://www.city.kobe.lg.jp/z/shikaijimukyoku/giann_etc/r8/yosantokubetsu.html"
+    }
+  ]
+}

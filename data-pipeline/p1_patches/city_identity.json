@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "description": "Offline candidate only; do not replace live P1 or its pins before Kyoto scheduled acceptance.",
+  "before": {
+    "budget/fetch.py": "6d14aa3a9e7f2da451ccd50c2cd6a6da80e5cf72ca9d78aa0db28dec2fe40472",
+    "budget/adapters/kyoto.py": "0dd5f1679c7f745c4322e22af5390dc5d7bb3477411d98d74f2f1a2d52090200"
+  },
+  "after": {
+    "budget/fetch.py": "be00dec79f3b2d28a0cb7d1378c5f633baad0c8fdc6c5c1b1449571853b4f939",
+    "budget/adapters/kyoto.py": "d842bfeb492eb657bf2559c633d85df0b72bbcf121f86cb7f46918b255cc1f6a",
+    "budget/documents.py": "d61d7bc2ba18693c377e0b491388e21bd1953e69ddc92e61276461266a5c40f2"
+  },
+  "patch_sha256": "cce25ecd516a6c9093045fbfd3c8858b63a7c6b7556d89e77d330cb254c2b572"
+}
