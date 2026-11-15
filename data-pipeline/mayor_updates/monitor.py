@@ -92,16 +92,38 @@ def pdf_request_plan(config, *, allow_enabled=False):
     scope=config['pdf_watch']; sources=scope['sources']
     if (scope.get('enabled') and not allow_enabled) or scope.get('requires_separate_activation') is not True:
         raise Hold('PDF acquisition requires a separate activation decision')
-    if not 1 <= len(sources) <= 3 or scope['max_requests_per_run'] != 3 or scope['max_total_received_bytes'] != 25165824:
-        raise Hold('Invalid limited PDF request budget')
+    separate = 'phase_id' in scope
+    if separate:
+        import re
+        city = scope.get('city_code')
+        policies = scope.get('policy_ids', [])
+        if (not re.fullmatch(r'[a-z][a-z0-9_]{0,63}', str(scope['phase_id'])) or
+                city not in config.get('cities', {}) or not policies or
+                not set(policies) <= set(config['cities'][city]['policy_ids']) or
+                scope.get('allowed_hosts') != ['www.city.' + city + '.lg.jp'] or
+                type(scope.get('max_requests_per_run')) is not int or not 1 <= scope['max_requests_per_run'] <= 3 or
+                type(scope.get('max_total_received_bytes')) is not int or not 0 < scope['max_total_received_bytes'] <= 6291456 or
+                any(scope.get(k) != v for k,v in dict(timeout_seconds=10,tls_verify=True,redirects=0,retries=0).items())):
+            raise Hold('Invalid independent PDF phase boundary')
+        host = scope['allowed_hosts'][0]
+        per_document_cap = 2097152
+    else:
+        if scope['max_requests_per_run'] != 3 or scope['max_total_received_bytes'] != 25165824:
+            raise Hold('Invalid limited PDF request budget')
+        host = 'www.city.kyoto.lg.jp'
+        per_document_cap = 20971520
+    if not 1 <= len(sources) <= scope['max_requests_per_run']:
+        raise Hold('PDF phase request budget exceeded')
     seen=set(); rows=[]
     for source in sources:
         parsed=urlsplit(source['url']); limit=source['max_bytes']
-        if (parsed.scheme!='https' or parsed.netloc!='www.city.kyoto.lg.jp' or
+        if (parsed.scheme!='https' or parsed.netloc!=host or
                 not parsed.path.endswith('.pdf') or parsed.query or parsed.fragment or
                 source['url'] in seen or source['max_gets']!=1 or
-                type(limit) is not int or not 0 < limit <= 20971520):
+                type(limit) is not int or not 0 < limit <= per_document_cap):
             raise Hold('Invalid fixed PDF source')
+        if separate and (not source.get('policy_ids') or not set(source['policy_ids']) <= set(policies)):
+            raise Hold('PDF phase policy scope mismatch')
         seen.add(source['url'])
         rows.append({'url':source['url'],'method':'GET','max_requests':1,
                      'max_received_bytes':limit,'timeout_seconds':10,

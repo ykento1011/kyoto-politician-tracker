@@ -99,15 +99,31 @@ def validate_runtime(runtime, *, reuse_saved=False):
     if not any(Path(s['path']).resolve()==Path(__file__).resolve() for s in runtime['code_files']):
         raise Hold('Executing PDF watcher must be pinned')
     config=load(paths['config']); plan=pdf_request_plan(config,allow_enabled=True)
-    sources=config['pdf_watch']['sources']; validate_sources(sources,media_type='pdf')
+    phase=config['pdf_watch']; sources=phase['sources']
+    # City trials retain their existing signed storage/scope guard. Kyoto uses
+    # its original adapter and IDs; no running transport limits are widened.
+    if phase.get('city_code', 'kyoto') != 'kyoto':
+        raise Hold('Non-Kyoto PDF execution requires the existing city trial acquisition path')
+    validate_sources(sources,media_type='pdf')
     if config['pdf_watch'].get('timeout_seconds')!=10: raise Hold('PDF timeout must remain 10 seconds')
     if not reuse_saved and not (runtime.get('network_enabled') is True and config['pdf_watch'].get('enabled') is True):
         raise Hold('PDF live acquisition is not activated')
-    if not sources or any(not s.get('policy_ids') or not set(s['policy_ids'])<={'P-01','P-03'} or not s.get('review_pages') for s in sources):
+    allowed = set(phase['policy_ids']) if 'phase_id' in phase else {'P-01','P-03'}
+    if not sources or any(not s.get('policy_ids') or not set(s['policy_ids'])<=allowed or not s.get('review_pages') for s in sources):
         raise Hold('Explicit PDF policy/page bindings required')
     bindings=load(paths['bindings'])
     if set(bindings)!={s['url'] for s in sources} or any(not refs for refs in bindings.values()):
         raise Hold('Saved evidence references required for every fixed PDF')
+    if 'phase_id' in phase:
+        marker=root/'phase_binding.json'
+        identity={'phase_id':phase['phase_id'],'city_code':phase['city_code'],
+                  'sources_sha256':digest(sources), 'snapshot_root':str(Path(runtime['snapshot_root']).resolve())}
+        if marker.exists():
+            if load(marker)!=identity: raise Hold('Independent PDF phase/state binding mismatch')
+        else:
+            if (root/'state.json').exists() or (root/'runs').exists():
+                raise Hold('Independent PDF phase requires a fresh isolated state directory')
+            atomic_json(marker,identity)
     return root,config,bindings,plan
 
 
@@ -127,6 +143,8 @@ def run(runtime, *, reuse_saved=False):
                     rec=bridge.index['documents'][url]['versions'][-1]['record']
                     baseline[url]={'sha256':rec['sha256'],'record':rec}
                 if url in baseline: inspect(bridge,source,baseline[url]['sha256'],bindings[url])
+            if reuse_saved and any(s['url'] not in bridge.index['documents'] for s in sources):
+                raise Hold('Offline PDF run requires every original; network fallback is forbidden')
             out.json('baseline_before.json',baseline)
             acqdir=output/'acquisition'; acqdir.mkdir()
             acquisition=capture_sources(runtime['p1_code_root'],runtime['snapshot_root'],sources,acqdir,

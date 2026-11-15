@@ -57,8 +57,8 @@ class WeeklyTests(unittest.TestCase):
         result={'document_events':[], 'index_events':[{'kind':'link_changed','source_url':URL}],
                 'holds':[],'fallback_units':[], 'state':{'documents':{},'indexes':{}}}
         bridge=MagicMock(); bridge.map_rule.return_value=budget()
-        config={'cities':{'kyoto':{'monitor_sources':[]}}}
-        rules=[{'policy_id':'P-03','source_specs':[{'source_url':URL}]}]
+        config={'cities':{'kyoto':{'policy_ids':['P-03'],'monitor_sources':[]}}}
+        rules=[{'city':'kyoto','policy_id':'P-03','source_specs':[{'source_url':URL}]}]
         with tempfile.TemporaryDirectory() as a, tempfile.TemporaryDirectory() as b, patch.object(operations,'monitor',return_value=result):
             _,packet=operations.run_trial(bridge,config,base(),rules,a,base_revision='fixture')
             self.assertIsNotNone(packet)
@@ -74,7 +74,7 @@ class WeeklyTests(unittest.TestCase):
     def test_source_queue_deduplicates_but_changed_sha_is_new(self):
         result={'document_events':[], 'index_events':[{'kind':'link_added','source_url':URL}],
                 'holds':[], 'fallback_units':[], 'state':{'documents':{'index':{'sha256':'a'*64}},'indexes':{}}}
-        config={'cities':{'kyoto':{'monitor_sources':[]}}}
+        config={'cities':{'kyoto':{'policy_ids':['P-03'],'monitor_sources':[]}}}
         with tempfile.TemporaryDirectory() as d, patch.object(operations,'monitor',return_value=result):
             root=Path(d); seen={}
             for i,sha in enumerate(['a','a','b']):
@@ -90,8 +90,8 @@ class WeeklyTests(unittest.TestCase):
                 'fallback_units':[], 'state':{'documents':{},'indexes':{}},
                 'inventories':{'index':{'links':{URL:[{'locator':'fixture heading','index_sha256':'a'*64}]}}}}
         bridge=MagicMock(); bridge.map_rule.side_effect=Hold('Source changed; manual mapping required')
-        config={'cities':{'kyoto':{'monitor_sources':[]}}}
-        rules=[{'policy_id':'P-03','source_specs':[{'source_url':URL}]}]
+        config={'cities':{'kyoto':{'policy_ids':['P-03'],'monitor_sources':[]}}}
+        rules=[{'city':'kyoto','policy_id':'P-03','source_specs':[{'source_url':URL}]}]
         with tempfile.TemporaryDirectory() as d, patch.object(operations,'monitor',return_value=result):
             seen={}
             for i,sha in enumerate(['a','b']):
