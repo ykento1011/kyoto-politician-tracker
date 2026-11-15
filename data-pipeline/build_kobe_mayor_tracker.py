@@ -147,20 +147,25 @@ kobe_mayor_pledges = [
             "source_name": "神戸市長選公報（1面・第2の柱）",
             "bulletin_url": BULLETIN_PDF,
             "quote": "“子育て”も“仕事”も両立でき、誰もがいきいきと暮らせるまちをつくる。●きめ細かく多様な支援 ●高校生通学定期券無料化の充実 ●「まちなか自習室」●無料コワーキングスペースの拡充",
-            "note": "全国初となる高校生等通学定期代の所得制限なし全額補助を柱に明記"
+            "note": "公約原文を引用。制度の補助条件は、市内在住の高校生等について、市内高校等への通学は全額、市外高校等への通学は半額。"
         },
         "official_plan": {
-            "plan_name": "神戸2025ビジョン 基本目標2「子育て支援と教育環境の充実」",
+            "plan_name": "高校生等通学定期券補助制度（市内高校等：全額、市外高校等：半額）",
             "doc_url": STRATEGY_PDF,
             "date": "2025年度改定",
-            "summary": "子育て世帯の経済的負担軽減を最優先課題とし、高校生等の市バス・地下鉄通学定期代の完全無償化と、若者の居場所・学習環境としてのまちなか自習室整備を推進。"
+            "summary": "市内在住の高校生等の通学定期券代について、市内高校等に通う場合は全額、市外高校等に通う場合は半額を補助する。補助条件は令和8年度こども家庭局予算説明書の印刷p.6／PDF8ページで確認。「まちなか自習室」など、子育て・教育環境の充実も公約の対象。"
         },
         "budget_records": [
             {
                 "fiscal_year": "令和8年度",
                 "project_name": "高校生等通学定期券全額補助・子育て支援事業",
                 "amount_display": "22億8,000万円",
-                "doc_source": "神戸市予算説明書（こども家庭局）",
+                "policy_relation": "unconfirmed",
+                "aggregation_status": "excluded",
+                "evidence_status": "unverified",
+                "funding_verification_status": "unverified",
+                "budget_note": "登録額22億8,000万円は保持しています。今回確認した令和8年度の公式予算資料では、この登録事業・金額と一般財源内訳との対応を確認できませんでした。原典未確認として集計対象外とし、未確認の財源内訳は表示していません。既存出典URLと登録内容の対応も未照合です。",
+                "doc_source": "神戸市予算説明書（こども家庭局）（登録済み出典・対応関係は未照合）",
                 "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
                 "funding_sources": [
                     {"label": "一般財源", "amount": "22億8,000万円"}
@@ -183,7 +188,7 @@ kobe_mayor_pledges = [
         },
         "milestone": {
             "date": "2025年9月",
-            "title": "高校生等の通学定期券完全無料化の所得制限なし全域拡大がスタート",
+            "title": "高校生通学定期券の補助制度（市内高校等：全額、市外高校等：半額）",
             "evidence_url": "https://www.city.kobe.lg.jp/a88390/kosodate/tsugakuhijo.html"
         },
         "debate_statements": match_statements(["高校生", "通学定期", "子育て", "自習室", "こども"])

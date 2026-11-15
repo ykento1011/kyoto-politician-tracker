@@ -40,6 +40,24 @@ class KobeM01Tests(unittest.TestCase):
         self.assertFalse(included(r))
         self.assertEqual(budget_total([self.policy]), 0)
 
+    def test_m02_registration_and_conditions(self):
+        p = next(x for x in self.data['pledges'] if x['id'] == 'KOBE-M02')
+        r = p['budget_records'][0]
+        self.assertEqual(len(p['budget_records']), 1)
+        self.assertEqual(r['amount_display'], '22億8,000万円')
+        self.assertEqual(r['funding_sources'], [{'label': '一般財源', 'amount': '22億8,000万円'}])
+        self.assertEqual(r['doc_url'], 'https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf')
+        for key in ['evidence_status', 'funding_verification_status']:
+            self.assertEqual(r[key], 'unverified')
+        self.assertEqual(r['policy_relation'], 'unconfirmed')
+        self.assertFalse(included(r))
+        self.assertEqual(budget_total([p]), 0)
+        self.assertEqual(p['stage_level'], 5)
+        self.assertIn('市内高校等：全額、市外高校等：半額', p['official_plan']['plan_name'])
+        self.assertIn('市内在住', p['official_plan']['summary'])
+        self.assertIn('市外高校等に通う場合は半額', p['official_plan']['summary'])
+        self.assertIn('高校生通学定期券無料化の充実', p['election_promise']['quote'])
+
     def test_kpi_is_a_record_count_not_an_unverified_budget_sum(self):
         kpi = next(k for k in self.data['kpis'] if k['label'] == '掲載答弁記録')
         self.assertEqual(kpi['value'], str(sum(len(p.get('debate_statements', [])) for p in self.data['pledges'])) + '件')
@@ -68,5 +86,15 @@ class KobeM01Tests(unittest.TestCase):
             fresh = next(p for p in json.loads(target.read_text(encoding='utf-8'))['pledges'] if p['id'] == 'KOBE-M01')
             self.assertEqual(fresh['budget_records'][1], self.policy['budget_records'][1])
             self.assertEqual(budget_total([fresh]), 0)
+            reviewed_m02 = next(p for p in self.data['pledges'] if p['id'] == 'KOBE-M02')
+            for output in [generated, json.loads(target.read_text(encoding='utf-8'))]:
+                m02 = next(p for p in output['pledges'] if p['id'] == 'KOBE-M02')
+                self.assertEqual(m02['official_plan']['summary'], reviewed_m02['official_plan']['summary'])
+                self.assertEqual(m02['official_plan']['plan_name'], reviewed_m02['official_plan']['plan_name'])
+                self.assertEqual(m02['election_promise'], reviewed_m02['election_promise'])
+                self.assertEqual(m02['budget_records'][0]['policy_relation'], 'unconfirmed')
+                self.assertEqual(budget_total([m02]), 0)
+                self.assertEqual(m02['stage_level'], reviewed_m02['stage_level'])
+            self.assertEqual(next(p for p in generated['pledges'] if p['id'] == 'KOBE-M02')['budget_records'], reviewed_m02['budget_records'])
 
 if __name__ == '__main__': unittest.main()
