@@ -105,7 +105,11 @@ def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,
     manual_units=[u for u in result['fallback_units'] if u['source_url'] in changed]
     if manual_units or mapping_holds:
         emit('evidence_review_queue.json',{'holds':mapping_holds,'source_units':manual_units,
-                                              'verification_status':'unverified','publication_authorized':False})
+                                              'verification_status':'unverified','publication_authorized':False,
+                'changed_documents':[e for e in result['document_events'] if e['source_url'] in changed],
+                'index_changes':result['index_events'],
+                'current_index_evidence':[row for inv in result.get('inventories',{}).values()
+                    for url,rows in inv['links'].items() if url in changed_targets for row in rows]})
     if packet and not emit('review_packet.json',packet):
         packet = None
     status={'state':'review_pending' if packet else 'no_policy_diff','proposal_count':len(packet['changes']) if packet else 0,

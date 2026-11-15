@@ -84,6 +84,27 @@ class WeeklyTests(unittest.TestCase):
                 new=weekly.load(out/'run_status.json')['new_reviews']
                 self.assertEqual(bool(new),i!=1); seen.update(new)
 
+    def test_mapping_hold_keeps_each_replacement_version_for_review(self):
+        result={'document_events':[{'kind':'replacement_document','source_url':'index','after_sha256':'a'*64}],
+                'index_events':[{'kind':'link_changed','source_url':URL}], 'holds':[],
+                'fallback_units':[], 'state':{'documents':{},'indexes':{}},
+                'inventories':{'index':{'links':{URL:[{'locator':'fixture heading','index_sha256':'a'*64}]}}}}
+        bridge=MagicMock(); bridge.map_rule.side_effect=Hold('Source changed; manual mapping required')
+        config={'cities':{'kyoto':{'monitor_sources':[]}}}
+        rules=[{'policy_id':'P-03','source_specs':[{'source_url':URL}]}]
+        with tempfile.TemporaryDirectory() as d, patch.object(operations,'monitor',return_value=result):
+            seen={}
+            for i,sha in enumerate(['a','b']):
+                result['document_events'][0]['after_sha256']=sha*64
+                result['inventories']['index']['links'][URL][0]['index_sha256']=sha*64
+                out=Path(d)/str(i); out.mkdir()
+                operations.run_trial(bridge,config,base(),rules,out,base_revision='fixture',seen_reviews=seen)
+                queue=weekly.load(out/'evidence_review_queue.json')
+                self.assertEqual(queue['changed_documents'][0]['after_sha256'],sha*64)
+                self.assertEqual(queue['current_index_evidence'][0]['locator'],'fixture heading')
+                new=weekly.load(out/'run_status.json')['new_reviews']; self.assertEqual(len(new),1)
+                seen.update(new)
+
     def test_pdf_registry_cannot_enable_html_runner_or_expand_limit(self):
         config=weekly.load(Path(__file__).resolve().parents[2]/'config/mayor_update_sources.json')
         self.assertEqual(len(weekly.validate_plan(config)),3)
