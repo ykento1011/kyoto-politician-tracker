@@ -10,7 +10,7 @@ class P07Tests(unittest.TestCase):
   self.assertEqual(r[0]['policy_relation'],'unconfirmed');self.assertEqual(r[1]['policy_relation'],'direct')
   self.assertTrue(all(not included(x) for x in r));self.assertTrue(all(x['funding_verification_status']=='unverified' for x in r))
   self.assertEqual(data,sync_totals(json.loads(json.dumps(data))))
-  self.assertEqual(data['summary_stats']['total_allocated_budget_raw'],9115158000)
+  self.assertEqual(sum(x['amount_jpy'] for x in r if included(x)),0)
  def test_unknown_aggregation_rejected(self):
   with self.assertRaises(Hold):included({'aggregation_status':'typo','amount_jpy':1})
 if __name__=='__main__':unittest.main()

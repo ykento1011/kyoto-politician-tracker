@@ -3,7 +3,7 @@ from copy import deepcopy
 import sys
 import json
 from pathlib import Path
-from mayor_updates.projection import included, format_amount, preserve_published, sync_totals, BUDGET_TOTAL_NOTE, policies
+from mayor_updates.projection import budget_total, included, format_amount, preserve_published, sync_totals, BUDGET_TOTAL_NOTE, policies
 
 if sys.platform == "win32":
     try:
@@ -775,10 +775,7 @@ def calculate_summary_stats(pledges):
     official_plan_only = sum(1 for p in pledges if p["stage_level"] == 2)
     reviewing = sum(1 for p in pledges if p["stage_level"] == 1)
 
-    total_amount = sum(
-        sum(b["amount_jpy"] for b in p.get("budget_records", []) if included_in_budget_total(b))
-        for p in pledges
-    )
+    total_amount = budget_total(pledges)
 
     return {
         "total_pledges": total,
