@@ -109,6 +109,43 @@ class ReuseTests(unittest.TestCase):
         other=copy.deepcopy(self.fp);other["statement_ids"]=["1","2"]
         self.assertTrue(same_analysis_input(self.fp,other))
 
+
+class AgendaTests(unittest.TestCase):
+    def fixture(self):
+        return [
+            (367,"乙議員","副委員長（乙議員）",5,"路線の質問です。"),
+            (369,"役人","部長（役人）",6,"路線の答弁です。"),
+            (384,"委員長（進行委員）","委員長（進行委員）",4,
+             "本件はこの程度にとどめます。次に、陳情第4461号及び4462号、停留所の新設を一括して審査いたします。理事者、説明願います。"),
+            (385,"役人","部長（役人）",6,"陳情第4461号から4462号、停留所の新設について御説明いたします。"),
+            (387,"乙議員","副委員長（乙議員）",5,"停留所の質問です。"),
+            (389,"役人","部長（役人）",6,"停留所の答弁です。"),
+            (391,"乙議員","副委員長（乙議員）",5,"同じ停留所の再質問です。")]
+    def test_same_member_different_petition_splits_at_official_transition(self):
+        result=build(self.fixture())
+        self.assertFalse(result["holds"])
+        self.assertEqual([[r["sequence_number"] for r in t["related_statements"]] for t in result["threads"]],[[367,369,384],[387,389,391]])
+        self.assertEqual(result["agenda_evidence"][384]["explanation_sequence"],385)
+        self.assertNotIn("停留所",str(result["threads"][0]["context_log"]))
+    def test_omitted_parsed_chair_still_uses_original_transition(self):
+        spec=self.fixture()
+        result=t.build([statement(n,s,x) for n,s,_,_,x in spec if n!=384],
+                       [block(n,title,code,x) for n,_,title,code,x in spec],MASTER,lambda _:False)
+        self.assertEqual([[r["sequence_number"] for r in v["related_statements"]] for v in result["threads"]],[[367,369],[387,389,391]])
+    def test_unconfirmed_transition_is_held(self):
+        spec=self.fixture();spec[3]=(385,"役人","部長（役人）",6,"別件の説明です。")
+        self.assertEqual(build(spec)["holds"][0]["sequence"],384)
+    def test_keyword_in_question_does_not_split_same_agenda(self):
+        spec=self.fixture()[:2]
+        spec.extend([(371,"乙議員","副委員長（乙議員）",5,"次に、陳情第4461号を審査いたしますという前回の説明について、再質問します。"),
+                     (373,"役人","部長（役人）",6,"同じ路線について答弁します。")])
+        self.assertEqual(len(build(spec)["threads"]),1)
+    def test_chair_requestion_call_is_not_agenda_change(self):
+        spec=self.fixture()[:2]
+        spec.extend([(370,"委員長（進行委員）","委員長（進行委員）",4,"次に、乙副委員長。"),
+                     (371,"乙議員","副委員長（乙議員）",5,"再質問します。")])
+        self.assertEqual(len(build(spec)["threads"]),1)
+
 class ReceiptTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory(dir=repair.io.ARTIFACT,prefix="thread-repair-synthetic-")
@@ -168,6 +205,35 @@ class ReceiptTests(unittest.TestCase):
         with self.assertRaises(repair.io.Stop):self.invoke(resume=True)
         self.assertEqual(self.calls,1)
 
+    def test_content_review_covers_all_old_results_and_is_hash_bound(self):
+        review={"a":dict(decision="invalidate",reason="Changed semantic subject",source_reference="source1",reanalysis_instruction="Check subject")}
+        path=self.root/"review.json";repair.io.write_json(path,review)
+        cfg=dict(prior_content_review=str(path));pol=dict(prior_content_review_sha256=repair.io.digest(path.read_bytes()))
+        self.assertEqual(repair.reviewed_results(cfg,pol,["a"]),review)
+        with self.assertRaises(repair.io.Stop):repair.reviewed_results(cfg,pol,["a","b"])
+        review["a"]["decision"]="reuse";repair.io.write_json(path,review)
+        with self.assertRaises(repair.io.Stop):repair.reviewed_results(cfg,pol,["a"])
+        pol["prior_content_review_sha256"]=repair.io.digest(path.read_bytes())
+        with self.assertRaises(repair.io.Stop):repair.reviewed_results(cfg,pol,["a"])
+
+    def test_prior_repair_requires_bound_plan_and_charged_results(self):
+        self.plan.update(prior_estimated_jpy="0",reused_results={},selected_keys=["ssp_1_1_3"],
+                         threads=[dict(main_statement=dict(meeting_id="ssp_1_1",sequence_number=3))],
+                         original_raw_sha256="b"*64,code_sha256={},model=budget.MODEL)
+        manifest=dict(original_raw_sha256="b"*64)
+        self.plan["manifest_sha256"]=repair.io.digest(repair.intake.encode(manifest))
+        out=self.invoke();state=repair.intake.read_json(out/"receipt.json")
+        previous=dict(self.policy,thread_code_sha256={})
+        path=self.root/"previous-policy.json";repair.io.write_json(path,previous)
+        cfg=dict(self.config,prior_api_policy=str(path))
+        pol=dict(prior_api_policy_sha256=repair.io.digest(path.read_bytes()),prior_plan_sha256=repair.plan_digest(self.plan))
+        with patch.object(t,"fingerprint",return_value=self.plan["fingerprints"]["ssp_1_1_3"]):
+            fps,cost=repair.saved_repair_prior(cfg,pol,state,{},manifest)
+            self.assertEqual(fps,self.plan["fingerprints"]);self.assertGreater(cost,0)
+            changed=copy.deepcopy(state);changed["results"]["ssp_1_1_3"]["analysis"]["summary"]="tampered"
+            with self.assertRaises((repair.io.Stop,budget.BudgetStop)):repair.saved_repair_prior(cfg,pol,changed,{},manifest)
+            with self.assertRaises(repair.io.Stop):repair.saved_repair_prior(cfg,dict(pol,prior_plan_sha256="c"*64),state,{},manifest)
+
 @unittest.skipUnless(os.environ.get("KYOTO_REPAIR_TEST_CONFIG"),"Private saved-source fixture is not published")
 class Saved6356Tests(unittest.TestCase):
     def test_all_old_threads_and_197_source_boundary(self):
@@ -181,5 +247,20 @@ class Saved6356Tests(unittest.TestCase):
         self.assertEqual(second["councilor_key"],"谷口みゆき")
         self.assertFalse(any(r["sequence_number"]>=208 for r in first["related_statements"]))
         self.assertFalse(set(first["prompt_statement_ids"]) & set(second["prompt_statement_ids"]))
+
+@unittest.skipUnless(os.environ.get("KYOTO_AGENDA_TEST_CONFIG"),"Private saved-source fixture is not published")
+class Saved6355Tests(unittest.TestCase):
+    def test_reuse_semantic_rejection_and_petition_boundaries(self):
+        plan=make_plan(json.loads(Path(os.environ["KYOTO_AGENDA_TEST_CONFIG"]).read_text(encoding="utf-8-sig")))
+        self.assertEqual(len(plan["changes"]),12)
+        self.assertEqual(len(plan["reused_results"]),10)
+        self.assertEqual(set(plan["pending_keys"]),{"ssp_6355_1_159","ssp_6355_1_367","ssp_6355_1_387"})
+        by_seq={x["main_statement"]["sequence_number"]:x for x in plan["threads"]}
+        self.assertEqual(by_seq[367]["related_statements"][-1]["sequence_number"],384)
+        self.assertEqual(by_seq[387]["related_statements"][0]["sequence_number"],387)
+        self.assertFalse(set(by_seq[367]["prompt_statement_ids"]) & set(by_seq[387]["prompt_statement_ids"]))
+        self.assertNotIn("ssp_6355_1_385",by_seq[367]["prompt_statement_ids"])
+        self.assertEqual(plan["agenda_evidence"]["384"]["explanation_sequence"],385)
+        self.assertTrue(any(x["key"]=="ssp_6355_1_159" and x["disposition"]=="invalidated_content_review" for x in plan["changes"]))
 
 if __name__=="__main__":unittest.main()
