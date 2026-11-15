@@ -158,7 +158,8 @@ kobe_mayor_pledges = [
         "budget_records": [
             {
                 "fiscal_year": "令和8年度",
-                "project_name": "高校生等通学定期券全額補助・子育て支援事業",
+                "project_name": "高校生等通学定期券補助・子育て支援事業（登録内容・原典未確認）",
+                "original_project_name": "高校生等通学定期券全額補助・子育て支援事業",
                 "amount_display": "22億8,000万円",
                 "policy_relation": "unconfirmed",
                 "aggregation_status": "excluded",

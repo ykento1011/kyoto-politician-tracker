@@ -34,5 +34,8 @@ try {
   for(const text of ['22億8,000万円','原典未確認','市内高校等：全額、市外高校等：半額','市内在住','印刷p.6／PDF8ページ']) assert.ok(m02html.includes(text),text);
   for(const text of ['財源内訳：','全域拡大','2,549,822','2,545,222']) assert.ok(!m02html.includes(text),text);
   assert.ok(m02html.includes(m02.budget_records[0].doc_url));
+  assert.ok(m02html.includes('高校生等通学定期券補助・子育て支援事業（登録内容・原典未確認）'));
+  assert.ok(!m02html.includes('高校生等通学定期券全額補助・子育て支援事業'));
+  assert.equal(m02.budget_records[0].original_project_name, '高校生等通学定期券全額補助・子育て支援事業');
   console.log('PASS: Kobe M01 retained/excluded; unverified funding hidden; M02 unverified budget and precise conditions; other policies retained.');
 } finally {await server.close();}

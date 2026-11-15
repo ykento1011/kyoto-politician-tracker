@@ -45,6 +45,8 @@ class KobeM01Tests(unittest.TestCase):
         r = p['budget_records'][0]
         self.assertEqual(len(p['budget_records']), 1)
         self.assertEqual(r['amount_display'], '22億8,000万円')
+        self.assertEqual(r['project_name'], '高校生等通学定期券補助・子育て支援事業（登録内容・原典未確認）')
+        self.assertEqual(r['original_project_name'], '高校生等通学定期券全額補助・子育て支援事業')
         self.assertEqual(r['funding_sources'], [{'label': '一般財源', 'amount': '22億8,000万円'}])
         self.assertEqual(r['doc_url'], 'https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf')
         for key in ['evidence_status', 'funding_verification_status']:
@@ -93,6 +95,8 @@ class KobeM01Tests(unittest.TestCase):
                 self.assertEqual(m02['official_plan']['plan_name'], reviewed_m02['official_plan']['plan_name'])
                 self.assertEqual(m02['election_promise'], reviewed_m02['election_promise'])
                 self.assertEqual(m02['budget_records'][0]['policy_relation'], 'unconfirmed')
+                for key in ['project_name', 'original_project_name']:
+                    self.assertEqual(m02['budget_records'][0][key], reviewed_m02['budget_records'][0][key])
                 self.assertEqual(budget_total([m02]), 0)
                 self.assertEqual(m02['stage_level'], reviewed_m02['stage_level'])
             self.assertEqual(next(p for p in generated['pledges'] if p['id'] == 'KOBE-M02')['budget_records'], reviewed_m02['budget_records'])
