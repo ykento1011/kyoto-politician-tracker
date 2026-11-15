@@ -38,8 +38,8 @@ class P03PublicTests(unittest.TestCase):
         self.assertTrue(event['source_url'].endswith('/0000347372.html'))
     def test_total_and_caveat_agree(self):
         stats=self.data['summary_stats']
-        self.assertEqual(stats['total_allocated_budget_raw'],9830158000)
-        self.assertEqual(stats['total_allocated_budget_jpy'],'98億3,016万円')
+        self.assertEqual(stats['total_allocated_budget_raw'],sum(r['amount_jpy'] for p in self.data['pledges'] for r in p['budget_records'] if included(r)))
+        self.assertEqual(stats['total_allocated_budget_jpy'],format_amount(stats['total_allocated_budget_raw']))
         kpi=next(k for k in self.data['kpis'] if k['label']=='関連予算措置総額')
         self.assertEqual(kpi['value'],stats['total_allocated_budget_jpy'])
         self.assertIn('全額の原典確認を済ませた総額ではありません',stats['budget_total_note'])

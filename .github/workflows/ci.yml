@@ -31,8 +31,8 @@ jobs:
           python data-pipeline/audit_unified_integrity.py
           echo "::endgroup::"
 
-      - name: Test Kyoto P-03 data and generator (offline)
-        run: python -m unittest discover -s data-pipeline/tests -p "test_mayor_p03_public.py"
+      - name: Test Kyoto budget data and generator (offline)
+        run: python -m unittest discover -s data-pipeline/tests -p "test_mayor_p*_public.py"
 
       # 2. ビルドテスト
       - name: Set up Node.js
@@ -43,8 +43,10 @@ jobs:
       - name: Install frontend dependencies
         run: npm --prefix frontend ci
 
-      - name: Test Kyoto P-03 evidence display (offline)
-        run: node frontend/tests/test-p03-public.mjs
+      - name: Test Kyoto budget evidence display (offline)
+        run: |
+          node frontend/tests/test-p03-public.mjs
+          node frontend/tests/test-p07-public.mjs
 
       - name: Test frontend build
         run: npm --prefix frontend run build

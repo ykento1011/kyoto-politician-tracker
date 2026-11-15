@@ -35,10 +35,11 @@ export default function BudgetEvidence({ records, pledge, mayorInfo }) {
           return (
             <section key={(record.doc_url || 'budget') + '-' + index} className="bg-white rounded-lg border border-slate-200 p-3" data-budget-relation={Object.hasOwn(RELATIONS, record.policy_relation) ? record.policy_relation : 'unconfirmed'}>
               <span className={'inline-block text-[10px] font-bold px-2 py-0.5 rounded ' + relation.style}>{relation.label}</span>
-              <h3 className="text-xs font-bold text-slate-900 mt-2">{relation.title}</h3>
+              <h3 className="text-xs font-bold text-slate-900 mt-2">{record.aggregation_status === 'excluded' && record.policy_relation === 'direct' ? '事業目的との直接関係を確認した根拠' : relation.title}</h3>
               <p className="text-[11px] text-slate-600 mt-1">{record.fiscal_year}</p>
               <p className="text-xs text-slate-800 mt-2">{record.project_name}</p>
               <p className="text-lg font-black text-slate-900 mt-2">{record.amount_display}</p>
+              {record.aggregation_status === 'excluded' && <p className="text-[11px] font-bold text-slate-600 mt-1" data-budget-aggregation="excluded">集計対象外（政策との関係と、集計への加算可否は別です）</p>}
               {record.budget_note && <p className="text-[11px] text-slate-600 leading-relaxed mt-2">{record.budget_note}</p>}
               {record.funding_verification_status === 'verified' && record.funding_sources?.length > 0 && (
                 <div className="text-[11px] text-slate-600 mt-2">

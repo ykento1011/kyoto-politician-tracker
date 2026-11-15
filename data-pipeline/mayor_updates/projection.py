@@ -26,12 +26,16 @@ def format_amount(value, approximate=False):
     if type(value) is not int or value < 0:
         raise Hold('Expected nonnegative integer JPY')
     # Matches the existing P-01 display convention (nearest 10,000 yen).
+    if value == 0: return '0円'
     man = (value + 5000) // 10000
     oku, rem = divmod(man, 10000)
     return ('約' if approximate else '') + (f'{oku}億{rem:,}万円' if oku else f'{rem:,}万円')
 
 
 def included(record):
+    aggregation = record.get('aggregation_status')
+    if aggregation == 'excluded': return False
+    if aggregation not in {None, 'included'}: raise Hold('Unknown aggregation status')
     relation = record.get('policy_relation')
     if 'policy_relation' not in record:  # Preserve untouched legacy policies.
         return True
