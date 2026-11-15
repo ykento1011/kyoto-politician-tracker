@@ -25,8 +25,8 @@
       "official_plan_only": 2,
       "reviewing": 0
     },
-    "total_allocated_budget_jpy": "98億3,016万円",
-    "total_allocated_budget_raw": 9830158000,
+    "total_allocated_budget_jpy": "91億1,516万円",
+    "total_allocated_budget_raw": 9115158000,
     "accommodation_tax_revenue_jpy": "132億円（令和8年度見込）",
     "debt_repayment_jpy": "年間35億円ペース堅持",
     "budget_total_note": "登録済み予算の集計です。確認区分を付けた参考・未確認の予算は除外していますが、全額の原典確認を済ませた総額ではありません。"
@@ -506,7 +506,7 @@
       },
       "budget_records": [
         {
-          "fiscal_year": "令和8年度 当初予算",
+          "fiscal_year": "令和8年度当初予算（案・登録額の原典対応は未確認）",
           "project_name": "スタートアップ支援及び企業立地促進強化事業",
           "department": "産業観光局スタートアップ推進室",
           "amount_jpy": 715000000,
@@ -531,8 +531,60 @@
               "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
           ],
-          "doc_source": "令和8年度予算案主要事業説明書（産業観光局）",
-          "doc_url": "https://www.city.kyoto.lg.jp/menu2/category/26-13-0-0-0-0-0-0-0-0.html"
+          "doc_source": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局）印刷p.48〜64／物理1〜17ページを照合。登録額の根拠位置は未確認。",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+          "policy_relation": "unconfirmed",
+          "aggregation_status": "excluded",
+          "funding_verification_status": "unverified",
+          "budget_note": "登録値7億1,500万円は削除せず保持しています。今回確認した原典では、この登録事業名・金額と財源内訳の対応を確認できませんでした。直接予算の集計から除外しています。下の個別事業が登録額の内訳かも未確認のため、加算・置換しません。"
+        },
+        {
+          "fiscal_year": "令和8年度当初予算（案）",
+          "project_name": "京都スタートアップ・海外展開支援プロジェクト",
+          "amount_jpy": 99000000,
+          "amount_display": "9,900万円",
+          "policy_relation": "direct",
+          "aggregation_status": "excluded",
+          "funding_verification_status": "unverified",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+          "doc_source": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局） 印刷p.48／物理1ページ",
+          "budget_note": "全体事業費9,900万円のうち充実分3,650万円。充実分は全体額に含まれ、補正による増額ではありません。支援目的の関連は確認できますが、既存登録額との重複・専用充当額が未確認のため集計対象外です。"
+        },
+        {
+          "fiscal_year": "令和8年度当初予算（案）",
+          "project_name": "ユース・アントレプレナーシップ（起業家精神）プログラム",
+          "amount_jpy": 25000000,
+          "amount_display": "2,500万円",
+          "policy_relation": "direct",
+          "aggregation_status": "excluded",
+          "funding_verification_status": "unverified",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+          "doc_source": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局） 印刷p.50／物理3ページ",
+          "budget_note": "スタートアップ創出に向けた支援を原文で確認。既存登録額との重複・政策への専用充当額は未確認のため、集計対象外です。予算案であり実施・達成の認定ではありません。"
+        },
+        {
+          "fiscal_year": "令和8年度当初予算（案）",
+          "project_name": "企業立地促進助成",
+          "amount_jpy": 0,
+          "amount_display": "0円",
+          "policy_relation": "contextual",
+          "aggregation_status": "excluded",
+          "funding_verification_status": "unverified",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+          "doc_source": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局） 印刷p.52〜53／物理5〜6ページ",
+          "budget_note": "予算欄は0円で「債務負担行為設定あり」。事業全体の予算がないという意味ではありません。債務負担の限度額・期間、P-07への直接充当は未確認です。補助上限を事業総額として扱いません。"
+        },
+        {
+          "fiscal_year": "令和8年度9月補正（議決確認は未実施）",
+          "project_name": "中小企業デジタル化推進事業",
+          "amount_jpy": 244000000,
+          "amount_display": "2億4,400万円",
+          "policy_relation": "contextual",
+          "aggregation_status": "excluded",
+          "funding_verification_status": "unverified",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809nagatyou.pdf",
+          "doc_source": "令和8年度9月補正予算の概要 印刷p.1・3／物理1・3ページ",
+          "budget_note": "今回の補正増額2億4,400万円。中小企業支援として関連しますが、P-07への直接対応は未確認です。繰越明許費欄にも同額がありますが二重加算しません。"
         }
       ],
       "legislative_bill": null,
@@ -965,7 +1017,7 @@
     },
     {
       "label": "関連予算措置総額",
-      "value": "98億3,016万円",
+      "value": "91億1,516万円",
       "subtext": "登録額の集計（原典確認状況は記録ごとに異なります）",
       "badge": "参考・未確認分を除外"
     },

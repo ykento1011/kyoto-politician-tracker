@@ -22,7 +22,7 @@ try {
   assert.equal((markup.match(/公式資料（HTML）を確認/g)||[]).length,1);
   for(const text of ['約1億9,000万円','1億2,400万円','印刷p.188','物理16','2026-11-05',
     '令和10年度中','新たな開始時期は未定','整備工事が一時停止','過去の契約・実施記録',
-    'これまでの到達段階','98億3,016万円','全額の原典確認を済ませた総額ではありません']) assert.ok(markup.includes(text),text);
+    'これまでの到達段階',data.summary_stats.total_allocated_budget_jpy,'全額の原典確認を済ませた総額ではありません']) assert.ok(markup.includes(text),text);
   for(const text of ['財源内訳：','4,000万円','7,000万円','1,400万円','data-budget-relation="direct"']) assert.ok(!markup.includes(text),text);
   assert.ok(markup.includes(policy.milestone.title));
   assert.ok(markup.includes(policy.latest_update.source_url));
