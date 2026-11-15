@@ -118,16 +118,57 @@ class PDFTests(unittest.TestCase):
             self.assertEqual(load(Path(d)/'preflight.json')['limits']['max_total_received_bytes'],25165824)
 
 class BundleTests(unittest.TestCase):
-    def gate(self):
+    def gate(self, root, *, due='2026-11-15T11:00:00+09:00'):
+        xml=f'''<Task xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+        <RegistrationInfo><URI>\\GikaiMikata-Kyoto-Mayor-Weekly</URI></RegistrationInfo>
+        <Principals><Principal><LogonType>InteractiveToken</LogonType></Principal></Principals>
+        <Settings><AllowStartOnDemand>false</AllowStartOnDemand></Settings>
+        <Triggers><TimeTrigger id="proof"><StartBoundary>{due}</StartBoundary></TimeTrigger>
+        <CalendarTrigger><StartBoundary>2026-11-16T09:00:00+09:00</StartBoundary></CalendarTrigger></Triggers></Task>'''
+        observation={'task_name':'GikaiMikata-Kyoto-Mayor-Weekly','registered_at':'2026-11-15T10:50:00+09:00',
+                     'last_run':due,'last_result':0,'state':'Ready','checked_at':'2026-11-15T11:02:00+09:00'}
+        evidence={}
+        for name,text in [('task_before',xml),('task_after',xml),('observation',json.dumps(observation))]:
+            path=root/name; path.write_text(text,encoding='utf-8'); evidence[name]={'path':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
         return {'state':'scheduled_run_verified','task_name':'GikaiMikata-Kyoto-Mayor-Weekly','task_last_result':0,
-                'started_at':'2026-11-16T09:00:00+09:00','finished_at':'2026-11-16T09:01:00+09:00',
-                'html_get_requests':3,'public_writes':0,'cas_integrity_pass':True,'state_consistent':True}
+                'scheduled_for':due,'trigger_id':'proof','started_at':due,'finished_at':'2026-11-15T11:01:00+09:00',
+                'html_get_requests':3,'public_writes':0,'cas_integrity_pass':True,'state_consistent':True,
+                'scheduler_evidence':evidence}
 
-    def test_future_or_missed_autorun_cannot_activate_bundle(self):
-        with self.assertRaises(Hold): weekly_bundle.verify_autorun(self.gate(),datetime.fromisoformat('2026-11-15T12:00:00+09:00'))
-        bad=self.gate(); bad['state']='scheduled_run_not_met'
-        with self.assertRaises(Hold): weekly_bundle.verify_autorun(bad,datetime.fromisoformat('2026-11-16T12:00:00+09:00'))
-        weekly_bundle.verify_autorun(self.gate(),datetime.fromisoformat('2026-11-16T12:00:00+09:00'))
+    def test_early_scheduled_proof_and_future_or_missed_run(self):
+        with tempfile.TemporaryDirectory() as d,patch.object(weekly_bundle.weekly,'assert_owner_only'):
+            gate=self.gate(Path(d))
+            weekly_bundle.verify_autorun(gate,datetime.fromisoformat('2026-11-15T12:00:00+09:00'))
+            with self.assertRaises(Hold): weekly_bundle.verify_autorun(gate,datetime.fromisoformat('2026-11-15T10:00:00+09:00'))
+            gate['state']='scheduled_run_not_met'
+            with self.assertRaises(Hold): weekly_bundle.verify_autorun(gate,datetime.fromisoformat('2026-11-15T12:00:00+09:00'))
+
+    def test_missing_or_inconsistent_run_proof_stops(self):
+        with tempfile.TemporaryDirectory() as d,patch.object(weekly_bundle.weekly,'assert_owner_only'):
+            gate=self.gate(Path(d)); now=datetime.fromisoformat('2026-11-15T12:00:00+09:00')
+            for field,value in [('scheduler_evidence',{}),('task_name','another-task'),('trigger_id','wrong'),
+                    ('scheduled_for','2026-11-15T10:59:00+09:00'),('task_last_result',1),('public_writes',1),
+                    ('cas_integrity_pass',False),('state_consistent',False),('html_get_requests',0),
+                    ('started_at','2026-11-15T11:04:00+09:00')]:
+                with self.subTest(field=field),self.assertRaises(Hold):
+                    weekly_bundle.verify_autorun({**gate,field:value},now)
+
+    def test_manual_start_changed_task_and_unpinned_evidence_stop(self):
+        with tempfile.TemporaryDirectory() as d,patch.object(weekly_bundle.weekly,'assert_owner_only'):
+            root=Path(d); now=datetime.fromisoformat('2026-11-15T12:00:00+09:00')
+            for mode in ('manual_allowed','changed_task','tampered_hash','wrong_task','failed_result'):
+                gate=self.gate(root)
+                if mode=='failed_result':
+                    spec=gate['scheduler_evidence']['observation']; path=Path(spec['path'])
+                    obj=json.loads(path.read_text()); obj['last_result']=1; path.write_text(json.dumps(obj))
+                    spec['sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+                else:
+                    for name in ('task_before','task_after') if mode in ('manual_allowed','wrong_task') else ('task_after',):
+                        spec=gate['scheduler_evidence'][name]; path=Path(spec['path']); text=path.read_text()
+                        text=text.replace('false','true') if mode!='wrong_task' else text.replace('GikaiMikata','Other')
+                        path.write_text(text)
+                        if mode!='tampered_hash': spec['sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+                with self.subTest(mode=mode),self.assertRaises(Hold): weekly_bundle.verify_autorun(gate,now)
 
     def test_combined_limits_and_separate_states(self):
         a={'state_root':'HTML','snapshot_root':'CAS','baseline':{'sha256':'a'}}
