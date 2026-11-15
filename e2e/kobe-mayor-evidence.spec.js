@@ -15,5 +15,10 @@ test('Kobe M01 keeps unconfirmed amount and source without showing funding as co
  await expect(record.getByRole('link',{name:'公式資料（PDF）を確認'})).toHaveAttribute('href',data.pledges[0].budget_records[0].doc_url);
  await expect(page.getByText('掲載答弁記録',{exact:true})).toBeVisible();
  await expect(page.getByText('関連予算総額',{exact:true})).toHaveCount(0);
- for(const policy of data.pledges.slice(1)) await expect(page.getByText(policy.budget_records[0].amount_display,{exact:true})).toBeVisible();
+ for(const policy of data.pledges.slice(1)) {
+  const card=page.locator('div.rounded-2xl').filter({has:page.getByText(policy.id,{exact:true})});
+  const amount=card.locator('span.text-base.font-black');
+  await expect(amount).toHaveText(policy.budget_records[0].amount_display);
+  await expect(amount).toBeVisible();
+ }
 });
