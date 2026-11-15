@@ -193,7 +193,7 @@ def prepare(config,root):
     return stage
 
 
-def private_project(stage,receipt_path,public_summary,root):
+def private_project(stage,receipt_path,public_summary,root,*,repair_config=None):
     """Reuse the accepted private adapter on a new empty copy; never regenerate public files."""
     stage=io.safe_path(stage)
     if stage.parent.resolve()!=root.resolve(): raise io.Stop("Stage is not in selected private root")
@@ -210,14 +210,24 @@ def private_project(stage,receipt_path,public_summary,root):
     rows=intake.read_json(stage/"data-pipeline/kyoto_raw_statements.json")
     ns=budget.legacy_functions(stage/"data-pipeline/batch_analyze_council.py",None,
                               stage/"data-pipeline/master/councilors_kyoto.json")
-    threads=[t for t in ns["build_debate_threads"](rows) if not ns["is_procedural_or_voting"](t)]
+    repaired = None
+    if repair_config is not None:
+        import kyoto_thread_repair
+        repaired, checked = kyoto_thread_repair.verified(repair_config,receipt_path)
+        if checked != receipt:
+            raise io.Stop("Repair receipt changed during projection")
+        threads = repaired["threads"]
+    else:
+        if binding.get("thread_revision"):
+            raise io.Stop("Repair receipt requires its explicit revision config")
+        threads=[t for t in ns["build_debate_threads"](rows) if not ns["is_procedural_or_voting"](t)]
     selected={str(t["main_statement"]["meeting_id"])+"_"+str(t["main_statement"]["sequence_number"]):t
               for t in threads[:budget.MAX_THREADS]}
     if set(selected)!=set(receipt["results"]) or receipt.get("success")!=len(selected):
         raise io.Stop("Results do not cover selected threads")
     charged={a["thread_id"]:a for a in receipt.get("api_attempts",[]) if a.get("status")=="success"}
-    if set(charged)!=set(selected) or any(charged[k].get("analysis")!=v.get("analysis")
-                                        for k,v in receipt["results"].items()):
+    if repaired is None and (set(charged)!=set(selected) or any(charged[k].get("analysis")!=v.get("analysis")
+                                        for k,v in receipt["results"].items())):
         raise io.Stop("Result is not backed by the saved successful response")
     indexed={r["id"]:r for r in rows}
     zero={k:0 for k in ("evidence","solution","local_focus","constructive")}
@@ -227,6 +237,10 @@ def private_project(stage,receipt_path,public_summary,root):
     for key,result in receipt["results"].items():
         if result.get("status")!="analysis_success" or key not in indexed:raise io.Stop("Invalid result")
         indexed[key]["analysis"]=dict(budget.validate_result(result["analysis"]),is_evaluated=True)
+        if repaired is not None:
+            # Only the new summary uses the official master name. Original input
+            # and timeline speaker labels remain untouched and traceable.
+            indexed[key]["speaker"]=selected[key]["councilor_key"]
     with intake.private_transaction(root) as (work,completed):
         for name,sha in manifest["files"].items():
             src=io.safe_path(stage/name)
@@ -243,15 +257,22 @@ def private_project(stage,receipt_path,public_summary,root):
         env=dict(__file__=str(source),json=json,os=os,re=re,Path=Path)
         exec(compile(ast.fix_missing_locations(ast.Module(body=body,type_ignores=[])),str(source),"exec"),env)
         env["generate_summary"]()
-        source=pipeline/"build_timeline_contexts.py"
-        tree=ast.parse(source.read_text(encoding="utf-8-sig"))
-        funcs=[n for n in tree.body if isinstance(n,ast.FunctionDef) and
-               n.name in {"load_councilors","fetch_raw_statements","build_timelines"}]
-        if len(funcs)!=3 or (work/"frontend/public/data/timelines").exists():
-            raise io.Stop("Timeline output must be new and empty")
-        env=dict(PROJECT_ROOT=work,Path=Path,os=os,json=json,re=re,shutil=shutil)
-        exec(compile(ast.fix_missing_locations(ast.Module(body=funcs,type_ignores=[])),str(source),"exec"),env)
-        env["build_timelines"]("kyoto")
+        if repaired is not None:
+            import kyoto_thread_contract
+            timelines=work/"frontend/public/data/timelines"
+            timelines.mkdir()
+            content=kyoto_thread_contract.timeline(threads,repaired["roles"])
+            (timelines/(rows[0]["meeting_id"]+".json")).write_bytes(intake.encode(content))
+        else:
+            source=pipeline/"build_timeline_contexts.py"
+            tree=ast.parse(source.read_text(encoding="utf-8-sig"))
+            funcs=[n for n in tree.body if isinstance(n,ast.FunctionDef) and
+                   n.name in {"load_councilors","fetch_raw_statements","build_timelines"}]
+            if len(funcs)!=3 or (work/"frontend/public/data/timelines").exists():
+                raise io.Stop("Timeline output must be new and empty")
+            env=dict(PROJECT_ROOT=work,Path=Path,os=os,json=json,re=re,shutil=shutil)
+            exec(compile(ast.fix_missing_locations(ast.Module(body=funcs,type_ignores=[])),str(source),"exec"),env)
+            env["build_timelines"]("kyoto")
     return intake.assemble(completed,public_summary,root)
 
 

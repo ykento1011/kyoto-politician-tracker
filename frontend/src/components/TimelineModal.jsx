@@ -8,7 +8,7 @@ import KyotoMinuteGuideLink from './KyotoMinuteGuideLink';
 /**
  * 発言録アイテムコンポーネント（チャットバブル & 行数制限アコーディオン）
  */
-function TimelineMessageItem({ msg }) {
+function TimelineMessageItem({ msg, cityCode, targetStatement }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const text = msg.statement_text || msg.summary || msg.statement_summary || msg.question_summary || '（質疑テキスト）';
 
@@ -17,7 +17,18 @@ function TimelineMessageItem({ msg }) {
   const isLongText = text.length >= 180 || lineCount >= 4;
 
   // 質問（議員） vs 答弁（首長・行政幹部）の判定
-  const isQuestion = msg.is_target || (!msg.is_admin && msg.speaker && !msg.speaker.includes('市長') && !msg.speaker.includes('副市長') && !msg.speaker.includes('局長') && !msg.speaker.includes('部長') && !msg.speaker.includes('委員長') && !msg.speaker.includes('議長'));
+  const isKyotoSsp = cityCode === 'kyoto' && /^ssp_\d+_\d+$/.test(targetStatement?.meeting_id || '');
+  const normalizedMember = (value) => {
+    const name = String(value || '').normalize('NFKC').replace(/\s+/g, '');
+    const titled = name.match(/^(?:委員|議員|委員長|副委員長|分科会長|副分科会長|議長|副議長|主査|副主査)\(([^()]+)\)$/);
+    return titled ? titled[1] : name;
+  };
+  const isProcedure = isKyotoSsp && msg.is_short_procedural === true;
+  // SSP原表記は保持し、検証済みの対象議員による再質問だけを同じ氏名として扱う。
+  const isSameMember = isKyotoSsp && msg.is_admin === false && !isProcedure &&
+    normalizedMember(targetStatement?.speaker) !== '' &&
+    normalizedMember(msg.speaker) === normalizedMember(targetStatement?.speaker);
+  const isQuestion = !isProcedure && (isSameMember || msg.is_target || (!msg.is_admin && msg.speaker && !msg.speaker.includes('市長') && !msg.speaker.includes('副市長') && !msg.speaker.includes('局長') && !msg.speaker.includes('部長') && !msg.speaker.includes('委員長') && !msg.speaker.includes('議長')));
 
   const bubbleBg = isQuestion
     ? 'bg-indigo-50/70 border-l-4 border-indigo-500 text-slate-800'
@@ -27,7 +38,7 @@ function TimelineMessageItem({ msg }) {
     ? 'from-indigo-50/90 to-transparent'
     : 'from-slate-50/90 to-transparent';
 
-  const roleBadge = isQuestion ? '質問' : (msg.is_admin ? '答弁 / 進行' : '答弁');
+  const roleBadge = isProcedure ? '進行' : (isQuestion ? '質問' : (msg.is_admin ? '答弁 / 進行' : '答弁'));
   const badgeColor = isQuestion
     ? 'bg-indigo-100 text-indigo-700 border-indigo-200'
     : 'bg-slate-200/80 text-slate-700 border-slate-300';
@@ -201,6 +212,8 @@ export default function TimelineModal({
                   <TimelineMessageItem 
                     key={idx} 
                     msg={msg} 
+                    cityCode={cityCode}
+                    targetStatement={targetStatement}
                   />
                 );
               })}

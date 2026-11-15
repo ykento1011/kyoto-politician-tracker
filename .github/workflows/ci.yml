@@ -31,6 +31,9 @@ jobs:
           python data-pipeline/audit_unified_integrity.py
           echo "::endgroup::"
 
+      - name: Test Kyoto speaker and thread repair (offline)
+        run: python -m unittest discover -s tests -p "test_kyoto_thread_repair.py"
+
       - name: Test Kyoto budget data and generator (offline)
         run: python -m unittest discover -s data-pipeline/tests -p "test_mayor_p*_public.py"
 
