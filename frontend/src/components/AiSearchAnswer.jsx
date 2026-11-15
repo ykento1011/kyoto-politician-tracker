@@ -5,6 +5,7 @@ import {
   FileText, MessageSquareQuote
 } from 'lucide-react';
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
+import KyotoMinuteGuideLink from './KyotoMinuteGuideLink';
 import { getCityDataUrl } from '../config/cities';
 
 // 質疑データから動的タイムラインとメタデータを構築する関数
@@ -306,15 +307,18 @@ export default function AiSearchAnswer({ query, filteredThreads, cityCode = 'kyo
                     <span className="font-bold text-slate-800 mr-2">【{phase.period}】</span>
                     <span className="text-slate-600">{ex.meeting_title} ({ex.meeting_date})</span>
                   </div>
-                  <button
-                    onClick={() => openOfficialMinute(ex)}
-                    title={getOfficialLinkTooltip(ex)}
-                    className="inline-flex items-center text-[11px] font-bold text-slate-700 hover:text-indigo-600 bg-white hover:bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg transition-colors cursor-pointer shrink-0 shadow-2xs"
-                  >
-                    <Landmark className="w-3 h-3 mr-1 text-indigo-600" />
-                    <span>議事録原本を確認</span>
-                    <ExternalLink className="w-2.5 h-2.5 ml-1 text-slate-400" />
-                  </button>
+                  <div className="space-y-2 sm:max-w-xs">
+                    <button
+                      onClick={() => openOfficialMinute(ex)}
+                      title={getOfficialLinkTooltip(ex)}
+                      className="inline-flex items-center text-[11px] font-bold text-slate-700 hover:text-indigo-600 bg-white hover:bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg transition-colors cursor-pointer shrink-0 shadow-2xs"
+                    >
+                      <Landmark className="w-3 h-3 mr-1 text-indigo-600" />
+                      <span>議事録原本を確認</span>
+                      <ExternalLink className="w-2.5 h-2.5 ml-1 text-slate-400" />
+                    </button>
+                    <KyotoMinuteGuideLink statement={ex} cityCode={cityCode} />
+                  </div>
                 </div>
               );
             })}
@@ -388,6 +392,7 @@ export default function AiSearchAnswer({ query, filteredThreads, cityCode = 'kyo
                         <ExternalLink className="w-2.5 h-2.5 ml-1 text-slate-400" />
                       </button>
                     </div>
+                    <KyotoMinuteGuideLink statement={item} cityCode={cityCode} />
 
                     <div className="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed shadow-xs">
                       <div className="font-bold text-slate-900 mb-1">

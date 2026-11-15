@@ -3,6 +3,7 @@ import { MessageCircle, X, Loader2, ChevronUp, Landmark, ExternalLink } from 'lu
 import { openOfficialMinute, getOfficialLinkTooltip } from '../utils/officialLink';
 import useScrollLock from '../hooks/useScrollLock';
 import { useSwipeToClose } from '../hooks/useSwipeToClose';
+import KyotoMinuteGuideLink from './KyotoMinuteGuideLink';
 
 /**
  * 発言録アイテムコンポーネント（チャットバブル & 行数制限アコーディオン）
@@ -210,6 +211,7 @@ export default function TimelineModal({
         </div>
 
         {/* 下部 Sticky アクションバー（原本リンク & 44px閉じるボタン & Safe Area対応） */}
+        <KyotoMinuteGuideLink statement={targetStatement} cityCode={cityCode} className="px-3 pb-2" />
         <div className="sticky bottom-0 bg-white/95 backdrop-blur border-t border-slate-100 p-3 pb-safe flex items-center gap-2 z-10 shrink-0">
           {targetStatement && (
             <button
