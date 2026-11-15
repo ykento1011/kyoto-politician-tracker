@@ -1,7 +1,9 @@
 import os
+from copy import deepcopy
 import sys
 import json
 from pathlib import Path
+from mayor_updates.projection import included, format_amount, preserve_published, sync_totals, BUDGET_TOTAL_NOTE, policies
 
 if sys.platform == "win32":
     try:
@@ -745,15 +747,24 @@ PLEDGES_MASTER = [
 ]
 
 def included_in_budget_total(record):
-    # Existing unannotated policies keep their legacy treatment. Reviewed records
-    # contribute only when directly linked; references/unknown values are excluded.
-    return "policy_relation" not in record or record["policy_relation"] == "direct"
+    return included(record)
 
 
 def format_budget_total(amount_jpy):
-    total_man = (amount_jpy + 5000) // 10000
-    oku, man = divmod(total_man, 10000)
-    return f"{oku}億{man:,}万円" if oku else f"{man:,}万円"
+    return format_amount(amount_jpy)
+
+
+def generation_pledges(published_path=None):
+    # Read only the tracked accepted public baseline, never private review drafts.
+    path = published_path or (BASE_DIR.parent / "frontend/public/data/kyoto_mayor_tracker.json")
+    if not path.exists():
+        raise ValueError("Accepted public baseline required to protect reviewed updates")
+    published = json.loads(path.read_text(encoding="utf-8-sig"))
+    if policies({"pledges": PLEDGES_MASTER}).keys() != policies(published).keys():
+        raise ValueError("Policy inventory changed; explicit review required")
+    # Accepted records, including unannotated policies and historical milestones,
+    # must not be replaced by stale seed constants. New facts use the review path.
+    return deepcopy(published["pledges"])
 
 
 def calculate_summary_stats(pledges):
@@ -780,28 +791,27 @@ def calculate_summary_stats(pledges):
         },
         "total_allocated_budget_jpy": format_budget_total(total_amount),
         "total_allocated_budget_raw": total_amount,
+        "budget_total_note": BUDGET_TOTAL_NOTE,
         "accommodation_tax_revenue_jpy": "132億円（令和8年度見込）",
         "debt_repayment_jpy": "年間35億円ペース堅持"
     }
 
+def generation_output(published_path=None):
+    path = published_path or (BASE_DIR.parent / "frontend/public/data/kyoto_mayor_tracker.json")
+    accepted = json.loads(path.read_text(encoding="utf-8-sig"))
+    output = deepcopy(accepted)
+    output["pledges"] = generation_pledges(path)
+    return sync_totals(output)
+
+
 def main():
-    print("=== 京都市長（松井孝治）政策ライフサイクル×新京都戦略（確定版）トラッカー データ構築 ===")
+    output_data = generation_output()
     OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    summary_stats = calculate_summary_stats(PLEDGES_MASTER)
-
-    output_data = {
-        "mayor_info": MAYOR_INFO,
-        "summary_stats": summary_stats,
-        "pledges": PLEDGES_MASTER
-    }
-
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
+    print(f"出力ファイル: {OUTPUT_JSON}")
+    print(f"関連予算の登録額集計: {output_data['summary_stats']['total_allocated_budget_jpy']}")
 
-    print(f"✓ 登録公約数: {summary_stats['total_pledges']} 項目")
-    print(f"✓ 新京都戦略（確定版）連携: 14項目完了")
-    print(f"✓ 公約関連投入予算総額: {summary_stats['total_allocated_budget_jpy']}")
-    print(f"✓ 出力ファイル: {OUTPUT_JSON}")
 
 if __name__ == "__main__":
     main()
