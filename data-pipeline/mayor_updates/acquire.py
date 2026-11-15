@@ -39,33 +39,39 @@ def assert_owner_only(root):
     return json.loads(result.stdout)
 
 
-def validate_sources(sources):
+def validate_sources(sources, *, media_type="html"):
+    if media_type not in {"html", "pdf"}: raise Hold("Unsupported acquisition medium")
     urls=set()
     for source in sources:
         parsed=urlsplit(source['url'])
         if (parsed.scheme!='https' or parsed.netloc!='www.city.kyoto.lg.jp' or
-            parsed.fragment or parsed.query or not parsed.path.endswith('.html') or
-            source['url'] in urls or source['max_bytes']!=2097152 or
+            parsed.fragment or parsed.query or not parsed.path.endswith('.'+media_type) or
+            source['url'] in urls or source.get('media_type','html')!=media_type or
+            (source['max_bytes']!=2097152 if media_type=='html' else source['max_bytes'] not in {2097152,20971520}) or
             source['document_kind'] not in {'budget_index','other_official'} or
             type(source['fiscal_year']) is not int):
-            raise Hold('Invalid fixed Kyoto HTML scope')
+            raise Hold('Invalid fixed Kyoto acquisition scope')
         urls.add(source['url'])
+    if sum(s['max_bytes'] for s in sources) > (6291456 if media_type=='html' else 25165824):
+        raise Hold('Aggregate receive budget exceeded')
     if len(sources)>3 or not sources:
-        raise Hold('This initial Kyoto connection is limited to three fixed pages')
+        raise Hold('This initial Kyoto connection is limited to three fixed documents')
 
 
-def worker(code_root,snapshot_root,source,output):
+def worker(code_root,snapshot_root,source,output,*,media_type="html"):
     out=PrivateOutput(output)
     marker=out.root/'single_get_started.json'
     if not marker.exists() or json.loads(marker.read_text(encoding='utf-8'))['source_url'] != source['url']:
         raise Hold('Worker requires a matching parent authorization intent')
+    if json.loads(marker.read_text(encoding='utf-8')).get('media_type','html') != media_type:
+        raise Hold('Parent authorization medium mismatch')
     out.json('worker_consumed.json',{'source_url':source['url'],'at_utc':utc()})
     bridge=P1Bridge(code_root,snapshot_root)
     from budget.fetch import SourceFetcher,UrllibTransport
     from budget.adapters.kyoto import DiscoveredDocument
     url=source['url']; year=source['fiscal_year']
     doc=DiscoveredDocument(url,source['title'],f'令和{year-2018}年度',year,
-                           'html',source['document_kind'],'unknown',None,
+                           media_type,source['document_kind'],'unknown',None,
                            url,url,None,None,'discovered_unverified',())
     result=SourceFetcher(bridge.store,transport=UrllibTransport(),
                          allowed_hosts=frozenset({'www.city.kyoto.lg.jp'}),
@@ -74,19 +80,20 @@ def worker(code_root,snapshot_root,source,output):
     PrivateOutput(output).json('worker_outcome.json',asdict(result))
 
 
-def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,refresh=False):
+def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,refresh=False,media_type="html"):
     if not authorized:
         raise Hold('Explicit one-shot acquisition authorization required')
-    validate_sources(sources)
+    validate_sources(sources,media_type=media_type)
     out=PrivateOutput(output)
     # ACLs are verified, never changed. Both run receipts and originals are private.
     acl={'output':assert_owner_only(out.root),'snapshot':assert_owner_only(snapshot_root)}
     bridge=P1Bridge(code_root,snapshot_root)
     out.json('preflight.json',{'at_utc':utc(),'acl':acl,'code_sha256':bridge.hashes,
-          'sources':sources,'refresh_existing':refresh,'network_scope':'fixed HTML only',
+          'sources':sources,'refresh_existing':refresh,'network_scope':'fixed '+media_type+' only',
           'limits':{'get_per_url':1,'tls_verify':True,'redirects':0,'retries':0,
-                    'wall_timeout_seconds':10,'max_received_bytes':2097152,
-                    'max_accepted_bytes':2097151},'cas_before':bridge.store.verify_integrity()})
+                    'wall_timeout_seconds':10,'max_received_bytes':max(s['max_bytes'] for s in sources),
+                    'max_total_received_bytes':sum(s['max_bytes'] for s in sources),
+                    'max_accepted_bytes':max(s['max_bytes'] for s in sources)-1},'cas_before':bridge.store.verify_integrity()})
     receipts=[]
     for source in sources:
         url=source['url']; history=bridge.store.read_index()['documents'].get(url)
@@ -100,9 +107,9 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
             run=out.root/key; run.mkdir(exist_ok=False)
             runout=PrivateOutput(run)
             runout.json('source.json',source)
-            runout.json('single_get_started.json',{'at_utc':utc(),'source_url':url,'authorized_max_get':1})
+            runout.json('single_get_started.json',{'at_utc':utc(),'source_url':url,'authorized_max_get':1,'media_type':media_type})
             cmd=[sys.executable,'-B','-m','mayor_updates.acquire','--worker','--p1-code-root',str(code_root),
-                 '--snapshot-root',str(snapshot_root),'--source-file',str(run/'source.json'),'--output',str(run)]
+                 '--snapshot-root',str(snapshot_root),'--media-type',media_type,'--source-file',str(run/'source.json'),'--output',str(run)]
             env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1','PYTHONIOENCODING':'utf-8',
                  'PYTHONPATH':str(Path(__file__).resolve().parents[1])}
             try:
@@ -143,18 +150,19 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument('--worker',action='store_true'); p.add_argument('--p1-code-root',required=True)
     p.add_argument('--snapshot-root',required=True); p.add_argument('--output',required=True)
+    p.add_argument('--media-type',choices=('html','pdf'),default='html')
     p.add_argument('--source-file'); p.add_argument('--sources')
     p.add_argument('--authorized-single-run',action='store_true')
     p.add_argument('--refresh-existing',action='store_true')
     a=p.parse_args()
     if a.worker:
         source=json.loads(Path(a.source_file).read_text(encoding='utf-8-sig'))
-        validate_sources([source])
-        worker(a.p1_code_root,a.snapshot_root,source,a.output)
+        validate_sources([source],media_type=a.media_type)
+        worker(a.p1_code_root,a.snapshot_root,source,a.output,media_type=a.media_type)
     else:
         sources=json.loads(Path(a.sources).read_text(encoding='utf-8-sig'))
         result=capture_sources(a.p1_code_root,a.snapshot_root,sources,a.output,
-                               authorized=a.authorized_single_run,refresh=a.refresh_existing)
+                               authorized=a.authorized_single_run,refresh=a.refresh_existing,media_type=a.media_type)
         print(json.dumps(result,ensure_ascii=False))
         if result['stopped']: sys.exit(2)
 

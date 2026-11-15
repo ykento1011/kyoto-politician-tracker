@@ -86,11 +86,11 @@ def request_plan(config, city, *, groups=None):
             'missing_index_groups':[g for g in sorted(groups) if not cfg['source_groups'][g]['index_urls']]}
 
 
-def pdf_request_plan(config):
+def pdf_request_plan(config, *, allow_enabled=False):
     """Next-phase fixed PDF plan only. Never fetch or enable PDF monitoring."""
     from urllib.parse import urlsplit
     scope=config['pdf_watch']; sources=scope['sources']
-    if scope.get('enabled') or scope.get('requires_separate_activation') is not True:
+    if (scope.get('enabled') and not allow_enabled) or scope.get('requires_separate_activation') is not True:
         raise Hold('PDF acquisition requires a separate activation decision')
     if not 1 <= len(sources) <= 3 or scope['max_requests_per_run'] != 3 or scope['max_total_received_bytes'] != 25165824:
         raise Hold('Invalid limited PDF request budget')
