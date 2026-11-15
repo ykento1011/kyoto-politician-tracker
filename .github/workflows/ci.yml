@@ -1,4 +1,4 @@
-﻿name: CI Integrity & Build Check
+name: CI Integrity & Build Check
 
 on:
   push:
@@ -31,6 +31,9 @@ jobs:
           python data-pipeline/audit_unified_integrity.py
           echo "::endgroup::"
 
+      - name: Test Kyoto P-03 data and generator (offline)
+        run: python -m unittest discover -s data-pipeline/tests -p "test_mayor_p03_public.py"
+
       # 2. ビルドテスト
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -39,6 +42,9 @@ jobs:
 
       - name: Install frontend dependencies
         run: npm --prefix frontend ci
+
+      - name: Test Kyoto P-03 evidence display (offline)
+        run: node frontend/tests/test-p03-public.mjs
 
       - name: Test frontend build
         run: npm --prefix frontend run build

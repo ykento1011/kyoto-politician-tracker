@@ -1,6 +1,7 @@
-﻿import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import ReportIssueButton from './ReportIssueButton';
 import BudgetEvidence, { hasBudgetEvidence } from './BudgetEvidence';
+import ProgressEvidence from './ProgressEvidence';
 import { 
   CheckCircle2, Clock, AlertCircle, ExternalLink, 
   FileText, Landmark, ShieldCheck, ChevronRight, 
@@ -157,6 +158,10 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
             </div>
           </div>
 
+          {summary_stats?.budget_total_note && (
+            <p className="text-xs text-slate-600 leading-relaxed mt-5" data-budget-total-note>{summary_stats.budget_total_note}</p>
+          )}
+
           {/* KPI 指標カード */}
           {kpis && kpis.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-6 border-t border-slate-100">
@@ -260,7 +265,7 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                       : 'bg-indigo-50 text-indigo-800 border-indigo-200'
                   }`}>
                     {isCompleted ? <Check className="w-3.5 h-3.5" /> : <Clock className="w-3.5 h-3.5" />}
-                    {p.stage_label || `${currentLevel}.${STAGES[currentLevel - 1]?.label}`}
+                    {p.latest_update?.label || p.stage_label || `${currentLevel}.${STAGES[currentLevel - 1]?.label}`}
                   </span>
                 </div>
 
@@ -269,11 +274,13 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                   {p.headline}
                 </h3>
 
+                <ProgressEvidence event={p.latest_update} />
+
                 {/* 3. 💡 5段階ビジュアルトラッカー（ステッパー） */}
                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200/80 mb-5">
                   <div className="text-[11px] font-bold text-slate-500 mb-3 flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5 text-indigo-600" />
-                    <span>政策ライフサイクル進捗（5段階トラッカー）</span>
+                    <span>{p.latest_update ? 'これまでの到達段階（最新状況は上記の発表を参照）' : '政策ライフサイクル進捗（5段階トラッカー）'}</span>
                   </div>
                   <div className="grid grid-cols-5 gap-1 sm:gap-2 relative">
                     {STAGES.map((s, sIdx) => {
@@ -493,7 +500,7 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                     <div>
                       <div className="font-bold text-slate-700 flex items-center gap-1.5 mb-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                        ④ 条例提出・⑤ 執行実績
+                        {p.latest_update ? '過去の契約・実施記録' : '④ 条例提出・⑤ 執行実績'}
                       </div>
 
                       {p.legislative_bill && (

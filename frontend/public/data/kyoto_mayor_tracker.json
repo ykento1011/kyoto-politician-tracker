@@ -25,10 +25,11 @@
       "official_plan_only": 2,
       "reviewing": 0
     },
-    "total_allocated_budget_jpy": "101億4,416万円",
-    "total_allocated_budget_raw": 10144158000,
+    "total_allocated_budget_jpy": "98億3,016万円",
+    "total_allocated_budget_raw": 9830158000,
     "accommodation_tax_revenue_jpy": "132億円（令和8年度見込）",
-    "debt_repayment_jpy": "年間35億円ペース堅持"
+    "debt_repayment_jpy": "年間35億円ペース堅持",
+    "budget_total_note": "登録済み予算の集計です。確認区分を付けた参考・未確認の予算は除外していますが、全額の原典確認を済ませた総額ではありません。"
   },
   "pledges": [
     {
@@ -188,7 +189,7 @@
       },
       "budget_records": [
         {
-          "fiscal_year": "令和7年度 当初予算",
+          "fiscal_year": "令和7年度（登録情報・予算区分は未確認）",
           "project_name": "中学校給食完全実施推進事業（給食センターPFI・配膳室改修）",
           "department": "教育委員会体育健康教育室",
           "amount_jpy": 124000000,
@@ -213,15 +214,18 @@
               "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
           ],
-          "doc_source": "令和7年度主要事業説明書（教育委員会分） p.8",
-          "doc_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html"
+          "doc_source": "令和7年度 京都市予算案 事業概要（教育委員会事務局）（照合対象：印刷p.143〜155／物理1〜13ページ。登録額の根拠位置は未確認）",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/13_kouhou_kyoiku.pdf",
+          "budget_note": "登録額1億2,400万円と登録事業名は、この保存資料では確認できていません。予算が存在しないという意味ではありません。直接予算の集計から除外し、財源内訳も未確認として扱います。",
+          "funding_verification_status": "unverified",
+          "policy_relation": "unconfirmed"
         },
         {
-          "fiscal_year": "令和8年度 当初予算",
-          "project_name": "市立学校給食費負担軽減・食材費高騰分公費負担事業",
+          "fiscal_year": "令和8年度当初予算（案）",
+          "project_name": "中学校等の給食費の物価高騰分の公費負担（原文の説明に基づく表記）",
           "department": "教育委員会体育健康教育室",
           "amount_jpy": 190000000,
-          "amount_display": "1億9,000万円",
+          "amount_display": "約1億9,000万円",
           "funding_sources": [
             {
               "type": "general",
@@ -230,8 +234,11 @@
               "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
           ],
-          "doc_source": "令和8年度予算案主要事業説明書 p.12",
-          "doc_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html"
+          "doc_source": "令和8年度京都市予算案 新規・充実等 事業概要（教育委員会事務局） 印刷p.188／物理16ページ「小学校給食の無償化」内「4 その他」",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/15_kyouiku_kouhou.pdf",
+          "budget_note": "原文は「約1.9億円」。中学校等の保護者負担を据え置くための給食費対策として関連する参考予算です。給食センター整備への直接充当額には認定せず、直接予算の集計に含めません。財源内訳は未確認です。",
+          "funding_verification_status": "unverified",
+          "policy_relation": "contextual"
         }
       ],
       "legislative_bill": {
@@ -251,6 +258,15 @@
         "title": "給食センター事業実施契約議案が市会で可決・着工",
         "status": "achieved",
         "evidence_url": "https://www2.city.kyoto.lg.jp/shikai/img/honkaigi/gian/R7-9/G07-104.pdf"
+      },
+      "latest_update": {
+        "announced_at": "2026-11-05",
+        "event_date": null,
+        "kind": "construction_paused",
+        "label": "整備工事が一時停止・開始時期は未定",
+        "summary": "給食センターの整備工事が一時停止し、令和10年度中の全員制中学校給食の開始はできないと発表されました。新たな開始時期は未定です。過去の契約可決の記録は残し、事業中止や契約の取消しとは扱いません。",
+        "source_title": "全員制中学校給食の実施状況の進ちょくについて",
+        "source_url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html"
       }
     },
     {
@@ -949,9 +965,9 @@
     },
     {
       "label": "関連予算措置総額",
-      "value": "101億4,416万円",
-      "subtext": "令和6〜8年度主要事業説明書",
-      "badge": "公文書計上額"
+      "value": "98億3,016万円",
+      "subtext": "登録額の集計（原典確認状況は記録ごとに異なります）",
+      "badge": "参考・未確認分を除外"
     },
     {
       "label": "宿泊税見込 / 財源規律",
