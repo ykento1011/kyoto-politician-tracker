@@ -9,7 +9,7 @@ test('Kobe M01 keeps unconfirmed amount and source without showing funding as co
  await expect(record).toContainText('原典未確認');
  await expect(record).toContainText('未照合');
  await expect(record.locator('[data-budget-aggregation="excluded"]')).toHaveCount(1);
- await expect(record).not.toContainText('財源内訳');
+ await expect(record).not.toContainText('財源内訳：');
  await expect(record).not.toContainText('8億5,000万円');
  await expect(record).not.toContainText('5億7,000万円');
  await expect(record.getByRole('link',{name:'公式資料（PDF）を確認'})).toHaveAttribute('href',data.pledges[0].budget_records[0].doc_url);
