@@ -17,7 +17,7 @@ from .projection import Hold, policies
 def load(path): return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 
 
-def monitor(bridge,sources,previous=None):
+def monitor(bridge,sources,previous=None,*,city="kyoto"):
     previous=previous or {'documents':{},'indexes':{}}
     observations=[]; inventories={}; indexes=deepcopy(previous.get('indexes',{})); events=[]
     holds=[]; extractions=[]; fallback=[]; success={'new_version','unchanged'}
@@ -35,7 +35,7 @@ def monitor(bridge,sources,previous=None):
         extracted=bridge.extract(url,rec['sha256']); extractions.append(extracted)
         if source['role']=='index':
             try:
-                inventory=saved_index(bridge,source,rec['sha256']); inventories[url]=inventory
+                inventory=saved_index(bridge,source,rec['sha256'],city=city); inventories[url]=inventory
                 normalized=comparison_links(inventory)
                 prior=previous.get('indexes',{}).get(url,{})
                 delta,retained=compare_index(prior,normalized)
@@ -94,7 +94,7 @@ def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,
         doc=bridge.index['documents'].get(source['url'])
         if doc and any(v['record'].get('city_code')!=city for v in doc['versions']):
             raise Hold('Review source belongs to another city')
-    result=monitor(bridge,sources,previous)
+    result=monitor(bridge,sources,previous,city=city)
     out.json('monitor_result.json',result); out.json('monitor_state.json',result['state'])
     changed={e['source_url'] for e in result['document_events'] if e['kind'] in {'new_document','replacement_document'}}
     listing_changes=any(e['kind'] in {'link_added','link_changed','link_removed'} for e in result['index_events'])
