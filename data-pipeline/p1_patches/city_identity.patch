@@ -1,0 +1,121 @@
+--- a/budget/fetch.py
++++ b/budget/fetch.py
+@@ -17,7 +17,8 @@
+ from urllib.request import HTTPSHandler, HTTPRedirectHandler, Request, build_opener
+ from urllib.parse import urljoin
+ 
+-from .adapters.kyoto import DiscoveredDocument, KYOTO_OFFICIAL_HOSTS, R8_INDEX_URL
++from .documents import DiscoveredDocument
++from .adapters.kyoto import KYOTO_OFFICIAL_HOSTS, R8_INDEX_URL
+ from .contracts import validate_record
+ from .discovery import canonical_official_url, media_type, UnsafeURL
+ from .snapshots import SnapshotStore, StoredVersion
+@@ -138,13 +139,22 @@
+     def __init__(self, store: SnapshotStore, *, transport: HTTPTransport,
+                  allowed_hosts: frozenset[str] = KYOTO_OFFICIAL_HOSTS,
+                  max_bytes: int = MAX_BYTES, max_redirects: int = 4,
+-                 timeout_seconds: float = 10.0, clock=None) -> None:
++                 timeout_seconds: float = 10.0, clock=None, city_code: str = 'kyoto') -> None:
+         if not 0 < max_bytes <= 50 * 1024 * 1024:
+             raise ValueError('invalid size bound')
+         if not 0 <= max_redirects <= 8:
+             raise ValueError('invalid redirect bound')
+         if not 0 < timeout_seconds <= 60:
+             raise ValueError('invalid timeout')
++        if not re.fullmatch(r'[a-z][a-z0-9_]*', city_code):
++            raise ValueError('invalid city code')
++        official_hosts = {f'www.city.{city_code}.lg.jp', f'www2.city.{city_code}.lg.jp'}
++        if not allowed_hosts or not set(allowed_hosts) <= official_hosts:
++            raise ValueError('allowed hosts do not match city identity')
++        for document in store.read_index()['documents'].values():
++            if any(v['record']['city_code'] != city_code for v in document['versions']):
++                raise ValueError('private CAS contains another city')
++        self.city_code = city_code
+         self.store = store
+         self.transport = transport
+         self.allowed_hosts = allowed_hosts
+@@ -160,7 +170,7 @@
+         Never downloads linked PDFs. A PDF discovery report remains separately
+         obtainable via ``KyotoBudgetDiscoveryAdapter`` and a saved HTML body.
+         """
+-        from .adapters.kyoto import DiscoveredDocument
++        from .documents import DiscoveredDocument
+         doc = DiscoveredDocument(
+             url=index_url, title=title, fiscal_year=f'令和{fiscal_year_ad-2018}年度',
+             fiscal_year_ad=fiscal_year_ad, media_type='html', document_kind='budget_index',
+@@ -245,10 +255,10 @@
+                           http_status=200, final_url=current)
+ 
+         sha = hashlib.sha256(response.body).hexdigest()
+-        doc_id = 'kyoto-doc-' + hashlib.sha256(source.encode('utf-8')).hexdigest()[:24]
++        doc_id = self.city_code + '-doc-' + hashlib.sha256(source.encode('utf-8')).hexdigest()[:24]
+         record = {
+             'document_id': doc_id,
+-            'city_code': 'kyoto',
++            'city_code': self.city_code,
+             'fiscal_year': doc.fiscal_year_ad,
+             'source_url': source,
+             'final_url': current,
+--- a/budget/adapters/kyoto.py
++++ b/budget/adapters/kyoto.py
+@@ -6,6 +6,7 @@
+ from __future__ import annotations
+ 
+ from dataclasses import asdict, dataclass
++from ..documents import DiscoveredDocument
+ import re
+ from typing import Mapping
+ from urllib.parse import urlsplit
+@@ -53,24 +54,6 @@
+     raw_href: str
+     # Trace plain-text chapter/round labels even where the HTML uses <p>/<div>.
+     context_path: tuple[str, ...] = ()
+-
+-
+-@dataclass(frozen=True)
+-class DiscoveredDocument:
+-    url: str
+-    title: str
+-    fiscal_year: str
+-    fiscal_year_ad: int
+-    media_type: str
+-    document_kind: str
+-    budget_round: str
+-    session: str | None
+-    discovered_from_url: str
+-    index_url: str
+-    department: str | None
+-    account: str | None
+-    verification_status: str
+-    occurrences: tuple[DiscoveryOccurrence, ...]
+ 
+ 
+ @dataclass(frozen=True)
+--- /dev/null
++++ b/budget/documents.py
+@@ -0,0 +1,25 @@
++"""Shared discovered-document metadata; no city-specific discovery or network."""
++from __future__ import annotations
++from dataclasses import dataclass
++from typing import TYPE_CHECKING
++if TYPE_CHECKING:
++    from .adapters.kyoto import DiscoveryOccurrence
++
++@dataclass(frozen=True)
++class DiscoveredDocument:
++    url: str
++    title: str
++    fiscal_year: str
++    fiscal_year_ad: int
++    media_type: str
++    document_kind: str
++    budget_round: str
++    session: str | None
++    discovered_from_url: str
++    index_url: str
++    department: str | None
++    account: str | None
++    verification_status: str
++    occurrences: tuple[DiscoveryOccurrence, ...]
++
++
