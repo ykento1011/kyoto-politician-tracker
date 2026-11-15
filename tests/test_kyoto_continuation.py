@@ -297,6 +297,12 @@ class ContinuationTests(unittest.TestCase):
         self.assertTrue(r["published"]);self.assertFalse(r["meeting_complete"])
 
     def test_new_private_adapter_append_and_failure_preserve_baseline(self):
+        self.adapter_fixture()
+
+    def test_quality_exclusion_adapter_and_partial_publication(self):
+        self.adapter_fixture(quality=True)
+
+    def adapter_fixture(self,quality=False):
         # Only this new connector is exercised; no accepted real meeting is regenerated.
         code=ROOT/"data-pipeline"
         protected=self.root/"protected/frontend/public/data";protected.mkdir(parents=True)
@@ -311,7 +317,7 @@ class ContinuationTests(unittest.TestCase):
         private=self.root/"private";private.mkdir()
         rows=[dict(meeting_id="ssp_9000_1",sequence_number=i,meeting_title="synthetic",
                    meeting_date="2026-04-09",speaker="試験議員"+str(i),statement_text="試験用の質疑本文です。"*4,
-                   official_url="https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=9000&schedule_id=1#minute_"+str(i)) for i in (1,2)]
+                   official_url="https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?council_id=9000&schedule_id=1#minute_"+str(i)) for i in ((159,367,387) if quality else (1,2))]
         cache=self.root/"kyoto_raw_statements.json";cache.write_bytes(n.encode(rows))
         master=self.root/"master.json";master.write_bytes(n.encode([{"name":r["speaker"]} for r in rows]))
         ledger=n.read_json(io.LEDGER)
@@ -325,13 +331,29 @@ class ContinuationTests(unittest.TestCase):
         prepared=n.read_json(stage/"data-pipeline/kyoto_raw_statements.json")
         values={r["id"]:dict(status="analysis_success",analysis=result()) for r in prepared}
         receipt=self.root/"complete.json"
-        io.write_json(receipt,dict(status="selected_threads_complete_private_only",success=2,results=values,
+        io.write_json(receipt,dict(status="selected_threads_complete_private_only",success=len(values),results=values,
                       binding=dict(meeting_key=manifest["meeting_key"],manifest_sha256=io.digest(n.encode(manifest))),
                       api_attempts=[dict(status="success",thread_id=k,analysis=result()) for k in values]))
         ns=dict(build_debate_threads=lambda data:[dict(main_statement=r) for r in data],
                 is_procedural_or_voting=lambda t:False)
-        with patch.object(g,"legacy_functions",return_value=ns):
-            out=c.private_project(stage,receipt,public,private)
+        if quality:
+            import kyoto_thread_repair as repair
+            plan=dict(threads=[dict(main_statement=r,related_statements=[r],councilor_key=r["speaker"]) for r in prepared],
+                      roles={str(r["sequence_number"]):dict(kind="councilor") for r in prepared})
+            selection=dict(publication_scope="partial",meeting_key=manifest["meeting_key"],
+                           accepted_thread_ids=["ssp_9000_1_367","ssp_9000_1_387"],held_thread_ids=["ssp_9000_1_159"],
+                           exclusions=[dict(statement_id="ssp_9000_1_159",reason="Synthetic semantic hold")])
+            receipt_before=receipt.read_bytes()
+            with patch.object(g,"legacy_functions",return_value=ns),patch.object(g,"live_sender",side_effect=AssertionError("No API")),\
+                 patch.object(repair,"publication_plan",return_value=(plan,n.read_json(receipt),selection)):
+                out=c.private_project(stage,receipt,public,private,repair_config={})
+            self.assertEqual(receipt.read_bytes(),receipt_before)
+            timeline=n.read_json(out/"timeline-additions/ssp_9000_1.json")
+            self.assertEqual(set(timeline),{"367","387"})
+            self.assertFalse(any(m["sequence_number"]==159 for rows in timeline.values() for m in rows))
+        else:
+            with patch.object(g,"legacy_functions",return_value=ns):
+                out=c.private_project(stage,receipt,public,private)
         merged=n.read_json(out/"data/kyoto_statements_summary.json")
         self.assertEqual(merged[0],old);self.assertEqual(len(merged),3)
         self.assertEqual(public.read_bytes(),before)
@@ -341,6 +363,26 @@ class ContinuationTests(unittest.TestCase):
             with self.assertRaises(io.Stop):c.private_project(stage,receipt,public,private)
         self.assertEqual(public.read_bytes(),before)
         self.assertEqual(io.digest((out/"data/kyoto_statements_summary.json").read_bytes()),good)
+        if quality:
+            self.assertNotIn("ssp_9000_1_159",{r["id"] for r in merged})
+            observed=self.root/"deployed/frontend/public/data";observed.mkdir(parents=True)
+            (observed/"kyoto_statements_summary.json").write_bytes((out/"data/kyoto_statements_summary.json").read_bytes())
+            (observed/"timelines").mkdir();timeline_path=observed/"timelines/ssp_9000_1.json"
+            timeline_path.write_bytes((out/"timeline-additions/ssp_9000_1.json").read_bytes())
+            qsha=io.digest((out/"QUALITY_SELECTION.json").read_bytes())
+            c.record(private,"kyoto:9000:1","a"*64,analyzed=True,candidate_stage=str(out),
+                     candidate_ready_sha256=io.digest((out/"READY.json").read_bytes()),
+                     candidate_files={p.relative_to(out).as_posix():io.digest(p.read_bytes()) for p in out.rglob("*.json") if p.name!="READY.json"})
+            deployed=self.root/"deployment.json"
+            io.write_json(deployed,dict(pm_confirmed_deployed=True,commit="d"*40,meeting_key="kyoto:9000:1",
+                approval_reference="SYNTHETIC",deployment_reference="SYNTHETIC",summary_sha256=good,timeline_sha256=io.digest(timeline_path.read_bytes())))
+            cfg=dict(public_summary=str(observed/"kyoto_statements_summary.json"),publication_receipt=str(deployed))
+            with self.assertRaises(io.Stop):c.acknowledge_publication(private,cfg)
+            c.record(private,"kyoto:9000:1","a"*64,quality_selection_sha256=qsha)
+            state=c.acknowledge_publication(private,cfg)
+            self.assertEqual(state["publication_state"],"partial_publication_confirmed")
+            self.assertEqual(state["held_thread_keys"],["ssp_9000_1_159"])
+            self.assertFalse(state["meeting_complete"])
 
 
 if __name__=="__main__":unittest.main(verbosity=2)
