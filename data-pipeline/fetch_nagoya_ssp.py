@@ -30,7 +30,8 @@ class NagoyaKaigirokuScraper(KaigirokuScraper):
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
     parser = argparse.ArgumentParser(description="名古屋市会 SSP 会議録フェッチャー")
-    parser.add_argument("--start-date", type=str, default="2023-05-01", help="現任期開始日 (YYYY-MM-DD)")
+    # Normal Nagoya term: 2023-04-12 through 2027-04-11; index filtering is year-only.
+    parser.add_argument("--start-date", type=str, default="2023-04-12", help="索引取得開始年の基準日 (YYYY-MM-DD)。会議日による任期・在籍確認は別途必要")
     parser.add_argument("--rate-limit", type=float, default=1.2, help="リクエスト間隔（秒、最低1.0秒）")
     parser.add_argument("--max-councils", type=int, default=None, help="取得する会議数の上限（テスト検証用）")
     args = parser.parse_args()
