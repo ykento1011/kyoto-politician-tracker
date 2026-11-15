@@ -25,7 +25,14 @@ try {
   for(const text of ['6億2,102万1,000円','621,021千円','令和8年度当初予算（案）','神戸市防犯カメラの増設','印刷p.22／PDF22ページ','重複可能性が未確認','事業目的との直接関係を確認した根拠']) assert.ok(markup.includes(text),text);
   assert.ok(markup.includes(policy.budget_records[1].doc_url));
   const full=renderToStaticMarkup(React.createElement(MayorTrackerView,{data,cityCode:'kobe'}));
-  assert.equal((full.match(/data-budget-relation=/g)||[]).length,2);
+  assert.equal((full.match(/data-budget-relation=/g)||[]).length,3);
   for(const other of data.pledges.filter(p=>p.id!=='KOBE-M01')) assert.ok(full.includes(other.budget_records[0].amount_display));
-  console.log('PASS: Kobe M01 retained/excluded; unverified funding hidden; other four legacy budget cards retained.');
+  const m02=data.pledges.find(p=>p.id==='KOBE-M02');
+  const m02html=renderToStaticMarkup(React.createElement(MayorTrackerView,{data:{...data,pledges:[m02]},cityCode:'kobe'}));
+  assert.equal((m02html.match(/data-budget-relation="unconfirmed"/g)||[]).length,1);
+  assert.equal((m02html.match(/data-budget-aggregation="excluded"/g)||[]).length,1);
+  for(const text of ['22億8,000万円','原典未確認','市内高校等：全額、市外高校等：半額','市内在住','印刷p.6／PDF8ページ']) assert.ok(m02html.includes(text),text);
+  for(const text of ['財源内訳：','全域拡大','2,549,822','2,545,222']) assert.ok(!m02html.includes(text),text);
+  assert.ok(m02html.includes(m02.budget_records[0].doc_url));
+  console.log('PASS: Kobe M01 retained/excluded; unverified funding hidden; M02 unverified budget and precise conditions; other policies retained.');
 } finally {await server.close();}
