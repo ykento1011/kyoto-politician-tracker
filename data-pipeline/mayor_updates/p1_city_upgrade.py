@@ -14,7 +14,7 @@ def manifest():
     root=Path(__file__).resolve().parents[1]/'p1_patches'
     return root,json.loads((root/'city_identity.json').read_text(encoding='utf-8'))
 
-def prepare_copy(approved_root,destination):
+def prepare_copy(approved_root,destination,*,include_nagoya_host=False):
     source=Path(approved_root).resolve(strict=True);dest=Path(destination).resolve()
     if dest==source or source in dest.parents or dest in source.parents or dest.exists():
         raise Hold('Use a new independent code directory')
@@ -37,4 +37,21 @@ def prepare_copy(approved_root,destination):
         path=dest/name
         path.write_text(path.read_text(encoding='utf-8'),encoding='utf-8',newline='\n')
         if hashlib.sha256((dest/name).read_bytes()).hexdigest()!=sha:raise Hold('Unexpected patched P1: '+name)
-    return spec['after']
+    result_pins = dict(spec['after'])
+    if include_nagoya_host:
+        host_spec=json.loads((patch_root/'nagoya_host.json').read_text(encoding='utf-8'))
+        host_patch=patch_root/'nagoya_host.patch'
+        if hashlib.sha256(host_patch.read_bytes()).hexdigest()!=host_spec['patch_sha256']:
+            raise Hold('Nagoya host patch SHA mismatch')
+        for name,sha in host_spec['before'].items():
+            if hashlib.sha256((dest/name).read_bytes()).hexdigest()!=sha:
+                raise Hold('Unexpected P1 host patch input: '+name)
+        applied=subprocess.run(['git','apply','--ignore-space-change',str(host_patch)],cwd=dest,capture_output=True,text=True)
+        if applied.returncode:raise Hold('P1 host patch failed: '+applied.stderr)
+        for name,sha in host_spec['after'].items():
+            path=dest/name
+            path.write_text(path.read_text(encoding='utf-8'),encoding='utf-8',newline='\n')
+            if hashlib.sha256(path.read_bytes()).hexdigest()!=sha:
+                raise Hold('Unexpected Nagoya P1 candidate: '+name)
+        result_pins.update(host_spec['after'])
+    return result_pins

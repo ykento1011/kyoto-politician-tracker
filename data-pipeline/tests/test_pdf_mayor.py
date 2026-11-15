@@ -141,6 +141,16 @@ class IndependentPhaseTests(unittest.TestCase):
         bad=load(CONFIG);bad['pdf_watch']['max_total_received_bytes']=6291456
         with self.assertRaises(Hold):pdf_request_plan(bad)
 
+    def test_nagoya_plan_uses_exact_host_without_enabling_execution(self):
+        cfg=self.config();cfg['cities']['nagoya']={'policy_ids':['nagoya_p2']}
+        scope=cfg['pdf_watch'];scope.update(city_code='nagoya',policy_ids=['nagoya_p2'],allowed_hosts=['www.city.nagoya.jp'])
+        scope['sources']=[dict(scope['sources'][0],url='https://www.city.nagoya.jp/tax.pdf',policy_ids=['nagoya_p2'])]
+        result=pdf_request_plan(cfg)
+        self.assertEqual(result['max_requests'],1);self.assertEqual(result['max_received_bytes'],2097152)
+        self.assertFalse(result['execution_enabled'])
+        scope['allowed_hosts']=['www.city.nagoya.lg.jp']
+        with self.assertRaises(Hold):pdf_request_plan(cfg)
+
     def test_phase_boundaries_fail_closed(self):
         for key,value in [('max_total_received_bytes',6291457),('max_requests_per_run',4),
                           ('tls_verify',False),('redirects',1),('retries',1),('timeout_seconds',11),

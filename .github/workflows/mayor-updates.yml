@@ -37,4 +37,4 @@ jobs:
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_p1_offline.py' -v
           echo '### External P1 integration: NOT VALIDATED' >> "$GITHUB_STEP_SUMMARY"
-          echo 'This hosted job has no approved immutable P1 dependency. Its 13 P1 city tests are skipped; an offline CI pass is not integration acceptance. A separate approved private environment must supply the pinned P1 code before merge.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'This hosted job has no approved immutable P1 dependency. Its P1 city tests are skipped; an offline CI pass is not integration acceptance. A separate approved private environment must supply the pinned P1 code before merge.' >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "description": "Opt-in candidate copy only. Exact Nagoya official host; existing city P1 remains accepted and unchanged.",
+  "before": {
+    "budget/fetch.py": "be00dec79f3b2d28a0cb7d1378c5f633baad0c8fdc6c5c1b1449571853b4f939"
+  },
+  "after": {
+    "budget/fetch.py": "23818e038b4c9662acd2c2e9d9bba3363299fc718de6ada8806e8659e554a999"
+  },
+  "patch_sha256": "b462596dce8d78228d27c750c38f61b40375b315ded403bcf1990c241c37b639"
+}

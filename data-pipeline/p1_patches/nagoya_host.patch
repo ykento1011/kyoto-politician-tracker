@@ -1,0 +1,11 @@
+--- a/budget/fetch.py
++++ b/budget/fetch.py
+@@ -149,6 +149,8 @@
+         if not re.fullmatch(r'[a-z][a-z0-9_]*', city_code):
+             raise ValueError('invalid city code')
+         official_hosts = {f'www.city.{city_code}.lg.jp', f'www2.city.{city_code}.lg.jp'}
++        if city_code == 'nagoya':
++            official_hosts = {'www.city.nagoya.jp'}
+         if not allowed_hosts or not set(allowed_hosts) <= official_hosts:
+             raise ValueError('allowed hosts do not match city identity')
+         for document in store.read_index()['documents'].values():
