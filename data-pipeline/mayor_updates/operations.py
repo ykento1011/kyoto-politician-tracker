@@ -159,6 +159,79 @@ def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,
     return result,packet
 
 
+def receipt_identity(spec, source, bridge):
+    """Bind a pinned acquisition receipt to the current saved version, without HTTP."""
+    from datetime import datetime
+    from .weekly import pinned_input
+    receipt=load(pinned_input(spec['acquisition_receipt']))
+    preflight=load(pinned_input(spec['acquisition_preflight']))
+    url=source['url']
+    rows=[r for r in receipt['receipts'] if r.get('source_url')==url]
+    sources=[s for s in preflight['sources'] if s.get('url')==url]
+    if (receipt.get('stopped') is not False or receipt.get('public_writes')!=0 or
+            len(rows)!=1 or len(sources)!=1):
+        raise Hold('Acquisition receipt is stopped or source selection is ambiguous')
+    row=rows[0]; acquired=sources[0]; version=row['version']
+    if (row.get('stop') or row.get('readback_pass') is not True or
+            row.get('status') not in {'stored_new_version','unchanged','reused_existing'}):
+        raise Hold('Successful acquisition/readback receipt required')
+    scoped=acquired.get('policy_ids')
+    if scoped is None and acquired.get('policy_id'):scoped=[acquired['policy_id']]
+    if (not scoped or not set(spec['policy_ids'])<=set(scoped) or
+            not set(source['policy_ids'])<=set(scoped)):
+        raise Hold('Receipt preflight lacks the explicit requested policy scope')
+    for key in ('fiscal_year','document_kind'):
+        if acquired.get(key)!=source.get(key):raise Hold('Receipt source metadata differs: '+key)
+    if acquired.get('media_type',source['media_type'])!=source['media_type']:
+        raise Hold('Receipt source medium differs')
+    limits=preflight['limits']
+    if any(limits.get(k)!=v for k,v in {'get_per_url':1,'tls_verify':True,'redirects':0,
+            'retries':0,'wall_timeout_seconds':10}.items()):
+        raise Hold('Acquisition safeguards are not attested')
+    if any(preflight['code_sha256'].get(k)!=v for k,v in bridge.hashes.items()):
+        raise Hold('Acquisition P1 code differs from the pinned replay code')
+    sha=row['sha256']; doc=bridge.index['documents'].get(url)
+    if not doc or doc['versions'][-1]['sha256']!=sha:
+        raise Hold('Receipt refers to a stale or missing saved version')
+    rec,body=bridge.record(url,sha)
+    for key in ('document_id','version_id','source_url','final_url','snapshot_relative_path'):
+        if version.get(key)!=rec.get(key):raise Hold('Receipt/CAS identity mismatch: '+key)
+    for key in ('city_code','fiscal_year','mime_type','document_type','sha256'):
+        if key in version and version[key]!=rec.get(key):raise Hold('Receipt metadata contradicts CAS: '+key)
+    if (rec['city_code']!=spec['city'] or rec['source_url']!=url or rec['final_url']!=url or
+            rec['document_type']!=source['document_kind'] or
+            row['stored_bytes']!=len(body) or len(body)>acquired['max_bytes']):
+        raise Hold('Receipt/CAS city, kind, URL or byte count mismatch')
+    observed=version['retrieved_at']
+    def utc_time(value):
+        t=datetime.fromisoformat(value.replace('Z','+00:00'))
+        if t.utcoffset() is None or t.utcoffset().total_seconds()!=0:raise Hold('UTC receipt time required')
+        return t
+    observed_time=utc_time(observed); original_time=utc_time(rec['retrieved_at'])
+    if row['status']=='reused_existing':
+        if row.get('new_get_requests')!=0 or observed_time!=original_time:
+            raise Hold('Saved reuse timestamp/request count mismatch')
+    else:
+        if row.get('new_get_requests')!=1 or row.get('http_status')!=200 or row.get('final_url')!=url:
+            raise Hold('Successful single GET receipt required')
+        outcome='new_version' if row['status']=='stored_new_version' else 'unchanged'
+        if not any(a.get('source_url')==url and a.get('sha256')==sha and
+                a.get('outcome')==outcome and utc_time(a['observed_at'])==observed_time
+                for a in bridge.index['attempts']):
+            raise Hold('Acquisition observation is absent from the CAS ledger')
+    if observed_time<original_time:raise Hold('Receipt predates the original saved version')
+    if spec.get('sha256',sha)!=sha or spec.get('document_id',rec['document_id'])!=rec['document_id']:
+        raise Hold('Manually supplied identity conflicts with acquisition receipt')
+    audit={'receipt_sha256':spec['acquisition_receipt']['sha256'],
+           'preflight_sha256':spec['acquisition_preflight']['sha256'],
+           'city':spec['city'],'source_url':url,'policy_ids':spec['policy_ids'],
+           'document_id':rec['document_id'],'sha256':sha,'stored_bytes':len(body),
+           'original_retrieved_at':rec['retrieved_at'],'acquisition_observed_at':observed,
+           'acquisition_status':row['status'],'policy_binding':'explicit_acquisition_scope',
+           'verification_status':'unverified','publication_authorized':False}
+    return sha,rec['document_id'],audit
+
+
 def replay_saved(spec):
     """Replay one explicitly bound city series, offline, using existing P1/state tools.
 
@@ -215,11 +288,16 @@ def replay_saved(spec):
                     baseline_city='kyoto'
             if baseline_city!=city or not set(allowed)<=set(policies(baseline)):
                 raise Hold('Baseline belongs to a different city/policy')
-            expected=spec['sha256']
+            bridge=P1Bridge(spec['p1_code_root'],cas,city_capable=spec.get('city_capable',False))
+            if 'acquisition_receipt' in spec or 'acquisition_preflight' in spec:
+                expected,declared_id,audit=receipt_identity(spec,source,bridge)
+                out.json('acquisition_handoff.json',audit)
+                summary['acquisition_handoff']=audit
+            else:
+                expected=spec['sha256'];declared_id=spec['document_id']
             if not re.fullmatch('[0-9a-f]{64}',expected):raise Hold('Exact SHA required')
             document_id=city+'-doc-'+hashlib.sha256(url.encode()).hexdigest()[:24]
-            if spec['document_id']!=document_id:raise Hold('Document ID does not match city/URL')
-            bridge=P1Bridge(spec['p1_code_root'],cas,city_capable=spec.get('city_capable',False))
+            if declared_id!=document_id:raise Hold('Document ID does not match city/URL')
             if any(v['record'].get('city_code')!=city for d in bridge.index['documents'].values() for v in d['versions']):
                 raise Hold('CAS contains another city')
             doc=bridge.index['documents'].get(url)
