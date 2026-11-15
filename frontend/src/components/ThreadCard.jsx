@@ -3,6 +3,7 @@ import { FileText, Lightbulb, MessageCircle, User, Landmark, ExternalLink, Chevr
 import { cleanName, cleanAuditorNote } from '../utils/styleHelpers';
 import { openOfficialMinute, getOfficialLinkTooltip, getOfficialMinuteUrl } from '../utils/officialLink';
 import ReportIssueButton from './ReportIssueButton';
+import KyotoMinuteGuideLink from './KyotoMinuteGuideLink';
 
 export default function ThreadCard({
   stmt,
@@ -261,6 +262,7 @@ export default function ThreadCard({
           <MessageCircle className="w-3.5 h-3.5 mr-1.5" />市側答弁を含む一連のタイムラインを表示
         </button>
       </div>
+      <KyotoMinuteGuideLink statement={stmt} cityCode={resolvedCity} className="px-3 sm:px-4 pb-3" />
     </article>
   );
 }
