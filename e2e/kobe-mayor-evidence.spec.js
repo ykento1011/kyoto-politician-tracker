@@ -39,6 +39,8 @@ test('Kobe M02 labels the unconfirmed registration and distinguishes in-city and
  const record=card.locator('section[data-budget-relation="unconfirmed"]');
  await expect(record).toHaveCount(1);
  await expect(record.getByText('22億8,000万円',{exact:true})).toBeVisible();
+ await expect(record.getByText('高校生等通学定期券補助・子育て支援事業（登録内容・原典未確認）',{exact:true})).toBeVisible();
+ await expect(card).not.toContainText('高校生等通学定期券全額補助・子育て支援事業');
  await expect(record).toContainText('原典未確認');
  await expect(record.locator('[data-budget-aggregation="excluded"]')).toHaveCount(1);
  await expect(record).not.toContainText('財源内訳：');
