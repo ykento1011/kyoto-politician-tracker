@@ -1,7 +1,7 @@
 """Amounts and reviewed overlays shared by proposals and the Kyoto generator."""
 from copy import deepcopy
 
-BUDGET_TOTAL_NOTE = '登録済み予算の集計です。確認区分を付けた参考・未確認の予算は除外していますが、全額の原典確認を済ませた総額ではありません。'
+BUDGET_TOTAL_NOTE = '登録済み予算の集計です。確認区分を付けた参考・未確認の予算は除外していますが、全額の原典確認を済ませた総額ではありません。履歴を整理した記録では、同年度・会計・事業の採用額だけを計上し、補正増減額と債務負担行為は加算しません。総額の表示は万円単位に丸めています。'
 
 class Hold(ValueError):
     pass
@@ -43,7 +43,13 @@ def included(record):
         return False
     if relation != 'direct':
         return False
-    # Delta / after-change / settlement are not additive to the legacy total.
+    if record.get('amount_role') == 'after_change':
+        if (aggregation != 'included' or record.get('budget_kind') != 'supplemental'
+                or record.get('evidence_status') != 'source_checked'
+                or not all(record.get(k) for k in ('series_id', 'fiscal_year_ad', 'account', 'doc_url', 'doc_source'))):
+            raise Hold('Explicit sourced fiscal-series selection required')
+        return True
+    # Deltas, commitments and settlements are not standalone annual totals.
     if record.get('amount_role', 'initial') != 'initial':
         raise Hold('Fiscal-series reconciliation required before total inclusion')
     if record.get('budget_kind', 'initial') != 'initial':
@@ -53,15 +59,70 @@ def included(record):
     return True
 
 
-def sync_totals(data):
+def format_record_amount(record):
+    """Exact JPY display for explicitly typed history; never round a delta."""
+    n = record['amount_jpy']
+    role = record['amount_role']
+    if role not in {'initial', 'delta', 'after_change', 'commitment'}:
+        raise Hold('Unknown budget amount role')
+    if type(n) is not int or (n < 0 and role != 'delta'):
+        raise Hold('Only supplemental deltas may be negative')
+    sign = ('＋' if n >= 0 else '−') if role == 'delta' else ''
+    oku, rest = divmod(abs(n), 100000000)
+    man, yen = divmod(rest, 10000)
+    text = (f'{oku}億' if oku else '') + (f'{man:,}万' if man else '') + (f'{yen:,}' if yen else '')
+    return sign + (text or '0') + '円'
+
+
+def budget_total(pledges):
+    """Validate explicit annual series before counting selected totals.
+
+    Untouched legacy records retain their existing treatment. Typed series
+    permit one initial or one reconciled after-change total per year/account.
+    Delta-only series remain history, never a substitute for an annual total.
+    """
     total = 0
-    for p in data['pledges']:
+    for p in pledges:
+        groups = {}
         for r in p.get('budget_records', []):
+            if 'amount_role' in r:
+                format_record_amount(r)
+            if r.get('series_id'):
+                if not all(r.get(k) for k in ('fiscal_year_ad', 'account', 'amount_role')):
+                    raise Hold('Incomplete fiscal series identity')
+                key = (r['series_id'], r['fiscal_year_ad'], r['account'])
+                groups.setdefault(key, []).append(r)
             if included(r):
                 n = r['amount_jpy']
                 if type(n) is not int or n < 0:
-                    raise Hold('Invalid legacy amount')
+                    raise Hold('Invalid budget amount')
                 total += n
+        for rows in groups.values():
+            selected = [r for r in rows if included(r)]
+            if len(selected) > 1:
+                raise Hold('Duplicate annual total selection')
+            if not selected or selected[0].get('amount_role') != 'after_change':
+                continue
+            roles = {role: [r for r in rows if r['amount_role'] == role]
+                     for role in ('initial', 'delta', 'after_change')}
+            if any(len(items) != 1 for items in roles.values()) or len(rows) != 3:
+                raise Hold('Single documented amendment required; reconcile multi-amendment history separately')
+            if any(r.get('evidence_status') != 'source_checked' or
+                   r.get('policy_relation') != 'direct' or
+                   not r.get('doc_url') or not r.get('doc_source') for r in rows):
+                raise Hold('Fiscal series evidence incomplete')
+            before, delta, after = (roles[k][0]['amount_jpy'] for k in ('initial', 'delta', 'after_change'))
+            if before + delta != after:
+                raise Hold('Fiscal series does not reconcile')
+    return total
+
+
+def sync_totals(data):
+    total = budget_total(data['pledges'])
+    for p in data['pledges']:
+        for r in p.get('budget_records', []):
+            if 'amount_role' in r:
+                r['amount_display'] = format_record_amount(r)
     if 'summary_stats' in data:
         data['summary_stats']['total_allocated_budget_raw'] = total
         data['summary_stats']['total_allocated_budget_jpy'] = format_amount(total)

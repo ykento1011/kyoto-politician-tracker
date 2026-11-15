@@ -2,6 +2,9 @@ import React from 'react';
 import { ExternalLink, Landmark } from 'lucide-react';
 import ReportIssueButton from './ReportIssueButton';
 
+const AMOUNT_ROLES = {initial: '当初予算額', delta: '補正増減額', after_change: '補正後額', commitment: '債務負担行為（歳出予算と別枠）'};
+const LEGACY = {label: '既存登録', title: '今回の照合対象外の登録予算', style: 'bg-slate-100 text-slate-700'};
+
 const RELATIONS = {
   direct: { label: '直接確認', title: '直接対応を確認した予算', style: 'bg-emerald-50 text-emerald-800' },
   contextual: { label: '文脈上の関連', title: '関連予算（参考）', style: 'bg-indigo-50 text-indigo-800' },
@@ -31,15 +34,17 @@ export default function BudgetEvidence({ records, pledge, mayorInfo }) {
       </p>
       <div className="space-y-4">
         {records.map((record, index) => {
-          const relation = Object.hasOwn(RELATIONS, record.policy_relation) ? RELATIONS[record.policy_relation] : RELATIONS.unconfirmed;
+          const relation = Object.hasOwn(RELATIONS, record.policy_relation) ? RELATIONS[record.policy_relation] : Object.hasOwn(record, 'policy_relation') ? RELATIONS.unconfirmed : LEGACY;
           return (
-            <section key={(record.doc_url || 'budget') + '-' + index} className="bg-white rounded-lg border border-slate-200 p-3" data-budget-relation={Object.hasOwn(RELATIONS, record.policy_relation) ? record.policy_relation : 'unconfirmed'}>
+            <section key={(record.doc_url || 'budget') + '-' + index} className="bg-white rounded-lg border border-slate-200 p-3" data-budget-relation={Object.hasOwn(RELATIONS, record.policy_relation) ? record.policy_relation : Object.hasOwn(record, 'policy_relation') ? 'unconfirmed' : 'legacy'}>
               <span className={'inline-block text-[10px] font-bold px-2 py-0.5 rounded ' + relation.style}>{relation.label}</span>
               <h3 className="text-xs font-bold text-slate-900 mt-2">{record.aggregation_status === 'excluded' && record.policy_relation === 'direct' ? '事業目的との直接関係を確認した根拠' : relation.title}</h3>
               <p className="text-[11px] text-slate-600 mt-1">{record.fiscal_year}</p>
               <p className="text-xs text-slate-800 mt-2">{record.project_name}</p>
+              {AMOUNT_ROLES[record.amount_role] && <p className="text-xs font-bold mt-2" data-budget-role={record.amount_role}>{AMOUNT_ROLES[record.amount_role]}{record.account && '・' + record.account}</p>}
               <p className="text-lg font-black text-slate-900 mt-2">{record.amount_display}</p>
               {record.aggregation_status === 'excluded' && <p className="text-[11px] font-bold text-slate-600 mt-1" data-budget-aggregation="excluded">集計対象外（政策との関係と、集計への加算可否は別です）</p>}
+              {record.aggregation_status === 'included' && <p className="text-[11px] font-bold text-emerald-800 mt-1" data-budget-aggregation="included">集計対象（同じ年度・会計・事業の金額を重複加算しません）</p>}
               {record.budget_note && <p className="text-[11px] text-slate-600 leading-relaxed mt-2">{record.budget_note}</p>}
               {record.funding_verification_status === 'verified' && record.funding_sources?.length > 0 && (
                 <div className="text-[11px] text-slate-600 mt-2">
@@ -69,7 +74,7 @@ export default function BudgetEvidence({ records, pledge, mayorInfo }) {
           );
         })}
       </div>
-      {records.some(record => record.policy_relation !== 'direct') && (
+      {records.some(record => ['contextual', 'unconfirmed'].includes(record.policy_relation)) && (
         <p className="text-[11px] text-slate-600 mt-3">参考・未確認の予算は、直接対応を確認した予算額には合算していません。</p>
       )}
     </div>

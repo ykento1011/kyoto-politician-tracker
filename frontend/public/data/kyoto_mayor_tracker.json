@@ -25,11 +25,11 @@
       "official_plan_only": 2,
       "reviewing": 0
     },
-    "total_allocated_budget_jpy": "91億1,516万円",
-    "total_allocated_budget_raw": 9115158000,
+    "total_allocated_budget_jpy": "91億1,549万円",
+    "total_allocated_budget_raw": 9115487000,
     "accommodation_tax_revenue_jpy": "132億円（令和8年度見込）",
     "debt_repayment_jpy": "年間35億円ペース堅持",
-    "budget_total_note": "登録済み予算の集計です。確認区分を付けた参考・未確認の予算は除外していますが、全額の原典確認を済ませた総額ではありません。"
+    "budget_total_note": "登録済み予算の集計です。確認区分を付けた参考・未確認の予算は除外していますが、全額の原典確認を済ませた総額ではありません。履歴を整理した記録では、同年度・会計・事業の採用額だけを計上し、補正増減額と債務負担行為は加算しません。総額の表示は万円単位に丸めています。"
   },
   "pledges": [
     {
@@ -375,11 +375,11 @@
       },
       "budget_records": [
         {
-          "fiscal_year": "令和8年度 当初予算",
-          "project_name": "京町家保全・継承事業（改修補助・景観まちづくりセンター機能強化）",
+          "fiscal_year": "令和8年度当初予算（案）",
+          "project_name": "京町家保全・継承の推進",
           "department": "都市計画局まち再生・景観政策部",
-          "amount_jpy": 462000000,
-          "amount_display": "4億6,200万円",
+          "amount_jpy": 462329000,
+          "amount_display": "4億6,232万9,000円",
           "funding_sources": [
             {
               "type": "specific",
@@ -394,8 +394,36 @@
               "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
           ],
-          "doc_source": "令和8年度予算案主要事業説明書（都市計画局）",
-          "doc_url": "https://www.city.kyoto.lg.jp/tokei/page/0000330039.html"
+          "doc_source": "令和8年度京都市予算案 新規・充実等事業概要（都市計画局） 印刷p.129〜130／物理1〜2ページ",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/08_tokei_kouhou.pdf",
+          "fiscal_year_ad": 2026,
+          "account": "一般会計",
+          "amount_role": "initial",
+          "budget_kind": "initial",
+          "series_id": "machiya_preservation_overall",
+          "aggregation_status": "included",
+          "policy_relation": "direct",
+          "evidence_status": "source_checked",
+          "funding_verification_status": "unverified",
+          "budget_note": "原文の全体事業費462,329千円に精度を合わせました（従来登録4億6,200万円）。うち充実分357,300千円。改修補助の拡充82,710千円のほか、応援金、調査・指定、公的サブリース等を含む全体額です。9月の改修補助増額258,000千円と対象範囲が一致すると確認できないため、補正後の全体額は推計しません。財源内訳は未確認、議決成立・実施の認定ではありません。"
+        },
+        {
+          "fiscal_year": "令和8年度9月補正（議決確認は未実施）",
+          "project_name": "京町家改修補助金",
+          "amount_jpy": 258000000,
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809nagatyou.pdf",
+          "doc_source": "令和8年度9月補正予算の概要 印刷p.3／物理3ページ",
+          "budget_note": "改修補助の申請増加に対応する補正増額。京町家保全への直接の関係は確認できますが、当初の全体事業費とは対象範囲が異なるため集計しません。補正後の個別事業額は未確認です。",
+          "fiscal_year_ad": 2026,
+          "account": "一般会計",
+          "amount_role": "delta",
+          "budget_kind": "supplemental",
+          "series_id": "machiya_repair_grant",
+          "aggregation_status": "excluded",
+          "policy_relation": "direct",
+          "evidence_status": "source_checked",
+          "funding_verification_status": "unverified",
+          "amount_display": "＋2億5,800万円"
         },
         {
           "fiscal_year": "令和7年度 当初予算",
@@ -675,11 +703,11 @@
       },
       "budget_records": [
         {
-          "fiscal_year": "令和7年度 9月補正",
-          "project_name": "過去負債返済（公債償還基金計画外取崩しの償還）",
+          "fiscal_year": "令和7年度9月補正（議決確認は未実施）",
+          "project_name": "過去負債（公債償還基金の計画外の取崩し）の返済",
           "department": "行財政局財政部",
           "amount_jpy": 2500000000,
-          "amount_display": "25億円",
+          "amount_display": "＋25億円",
           "funding_sources": [
             {
               "type": "general",
@@ -688,12 +716,22 @@
               "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
           ],
-          "doc_source": "令和7年度9月補正予算概要 p.1",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000310970.html"
+          "doc_source": "令和7年度9月補正予算の概要 印刷p.4／物理4ページ（一般会計）",
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/nagacho_9gatsu.pdf",
+          "fiscal_year_ad": 2025,
+          "account": "一般会計",
+          "amount_role": "delta",
+          "budget_kind": "supplemental",
+          "series_id": "unplanned_fund_drawdown_repayment",
+          "aggregation_status": "excluded",
+          "policy_relation": "direct",
+          "evidence_status": "source_checked",
+          "funding_verification_status": "unverified",
+          "budget_note": "原文2,500,000千円は令和7年度の補正増額です。一般財源との記載を確認しましたが、登録済み財源説明全体の確認はしていません。令和7年度の当初・補正後総額は今回未確認のため、増額単独では集計しません。令和8年度の25億円とは別年度です。"
         },
         {
-          "fiscal_year": "令和8年度 当初予算",
-          "project_name": "過去負債計画的返済（公債償還基金計画外取崩しの計画返済）",
+          "fiscal_year": "令和8年度当初予算（案・履歴）",
+          "project_name": "過去負債（公債償還基金の計画外の取崩し）の返済",
           "department": "行財政局財政部",
           "amount_jpy": 1000000000,
           "amount_display": "10億円",
@@ -705,8 +743,54 @@
               "color": "bg-slate-50 text-slate-700 border-slate-200"
             }
           ],
-          "doc_source": "令和8年度予算案概要 p.4",
-          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000284994.html"
+          "doc_source": "市長記者会見資料「新京都戦略の改定及び令和8年度当初予算（案）について」 印刷p.28／物理29ページ",
+          "doc_url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf",
+          "fiscal_year_ad": 2026,
+          "account": "一般会計",
+          "amount_role": "initial",
+          "budget_kind": "initial",
+          "series_id": "unplanned_fund_drawdown_repayment",
+          "aggregation_status": "excluded",
+          "policy_relation": "direct",
+          "evidence_status": "source_checked",
+          "funding_verification_status": "unverified",
+          "budget_note": "当初案の計画的返済10億円。9月一般会計補正説明書の補正前額1,000,000千円とも一致します。同年度の補正後額35億円に含まれるため、集計には別加算しません。"
+        },
+        {
+          "fiscal_year": "令和8年度9月補正（議決確認は未実施）",
+          "project_name": "過去負債（公債償還基金の計画外の取崩し）の返済（基金運用金償還金）",
+          "amount_jpy": 2500000000,
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809ippann.pdf",
+          "doc_source": "議第103号 令和8年度京都市一般会計補正予算・補正予算に関する説明書 印刷p.5／物理9ページ",
+          "budget_note": "補正増額2,500,000千円。補正後35億円の内数なので別加算しません。",
+          "fiscal_year_ad": 2026,
+          "account": "一般会計",
+          "amount_role": "delta",
+          "budget_kind": "supplemental",
+          "series_id": "unplanned_fund_drawdown_repayment",
+          "aggregation_status": "excluded",
+          "policy_relation": "direct",
+          "evidence_status": "source_checked",
+          "funding_verification_status": "unverified",
+          "amount_display": "＋25億円"
+        },
+        {
+          "fiscal_year": "令和8年度9月補正（議決確認は未実施）",
+          "project_name": "過去負債（公債償還基金の計画外の取崩し）の返済（基金運用金償還金）",
+          "amount_jpy": 3500000000,
+          "doc_url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809ippann.pdf",
+          "doc_source": "議第103号 令和8年度京都市一般会計補正予算・補正予算に関する説明書 印刷p.5／物理9ページ",
+          "budget_note": "補正前1,000,000千円＋今回補正2,500,000千円＝補正後3,500,000千円を同じ予算行で確認しました。同年度の履歴から補正後額のみを集計します。実際の返済完了額や決算額を意味しません。",
+          "fiscal_year_ad": 2026,
+          "account": "一般会計",
+          "amount_role": "after_change",
+          "budget_kind": "supplemental",
+          "series_id": "unplanned_fund_drawdown_repayment",
+          "aggregation_status": "included",
+          "policy_relation": "direct",
+          "evidence_status": "source_checked",
+          "funding_verification_status": "unverified",
+          "amount_display": "35億円"
         }
       ],
       "legislative_bill": {
@@ -1017,7 +1101,7 @@
     },
     {
       "label": "関連予算措置総額",
-      "value": "91億1,516万円",
+      "value": "91億1,549万円",
       "subtext": "登録額の集計（原典確認状況は記録ごとに異なります）",
       "badge": "参考・未確認分を除外"
     },
