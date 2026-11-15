@@ -19,14 +19,19 @@ export function getOfficialMinuteUrl(stmt, cityCode = 'kyoto') {
       targetUrl = targetUrl.replace('SpMinuteSearch.html', 'MinuteView.html');
     }
 
-    // MinuteView のパラメータ補正
+    // MinuteView のパラメータ補正。#minute_N は常にクエリの最後へ置く。
+    // ハッシュの後に &is_search / &view_years を連結するとフラグメントが壊れる。
     if (targetUrl.includes('MinuteView.html')) {
+      const hashIndex = targetUrl.indexOf('#');
+      const fragment = hashIndex === -1 ? '' : targetUrl.slice(hashIndex);
+      if (hashIndex !== -1) targetUrl = targetUrl.slice(0, hashIndex);
       if (!targetUrl.includes('is_search=')) {
         targetUrl += (targetUrl.includes('?') ? '&' : '?') + 'is_search=false';
       }
       if (viewYear && !targetUrl.includes('view_years=')) {
         targetUrl += `&view_years=${viewYear}`;
       }
+      targetUrl += fragment;
     }
     return targetUrl;
   }
