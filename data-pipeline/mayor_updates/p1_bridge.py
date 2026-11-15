@@ -31,6 +31,15 @@ class P1Bridge:
         if city_capable:
             spec=json.loads((Path(__file__).resolve().parents[1]/'p1_patches/city_identity.json').read_text(encoding='utf-8'))
             pins.update({name.removeprefix('budget/'):sha for name,sha in spec['after'].items()})
+        # An opt-in new copy may carry the separately pinned Nagoya host patch.
+        # Keep accepting the original city candidate; never rewrite existing P1.
+        if city_capable:
+            host_spec=json.loads((Path(__file__).resolve().parents[1]/'p1_patches/nagoya_host.json').read_text(encoding='utf-8'))
+            actual_fetch=sha256((self.code_root/'budget/fetch.py').read_bytes()).hexdigest()
+            if actual_fetch == host_spec['after']['budget/fetch.py']:
+                if pins['fetch.py'] != host_spec['before']['budget/fetch.py']:
+                    raise Hold('Nagoya host patch parent pin mismatch')
+                pins['fetch.py']=actual_fetch
         for name, expected in pins.items():
             actual = sha256((self.code_root / 'budget' / name).read_bytes()).hexdigest()
             if actual != expected:

@@ -3,6 +3,7 @@ from copy import deepcopy
 from datetime import datetime
 from .engine import compare_documents, compare_index
 from .projection import Hold
+from .city_scope import official_host
 
 
 def monitor_saved(bridge, city_config, previous=None):
@@ -100,7 +101,7 @@ def pdf_request_plan(config, *, allow_enabled=False):
         if (not re.fullmatch(r'[a-z][a-z0-9_]{0,63}', str(scope['phase_id'])) or
                 city not in config.get('cities', {}) or not policies or
                 not set(policies) <= set(config['cities'][city]['policy_ids']) or
-                scope.get('allowed_hosts') != ['www.city.' + city + '.lg.jp'] or
+                scope.get('allowed_hosts') != [official_host(city)] or
                 type(scope.get('max_requests_per_run')) is not int or not 1 <= scope['max_requests_per_run'] <= 3 or
                 type(scope.get('max_total_received_bytes')) is not int or not 0 < scope['max_total_received_bytes'] <= 6291456 or
                 any(scope.get(k) != v for k,v in dict(timeout_seconds=10,tls_verify=True,redirects=0,retries=0).items())):

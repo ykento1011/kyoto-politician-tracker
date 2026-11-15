@@ -48,6 +48,19 @@ class ScopeTests(unittest.TestCase):
    s.update(enabled=True,network_enabled=True)
    reserve_request(s,b,s['sources'][0])
    with self.assertRaises(Hold):reserve_request(s,b,s['sources'][0])
+ def test_nagoya_exact_official_host_and_policy(self):
+  s=profile();s.update(city_code='nagoya',policy_ids=['nagoya_p2'],allowed_hosts=['www.city.nagoya.jp'])
+  s['sources']=[dict(s['sources'][0],url='https://www.city.nagoya.jp/tax.html',policy_ids=['nagoya_p2'])]
+  self.assertEqual(validate_scope(s),'nagoya')
+  for host in ['www.city.nagoya.lg.jp','www.city.kyoto.lg.jp','www.city.nagoya.jp.evil.example','www.city.nagoya.jp:443']:
+   bad=copy.deepcopy(s);bad['allowed_hosts']=[host];bad['sources'][0]['url']='https://'+host+'/tax.html'
+   with self.subTest(host=host),self.assertRaises(Hold):validate_scope(bad)
+  bad=copy.deepcopy(s);bad['sources'][0]['policy_ids']=['OSAKA-M01']
+  with self.assertRaises(Hold):validate_scope(bad)
+ def test_other_cities_keep_exact_hosts(self):
+  from mayor_updates.city_scope import official_host
+  for city in ['kyoto','kobe','osaka','yokohama']:
+   self.assertEqual(official_host(city),'www.city.'+city+'.lg.jp')
  def test_legacy_kyoto_selection_unchanged(self):
   cfg=json.loads((ROOT/'config/mayor_update_sources.json').read_text())
   validate_sources(cfg['cities']['kyoto']['monitor_sources'])

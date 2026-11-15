@@ -22,7 +22,7 @@ class P1CityTests(unittest.TestCase):
   cls.temp=tempfile.TemporaryDirectory();cls.root=Path(cls.temp.name);cls.code=cls.root/'code'
   cls.public_hashes={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__).resolve().parents[2]/'frontend/public/data').glob('*_mayor_tracker.json')}
   cls.before=hashlib.sha256((Path(os.environ['MAYOR_P1_APPROVED_ROOT'])/'budget/fetch.py').read_bytes()).hexdigest()
-  prepare_copy(os.environ['MAYOR_P1_APPROVED_ROOT'],cls.code)
+  prepare_copy(os.environ['MAYOR_P1_APPROVED_ROOT'],cls.code,include_nagoya_host=getattr(cls,'nagoya_host',False))
   cls.bridge=P1Bridge(cls.code,cls.root/'bootstrap',city_capable=True)
   from budget.fetch import SourceFetcher,HTTPResponse
   from budget.documents import DiscoveredDocument
@@ -130,4 +130,36 @@ class P1CityTests(unittest.TestCase):
    self.assertIsNone(r.version);self.assertEqual(request.call_count,1);self.assertEqual(store.read_index()['documents'],before)
  def test_wrong_patch_pin_rejected(self):
   with self.assertRaises(Hold):P1Bridge(self.code,self.root/'never',city_capable=False)
+class NagoyaP1Tests(P1CityTests):
+ # Re-run city isolation/legacy Kyoto contracts against the new optional copy.
+ nagoya_host=True
+ def nagoya_fetcher(self,store,transport):
+  return self.Fetcher(store,transport=transport,city_code='nagoya',allowed_hosts=frozenset({'www.city.nagoya.jp'}),max_bytes=2097151,max_redirects=0,timeout_seconds=10)
+ def test_nagoya_document_identity_and_readback(self):
+  url='https://www.city.nagoya.jp/tax.html';store=self.store();tr=self.transport()
+  result=self.nagoya_fetcher(store,tr).fetch_discovered(self.doc(url))
+  rec=store.read_index()['documents'][url]['versions'][0]['record']
+  self.assertEqual(rec['city_code'],'nagoya');self.assertEqual(rec['document_id'],'nagoya-doc-'+hashlib.sha256(url.encode()).hexdigest()[:24])
+  self.assertEqual(result.http_status,200);self.assertEqual(store.snapshot_bytes(rec['sha256']),b'<html>fixture</html>')
+  self.assertEqual(len(tr.calls),1)
+ def test_nagoya_wrong_host_and_foreign_cas_rejected(self):
+  tr=self.transport()
+  for host in ['www.city.nagoya.lg.jp','www.city.kyoto.lg.jp','www.city.nagoya.jp.evil.example']:
+   with self.subTest(host=host),self.assertRaises(ValueError):
+    self.Fetcher(self.store(),transport=tr,city_code='nagoya',allowed_hosts=frozenset({host}))
+  store=self.store();self.fetcher(store,self.transport(),'kyoto').fetch_discovered(self.doc('https://www.city.kyoto.lg.jp/a.html'))
+  before=copy.deepcopy(store.read_index())
+  with self.assertRaises(ValueError):self.nagoya_fetcher(store,tr)
+  self.assertEqual(tr.calls,[]);self.assertEqual(store.read_index(),before)
+ def test_nagoya_worker_scope_end_to_end(self):
+  s=profile();s.update(city_code='nagoya',policy_ids=['nagoya_p2'],allowed_hosts=['www.city.nagoya.jp'],enabled=True,network_enabled=True)
+  s['sources']=[dict(s['sources'][0],url='https://www.city.nagoya.jp/tax.html',policy_ids=['nagoya_p2'])];source=s['sources'][0]
+  with tempfile.TemporaryDirectory(dir=self.root) as t:
+   cas,out,storage=binding(Path(t),s)
+   (out/'single_get_started.json').write_text(json.dumps({'source_url':source['url'],'media_type':'html','scope_sha256':signature(s)}))
+   tr=self.transport()
+   with patch.object(acquire,'assert_owner_only',return_value={}),patch('budget.fetch.UrllibTransport',return_value=tr):
+    acquire.worker(self.code,cas,source,out,scope=s,storage=storage)
+   result=json.loads((out/'worker_outcome.json').read_text());self.assertEqual(result['http_status'],200)
+   self.assertTrue(result['version']['document_id'].startswith('nagoya-doc-'));self.assertEqual(len(tr.calls),1)
 if __name__=='__main__':unittest.main()

@@ -9,12 +9,16 @@ from .engine import PrivateOutput
 def signature(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
+def official_host(city):
+    # Nagoya uses city.nagoya.jp. Do not infer or accept arbitrary alternative hosts.
+    return 'www.city.nagoya.jp' if city == 'nagoya' else 'www.city.'+city+'.lg.jp'
+
 def validate_scope(scope):
     registry=json.loads((Path(__file__).resolve().parents[2]/'config/mayor_update_sources.json').read_text(encoding='utf-8'))['cities']
     city=scope['city_code']
     if city not in registry or not scope['policy_ids'] or not set(scope['policy_ids'])<=set(registry[city]['policy_ids']):
         raise Hold('City/policy scope mismatch')
-    if scope['allowed_hosts'] != ['www.city.'+city+'.lg.jp']:
+    if scope['allowed_hosts'] != [official_host(city)]:
         raise Hold('Explicit official host must match city')
     if any(scope.get(k)!=v for k,v in dict(timeout_seconds=10,redirects=0,retries=0,tls_verify=True).items()):
         raise Hold('City trial communication safeguards changed')
