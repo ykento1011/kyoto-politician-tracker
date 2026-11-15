@@ -2,7 +2,7 @@ import json, shutil, subprocess, sys, tempfile, unittest
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'data-pipeline'))
-from mayor_updates.projection import budget_total, included
+from mayor_updates.projection import budget_total, included, format_record_amount
 
 class KobeM01Tests(unittest.TestCase):
     def setUp(self):
@@ -22,6 +22,23 @@ class KobeM01Tests(unittest.TestCase):
         self.assertEqual(self.policy['stage_level'], 4)
         self.assertIn('原典未確認', r['budget_note'])
         self.assertIn('対応も未照合', r['budget_note'])
+
+    def test_camera_source_is_separate_exact_proposal_and_excluded(self):
+        self.assertEqual(len(self.policy['budget_records']), 2)
+        r = self.policy['budget_records'][1]
+        self.assertEqual(r['amount_jpy'], 621021000)
+        self.assertEqual(r['amount_display'], format_record_amount(r))
+        self.assertEqual(r['amount_display'], '6億2,102万1,000円')
+        self.assertEqual(r['policy_relation'], 'direct')
+        self.assertEqual(r['evidence_status'], 'source_checked')
+        self.assertEqual(r['budget_status'], 'proposal')
+        self.assertEqual(r['fiscal_year'], '令和8年度当初予算（案）')
+        self.assertIn('印刷p.22／PDF22ページ', r['doc_source'])
+        self.assertTrue(r['doc_url'].endswith('/2026yosannannnopoint.pdf'))
+        self.assertIn('重複可能性が未確認', r['budget_note'])
+        self.assertFalse(r.get('funding_sources'))
+        self.assertFalse(included(r))
+        self.assertEqual(budget_total([self.policy]), 0)
 
     def test_kpi_is_a_record_count_not_an_unverified_budget_sum(self):
         kpi = next(k for k in self.data['kpis'] if k['label'] == '掲載答弁記録')
@@ -46,5 +63,10 @@ class KobeM01Tests(unittest.TestCase):
             kpi = next(k for k in generated['kpis'] if k['label'] == '掲載答弁記録')
             self.assertEqual(kpi['value'], '0件')
             self.assertFalse(included(policy['budget_records'][0]))
+            target.unlink()
+            subprocess.run([sys.executable, '-B', str(pipeline / 'build_kobe_mayor_tracker.py')], check=True, capture_output=True, encoding='utf-8')
+            fresh = next(p for p in json.loads(target.read_text(encoding='utf-8'))['pledges'] if p['id'] == 'KOBE-M01')
+            self.assertEqual(fresh['budget_records'][1], self.policy['budget_records'][1])
+            self.assertEqual(budget_total([fresh]), 0)
 
 if __name__ == '__main__': unittest.main()

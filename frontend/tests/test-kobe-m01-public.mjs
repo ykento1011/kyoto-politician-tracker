@@ -17,12 +17,15 @@ try {
   const {default:MayorTrackerView}=await server.ssrLoadModule('/src/components/MayorTrackerView.jsx');
   const markup=renderToStaticMarkup(React.createElement(MayorTrackerView,{data:{...data,pledges:[policy]},cityCode:'kobe'}));
   assert.equal((markup.match(/data-budget-relation="unconfirmed"/g)||[]).length,1);
-  assert.equal((markup.match(/data-budget-aggregation="excluded"/g)||[]).length,1);
+  assert.equal((markup.match(/data-budget-aggregation="excluded"/g)||[]).length,2);
   for(const text of ['14億2,000万円','原典未確認','集計対象外','未照合','掲載答弁記録','10件']) assert.ok(markup.includes(text),text);
   for(const text of ['財源内訳：','8億5,000万円','5億7,000万円','関連予算総額']) assert.ok(!markup.includes(text),text);
   assert.ok(markup.includes(policy.budget_records[0].doc_url));
+  assert.equal((markup.match(/data-budget-relation="direct"/g)||[]).length,1);
+  for(const text of ['6億2,102万1,000円','621,021千円','令和8年度当初予算（案）','神戸市防犯カメラの増設','印刷p.22／PDF22ページ','重複可能性が未確認','事業目的との直接関係を確認した根拠']) assert.ok(markup.includes(text),text);
+  assert.ok(markup.includes(policy.budget_records[1].doc_url));
   const full=renderToStaticMarkup(React.createElement(MayorTrackerView,{data,cityCode:'kobe'}));
-  assert.equal((full.match(/data-budget-relation=/g)||[]).length,1);
+  assert.equal((full.match(/data-budget-relation=/g)||[]).length,2);
   for(const other of data.pledges.filter(p=>p.id!=='KOBE-M01')) assert.ok(full.includes(other.budget_records[0].amount_display));
   console.log('PASS: Kobe M01 retained/excluded; unverified funding hidden; other four legacy budget cards retained.');
 } finally {await server.close();}
