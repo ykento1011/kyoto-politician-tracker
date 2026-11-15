@@ -146,6 +146,39 @@ class AgendaTests(unittest.TestCase):
                      (371,"乙議員","副委員長（乙議員）",5,"再質問します。")])
         self.assertEqual(len(build(spec)["threads"]),1)
 
+class QualityExclusionTests(unittest.TestCase):
+    def setUp(self):
+        self.plan=dict(meeting_key="kyoto:1:1",input_sha256="a"*64,original_raw_sha256="b"*64,
+            selected_keys=["ssp_1_1_"+str(n) for n in (159,367,387)],
+            threads=[dict(main_statement=statement(n,"甲議員","原文"),related_statements=[statement(n,"甲議員","原文")]) for n in (159,367,387)])
+        self.state=dict(results={k:dict(analysis=dict(summary="要旨"+k)) for k in self.plan["selected_keys"]})
+        entries={k:dict(analysis_sha256=repair.io.digest(repair.intake.encode(v["analysis"])),source_reference="synthetic original") for k,v in self.state["results"].items()}
+        held=dict(entries.pop("ssp_1_1_159"),statement_id="ssp_1_1_159",meeting_key="kyoto:1:1",reason="Semantic mismatch",source_statement_ids=["ssp_1_1_159"])
+        self.approval=dict(scope="approved_partial_publication",approval_reference="Synthetic PM",meeting_key="kyoto:1:1",
+            input_sha256="a"*64,original_raw_sha256="b"*64,plan_sha256=repair.plan_digest(self.plan),analysis_receipt_sha256="c"*64,
+            accepted=entries,exclusions=[held])
+    def test_only_approved159_excluded_and_receipt_unchanged(self):
+        before=copy.deepcopy(self.state)
+        selected=repair.quality_selection(self.approval,self.plan,self.state,"c"*64)
+        self.assertEqual(selected["accepted_thread_ids"],["ssp_1_1_367","ssp_1_1_387"])
+        self.assertEqual(selected["held_thread_ids"],["ssp_1_1_159"])
+        self.assertFalse(selected["meeting_complete"]);self.assertEqual(before,self.state)
+    def test_unapproved_missing_or_changed_exclusion_stops(self):
+        for change in (lambda a:a.update(exclusions=[]),lambda a:a["accepted"].pop("ssp_1_1_367"),
+                       lambda a:a["exclusions"][0].update(statement_id="ssp_1_1_367"),
+                       lambda a:a["exclusions"][0].update(analysis_sha256="d"*64),
+                       lambda a:a.update(meeting_key="kyoto:2:1")):
+            approval=copy.deepcopy(self.approval);change(approval)
+            with self.assertRaises(repair.io.Stop):repair.quality_selection(approval,self.plan,self.state,"c"*64)
+    def test_excluded_source_cannot_leak_to_another_thread(self):
+        self.plan["threads"][1]["related_statements"].append(statement(159,"甲議員","原文"))
+        self.approval["plan_sha256"]=repair.plan_digest(self.plan)
+        with self.assertRaises(repair.io.Stop):repair.quality_selection(self.approval,self.plan,self.state,"c"*64)
+    def test_quality_projection_cannot_start_api(self):
+        with patch.object(budget,"live_sender",side_effect=AssertionError("No API")):
+            with self.assertRaises(repair.io.Stop):repair.run(dict(quality_approval="synthetic"))
+
+
 class ReceiptTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory(dir=repair.io.ARTIFACT,prefix="thread-repair-synthetic-")

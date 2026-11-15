@@ -22,7 +22,7 @@ CODE_FILES = ("kyoto_thread_contract.py", "kyoto_thread_repair.py",
 def code_hashes():
     return {name:io.digest((Path(__file__).parent/name).read_bytes()) for name in CODE_FILES}
 
-def checked_stage(config):
+def checked_stage(config, *, analysis_code=None):
     root = intake._private_root(config["private_root"], config["public_summary"])
     if not root.resolve().is_relative_to(io.ARTIFACT.resolve()):
         raise io.Stop("Repair must remain in private Codex A storage")
@@ -46,7 +46,7 @@ def checked_stage(config):
         or policy.get("input_sha256")!=manifest["input_sha256"]
         or policy.get("manifest_sha256")!=ready["manifest_sha256"]
         or policy.get("thread_revision")!=contract.REVISION
-        or policy.get("thread_code_sha256")!=code_hashes()
+        or policy.get("thread_code_sha256")!=(analysis_code if analysis_code is not None else code_hashes())
         or not re.fullmatch(r"[a-z0-9-]{4,90}",policy.get("revision_id",""))):
         raise io.Stop("Explicit repair revision/code/input policy mismatch")
     return root,stage,manifest,policy
@@ -116,8 +116,8 @@ def saved_repair_prior(config, policy, prior, ns, manifest):
             raise io.Stop("Prior actual prompt/statement membership changed")
     return old_plan["fingerprints"], meter.spent
 
-def make_plan(config):
-    root,stage,manifest,policy = checked_stage(config)
+def make_plan(config, *, analysis_code=None):
+    root,stage,manifest,policy = checked_stage(config,analysis_code=analysis_code)
     pipeline = stage/"data-pipeline"
     rows = intake.read_json(pipeline/"kyoto_raw_statements.json")
     ns = budget.legacy_functions(pipeline/"batch_analyze_council.py",None,
@@ -183,7 +183,7 @@ def make_plan(config):
     plan = dict(schema=1,revision=contract.REVISION,revision_id=policy["revision_id"],
         meeting_key=manifest["meeting_key"],manifest_sha256=io.digest(intake.encode(manifest)),
         input_sha256=manifest["input_sha256"],original_raw_sha256=manifest["original_raw_sha256"],
-        code_sha256=code_hashes(),model=budget.MODEL,prior_receipt_sha256=prior_sha,
+        code_sha256=analysis_code if analysis_code is not None else code_hashes(),model=budget.MODEL,prior_receipt_sha256=prior_sha,
         prior_estimated_jpy=str(prior_cost),threads=selected,fingerprints=new,roles=built["roles"],
         boundary_positions=built["boundary_positions"],agenda_evidence=built["agenda_evidence"],
         content_review=review,changes=changes,reused_results=reuse,
@@ -221,6 +221,8 @@ def validate_attempts(plan,state,policy):
     return meter,expected
 
 def run(config,*,resume=False):
+    if config.get("quality_approval"):
+        raise io.Stop("Quality exclusion is projection-only; no API execution")
     plan = make_plan(config)
     policy = intake.read_json(config["api_policy"])
     out = output_path(config,plan)
@@ -291,6 +293,10 @@ def run(config,*,resume=False):
 
 def verified(config,receipt_path):
     plan = make_plan(config)
+    return verified_plan(config,receipt_path,plan)
+
+
+def verified_plan(config,receipt_path,plan):
     out = output_path(config,plan)
     if Path(receipt_path).resolve()!=(out/"receipt.json").resolve():
         raise io.Stop("Receipt outside exact repair revision")
@@ -302,10 +308,71 @@ def verified(config,receipt_path):
         raise io.Stop("Repair does not cover all reviewed threads")
     return plan,state
 
+
+def quality_selection(approval,plan,state,receipt_sha256):
+    """Select only a complete, explicit PM-reviewed partition of immutable results."""
+    if (approval.get("scope")!="approved_partial_publication"
+            or not approval.get("approval_reference")
+            or approval.get("meeting_key")!=plan["meeting_key"]
+            or approval.get("analysis_receipt_sha256")!=receipt_sha256
+            or approval.get("plan_sha256")!=plan_digest(plan)
+            or approval.get("input_sha256")!=plan["input_sha256"]
+            or approval.get("original_raw_sha256")!=plan["original_raw_sha256"]):
+        raise io.Stop("Quality approval input/meeting/receipt mismatch")
+    threads={contract.thread_key(t):t for t in plan["threads"]}
+    accepted=approval.get("accepted",{})
+    exclusions=approval.get("exclusions",[])
+    held={e.get("statement_id"):e for e in exclusions}
+    if (not accepted or not held or len(held)!=len(exclusions)
+            or set(accepted)&set(held) or set(accepted)|set(held)!=set(threads)):
+        raise io.Stop("Unapproved, duplicate or incomplete quality exclusions")
+    held_members=set()
+    for key,entry in {**accepted,**held}.items():
+        if entry.get("analysis_sha256")!=io.digest(intake.encode(state["results"][key]["analysis"])):
+            raise io.Stop("Quality review refers to a different analysis result")
+        if not entry.get("source_reference"):
+            raise io.Stop("Quality review requires source evidence")
+        if key in held:
+            ids=[r["id"] for r in threads[key]["related_statements"]]
+            if (entry.get("meeting_key")!=plan["meeting_key"] or not entry.get("reason")
+                    or entry.get("source_statement_ids")!=ids):
+                raise io.Stop("Excluded thread source scope/reason mismatch")
+            held_members.update(ids)
+    for key in accepted:
+        if held_members & {r["id"] for r in threads[key]["related_statements"]}:
+            raise io.Stop("Held source context contaminates a publishable thread")
+    return dict(schema=1,publication_scope="partial",meeting_key=plan["meeting_key"],
+                accepted_thread_ids=[k for k in plan["selected_keys"] if k in accepted],
+                held_thread_ids=[k for k in plan["selected_keys"] if k in held],
+                exclusions=exclusions,input_sha256=plan["input_sha256"],
+                analysis_receipt_sha256=receipt_sha256,official_coverage="unknown",meeting_complete=False)
+
+
+def publication_plan(config,receipt_path):
+    if not config.get("quality_approval"):
+        plan,state=verified(config,receipt_path)
+        return plan,state,None
+    path=io.safe_path(config["quality_approval"])
+    if (io.digest(path.read_bytes())!=config.get("quality_approval_sha256")
+            or config.get("projection_code_sha256")!=code_hashes()):
+        raise io.Stop("Quality approval/projection code changed")
+    approval=intake.read_json(path)
+    # Reconstruct and verify the saved analysis under its immutable code identity.
+    # No frozen code is executed and no API method is called. Any plan drift stops.
+    runtime=io.safe_path(config["analysis_runtime"])
+    identity={name:io.digest((runtime/name).read_bytes()) for name in CODE_FILES}
+    if io.digest(Path(config["api_policy"]).read_bytes())!=approval.get("api_policy_sha256"):
+        raise io.Stop("Saved analysis policy changed")
+    plan=make_plan(config,analysis_code=identity)
+    plan,state=verified_plan(config,receipt_path,plan)
+    selection=quality_selection(approval,plan,state,io.digest(Path(receipt_path).read_bytes()))
+    selection["quality_approval_sha256"]=config["quality_approval_sha256"]
+    return plan,state,selection
+
 def project(config,receipt_path):
     # A new immutable private candidate; never overwrite the previous candidate/history.
     import kyoto_continuation as continuation
-    plan,state = verified(config,receipt_path)
+    plan,state,_ = publication_plan(config,receipt_path)
     return continuation.private_project(config["prepared_stage"],receipt_path,
         config["public_summary"],Path(config["private_root"]),repair_config=config)
 

@@ -100,6 +100,18 @@ def acknowledge_publication(root,config):
     original=timelines[0];deployed=io.safe_path(public.parent/"timelines"/original.name)
     if deployed.read_bytes()!=original.read_bytes() or io.digest(deployed.read_bytes())!=approval.get("timeline_sha256"):
         raise io.Stop("Published timeline evidence mismatch")
+    quality = None
+    if ready.get("publication_scope")=="partial" or prior.get("quality_selection_sha256"):
+        quality_path=stage/"QUALITY_SELECTION.json"
+        quality=intake.read_json(quality_path)
+        digest=io.digest(quality_path.read_bytes())
+        if (digest!=ready.get("quality_selection_sha256") or digest!=prior.get("quality_selection_sha256")
+                or quality.get("meeting_key")!=key or quality.get("publication_scope")!="partial"
+                or set(quality["held_thread_ids"])&set(observed)):
+            raise io.Stop("Partial publication quality evidence mismatch")
+        mid="ssp_"+key.split(":")[1]+"_"+key.split(":")[2]
+        if {k for k,r in wanted.items() if r["meeting_id"]==mid}!=set(quality["accepted_thread_ids"]):
+            raise io.Stop("Partial publication escaped its approved IDs")
     lock=root/"history.lock"
     with lock.open("xb") as f:f.write(io.utc().encode())
     try:
@@ -108,6 +120,11 @@ def acknowledge_publication(root,config):
         fresh["meetings"][key].update(published=True,publication_state="PM_deployment_receipt_recorded",
             publication_receipt_sha256=io.digest(Path(config["publication_receipt"]).read_bytes()),
             publication_commit=approval["commit"],publication_reference=approval["deployment_reference"])
+        if quality is not None:
+            fresh["meetings"][key].update(publication_state="partial_publication_confirmed",
+                publication_scope="partial",published_thread_ids=quality["accepted_thread_ids"],
+                held_thread_keys=quality["held_thread_ids"],quality_exclusions=quality["exclusions"],
+                official_coverage="unknown",meeting_complete=False)
         io.write_json(root/"continuation-history.json",fresh)
     finally:lock.unlink()
     return fresh["meetings"][key]
@@ -211,9 +228,10 @@ def private_project(stage,receipt_path,public_summary,root,*,repair_config=None)
     ns=budget.legacy_functions(stage/"data-pipeline/batch_analyze_council.py",None,
                               stage/"data-pipeline/master/councilors_kyoto.json")
     repaired = None
+    quality = None
     if repair_config is not None:
         import kyoto_thread_repair
-        repaired, checked = kyoto_thread_repair.verified(repair_config,receipt_path)
+        repaired, checked, quality = kyoto_thread_repair.publication_plan(repair_config,receipt_path)
         if checked != receipt:
             raise io.Stop("Repair receipt changed during projection")
         threads = repaired["threads"]
@@ -229,6 +247,9 @@ def private_project(stage,receipt_path,public_summary,root,*,repair_config=None)
     if repaired is None and (set(charged)!=set(selected) or any(charged[k].get("analysis")!=v.get("analysis")
                                         for k,v in receipt["results"].items())):
         raise io.Stop("Result is not backed by the saved successful response")
+    if quality is not None:
+        selected={k:v for k,v in selected.items() if k in quality["accepted_thread_ids"]}
+        threads=list(selected.values())
     indexed={r["id"]:r for r in rows}
     zero={k:0 for k in ("evidence","solution","local_focus","constructive")}
     for r in rows:
@@ -236,6 +257,9 @@ def private_project(stage,receipt_path,public_summary,root,*,repair_config=None)
                        "reasoning":"代表質疑対象外または未解析","scores":dict(zero)}
     for key,result in receipt["results"].items():
         if result.get("status")!="analysis_success" or key not in indexed:raise io.Stop("Invalid result")
+        if quality is not None and key not in selected:
+            indexed[key]["analysis"]["reasoning"]="品質審査により公開保留（元の解析記録は別途保全）"
+            continue
         indexed[key]["analysis"]=dict(budget.validate_result(result["analysis"]),is_evaluated=True)
         if repaired is not None:
             # Only the new summary uses the official master name. Original input
@@ -273,7 +297,15 @@ def private_project(stage,receipt_path,public_summary,root,*,repair_config=None)
             env=dict(PROJECT_ROOT=work,Path=Path,os=os,json=json,re=re,shutil=shutil)
             exec(compile(ast.fix_missing_locations(ast.Module(body=funcs,type_ignores=[])),str(source),"exec"),env)
             env["build_timelines"]("kyoto")
-    return intake.assemble(completed,public_summary,root)
+    candidate=intake.assemble(completed,public_summary,root)
+    if quality is not None:
+        # The normal assembler still checks identities, source text, exact timeline
+        # coverage and the immutable public baseline before this extra receipt.
+        io.write_json(candidate/"QUALITY_SELECTION.json",quality)
+        ready=intake.read_json(candidate/"READY.json")
+        ready.update(publication_scope="partial",quality_selection_sha256=io.digest((candidate/"QUALITY_SELECTION.json").read_bytes()))
+        io.write_json(candidate/"READY.json",ready)
+    return candidate
 
 
 def execute(operation,config):
