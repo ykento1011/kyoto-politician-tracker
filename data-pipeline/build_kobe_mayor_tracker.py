@@ -1,5 +1,6 @@
 ﻿import json
 from pathlib import Path
+from mayor_updates.projection import preserve_published
 
 cur = Path(__file__).resolve().parent
 frontend_data = cur.parent / "frontend" / "public" / "data"
@@ -81,7 +82,12 @@ kobe_mayor_pledges = [
                 "fiscal_year": "令和8年度",
                 "project_name": "防災・減災推進事業・防犯カメラ等設置補助",
                 "amount_display": "14億2,000万円",
-                "doc_source": "神戸市予算説明書（危機管理室・市民参画推進局）",
+                "policy_relation": "unconfirmed",
+                "aggregation_status": "excluded",
+                "evidence_status": "unverified",
+                "funding_verification_status": "unverified",
+                "budget_note": "登録額14億2,000万円は保持しています。今回確認した令和8年度予算説明書（危機管理局）では、登録事業名・金額・財源内訳との対応を確認できませんでした。原典未確認として直接予算の集計から除外しています。既存の出典URLと登録内容の対応も未照合です。今回の確認だけで登録額の誤りとは断定していません。",
+                "doc_source": "神戸市予算説明書（危機管理室・市民参画推進局）（登録済み出典・対応関係は未照合）",
                 "doc_url": "https://www.city.kobe.lg.jp/a57337/shise/zaisei/yosan/index.html",
                 "funding_sources": [
                     {"label": "市債・国費", "amount": "8億5,000万円"},
@@ -359,10 +365,10 @@ tracker_output = {
             "badge": "推進中"
         },
         {
-            "label": "関連予算総額",
-            "value": "¥134.1億",
-            "subtext": "令和8年度予算説明書紐付け",
-            "badge": "透明性担保"
+            "label": "掲載答弁記録",
+            "value": str(sum(len(p.get("debate_statements", [])) for p in kobe_mayor_pledges)) + "件",
+            "subtext": "神戸市会公式会議録原本直結",
+            "badge": "任期連動"
         }
     ],
     "lifecycle_definition": {
@@ -373,5 +379,9 @@ tracker_output = {
 }
 
 out_path = frontend_data / "kobe_mayor_tracker.json"
+# Keep accepted evidence annotations and source URLs when regenerating stale seeds.
+if out_path.exists():
+    published = json.loads(out_path.read_text(encoding="utf-8"))
+    tracker_output["pledges"] = preserve_published(tracker_output["pledges"], published["pledges"])
 out_path.write_text(json.dumps(tracker_output, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"✅ 神戸市長トラッカー生成完了: {out_path.resolve()} (公約数: {len(kobe_mayor_pledges)} 件)")

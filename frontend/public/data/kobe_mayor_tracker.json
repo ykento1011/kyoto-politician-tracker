@@ -35,7 +35,7 @@
       "badge": "推進中"
     },
     {
-      "label": "関連予算総額",
+      "label": "掲載答弁記録",
       "value": "10件",
       "subtext": "神戸市会公式会議録原本直結",
       "badge": "任期連動"
@@ -70,7 +70,7 @@
           "fiscal_year": "令和8年度",
           "project_name": "防災・減災推進事業・防犯カメラ等設置補助",
           "amount_display": "14億2,000万円",
-          "doc_source": "神戸市予算説明書（危機管理室・市民参画推進局）",
+          "doc_source": "神戸市予算説明書（危機管理室・市民参画推進局）（登録済み出典・対応関係は未照合）",
           "doc_url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
           "funding_sources": [
             {
@@ -82,7 +82,12 @@
               "amount": "5億7,000万円"
             }
           ],
-          "doc_title": "神戸市当初予算の概要（公式公文書原本）"
+          "doc_title": "神戸市当初予算の概要（公式公文書原本）",
+          "policy_relation": "unconfirmed",
+          "aggregation_status": "excluded",
+          "evidence_status": "unverified",
+          "funding_verification_status": "unverified",
+          "budget_note": "登録額14億2,000万円は保持しています。今回確認した令和8年度予算説明書（危機管理局）では、登録事業名・金額・財源内訳との対応を確認できませんでした。原典未確認として直接予算の集計から除外しています。既存の出典URLと登録内容の対応も未照合です。今回の確認だけで登録額の誤りとは断定していません。"
         }
       ],
       "legislative_bill": {
