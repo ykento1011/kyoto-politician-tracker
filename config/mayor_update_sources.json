@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "network_enabled": false,
+  "timezone": "Asia/Tokyo",
+  "cost": {
+    "paid_api_enabled": false,
+    "paid_api_budget_jpy": 0,
+    "http_cost": "実行環境・回線の既存費用。新規API課金なし。"
+  },
+  "communication": {
+    "method": "GET",
+    "tls_verify": true,
+    "redirects": 0,
+    "retries": 0,
+    "timeout_seconds": 10,
+    "default_max_bytes": 2097152,
+    "max_requests_per_run": 3,
+    "follow_discovered_links": false,
+    "same_url_recheck": "Content SHA comparison; URL identity alone is insufficient.",
+    "max_total_received_bytes": 6291456
+  },
+  "cities": {
+    "kyoto": {
+      "enabled": false,
+      "policy_ids": [
+        "P-01",
+        "P-02",
+        "P-03",
+        "P-04",
+        "P-05",
+        "P-06",
+        "P-07",
+        "P-08",
+        "P-09",
+        "P-10",
+        "P-11",
+        "P-12",
+        "P-13",
+        "P-14"
+      ],
+      "source_groups": {
+        "initial": {
+          "index_urls": [
+            "https://www.city.kyoto.lg.jp/gyozai/page/0000347934.html",
+            "https://www.city.kyoto.lg.jp/gyozai/page/0000335933.html"
+          ],
+          "interval_days": 7,
+          "enabled": false
+        },
+        "supplemental": {
+          "index_urls": [
+            "https://www.city.kyoto.lg.jp/gyozai/page/0000347934.html",
+            "https://www.city.kyoto.lg.jp/gyozai/page/0000335933.html"
+          ],
+          "interval_days": 7,
+          "enabled": false
+        },
+        "settlement": {
+          "index_urls": [],
+          "interval_days": 7,
+          "enabled": false
+        },
+        "execution": {
+          "index_urls": [],
+          "interval_days": 7,
+          "enabled": false
+        },
+        "progress": {
+          "index_urls": [],
+          "interval_days": 7,
+          "enabled": false
+        }
+      },
+      "known_saved_sources": [],
+      "allowed_hosts": [
+        "www.city.kyoto.lg.jp"
+      ],
+      "policy_terms": {
+        "P-01": [
+          "市民優先価格"
+        ],
+        "P-03": [
+          "中学校給食",
+          "給食センター"
+        ]
+      },
+      "pending_source_definitions": [],
+      "monitor_sources": [
+        {
+          "id": "r8_index",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000347934.html",
+          "fiscal_year": 2026,
+          "title": "京都市・令和8年度予算一覧",
+          "document_kind": "budget_index",
+          "role": "index",
+          "interval_days": 7,
+          "max_bytes": 2097152,
+          "resolution_base": "https://www.city.kyoto.lg.jp/gyozai/",
+          "selector": "#mol_contents",
+          "budget_kinds": [
+            "initial",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "r7_index",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000335933.html",
+          "fiscal_year": 2025,
+          "title": "京都市・令和7年度予算一覧",
+          "document_kind": "budget_index",
+          "role": "index",
+          "interval_days": 7,
+          "max_bytes": 2097152,
+          "resolution_base": "https://www.city.kyoto.lg.jp/gyozai/",
+          "selector": "#mol_contents",
+          "budget_kinds": [
+            "initial",
+            "supplemental"
+          ]
+        },
+        {
+          "id": "school_progress",
+          "url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html",
+          "fiscal_year": 2026,
+          "title": "全員制中学校給食の実施状況の進ちょくについて",
+          "document_kind": "other_official",
+          "role": "progress",
+          "interval_days": 7,
+          "max_bytes": 2097152,
+          "resolution_base": "https://www.city.kyoto.lg.jp/kyoiku/",
+          "selector": "#mol_contents",
+          "policy_id": "P-03",
+          "fiscal_year_is_administrative": true,
+          "budget_kinds": []
+        }
+      ]
+    },
+    "osaka": {
+      "enabled": false,
+      "policy_ids": [
+        "OSAKA-M01",
+        "OSAKA-M02",
+        "OSAKA-M03",
+        "OSAKA-M04"
+      ],
+      "source_groups": {
+        "initial": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "supplemental": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "settlement": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "execution": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "progress": {
+          "index_urls": [],
+          "interval_days": 7,
+          "enabled": false
+        }
+      },
+      "known_saved_sources": [],
+      "allowed_hosts": [],
+      "policy_terms": {}
+    },
+    "kobe": {
+      "enabled": false,
+      "policy_ids": [
+        "KOBE-M01",
+        "KOBE-M02",
+        "KOBE-M03",
+        "KOBE-M04",
+        "KOBE-M05"
+      ],
+      "source_groups": {
+        "initial": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "supplemental": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "settlement": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "execution": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "progress": {
+          "index_urls": [],
+          "interval_days": 7,
+          "enabled": false
+        }
+      },
+      "known_saved_sources": [],
+      "allowed_hosts": [],
+      "policy_terms": {}
+    },
+    "nagoya": {
+      "enabled": false,
+      "policy_ids": [
+        "nagoya_p1",
+        "nagoya_p2",
+        "nagoya_p3",
+        "nagoya_p4",
+        "nagoya_p5"
+      ],
+      "source_groups": {
+        "initial": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "supplemental": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "settlement": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "execution": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "progress": {
+          "index_urls": [],
+          "interval_days": 7,
+          "enabled": false
+        }
+      },
+      "known_saved_sources": [],
+      "allowed_hosts": [],
+      "policy_terms": {}
+    },
+    "yokohama": {
+      "enabled": false,
+      "policy_ids": [
+        "YOKOHAMA-M01",
+        "YOKOHAMA-M02",
+        "YOKOHAMA-M03",
+        "YOKOHAMA-M04",
+        "YOKOHAMA-M05",
+        "YOKOHAMA-M06",
+        "YOKOHAMA-M07",
+        "YOKOHAMA-M08",
+        "YOKOHAMA-M09",
+        "YOKOHAMA-M10",
+        "YOKOHAMA-M11",
+        "YOKOHAMA-M12"
+      ],
+      "source_groups": {
+        "initial": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "supplemental": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "settlement": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "execution": {
+          "index_urls": [],
+          "interval_days": 30,
+          "enabled": false
+        },
+        "progress": {
+          "index_urls": [],
+          "interval_days": 7,
+          "enabled": false
+        }
+      },
+      "known_saved_sources": [],
+      "allowed_hosts": [],
+      "policy_terms": {}
+    }
+  },
+  "schedule": {
+    "enabled": false,
+    "interval_days": 7,
+    "timezone": "Asia/Tokyo",
+    "refresh_existing_after_activation": true,
+    "publish_automatically": false,
+    "weekday": "Monday",
+    "local_time": "09:00",
+    "runtime": "persistent_owner_windows"
+  },
+  "single_trial": {
+    "completed": true,
+    "future_acquisition_authorized": false,
+    "follow_pdf_links": false
+  },
+  "pdf_watch": {
+    "enabled": false,
+    "requires_separate_activation": true,
+    "max_requests_per_run": 3,
+    "max_total_received_bytes": 25165824,
+    "limitation": "HTML索引が不変で同じURLのPDFだけ差し替わる場合、HTML監視では検知できません。PDF取得は別工程・別承認です。",
+    "sources": [
+      {
+        "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf",
+        "fiscal_year": 2026,
+        "max_bytes": 20971520,
+        "max_gets": 1
+      },
+      {
+        "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/13_kouhou_kyoiku.pdf",
+        "fiscal_year": 2025,
+        "max_bytes": 2097152,
+        "max_gets": 1
+      },
+      {
+        "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/15_kyouiku_kouhou.pdf",
+        "fiscal_year": 2026,
+        "max_bytes": 2097152,
+        "max_gets": 1
+      }
+    ]
+  }
+}
