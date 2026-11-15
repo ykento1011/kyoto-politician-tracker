@@ -1,6 +1,6 @@
 ﻿import json
 from pathlib import Path
-from mayor_updates.projection import preserve_published
+from mayor_updates.projection import preserve_published, format_record_amount
 
 cur = Path(__file__).resolve().parent
 frontend_data = cur.parent / "frontend" / "public" / "data"
@@ -8,6 +8,25 @@ frontend_data.mkdir(parents=True, exist_ok=True)
 
 BULLETIN_PDF = "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf"
 STRATEGY_PDF = "https://www.city.kobe.lg.jp/documents/35913/kobe_vision_ver4-2_1.pdf"
+
+CAMERA_BUDGET_EVIDENCE = {
+    "fiscal_year": "令和8年度当初予算（案）",
+    "fiscal_year_ad": 2026,
+    "project_name": "神戸市防犯カメラの増設",
+    "amount_jpy": 621021000,
+    "amount_role": "initial",
+    "budget_kind": "initial",
+    "budget_status": "proposal",
+    "policy_relation": "direct",
+    "aggregation_status": "excluded",
+    "evidence_status": "source_checked",
+    "funding_verification_status": "unverified",
+    "budget_note": "原文は621,021千円。通学路・駅周辺・住宅地・都心エリアの神戸市防犯カメラを合計5,500台まで増設する予算案です。既存登録14億2,000万円との積算関係・重複可能性が未確認のため、集計には加算しません。議決成立・執行実績を確認したものではありません。",
+    "doc_source": "神戸市令和8年度当初予算案（2026年2月16日 市長定例会見資料）印刷p.22／PDF22ページ",
+    "doc_url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannannnopoint.pdf",
+    "doc_title": "神戸市令和8年度当初予算案（市長定例会見資料）"
+}
+CAMERA_BUDGET_EVIDENCE["amount_display"] = format_record_amount(CAMERA_BUDGET_EVIDENCE)
 
 # 神戸市長答弁ログのロード
 raw_stmts_p = cur / "kobe_raw_statements.json"
@@ -93,7 +112,8 @@ kobe_mayor_pledges = [
                     {"label": "市債・国費", "amount": "8億5,000万円"},
                     {"label": "一般財源", "amount": "5億7,000万円"}
                 ]
-            }
+            },
+            CAMERA_BUDGET_EVIDENCE
         ],
         "legislative_bill": {
             "bill_number": "議第31号",
