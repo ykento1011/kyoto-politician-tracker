@@ -65,6 +65,57 @@ def same_analysis_input(before, after):
     # Every actual model-input statement ID, speaker, prompt byte and config must match.
     return all(before[k]==after[k] for k in ("speaker","prompt_statement_ids","prompt_sha256","config"))
 
+
+def reviewed_results(config, policy, keys):
+    path = io.safe_path(config["prior_content_review"])
+    if io.digest(path.read_bytes()) != policy.get("prior_content_review_sha256"):
+        raise io.Stop("Prior content review changed")
+    review = intake.read_json(path)
+    if set(review) != set(keys):
+        raise io.Stop("Every prior result requires an explicit content review")
+    for item in review.values():
+        if (item.get("decision") not in ("reuse", "invalidate")
+                or not item.get("reason") or not item.get("source_reference")):
+            raise io.Stop("Incomplete semantic review")
+        note = item.get("reanalysis_instruction")
+        if note is not None and (item["decision"] != "invalidate" or not isinstance(note,str) or not 1 <= len(note) <= 1000):
+            raise io.Stop("Reanalysis instruction requires explicit invalidation")
+    return review
+
+
+def saved_repair_prior(config, policy, prior, ns, manifest):
+    """Reuse a hash-approved first repair, without re-executing its old code/API.
+
+    Chained receipts already containing reused results need a separate ancestry review.
+    Never silently treat those results as newly charged successes.
+    """
+    path = io.safe_path(prior["plan_file"])
+    old_plan = intake.read_json(path)
+    previous_policy_path = io.safe_path(config["prior_api_policy"])
+    if io.digest(previous_policy_path.read_bytes()) != policy.get("prior_api_policy_sha256"):
+        raise io.Stop("Previous pricing/revision policy changed")
+    previous_policy = intake.read_json(previous_policy_path)
+    if (plan_digest(old_plan) != policy.get("prior_plan_sha256")
+            or old_plan.get("manifest_sha256") != io.digest(intake.encode(manifest))
+            or old_plan.get("original_raw_sha256") != manifest["original_raw_sha256"]
+            or old_plan.get("code_sha256") != previous_policy.get("thread_code_sha256")
+            or old_plan.get("model") != budget.MODEL
+            or old_plan.get("reused_results") or Decimal(old_plan.get("prior_estimated_jpy","-1")) != 0):
+        raise io.Stop("Prior repair binding/ancestry is unsupported or changed")
+    if path.parent.resolve() != output_path(config,old_plan).resolve():
+        raise io.Stop("Prior plan outside its exact revision")
+    keys = [contract.thread_key(t) for t in old_plan["threads"]]
+    if keys != old_plan["selected_keys"] or set(keys) != set(prior["results"]):
+        raise io.Stop("Prior repair does not cover its threads")
+    meter, recovered = validate_attempts(old_plan,prior,previous_policy)
+    if recovered != prior["results"]:
+        raise io.Stop("Prior repair response evidence incomplete")
+    for thread in old_plan["threads"]:
+        key = contract.thread_key(thread)
+        if contract.fingerprint(ns,thread) != old_plan["fingerprints"][key]:
+            raise io.Stop("Prior actual prompt/statement membership changed")
+    return old_plan["fingerprints"], meter.spent
+
 def make_plan(config):
     root,stage,manifest,policy = checked_stage(config)
     pipeline = stage/"data-pipeline"
@@ -79,6 +130,15 @@ def make_plan(config):
         raise io.Stop("Unknown speaker/role held: "+json.dumps(built["holds"],ensure_ascii=False))
     if not selected or len(selected)>budget.MAX_THREADS:
         raise io.Stop("Repair requires 1..100 reviewed threads; no implicit truncation")
+    review = {}
+    if config.get("prior_content_review"):
+        prior_for_review = intake.read_json(config["prior_receipt"])
+        review = reviewed_results(config,policy,prior_for_review["selected_keys"])
+    for thread in selected:
+        note = review.get(contract.thread_key(thread),{}).get("reanalysis_instruction")
+        if note:
+            # Separate correction guidance from verbatim source; retain the base prompt/model.
+            thread["context_log"].append("【再解析時の確認指示（原文ではない）】\n"+note)
     new = {contract.thread_key(t):contract.fingerprint(ns,t) for t in selected}
     reuse,changes,prior_cost = {},[],Decimal("0")
     prior_sha = None
@@ -91,27 +151,32 @@ def make_plan(config):
             or prior.get("status")!="selected_threads_complete_private_only"
             or prior.get("binding",{}).get("manifest_sha256")!=io.digest(intake.encode(manifest))):
             raise io.Stop("Prior success receipt/input/model binding mismatch")
-        original_rows = intake.read_json(pipeline/"sagebase_crawled_data.json")
-        old = [t for t in ns["build_debate_threads"](original_rows) if not ns["is_procedural_or_voting"](t)][:budget.MAX_THREADS]
-        oldkeys = [contract.thread_key(t) for t in old]
-        if oldkeys!=prior.get("selected_keys"):
-            raise io.Stop("Original thread selection differs from prior receipt")
-        recovered = json.loads(json.dumps(prior))
-        meter = budget.Meter(policy,None,lambda:None)
-        budget.restore_meter(meter,recovered,oldkeys)
-        prior_cost = meter.spent
-        charged = {a["thread_id"]:a for a in prior["api_attempts"] if a["status"]=="success"}
-        for thread in old:
-            key = contract.thread_key(thread)
-            before = old_fingerprint(ns,thread,original_rows)
-            after = new.get(key)
-            if before["prompt_sha256"]!=charged[key]["prompt_sha256"]:
+        if prior.get("binding",{}).get("thread_revision"):
+            if not review:
+                raise io.Stop("Prior repair requires independent content review")
+            old_fps, prior_cost = saved_repair_prior(config,policy,prior,ns,manifest)
+        else:
+            original_rows = intake.read_json(pipeline/"sagebase_crawled_data.json")
+            old = [t for t in ns["build_debate_threads"](original_rows) if not ns["is_procedural_or_voting"](t)][:budget.MAX_THREADS]
+            oldkeys = [contract.thread_key(t) for t in old]
+            if oldkeys!=prior.get("selected_keys"):
+                raise io.Stop("Original thread selection differs from prior receipt")
+            recovered = json.loads(json.dumps(prior))
+            meter = budget.Meter(policy,None,lambda:None)
+            budget.restore_meter(meter,recovered,oldkeys)
+            prior_cost = meter.spent
+            charged = {a["thread_id"]:a for a in prior["api_attempts"] if a["status"]=="success"}
+            old_fps = {contract.thread_key(t):old_fingerprint(ns,t,original_rows) for t in old}
+            if any(fp["prompt_sha256"]!=charged[k]["prompt_sha256"] for k,fp in old_fps.items()):
                 raise io.Stop("Reconstructed original prompt differs from charged request")
-            identical = after is not None and same_analysis_input(before,after)
+        for key,before in old_fps.items():
+            after = new.get(key)
+            rejected = review.get(key,{}).get("decision") == "invalidate"
+            identical = not rejected and after is not None and same_analysis_input(before,after)
             if identical:
                 reuse[key] = prior["results"][key]
             changes.append(dict(key=key,before=before,after=after,reuse=identical,
-                disposition="reuse_exact_model_input" if identical else "invalidated_changed_or_removed_thread",
+                disposition="invalidated_content_review" if rejected else "reuse_exact_model_input" if identical else "invalidated_changed_or_removed_thread",
                 timeline_only_changed=bool(identical and before["statement_ids"]!=after["statement_ids"])))
     elif policy.get("prior_receipt_sha256") is not None:
         raise io.Stop("Unexpected prior receipt policy")
@@ -120,7 +185,8 @@ def make_plan(config):
         input_sha256=manifest["input_sha256"],original_raw_sha256=manifest["original_raw_sha256"],
         code_sha256=code_hashes(),model=budget.MODEL,prior_receipt_sha256=prior_sha,
         prior_estimated_jpy=str(prior_cost),threads=selected,fingerprints=new,roles=built["roles"],
-        boundary_positions=built["boundary_positions"],changes=changes,reused_results=reuse,
+        boundary_positions=built["boundary_positions"],agenda_evidence=built["agenda_evidence"],
+        content_review=review,changes=changes,reused_results=reuse,
         selected_keys=list(new),pending_keys=[k for k in new if k not in reuse],
         official_coverage="unknown",meeting_complete=False)
     # Match the on-disk representation (notably role keys) for exact resume checks.
