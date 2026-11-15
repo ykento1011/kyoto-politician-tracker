@@ -1,4 +1,4 @@
-"""Single-use council 6360 acquisition. Reuses the accepted HTTPS transport.
+"""Bounded Kyoto acquisition with separate known-meeting identity-only trials. Reuses the accepted HTTPS transport.
 No acquisition on import; never invokes a scraper/analyzer/updater.
 """
 import argparse
@@ -14,6 +14,7 @@ import time
 import unicodedata
 
 import kyoto_council_list_guard as transport
+import kyoto_meeting_identity as identity
 
 Stop = transport.Stop
 ROOT = transport.ARTIFACT
@@ -30,19 +31,59 @@ COUNCIL = "6360"
 TARGET_SCHEDULE = None
 TARGET_DATE = "2026-03-12"
 SCHEDULES_ONLY = False
+IDENTITY_ONLY = False
+DEFAULT_STORAGE = STORAGE
+IDENTITY_TOTAL_BYTES = 4 * 1024 * 1024
+STRICT_IDENTITY = False
+IDENTITY_REVIEW = None
+REGISTERED_KEYS = set()
+
+
+def response_cap(prior, slot):
+    """Reserve a bounded response before sending; unknown previous usage stops."""
+    if type(slot) is not int or slot not in (1, 2, 3) or len(prior) != slot - 1:
+        raise Stop("Invalid communication sequence")
+    if not STRICT_IDENTITY:
+        return LIMITS["response_body_bytes"]
+    used = 0
+    for a in prior:
+        size = a.get("bytes")
+        if a.get("status") != 200 or type(size) is not int or not 0 < size <= LIMITS["response_body_bytes"]:
+            raise Stop("Previous response failed or usage is unknown")
+        used += size
+    remaining = IDENTITY_TOTAL_BYTES - used
+    if remaining <= 0:
+        raise Stop("Aggregate response budget exhausted before communication")
+    return min(LIMITS["response_body_bytes"], remaining)
 
 
 def configure(approval):
     """Exact one-meeting policy, never a crawler-wide setting."""
-    global COUNCIL, TARGET_SCHEDULE, TARGET_DATE, COMMON, SCHEDULES_ONLY
+    global COUNCIL, TARGET_SCHEDULE, TARGET_DATE, COMMON, SCHEDULES_ONLY, IDENTITY_ONLY, STRICT_IDENTITY, STORAGE, IDENTITY_REVIEW, REGISTERED_KEYS
+    IDENTITY_ONLY = approval.get("scope") == "kyoto_meeting_identity_only"
+    STRICT_IDENTITY = IDENTITY_ONLY or approval.get("scope") == "kyoto_verified_new_meeting"
+    IDENTITY_REVIEW = None
+    REGISTERED_KEYS = set()
+    STORAGE = (ROOT / "reviewed-meeting-trials" / ("identity-only" if IDENTITY_ONLY else "new")) if STRICT_IDENTITY else DEFAULT_STORAGE
     SCHEDULES_ONLY = approval.get("scope") == "kyoto_reviewed_council_schedules"
-    if approval.get("scope") in ("kyoto_one_reviewed_meeting","kyoto_reviewed_council_schedules"):
+    if STRICT_IDENTITY:
+        try:
+            IDENTITY_REVIEW = identity.target(approval.get("identity_review", {}))
+        except ValueError as exc:
+            raise Stop(str(exc)) from exc
+        for key in ("council_id", "schedule_id", "meeting_date"):
+            if str(approval.get(key)) != str(IDENTITY_REVIEW[key]):
+                raise Stop("Reviewed target differs from approved request")
+        COUNCIL, TARGET_SCHEDULE, TARGET_DATE = [IDENTITY_REVIEW[k] for k in ("council_id", "schedule_id", "meeting_date")]
+        if approval.get("council_year") != date.fromisoformat(TARGET_DATE).year:
+            raise Stop("Reviewed council year mismatch")
+    elif approval.get("scope") in ("kyoto_one_reviewed_meeting","kyoto_reviewed_council_schedules"):
         COUNCIL = ident(approval.get("council_id"))
         TARGET_SCHEDULE = None if SCHEDULES_ONLY else ident(approval.get("schedule_id"))
         if SCHEDULES_ONLY:
             year=approval.get("council_year")
             if type(year) is not int or not 2000<=year<=2099:raise Stop("Reviewed council year required")
-            TARGET_DATE=date(year,1,1).isoformat() # Year context only; no inferred meeting date.
+            TARGET_DATE=date(year,1,1).isoformat()
         else:
             TARGET_DATE = date.fromisoformat(approval.get("meeting_date","")).isoformat()
         if not approval.get("candidate_review"):
@@ -51,6 +92,8 @@ def configure(approval):
         COUNCIL, TARGET_SCHEDULE, TARGET_DATE = "6360", None, "2026-03-12"
     else:
         raise Stop("Unsupported meeting scope")
+    if not SCHEDULES_ONLY and TARGET_DATE < identity.TERM_START:
+        raise Stop("Meeting outside current Kyoto term")
     COMMON = b"tenant_id=355&power_user=false&council_id=" + COUNCIL.encode("ascii")
 
 
@@ -137,6 +180,20 @@ def schedule_candidates(body, media, ledger):
 
 def select_schedule(body, media, ledger):
     eligible=schedule_candidates(body, media, ledger)
+    if STRICT_IDENTITY:
+        if len(eligible) != 1:
+            raise Stop("Reviewed scope requires one unambiguous dated schedule")
+        selected = eligible[0]
+        try:
+            identity.schedule(IDENTITY_REVIEW, selected)
+        except ValueError as exc:
+            raise Stop(str(exc)) from exc
+        known = set(ledger["meetings"]) | REGISTERED_KEYS
+        if IDENTITY_ONLY and selected["meeting_key"] not in known:
+            raise Stop("Identity-only mode requires a registered meeting")
+        if not IDENTITY_ONLY and selected["meeting_key"] in known:
+            raise Stop("New acquisition rejects registered meetings")
+        return selected
     if TARGET_SCHEDULE is not None:
         eligible=[s for s in eligible if s["schedule_id"]==TARGET_SCHEDULE]
     if len(eligible) != 1:
@@ -169,12 +226,14 @@ def validate_minutes(body, media, selected):
     for field in ("total", "total_count", "minute_count", "total_minutes"):
         if field in data and (type(data[field]) is not int or data[field] != len(blocks)):
             raise Stop("Declared minute count mismatch")
+    if STRICT_IDENTITY:
+        identity.opening(IDENTITY_REVIEW, blocks)
     return {"meeting_key": selected["meeting_key"], "meeting_date": selected["meeting_date"],
             "raw_blocks": len(blocks), "unique_minute_ids": len(seen),
             "official_meeting_url": "https://ssp.kaigiroku.net/tenant/kyoto/MinuteView.html?"
                                     "council_id=" + COUNCIL + "&schedule_id=" + selected["schedule_id"],
             "transport_complete": True, "official_coverage": "unknown",
-            "history_status": "absent_from_frozen_ledger",
+            "history_status": "existing_identity_only" if IDENTITY_ONLY else "absent_from_frozen_ledger",
             "new_publication_verified": False, "analysis_authorized": False,
             "source_position": "tenant_minutes[] / minute_id"}
 
@@ -188,14 +247,99 @@ def contract(method, url, sid=None):
         return None
     if url == SCHEDULE:
         return COMMON
+    if STRICT_IDENTITY and str(sid) != TARGET_SCHEDULE:
+        raise Stop("Body request differs from the exact reviewed schedule")
     return COMMON + b"&schedule_id=" + ident(sid).encode("ascii")
+
+
+def bind_approval(receipt, trial):
+    """Recheck the exact approval bytes and scope before every identity request."""
+    path = transport.safe_path(receipt.get("approval_file", ""))
+    if not path.resolve().is_relative_to(ROOT.resolve()):
+        raise Stop("Approval outside private storage")
+    if transport.digest(path.read_bytes()) != receipt.get("approval_sha256"):
+        raise Stop("Approval changed")
+    approval = validate_approval(path)
+    keys = ("scope","council_id","schedule_id","meeting_date","council_year","candidate_review","identity_review","identity_sources","registered_history")
+    if (approval["run_id"] != trial.name or approval["limits"] != receipt["limits"]
+            or {k:approval[k] for k in keys if k in approval} != receipt["meeting_scope"]):
+        raise Stop("Approval/receipt scope mismatch")
+
+
+def preserve_identity_cas(trial, body):
+    """Content-addressed raw bytes; never touch the normal continuation history."""
+    version = transport.digest(body)
+    root = transport.safe_path(trial / "cas" / "sha256")
+    root.mkdir(parents=True, exist_ok=True)
+    blob = root / (version + ".bin")
+    if not blob.exists():
+        with blob.open("xb") as f:
+            f.write(body)
+    if transport.digest(blob.read_bytes()) != version:
+        raise Stop("CAS read-back mismatch")
+    return str(blob.relative_to(trial)).replace("\\", "/")
+
+
+def bound_source(record):
+    path = transport.safe_path(record["path"])
+    if not path.resolve().is_relative_to(ROOT.resolve()) or path.stat().st_size > 16*1024*1024:
+        raise Stop("Evidence outside private root or oversized")
+    data = path.read_bytes()
+    if transport.digest(data) != record.get("sha256"):
+        raise Stop("Saved evidence SHA mismatch")
+    return data
+
+def bind_sources(approval):
+    global REGISTERED_KEYS
+    sources = approval["identity_sources"]
+    catalog = json.loads(bound_source(sources["catalog"]))
+    matches = []
+    for year in catalog["councils"][0]["view_years"]:
+        for kind in year["council_type"]:
+            for item in kind["councils"]:
+                if str(item["council_id"]) == COUNCIL:
+                    matches.append((year["view_year"], kind["council_type_name1"], item["name"]))
+    if len(matches) != 1 or matches[0][1] != "全会議":
+        raise Stop("Official index has no unique meeting (or is materials)")
+    if str(matches[0][0]) != str(approval["council_year"]) or identity.norm(matches[0][2]) != identity.norm(IDENTITY_REVIEW["formal_name"]):
+        raise Stop("Official indexed name/year mismatch")
+    activity = sources["activity"]
+    body = bound_source(activity).decode(activity.get("encoding", "utf-8"))
+    literal = activity.get("literal", "")
+    if (not activity.get("source_position") or not literal or literal not in body
+            or not activity.get("review_reference")):
+        raise Stop("Activity requires a hash-bound position/literal and review reference")
+    clean = identity.norm(identity.unescape(re.sub(r"<[^>]+>", "", body)))
+    excerpt = identity.norm(identity.unescape(re.sub(r"<[^>]+>", "", literal)))
+    day = date.fromisoformat(TARGET_DATE)
+    if (f"{day.month}月{day.day}日" not in excerpt or f"第{IDENTITY_REVIEW['round']}回" not in excerpt
+            or identity.norm(IDENTITY_REVIEW["committee"]) not in clean):
+        raise Stop("Activity date/committee/round does not support the review")
+    history = json.loads(bound_source(approval["registered_history"]))
+    keys = history.get("meetings")
+    if not isinstance(keys, (list, dict)) or any(not re.fullmatch(r"kyoto:[1-9][0-9]*:[1-9][0-9]*", k) for k in keys):
+        raise Stop("Registered-history keys are invalid")
+    if isinstance(keys, list) and len(keys) != len(set(keys)):
+        raise Stop("Duplicate registered-history keys")
+    REGISTERED_KEYS = set(keys)
 
 
 def validate_approval(path):
     approval = json.loads(transport.safe_path(path).read_text(encoding="utf-8"))
     configure(approval)
+    approved_limits = dict(LIMITS,http_attempts=2 if SCHEDULES_ONLY else 3)
+    if STRICT_IDENTITY:
+        approved_limits["total_response_bytes"] = IDENTITY_TOTAL_BYTES
+        requests = [dict(method=m, url=u, body=(contract(m,u,TARGET_SCHEDULE).decode("ascii") if m=="POST" else None)) for m,u in ALLOWED]
+        if approval.get("requests") != requests:
+            raise Stop("Approved request sequence differs from exact contract")
+        for field, file in (("path_guard_sha256", Path(transport.private_storage.__code__.co_filename)),
+                            ("identity_code_sha256", Path(identity.__file__))):
+            if approval.get(field) != transport.digest(file.read_bytes()):
+                raise Stop("Private path or identity code changed")
+        bind_sources(approval)
     checks = {"pm_go": True,
-              "limits": dict(LIMITS,http_attempts=2 if SCHEDULES_ONLY else 3), "ledger_sha256": LEDGER_SHA,
+              "limits": approved_limits, "ledger_sha256": LEDGER_SHA,
               "transport_sha256": TRANSPORT_SHA,
               "guard_sha256": transport.digest(Path(__file__).read_bytes())}
     if any(approval.get(k) != v for k, v in checks.items()):
@@ -206,6 +350,14 @@ def validate_approval(path):
         raise Stop("Missing PM reference")
     if transport.digest(LEDGER.read_bytes()) != LEDGER_SHA:
         raise Stop("Frozen ledger changed")
+    if STRICT_IDENTITY:
+        frozen = json.loads(LEDGER.read_bytes())
+        if len(frozen.get("meetings", [])) != 750 or frozen.get("completeness") != "unknown":
+            raise Stop("Unexpected frozen history structure")
+        known = set(frozen["meetings"]) | REGISTERED_KEYS
+        key = "kyoto:" + COUNCIL + ":" + TARGET_SCHEDULE
+        if IDENTITY_ONLY != (key in known):
+            raise Stop("New/known meeting scope conflicts with bound history")
     if transport.digest(Path(transport.__file__).read_bytes()) != TRANSPORT_SHA:
         raise Stop("Accepted transport changed")
     return approval
@@ -243,18 +395,22 @@ def acquire(path):
     trial.mkdir(exist_ok=False)  # Durable consumption of this run ID, even on failure.
     receipt = dict(status="in_progress", started_utc=transport.utc(), limits=approval["limits"],
                    meeting_scope={k:approval[k] for k in
-                       ("scope","council_id","schedule_id","meeting_date","council_year","candidate_review") if k in approval},
+                       ("scope","council_id","schedule_id","meeting_date","council_year","candidate_review","identity_review","identity_sources","registered_history") if k in approval},
                    guard_sha256=approval["guard_sha256"], transport_sha256=TRANSPORT_SHA,
                    ledger_sha256=LEDGER_SHA, reference=approval["reference"],
                    selected_schedule=None, attempts=[], gemini_calls=0, public_writes=False)
+    if STRICT_IDENTITY:
+        receipt.update(approval_file=str(transport.safe_path(path)),
+                       approval_sha256=transport.digest(Path(path).read_bytes()))
     transport.write_json(trial / "receipt.json", receipt)
     cookies, last, selected = [], None, None
     try:
         for slot, (method, url) in enumerate(ALLOWED[:approval["limits"]["http_attempts"]], 1):
+            receive_cap = response_cap(receipt["attempts"], slot)
             sid = selected["schedule_id"] if selected else None
             if last is not None:
                 time.sleep(max(0, last + transport.INTERVAL - time.monotonic()))
-            attempt = dict(slot=slot, method=method, url=url, reserved_utc=transport.utc())
+            attempt = dict(slot=slot, method=method, url=url, reserved_utc=transport.utc(), receive_cap=receive_cap)
             receipt["attempts"].append(attempt)
             transport.write_json(trial / "receipt.json", receipt)
             transport.write_json(trial / f"slot-{slot}.authorized",
@@ -262,12 +418,14 @@ def acquire(path):
             result = isolated_request(method, url, cookies, trial, slot, sid)
             last = time.monotonic()
             body = base64.b64decode(result["body_b64"], validate=True)
-            if len(body) > transport.MAX_BYTES or len(body) != result["bytes"]:
+            if len(body) > receive_cap or len(body) != result["bytes"]:
                 raise Stop("Response size mismatch")
             filename = ("01-session.html", "02-schedules.json", "03-minutes.json")[slot - 1]
             (trial / filename).write_bytes(body)
             attempt.update({k: result[k] for k in ("started_utc", "completed_utc", "status", "content_type")})
             attempt.update(raw_file=filename, bytes=len(body), sha256=transport.digest(body))
+            if STRICT_IDENTITY:
+                attempt["cas_file"] = preserve_identity_cas(trial, body)
             transport.write_json(trial / "receipt.json", receipt)
             if result["status"] != 200:
                 raise Stop("Non-200 status; no redirect or retry")
@@ -290,8 +448,11 @@ def acquire(path):
             cookies = result["cookies"]
         if transport.digest(LEDGER.read_bytes()) != LEDGER_SHA:
             raise Stop("Frozen ledger changed during trial")
-        receipt["status"] = ("schedules_acquired_pending_review" if SCHEDULES_ONLY else
+        receipt["status"] = ("identity_confirmed_private_only" if IDENTITY_ONLY else
+                             "schedules_acquired_pending_review" if SCHEDULES_ONLY else
                              "raw_acquired_pending_offline_reconciliation")
+        receipt["trial_purpose"] = "existing_meeting_identity_only" if IDENTITY_ONLY else "one_meeting_acquisition"
+        receipt["total_response_bytes"] = sum(a.get("bytes", 0) for a in receipt["attempts"])
     except BaseException as exc:
         receipt["status"] = "stopped"
         receipt["failure"] = type(exc).__name__ + ": " + str(exc)
@@ -301,7 +462,13 @@ def acquire(path):
     finally:
         receipt["finished_utc"] = transport.utc()
         receipt["http_attempt_slots_consumed"] = len(receipt["attempts"])
+        receipt["total_response_bytes"] = sum(a.get("bytes", 0) for a in receipt["attempts"])
         transport.write_json(trial / "receipt.json", receipt)
+        if STRICT_IDENTITY:
+            receipt_blob = preserve_identity_cas(trial, (trial / "receipt.json").read_bytes())
+            transport.write_json(trial / "cas-index.json", dict(receipt=receipt_blob,
+                responses=[{k:a[k] for k in ("slot","url","method","raw_file","sha256","bytes","cas_file") if k in a}
+                           for a in receipt["attempts"]], analysis_authorized=False, publication_authorized=False))
     return trial
 
 
@@ -311,12 +478,21 @@ def worker():
     if type(slot) is not int or slot not in (1, 2, 3) or (p["method"], p["url"]) != ALLOWED[slot - 1]:
         raise Stop("Invalid worker slot")
     trial = transport.safe_path(p["trial"])
-    if trial.parent.resolve() != STORAGE.resolve() or not trial.is_dir():
+    if not trial.is_dir():
         raise Stop("Worker storage outside approved root")
     r = json.loads((trial / "receipt.json").read_text(encoding="utf-8"))
     configure(r["meeting_scope"])
+    if trial.parent.resolve() != STORAGE.resolve():
+        raise Stop("Worker storage outside approved root")
+    if STRICT_IDENTITY:
+        bind_approval(r, trial)
     if slot > r["limits"]["http_attempts"]:
         raise Stop("Worker exceeds approved communication count")
+    receive_cap = response_cap(r["attempts"][:-1], slot)
+    if r["attempts"][-1].get("receive_cap") != receive_cap:
+        raise Stop("Response reservation mismatch")
+    if STRICT_IDENTITY and r["limits"].get("total_response_bytes") != IDENTITY_TOTAL_BYTES:
+        raise Stop("Aggregate limit mismatch")
     if transport.digest(LEDGER.read_bytes()) != LEDGER_SHA:
         raise Stop("Frozen ledger changed before communication")
     auth = json.loads((trial / f"slot-{slot}.authorized").read_text(encoding="utf-8"))
@@ -336,9 +512,10 @@ def worker():
             raise Stop("Unvalidated schedule")
     with (trial / f"slot-{slot}.used").open("xb") as f:
         f.write(b"consumed")
-    # Only the in-memory request-body validator is specialized; accepted TLS/
-    # cookie/response-size transport remains byte-for-byte unchanged on disk.
+    # Specialize only this disposable worker's exact body contract and receive cap.
+    # Accepted TLS/cookie/framing code remains unchanged on disk.
     transport.request_contract = lambda m, u: contract(m, u, p["sid"])
+    transport.MAX_BYTES = receive_cap
     print(json.dumps(transport._https_once(p["method"], p["url"], p["cookies"])))
 
 

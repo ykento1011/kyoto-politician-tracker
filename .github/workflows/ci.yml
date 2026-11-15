@@ -34,6 +34,12 @@ jobs:
       - name: Test Kyoto speaker and thread repair (offline)
         run: python -m unittest discover -s tests -p "test_kyoto_thread_repair.py"
 
+      - name: Test Kyoto identity and saved operations (offline)
+        run: |
+          python -B -m unittest discover -s tests -p "test_kyoto_meeting_guard.py"
+          python -B -m unittest discover -s tests -p "test_kyoto_operations_contract.py"
+          python -B -m unittest discover -s tests -p "test_kyoto_continuation.py"
+
       - name: Test Kyoto budget data and generator (offline)
         run: python -m unittest discover -s data-pipeline/tests -p "test_mayor_p*_public.py"
 
