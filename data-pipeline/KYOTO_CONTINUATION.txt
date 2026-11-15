@@ -1,0 +1,68 @@
+Kyoto private continuation — Draft, no production or scheduler connection
+
+This packages the accepted kyoto-continuation.patch and its required local
+guards. It is independent of the 21-row publication PR. No public JSON,
+scraper, old updater, legacy producer or frontend entry is modified here.
+
+Review boundary
+  Seven Python source modules and the accepted 19 offline regression cases.
+  No originals, 750-meeting ledger, model responses, private paths, approval
+  policies, credentials or checkpoints are distributed with this code.
+  Imported legacy helpers are limited to file validation/summary contracts;
+  automatic Git commit/push helpers are not included.
+
+Packaging adjustments
+  Set KYOTO_PRIVATE_ROOT to an existing absolute private directory outside
+  every Git checkout before starting a process. Missing/overlapping/reparse
+  storage fails closed. No directory is inferred from the code checkout.
+  The transport source hash was renewed for this path-only adjustment.
+  The seven new modules use LF checkout endings. Existing parser source is
+  compared after CRLF-to-LF normalization, preserving its reviewed content.
+  Hash-bound execution policies must identify these reviewed code bytes.
+  The existing tests use a temporary synthetic 750-meeting ledger and the
+  repository's pinned producer source instead of machine-specific fixtures.
+  The new pull-request CI job runs those same 19 cases without credentials,
+  SDK installation, source HTTP or Gemini calls; socket connects are blocked.
+
+Explicit phases
+  python -B data-pipeline/kyoto_continuation.py inspect --config PRIVATE_CONFIG
+  Other separate phases: councils, schedules, acquire, prepare, analyze,
+  candidate, ack-publication. Configurations and policies remain private.
+  No command implicitly progresses into the next paid/network phase.
+  The code never publishes JSON, commits/pushes Git or starts a scheduler.
+
+Private inputs required for operation
+  Frozen new-meeting-evidence/history-ledger.json with its accepted SHA;
+  an exact reviewed council/schedule/date and bounded network approval;
+  saved raw response and raw SHA; input/master/producer hashes and acceptance;
+  current model/SDK/rate evidence, exact prepared input, budget and API GO.
+  The current frozen baseline remains 750 observed meetings; completeness is
+  unknown and it must not be silently replaced by a fresh acquisition.
+
+Guards retained
+  Council index: at most two HTTP attempts.
+  One reviewed council's schedules: at most two attempts, no minute body.
+  One reviewed meeting: at most three attempts, including session/schedules.
+  Exact official endpoints; TLS; no redirects/retries; 2 MiB/response;
+  25 seconds/request; at least 1.2 seconds between requests.
+  Unknown/partial input, duplicate identity or scope mismatch stops.
+  Retrospective missing-history meetings require explicit input acceptance;
+  absence from the ledger is not proof of a newly published meeting.
+
+Resume and publication state
+  Existing successes are reused by meeting/input/manifest/code/model binding.
+  Resume never resends successful threads. Known-cost failures need explicit
+  retry_failed; unknown billed usage or a stale execution lock is held for
+  reconciliation. Costs and attempts remain cumulative. Up to 100 selected
+  threads and a JPY 1,000 stop target are enforced; this is not an invoice cap.
+  Acquired, analyzed, candidate and published states remain distinct.
+  ack-publication only records separate PM deployment evidence plus matching
+  commit/reference/content hashes; it performs no deployment itself.
+  Source coverage stays unknown and whole-meeting completion stays false.
+
+Acceptance still required
+  Independent review of this source package and the synthetic CI results.
+  Real next-meeting target, input acceptance and current runtime cost evidence.
+  Separate main merge/production and weekly-operation approval. Main is the
+  Cloudflare Production branch, with automatic deployments enabled; this
+  Draft must not be merged as an incidental implementation step.

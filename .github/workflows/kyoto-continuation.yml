@@ -1,0 +1,33 @@
+name: Kyoto Continuation Offline Checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data-pipeline/kyoto_*.py'
+      - 'data-pipeline/minutes_update_guard.py'
+      - 'data-pipeline/batch_analyze_council.py'
+      - 'data-pipeline/generate_static_data.py'
+      - 'data-pipeline/build_timeline_contexts.py'
+      - 'tests/test_kyoto_continuation.py'
+      - '.github/workflows/kyoto-continuation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    name: Kyoto private continuation (offline)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run the existing 19 continuation regression cases with synthetic private fixtures
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B tests/test_kyoto_continuation.py
