@@ -320,4 +320,65 @@ class PDFEvidenceFallbackTests(unittest.TestCase):
             with self.assertRaises(Hold):preserved_units(bridge,{**source,'review_pages':pages},'a'*64)
 
 
+
+
+
+class CityIndexTests(unittest.TestCase):
+    def fixture(self,city='kobe'):
+        from types import SimpleNamespace
+        from urllib.parse import urljoin,urlsplit
+        from mayor_updates.city_scope import official_host
+        host=official_host(city);url='https://'+host+'/index.html'
+        body='<html><title>Index</title><div id="content"><h2>令和8年度 当初予算案</h2><a href="/a.pdf">A</a><h2>9月補正予算案</h2><a href="/b.pdf">B</a></div></html>'.encode()
+        rec={'city_code':city,'mime_type':'text/html','sha256':'a'*64,'retrieved_at':'2026-11-15T00:00:00Z'}
+        def canonical(raw,base,*,allowed_hosts):
+            target=urljoin(base,raw)
+            if urlsplit(target).hostname not in allowed_hosts:raise Hold('Foreign host')
+            return target
+        discovery=SimpleNamespace(parse_saved_html=lambda _:SimpleNamespace(redirect_hints=[],base_hints=[]),canonical_official_url=canonical)
+        bridge=MagicMock();bridge.record.return_value=(rec,body);bridge.modules={'discovery':discovery}
+        bridge.index={'documents':{url:{'versions':[{'sha256':'a'*64,'record':rec}]}},'attempts':[]};bridge.extract.return_value={'candidates':[]}
+        source={'url':url,'resolution_base':url,'selector':'#content','fiscal_year':2026,'role':'index'}
+        return bridge,source
+
+    def test_kyoto_default_keeps_round_classification(self):
+        from mayor_updates.index_adapter import saved_index
+        bridge,s=self.fixture('kyoto');r=saved_index(bridge,s,'a'*64)
+        self.assertEqual(r['counts'],{'initial':1,'supplemental':1})
+        self.assertEqual(r['links']['https://www.city.kyoto.lg.jp/a.pdf'][0]['budget_status'],'proposal')
+
+    def test_other_city_attachments_are_not_budget_classification(self):
+        from mayor_updates.index_adapter import saved_index
+        for city,host in [('kobe','www.city.kobe.lg.jp'),('nagoya','www.city.nagoya.jp')]:
+            bridge,s=self.fixture(city);r=saved_index(bridge,s,'a'*64,city=city)
+            self.assertEqual(r['counts'],{'unknown':2})
+            for url,rows in r['links'].items():
+                self.assertTrue(url.startswith('https://'+host+'/'))
+                self.assertEqual(rows[0]['budget_status'],'unconfirmed');self.assertFalse(rows[0]['link_content_read'])
+                self.assertEqual(rows[0]['document_kind'],'official_attachment')
+
+    def test_index_identity_year_and_base_fail_closed(self):
+        from mayor_updates.index_adapter import saved_index
+        bridge,s=self.fixture()
+        with self.assertRaises(Hold):saved_index(bridge,s,'a'*64)
+        for field,value in [('fiscal_year',2025),('resolution_base','https://www.city.kyoto.lg.jp/')]:
+            bad={**s,field:value}
+            with self.assertRaises(Hold):saved_index(bridge,bad,'a'*64,city='kobe')
+
+    def test_run_trial_passes_city_and_retains_index_review_dedup(self):
+        from mayor_updates.operations import run_trial,load
+        bridge,s=self.fixture();cfg={'cities':{'kobe':{'policy_ids':['KOBE-M01'],'monitor_sources':[s]}}}
+        baseline={'pledges':[{'id':'KOBE-M01'}]}
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);first=root/'first';first.mkdir()
+            r,packet=run_trial(bridge,cfg,baseline,[],first,city='kobe',allowed=['KOBE-M01'],base_revision='test')
+            self.assertIsNone(packet);self.assertFalse(r['holds']);self.assertEqual(load(first/'run_status.json')['new_reviews'],{})
+            old=copy.deepcopy(r['state']);old['indexes'][s['url']]['https://www.city.kobe.lg.jp/a.pdf'][0]['title']='Old label'
+            changed=root/'changed';changed.mkdir()
+            run_trial(bridge,cfg,baseline,[],changed,previous=old,city='kobe',allowed=['KOBE-M01'],base_revision='test')
+            status=load(changed/'run_status.json');self.assertEqual(len(status['new_reviews']),1);self.assertEqual(status['public_writes'],0)
+            replay=root/'replay';replay.mkdir()
+            run_trial(bridge,cfg,baseline,[],replay,previous=old,seen_reviews=status['new_reviews'],city='kobe',allowed=['KOBE-M01'],base_revision='test')
+            self.assertEqual(load(replay/'run_status.json')['new_reviews'],{})
+
 if __name__=='__main__': unittest.main(verbosity=2)

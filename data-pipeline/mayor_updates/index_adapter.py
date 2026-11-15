@@ -1,4 +1,4 @@
-"""Small Kyoto index adapter over saved HTML and P1 URL validation.
+"""Saved official index adapter over HTML and P1 URL validation.
 
 Only source-bound listing candidates are returned. A linked PDF is never read,
 classified as fact-verified, or downloaded by this adapter.
@@ -8,11 +8,14 @@ from collections import Counter
 from copy import deepcopy
 from bs4 import BeautifulSoup
 from .projection import Hold
+from .city_scope import official_host
 
 
-def saved_index(bridge, source, version):
+def saved_index(bridge, source, version, *, city="kyoto"):
     rec,body=bridge.record(source['url'],version)
     if rec['mime_type']!='text/html': raise Hold('Expected saved HTML index')
+    if rec.get('city_code') != city: raise Hold('Index belongs to another city')
+    hosts=frozenset({official_host(city)})
     soup=BeautifulSoup(body,'html.parser')
     signals=bridge.modules['discovery'].parse_saved_html(str(soup))
     if signals.redirect_hints: raise Hold('Index redirect hint requires review')
@@ -20,7 +23,7 @@ def saved_index(bridge, source, version):
     if list(signals.base_hints) not in ([],[base]):
         raise Hold('HTML base differs from explicitly configured official base')
     canonical=bridge.modules['discovery'].canonical_official_url
-    canonical(base,source['url'],allowed_hosts=frozenset({'www.city.kyoto.lg.jp'}))
+    canonical(base,source['url'],allowed_hosts=hosts)
     main=soup.select_one(source.get('selector','#mol_contents'))
     if main is None: raise Hold('Official content selector not found')
     expected=f"令和{source['fiscal_year']-2018}年度"
@@ -39,12 +42,16 @@ def saved_index(bridge, source, version):
         elif node.name=='a' and node.get('href'):
             ordinal+=1
             raw=node['href']
-            try: url=canonical(raw,base,allowed_hosts=frozenset({'www.city.kyoto.lg.jp'}))
+            try: url=canonical(raw,base,allowed_hosts=hosts)
             except ValueError: continue
             if not url.lower().endswith('.pdf'): continue
             joined=' '.join([section,context,text])
             kind='budget_document'; round_type='unknown'; status='unconfirmed'
-            if '補正' in section:
+            if city != 'kyoto':
+                # Local section conventions are not established outside Kyoto.
+                # Discover attachments, but do not infer their budget round/status.
+                kind='official_attachment'
+            elif '補正' in section:
                 kind='budget_supplemental'; round_type='supplemental'
             elif '当初' in section or '当初' in context:
                 kind='budget_initial'; round_type='initial'
@@ -54,7 +61,7 @@ def saved_index(bridge, source, version):
                 kind='budget_guidance'
             elif '査定' in joined or '要求' in joined:
                 kind='budget_request_assessment'
-            if '予算案' in joined: status='proposal'
+            if city == 'kyoto' and '予算案' in joined: status='proposal'
             item={'title':re.sub(r'\(PDF形式[^)]*\)$','',text).strip(),
                   'source_url':url,'fiscal_year':source['fiscal_year'],
                   'document_kind':kind,'budget_round':round_type,
