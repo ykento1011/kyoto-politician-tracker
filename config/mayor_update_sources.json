@@ -323,26 +323,77 @@
     "requires_separate_activation": true,
     "max_requests_per_run": 3,
     "max_total_received_bytes": 25165824,
-    "limitation": "HTML索引が不変で同じURLのPDFだけ差し替わる場合、HTML監視では検知できません。PDF取得は別工程・別承認です。",
+    "limitation": "対象PDF3件の本文SHA差替えを検知。差替え自体は政策・金額変更の認定ではなく、ページ位置と既存引用を人手確認へ送る。未登録PDFの探索・取得は行わない。",
     "sources": [
       {
         "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf",
         "fiscal_year": 2026,
         "max_bytes": 20971520,
-        "max_gets": 1
+        "max_gets": 1,
+        "id": "p01_r8",
+        "title": "令和8年度予算案記者会見資料",
+        "policy_ids": [
+          "P-01"
+        ],
+        "review_pages": [
+          {
+            "physical_page": 22,
+            "printed_page": 21
+          },
+          {
+            "physical_page": 32,
+            "printed_page": 31
+          }
+        ],
+        "media_type": "pdf",
+        "document_kind": "other_official"
       },
       {
         "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/13_kouhou_kyoiku.pdf",
         "fiscal_year": 2025,
         "max_bytes": 2097152,
-        "max_gets": 1
+        "max_gets": 1,
+        "id": "p03_r7",
+        "title": "令和7年度 京都市予算案 事業概要（教育委員会事務局）",
+        "policy_ids": [
+          "P-03"
+        ],
+        "review_pages": [
+          {
+            "physical_pages": [
+              1,
+              13
+            ],
+            "printed_pages": [
+              143,
+              155
+            ],
+            "note": "登録額1億2,400万円は未確認"
+          }
+        ],
+        "media_type": "pdf",
+        "document_kind": "other_official"
       },
       {
         "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/15_kyouiku_kouhou.pdf",
         "fiscal_year": 2026,
         "max_bytes": 2097152,
-        "max_gets": 1
+        "max_gets": 1,
+        "id": "p03_r8",
+        "title": "令和8年度京都市予算案 新規・充実等 事業概要（教育委員会事務局）",
+        "policy_ids": [
+          "P-03"
+        ],
+        "review_pages": [
+          {
+            "physical_page": 16,
+            "printed_page": 188
+          }
+        ],
+        "media_type": "pdf",
+        "document_kind": "other_official"
       }
-    ]
+    ],
+    "timeout_seconds": 10
   }
 }
