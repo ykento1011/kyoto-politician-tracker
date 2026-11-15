@@ -50,6 +50,7 @@ jobs:
         run: |
           node frontend/tests/test-p03-public.mjs
           node frontend/tests/test-p07-public.mjs
+          node frontend/tests/test-kobe-m01-public.mjs
           node frontend/tests/test-p05-p09-public.mjs
 
       - name: Test frontend build
