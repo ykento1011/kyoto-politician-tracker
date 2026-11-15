@@ -34,7 +34,9 @@ jobs:
       - name: Test explicit city scope without network
         run: python -B -m unittest discover -s data-pipeline/tests -p 'test_city_scope.py' -v
       - name: Test saved city replay and persistent dedup
-        run: python -B -m unittest discover -s data-pipeline/tests -p 'test_city_replay.py' -v
+        run: |
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_city_replay.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_city_receipt.py' -v
       - name: Report external P1 integration availability
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_p1_offline.py' -v
