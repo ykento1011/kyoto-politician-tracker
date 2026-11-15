@@ -99,7 +99,7 @@ def commit_success(root, output, prior, monitor_state, status):
     return True
 
 
-def review_index(output, status):
+def review_index(output, status, *, city_label="京都"):
     reviews = status.get('new_reviews',{})
     if not reviews: return
     rows=[]
@@ -107,7 +107,7 @@ def review_index(output, status):
         payload=load(output/name)
         rows.append('<h2>'+escape(name)+'</h2><pre>'+escape(json.dumps(payload,ensure_ascii=False,indent=2))+'</pre>')
     PrivateOutput(output).write('new_reviews.html','<!doctype html><html lang="ja"><meta charset="utf-8">'
-        '<title>京都・今回変わった根拠の確認</title><style>body{max-width:1100px;margin:32px auto;font-family:sans-serif}'
+        '<title>'+escape(city_label)+'・今回変わった根拠の確認</title><style>body{max-width:1100px;margin:32px auto;font-family:sans-serif}'
         'pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>今回の変更だけを確認</h1>'
         '<p>未確認・未公開。原本の変更は政策中止や予算変更を自動的に意味しません。</p>'+''.join(rows)+'</html>')
 

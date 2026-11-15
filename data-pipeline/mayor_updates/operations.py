@@ -159,13 +159,124 @@ def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,
     return result,packet
 
 
+def replay_saved(spec):
+    """Replay one explicitly bound city series, offline, using existing P1/state tools.
+
+    Acquisition is deliberately separate. A new version needs an explicit SHA in
+    the private spec; this entry cannot fetch, schedule, or publish anything.
+    """
+    import hashlib
+    import re
+    import uuid
+    from datetime import datetime, timezone
+    from .city_scope import official_host, signature
+    from .weekly import atomic_json, single_run, commit_success, review_index, pinned_input
+    from .acquire import assert_owner_only
+    root = PrivateOutput(spec['state_root']).root
+    assert_owner_only(root)
+    with single_run(root):
+        output = root / ('run-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '-' + uuid.uuid4().hex[:8])
+        output.mkdir(); out = PrivateOutput(output)
+        summary = {'city':spec.get('city'), 'series_id':spec.get('series_id'),
+                   'run_dir':str(output), 'network_requests':0, 'public_writes':0,
+                   'state_advanced':False, 'new_review_count':0}
+        try:
+            city=spec['city']; allowed=spec['policy_ids']; source=deepcopy(spec['source'])
+            if spec.get('network_enabled',False) is not False:
+                raise Hold('Saved replay has no network mode; acquisition needs a separate approved scope')
+            registry=load(Path(__file__).resolve().parents[2]/'config/mayor_update_sources.json')['cities']
+            if (city not in registry or not allowed or len(set(allowed))!=len(allowed) or
+                    not set(allowed)<=set(registry[city]['policy_ids']) or
+                    not re.fullmatch(r'[a-zA-Z0-9_-]{1,80}',spec['series_id'])):
+                raise Hold('Explicit city, policy and series identity required')
+            url=source['url']; parsed=urlsplit(url); medium=source['media_type']
+            if (parsed.scheme!='https' or parsed.netloc!=official_host(city) or parsed.query or parsed.fragment or
+                    medium not in {'html','pdf'} or not parsed.path.endswith('.'+medium) or
+                    source['role'] not in {'index','progress'} or
+                    (source['role']=='index' and medium!='html') or
+                    not set(source['policy_ids']) or not set(source['policy_ids'])<=set(allowed)):
+                raise Hold('Invalid single official source/policy scope')
+            if source['role']=='progress' and source.get('policy_id') not in allowed:
+                raise Hold('Evidence policy is outside the replay scope')
+            cas=Path(spec['snapshot_root']).resolve(strict=True)
+            assert_owner_only(cas)
+            if cas==root or cas in root.parents or root in cas.parents or not (cas/'index.json').is_file():
+                raise Hold('Existing CAS and isolated state must be separate')
+            baseline_path=pinned_input(spec['baseline']); baseline=load(baseline_path)
+            baseline_city=baseline.get('city_code')
+            # Legacy Kyoto JSON predates city_code. Keep its existing bytes;
+            # require its explicit city label, official bulletin and policy IDs.
+            if 'city_code' not in baseline and city=='kyoto':
+                info=baseline.get('mayor_info',{})
+                bulletin=urlsplit(info.get('bulletin_pdf',''))
+                if (info.get('city_label')=='京都市' and bulletin.scheme=='https' and
+                        bulletin.netloc==official_host('kyoto') and
+                        set(policies(baseline))<=set(registry['kyoto']['policy_ids'])):
+                    baseline_city='kyoto'
+            if baseline_city!=city or not set(allowed)<=set(policies(baseline)):
+                raise Hold('Baseline belongs to a different city/policy')
+            expected=spec['sha256']
+            if not re.fullmatch('[0-9a-f]{64}',expected):raise Hold('Exact SHA required')
+            document_id=city+'-doc-'+hashlib.sha256(url.encode()).hexdigest()[:24]
+            if spec['document_id']!=document_id:raise Hold('Document ID does not match city/URL')
+            bridge=P1Bridge(spec['p1_code_root'],cas,city_capable=spec.get('city_capable',False))
+            if any(v['record'].get('city_code')!=city for d in bridge.index['documents'].values() for v in d['versions']):
+                raise Hold('CAS contains another city')
+            doc=bridge.index['documents'].get(url)
+            if not doc or doc['versions'][-1]['sha256']!=expected:
+                raise Hold('Saved current version differs from the explicitly pinned SHA')
+            rec,body=bridge.record(url,expected)
+            if (rec['city_code']!=city or rec['document_id']!=document_id or
+                    rec['fiscal_year']!=source['fiscal_year'] or
+                    rec['mime_type']!={'html':'text/html','pdf':'application/pdf'}[medium]):
+                raise Hold('Saved source identity/year/medium mismatch')
+            binding={'kind':'offline_city_series_v1','city':city,'series_id':spec['series_id'],
+                     'policy_ids':allowed,'source':source,'snapshot_root':str(cas),
+                     'p1_code_root':str(Path(spec['p1_code_root']).resolve()),
+                     'baseline_sha256':spec['baseline']['sha256']}
+            binding_path=root/'replay_binding.json';state_path=root/'state.json'
+            if binding_path.exists():
+                if load(binding_path)!=binding:raise Hold('Replay state is bound to a different series')
+            elif state_path.exists():raise Hold('Cannot adopt an existing unbound/live state')
+            else:atomic_json(binding_path,binding)
+            prior=load(state_path) if state_path.exists() else {'monitor':{},'seen_reviews':{}}
+            config={'cities':{city:{'policy_ids':allowed,'monitor_sources':[source]}}}
+            result,packet=run_trial(bridge,config,baseline,[],output,previous=prior.get('monitor'),
+                seen_reviews=prior.get('seen_reviews',{}),base_revision=spec['base_revision'],city=city,allowed=allowed)
+            if packet is not None:raise Hold('Evidence-only replay must not propose public policy changes')
+            status=load(output/'run_status.json');review_index(output,status,city_label=city)
+            committed=commit_success(root,output,prior,result['state'],status)
+            summary.update(state=status['state'],state_advanced=committed,
+                new_review_count=len(status.get('new_reviews',{})),source_url=url,
+                document_id=document_id,sha256=expected,readback_bytes=len(body),
+                readback_match=True,document_events=result['document_events'],
+                index_event_count=len(result['index_events']),binding_sha256=signature(binding),
+                p1_code_sha256=bridge.hashes,automatic_approval=False,publication_authorized=False)
+        except Exception as exc:
+            summary.update(state='stopped_no_public_change',reason=str(exc),previous_state_retained=True)
+            out.json('failure.json',summary)
+        out.json('replay_result.json',summary)
+        return summary
+
+
 def main():
     p=argparse.ArgumentParser()
+    p.add_argument('--replay-spec',help='Private pinned single-series spec; zero HTTP and persistent review dedup')
     for flag in ('config','baseline','rules','output','p1-code-root','snapshot-root','base-revision'):
-        p.add_argument('--'+flag,required=True)
+        p.add_argument('--'+flag)
     p.add_argument('--previous-state'); p.add_argument('--acquisition-receipt')
     p.add_argument('--acquire-authorized',action='store_true'); p.add_argument('--refresh-existing',action='store_true')
-    a=p.parse_args(); config=load(a.config); root=Path(a.output).resolve(strict=True)
+    a=p.parse_args()
+    if a.replay_spec:
+        from .acquire import assert_owner_only
+        assert_owner_only(a.replay_spec)
+        result=replay_saved(load(a.replay_spec))
+        print(json.dumps(result,ensure_ascii=False))
+        if not result['state_advanced']:raise SystemExit(2)
+        return
+    for flag in ('config','baseline','rules','output','p1_code_root','snapshot_root','base_revision'):
+        if not getattr(a,flag):p.error('Missing required argument: '+flag)
+    config=load(a.config); root=Path(a.output).resolve(strict=True)
     if a.acquire_authorized and a.acquisition_receipt: raise ValueError('Choose one acquisition input')
     receipt=load(a.acquisition_receipt) if a.acquisition_receipt else None
     if a.acquire_authorized:
