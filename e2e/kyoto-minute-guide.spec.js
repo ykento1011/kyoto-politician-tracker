@@ -72,6 +72,27 @@ async function checkGuide(page) {
   await expect(page.getByText(/原典を直接開けない場合は/)).toBeVisible();
 }
 
+test('Kyoto SSP titled member follow-ups remain questions without relabeling officials', async ({ page }) => {
+  const target = { ...statement, speaker: '確認太郎' };
+  const context = [
+    { speaker: '副委員長（確認 太郎）', is_target: true, is_admin: false, statement_text: '最初の質問' },
+    { speaker: '事務局次長（回答花子）', is_admin: true, statement_text: '行政の答弁' },
+    { speaker: '副委員長（確認 太郎）', is_admin: false, statement_text: '同じ議員の再質問' },
+    { speaker: '委員長（進行一郎）', is_admin: false, is_short_procedural: true, statement_text: '議事進行のみ' },
+  ];
+  await mount(page, 'Modal', { cityCode: 'kyoto', isOpen: true, selectedContext: { statement: target, context } });
+  await expect(page.getByText('質問', { exact: true })).toHaveCount(2);
+  await expect(page.getByText('答弁 / 進行', { exact: true })).toHaveCount(1);
+  await expect(page.getByText('副委員長（確認 太郎）', { exact: true })).toHaveCount(2);
+  await expect(page.getByText('議事進行のみ', { exact: true })).toHaveCount(0);
+
+  for (const cityCode of ['osaka', 'nagoya', 'yokohama', 'kobe']) {
+    await mount(page, 'Modal', { cityCode, isOpen: true, selectedContext: { statement: target, context } });
+    await expect(page.getByText('質問', { exact: true })).toHaveCount(1);
+    await expect(page.getByText('答弁', { exact: true })).toHaveCount(1);
+  }
+});
+
 test('guide is restricted to recorded Kyoto SSP links', async ({ page }) => {
   for (const cityCode of ['kyoto', 'osaka', 'nagoya', 'yokohama', 'kobe']) {
     await mount(page, 'Guide', { statement, cityCode });
