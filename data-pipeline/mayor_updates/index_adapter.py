@@ -89,6 +89,21 @@ def preserved_units(bridge, source, version):
     its location and exact text, even when no existing mapping rule matches it.
     """
     rec,body=bridge.record(source['url'],version)
+    if rec['mime_type'] == 'application/pdf':
+        import fitz
+        pages=source.get('review_pages', [])
+        if not pages: raise Hold('Explicit PDF evidence pages required')
+        units=[]
+        with fitz.open(stream=body,filetype='pdf') as doc:
+            for locator in pages:
+                page=locator.get('physical_page')
+                if type(page) is not int or not 1 <= page <= len(doc): raise Hold('Invalid PDF evidence page')
+                quote=doc[page-1].get_text()
+                evidence=bridge.evidence({'source_url':source['url'],'sha256':version,
+                    'document_title':rec['source_title'],'locator':deepcopy(locator),'quote':quote})
+                units.append({**evidence,'kind':'document_evidence','policy_id':source.get('policy_id'),
+                              'verification_status':'unverified','eligible_for_automatic_publication':False})
+        return units
     soup=BeautifulSoup(body,'html.parser'); main=soup.select_one(source.get('selector','#mol_contents'))
     if main is None: raise Hold('Content selector missing')
     units=[]; heading=''; position=0; first_h2_seen=False

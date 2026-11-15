@@ -184,7 +184,12 @@ class OfficialConnectionTests(unittest.TestCase):
             self.assertEqual(old['P-03'][key],new['P-03'][key])
         spec=importlib.util.spec_from_file_location('operations_builder',self.root/'candidate/data-pipeline/build_mayor_tracker.py')
         builder=importlib.util.module_from_spec(spec); spec.loader.exec_module(builder)
-        self.assertEqual(builder.generation_output(self.root/'trial/candidate_tracker_PRIVATE.json'),candidate)
+        # The saved P-03 fixture predates the accepted shared history/rounding
+        # disclaimer. Compare every other field exactly against that snapshot.
+        from mayor_updates.projection import BUDGET_TOTAL_NOTE
+        expected=copy.deepcopy(candidate)
+        expected['summary_stats']['budget_total_note']=BUDGET_TOTAL_NOTE
+        self.assertEqual(builder.generation_output(self.root/'trial/candidate_tracker_PRIVATE.json'),expected)
         self.assertEqual(candidate['summary_stats']['total_allocated_budget_raw'],9830158000)
         self.assertIn('全額の原典確認を済ませた総額ではありません',candidate['summary_stats']['budget_total_note'])
 
@@ -198,7 +203,7 @@ class OfficialConnectionTests(unittest.TestCase):
         self.assertFalse(packet['publication_authorized'])
         self.assertEqual(packet['verification_status'],'unverified')
 
-if __name__=='__main__': unittest.main(verbosity=2)
+
 
 
 class CityReviewTests(unittest.TestCase):
@@ -261,3 +266,58 @@ class CityReviewTests(unittest.TestCase):
             operations.run_trial(bridge,config,baseline,[],d,base_revision='test')
             queue=operations.load(Path(d)/'evidence_review_queue.json')
             self.assertEqual(queue['city'],'kyoto');self.assertEqual(queue['policy_ids'],['P-03'])
+
+
+class LegacyKyotoRuleTests(unittest.TestCase):
+    def fixture(self):
+        from types import SimpleNamespace
+        url='https://www.city.kyoto.lg.jp/test.html'
+        rules=[{'policy_id':'P-03','source_specs':[{'source_url':url,'sha256':'a'*64}]}]
+        bridge=SimpleNamespace(index={'documents':{url:{'versions':[{'sha256':'a'*64,'record':{'city_code':'kyoto'}}]}}})
+        config={'cities':{'kyoto':{'policy_ids':['P-03'],'monitor_sources':[]}}}
+        baseline={'pledges':[{'id':'P-03'}]}
+        result={'document_events':[],'index_events':[],'state':{'documents':{},'indexes':{}},'holds':[],'fallback_units':[]}
+        return bridge,config,baseline,rules,result
+
+    def test_missing_city_only_in_legacy_kyoto_is_inferred_without_input_mutation(self):
+        from mayor_updates import operations
+        bridge,config,baseline,rules,result=self.fixture();before=copy.deepcopy(rules)
+        with tempfile.TemporaryDirectory() as d,patch.object(operations,'monitor',return_value=result):
+            operations.run_trial(bridge,config,baseline,rules,d,base_revision='legacy')
+            self.assertEqual(rules,before)
+            self.assertEqual(operations.load(Path(d)/'run_status.json')['public_writes'],0)
+
+    def test_missing_city_without_exact_saved_identity_or_with_explicit_city_is_rejected(self):
+        from mayor_updates import operations
+        for case in ['missing_version','foreign_record','foreign_host','null_city','foreign_city','no_sources']:
+            bridge,config,baseline,rules,result=self.fixture()
+            if case=='missing_version':rules[0]['source_specs'][0]['sha256']='b'*64
+            if case=='foreign_record':next(iter(bridge.index['documents'].values()))['versions'][0]['record']['city_code']='kobe'
+            if case=='foreign_host':rules[0]['source_specs'][0]['source_url']='https://www.city.kobe.lg.jp/test.html'
+            if case=='null_city':rules[0]['city']=None
+            if case=='foreign_city':rules[0]['city']='kobe'
+            if case=='no_sources':rules[0]['source_specs']=[]
+            with self.subTest(case=case),tempfile.TemporaryDirectory() as d,patch.object(operations,'monitor') as monitor:
+                with self.assertRaises(Hold):operations.run_trial(bridge,config,baseline,rules,d,base_revision='legacy')
+                monitor.assert_not_called()
+
+
+class PDFEvidenceFallbackTests(unittest.TestCase):
+    def test_pdf_pages_are_explicit_and_evidence_is_not_a_budget_proposal(self):
+        from mayor_updates.index_adapter import preserved_units
+        import fitz
+        with fitz.open() as doc:
+            doc.new_page().insert_text((40,40),'SYNTHETIC evacuation awareness')
+            body=doc.tobytes()
+        bridge=MagicMock();bridge.record.return_value=({'mime_type':'application/pdf','source_title':'SYNTHETIC'},body)
+        bridge.evidence.side_effect=lambda spec:{**spec,'quote_match':'exact','version_id':spec['sha256']}
+        source={'url':'https://www.city.yokohama.lg.jp/test.pdf','policy_id':'YOKOHAMA-M01','review_pages':[{'physical_page':1}]}
+        rows=preserved_units(bridge,source,'a'*64)
+        self.assertEqual(rows[0]['kind'],'document_evidence');self.assertEqual(rows[0]['locator']['physical_page'],1)
+        self.assertFalse(rows[0]['eligible_for_automatic_publication']);self.assertEqual(rows[0]['verification_status'],'unverified')
+        self.assertNotIn('amount_jpy',rows[0])
+        for pages in [[],[{'physical_page':0}],[{'physical_page':2}]]:
+            with self.assertRaises(Hold):preserved_units(bridge,{**source,'review_pages':pages},'a'*64)
+
+
+if __name__=='__main__': unittest.main(verbosity=2)

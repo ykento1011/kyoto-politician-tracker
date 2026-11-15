@@ -6,6 +6,7 @@ import argparse
 from copy import deepcopy
 import json
 from pathlib import Path
+from urllib.parse import urlsplit
 from .acquire import capture_sources
 from .engine import PrivateOutput, compare_documents, compare_index, propose, review_html, digest
 from .index_adapter import saved_index, comparison_links, preserved_units
@@ -67,7 +68,22 @@ def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,
         if key in seen_reviews: return False
         out.json(name, payload); emitted[key] = name
         return True
-    allowed = ['P-03'] if allowed is None and city == 'kyoto' else allowed
+    legacy_kyoto = city == 'kyoto' and allowed is None
+    rules = deepcopy(rules)
+    for rule in rules:
+        if 'city' not in rule and legacy_kyoto:
+            specs = rule.get('source_specs', [])
+            if not specs:
+                raise Hold('Legacy Kyoto rule lacks saved source identity')
+            for spec in specs:
+                url = spec['source_url']; parsed = urlsplit(url)
+                doc = bridge.index['documents'].get(url)
+                versions = [v for v in doc['versions'] if v['sha256'] == spec.get('sha256')] if doc else []
+                if (parsed.scheme != 'https' or parsed.netloc != 'www.city.kyoto.lg.jp' or
+                        len(versions) != 1 or versions[0]['record'].get('city_code') != 'kyoto'):
+                    raise Hold('Legacy Kyoto city inference requires an exact Kyoto saved version')
+            rule['city'] = 'kyoto'  # In memory only; explicit foreign/null cities never fall back.
+    allowed = ['P-03'] if legacy_kyoto else allowed
     city_config = config.get('cities', {}).get(city, {})
     if (not allowed or not set(allowed) <= set(city_config.get('policy_ids', [])) or
             not set(allowed) <= set(policies(baseline)) or
