@@ -1,4 +1,4 @@
-"""Kyoto one-shot operation: acquire/reuse -> detect -> bind -> private review.
+"""Source-bound one-shot operation: acquire/reuse -> detect -> bind -> private review.
 
 Public data is an input only. The scheduler and publication remain separate.
 """
@@ -10,6 +10,7 @@ from .acquire import capture_sources
 from .engine import PrivateOutput, compare_documents, compare_index, propose, review_html, digest
 from .index_adapter import saved_index, comparison_links, preserved_units
 from .p1_bridge import P1Bridge
+from .projection import Hold, policies
 
 
 def load(path): return json.loads(Path(path).read_text(encoding='utf-8-sig'))
@@ -50,7 +51,7 @@ def monitor(bridge,sources,previous=None):
             'fallback_units':fallback,'holds':holds}
 
 
-def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,acquisition=None,seen_reviews=None):
+def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,acquisition=None,seen_reviews=None,city="kyoto",allowed=None):
     out=PrivateOutput(output)
     seen_reviews = seen_reviews or {}
     emitted = {}
@@ -66,7 +67,17 @@ def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,
         if key in seen_reviews: return False
         out.json(name, payload); emitted[key] = name
         return True
-    sources=config['cities']['kyoto']['monitor_sources']
+    allowed = ['P-03'] if allowed is None and city == 'kyoto' else allowed
+    city_config = config.get('cities', {}).get(city, {})
+    if (not allowed or not set(allowed) <= set(city_config.get('policy_ids', [])) or
+            not set(allowed) <= set(policies(baseline)) or
+            any(r.get('city') != city or r['policy_id'] not in allowed for r in rules)):
+        raise Hold('Explicit city/policy review scope required')
+    sources=city_config['monitor_sources']
+    for source in sources:
+        doc=bridge.index['documents'].get(source['url'])
+        if doc and any(v['record'].get('city_code')!=city for v in doc['versions']):
+            raise Hold('Review source belongs to another city')
     result=monitor(bridge,sources,previous)
     out.json('monitor_result.json',result); out.json('monitor_state.json',result['state'])
     changed={e['source_url'] for e in result['document_events'] if e['kind'] in {'new_document','replacement_document'}}
@@ -89,7 +100,15 @@ def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,
             emit('source_review_queue.json',{'listing_changes':unmatched,
                     'policy_assignment':'unconfirmed','linked_content_read':False,
                     'documents':{u:{'sha256':v['sha256']} for u,v in result['state']['documents'].items()}})
-        state='source_review_pending' if unmatched else 'source_version_only' if changed else 'unchanged'
+        # Preserve changed announcements even without a policy mapping rule.
+        # This is an evidence review, never an invented policy or budget update.
+        if progress_changed:
+            emit('evidence_review_queue.json',{
+                'source_units':[u for u in result['fallback_units'] if u['source_url'] in progress_changed],
+                'changed_documents':[e for e in result['document_events'] if e['source_url'] in progress_changed],
+                'city':city,'policy_ids':allowed,'policy_assignment':'unconfirmed',
+                'verification_status':'unverified','publication_authorized':False})
+        state='source_review_pending' if unmatched else 'evidence_review_pending' if emitted else 'source_version_only' if changed else 'unchanged'
         out.json('run_status.json',{'state':state,'proposal_count':0,'public_writes':0,'new_reviews':emitted})
         return result,None
     candidates=[]; mapping_holds=[]
@@ -101,7 +120,7 @@ def run_trial(bridge,config,baseline,rules,output,*,previous=None,base_revision,
         except ValueError as exc:
             mapping_holds.append({'policy_id':rule['policy_id'],'reason':str(exc),
                                   'source_positions':rule['source_specs'],'verification_status':'unverified'})
-    packet,candidate=propose(baseline,candidates,city='kyoto',allowed=['P-03'],base_revision=base_revision)
+    packet,candidate=propose(baseline,candidates,city=city,allowed=allowed,base_revision=base_revision)
     manual_units=[u for u in result['fallback_units'] if u['source_url'] in changed]
     if manual_units or mapping_holds:
         emit('evidence_review_queue.json',{'holds':mapping_holds,'source_units':manual_units,

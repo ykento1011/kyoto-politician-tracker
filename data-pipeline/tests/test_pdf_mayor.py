@@ -117,6 +117,68 @@ class PDFTests(unittest.TestCase):
             self.assertTrue(result['stopped']); self.assertEqual(len(calls),2); self.assertEqual(result['new_get_requests'],2)
             self.assertEqual(load(Path(d)/'preflight.json')['limits']['max_total_received_bytes'],25165824)
 
+
+class IndependentPhaseTests(unittest.TestCase):
+    def config(self):
+        return load(CONFIG.parent/'kyoto_additional_pdf_watch.json')
+
+    def runtime(self, root):
+        cfg=self.config(); sources=cfg['pdf_watch']['sources']
+        def pinned(name,value):
+            path=root/name;path.write_text(json.dumps(value),encoding='utf-8')
+            return {'path':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+        state=root/'phase_state';state.mkdir();cas=root/'cas';cas.mkdir()
+        code=Path(pdf_watch.__file__).resolve()
+        return {'state_root':str(state),'snapshot_root':str(cas),'p1_code_root':'unused',
+                'network_enabled':False,'base_revision':'offline',
+                'config':pinned('config.json',cfg),'baseline':pinned('baseline.json',{}),
+                'bindings':pinned('bindings.json',{s['url']:[{'source_url':s['url']}] for s in sources}),
+                'code_files':[{'path':str(code),'sha256':hashlib.sha256(code.read_bytes()).hexdigest()}]}
+
+    def test_independent_six_mib_does_not_change_legacy_budget(self):
+        self.assertEqual(pdf_request_plan(self.config())['max_received_bytes'],6291456)
+        self.assertEqual(pdf_request_plan(load(CONFIG))['max_received_bytes'],25165824)
+        bad=load(CONFIG);bad['pdf_watch']['max_total_received_bytes']=6291456
+        with self.assertRaises(Hold):pdf_request_plan(bad)
+
+    def test_phase_boundaries_fail_closed(self):
+        for key,value in [('max_total_received_bytes',6291457),('max_requests_per_run',4),
+                          ('tls_verify',False),('redirects',1),('retries',1),('timeout_seconds',11),
+                          ('policy_ids',['KOBE-M01']),('allowed_hosts',['example.org']),('phase_id','../bad')]:
+            cfg=self.config();cfg['pdf_watch'][key]=value
+            with self.subTest(key=key),self.assertRaises(Hold):pdf_request_plan(cfg)
+        for key,value in [('max_bytes',2097153),('policy_ids',['P-03']),('url','https://www.city.kobe.lg.jp/a.pdf')]:
+            cfg=self.config();cfg['pdf_watch']['sources'][0][key]=value
+            with self.subTest(key=key),self.assertRaises(Hold):pdf_request_plan(cfg)
+
+    def test_offline_missing_original_never_falls_back_to_network(self):
+        with tempfile.TemporaryDirectory() as d,patch.object(pdf_watch,'assert_owner_only'),patch('mayor_updates.weekly.assert_owner_only'):
+            runtime=self.runtime(Path(d));bridge=MagicMock();bridge.index={'documents':{}}
+            with patch.object(pdf_watch,'P1Bridge',return_value=bridge),patch.object(pdf_watch,'capture_sources') as capture:
+                with self.assertRaisesRegex(Hold,'network fallback is forbidden'):pdf_watch.run(runtime,reuse_saved=True)
+                capture.assert_not_called()
+            self.assertFalse((Path(runtime['state_root'])/'state.json').exists())
+
+    def test_independent_phase_cannot_adopt_live_state_or_different_scope(self):
+        with tempfile.TemporaryDirectory() as d,patch.object(pdf_watch,'assert_owner_only'),patch('mayor_updates.weekly.assert_owner_only'):
+            runtime=self.runtime(Path(d));state=Path(runtime['state_root'])
+            (state/'state.json').write_text('{"sentinel":"live"}')
+            with self.assertRaisesRegex(Hold,'fresh isolated state'):pdf_watch.validate_runtime(runtime,reuse_saved=True)
+            self.assertEqual((state/'state.json').read_text(),'{"sentinel":"live"}')
+        with tempfile.TemporaryDirectory() as d,patch.object(pdf_watch,'assert_owner_only'),patch('mayor_updates.weekly.assert_owner_only'):
+            runtime=self.runtime(Path(d));pdf_watch.validate_runtime(runtime,reuse_saved=True)
+            path=Path(runtime['config']['path']);cfg=load(path);cfg['pdf_watch']['phase_id']='different_phase'
+            path.write_text(json.dumps(cfg));runtime['config']['sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+            with self.assertRaisesRegex(Hold,'binding mismatch'):pdf_watch.validate_runtime(runtime,reuse_saved=True)
+
+    def test_new_phase_stays_disabled_and_old_policy_guard_remains(self):
+        with tempfile.TemporaryDirectory() as d,patch.object(pdf_watch,'assert_owner_only'),patch('mayor_updates.weekly.assert_owner_only'):
+            runtime=self.runtime(Path(d))
+            with self.assertRaisesRegex(Hold,'not activated'):pdf_watch.validate_runtime(runtime,reuse_saved=False)
+            cfg=load(CONFIG);cfg['pdf_watch']['sources'][0]['policy_ids']=['P-07']
+            path=Path(runtime['config']['path']);path.write_text(json.dumps(cfg));runtime['config']['sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+            with self.assertRaisesRegex(Hold,'policy/page'):pdf_watch.validate_runtime(runtime,reuse_saved=True)
+
 class BundleTests(unittest.TestCase):
     def gate(self, root, *, due='2026-11-15T11:00:00+09:00'):
         xml=f'''<Task xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">

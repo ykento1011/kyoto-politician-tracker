@@ -1,0 +1,152 @@
+{
+  "enabled": false,
+  "network_enabled": false,
+  "cities": {
+    "kyoto": {
+      "policy_ids": [
+        "P-05",
+        "P-07",
+        "P-09"
+      ]
+    }
+  },
+  "pdf_watch": {
+    "enabled": false,
+    "requires_separate_activation": true,
+    "max_requests_per_run": 3,
+    "max_total_received_bytes": 6291456,
+    "sources": [
+      {
+        "id": "r8_sep_summary",
+        "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809nagatyou.pdf",
+        "title": "令和8年度9月補正予算の概要",
+        "fiscal_year": 2026,
+        "policy_ids": [
+          "P-05",
+          "P-07",
+          "P-09"
+        ],
+        "media_type": "pdf",
+        "max_bytes": 2097152,
+        "max_gets": 1,
+        "document_kind": "other_official",
+        "review_pages": [
+          {
+            "physical_page": 1,
+            "printed_page": 1
+          },
+          {
+            "physical_page": 2,
+            "printed_page": 2
+          },
+          {
+            "physical_page": 3,
+            "printed_page": 3
+          }
+        ]
+      },
+      {
+        "id": "r8_sep_general",
+        "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809ippann.pdf",
+        "title": "議第103号 令和8年度京都市一般会計補正予算 補正予算に関する説明書",
+        "fiscal_year": 2026,
+        "policy_ids": [
+          "P-05",
+          "P-09"
+        ],
+        "media_type": "pdf",
+        "max_bytes": 2097152,
+        "max_gets": 1,
+        "document_kind": "other_official",
+        "review_pages": [
+          {
+            "physical_page": 9,
+            "printed_page": 5
+          },
+          {
+            "physical_page": 14,
+            "printed_page": 10
+          },
+          {
+            "physical_page": 15,
+            "printed_page": 11
+          },
+          {
+            "physical_page": 16,
+            "printed_page": 12
+          }
+        ]
+      },
+      {
+        "id": "r8_industry",
+        "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+        "title": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局）",
+        "fiscal_year": 2026,
+        "policy_ids": [
+          "P-07"
+        ],
+        "media_type": "pdf",
+        "max_bytes": 2097152,
+        "max_gets": 1,
+        "document_kind": "other_official",
+        "review_pages": [
+          {
+            "physical_page": 1,
+            "printed_page": 48
+          },
+          {
+            "physical_page": 3,
+            "printed_page": 50
+          },
+          {
+            "physical_page": 4,
+            "printed_page": 51
+          },
+          {
+            "physical_page": 5,
+            "printed_page": 52
+          },
+          {
+            "physical_page": 6,
+            "printed_page": 53
+          },
+          {
+            "physical_page": 7,
+            "printed_page": 54
+          },
+          {
+            "physical_page": 10,
+            "printed_page": 57
+          },
+          {
+            "physical_page": 13,
+            "printed_page": 60
+          },
+          {
+            "physical_page": 14,
+            "printed_page": 61
+          },
+          {
+            "physical_page": 17,
+            "printed_page": 64
+          }
+        ]
+      }
+    ],
+    "timeout_seconds": 10,
+    "limitation": "版差替えだけをレビューへ。公開修正なし。",
+    "phase_id": "kyoto_additional_pdf",
+    "city_code": "kyoto",
+    "allowed_hosts": [
+      "www.city.kyoto.lg.jp"
+    ],
+    "policy_ids": [
+      "P-05",
+      "P-07",
+      "P-09"
+    ],
+    "tls_verify": true,
+    "redirects": 0,
+    "retries": 0
+  }
+}

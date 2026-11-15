@@ -199,3 +199,65 @@ class OfficialConnectionTests(unittest.TestCase):
         self.assertEqual(packet['verification_status'],'unverified')
 
 if __name__=='__main__': unittest.main(verbosity=2)
+
+
+class CityReviewTests(unittest.TestCase):
+    def fixture(self, city='yokohama', pid='YOKOHAMA-M01'):
+        url='https://www.city.'+city+'.lg.jp/test.html'
+        source={'url':url,'role':'progress','selector':'main'}
+        config={'cities':{city:{'policy_ids':[pid],'monitor_sources':[source]}}}
+        baseline={'pledges':[{'id':pid,'budget_records':[]}]}
+        result={'document_events':[{'kind':'new_document','source_url':url,'before_sha256':None,'after_sha256':'a'*64}],
+                'index_events':[],'state':{'documents':{url:{'sha256':'a'*64}},'indexes':{}},
+                'holds':[],'fallback_units':[{'source_url':url,'sha256':'a'*64,'locator':{'selector':'main'},'quote':'SYNTHETIC'}]}
+        bridge=MagicMock();bridge.index={'documents':{}}
+        return bridge,config,baseline,result
+
+    def test_explicit_city_review_and_same_transition_deduplication(self):
+        from mayor_updates import operations
+        bridge,config,baseline,result=self.fixture();before=copy.deepcopy(baseline)
+        with tempfile.TemporaryDirectory() as d,patch.object(operations,'monitor',return_value=result):
+            root=Path(d);first=root/'first';first.mkdir()
+            _,packet=operations.run_trial(bridge,config,baseline,[],first,base_revision='test',city='yokohama',allowed=['YOKOHAMA-M01'])
+            self.assertIsNone(packet);self.assertEqual(baseline,before)
+            queue=operations.load(first/'evidence_review_queue.json')
+            self.assertEqual(queue['city'],'yokohama');self.assertEqual(queue['policy_ids'],['YOKOHAMA-M01'])
+            self.assertFalse(queue['publication_authorized']);self.assertEqual(queue['verification_status'],'unverified')
+            self.assertEqual(queue['source_units'][0]['locator'],{'selector':'main'})
+            seen=operations.load(first/'run_status.json')['new_reviews'];self.assertEqual(len(seen),1)
+            repeat=root/'repeat';repeat.mkdir()
+            operations.run_trial(bridge,config,baseline,[],repeat,base_revision='new-transport-only',city='yokohama',allowed=['YOKOHAMA-M01'],seen_reviews=seen)
+            self.assertFalse((repeat/'evidence_review_queue.json').exists())
+            self.assertEqual(operations.load(repeat/'run_status.json')['public_writes'],0)
+
+    def test_unscoped_or_foreign_policy_rejected(self):
+        from mayor_updates import operations
+        bridge,config,baseline,result=self.fixture()
+        for allowed in [None,[],['P-03']]:
+            with tempfile.TemporaryDirectory() as d,patch.object(operations,'monitor') as monitor:
+                with self.assertRaises(Hold):operations.run_trial(bridge,config,baseline,[],d,base_revision='test',city='yokohama',allowed=allowed)
+                monitor.assert_not_called()
+        bridge.index={'documents':{config['cities']['yokohama']['monitor_sources'][0]['url']:{'versions':[{'record':{'city_code':'kyoto'}}]}}}
+        with tempfile.TemporaryDirectory() as d,patch.object(operations,'monitor') as monitor:
+            with self.assertRaises(Hold):operations.run_trial(bridge,config,baseline,[],d,base_revision='test',city='yokohama',allowed=['YOKOHAMA-M01'])
+            monitor.assert_not_called()
+
+    def test_unchanged_and_failure_do_not_emit_review(self):
+        from mayor_updates import operations
+        for failed in [False,True]:
+            bridge,config,baseline,result=self.fixture()
+            result['document_events'][0]['kind']='document_fetch_failed' if failed else 'unchanged'
+            if failed:result['holds']=[{'reason':'HTTP404'}]
+            with tempfile.TemporaryDirectory() as d,patch.object(operations,'monitor',return_value=result):
+                _,packet=operations.run_trial(bridge,config,baseline,[],d,base_revision='test',city='yokohama',allowed=['YOKOHAMA-M01'])
+                self.assertIsNone(packet);self.assertFalse((Path(d)/'evidence_review_queue.json').exists())
+                status=operations.load(Path(d)/'run_status.json');self.assertEqual(status['public_writes'],0)
+                self.assertEqual(status['state'],'stopped_no_public_change' if failed else 'unchanged')
+
+    def test_kyoto_default_identity_is_retained(self):
+        from mayor_updates import operations
+        bridge,config,baseline,result=self.fixture('kyoto','P-03')
+        with tempfile.TemporaryDirectory() as d,patch.object(operations,'monitor',return_value=result):
+            operations.run_trial(bridge,config,baseline,[],d,base_revision='test')
+            queue=operations.load(Path(d)/'evidence_review_queue.json')
+            self.assertEqual(queue['city'],'kyoto');self.assertEqual(queue['policy_ids'],['P-03'])

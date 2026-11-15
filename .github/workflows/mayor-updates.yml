@@ -10,6 +10,7 @@ on:
       - 'data-pipeline/p1_patches/**'
       - 'config/kobe_m01_trial.json'
       - 'config/mayor_update_sources.json'
+      - 'config/kyoto_additional_pdf_watch.json'
       - 'scripts/Export-KyotoWeeklyTask.ps1'
       - '.github/workflows/mayor-updates.yml'
   workflow_dispatch:
