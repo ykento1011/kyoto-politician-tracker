@@ -1,0 +1,12 @@
+--- a/budget/discovery.py
++++ b/budget/discovery.py
+@@ -237,6 +237,9 @@
+ 
+ 
+ def media_type(url: str) -> str | None:
++    # Exact reviewed directory document; no generic directory inference.
++    if url == "https://www.city.yokohama.lg.jp/city-info/zaisei/":
++        return "html"
+     path = urlsplit(url).path.lower()
+     if path.endswith(".pdf"):
+         return "pdf"

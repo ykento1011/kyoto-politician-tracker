@@ -65,4 +65,31 @@ class ScopeTests(unittest.TestCase):
   cfg=json.loads((ROOT/'config/mayor_update_sources.json').read_text())
   validate_sources(cfg['cities']['kyoto']['monitor_sources'])
   validate_sources(cfg['pdf_watch']['sources'],media_type='pdf')
+ def test_exact_yokohama_directory_html_only(self):
+  from mayor_updates.city_scope import is_registered_directory_html
+  url='https://www.city.yokohama.lg.jp/city-info/zaisei/'
+  s=profile();s.update(city_code='yokohama',policy_ids=['YOKOHAMA-M01'],allowed_hosts=['www.city.yokohama.lg.jp'],max_requests=1)
+  s['sources']=[dict(s['sources'][0],url=url,policy_ids=['YOKOHAMA-M01'])]
+  self.assertTrue(is_registered_directory_html('yokohama',url,'html'))
+  validate_sources(s['sources'],scope=s)
+  # index.html retains the pre-existing extension path, not the new exception.
+  self.assertFalse(is_registered_directory_html('yokohama',url+'index.html','html'))
+  legacy=copy.deepcopy(s);legacy['sources'][0]['url']=url+'index.html';validate_scope(legacy)
+  for bad_url in [url+'other/',url.rstrip('/'),url+'?q=1',url+'#x',url.replace('https:','http:'),url.replace('www.city.yokohama.lg.jp','www.city.kobe.lg.jp'),url.replace('www.city.yokohama.lg.jp','evil.example')]:
+   with self.subTest(url=bad_url):
+    self.assertFalse(is_registered_directory_html('yokohama',bad_url,'html'))
+    bad=copy.deepcopy(s);bad['sources'][0]['url']=bad_url
+    with self.assertRaises(Hold):validate_scope(bad)
+  for city in ['kyoto','kobe','osaka','nagoya']:
+   self.assertFalse(is_registered_directory_html(city,url,'html'))
+  self.assertFalse(is_registered_directory_html('yokohama',url,'pdf'))
+  for key,value in [('redirects',1),('retries',1),('tls_verify',False),('timeout_seconds',11)]:
+   bad=copy.deepcopy(s);bad[key]=value
+   with self.subTest(key=key),self.assertRaises(Hold):validate_scope(bad)
+  bad=copy.deepcopy(s);bad['sources'][0]['max_bytes']=2097153
+  with self.assertRaises(Hold):validate_scope(bad)
+  row=copy.deepcopy(s['sources'][0]);row['url']=url+'index.html'
+  with self.assertRaises(Hold):validate_sources([row],scope=s)
+  # The Kyoto-only acquisition entry remains closed to the new URL.
+  with self.assertRaises(Hold):validate_sources(s['sources'])
 if __name__=='__main__':unittest.main()

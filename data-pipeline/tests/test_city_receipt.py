@@ -95,4 +95,31 @@ class ReceiptTests(unittest.TestCase):
             p['sources'][0]['policy_id']='KOBE-M01';pin('acquisition_preflight',p)
             self.assertTrue(h.run_replay(s,b)['state_advanced'])
 
+    def test_directory_html_receipt_identity_and_replay_guards(self):
+        with tempfile.TemporaryDirectory() as d:
+            h,s,b,r,p,pin=self.setup_case(Path(d))
+            old=s['source']['url'];url='https://www.city.yokohama.lg.jp/city-info/zaisei/'
+            docid='yokohama-doc-'+hashlib.sha256(url.encode()).hexdigest()[:24]
+            s.update(city='yokohama',policy_ids=['YOKOHAMA-M01'])
+            s['source'].update(url=url,policy_id='YOKOHAMA-M01',policy_ids=['YOKOHAMA-M01'])
+            baseline=Path(s['baseline']['path']);baseline.write_text(json.dumps({'city_code':'yokohama','pledges':[{'id':'YOKOHAMA-M01'}]}))
+            s['baseline']['sha256']=hashlib.sha256(baseline.read_bytes()).hexdigest()
+            rec,body=b.record.return_value
+            rec.update(city_code='yokohama',source_url=url,final_url=url,document_id=docid)
+            b.index['documents'][url]=b.index['documents'].pop(old)
+            b.index['attempts'][0]['source_url']=url
+            p['sources'][0].update(s['source']);r['receipts'][0].update(source_url=url,final_url=url,version=deepcopy(rec))
+            pin('acquisition_receipt',r);pin('acquisition_preflight',p)
+            first=h.run_replay(s,b);self.assertTrue(first['state_advanced'],first)
+            self.assertEqual(first['document_id'],docid)
+            self.assertEqual(h.run_replay(s,b)['new_review_count'],0)
+            state=Path(s['state_root'])/'state.json';good=state.read_bytes()
+            for mutate in [lambda x:x.update(city='osaka'),lambda x:x['source'].update(fiscal_year=2025),lambda x:x['source'].update(media_type='pdf'),lambda x:x['source'].update(policy_ids=['YOKOHAMA-M02']),lambda x:x['source'].update(url=url+'other/'),lambda x:x['source'].update(url=url+'?x=1'),lambda x:x['source'].update(url=url+'#x'),lambda x:x.update(document_id='wrong')]:
+                bad=deepcopy(s);mutate(bad)
+                self.assertFalse(h.run_replay(bad,b)['state_advanced'])
+                self.assertEqual(state.read_bytes(),good)
+            b.index['attempts']=[]
+            self.assertFalse(h.run_replay(s,b)['state_advanced'])
+            self.assertEqual(state.read_bytes(),good)
+
 if __name__=='__main__':unittest.main()

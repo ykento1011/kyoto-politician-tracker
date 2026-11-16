@@ -22,7 +22,7 @@ class P1CityTests(unittest.TestCase):
   cls.temp=tempfile.TemporaryDirectory();cls.root=Path(cls.temp.name);cls.code=cls.root/'code'
   cls.public_hashes={p:hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__).resolve().parents[2]/'frontend/public/data').glob('*_mayor_tracker.json')}
   cls.before=hashlib.sha256((Path(os.environ['MAYOR_P1_APPROVED_ROOT'])/'budget/fetch.py').read_bytes()).hexdigest()
-  prepare_copy(os.environ['MAYOR_P1_APPROVED_ROOT'],cls.code,include_nagoya_host=getattr(cls,'nagoya_host',False))
+  prepare_copy(os.environ['MAYOR_P1_APPROVED_ROOT'],cls.code,include_nagoya_host=getattr(cls,'nagoya_host',False),include_yokohama_directory=getattr(cls,'yokohama_directory',False))
   cls.bridge=P1Bridge(cls.code,cls.root/'bootstrap',city_capable=True)
   from budget.fetch import SourceFetcher,HTTPResponse
   from budget.documents import DiscoveredDocument
@@ -162,4 +162,44 @@ class NagoyaP1Tests(P1CityTests):
     acquire.worker(self.code,cas,source,out,scope=s,storage=storage)
    result=json.loads((out/'worker_outcome.json').read_text());self.assertEqual(result['http_status'],200)
    self.assertTrue(result['version']['document_id'].startswith('nagoya-doc-'));self.assertEqual(len(tr.calls),1)
+class YokohamaDirectoryTests(P1CityTests):
+ yokohama_directory=True
+ nagoya_host=True
+ def test_directory_worker_cas_and_receipt_no_http(self):
+  from mayor_updates.operations import receipt_identity
+  url='https://www.city.yokohama.lg.jp/city-info/zaisei/'
+  s=profile();s.update(city_code='yokohama',allowed_hosts=['www.city.yokohama.lg.jp'],policy_ids=['YOKOHAMA-M01'],enabled=True,network_enabled=True,max_requests=1)
+  s['sources']=[dict(s['sources'][0],url=url,policy_ids=['YOKOHAMA-M01'])];source=s['sources'][0]
+  with tempfile.TemporaryDirectory(dir=self.root) as t:
+   root=Path(t);cas,out,storage=binding(root,s)
+   (out/'single_get_started.json').write_text(json.dumps({'source_url':url,'media_type':'html','scope_sha256':signature(s)}))
+   tr=self.transport(body=b'<html><p>Offline directory fixture only</p></html>')
+   with patch.object(acquire,'assert_owner_only',return_value={}),patch('budget.fetch.UrllibTransport',return_value=tr):
+    acquire.worker(self.code,cas,source,out,scope=s,storage=storage)
+   result=json.loads((out/'worker_outcome.json').read_text());self.assertEqual(result['http_status'],200)
+   self.assertEqual(len(tr.calls),1);self.assertEqual(tr.calls[0][0],url)
+   self.assertEqual(tr.calls[0][1],{'timeout_seconds':10,'max_bytes':2097151})
+   bridge=P1Bridge(self.code,cas,city_capable=True);rec,body=bridge.record(url,result['version']['version_id'])
+   self.assertEqual(rec['document_id'],'yokohama-doc-'+hashlib.sha256(url.encode()).hexdigest()[:24])
+   self.assertEqual(rec['mime_type'],'text/html');self.assertEqual(rec['source_url'],url)
+   pre={'sources':[source],'code_sha256':bridge.hashes,'limits':{'get_per_url':1,'tls_verify':True,'redirects':0,'retries':0,'wall_timeout_seconds':10}}
+   row=dict(result,sha256=rec['sha256'],stored_bytes=len(body),readback_pass=True,new_get_requests=1)
+   spec={'city':'yokohama','policy_ids':['YOKOHAMA-M01']}
+   for key,value in [('acquisition_preflight',pre),('acquisition_receipt',{'stopped':False,'public_writes':0,'receipts':[row]})]:
+    p=root/(key+'.json');p.write_text(json.dumps(value));spec[key]={'path':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+   with patch('mayor_updates.weekly.assert_owner_only',return_value={}):
+    _,docid,_=receipt_identity(spec,dict(source,media_type='html'),bridge)
+   self.assertEqual(docid,rec['document_id'])
+   before=copy.deepcopy(bridge.index['documents'])
+   for status,tls,mime,data in [(302,True,'text/html',b'<html>x</html>'),(503,True,'text/html',b'<html>x</html>'),(200,False,'text/html',b'<html>x</html>'),(200,True,'application/pdf',b'%PDF-x'),(200,True,'text/html',b'x'*2097152)]:
+    tr=self.transport(data,status,tls,mime);r=self.fetcher(bridge.store,tr,'yokohama').fetch_discovered(self.doc(url))
+    self.assertIsNone(r.version);self.assertEqual(len(tr.calls),1);self.assertEqual(bridge.store.read_index()['documents'],before)
+ def test_only_exact_directory_has_p1_media_override(self):
+  from budget.discovery import media_type,canonical_official_url
+  url='https://www.city.yokohama.lg.jp/city-info/zaisei/'
+  self.assertEqual(canonical_official_url(url,url,allowed_hosts=frozenset({'www.city.yokohama.lg.jp'})),url)
+  self.assertEqual(media_type(url),'html')
+  for other in [url+'other/',url.rstrip('/'),url+'?x=1',url+'#x',url.replace('https:','http:'),url.replace('yokohama','osaka')]:self.assertIsNone(media_type(other))
+  self.assertEqual(media_type(url+'index.html'),'html')
+
 if __name__=='__main__':unittest.main()

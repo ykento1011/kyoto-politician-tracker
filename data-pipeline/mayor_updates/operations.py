@@ -246,7 +246,7 @@ def replay_saved(spec):
     import re
     import uuid
     from datetime import datetime, timezone
-    from .city_scope import official_host, signature
+    from .city_scope import official_host, signature, is_registered_directory_html
     from .weekly import atomic_json, single_run, commit_success, review_index, pinned_input
     from .acquire import assert_owner_only
     root = PrivateOutput(spec['state_root']).root
@@ -268,7 +268,7 @@ def replay_saved(spec):
                 raise Hold('Explicit city, policy and series identity required')
             url=source['url']; parsed=urlsplit(url); medium=source['media_type']
             if (parsed.scheme!='https' or parsed.netloc!=official_host(city) or parsed.query or parsed.fragment or
-                    medium not in {'html','pdf'} or not parsed.path.endswith('.'+medium) or
+                    medium not in {'html','pdf'} or not (parsed.path.endswith('.'+medium) or is_registered_directory_html(city,url,medium)) or
                     source['role'] not in {'index','progress'} or
                     (source['role']=='index' and medium!='html') or
                     not set(source['policy_ids']) or not set(source['policy_ids'])<=set(allowed)):
