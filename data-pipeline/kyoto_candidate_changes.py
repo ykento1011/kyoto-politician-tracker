@@ -13,6 +13,18 @@ def sha(path):
 def read(path):
     return json.loads(Path(path).read_text(encoding="utf-8-sig"))
 
+
+def read_index(path):
+    # Match the accepted acquisition parser's JSONP grammar. Keep its pinned
+    # transport code, raw bytes and receipts unchanged; never evaluate script.
+    text = Path(path).read_bytes().decode("utf-8-sig").strip()
+    if text.startswith("jQuery"):
+        match = re.fullmatch(r"jQuery[A-Za-z0-9_]*\((\{.*\})\);?", text, re.DOTALL)
+        if not match:
+            raise ValueError("Unexpected JSONP wrapper")
+        text = match[1]
+    return json.loads(text)
+
 def candidate_key(row):
     # Private observation key, never an SSP/public statement ID.
     if row.get("committee"):
@@ -38,7 +50,7 @@ def validated_index(evidence):
                and (Path(evidence["receipt_path"]).parent / x.get("raw_file", "")).resolve() == path.resolve()]
     if len(matches) != 1:
         raise ValueError("Index must be bound to one official successful response")
-    catalog(read(path))  # Reject malformed/duplicate identifiers.
+    catalog(read_index(path))  # Reject malformed/duplicate identifiers.
     return digest
 
 def new_reference(record, evidence):
@@ -127,7 +139,7 @@ def related(row, item):
 def reevaluate(previous_evidence, current_evidence, candidates, records, mappings=None):
     """Changed index -> related candidates only. Mapping never certifies a body."""
     oldsha, newsha = validated_index(previous_evidence), validated_index(current_evidence)
-    old, new = catalog(read(previous_evidence["path"])), catalog(read(current_evidence["path"]))
+    old, new = catalog(read_index(previous_evidence["path"])), catalog(read_index(current_evidence["path"]))
     changed = {k for k in old.keys() | new.keys() if old.get(k) != new.get(k)}
     mappings = mappings or {}
     out, seen = [], set()
