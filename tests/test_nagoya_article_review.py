@@ -36,10 +36,14 @@ def review(row):
                 reviewed_at="2026-11-16T01:00:00Z",decision="hold")
 
 class ReviewFlowTests(unittest.TestCase):
-    def test_new_index_and_same_sha(self):
+    def test_baseline_only_and_same_sha(self):
         raw=b"<article id='content'><h1>Index</h1><a href='/shikai/test-article.html'>New</a></article>"
         s,n=q.inspect_index(q.empty(),raw,receipt(raw,"https://www.city.nagoya.jp/shikai/index.html"))
         self.assertEqual(n,1);self.assertFalse(s["queue"][0]["fetch_authorized"])
+        self.assertEqual(s["queue"][0]["change"],"baseline-only")
+        self.assertEqual(s["queue"][0]["source_url"],receipt(raw,"https://www.city.nagoya.jp/shikai/index.html")["url"])
+        self.assertEqual(s["queue"][0]["source_sha256"],h.digest(raw))
+        self.assertEqual(s["queue"][0]["after"]["position"]["literal"],"New")
         s2,n=q.inspect_index(s,raw,receipt(raw,"https://www.city.nagoya.jp/shikai/index.html"))
         self.assertEqual(n,0);self.assertEqual(s,s2)
     def test_link_add_remove_and_label(self):
@@ -50,6 +54,10 @@ class ReviewFlowTests(unittest.TestCase):
         s,n=q.inspect_index(s,b,receipt(b,url))
         self.assertEqual(n,3)
         self.assertEqual({x["change"] for x in s["queue"][-3:]},{"added","removed","label_changed"})
+        added=next(x for x in s["queue"][-3:] if x["change"]=="added")
+        self.assertEqual(added["target_url"],"https://www.city.nagoya.jp/shikai/c.html")
+        self.assertTrue(all(not x["fetch_authorized"] for x in s["queue"]))
+        self.assertEqual(s["queue"][0]["change"],"baseline-only")
     def test_same_article_and_replacement(self):
         s,n=article();self.assertEqual(n,1)
         s2,n=article(s);self.assertEqual(n,0);self.assertEqual(s,s2)

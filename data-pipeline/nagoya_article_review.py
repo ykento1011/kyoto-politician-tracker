@@ -78,7 +78,8 @@ def inspect_index(state, raw, receipt):
         if a and b and a["label"] == b["label"]:
             continue  # Template/DOM shifts alone are not article changes.
         entries.append(dict(kind="index_link", target_url=url,
-            change="added" if a is None else "removed" if b is None else "label_changed",
+            change="baseline-only" if previous is None else
+                   "added" if a is None else "removed" if b is None else "label_changed",
             before=a, after=b, fetch_authorized=False))
     # Bind semantic links, not volatile DOM offsets, for duplicate raw receipts.
     return _append(state, ev, "index", links, entries)

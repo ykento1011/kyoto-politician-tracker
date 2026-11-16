@@ -8,7 +8,8 @@ must not be committed.
 
 - `inspect_index` reuses the successful official receipt and article DOM parser.
   It retains official council links, labels and positions. First observation is
-  a baseline of links, not proof that those articles were newly published.
+  a baseline of links marked `change="baseline-only"`, not proof that those
+  articles were newly published. It never produces `added` for that first index.
   Later observations report additions, removals and changed labels. Removal
   never means a member departure. Navigation/DOM movement alone creates no
   semantic review. Source versions are retained even when semantic links agree.
