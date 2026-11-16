@@ -14,8 +14,8 @@ const policy=data.pledges.find(p=>p.id==='P-07');
 const server=await createServer({root,configFile:false,envDir:false,publicDir:false,
   cacheDir:path.join(root,'.qa_cache'),plugins:[react()],server:{middlewareMode:true,watch:null},appType:'custom'});
 try {
-  const {default:MayorTrackerView}=await server.ssrLoadModule('/src/components/MayorTrackerView.jsx');
-  const markup=renderToStaticMarkup(React.createElement(MayorTrackerView,{data:{...data,pledges:[policy]},cityCode:'kyoto'}));
+  const {KyotoPolicyDetail:Detail,KyotoPolicyTotals:Totals}=await server.ssrLoadModule('/src/components/KyotoPolicyTracker.jsx');
+  const markup=renderToStaticMarkup(React.createElement(React.Fragment,null,...[policy].map(p=>React.createElement(Detail,{key:p.id,pledge:p,mayorInfo:data.mayor_info})),React.createElement(Totals,{data})));
   assert.equal((markup.match(/data-budget-aggregation="excluded"/g)||[]).length,5);
   for(const text of ['7億1,500万円','9,900万円','3,650万円','2,500万円','0円','債務負担行為','2億4,400万円','集計対象外','原典',data.summary_stats.total_allocated_budget_jpy]) assert.ok(markup.includes(text),text);
   assert.ok(!markup.includes('財源内訳：'));

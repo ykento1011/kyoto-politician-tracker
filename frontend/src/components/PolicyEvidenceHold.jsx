@@ -6,12 +6,14 @@ export function hasProgressReview(p) {
     p.milestone?.verification_status || p.milestone?.policy_relation);
 }
 
-export default function PolicyEvidenceHold({ pledge: p }) {
+export default function PolicyEvidenceHold({ pledge: p, headingLevel = 4 }) {
+  const Heading = `h${headingLevel}`;
+  const Subheading = `h${headingLevel + 1}`;
   const bill = p.legislative_bill;
   const event = p.milestone;
   return <section className="bg-slate-50 rounded-xl p-3.5 border border-slate-200"
     data-policy-evidence="review">
-    <h4 className="text-xs font-bold text-slate-800">議決・実績の確認状況</h4>
+    <Heading className="text-xs font-bold text-slate-800">議決・実績の確認状況</Heading>
     {bill && <div className="mt-2 text-xs" data-legislative-status={bill.verification_status || 'unverified'}>
       <p className="font-bold text-amber-800">議案の同一性は未確認（可決根拠として保留）</p>
       <p className="mt-1">{bill.verification_note}</p>
@@ -22,8 +24,8 @@ export default function PolicyEvidenceHold({ pledge: p }) {
       </details>
     </div>}
     {event && <div className="mt-3 text-xs" data-milestone-relation={event.policy_relation || 'unconfirmed'}>
-      <h5 className="font-bold text-slate-800">{event.policy_relation === 'contextual'
-        ? '関連する別施策（制度実施の根拠ではありません）' : '未確認の登録実績'}</h5>
+      <Subheading className="font-bold text-slate-800">{event.policy_relation === 'contextual'
+        ? '関連する別施策（制度実施の根拠ではありません）' : '未確認の登録実績'}</Subheading>
       <p className="mt-1">{event.verification_note}</p>
       <details className="mt-2 text-slate-600">
         <summary>元の登録内容（未確認）</summary>

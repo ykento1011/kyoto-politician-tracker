@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import KyotoPolicyTracker from './KyotoPolicyTracker';
 import ReportIssueButton from './ReportIssueButton';
 import BudgetEvidence, { hasBudgetEvidence } from './BudgetEvidence';
 import ProgressEvidence from './ProgressEvidence';
@@ -17,7 +18,14 @@ const STAGES = [
   { level: 5, label: '成立・執行', num: '⑤' },
 ];
 
-export default function MayorTrackerView({ data, cityCode, onBack }) {
+export default function MayorTrackerView(props) {
+  if (props.cityCode === 'kyoto' && Array.isArray(props.data?.pledges)) {
+    return <KyotoPolicyTracker {...props} />;
+  }
+  return <LegacyMayorTrackerView {...props} />;
+}
+
+export function LegacyMayorTrackerView({ data, cityCode, onBack }) {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
 

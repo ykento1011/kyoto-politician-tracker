@@ -14,8 +14,8 @@ const policy=data.pledges.find(p=>p.id==='P-03');
 const server=await createServer({root,configFile:false,envDir:false,publicDir:false,
   cacheDir:path.join(root,'.qa_cache'),plugins:[react()],server:{middlewareMode:true,watch:null},appType:'custom'});
 try {
-  const {default:MayorTrackerView}=await server.ssrLoadModule('/src/components/MayorTrackerView.jsx');
-  const markup=renderToStaticMarkup(React.createElement(MayorTrackerView,{data:{...data,pledges:[policy]},cityCode:'kyoto'}));
+  const {KyotoPolicyDetail:Detail,KyotoPolicyTotals:Totals}=await server.ssrLoadModule('/src/components/KyotoPolicyTracker.jsx');
+  const markup=renderToStaticMarkup(React.createElement(React.Fragment,null,...[policy].map(p=>React.createElement(Detail,{key:p.id,pledge:p,mayorInfo:data.mayor_info})),React.createElement(Totals,{data})));
   assert.equal((markup.match(/data-budget-relation="unconfirmed"/g)||[]).length,1);
   assert.equal((markup.match(/data-budget-relation="contextual"/g)||[]).length,1);
   assert.equal((markup.match(/公式資料（PDF）を確認/g)||[]).length,2);

@@ -22,7 +22,7 @@ export function budgetSourceLabel(url = '') {
   return '公式資料を確認';
 }
 
-export default function BudgetEvidence({ records, pledge, mayorInfo }) {
+export default function BudgetEvidence({ records, pledge, mayorInfo, compactNotes = false }) {
   return (
     <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
       <div className="font-bold text-slate-700 flex items-center gap-1.5 mb-3">
@@ -45,7 +45,9 @@ export default function BudgetEvidence({ records, pledge, mayorInfo }) {
               <p className="text-lg font-black text-slate-900 mt-2">{record.amount_display}</p>
               {record.aggregation_status === 'excluded' && <p className="text-[11px] font-bold text-slate-600 mt-1" data-budget-aggregation="excluded">集計対象外（政策との関係と、集計への加算可否は別です）</p>}
               {record.aggregation_status === 'included' && <p className="text-[11px] font-bold text-emerald-800 mt-1" data-budget-aggregation="included">集計対象（同じ年度・会計・事業の金額を重複加算しません）</p>}
-              {record.budget_note && <p className="text-[11px] text-slate-600 leading-relaxed mt-2">{record.budget_note}</p>}
+              {record.budget_note && (compactNotes
+                ? <details><summary>内訳・関連性・金額の注記</summary><p>{record.budget_note}</p></details>
+                : <p className="text-[11px] text-slate-600 leading-relaxed mt-2">{record.budget_note}</p>)}
               {record.funding_verification_status === 'verified' && record.funding_sources?.length > 0 && (
                 <div className="text-[11px] text-slate-600 mt-2">
                   財源内訳：
