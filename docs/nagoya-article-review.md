@@ -22,7 +22,9 @@ must not be committed.
   interpretation and person identity remain review responsibilities. Unknown
   years stay null. Role endings use committee/union scopes, never membership.
 - Source identity is URL + raw SHA. Reprocessing it creates zero queue entries;
-  supplying a different interpretation for the same source is rejected rather
+  the latest-observation head still advances when an older original recurs, so
+  subsequent diffs use the actual preceding observation. Supplying a different
+  interpretation for the same source is rejected rather
   than silently replacing a prior review. A future explicit amendment workflow
   would need separate authorization. Changed originals get separate versions.
 - `record_review` appends hash-bound named human review records. Accepted-for-

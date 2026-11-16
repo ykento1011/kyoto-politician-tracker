@@ -58,6 +58,21 @@ class ReviewFlowTests(unittest.TestCase):
         self.assertEqual(added["target_url"],"https://www.city.nagoya.jp/shikai/c.html")
         self.assertTrue(all(not x["fetch_authorized"] for x in s["queue"]))
         self.assertEqual(s["queue"][0]["change"],"baseline-only")
+    def test_recurring_original_updates_baseline_without_duplicate_queue(self):
+        url="https://www.city.nagoya.jp/shikai/index.html"
+        a=b"<article id='content'><h1>I</h1><a href='a.html'>A</a></article>"
+        ab=a.replace(b"</article>",b"<a href='b.html'>B</a></article>")
+        ac=a.replace(b"</article>",b"<a href='c.html'>C</a></article>")
+        s,_=q.inspect_index(q.empty(),a,receipt(a,url))
+        s,_=q.inspect_index(s,ab,receipt(ab,url))
+        prior=copy.deepcopy(s)
+        s,n=q.inspect_index(s,a,receipt(a,url))
+        self.assertEqual(n,0);self.assertEqual(s["queue"],prior["queue"])
+        self.assertEqual(s["versions"],prior["versions"])
+        self.assertEqual(s["heads"][url],q.version_id(h.evidence(a,receipt(a,url))))
+        s,n=q.inspect_index(s,ac,receipt(ac,url))
+        self.assertEqual(n,1);self.assertEqual(s["queue"][-1]["change"],"added")
+        self.assertEqual(s["queue"][-1]["target_url"],"https://www.city.nagoya.jp/shikai/c.html")
     def test_same_article_and_replacement(self):
         s,n=article();self.assertEqual(n,1)
         s2,n=article(s);self.assertEqual(n,0);self.assertEqual(s,s2)

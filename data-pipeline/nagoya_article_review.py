@@ -36,7 +36,9 @@ def _append(state, ev, kind, payload, entries):
     if previous:
         if previous["binding_sha256"] != binding:
             raise ValueError("Same original cannot change its candidate interpretation")
-        return copy.deepcopy(state), 0
+        out = copy.deepcopy(state)
+        out["heads"][ev["url"]] = vid
+        return out, 0  # Latest observation can recur without a duplicate queue.
     out = copy.deepcopy(state)
     out["versions"].append(dict(version_id=vid, kind=kind, source_url=ev["url"],
         source_sha256=ev["sha256"], observed_at=ev["observed_at"],
