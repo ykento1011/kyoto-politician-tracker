@@ -75,6 +75,49 @@ class CandidateChangesTests(unittest.TestCase):
         return self.evidence("old",[(6346,"令和8年5月総務消防委員会（第5回）","全会議")])
     def records(self,e):
         return {self.key:dict(candidate_key=self.key,checked_index_sha256=[e["sha256"]],checked_reference_sha256=[])}
+    def jsonp_evidence(self,e,body=None):
+        p=Path(e["path"])
+        p.write_bytes(body if body is not None else b"jQuery123_456("+p.read_bytes()+b");")
+        rp=Path(e["receipt_path"]);receipt=json.loads(rp.read_text(encoding="utf-8"))
+        receipt["attempts"][0].update(sha256=changes.sha(p),response_bytes=p.stat().st_size)
+        rp.write_text(json.dumps(receipt),encoding="utf-8")
+        return dict(e,sha256=changes.sha(p),receipt_sha256=changes.sha(rp))
+    def test_saved_jsonp_receipt_and_same_sha_skip_without_rewrite(self):
+        e=self.jsonp_evidence(self.old());p=Path(e["path"]);original=p.read_bytes()
+        g.transport.parse_index(original,"application/javascript",{"meetings":[]})
+        self.assertEqual(changes.validated_index(e),e["sha256"])
+        out=changes.reevaluate(e,e,[self.row],self.records(e))
+        self.assertEqual(out["candidates"][0]["state"],"skip")
+        self.assertFalse(out["network_authorized"]);self.assertEqual(p.read_bytes(),original)
+    def test_changed_jsonp_index_reaches_related_candidate_review(self):
+        old=self.jsonp_evidence(self.old())
+        new=self.jsonp_evidence(self.evidence("new",[(9001,"令和8年5月総務消防委員会（第4回）","全会議")]))
+        out=changes.reevaluate(old,new,[self.row],self.records(old))
+        self.assertEqual(out["candidates"][0]["state"],"held_schedule_unknown")
+        self.assertEqual(out["changed_council_ids"],["6346","9001"])
+    def test_bom_and_optional_jsonp_semicolon(self):
+        e=self.old();plain=Path(e["path"]).read_bytes()
+        for raw in (b"\xef\xbb\xbf"+plain,b" \n jQuery9("+plain+b") \n"):
+            wrapped=self.jsonp_evidence(e,raw)
+            self.assertEqual(changes.validated_index(wrapped),wrapped["sha256"])
+    def test_unknown_or_incomplete_jsonp_is_rejected(self):
+        e=self.old();plain=Path(e["path"]).read_bytes()
+        for raw in (b"callback("+plain+b");",b"jQuery.a("+plain+b");",
+                    b"jQuery1("+plain,b"jQuery1("+plain+b"); extra()"):
+            with self.subTest(raw=raw[:12]):
+                wrapped=self.jsonp_evidence(e,raw)
+                with self.assertRaises(ValueError):changes.validated_index(wrapped)
+                with self.assertRaises((ValueError,g.Stop)):g.transport.parse_index(raw,"application/javascript",{"meetings":[]})
+    def test_jsonp_original_tamper_is_still_rejected(self):
+        e=self.jsonp_evidence(self.old());p=Path(e["path"])
+        p.write_bytes(p.read_bytes()+b" ")
+        with self.assertRaises(ValueError):changes.validated_index(e)
+    def test_receipts_remain_strict_json(self):
+        e=self.jsonp_evidence(self.old());p=Path(e["receipt_path"])
+        p.write_bytes(b"jQuery1("+p.read_bytes()+b");");e["receipt_sha256"]=changes.sha(p)
+        with self.assertRaises(json.JSONDecodeError):changes.validated_index(e)
+
+
     def test_same_sha_never_requeries(self):
         e=self.old();out=changes.reevaluate(e,e,[self.row],self.records(e))
         self.assertEqual(out["candidates"][0]["state"],"skip");self.assertFalse(out["network_authorized"])
