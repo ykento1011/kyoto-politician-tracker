@@ -43,7 +43,19 @@ try {
  assert.equal(policyPresentation(bad).source,null);
  bad.budget_records.reverse(); assert.equal(policyPresentation(bad).source,null);
  assert.equal(policyPresentation({id:'P-99',headline:'Missing'}).source,null);
- for(const url of ['javascript:alert(1)','http://www.city.kyoto.lg.jp/x','https://example.com/x','https://user@www.city.kyoto.lg.jp/x']) assert.equal(officialKyotoUrl(url),null);
+ for(const host of ['www.city.kyoto.lg.jp','www2.city.kyoto.lg.jp']) {
+   assert.equal(officialKyotoUrl(`https://${host}/x.pdf#page=2`),`https://${host}/x.pdf#page=2`);
+   for(const url of [`http://${host}/x`,`https://user@${host}/x`,`https://user:password@${host}/x`,`https://${host}:443/x`,`https://${host}:8443/x`,`https://${host}:/x`,`https://${host}.example.com/x`,`https://sub.${host}/x`]) assert.equal(officialKyotoUrl(url),null,url);
+ }
+ for(const url of ['javascript:alert(1)','https://example.com/x','https://www3.city.kyoto.lg.jp/x','https://www2-city.kyoto.lg.jp/x',null]) assert.equal(officialKyotoUrl(url),null);
+ // A retained historic contract link is neither a current source nor new verification.
+ const p3=structuredClone(data.pledges.find(p=>p.id==='P-03'));
+ const contract='https://www2.city.kyoto.lg.jp/shikai/img/honkaigi/gian/R7-9/G07-104.pdf';
+ assert.equal(p3.milestone.evidence_url,contract);
+ assert.ok(render(Detail,{pledge:p3,mayorInfo:data.mayor_info}).includes(`href="${contract}"`));
+ assert.equal(policyPresentation(p3).source.url,'https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html');
+ p3.milestone.is_broken=true;
+ assert.ok(!render(Detail,{pledge:p3,mayorInfo:data.mayor_info}).includes(`href="${contract}"`));
  // Existing non-Kyoto render path is identical, including its evidence UI.
  for(const city of ['kobe','osaka','nagoya','yokohama']) {
    const cityData=JSON.parse(fs.readFileSync(path.join(root,`public/data/${city}_mayor_tracker.json`),'utf8'));

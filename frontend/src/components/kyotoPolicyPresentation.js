@@ -7,7 +7,9 @@ const PAUSE = 'https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html';
 export function officialKyotoUrl(value) {
   try {
     const u = new URL(value);
-    return u.protocol === 'https:' && u.hostname === 'www.city.kyoto.lg.jp' &&
+    // Check the original authority too: URL parsing removes an explicit :443.
+    const authority = typeof value === 'string' ? value.match(/^https:\/\/([^/?#]+)/)?.[1] : null;
+    return u.protocol === 'https:' && ['www.city.kyoto.lg.jp', 'www2.city.kyoto.lg.jp'].includes(authority) && u.hostname === authority &&
       !u.username && !u.password && !u.port ? u.href : null;
   } catch { return null; }
 }

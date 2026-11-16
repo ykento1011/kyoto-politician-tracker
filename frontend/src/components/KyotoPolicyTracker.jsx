@@ -173,12 +173,16 @@ export default function KyotoPolicyTracker({data, onBack, initialSearch}) {
     };
   },[]);
   useEffect(()=>{
-    const onPop = ()=>{
+    const onLocationChange = ()=>{
       restore.current = window.history.state?.kyotoPolicyList || {scrollY:0};
       setRoute(readPolicyRoute(window.location.search)); setRevision(n=>n+1);
     };
-    window.addEventListener('popstate',onPop);
-    return ()=>window.removeEventListener('popstate',onPop);
+    window.addEventListener('popstate',onLocationChange);
+    window.addEventListener('app-navigate',onLocationChange);
+    return ()=>{
+      window.removeEventListener('popstate',onLocationChange);
+      window.removeEventListener('app-navigate',onLocationChange);
+    };
   },[]);
   useEffect(()=>{
     if (!restore.current) return;

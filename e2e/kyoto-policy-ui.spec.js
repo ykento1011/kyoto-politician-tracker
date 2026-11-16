@@ -36,6 +36,55 @@ test('all policies and 27 budget records remain reachable without external reque
  expect(count).toBe(27);
 });
 
+async function openMayorFromSharedNavigation(page){
+ const header=page.locator('header');
+ const desktop=header.getByRole('button',{name:/市長政策進捗/});
+ if(await desktop.isVisible()) await desktop.click();
+ else await header.getByRole('button',{name:'政策進捗',exact:true}).click();
+}
+
+test('historic P-03 contract links remain separate from the current pause source',async({page})=>{
+ await page.goto('/kyoto/?view=mayor&policy=P-03');
+ const history=page.locator('#policy-history');
+ await history.getByText('過去の契約・実施記録',{exact:true}).click();
+ const contract=history.locator('a[href$="/G07-104.pdf"]');
+ await expect(contract).toBeVisible();
+ await expect(contract).toHaveAttribute('href','https://www2.city.kyoto.lg.jp/shikai/img/honkaigi/gian/R7-9/G07-104.pdf');
+ await expect(contract).toContainText('現在の実施認定とは別');
+ await expect(page.getByRole('link',{name:/工事停止の発表を見る/})).toHaveAttribute('href','https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html');
+});
+
+test('shared navigation synchronizes detail and totals with the URL and browser history',async({page})=>{
+ for(const suffix of ['policy=P-03','mayorSection=summary']){
+  await page.goto(`/kyoto/?view=mayor&${suffix}`);
+  const detail=suffix.startsWith('policy=');
+  const content=detail?page.locator('#policy-history'):page.getByRole('heading',{name:'登録情報の集計・算定方法'});
+  await expect(content).toBeVisible();
+  await openMayorFromSharedNavigation(page);
+  await expect(page).toHaveURL(/\/kyoto\/\?view=mayor$/);
+  await expect(page.locator('[data-policy-card]')).toHaveCount(14,{timeout:3000});
+  await expect(content).toHaveCount(0);
+  await page.goBack();await expect(content).toBeVisible();
+  await page.reload();await expect(content).toBeVisible();
+  await page.goForward();await expect(page.locator('[data-policy-card]')).toHaveCount(14);
+  await page.reload();await expect(page.locator('[data-policy-card]')).toHaveCount(14);
+ }
+});
+
+test('four other cities retain their legacy display and shared navigation',async({page})=>{
+ for(const city of ['kobe','osaka','nagoya','yokohama']){
+  await page.goto(`/${city}/?view=mayor`);
+  const title=page.getByText(/政策ライフサイクル検証基盤/);
+  await expect(title).toBeVisible();
+  const original=await title.textContent();
+  await expect(page.locator('.kyoto-policy-ui')).toHaveCount(0);
+  await openMayorFromSharedNavigation(page);
+  await expect(page).toHaveURL(new RegExp(`/${city}/\\?view=mayor$`));
+  await expect(title).toHaveText(original);
+  await expect(page.locator('.kyoto-policy-ui')).toHaveCount(0);
+ }
+});
+
 test('filters, scroll and focus survive detail, back, forward and reload',async({page})=>{
  await page.goto('/kyoto/?view=mayor');
  const link=page.getByRole('link',{name:'P-14 根拠・履歴',exact:true});
