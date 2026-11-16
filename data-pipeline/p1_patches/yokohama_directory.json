@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "description": "Opt-in new candidate only. Exact Yokohama finance directory HTML; live P1 unchanged.",
+  "before": {
+    "budget/discovery.py": "c653b8116f26c377fc81058500ef715c396b5d1cc578f54183c47764a04742b5"
+  },
+  "after": {
+    "budget/discovery.py": "6854ef20ae5220680a7f125eaa81a52e595ce5bb25bae10d9f372a96b0db234f"
+  },
+  "patch_sha256": "e8892239c44961c769c7f4352cdb14b2fd0379070e6648e5a1eaf9fa06c626ea"
+}
