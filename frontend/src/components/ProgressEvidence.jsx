@@ -2,11 +2,12 @@ import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { budgetSourceLabel } from './BudgetEvidence';
 
-export default function ProgressEvidence({ event }) {
+export default function ProgressEvidence({ event, headingLevel = 4 }) {
+  const Heading = `h${headingLevel}`;
   if (!event) return null;
   return (
     <section className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-5" data-progress-event={event.kind}>
-      <h4 className="text-sm font-bold text-amber-900">最新の公式発表</h4>
+      <Heading className="text-sm font-bold text-amber-900">最新の公式発表</Heading>
       <p className="text-xs text-slate-600 mt-1">発表日：{event.announced_at}</p>
       <p className="text-sm text-slate-900 leading-relaxed mt-2">{event.summary}</p>
       <p className="text-xs text-slate-600 mt-2">{event.source_title}</p>

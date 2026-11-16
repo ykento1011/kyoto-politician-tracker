@@ -13,8 +13,8 @@ const data=JSON.parse(fs.readFileSync(path.join(root,'public/data/kyoto_mayor_tr
 const server=await createServer({root,configFile:false,envDir:false,publicDir:false,
  cacheDir:path.join(root,'.qa_cache'),plugins:[react()],server:{middlewareMode:true,watch:null},appType:'custom'});
 try {
- const {default:View}=await server.ssrLoadModule('/src/components/MayorTrackerView.jsx');
- const render=p=>renderToStaticMarkup(React.createElement(View,{data:{...data,pledges:[p]},cityCode:'kyoto'}));
+ const {KyotoPolicyDetail:Detail,KyotoPolicyTotals:Totals}=await server.ssrLoadModule('/src/components/KyotoPolicyTracker.jsx');
+ const render=p=>renderToStaticMarkup(React.createElement(React.Fragment,null,React.createElement(Detail,{pledge:p,mayorInfo:data.mayor_info}),React.createElement(Totals,{data})));
  const a=render(data.pledges[0]),b=render(data.pledges[1]);
  assert.equal((a.match(/data-kpi-evidence-note/g)||[]).length,2);
  assert.ok(a.includes('確定済み件数・公約達成率ではありません'));
