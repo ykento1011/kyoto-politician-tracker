@@ -40,6 +40,13 @@ class P1Bridge:
                 if pins['fetch.py'] != host_spec['before']['budget/fetch.py']:
                     raise Hold('Nagoya host patch parent pin mismatch')
                 pins['fetch.py']=actual_fetch
+        if city_capable:
+            directory_spec=json.loads((Path(__file__).resolve().parents[1]/'p1_patches/yokohama_directory.json').read_text(encoding='utf-8'))
+            name='budget/discovery.py'
+            actual=sha256((self.code_root/name).read_bytes()).hexdigest()
+            if actual not in {directory_spec['before'][name],directory_spec['after'][name]}:
+                raise Hold('Unknown P1 directory media classifier')
+            pins['discovery.py']=actual
         for name, expected in pins.items():
             actual = sha256((self.code_root / 'budget' / name).read_bytes()).hexdigest()
             if actual != expected:

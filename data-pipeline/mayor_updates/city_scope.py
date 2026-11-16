@@ -13,6 +13,16 @@ def official_host(city):
     # Nagoya uses city.nagoya.jp. Do not infer or accept arbitrary alternative hosts.
     return 'www.city.nagoya.jp' if city == 'nagoya' else 'www.city.'+city+'.lg.jp'
 
+# Exact opt-in, not a general trailing-slash HTML rule. The registered source
+# still passes city/policy, transport, storage and per-source selection checks.
+DIRECTORY_HTML = frozenset({
+    ('yokohama', 'https://www.city.yokohama.lg.jp/city-info/zaisei/'),
+})
+
+def is_registered_directory_html(city, url, medium):
+    return medium == 'html' and (city, url) in DIRECTORY_HTML
+
+
 def validate_scope(scope):
     registry=json.loads((Path(__file__).resolve().parents[2]/'config/mayor_update_sources.json').read_text(encoding='utf-8'))['cities']
     city=scope['city_code']
@@ -30,7 +40,7 @@ def validate_scope(scope):
     for s in rows:
         u=urlsplit(s['url']); medium=s['media_type']
         if (medium not in caps or u.scheme!='https' or u.netloc not in scope['allowed_hosts'] or
-                u.query or u.fragment or not u.path.endswith('.'+medium) or s['url'] in seen or s['id'] in ids or
+                u.query or u.fragment or not (u.path.endswith('.'+medium) or is_registered_directory_html(city,s['url'],medium)) or s['url'] in seen or s['id'] in ids or
                 s['max_bytes']!=2097152 or type(s['fiscal_year']) is not int or not 2019<=s['fiscal_year']<=2100 or
                 s['document_kind'] not in {'budget_index','other_official'} or
                 not s['policy_ids'] or not set(s['policy_ids'])<=set(scope['policy_ids'])):
