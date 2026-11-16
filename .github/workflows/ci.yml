@@ -43,6 +43,9 @@ jobs:
       - name: Test Kyoto budget data and generator (offline)
         run: python -m unittest discover -s data-pipeline/tests -p "test_mayor_p*_public.py"
 
+      - name: Test member history and Nagoya evidence (offline)
+        run: python -B -m unittest discover -s tests -p "test_member_history.py"
+
       # 2. ビルドテスト
       - name: Set up Node.js
         uses: actions/setup-node@v4
