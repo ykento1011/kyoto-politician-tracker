@@ -217,4 +217,3 @@ def save_queue(root, state, expected_head=None):
         finally:
             lock.close()
             (root / "article-review.lock").unlink()
-

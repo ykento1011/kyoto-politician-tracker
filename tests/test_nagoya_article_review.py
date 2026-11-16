@@ -124,4 +124,3 @@ class ReviewFlowTests(unittest.TestCase):
         self.assertEqual(n,1);self.assertEqual(s["queue"][0]["kind"],"article_no_event")
 
 if __name__=="__main__":unittest.main()
-

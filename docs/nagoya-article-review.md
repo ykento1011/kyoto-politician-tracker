@@ -108,4 +108,3 @@ Run only the new regression file:
 `python -B -m unittest discover -s tests -p test_nagoya_article_review.py`.
 Tests use synthetic documents, block sockets/subprocesses, and mark replacement
 originals as test versions. Real-data evidence stays in private storage.
-
