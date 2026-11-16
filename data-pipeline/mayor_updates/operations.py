@@ -44,7 +44,7 @@ def monitor(bridge,sources,previous=None,*,city="kyoto"):
             except ValueError as exc:
                 holds.append({'source_url':url,'reason':str(exc)})
                 events.append({'kind':'index_parse_failed','index_url':url,'policy_effect':None})
-        elif not extracted['candidates']:
+        else:  # Structured candidates do not replace source locations in evidence reviews.
             fallback.extend(preserved_units(bridge,source,rec['sha256']))
     document_events,documents=compare_documents(previous.get('documents',{}),observations)
     return {'document_events':document_events,'index_events':events,'inventories':inventories,
@@ -211,6 +211,10 @@ def receipt_identity(spec, source, bridge):
     if row['status']=='reused_existing':
         if row.get('new_get_requests')!=0 or observed_time!=original_time:
             raise Hold('Saved reuse timestamp/request count mismatch')
+        if not any(a.get('source_url')==url and a.get('sha256')==sha and
+                a.get('outcome')=='new_version' and utc_time(a['observed_at'])==original_time
+                for a in bridge.index['attempts']):
+            raise Hold('Original acquisition observation is absent from the CAS ledger')
     else:
         if row.get('new_get_requests')!=1 or row.get('http_status')!=200 or row.get('final_url')!=url:
             raise Hold('Successful single GET receipt required')

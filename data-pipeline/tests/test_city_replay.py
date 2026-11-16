@@ -44,6 +44,22 @@ class ReplayTests(unittest.TestCase):
             again=self.run_replay(s,b);self.assertTrue(again['state_advanced']);self.assertEqual(again['new_review_count'],0)
             self.assertFalse(changed['publication_authorized'])
 
+    def test_structured_candidates_keep_source_locations_and_dedup(self):
+        with tempfile.TemporaryDirectory() as d:
+            s,b=self.fixture(Path(d))
+            b.extract.return_value={'candidates':[{'project_name':'Extracted candidate'}]}
+            first=self.run_replay(s,b)
+            queue=json.loads((Path(first['run_dir'])/'evidence_review_queue.json').read_text())
+            self.assertTrue(queue['source_units'])
+            unit=queue['source_units'][0]
+            self.assertEqual(unit['sha256'],s['sha256'])
+            self.assertEqual(unit['quote'],'Original evidence')
+            self.assertIn('locator',unit)
+            self.assertFalse(queue['publication_authorized'])
+            again=self.run_replay(s,b)
+            self.assertEqual(again['new_review_count'],0)
+            self.assertEqual(again['public_writes'],0)
+
     def test_legacy_kyoto_baseline_without_city_code(self):
         with tempfile.TemporaryDirectory() as d:
             s,b=self.fixture(Path(d),'kyoto','P-03');p=Path(s['baseline']['path'])
