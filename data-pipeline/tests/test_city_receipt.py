@@ -72,6 +72,22 @@ class ReceiptTests(unittest.TestCase):
             pin('acquisition_receipt',r);v=h.run_replay(s,b);self.assertTrue(v['state_advanced'])
             self.assertEqual(v['acquisition_handoff']['acquisition_status'],'reused_existing')
 
+    def test_reuse_requires_original_observation_and_keeps_good_state(self):
+        for field,value in [('missing',None),('source_url','https://wrong.example/a.html'),
+                ('sha256','0'*64),('outcome','unchanged'),('observed_at','2026-11-15T01:00:00Z')]:
+            with self.subTest(field=field),tempfile.TemporaryDirectory() as d:
+                h,s,b,r,p,pin=self.setup_case(Path(d))
+                r['receipts'][0].update(status='reused_existing',new_get_requests=0,http_status=None)
+                pin('acquisition_receipt',r)
+                self.assertTrue(h.run_replay(s,b)['state_advanced'])
+                state=Path(s['state_root'])/'state.json';good=state.read_bytes()
+                if field=='missing':b.index['attempts']=[]
+                else:b.index['attempts'][0][field]=value
+                result=h.run_replay(s,b)
+                self.assertFalse(result['state_advanced'])
+                self.assertIn('Original acquisition observation',result['reason'])
+                self.assertEqual(state.read_bytes(),good)
+
     def test_missing_policy_scope_is_not_inferred(self):
         with tempfile.TemporaryDirectory() as d:
             h,s,b,r,p,pin=self.setup_case(Path(d));del p['sources'][0]['policy_ids'];del p['sources'][0]['policy_id'];pin('acquisition_preflight',p)

@@ -90,7 +90,7 @@ def comparison_links(inventory):
 
 
 def preserved_units(bridge, source, version):
-    """Evidence-only fallback when structured budget extraction returns zero.
+    """Preserve source locations independently of structured extraction results.
 
     No project or amount is manufactured. A future text-only announcement keeps
     its location and exact text, even when no existing mapping rule matches it.
