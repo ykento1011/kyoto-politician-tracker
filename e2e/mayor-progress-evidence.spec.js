@@ -1,0 +1,23 @@
+const {test,expect}=require('@playwright/test');
+test('Kyoto reviewed progress does not assert unidentified votes or related implementation',async({page})=>{
+ await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
+ await page.goto('/kyoto/?view=mayor');
+ await expect(page.getByText('導入準備（予算案確認）',{exact:true})).toBeVisible();
+ await expect(page.getByText('議決根拠を確認中',{exact:true})).toBeVisible();
+ await expect(page.locator('[data-legislative-status="hold"]')).toHaveCount(2);
+ await expect(page.getByText('予算化・実証中',{exact:true})).toHaveCount(0);
+ await expect(page.locator('[data-progress-held]')).toBeVisible();
+ const related=page.locator('[data-milestone-relation="contextual"]');
+ await expect(related.getByText('関連する別施策（制度実施の根拠ではありません）',{exact:true})).toBeVisible();
+ await expect(related.getByText(/2024-06-01/)).not.toBeVisible();
+ await related.locator('summary').click();
+ await expect(related.getByText(/2024-06-01/)).toBeVisible();
+ await expect(page.getByText('2億7,100万円',{exact:true})).toBeVisible();
+ await expect(page.getByText('2億6,900万円',{exact:true})).toBeVisible();
+ await expect(page.getByText('85.7%',{exact:true})).toBeVisible();
+ await expect(page.locator('[data-kpi-evidence-note]')).toHaveCount(2);
+ await expect(page.locator('[data-kpi-evidence-note]').first()).toContainText('確定済み件数・公約達成率ではありません');
+ await expect(page.locator('[data-kpi-evidence-note]').nth(1)).toContainText('48億8,215万8,000円');
+ await expect(page.getByText('91億1,549万円',{exact:true})).toBeVisible();
+ await expect(page.getByText('整備工事が一時停止・開始時期は未定',{exact:true})).toBeVisible();
+});

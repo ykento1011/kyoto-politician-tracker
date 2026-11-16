@@ -3,6 +3,7 @@ from copy import deepcopy
 import sys
 import json
 from pathlib import Path
+from mayor_updates.progress_evidence import validate_progress
 from mayor_updates.projection import budget_total, included, format_amount, preserve_published, sync_totals, BUDGET_TOTAL_NOTE, policies
 
 if sys.platform == "win32":
@@ -796,6 +797,9 @@ def calculate_summary_stats(pledges):
 def generation_output(published_path=None):
     path = published_path or (BASE_DIR.parent / "frontend/public/data/kyoto_mayor_tracker.json")
     accepted = json.loads(path.read_text(encoding="utf-8-sig"))
+    votes_path = BASE_DIR.parent / "frontend/public/data/kyoto_votes_summary.json"
+    votes = json.loads(votes_path.read_text(encoding="utf-8-sig"))
+    validate_progress(accepted, votes)
     output = deepcopy(accepted)
     output["pledges"] = generation_pledges(path)
     return sync_totals(output)
