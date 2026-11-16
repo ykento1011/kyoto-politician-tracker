@@ -52,6 +52,8 @@
  .kyoto-policy-ui h1 { font-size:1.65rem; }
 }
 @media print {
+ /* The shared sticky navbar can overlap evidence at the screen scroll offset. */
+ [data-kyoto-policy-page] > header { display:none; }
  .kyoto-policy-ui { background:white; color:black; padding:0; }
  .kyoto-policy-ui .kp-navigation, .kyoto-policy-ui .kp-toolbar, .kyoto-policy-ui .kp-skip { display:none; }
  .kyoto-policy-ui .kp-shell { max-width:none; }

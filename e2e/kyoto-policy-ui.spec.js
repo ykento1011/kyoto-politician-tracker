@@ -146,6 +146,35 @@ test('keyboard and accessibility tree expose holds, purpose and disclosure state
  await expect(page.locator('[data-legislative-status="hold"]')).toBeVisible();
 });
 
+test('Kyoto print excludes sticky navigation only while printing this page',async({page})=>{
+ for(const id of ['P-01','P-02','P-03']) {
+  await page.goto(`/kyoto/?view=mayor&policy=${id}`);
+  await expect(page.locator('#policy-budget')).toBeVisible();
+  const header=page.locator('[data-kyoto-policy-page] > header');
+  await expect(header).toBeVisible();
+  await expect(header).toHaveCSS('position','sticky');
+  await page.locator('#policy-budget').scrollIntoViewIfNeeded();
+  await page.emulateMedia({media:'print'});
+  await expect(header).toBeHidden();
+  await expect(page.locator('#policy-budget')).toBeVisible();
+  await expect(page.locator('#policy-sources')).toBeVisible();
+  await page.emulateMedia({media:'screen'});
+  await expect(header).toBeVisible();
+  await expect(header).toHaveCSS('position','sticky');
+ }
+ for(const city of ['kobe','osaka','nagoya','yokohama']) {
+  await page.goto(`/${city}/?view=mayor`);
+  await expect(page.locator('[data-kyoto-policy-page]')).toHaveCount(0);
+  const header=page.locator('header').first();
+  await expect(header).toBeVisible();
+  await page.emulateMedia({media:'print'});
+  await expect(header).toBeVisible();
+  await expect(header).toHaveCSS('position','sticky');
+  await page.emulateMedia({media:'screen'});
+  await expect(header).toBeVisible();
+ }
+});
+
 test('real PDF printing includes closed evidence and restores every policy disclosure',async({page})=>{
  test.setTimeout(90000);
  for(const policy of data.pledges){
