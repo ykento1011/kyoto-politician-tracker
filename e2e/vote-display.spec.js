@@ -353,3 +353,30 @@ test('real React archive search ignores surrounding ASCII and fullwidth spaces',
   }
   expect(errors).toEqual([]);
 });
+
+test('real React archive search finds bill numbers in both vote categories', async ({ page }) => {
+  const { issues, votes } = archiveFixtures();
+  // Keep the saved vote relationships, but use realistic bill-number labels
+  // that are absent from the issue titles and summaries.
+  const numberedIssues = issues.map(b => ({ ...b, bill_number: '議' + b.bill_number }));
+  const numberedVotes = votes.map(b => ({ ...b, bill_number: '議' + b.bill_number }));
+  const errors = await mountArchive(page, numberedIssues, numberedVotes);
+  const search = page.getByLabel('議案を検索', { exact: true });
+
+  await search.fill('議1');
+  await expect(page.locator('article h2')).toHaveText(['学校・賛否両方']);
+  await otherButton(page).click();
+  await expect(page.locator('article')).toHaveCount(0);
+
+  await search.fill('議2');
+  await expect(page.locator('article h2')).toHaveText(['学校・未照合']);
+  await expect(page.getByText('照合未確認（対応する議決データなし）', { exact: true })).toBeVisible();
+  await search.fill('議4');
+  await expect(page.locator('article h2')).toHaveText(['環境・退席棄権']);
+
+  await contestedButton(page).click();
+  await expect(page.locator('article')).toHaveCount(0);
+  await search.fill('議5');
+  await expect(page.locator('article h2')).toHaveText(['道路・賛否両方']);
+  expect(errors).toEqual([]);
+});

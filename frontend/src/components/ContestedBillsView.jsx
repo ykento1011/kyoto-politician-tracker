@@ -68,7 +68,7 @@ export default function ContestedBillsView({
 
       if (searchQuery.trim()) {
         const q = searchQuery.trim().toLowerCase();
-        const target = `${bill.title} ${bill.key_conflict} ${bill.background} ${bill.agree_logic} ${bill.disagree_logic}`.toLowerCase();
+        const target = `${bill.bill_number ?? ''} ${bill.title} ${bill.key_conflict} ${bill.background} ${bill.agree_logic} ${bill.disagree_logic}`.toLowerCase();
         if (!target.includes(q)) return false;
       }
       return true;
@@ -133,7 +133,7 @@ export default function ContestedBillsView({
             <input 
               type="text" 
               aria-label="議案を検索"
-              placeholder="議案名・論点・キーワード（例: 給食、新幹線、宿泊税）で検索..."
+              placeholder="議案番号・議案名・論点（例: 議48、給食、宿泊税）で検索..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-bold text-slate-800 placeholder-slate-400 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
