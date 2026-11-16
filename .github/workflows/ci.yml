@@ -44,7 +44,9 @@ jobs:
         run: python -m unittest discover -s data-pipeline/tests -p "test_mayor_p*_public.py"
 
       - name: Test member history and Nagoya evidence (offline)
-        run: python -B -m unittest discover -s tests -p "test_member_history.py"
+        run: |
+          python -B -m unittest discover -s tests -p "test_member_history.py"
+          python -B -m unittest discover -s tests -p "test_nagoya_article_review.py"
 
       # 2. ビルドテスト
       - name: Set up Node.js
