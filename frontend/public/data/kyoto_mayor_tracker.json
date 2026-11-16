@@ -37,7 +37,7 @@
       "category": "観光・交通 / 市民生活",
       "headline": "市バス等の「市民優先価格（2階建て運賃）」導入への挑戦",
       "stage_level": 3,
-      "stage_label": "予算化・実証中",
+      "stage_label": "導入準備（予算案確認）",
       "election_promise": {
         "quote": "国との連携による全国初のパイロットプロジェクトとなる市バス等の『市民優先価格』への挑戦など、市民が観光の意義や効果を実感できる環境づくり",
         "source_name": "令和6年 京都市長選公報原本",
@@ -105,14 +105,23 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "賛成"
-        }
+        },
+        "verification_status": "hold",
+        "verification_note": "登録された会期・議案番号・件名の組合せを保存済み議決データで確認できません。市民優先価格の条例可決の根拠としては保留しています。"
       },
       "milestone": {
         "date": "2024-06-01",
         "title": "観光特急バス（EX100・EX101系統）運行開始",
         "status": "achieved",
         "evidence_url": "https://www.city.kyoto.lg.jp/kotsu/page/0000324838.html",
-        "is_broken": true
+        "is_broken": true,
+        "verification_status": "unverified",
+        "policy_relation": "contextual",
+        "verification_note": "観光特急バスの運行開始は関連する別施策の登録記録です。市民優先価格制度の導入・試験運用を示す根拠ではありません。この運行記録の原典照合も未完了です。"
+      },
+      "progress_evidence": {
+        "status": "preparation",
+        "summary": "令和9年度の導入を見据えた準備予算案を確認しています。市民優先価格制度そのものの試験運用・条例成立・国認可・正式実施は、ここで確認した資料では認定していません。"
       }
     },
     {
@@ -120,7 +129,7 @@
       "category": "財政・税制",
       "headline": "宿泊税上限引き上げおよび使途の拡大",
       "stage_level": 4,
-      "stage_label": "条例改正案可決・国協議中",
+      "stage_label": "議決根拠を確認中",
       "election_promise": {
         "quote": "宿泊税の引き上げや使途の拡大により、市民生活と調和した持続可能な観光振興財源を確保します。",
         "source_name": "令和6年 京都市長選公報原本",
@@ -161,13 +170,22 @@
           "公明": "賛成",
           "維新・京都・国民": "賛成",
           "共産": "反対"
-        }
+        },
+        "verification_status": "hold",
+        "verification_note": "保存済み議決データの同じ会期・議案番号には別の条例が登録されています。宿泊税改正の可決根拠としては保留しています。"
       },
       "milestone": {
         "date": "2025-12-15",
         "title": "市会本会議にて宿泊税条例改正案が賛成多数で可決",
         "status": "achieved",
-        "evidence_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html"
+        "evidence_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html",
+        "verification_status": "unverified",
+        "policy_relation": "unconfirmed",
+        "verification_note": "この可決日・件名の原典との対応は未確認です。"
+      },
+      "progress_evidence": {
+        "status": "hold",
+        "summary": "宿泊税改正の議決に関する登録情報は、議案の同一性を確認中です。条例の可決や国との協議状況を、この記録から断定しません。上部の件数・率は従来の登録段階に基づくもので、確認済み件数ではありません。"
       }
     },
     {
@@ -1097,13 +1115,15 @@
       "label": "公約推進・予算化率",
       "value": "85.7%",
       "subtext": "12/14事業で予算措置・成立",
-      "badge": "重点推進中"
+      "badge": "重点推進中",
+      "evidence_note": "従来の登録段階に基づく参考値です。議案同一性が未確認の項目を含み、確定済み件数・公約達成率ではありません。"
     },
     {
       "label": "関連予算措置総額",
       "value": "91億1,549万円",
       "subtext": "登録額の集計（原典確認状況は記録ごとに異なります）",
-      "badge": "参考・未確認分を除外"
+      "badge": "参考・未確認分を除外",
+      "evidence_note": "確認区分が未付与の従来登録額48億8,215万8,000円を含みます。全額が原典認証済みの総額ではなく、複数年度を含む登録額です。"
     },
     {
       "label": "宿泊税見込 / 財源規律",

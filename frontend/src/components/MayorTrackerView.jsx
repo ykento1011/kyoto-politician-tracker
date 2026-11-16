@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import ReportIssueButton from './ReportIssueButton';
 import BudgetEvidence, { hasBudgetEvidence } from './BudgetEvidence';
 import ProgressEvidence from './ProgressEvidence';
+import PolicyEvidenceHold, { hasProgressReview } from './PolicyEvidenceHold';
 import { 
   CheckCircle2, Clock, AlertCircle, ExternalLink, 
   FileText, Landmark, ShieldCheck, ChevronRight, 
@@ -177,6 +178,8 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                   </div>
                   <div className="text-xl sm:text-2xl font-black text-slate-900">{kpi.value}</div>
                   <div className="text-[11px] text-slate-500 mt-0.5">{kpi.subtext}</div>
+                  {kpi.evidence_note && <p className="text-xs text-amber-900 mt-2 leading-relaxed"
+                    data-kpi-evidence-note>{kpi.evidence_note}</p>}
                 </div>
               ))}
             </div>
@@ -246,7 +249,8 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
         <div className="space-y-6">
           {filteredPledges.map((p) => {
             const currentLevel = p.stage_level || 2;
-            const isCompleted = currentLevel === 5;
+            const progressHeld = p.progress_evidence?.status === 'hold';
+            const isCompleted = currentLevel === 5 && !progressHeld;
 
             return (
               <div key={p.id} className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 shadow-sm hover:border-slate-300 transition-all">
@@ -276,8 +280,13 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
 
                 <ProgressEvidence event={p.latest_update} />
 
+                {p.progress_evidence && <p className="text-xs text-amber-900 bg-amber-50 border border-amber-200 rounded-xl p-3 mb-4"
+                  data-progress-review={p.progress_evidence.status}>{p.progress_evidence.summary}</p>}
+
                 {/* 3. 💡 5段階ビジュアルトラッカー（ステッパー） */}
-                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200/80 mb-5">
+                {progressHeld ? <p className="text-xs text-slate-600 mb-5" data-progress-held>
+                  登録上の到達段階は根拠確認中のため、確定した進捗として表示していません。
+                </p> : <div className="bg-slate-50 rounded-xl p-4 border border-slate-200/80 mb-5">
                   <div className="text-[11px] font-bold text-slate-500 mb-3 flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5 text-indigo-600" />
                     <span>{p.latest_update ? 'これまでの到達段階（最新状況は上記の発表を参照）' : '政策ライフサイクル進捗（5段階トラッカー）'}</span>
@@ -317,7 +326,7 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                       );
                     })}
                   </div>
-                </div>
+                </div>}
 
                 {/* 4. 選挙公報原本 引用枠 */}
                 {p.election_promise?.quote && (
@@ -496,7 +505,7 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                   )}
 
                   {/* カラム3: ④ 条例・最新実績（⑤ 成立・執行） */}
-                  <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100 flex flex-col justify-between">
+                  {hasProgressReview(p) ? <PolicyEvidenceHold pledge={p} /> : <div className="bg-slate-50 rounded-xl p-3.5 border border-slate-100 flex flex-col justify-between">
                     <div>
                       <div className="font-bold text-slate-700 flex items-center gap-1.5 mb-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
@@ -548,7 +557,7 @@ export default function MayorTrackerView({ data, cityCode, onBack }) {
                         </div>
                       </div>
                     )}
-                  </div>
+                  </div>}
 
                 </div>
 
