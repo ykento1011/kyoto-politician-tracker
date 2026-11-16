@@ -96,3 +96,55 @@ test('keyboard and accessibility tree expose holds, purpose and disclosure state
  await page.emulateMedia({media:'print'});
  await expect(page.locator('[data-legislative-status="hold"]')).toBeVisible();
 });
+
+test('real PDF printing includes closed evidence and restores every policy disclosure',async({page})=>{
+ test.setTimeout(90000);
+ for(const policy of data.pledges){
+  await page.goto(`/kyoto/?view=mayor&policy=${policy.id}`);
+  await expect(page.locator('#policy-sources')).toBeVisible();
+  const original=await page.locator('.kyoto-policy-ui details').evaluateAll(nodes=>nodes.map(n=>n.open));
+  expect(original.every(open=>!open)).toBe(true);
+  await page.evaluate(()=>{
+   window.printAudit=[];
+   for(const type of ['beforeprint','afterprint']) window.addEventListener(type,()=>{
+    const root=document.querySelector('.kyoto-policy-ui');
+    window.printAudit.push({type,open:[...root.querySelectorAll('details')].map(n=>n.open),
+     text:root.innerText,
+     visibleBodies:[...root.querySelectorAll('details > :not(summary)')].every(n=>n.getBoundingClientRect().height>0)});
+   });
+  });
+  const pdf=await page.pdf({format:'A4'});
+  expect(pdf.subarray(0,5).toString()).toBe('%PDF-');
+  const events=await page.evaluate(()=>window.printAudit);
+  expect(events.map(e=>e.type)).toEqual(['beforeprint','afterprint']);
+  expect(events[0].open.every(Boolean)).toBe(true);
+  expect(events[0].visibleBodies).toBe(true);
+  expect(events[0].text).toContain('未入力の確認日時や確認者は補完しません');
+  if(policy.id==='P-01') for(const text of ['議案の同一性は未確認','議88','2億7,100万円','2億6,900万円','公営企業予算','契約のみ','EX100','制度実施の根拠ではありません']) expect(events[0].text).toContain(text);
+  if(policy.id==='P-02') for(const text of ['可決根拠として保留','議145']) expect(events[0].text).toContain(text);
+  if(policy.id==='P-03') for(const text of ['一時停止','開始時期は未定','議104','給食センター契約可決・着工']) expect(events[0].text).toContain(text);
+  expect(events[1].open).toEqual(original);
+  expect(await page.locator('.kyoto-policy-ui details').evaluateAll(nodes=>nodes.map(n=>n.open))).toEqual(original);
+ }
+});
+
+test('printing preserves mixed disclosure state, repeated events and outside details',async({page})=>{
+ await page.goto('/kyoto/?view=mayor&policy=P-01');
+ await expect(page.locator('#policy-sources')).toBeVisible();
+ const details=page.locator('.kyoto-policy-ui details');
+ await details.nth(1).locator('summary').click();
+ const original=await details.evaluateAll(nodes=>nodes.map(n=>n.open));
+ expect(original.some(Boolean)).toBe(true);expect(original.some(open=>!open)).toBe(true);
+ await page.evaluate(()=>{
+  const outside=document.createElement('details');outside.id='outside-print-scope';
+  outside.innerHTML='<summary>Outside the tracker</summary><p>Unrelated content</p>';
+  document.body.append(outside);
+ });
+ await page.pdf({format:'A4'});
+ expect(await details.evaluateAll(nodes=>nodes.map(n=>n.open))).toEqual(original);
+ await page.evaluate(()=>{window.dispatchEvent(new Event('beforeprint'));window.dispatchEvent(new Event('beforeprint'));});
+ expect(await details.evaluateAll(nodes=>nodes.every(n=>n.open))).toBe(true);
+ await expect(page.locator('#outside-print-scope')).not.toHaveAttribute('open');
+ await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
+ expect(await details.evaluateAll(nodes=>nodes.map(n=>n.open))).toEqual(original);
+});

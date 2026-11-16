@@ -152,6 +152,27 @@ export default function KyotoPolicyTracker({data, onBack, initialSearch}) {
   const restore = useRef(null);
   const heading = useRef(null);
   useEffect(()=>{
+    // Closed native details are omitted by print-to-PDF. Expand only this
+    // tracker during printing, then restore the exact screen disclosure state.
+    let saved = null;
+    const beforePrint = ()=>{
+      if (saved) return;
+      saved = [...(heading.current?.querySelectorAll('details') || [])].map(node=>[node,node.open]);
+      saved.forEach(([node])=>{node.open=true;});
+    };
+    const afterPrint = ()=>{
+      saved?.forEach(([node,open])=>{node.open=open;});
+      saved=null;
+    };
+    window.addEventListener('beforeprint',beforePrint);
+    window.addEventListener('afterprint',afterPrint);
+    return ()=>{
+      window.removeEventListener('beforeprint',beforePrint);
+      window.removeEventListener('afterprint',afterPrint);
+      afterPrint();
+    };
+  },[]);
+  useEffect(()=>{
     const onPop = ()=>{
       restore.current = window.history.state?.kyotoPolicyList || {scrollY:0};
       setRoute(readPolicyRoute(window.location.search)); setRevision(n=>n+1);
