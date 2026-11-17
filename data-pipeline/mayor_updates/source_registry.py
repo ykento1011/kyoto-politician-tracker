@@ -125,6 +125,15 @@ class Registry:
         if previous and previous['sha256'] == version:
             return None
         changes, _ = compare_index(comparison_links(previous) if previous else {}, comparison_links(inventory))
+        # Registration receipts bind the whole original index SHA. Even an unchanged
+        # link needs a fresh review after its enclosing index changes. Keep old
+        # decisions/evidence in append-only history, never silently carry approval.
+        if previous:
+            changed_urls = {c['source_url'] for c in changes}
+            changes.extend({'kind':'link_changed', 'source_url':url,
+                            'policy_effect':None, 'reason':'index_version_changed'}
+                           for url in sorted(previous['links'].keys() & inventory['links'].keys())
+                           if url not in changed_urls)
         changes = [{**c, 'candidate_id':candidate_id(self.city,c['source_url'],source['fiscal_year']),
             'city':self.city, 'fiscal_year':source['fiscal_year'], 'index_url':source['url'],
             'index_sha256':version, 'listings':inventory['links'].get(c['source_url'], [])} for c in changes]
