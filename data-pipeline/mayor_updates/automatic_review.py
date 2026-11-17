@@ -90,9 +90,13 @@ def decide(registry, request, rules, accepted, public_sha):
         'policy_certified':False, 'budget_addition':False,
         'requested_fact':deepcopy(request.get('fact')), 'reason':None,
         'question':'原典・既存事実との差異と、政策枝番への対応を確認してください。'}
+    source=request.get('receipt_spec',{}).get('source',{})
+    result['unverified_source_claim']={k:source.get(k) for k in ('url','title','fiscal_year')}
+    result['candidate_id']=request.get('candidate_id')
     result['existing_fact_differences'] = [
-        {'rule_id':r.get('rule_id'), 'fields':[k for k in sorted(FACT_KEYS)
-            if r.get('expected_fact',{}).get(k)!=request.get('fact',{}).get(k)]}
+        {'rule_id':r.get('rule_id'), 'fields':{
+            k:{'expected':r.get('expected_fact',{}).get(k),'requested':request.get('fact',{}).get(k)}
+            for k in sorted(FACT_KEYS) if r.get('expected_fact',{}).get(k)!=request.get('fact',{}).get(k)}}
         for r in rules if r.get('expected_fact',{}).get('policy_id')==request.get('fact',{}).get('policy_id')
         and r.get('expected_fact',{}).get('submeasure')==request.get('fact',{}).get('submeasure')]
     try:
