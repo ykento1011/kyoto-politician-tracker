@@ -4,6 +4,21 @@ const PREPARATION = 'https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349
 const PLEDGE = 'https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf';
 const PAUSE = 'https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html';
 
+// PM-reviewed source fact, separate from registered budgets and stage assessment.
+// No aggregation/progression function consumes this display-only evidence.
+const CHILDCARE_PROPOSAL = Object.freeze({
+  policy_id: 'P-04', submeasure: '第2子以降の保育料無償化', fact_type: 'budget_proposal',
+  document: '令和7年度 京都市予算案 事業概要・子ども若者はぐくみ局',
+  url: 'https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/07_kouhou_kowaka.pdf#page=1',
+  locator: '印刷p.103／PDF物理1ページ（対象範囲の比較表は印刷p.104／物理2）',
+  sha256: '4c3d5f1210dd2928c180d7e4237b50c80cd6467675e6b0ee2ca97c4395c373cb',
+  amount_display: '4億1,880万円（418,800千円）',
+});
+
+export function policyDocumentNote(p) {
+  return p?.id === CHILDCARE_PROPOSAL.policy_id ? CHILDCARE_PROPOSAL : null;
+}
+
 export function officialKyotoUrl(value) {
   try {
     const u = new URL(value);

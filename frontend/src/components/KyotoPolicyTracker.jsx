@@ -3,7 +3,7 @@ import BudgetEvidence from './BudgetEvidence';
 import ProgressEvidence from './ProgressEvidence';
 import PolicyEvidenceHold, {hasProgressReview} from './PolicyEvidenceHold';
 import ReportIssueButton from './ReportIssueButton';
-import {officialKyotoUrl, policyPresentation, policyProgress, PROGRESS_STATES, policyRouteHref, readPolicyRoute, sourceMedia} from './kyotoPolicyPresentation';
+import {officialKyotoUrl, policyPresentation, policyDocumentNote, policyProgress, PROGRESS_STATES, policyRouteHref, readPolicyRoute, sourceMedia} from './kyotoPolicyPresentation';
 import './KyotoPolicyTracker.css';
 
 function SourceLink({url, children, primary = false, broken = false}) {
@@ -98,6 +98,7 @@ function SourceWithReport({url, title, broken, pledge, mayor}) {
 }
 
 export function KyotoPolicyDetail({pledge: p, mayorInfo}) {
+  const note = policyDocumentNote(p);
   return <>
     <section className="kp-card" aria-label={`${p.id} 現況`}><PolicyIntro pledge={p} detail /></section>
     <section className="kp-block" aria-labelledby="progress-heading"><h2 id="progress-heading">5段階の意味と確認状況</h2>
@@ -112,6 +113,16 @@ export function KyotoPolicyDetail({pledge: p, mayorInfo}) {
     </nav>
     <section className="kp-block kp-evidence" id="policy-budget" aria-labelledby="budget-heading">
       <h2 id="budget-heading">予算資料</h2>
+      {note && <article className="kp-source" data-source-fact={note.fact_type} aria-labelledby="proposal-fact-heading">
+        <h3 id="proposal-fact-heading">{note.submeasure}：予算案で確認できたこと</h3>
+        <p>{note.document}に、<strong>{note.amount_display}</strong>の計上案が記載されています。</p>
+        <p>対象は認可保育施設を利用する世帯内の第2子以降です。所得や同時入所等の要件を問わない説明になっています。</p>
+        <p>必要経費「約13.5億円」は、市が徴収する保育料の収入減約9.3億円と、施設の保育料収入減を市が補填する追加経費約4.2億円の説明です。表頭の4億1,880万円と約13.5億円を別々の予算として足し合わせません。</p>
+        <p><strong>令和7年4月からの実施は、予算案作成時点の予定です。</strong>予算成立・実際の施行・利用実績はこの資料だけでは確認できません。③予算措置への到達や公約全体の達成を認定する表示ではありません。</p>
+        <p>登録14億円との対応、別年度の私立幼稚園2歳児支援5,900万円との対応は未確認です。この説明は既存の予算記録・集計に加算せず、子ども医療費や議案の確認状態も変更しません。</p>
+        <p>{note.locator}</p>
+        <SourceLink url={note.url}>保育料無償化の予算案記載を確認する</SourceLink>
+      </article>}
       <BudgetEvidence records={p.budget_records || []} pledge={p} mayorInfo={mayorInfo} compactNotes />
       {!p.budget_records?.length && <p>登録された予算資料はありません。予算がないことを示すものではありません。</p>}
       {p.id === 'P-01' && policyPresentation(p).source && <div className="kp-source">
