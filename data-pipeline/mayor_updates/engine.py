@@ -69,7 +69,7 @@ def validate_candidate(c, city, allowed):
         raise Hold('Candidate is outside approved city/policy scope')
     if c['relation'] not in RELATIONS or c['verification_status'] != 'unverified':
         raise Hold('New candidates must remain unverified with explicit relation')
-    if c['kind'] not in {'budget', 'progress'} or not c.get('reason'):
+    if c['kind'] not in {'budget', 'progress', 'evidence_note'} or not c.get('reason'):
         raise Hold('Unsupported candidate kind or missing mapping reason')
     evidence = c.get('evidence', [])
     if not evidence:
@@ -80,7 +80,13 @@ def validate_candidate(c, city, allowed):
                 or not e.get('quote') or not e.get('quote_match')):
             raise Hold('Unbound original evidence')
         timestamp(e['retrieved_at'])
-    if c['kind'] == 'budget':
+    if c['kind'] == 'evidence_note':
+        note = c['note']
+        if (set(note) != {'submeasure', 'fact_type', 'text', 'limitations'} or
+                not all(isinstance(note[k], str) and note[k].strip() for k in note) or
+                note['fact_type'] not in {'budget_proposal', 'budget_vote', 'enactment', 'implementation'}):
+            raise Hold('Scoped factual note and explicit limitations required')
+    elif c['kind'] == 'budget':
         facts = c['facts']
         if facts['budget_kind'] not in ROLES or facts['amount_role'] not in ROLES[facts['budget_kind']]:
             raise Hold('Budget kind / amount role conflict')
@@ -131,7 +137,14 @@ def propose(base, candidates, *, city, allowed, base_revision):
         seen_ids.add(c['candidate_id'])
         pid = c['policy_id']
         before = deepcopy(new[pid])
-        if c['kind'] == 'budget':
+        if c['kind'] == 'evidence_note':
+            note = {**deepcopy(c['note']), 'evidence':deepcopy(c['evidence']),
+                    'policy_relation':c['relation'], 'stage_certified':False,
+                    'include_in_total':False}
+            notes = new[pid].setdefault('evidence_notes', [])
+            if note not in notes:
+                notes.append(note)
+        elif c['kind'] == 'budget':
             idx = c['record_index']
             target = (pid, 'budget', idx)
             if target in seen_targets:
@@ -173,7 +186,8 @@ def propose(base, candidates, *, city, allowed, base_revision):
     changed = [pid for pid in old if old[pid] != new[pid]]
     if not changed:
         return None, deepcopy(base)
-    sync_totals(result)
+    if any(c['kind'] != 'evidence_note' for c in used):
+        sync_totals(result)
     packet = {'schema_version': 1, 'city': city, 'base_revision': base_revision,
               'base_sha256': digest(base), 'allowed_policies': sorted(allowed),
               'verification_status': 'unverified', 'publication_authorized': False,
