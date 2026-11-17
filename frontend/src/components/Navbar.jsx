@@ -110,7 +110,7 @@ export default function Navbar({
               </button>
 
               {isCityDropdownOpen && (
-                <div className="absolute top-full right-0 mt-1.5 w-44 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 overflow-hidden">
+                <div className="absolute top-full left-0 mt-1.5 w-44 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 overflow-hidden">
                   <button
                     type="button"
                     onClick={() => handleCityChange('portal')}
