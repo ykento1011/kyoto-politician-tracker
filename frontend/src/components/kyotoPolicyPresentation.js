@@ -15,7 +15,17 @@ const CHILDCARE_PROPOSAL = Object.freeze({
   amount_display: '4億1,880万円（418,800千円）',
 });
 
+const SCHOOL_LUNCH_PROPOSAL = Object.freeze({
+  policy_id: 'P-03', submeasure: '学校給食未来プロジェクト', fact_type: 'budget_proposal',
+  document: '令和8年度 京都市予算案 新規・充実等 事業概要・教育委員会事務局',
+  url: 'https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/15_kyouiku_kouhou.pdf#page=18',
+  locator: '印刷p.190〜192／PDF物理18〜20ページ',
+  sha256: '8ad5cc401ba9f85abb71f6dfbc961d9d36d5d1180c7698678913787739ed7c69',
+  amount_display: '7,000万円（70,000千円）',
+});
+
 export function policyDocumentNote(p) {
+  if (p?.id === SCHOOL_LUNCH_PROPOSAL.policy_id) return SCHOOL_LUNCH_PROPOSAL;
   return p?.id === CHILDCARE_PROPOSAL.policy_id ? CHILDCARE_PROPOSAL : null;
 }
 

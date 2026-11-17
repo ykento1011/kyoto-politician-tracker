@@ -116,12 +116,19 @@ export function KyotoPolicyDetail({pledge: p, mayorInfo}) {
       {note && <article className="kp-source" data-source-fact={note.fact_type} aria-labelledby="proposal-fact-heading">
         <h3 id="proposal-fact-heading">{note.submeasure}：予算案で確認できたこと</h3>
         <p>{note.document}に、<strong>{note.amount_display}</strong>の計上案が記載されています。</p>
+        {p.id === 'P-03' ? <>
+          <p>全員制中学校給食への言及があり、献立の充実・食育・情報発信などの関連施策です。</p>
+          <p>7,000万円は事業全体の予算案額であり、給食センター整備の直接予算とは認定していません。既存の予算記録・集計には加算しません。</p>
+          <p><strong>予算議決・実施実績は、この原典だけでは未確認です。</strong>③予算措置への到達や公約達成の認定ではありません。</p>
+          <p>予算案当時の開始予定は、現在の工事一時停止・開始時期未定を変更する根拠にしていません。</p>
+        </> : <>
         <p>対象は認可保育施設を利用する世帯内の第2子以降です。所得や同時入所等の要件を問わない説明になっています。</p>
         <p>必要経費「約13.5億円」は、市が徴収する保育料の収入減約9.3億円と、施設の保育料収入減を市が補填する追加経費約4.2億円の説明です。表頭の4億1,880万円と約13.5億円を別々の予算として足し合わせません。</p>
         <p><strong>令和7年4月からの実施は、予算案作成時点の予定です。</strong>予算成立・実際の施行・利用実績はこの資料だけでは確認できません。③予算措置への到達や公約全体の達成を認定する表示ではありません。</p>
         <p>登録14億円との対応、別年度の私立幼稚園2歳児支援5,900万円との対応は未確認です。この説明は既存の予算記録・集計に加算せず、子ども医療費や議案の確認状態も変更しません。</p>
+        </>}
         <p>{note.locator}</p>
-        <SourceLink url={note.url}>保育料無償化の予算案記載を確認する</SourceLink>
+        <SourceLink url={note.url}>{p.id === 'P-03' ? '学校給食未来プロジェクトの予算案記載を確認する' : '保育料無償化の予算案記載を確認する'}</SourceLink>
       </article>}
       <BudgetEvidence records={p.budget_records || []} pledge={p} mayorInfo={mayorInfo} compactNotes />
       {!p.budget_records?.length && <p>登録された予算資料はありません。予算がないことを示すものではありません。</p>}
