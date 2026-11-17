@@ -123,4 +123,3 @@ for name in vars(fixtures.RegistryTests):
         setattr(HandoffTests,name,None)
 
 if __name__=='__main__':unittest.main()
-
