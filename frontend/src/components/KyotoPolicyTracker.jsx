@@ -42,14 +42,14 @@ function MayorProfile({mayor = {}}) {
 function PolicyProgress({pledge, expanded = false}) {
   const progress=policyProgress(pledge);
   return <div className={'kp-progress'+(expanded?' kp-progress-expanded':'')} data-policy-progress={pledge.id}>
-    {!expanded && <p className="kp-reference">旧登録の参考段階：{progress.reference ? `${progress.reference} ${progress.referenceLabel}` : progress.referenceLabel}</p>}
+    {!expanded && <p className="kp-reference">根拠を確認している段階：{progress.reference ? `${progress.reference} ${progress.referenceLabel}` : progress.referenceLabel}</p>}
     {!expanded && <ol className="kp-steps" aria-label="5段階の進捗と確認状況">
       {progress.steps.map(step=><li key={step.number} className={`kp-step kp-step-${step.state}`} data-stage={step.number} data-stage-state={step.state}>
         <span className="kp-step-number">{step.number}</span><span className="kp-step-title">{step.label}</span>
         <span className="kp-step-state"><span aria-hidden="true">{PROGRESS_STATES[step.state].symbol} </span>{step.short || PROGRESS_STATES[step.state].compact || PROGRESS_STATES[step.state].label}</span>
       </li>)}
     </ol>}
-    {!expanded && <p className="kp-progress-note">◇は資料の範囲で確認済み。破線は旧登録の参考。段階への到達認定は別です。</p>}
+    {!expanded && <p className="kp-progress-note">◇は資料で確認できた範囲。破線の段階は政策との対応を確認中です。</p>}
     {expanded && <ol className="kp-step-explanations">{progress.steps.map(step=><li key={step.number}>
       <h3>{step.number} {step.label}</h3>
       <p className={`kp-state-tag kp-step-${step.state}`}><span aria-hidden="true">{PROGRESS_STATES[step.state].symbol} </span>{PROGRESS_STATES[step.state].label}{step.short && `：${step.short}`}</p>
@@ -78,7 +78,7 @@ function RegisteredHistory({pledge: p}) {
         {p.legislative_bill.doc_url && <SourceLink url={p.legislative_bill.doc_url}>登録議案の出典（対応関係は確認中）</SourceLink>}
       </div>}
       {p.milestone && <div className="kp-source">
-        <h3>{p.milestone.policy_relation === 'contextual' ? '関連する別施策の旧登録' : '登録された過去の記録'}</h3>
+        <h3>{p.milestone.policy_relation === 'contextual' ? '関連する別施策の過去記録' : '登録された過去の記録'}</h3>
         <p>{p.milestone.date}：{p.milestone.title}</p>
         {p.milestone.verification_note && <p>{p.milestone.verification_note}</p>}
         <SourceLink url={p.milestone.evidence_url} broken={p.milestone.is_broken}>登録実績の出典（現在の実施認定とは別）</SourceLink>
@@ -155,7 +155,7 @@ export function KyotoPolicyTotals({data}) {
   const stages=policyProgress({}).steps;
   const states=[
     ['confirmed','資料確認済み','その資料に書かれた内容を確認した範囲です。公約全体の実現や、次の段階の達成を意味しません。'],
-    ['legacy','旧登録・参考','以前登録された段階や記録です。原典との対応を確認できていない情報を含みます。'],
+    ['legacy','政策との対応を確認中','段階や記録と政策との関係を確認中です。到達を認定したものではありません。'],
     ['hold','保留','議案の番号・会期・件名などの対応を確認中です。可決済みの証拠には使いません。'],
     ['paused','停止中','最新の発表で事業が一時停止しています。過去の契約を取り消した、事業を中止したという意味ではありません。'],
     ['unverified','未確認','必要な根拠を確認できていません。予算や事業が存在しないと断定する表示ではありません。'],
@@ -176,7 +176,7 @@ export function KyotoPolicyTotals({data}) {
     </section>
     <section className="kp-block"><h2>3. 5段階は何を意味するのか</h2>
       <ol className="kp-step-explanations">{stages.map(step=><li key={step.number}><h3>{step.number} {step.label}</h3><p>{step.meaning}</p></li>)}</ol>
-      <p>旧登録の参考段階は達成認定ではありません。例えば、P-01の準備予算案は制度の実施と区別し、P-02の議決は保留、P-03は過去契約より最新の工事停止を優先しています。</p>
+      <p>破線の段階は根拠を確認中で、達成認定ではありません。例えば、P-01の準備予算案は制度の実施と区別し、P-02の議決は保留、P-03は過去契約より最新の工事停止を優先しています。</p>
     </section>
     <section className="kp-block"><h2>4. 確認状態の違い</h2>
       <dl className="kp-state-definitions">{states.map(([key,label,note])=><div key={key}><dt className={'kp-state-tag kp-step-'+key}><span aria-hidden="true">{PROGRESS_STATES[key].symbol} </span>{label}</dt><dd>{note}</dd></div>)}</dl>

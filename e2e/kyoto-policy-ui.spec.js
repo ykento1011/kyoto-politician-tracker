@@ -4,6 +4,25 @@ test.beforeEach(async({page})=>{
  await page.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());
 });
 
+for(const width of [320,375,1440]) test(`Kyoto shared header and city menu match other pages at ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});
+ const heights=[];
+ for(const city of ['kyoto','osaka']){
+  await page.goto(`/${city}/?view=mayor`);
+  const header=page.locator('header').first();
+  heights.push((await header.boundingBox()).height);
+  await header.getByRole('button',{name:'京都市',exact:true}).or(header.getByRole('button',{name:'大阪市',exact:true})).filter({visible:true}).click();
+  const portal=page.getByRole('button',{name:'← 総合ポータルへ戻る',exact:true}).filter({visible:true});
+  await expect(portal).toBeVisible();
+  const layout=await portal.evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);const boxes=[...range.getClientRects()].filter(r=>r.width>0);return {lines:new Set(boxes.map(r=>Math.round(r.top))).size,width:el.scrollWidth,client:el.clientWidth};});
+  expect(layout.lines).toBe(1);expect(layout.width).toBeLessThanOrEqual(layout.client);
+  if(city==='kyoto') expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+  await page.getByRole('button',{name:city==='kyoto'?'京都市':'大阪市',exact:true}).filter({visible:true}).last().click();
+  await expect(portal).toHaveCount(0);
+ }
+ expect(heights[0]).toBe(heights[1]);
+});
+
 test('Kyoto overview keeps four fields, safe sources and unchanged figures in totals',async({page})=>{
  await page.goto('/kyoto/?view=mayor');
  const ui=page.locator('.kyoto-policy-ui');
@@ -36,8 +55,8 @@ test('mayor identity and five-stage reference remain distinct from verified achi
  await expect(cards.locator('[data-stage]')).toHaveCount(70);
  for(const p of data.pledges){
   const card=page.locator(`[data-policy-card="${p.id}"]`);
-  await expect(card).toContainText(`旧登録の参考段階：${p.stage_level}`);
-  await expect(card).toContainText('到達認定は別');
+  await expect(card).toContainText(`根拠を確認している段階：${p.stage_level}`);
+  await expect(card).toContainText('政策との対応を確認中');
  }
  await expect(page.locator('[data-policy-card="P-01"] [data-stage="3"]')).toContainText('予算案のみ');
  await expect(page.locator('[data-policy-card="P-02"] [data-stage="4"]')).toHaveAttribute('data-stage-state','hold');
