@@ -28,14 +28,19 @@ def period(now):
             'started_after_noon':local > due.replace(hour=12)}
 
 
-def notify(outbox, key, payload):
-    """Durable local record only. There is deliberately no send/ack API."""
+def durable_record(outbox, key, payload):
+    """Create once and flush a private record before the next side effect."""
     dest = outbox / (key + '.json')
     with dest.open('x', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
         f.flush()
         import os
         os.fsync(f.fileno())
+
+
+def notify(outbox, key, payload):
+    """Local outbox only; deliberately no send/ack API."""
+    durable_record(outbox, key, payload)
 
 
 def execute(bridge, config, baseline, rules, state_root, *, now, base_revision,
@@ -75,7 +80,7 @@ def execute(bridge, config, baseline, rules, state_root, *, now, base_revision,
             raise Hold('Week already reserved; no automatic retry') from exc
         weekly.assert_owner_only(output)
         out = PrivateOutput(output)
-        notify(output, 'reservation', {**identity, **timing,
+        durable_record(output, 'reservation', {**identity, **timing,
             'limits':{'requests':3, 'bytes':6291456, 'per_url_bytes':2097152,
                       'child_wall_seconds':10, 'tls':True, 'redirects':0, 'retries':0}})
         prior = load(root/'state.json') if (root/'state.json').exists() else {'monitor':{}, 'seen_reviews':{}}
