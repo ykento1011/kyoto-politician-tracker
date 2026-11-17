@@ -87,3 +87,43 @@ review decisions during the pilot; no automatic deletion. Storage quota, longer
 term retention and recovery authority must be agreed before activation. Missing
 or late execution cannot be detected while the PC is off; external availability
 monitoring is a separate gate.
+
+## Offline PC recovery (proposal; no task registered)
+
+Before any live cycle reservation or GET, the adapter reads cached Windows
+`Get-NetConnectionProfile` IPv4/IPv6 connectivity using the pinned PowerShell
+runtime (5-second local process limit). At least one recognized `Internet`
+profile is required. Offline, missing profiles, unsupported OS, unknown output,
+cmdlet failure or timeout means `waiting_for_network`: zero GET, zero cycle
+reservation, unchanged CAS and normal pointer. Only `network_wait.json` is
+atomically replaced under the dedicated state lock (and initial identity may be
+created). This diagnostic retains its observation time even after recovery.
+No HTTP, DNS, ping, NCSI request or active probe is initiated by this check.
+Cached OS status is only a precondition, not proof of source reachability.
+
+Proposed triggers on the **same owner-managed task and same command/state**:
+
+| Trigger | Purpose |
+| --- | --- |
+| Weekly Monday 09:00 JST | Normal scheduled observation; retain StartWhenAvailable |
+| Owner logon | Catch startup after power-off; interactive-owner execution cannot run before logon |
+| System / Microsoft-Windows-Power-Troubleshooter event 1 | Sleep/resume catch-up |
+| Microsoft-Windows-NetworkProfile/Operational event 10000 | Network reconnection hint; the adapter still checks OS status |
+| Daily local timer with PT15M repetition for P1D | Fallback when connection/resume events are missing; no remote health probe |
+
+Keep IgnoreNew for overlapping instances, RestartOnFailure absent (zero), and
+RunOnlyIfNetworkAvailable false so offline waiting can be recorded. The periodic
+timer is a fresh local eligibility check, never a retry of a consumed GET cycle.
+Before Monday 09:00 the adapter refuses early execution; after a cycle is reserved
+all later triggers stop without GET. Offline attempts do not consume it. A wake
+in a later week only processes that week's Monday, never accumulates old GETs.
+The lock serializes overlapping triggers and the permanent cycle directory
+survives disconnect, timeout, unknown outcome and notification failure. Do not
+remove either marker automatically to recover an attempted acquisition.
+
+Task/export changes and event-channel activation are **not performed here**.
+At registration GO, validate the actual Windows event providers, local JST,
+owner logon conditions, standard repetition schema and fixed executable/runtime
+paths. Power-off or logged-out PCs cannot be guaranteed immediate execution;
+the next owner session/fallback tick performs the eligibility check. Windows
+event delivery and real reconnect behavior remain private integration gates.

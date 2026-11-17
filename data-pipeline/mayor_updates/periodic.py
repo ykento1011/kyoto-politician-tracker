@@ -6,7 +6,9 @@ an explicit flag AND separately approved, pinned private activation settings.
 import argparse
 from datetime import datetime, timedelta, timezone
 import json
+import os
 from pathlib import Path
+import subprocess
 
 from . import continuous, weekly
 from .engine import PrivateOutput, digest
@@ -14,6 +16,26 @@ from .operations import load, run_trial
 from .projection import Hold
 
 JST = timezone(timedelta(hours=9))
+
+
+def local_connectivity():
+    """Read Windows' cached connection profiles; never probe a remote endpoint."""
+    if os.name != 'nt':
+        return 'unknown'
+    script = "$ErrorActionPreference='Stop'; @(Get-NetConnectionProfile | ForEach-Object { [string]$_.IPv4Connectivity; [string]$_.IPv6Connectivity }) | ConvertTo-Json -Compress"
+    try:
+        result = subprocess.run([os.environ.get('MAYOR_PWSH_EXE', 'pwsh.exe'),
+            '-NoProfile', '-NonInteractive', '-Command', script],
+            capture_output=True, text=True, timeout=5)
+        if result.returncode != 0:
+            return 'unknown'
+        states = json.loads(result.stdout)
+        known = {'Disconnected', 'NoTraffic', 'Subnet', 'LocalNetwork', 'Internet'}
+        if not isinstance(states, list) or not states or any(s not in known for s in states):
+            return 'unknown'
+        return 'online' if 'Internet' in states else 'offline'
+    except (OSError, ValueError, TypeError, subprocess.TimeoutExpired):
+        return 'unknown'
 
 
 def period(now):
@@ -67,6 +89,20 @@ def execute(bridge, config, baseline, rules, state_root, *, now, base_revision,
             if any(p.name != 'weekly.lock' for p in root.iterdir()):
                 raise Hold('Use an empty dedicated state; never adopt existing monitoring state')
             PrivateOutput(root).json(binding.name, identity)
+        if (root/'cycles'/timing['cycle_key']).exists():
+            raise Hold('Week already reserved; no automatic retry')
+        # Only live acquisition needs connectivity. Cached OS status is not proof
+        # that the source is reachable; failures after reservation remain terminal.
+        if acquisition is not None:
+            connection = local_connectivity()
+            if connection != 'online':
+                waiting = {**timing, 'state':'waiting_for_network',
+                    'connectivity':connection, 'state_advanced':False,
+                    'new_get_requests':0, 'cycle_reserved':False,
+                    'public_writes':0, 'previous_state_retained':True}
+                # Dedicated diagnostic only; never replace state.json or touch CAS.
+                weekly.atomic_json(root/'network_wait.json', waiting)
+                return waiting
         for name in ('cycles', 'outbox'):
             child = root/name
             if child.is_symlink() or (child.exists() and child.resolve().parent != root):
@@ -166,7 +202,7 @@ def main():
     weekly.assert_owner_only(args.runtime)
     result = run(runtime, acquire=args.acquire)
     print(json.dumps(result, ensure_ascii=False))
-    if not result['state_advanced']:
+    if not result['state_advanced'] and result['state'] != 'waiting_for_network':
         raise SystemExit(2)
 
 

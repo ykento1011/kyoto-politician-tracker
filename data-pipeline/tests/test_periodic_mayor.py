@@ -9,12 +9,81 @@ from unittest.mock import patch
 import test_continuous_mayor as fixtures
 from mayor_updates import periodic
 from mayor_updates.projection import Hold
+from types import SimpleNamespace
+
+
+class LocalConnectivityTests(unittest.TestCase):
+    def test_cached_profiles_only_and_fail_closed(self):
+        for output, expected in [('["Internet","NoTraffic"]','online'),
+                ('["LocalNetwork","NoTraffic"]','offline'), ('[]','unknown'),
+                ('null','unknown'), ('["unexpected"]','unknown'), ('broken','unknown')]:
+            with patch.object(periodic.os,'name','nt'), \
+                 patch.object(periodic.subprocess,'run',return_value=SimpleNamespace(returncode=0,stdout=output)) as proc:
+                self.assertEqual(periodic.local_connectivity(), expected)
+                command = proc.call_args.args[0]
+                self.assertIn('Get-NetConnectionProfile', command[-1])
+                self.assertNotIn('http', command[-1].lower())
+                self.assertNotIn('Test-Connection', command[-1])
+                self.assertNotIn('Resolve-DnsName', command[-1])
+                self.assertEqual(proc.call_args.kwargs['timeout'], 5)
+        for failure in (OSError('missing shell'), periodic.subprocess.TimeoutExpired('fixture',5)):
+            with patch.object(periodic.os,'name','nt'), patch.object(periodic.subprocess,'run',side_effect=failure):
+                self.assertEqual(periodic.local_connectivity(), 'unknown')
+        with patch.object(periodic.os,'name','nt'), \
+             patch.object(periodic.subprocess,'run',return_value=SimpleNamespace(returncode=1,stdout='[]')):
+            self.assertEqual(periodic.local_connectivity(), 'unknown')
 
 
 class PeriodicTests(unittest.TestCase):
     def setUp(self):
         fixtures.ContinuousTests.setUp(self)
         self.bridge.store.read_index = lambda: copy.deepcopy(self.bridge.index)
+        p = patch.object(periodic, 'local_connectivity', return_value='online')
+        self.connection = p.start(); self.addCleanup(p.stop)
+
+    def test_offline_unknown_then_online_and_overlapping_triggers(self):
+        calls = []
+        def capture(*_):
+            calls.append(1)
+            return {'stopped':False, 'new_get_requests':3}
+        before = copy.deepcopy(self.bridge.index)
+        for status in ('offline', 'unknown'):
+            self.connection.return_value = status
+            result = self.cycle('2026-11-23', callback=capture)
+            self.assertEqual(result['state'], 'waiting_for_network')
+            self.assertEqual(result['new_get_requests'], 0)
+            self.assertFalse((self.state/'cycles').exists())
+            self.assertFalse((self.state/'state.json').exists())
+            self.assertEqual(self.bridge.index, before)
+        self.connection.return_value = 'online'
+        result = self.cycle('2026-11-23', callback=capture, hour=11)
+        self.assertTrue(result['state_advanced'])
+        with self.assertRaises(Hold): self.cycle('2026-11-23', callback=capture, hour=12)
+        self.assertEqual(len(calls), 1)
+
+    def test_sleep_next_week_does_not_backfill_and_disconnect_is_terminal(self):
+        self.connection.return_value = 'offline'
+        self.cycle('2026-11-23', callback=lambda *_: self.fail('offline GET'))
+        self.connection.return_value = 'online'
+        def disconnect(*_):
+            self.connection.return_value = 'offline'
+            return {'stopped':True, 'new_get_requests':1}
+        result = self.cycle('2026-12-01', callback=disconnect)
+        self.assertFalse(result['state_advanced'])
+        self.assertFalse((self.state/'cycles/2026-11-23').exists())
+        self.assertTrue((self.state/'cycles/2026-11-30/reservation.json').exists())
+        self.connection.return_value = 'online'
+        with self.assertRaises(Hold): self.cycle('2026-12-02', callback=lambda *_: self.fail('retry'))
+
+    def test_waiting_keeps_previous_good_pointer_and_lock_blocks_second_trigger(self):
+        capture = lambda *_: {'stopped':False, 'new_get_requests':3}
+        self.cycle('2026-11-23', callback=capture)
+        before = (self.state/'state.json').read_bytes()
+        self.connection.return_value = 'offline'
+        self.cycle('2026-11-30', callback=capture)
+        self.assertEqual((self.state/'state.json').read_bytes(), before)
+        with periodic.weekly.single_run(self.state):
+            with self.assertRaises(Hold): self.cycle('2026-11-30', callback=capture)
 
     def test_acquisition_refreshes_cached_index_from_separate_store(self):
         self.cycle('2026-11-23', callback=lambda *_: {'stopped':False,'new_get_requests':3})
