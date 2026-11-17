@@ -14,7 +14,7 @@ const server=await createServer({root,configFile:false,envDir:false,publicDir:fa
 try {
  const {default:View,LegacyMayorTrackerView:Legacy}=await server.ssrLoadModule('/src/components/MayorTrackerView.jsx');
  const {KyotoPolicyDetail:Detail,KyotoPolicyTotals:Totals}=await server.ssrLoadModule('/src/components/KyotoPolicyTracker.jsx');
- const {policyPresentation,policyProgress,officialKyotoUrl,readPolicyRoute,policyRouteHref}=await server.ssrLoadModule('/src/components/kyotoPolicyPresentation.js');
+ const {policyPresentation,policyDocumentNote,policyProgress,officialKyotoUrl,readPolicyRoute,policyRouteHref}=await server.ssrLoadModule('/src/components/kyotoPolicyPresentation.js');
  const render=(Component,props)=>renderToStaticMarkup(React.createElement(Component,props));
  const list=render(View,{data,cityCode:'kyoto'});
  assert.equal((list.match(/data-policy-card=/g)||[]).length,14);
@@ -62,6 +62,19 @@ try {
    for(const record of p.budget_records) {assert.ok(html.includes(record.amount_display));assert.ok(html.includes(record.doc_url));}
  }
  assert.equal(records,27);
+ const p4=data.pledges.find(p=>p.id==='P-04');
+ const note=policyDocumentNote(p4);
+ assert.equal(note.fact_type,'budget_proposal');
+ assert.equal(note.sha256,'4c3d5f1210dd2928c180d7e4237b50c80cd6467675e6b0ee2ca97c4395c373cb');
+ assert.equal(officialKyotoUrl(note.url),note.url);
+ const proposal=render(Detail,{pledge:p4,mayorInfo:data.mayor_info});
+ for(const text of ['4億1,880万円（418,800千円）','認可保育施設','収入減約9.3億円','追加経費約4.2億円','約13.5億円','予算案作成時点の予定','予算成立・実際の施行・利用実績はこの資料だけでは確認できません','印刷p.103／PDF物理1','集計に加算せず']) assert.ok(proposal.includes(text),text);
+ assert.ok(proposal.includes(`href="${note.url}"`));
+ assert.ok(policyProgress(p4).steps.every(s=>s.state!=='confirmed'));
+ for(const p of data.pledges.filter(p=>p.id!=='P-04')) {
+   assert.equal(policyDocumentNote(p),null);
+   assert.ok(!render(Detail,{pledge:p,mayorInfo:data.mayor_info}).includes('data-source-fact='));
+ }
  const totals=render(Totals,{data});
  for(const value of ['85.7%','12/14','91億1,549万円','9,115,487,000']) assert.ok(!totals.includes(value),value);
  for(const value of ['このトラッカーの見方・作り方','公約達成率でも市長への評価でもなく','6. 更新・原典確認・訂正の方法','全件の照合が完了しているわけではありません']) assert.ok(totals.includes(value));
