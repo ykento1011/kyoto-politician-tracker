@@ -71,7 +71,17 @@ try {
  for(const text of ['4億1,880万円（418,800千円）','認可保育施設','収入減約9.3億円','追加経費約4.2億円','約13.5億円','予算案作成時点の予定','予算成立・実際の施行・利用実績はこの資料だけでは確認できません','印刷p.103／PDF物理1','集計に加算せず']) assert.ok(proposal.includes(text),text);
  assert.ok(proposal.includes(`href="${note.url}"`));
  assert.ok(policyProgress(p4).steps.every(s=>s.state!=='confirmed'));
- for(const p of data.pledges.filter(p=>p.id!=='P-04')) {
+ const lunchPolicy=data.pledges.find(p=>p.id==='P-03');
+ const lunchNote=policyDocumentNote(lunchPolicy);
+ assert.equal(lunchNote.sha256,'8ad5cc401ba9f85abb71f6dfbc961d9d36d5d1180c7698678913787739ed7c69');
+ assert.equal(lunchNote.fact_type,'budget_proposal');
+ const lunchHtml=render(Detail,{pledge:lunchPolicy,mayorInfo:data.mayor_info});
+ for(const text of ['学校給食未来プロジェクト','7,000万円（70,000千円）','事業全体の予算案額','給食センター整備の直接予算とは認定していません','予算議決・実施実績は、この原典だけでは未確認','印刷p.190〜192／PDF物理18〜20','集計には加算しません','開始時期未定']) assert.ok(lunchHtml.includes(text),text);
+ assert.ok(lunchHtml.includes(`href="${lunchNote.url}"`));
+ assert.ok(!lunchHtml.includes('認可保育施設'));
+ assert.ok(!proposal.includes('学校給食未来プロジェクト'));
+ assert.ok(!list.includes('70,000千円'));
+ for(const p of data.pledges.filter(p=>!['P-03','P-04'].includes(p.id))) {
    assert.equal(policyDocumentNote(p),null);
    assert.ok(!render(Detail,{pledge:p,mayorInfo:data.mayor_info}).includes('data-source-fact='));
  }

@@ -4,6 +4,21 @@ test.beforeEach(async({page})=>{
  await page.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());
 });
 
+for(const width of [320,375,1440]) test(`P-03 related proposal stays separate from budgets and current pause at ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});
+ await page.goto('/kyoto/?view=mayor&policy=P-03');
+ const fact=page.locator('[data-source-fact="budget_proposal"]');
+ await expect(fact).toContainText('学校給食未来プロジェクト');
+ await expect(fact).toContainText('7,000万円（70,000千円）');
+ await expect(fact).toContainText('給食センター整備の直接予算とは認定していません');
+ await expect(fact).toContainText('予算議決・実施実績は、この原典だけでは未確認');
+ await expect(fact).toContainText('印刷p.190〜192／PDF物理18〜20ページ');
+ await expect(fact.getByRole('link')).toHaveAttribute('href',/15_kyouiku_kouhou.pdf#page=18$/);
+ await expect(page.locator('.kyoto-policy-ui')).toContainText('新たな開始時期は未定');
+ await expect(page.locator('[data-budget-relation]')).toHaveCount(data.pledges.find(p=>p.id==='P-03').budget_records.length);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+});
+
 for(const width of [320,375,1440]) test(`Kyoto shared header menu reaches the portal at ${width}px`,async({page})=>{
  await page.setViewportSize({width,height:900});
  await page.goto('/kyoto/?view=mayor');
