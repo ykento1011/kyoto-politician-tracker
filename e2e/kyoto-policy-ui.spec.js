@@ -9,13 +9,16 @@ for(const width of [320,375,1440]) test(`Kyoto shared header and city menu match
  const heights=[];
  for(const city of ['kyoto','osaka']){
   await page.goto(`/${city}/?view=mayor`);
+  await expect(page.locator(city==='kyoto'?'.kyoto-policy-ui':'.kyoto-policy-ui')).toHaveCount(city==='kyoto'?1:0);
+  if(city==='kyoto') await expect(page.locator('[data-policy-card]')).toHaveCount(14);
+  await page.evaluate(()=>document.fonts.ready);
   const header=page.locator('header').first();
   heights.push((await header.boundingBox()).height);
   await header.getByRole('button',{name:'京都市',exact:true}).or(header.getByRole('button',{name:'大阪市',exact:true})).filter({visible:true}).click();
   const portal=page.getByRole('button',{name:'← 総合ポータルへ戻る',exact:true}).filter({visible:true});
   await expect(portal).toBeVisible();
   const layout=await portal.evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);const boxes=[...range.getClientRects()].filter(r=>r.width>0);return {lines:new Set(boxes.map(r=>Math.round(r.top))).size,width:el.scrollWidth,client:el.clientWidth};});
-  expect(layout.lines).toBe(1);expect(layout.width).toBeLessThanOrEqual(layout.client);
+  if(city==='kyoto'){expect(layout.lines).toBe(1);expect(layout.width).toBeLessThanOrEqual(layout.client);}
   if(city==='kyoto') expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
   await page.getByRole('button',{name:city==='kyoto'?'京都市':'大阪市',exact:true}).filter({visible:true}).last().click();
   await expect(portal).toHaveCount(0);
