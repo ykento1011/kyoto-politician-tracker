@@ -33,6 +33,8 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_pdf_mayor.py'
       - name: Test explicit city scope without network
         run: python -B -m unittest discover -s data-pipeline/tests -p 'test_city_scope.py' -v
+      - name: Test isolated P-03 exact-contract guard (no live entry)
+        run: python -B -m unittest discover -s data-pipeline/tests -p 'test_city_contract_scope.py' -v
       - name: Test saved city replay and persistent dedup
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_replay.py' -v
