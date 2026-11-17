@@ -1,30 +1,30 @@
-.kyoto-policy-ui { color:#17364b; background:#f5f8fa; font-size:1rem; line-height:1.65; min-height:70vh; padding:1.5rem 1rem 4rem; }
+.kyoto-policy-ui { color:#0f172a; background:#f8fafc; font-size:1rem; line-height:1.65; min-height:70vh; padding:1.5rem 1rem 4rem; }
 .kyoto-policy-ui * { box-sizing:border-box; min-width:0; }
 .kyoto-policy-ui .kp-shell { max-width:75rem; margin:0 auto; }
 .kyoto-policy-ui .kp-detail { max-width:52rem; }
-.kyoto-policy-ui h1 { font-size:2rem; line-height:1.4; font-weight:700; margin:.75rem 0; }
-.kyoto-policy-ui h2 { font-size:1.3rem; line-height:1.5; font-weight:700; }
+.kyoto-policy-ui h1 { font-size:2.25rem; line-height:1.4; font-weight:700; margin:.75rem 0; }
+.kyoto-policy-ui h2 { font-size:1.5rem; line-height:1.5; font-weight:700; }
 .kyoto-policy-ui h3 { font-size:1.1rem; font-weight:700; }
 .kyoto-policy-ui p + p { margin-top:.7rem; }
 .kyoto-policy-ui a { text-underline-offset:.2em; }
 .kyoto-policy-ui :is(a,button,input,select,summary):focus-visible { outline:3px solid #8a4b00; outline-offset:4px; }
 .kyoto-policy-ui .kp-skip { position:absolute; left:1rem; top:-12rem; padding:1rem; background:white; z-index:60; }
 .kyoto-policy-ui .kp-skip:focus { top:1rem; }
-.kyoto-policy-ui .kp-button { display:inline-flex; align-items:center; justify-content:center; gap:.4rem; min-height:3rem; padding:.6rem 1rem; border:1px solid #176182; border-radius:.65rem; background:white; color:#155775; text-align:center; text-decoration:none; font-weight:600; overflow-wrap:anywhere; }
-.kyoto-policy-ui .kp-primary { background:#195d7a; color:white; }
-.kyoto-policy-ui .kp-muted { color:#506278; }
+.kyoto-policy-ui .kp-button { display:inline-flex; align-items:center; justify-content:center; gap:.4rem; min-height:3rem; padding:.6rem 1rem; border:1px solid #c7d2fe; border-radius:.65rem; background:white; color:#4338ca; text-align:center; text-decoration:none; font-weight:600; overflow-wrap:anywhere; }
+.kyoto-policy-ui .kp-primary { background:#4f46e5; color:white; }
+.kyoto-policy-ui .kp-muted { color:#475569; }
 .kyoto-policy-ui .kp-header { margin:1.3rem 0; }
 .kyoto-policy-ui .kp-header { display:flex; flex-wrap:wrap; align-items:center; gap:1.5rem 3rem; }
 .kyoto-policy-ui .kp-mayor { display:flex; align-items:center; gap:1rem; }
-.kyoto-policy-ui .kp-mayor img,.kyoto-policy-ui .kp-photo-fallback { width:7rem; height:7rem; flex:none; object-fit:cover; object-position:top; border:1px solid #a8bbc7; border-radius:1rem; background:white; }
+.kyoto-policy-ui .kp-mayor img,.kyoto-policy-ui .kp-photo-fallback { width:7rem; height:7rem; flex:none; object-fit:cover; object-position:top; border:1px solid #cbd5e1; border-radius:1rem; background:white; }
 .kyoto-policy-ui .kp-photo-fallback { display:flex; align-items:center; text-align:center; padding:.5rem; }
 .kyoto-policy-ui .kp-mayor-name { font-size:1.5rem; font-weight:700; }
 .kyoto-policy-ui .kp-progress { width:100%; }
-.kyoto-policy-ui .kp-reference { font-size:.875rem; font-weight:600; color:#506278; }
+.kyoto-policy-ui .kp-reference { font-size:.875rem; font-weight:600; color:#475569; }
 .kyoto-policy-ui .kp-steps { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); list-style:none; margin:.65rem 0; padding:0; gap:.25rem; }
-.kyoto-policy-ui .kp-step { position:relative; display:flex; flex-direction:column; align-items:center; gap:.35rem; text-align:center; color:#506278; }
-.kyoto-policy-ui .kp-step-number { z-index:1; display:grid; place-items:center; width:2rem; height:2rem; background:white; border:1px solid #a8bbc7; border-radius:50%; font-weight:700; }
-.kyoto-policy-ui .kp-step:not(:last-child)::after { content:''; position:absolute; left:50%; top:1rem; width:calc(100% + .25rem); border-top:1px solid #a8bbc7; }
+.kyoto-policy-ui .kp-step { position:relative; display:flex; flex-direction:column; align-items:center; gap:.35rem; text-align:center; color:#475569; }
+.kyoto-policy-ui .kp-step-number { z-index:1; display:grid; place-items:center; width:2rem; height:2rem; background:white; border:1px solid #cbd5e1; border-radius:50%; font-weight:700; }
+.kyoto-policy-ui .kp-step:not(:last-child)::after { content:''; position:absolute; left:50%; top:1rem; width:calc(100% + .25rem); border-top:1px solid #cbd5e1; }
 .kyoto-policy-ui .kp-step-legacy .kp-step-number { border:2px dashed #64748b; }
 .kyoto-policy-ui .kp-step-legacy:not(:last-child)::after { border-top:2px dashed #64748b; }
 .kyoto-policy-ui .kp-step-confirmed .kp-step-number { border:3px double #176148; border-radius:.3rem; color:#176148; }
@@ -34,39 +34,39 @@
 .kyoto-policy-ui .kp-step-state { font-size:.75rem; line-height:1.5; }
 .kyoto-policy-ui .kp-step-confirmed .kp-step-state { color:#176148; font-weight:700; }
 .kyoto-policy-ui .kp-step-hold .kp-step-state,.kyoto-policy-ui .kp-step-paused .kp-step-state { color:#764800; font-weight:700; }
-.kyoto-policy-ui .kp-progress-note { font-size:.8rem; color:#506278; }
+.kyoto-policy-ui .kp-progress-note { font-size:.8rem; color:#475569; }
 .kyoto-policy-ui .kp-step-explanations { list-style:none; padding:0; }
-.kyoto-policy-ui .kp-step-explanations > li { padding:1rem 0; border-bottom:1px solid #d8e1e7; }
-.kyoto-policy-ui .kp-state-tag { display:inline-block; padding:.2rem .6rem; border:1px solid #a8bbc7; margin:.5rem 0; }
+.kyoto-policy-ui .kp-step-explanations > li { padding:1rem 0; border-bottom:1px solid #e2e8f0; }
+.kyoto-policy-ui .kp-state-tag { display:inline-block; padding:.2rem .6rem; border:1px solid #cbd5e1; margin:.5rem 0; }
 .kyoto-policy-ui .kp-state-tag.kp-step-legacy { border-style:dashed; }
 .kyoto-policy-ui .kp-state-tag.kp-step-confirmed { border:3px double #176148; color:#176148; }
 .kyoto-policy-ui .kp-state-tag.kp-step-hold { border:2px dotted #8a4b00; color:#764800; }
 .kyoto-policy-ui .kp-state-tag.kp-step-paused { border:3px double #924322; color:#924322; }
 .kyoto-policy-ui .kp-toolbar { display:flex; flex-wrap:wrap; align-items:end; gap:1rem; margin:1.75rem 0; }
 .kyoto-policy-ui .kp-field { display:grid; gap:.35rem; flex:1 1 14rem; }
-.kyoto-policy-ui :is(input,select) { font:inherit; color:inherit; min-height:3rem; padding:.6rem; border:1px solid #a8bbc7; border-radius:.6rem; width:100%; background:white; }
+.kyoto-policy-ui :is(input,select) { font:inherit; color:inherit; min-height:3rem; padding:.6rem; border:1px solid #cbd5e1; border-radius:.6rem; width:100%; background:white; }
 .kyoto-policy-ui .kp-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem; }
-.kyoto-policy-ui .kp-card { background:white; border:1px solid #cbd9e2; border-radius:1rem; padding:1.5rem; display:flex; flex-direction:column; align-items:start; gap:1rem; overflow-wrap:anywhere; }
+.kyoto-policy-ui .kp-card { background:white; border:1px solid #e2e8f0; border-radius:1rem; padding:1.5rem; display:flex; flex-direction:column; align-items:start; gap:1rem; overflow-wrap:anywhere; }
 .kyoto-policy-ui .kp-card h2 { min-height:3.9rem; }
-.kyoto-policy-ui .kp-status { display:inline-block; padding:.3rem .8rem; border-radius:2rem; background:#e8f3f8; color:#155775; font-weight:600; }
+.kyoto-policy-ui .kp-status { display:inline-block; padding:.3rem .8rem; border-radius:2rem; background:#eef2ff; color:#4338ca; font-weight:600; }
 .kyoto-policy-ui .kp-warning { color:#764800; background:#fff5dd; border-radius:.7rem; padding:.8rem 1rem; }
 .kyoto-policy-ui .kp-card .kp-warning { background:none; padding:0; }
 .kyoto-policy-ui .kp-actions { display:flex; flex-wrap:wrap; gap:.65rem; margin-top:auto; width:100%; }
-.kyoto-policy-ui .kp-block { background:white; border:1px solid #cbd9e2; border-radius:1rem; padding:1.5rem; margin-top:1.25rem; overflow-wrap:anywhere; }
+.kyoto-policy-ui .kp-block { background:white; border:1px solid #e2e8f0; border-radius:1rem; padding:1.5rem; margin-top:1.25rem; overflow-wrap:anywhere; }
 .kyoto-policy-ui .kp-block > h2 { margin-bottom:1rem; }
 .kyoto-policy-ui .kp-links { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.25rem 0; }
-.kyoto-policy-ui details { margin:1rem 0; border-top:1px solid #d8e1e7; padding-top:.5rem; }
+.kyoto-policy-ui details { margin:1rem 0; border-top:1px solid #e2e8f0; padding-top:.5rem; }
 .kyoto-policy-ui summary { cursor:pointer; min-height:2.75rem; padding:.5rem .1rem; font-weight:600; }
 .kyoto-policy-ui details > :not(summary) { margin-top:.65rem; }
-.kyoto-policy-ui blockquote { border-left:3px solid #8cb7ca; padding-left:1rem; }
+.kyoto-policy-ui blockquote { border-left:3px solid #a5b4fc; padding-left:1rem; }
 .kyoto-policy-ui .kp-evidence :is(p,a,summary,span,div,h4,h5) { font-size:1rem; line-height:1.65; }
 .kyoto-policy-ui .kp-evidence h3 { font-size:1.1rem; }
-.kyoto-policy-ui .kp-evidence button { min-width:2.75rem; min-height:2.75rem; color:#506278; }
+.kyoto-policy-ui .kp-evidence button { min-width:2.75rem; min-height:2.75rem; color:#475569; }
 .kyoto-policy-ui .kp-evidence a { min-height:2.75rem; display:inline-flex; align-items:center; text-decoration:underline; }
 
-.kyoto-policy-ui .kp-evidence .text-slate-500 { color:#506278; }
+.kyoto-policy-ui .kp-evidence .text-slate-500 { color:#475569; }
 .kyoto-policy-ui .kp-evidence .text-amber-700 { color:#8a4900; }
-.kyoto-policy-ui .kp-source { margin-top:1rem; border-top:1px solid #d8e1e7; padding-top:1rem; }
+.kyoto-policy-ui .kp-source { margin-top:1rem; border-top:1px solid #e2e8f0; padding-top:1rem; }
 .kyoto-policy-ui .kp-value { font-size:1.75rem; font-weight:700; }
 .kyoto-policy-ui .kp-stage-list { display:flex; flex-wrap:wrap; gap:1rem; }
 .kyoto-policy-ui .kp-stage-list li { padding:.5rem; background:#f2f6f8; }
@@ -106,5 +106,15 @@
 .kyoto-policy-ui .kp-detail > .kp-navigation { margin-bottom:1rem; margin-top:1rem; }
 
 .kyoto-policy-ui .kp-card p + p { margin-top:0; }
-.kyoto-policy-ui .kp-home { min-height:2.75rem; color:#155775; text-decoration:underline; padding:.25rem; }
+.kyoto-policy-ui .kp-home { min-height:2.75rem; color:#4338ca; text-decoration:underline; padding:.25rem; }
 .kyoto-policy-ui .kp-toolbar > .kp-button { font-weight:400; }
+
+.kyoto-policy-ui .kp-card,.kyoto-policy-ui .kp-block { border-radius:1.5rem; box-shadow:0 1px 2px rgb(15 23 42 / .04); }
+.kyoto-policy-ui .kp-button:hover { background:#eef2ff; border-color:#818cf8; }
+.kyoto-policy-ui .kp-primary:hover { background:#4338ca; color:white; }
+.kyoto-policy-ui .kp-guide-lead { padding:1.25rem; border:1px solid #c7d2fe; background:#eef2ff; color:#312e81; border-radius:1rem; }
+.kyoto-policy-ui .kp-guide .kp-block { padding:1.5rem; }
+.kyoto-policy-ui .kp-guide h2 { margin-bottom:1rem; }
+.kyoto-policy-ui .kp-state-definitions > div { margin:1rem 0; }
+.kyoto-policy-ui .kp-state-definitions dd { margin:.5rem 0 0; }
+@media(min-width:48rem) { .kyoto-policy-ui .kp-guide .kp-block { padding:2rem; } }

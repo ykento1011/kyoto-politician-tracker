@@ -16,11 +16,11 @@ test('Kyoto overview keeps four fields, safe sources and unchanged figures in to
  await expect(ui.locator('[data-policy-card="P-03"]')).toContainText('令和10年度中の開始は不可');
  await expect(ui.locator('[data-policy-card="P-14"]')).toContainText('原典未確認');
  await expect(ui.getByRole('link',{name:/準備予算案を見る/})).toHaveAttribute('href',/kaikenshiryo.pdf#page=22$/);
- await ui.getByRole('link',{name:'集計・算定方法を見る'}).click();
- await expect(ui.getByRole('heading',{name:'登録情報の集計・算定方法'})).toBeVisible();
- for(const amount of ['85.7%','91億1,549万円']) await expect(ui.getByText(amount,{exact:true})).toBeVisible();
- await expect(ui).toContainText('48億8,215万8,000円');
- await expect(ui).toContainText('確定済み件数・公約達成率ではありません');
+ await ui.getByRole('link',{name:'このトラッカーの見方・作り方'}).click();
+ await expect(ui.getByRole('heading',{name:'このトラッカーの見方・作り方'})).toBeVisible();
+ for(const amount of ['85.7%','12/14','91億1,549万円']) await expect(ui).not.toContainText(amount);
+ await expect(ui.getByRole('heading',{level:2})).toHaveCount(6);
+ await expect(ui).toContainText('公約達成率でも市長への評価でもなく');
 });
 
 test('mayor identity and five-stage reference remain distinct from verified achievement',async({page})=>{
@@ -105,7 +105,7 @@ test('shared navigation synchronizes detail and totals with the URL and browser 
  for(const suffix of ['policy=P-03','mayorSection=summary']){
   await page.goto(`/kyoto/?view=mayor&${suffix}`);
   const detail=suffix.startsWith('policy=');
-  const content=detail?page.locator('#policy-history'):page.getByRole('heading',{name:'登録情報の集計・算定方法'});
+  const content=detail?page.locator('#policy-history'):page.getByRole('heading',{name:'このトラッカーの見方・作り方'});
   await expect(content).toBeVisible();
   await openMayorFromSharedNavigation(page);
   await expect(page).toHaveURL(/\/kyoto\/\?view=mayor$/);

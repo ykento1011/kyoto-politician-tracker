@@ -18,12 +18,10 @@ test('Kyoto reviewed progress does not assert unidentified votes or related impl
  await expect(page.getByText('2億7,100万円',{exact:true})).toBeVisible();
  await expect(page.getByText('2億6,900万円',{exact:true})).toBeVisible();
  await page.getByRole('link',{name:'← 政策一覧へ',exact:true}).first().click();
- await page.getByRole('link',{name:'集計・算定方法を見る'}).click();
- await expect(page.getByText('85.7%',{exact:true})).toBeVisible();
- await expect(page.locator('[data-kpi-evidence-note]')).toHaveCount(2);
- await expect(page.locator('[data-kpi-evidence-note]').first()).toContainText('確定済み件数・公約達成率ではありません');
- await expect(page.locator('[data-kpi-evidence-note]').nth(1)).toContainText('48億8,215万8,000円');
- await expect(page.getByText('91億1,549万円',{exact:true})).toBeVisible();
+ await page.getByRole('link',{name:'このトラッカーの見方・作り方'}).click();
+ await expect(page.locator('.kp-guide')).toContainText('資料確認済み');
+ await expect(page.locator('.kp-guide')).toContainText('公約達成率でも市長への評価でもなく');
+ for(const value of ['85.7%','12/14','91億1,549万円']) await expect(page.locator('.kp-guide')).not.toContainText(value);
  await page.getByRole('link',{name:'← 政策一覧へ',exact:true}).first().click();
  await expect(page.getByText('整備工事が一時停止・開始時期は未定',{exact:true})).toBeVisible();
 });
