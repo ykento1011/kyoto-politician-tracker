@@ -65,12 +65,21 @@ class HandoffTests(fixtures.RegistryTests):
     def test_policy_receipt_scope_and_empty_notes_hold(self):
         req=self.action();req['notes'][0]['policy_id']='P-14'
         with self.assertRaises(Hold):h.run(self.ledger,req,self.out)
+
         req=self.action();req['notes']=[]
         result=h.run(self.ledger,req,self.out)
         packet=json.loads((self.out/(result['record_id']+'.json')).read_text(encoding='utf-8'))
         self.assertEqual(packet['status'],'policy_relationship_unconfirmed')
         req['operation']='public_review'
         with self.assertRaises(Hold):h.run(self.ledger,req,self.out)
+
+    def test_foreign_registry_binding_holds_without_output(self):
+        req=self.action()
+        path=self.state/'registry_identity.json'
+        identity=json.loads(path.read_text(encoding='utf-8'))
+        identity['city']='kobe';path.write_text(json.dumps(identity))
+        with self.assertRaises(Hold):h.run(self.ledger,req,self.out)
+        self.assertEqual(list(self.out.glob('*.json')),[])
 
     def test_human_approval_required_and_only_note_added(self):
         baseline=self.root/'baseline.json';baseline.write_text(json.dumps(self.baseline),encoding='utf-8')

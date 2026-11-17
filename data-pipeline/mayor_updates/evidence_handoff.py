@@ -16,6 +16,9 @@ from .source_registry import Registry
 
 
 def current(registry, request):
+    identity = load(registry.root/'registry_identity.json')
+    if identity != {'city':registry.city, 'cas_root':str(registry.cas), 'schema':'source-registry-v1'}:
+        raise Hold('Registry identity mismatch')
     registry.bridge.index = registry.bridge.store.read_index()
     indexes, rows = registry.state(registry.history())
     row = registry.current(rows, request, indexes)
@@ -46,6 +49,9 @@ def acquisition_plan(registry, row, request):
     storage = request['storage']
     for p in (storage['private_root'], storage['state_root'], registry.cas):
         weekly.assert_owner_only(p)
+    binding_name = (city_scope.wave1_binding_name(scope) if city_scope.is_kyoto_wave1(scope)
+                    else 'city_binding.json')
+    weekly.assert_owner_only(Path(storage['private_root'])/binding_name)
     state = city_scope.validate_storage(scope, storage, registry.cas, request['acquisition_output'])
     if registry.bridge.hashes != request['p1_sha256']:
         raise Hold('Fixed P1 code hashes mismatch')
