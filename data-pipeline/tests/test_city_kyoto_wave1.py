@@ -21,6 +21,8 @@ class Wave1Tests(unittest.TestCase):
     def setUp(self):
         self.no_network = patch.object(socket.socket, 'connect', side_effect=AssertionError('No network'))
         self.no_network.start(); self.addCleanup(self.no_network.stop)
+        self.acl=patch.object(acquire,'assert_owner_only',return_value={'owner_only':True})
+        self.acl_mock=self.acl.start(); self.addCleanup(self.acl.stop)
 
     def fixture(self, root):
         # Synthetic index; production SHA remains fixed and is tested separately.
@@ -41,7 +43,7 @@ class Wave1Tests(unittest.TestCase):
         (cas/'index.json').write_text(json.dumps(index),encoding='utf-8')
         (root/'city_binding.json').write_text('original binding must remain unchanged',encoding='utf-8')
         binding = dict(city_code='kyoto',scope_sha256=cs.signature(s),snapshot_root=str(cas),state_root=str(state),index_sha256=sha)
-        f = root/'kyoto_p04_p14_binding.json'; f.write_text(json.dumps(binding),encoding='utf-8')
+        f = root/'kyoto_p04_p14_active_binding.json'; f.write_text(json.dumps(binding),encoding='utf-8')
         storage = dict(private_root=str(root),state_root=str(state),binding_sha256=hashlib.sha256(f.read_bytes()).hexdigest())
         return s,cas,out,storage,obj,index
 
@@ -51,6 +53,54 @@ class Wave1Tests(unittest.TestCase):
         self.assertEqual(cs.KYOTO_INDEX_SHA,'be45c0421b1ca127853416f420991cd8d288841fb46ce6e76f0bc601860180bd')
         acquire.validate_sources(s['sources'],media_type='pdf',scope=s)
         self.assertEqual([r['policy_ids'] for r in s['sources']],[['P-04'],['P-14']])
+
+    def test_activation_flags_fail_closed(self):
+        for enabled,network in [(True,False),(False,True),(1,True),(False,0),('true',True),(None,False)]:
+            s=profile();s.update(enabled=enabled,network_enabled=network)
+            with self.subTest(enabled=enabled,network=network),self.assertRaises(Hold):cs.validate_scope(s)
+        s=profile();s.pop('enabled')
+        with self.assertRaises(Hold):cs.validate_scope(s)
+
+    def test_two_bindings_selected_without_overwrite_or_fallback(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);active,cas,out,storage,obj,index=self.fixture(root)
+            inactive=copy.deepcopy(active);inactive.update(enabled=False,network_enabled=False)
+            active_file=root/'kyoto_p04_p14_active_binding.json'
+            inactive_file=root/'kyoto_p04_p14_binding.json'
+            b=json.loads(active_file.read_text());b['scope_sha256']=cs.signature(inactive)
+            inactive_file.write_text(json.dumps(b),encoding='utf-8')
+            inactive_storage={**storage,'binding_sha256':hashlib.sha256(inactive_file.read_bytes()).hexdigest()}
+            before={p.name:p.read_bytes() for p in (active_file,inactive_file,root/'city_binding.json')}
+            for s,config in [(active,storage),(inactive,inactive_storage)]:
+                self.acl_mock.reset_mock()
+                self.assertEqual(cs.validate_storage(s,config,cas,out),out.parent)
+                self.assertEqual(self.acl_mock.call_count,4)
+                self.assertIn(unittest.mock.call(root/cs.wave1_binding_name(s)),self.acl_mock.call_args_list)
+            with self.assertRaises(Hold):cs.validate_storage(active,inactive_storage,cas,out)
+            self.assertEqual(before,{p.name:p.read_bytes() for p in (active_file,inactive_file,root/'city_binding.json')})
+            active_file.unlink()
+            with self.assertRaises(Hold):cs.validate_storage(active,inactive_storage,cas,out)
+            inactive_file.unlink()
+            with self.assertRaises(Hold):cs.validate_storage(inactive,inactive_storage,cas,out)
+
+    def test_active_binding_rejects_scope_state_index_and_acl_mismatch(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);s,cas,out,storage,obj,index=self.fixture(root)
+            f=root/'kyoto_p04_p14_active_binding.json';original=f.read_bytes()
+            for key,value in [('scope_sha256','0'*64),('index_sha256','0'*64),('state_root',str(root/'other')),('snapshot_root',str(root/'other')),('state_root',None)]:
+                b=json.loads(original);b[key]=value;f.write_text(json.dumps(b),encoding='utf-8')
+                changed={**storage,'binding_sha256':hashlib.sha256(f.read_bytes()).hexdigest()}
+                with self.subTest(key=key),self.assertRaises(Hold):cs.validate_storage(s,changed,cas,out)
+            for raw in ['{broken','[]','{}']:
+                f.write_text(raw,encoding='utf-8');changed={**storage,'binding_sha256':hashlib.sha256(f.read_bytes()).hexdigest()}
+                with self.assertRaises(Hold):cs.validate_storage(s,changed,cas,out)
+            f.write_bytes(original)
+            other=root/'other';other.mkdir()
+            with self.assertRaises(Hold):cs.validate_storage(s,{**storage,'state_root':str(other)},cas,other/'run')
+            with self.assertRaises(Hold):cs.validate_storage(s,storage,other,out)
+            self.acl_mock.side_effect=Hold('Not owner-only')
+            with self.assertRaises(Hold):cs.validate_storage(s,storage,cas,out)
+            self.assertEqual(f.read_bytes(),original)
 
     def test_reject_changed_scope_and_source_identity(self):
         mutations=[('city_code','kobe'),('policy_ids',['P-04']),('max_requests',3),
@@ -90,7 +140,7 @@ class Wave1Tests(unittest.TestCase):
     def test_binding_sha_and_index_ledger_tampering(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t);s,cas,out,storage,obj,index=self.fixture(root)
-            f=root/'kyoto_p04_p14_binding.json';saved=f.read_bytes();f.write_text('{}')
+            f=root/'kyoto_p04_p14_active_binding.json';saved=f.read_bytes();f.write_text('{}')
             with self.assertRaises(Hold):cs.validate_storage(s,storage,cas,out)
             f.write_bytes(saved)
             index['documents'][cs.KYOTO_INDEX_URL]['versions'][0]['record']['city_code']='kobe'
