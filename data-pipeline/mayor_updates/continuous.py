@@ -156,9 +156,12 @@ def main():
         raise Hold('Invalid P1 selection')
     bridge = weekly.P1Bridge(runtime['p1_code_root'], runtime['snapshot_root'],
         city_capable=runtime.get('p1_city_capable', False))
-    print(json.dumps(cycle(bridge, config, load(paths['baseline']), load(paths['rules']), root,
+    result = cycle(bridge, config, load(paths['baseline']), load(paths['rules']), root,
         city=runtime.get('city','kyoto'), cycle_key=args.cycle,
-        base_revision=runtime['base_revision']), ensure_ascii=False))
+        base_revision=runtime['base_revision'])
+    print(json.dumps(result, ensure_ascii=False))
+    if not result['state_advanced']:
+        raise SystemExit(2)
 
 
 if __name__ == '__main__':

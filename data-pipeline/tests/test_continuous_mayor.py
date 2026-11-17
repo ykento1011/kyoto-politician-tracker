@@ -1,6 +1,7 @@
 """Real registered Kyoto URLs; synthetic versions, no network or live CAS writes."""
 import copy
 import hashlib
+import io
 import json
 from pathlib import Path
 import socket
@@ -110,5 +111,23 @@ class ContinuousTests(unittest.TestCase):
             self.assertEqual(env['MAYOR_PWSH_EXE'],str(shell.resolve()))
             wrong=self.root/'other.exe';wrong.write_bytes(b'fixture')
             with self.assertRaises(Hold):loop.configure_shell({'powershell_exe':str(wrong)})
+
+    def test_cli_stopped_cycle_has_nonzero_exit_and_result(self):
+        runtime=dict(network_enabled=False,code_files=[{'path':loop.__file__}],
+            p1_code_root='fixture',snapshot_root='fixture',base_revision='fixture')
+        for advanced in (False,True):
+            output=io.StringIO()
+            with patch.object(sys,'argv',['continuous','--runtime','fixture','--cycle','2026-11-17']), \
+                 patch.object(loop,'load',side_effect=[runtime,{},[]]), \
+                 patch.object(loop,'configure_shell'), \
+                 patch.object(loop.weekly,'validate_runtime',return_value=(self.state,{'baseline':'b','rules':'r'},{})), \
+                 patch.object(loop.weekly,'P1Bridge'), \
+                 patch.object(loop,'cycle',return_value={'state_advanced':advanced,'public_writes':0}), \
+                 patch.object(sys,'stdout',output):
+                if advanced:loop.main()
+                else:
+                    with self.assertRaises(SystemExit) as stopped:loop.main()
+                    self.assertEqual(stopped.exception.code,2)
+            self.assertEqual(json.loads(output.getvalue())['state_advanced'],advanced)
 
 if __name__=='__main__':unittest.main()
