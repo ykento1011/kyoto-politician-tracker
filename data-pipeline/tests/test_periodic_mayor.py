@@ -3,6 +3,7 @@ import copy
 from datetime import datetime
 import json
 import os
+import tempfile
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -10,6 +11,58 @@ import test_continuous_mayor as fixtures
 from mayor_updates import periodic
 from mayor_updates.projection import Hold
 from types import SimpleNamespace
+
+
+class DurableRecordTests(unittest.TestCase):
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory(); self.addCleanup(temp.cleanup)
+        self.root = Path(temp.name)
+        self.publish_method = 'rename' if os.name == 'nt' else 'link'
+
+    def test_interrupted_write_leaves_no_final_or_temporary_json(self):
+        def interrupted(payload, stream, **kwargs):
+            stream.write('{"partial":')
+            raise OSError('interrupted write')
+        with patch.object(periodic.json, 'dump', side_effect=interrupted):
+            with self.assertRaises(OSError): periodic.durable_record(self.root, 'cycle', {'complete':True})
+        self.assertEqual(list(self.root.iterdir()), [])
+
+    def test_fsync_failure_never_publishes(self):
+        with patch.object(periodic.os, 'fsync', side_effect=OSError('fsync failed')), \
+             patch.object(periodic.os, self.publish_method) as publish:
+            with self.assertRaises(OSError): periodic.durable_record(self.root, 'cycle', {'complete':True})
+            publish.assert_not_called()
+        self.assertEqual(list(self.root.iterdir()), [])
+
+    def test_complete_fsynced_record_is_atomically_published(self):
+        real_link = getattr(os, self.publish_method); real_fsync = os.fsync; synced = []
+        def fsync(fd):
+            real_fsync(fd); synced.append(True)
+        def publish(source, dest):
+            self.assertTrue(synced)
+            self.assertFalse(dest.exists())
+            self.assertEqual(source.parent, self.root)
+            self.assertEqual(json.loads(source.read_text()), {'complete':True})
+            real_link(source, dest)
+        with patch.object(periodic.os, 'fsync', side_effect=fsync), \
+             patch.object(periodic.os, self.publish_method, side_effect=publish):
+            periodic.durable_record(self.root, 'cycle', {'complete':True})
+        self.assertEqual([p.name for p in self.root.iterdir()], ['cycle.json'])
+        self.assertEqual(json.loads((self.root/'cycle.json').read_text()), {'complete':True})
+
+    def test_existing_or_racing_record_is_not_replaced(self):
+        dest = self.root/'cycle.json'; original = b'{"original":true}'
+        dest.write_bytes(original)
+        with self.assertRaises(Hold): periodic.durable_record(self.root, 'cycle', {'replacement':True})
+        self.assertEqual(dest.read_bytes(), original)
+        real_link = getattr(os, self.publish_method)
+        def race(source, target):
+            target.write_bytes(original)
+            real_link(source, target)
+        with patch.object(periodic.os, self.publish_method, side_effect=race):
+            with self.assertRaises(Hold): periodic.durable_record(self.root, 'racing', {'replacement':True})
+        self.assertEqual((self.root/'racing.json').read_bytes(), original)
+        self.assertEqual(len(list(self.root.iterdir())), 2)
 
 
 class LocalConnectivityTests(unittest.TestCase):
@@ -171,6 +224,30 @@ class PeriodicTests(unittest.TestCase):
             with self.assertRaises(OSError): self.cycle('2026-11-30')
         self.assertEqual((self.state/'state.json').read_bytes(), before)
         self.assertTrue((self.state/'cycles/2026-11-30/outbox_failure.json').exists())
+        with self.assertRaises(Hold): self.cycle('2026-11-30')
+
+    def test_partial_outbox_failure_is_diagnosed_even_if_failure_notice_succeeds(self):
+        self.cycle('2026-11-23')
+        before = (self.state/'state.json').read_bytes()
+        self.bridge.save(self.sources[2], 'changed')
+        real_notify = periodic.notify; calls = []
+        def notify(root, key, payload):
+            calls.append(1)
+            if len(calls) == 1:
+                def interrupted(value, stream, **kwargs):
+                    stream.write('{"partial":'); raise OSError('write interrupted')
+                with patch.object(periodic.json, 'dump', side_effect=interrupted):
+                    return real_notify(root, key, payload)
+            return real_notify(root, key, payload)
+        with patch.object(periodic, 'notify', side_effect=notify):
+            with self.assertRaises(OSError): self.cycle('2026-11-30')
+        self.assertEqual((self.state/'state.json').read_bytes(), before)
+        output = self.state/'cycles/2026-11-30'
+        self.assertTrue((output/'reservation.json').exists())
+        self.assertIn('write interrupted', (output/'outbox_failure.json').read_text())
+        notice = json.loads((self.state/'outbox/2026-11-30.json').read_text())
+        self.assertEqual(notice['kind'], 'failure')
+        self.assertEqual(list((self.state/'outbox').glob('*.tmp')), [])
         with self.assertRaises(Hold): self.cycle('2026-11-30')
 
     def test_acquisition_exception_has_failure_notice_no_state_advance(self):

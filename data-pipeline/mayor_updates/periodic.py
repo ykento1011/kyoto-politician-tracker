@@ -9,6 +9,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import tempfile
 
 from . import continuous, weekly
 from .engine import PrivateOutput, digest
@@ -51,13 +52,28 @@ def period(now):
 
 
 def durable_record(outbox, key, payload):
-    """Create once and flush a private record before the next side effect."""
+    """Publish complete JSON atomically without replacing an existing record."""
+    if Path(key).name != key or key in {'.', '..'}:
+        raise Hold('Flat record names only')
     dest = outbox / (key + '.json')
-    with dest.open('x', encoding='utf-8') as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
-        f.flush()
-        import os
-        os.fsync(f.fileno())
+    fd, name = tempfile.mkstemp(prefix='.'+key+'.', suffix='.tmp', dir=outbox)
+    temp = Path(name)
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8') as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+            f.flush()
+            os.fsync(f.fileno())
+        try:
+            # Windows rename refuses an existing destination; POSIX rename would
+            # overwrite, so use atomic no-replace link creation there instead.
+            if os.name == 'nt':
+                os.rename(temp, dest)
+            else:
+                os.link(temp, dest)
+        except FileExistsError as exc:
+            raise Hold('Private record already exists; no overwrite') from exc
+    finally:
+        temp.unlink(missing_ok=True)
 
 
 def notify(outbox, key, payload):
@@ -121,6 +137,14 @@ def execute(bridge, config, baseline, rules, state_root, *, now, base_revision,
                       'child_wall_seconds':10, 'tls':True, 'redirects':0, 'retries':0}})
         prior = load(root/'state.json') if (root/'state.json').exists() else {'monitor':{}, 'seen_reviews':{}}
         acquired = None
+        def record_notice(payload):
+            try:
+                notify(root/'outbox', timing['cycle_key'], payload)
+            except Exception as notice_error:
+                if not (output/'outbox_failure.json').exists():
+                    out.json('outbox_failure.json', {'reason':str(notice_error),
+                        'operator_action_required':True})
+                raise
         try:
             bridge.store.verify_integrity()
             if acquisition is not None:
@@ -149,7 +173,7 @@ def execute(bridge, config, baseline, rules, state_root, *, now, base_revision,
                 'new_get_requests':0 if acquired is None else acquired['new_get_requests'],
                 'previous_state_retained':stopped}
             if stopped or reviews:
-                notify(root/'outbox', timing['cycle_key'], {**summary,
+                record_notice({**summary,
                     'kind':'failure' if stopped else 'review_pending',
                     'reviews':reviews, 'observations':observations,
                     'publication_authorized':False})
@@ -162,9 +186,9 @@ def execute(bridge, config, baseline, rules, state_root, *, now, base_revision,
             out.json('failure.json', failure)
             try:
                 if not (root/'outbox'/(timing['cycle_key']+'.json')).exists():
-                    notify(root/'outbox', timing['cycle_key'], failure)
-            except Exception as notice_error:
-                out.json('outbox_failure.json', {'reason':str(notice_error), 'operator_action_required':True})
+                    record_notice(failure)
+            except Exception:
+                pass  # record_notice already preserved the first outbox diagnostic.
             raise
         summary['state_advanced'] = advanced
         # A receipt-write failure must not be misreported as a rolled-back state commit.
