@@ -41,6 +41,11 @@ not tamper-proof protection against an owner rewriting the whole history.
    `hold`, `reject` or `approve_for_source_registration`. The event records UTC.
    Current identical decisions deduplicate; later hold/reject can revoke approval.
    These are operator-entered review receipts, not authenticated PM signatures.
+   Before decision/evidence/proposal, reload the CAS index and require its latest
+   successful index version to match the most recent registry scan. An unscanned
+   replacement or latest failed acquisition holds the operation without changing
+   previous history. Unchanged links can retain their earlier listing evidence
+   after a newer index has been scanned; no automatic re-approval is manufactured.
 3. `proposal`: exact candidate/revision/index SHA required. Only a current active
    registration approval produces a fixed PDF source configuration proposal.
    It stays `enabled:false`, `network_enabled:false`, one URL, 1 GET / 2 MiB /

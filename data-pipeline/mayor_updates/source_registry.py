@@ -84,12 +84,23 @@ class Registry:
                 candidates[data['candidate_id']]['evidence'] = {**deepcopy(data),'recorded_at':event['recorded_at']}
         return indexes, candidates
 
-    def current(self, candidates, request):
+    def current_index(self, url, version):
+        document = self.bridge.index['documents'].get(url)
+        attempts = [a for a in self.bridge.index['attempts'] if a['source_url']==url]
+        if (not document or document['versions'][-1]['sha256'] != version or
+                (attempts and attempts[-1]['outcome'] not in {'new_version','unchanged'})):
+            raise Hold('Index is stale or latest acquisition failed; scan required after recovery')
+        rec, body = self.bridge.record(url, version)
+        if sha256(body).hexdigest() != version or rec['sha256'] != version:
+            raise Hold('Index readback mismatch')
+
+    def current(self, candidates, request, indexes):
         row = candidates.get(request['candidate_id'])
         if not row or not row['active']:
             raise Hold('Candidate absent from current index')
         if request.get('revision') != row['revision'] or request.get('index_sha256') != row['index_sha256']:
             raise Hold('Review refers to stale candidate/index evidence')
+        self.current_index(row['index_url'], indexes[row['index_url']]['sha256'])
         return row
 
     def scan(self, request, indexes):
@@ -97,11 +108,7 @@ class Registry:
         registered = [s for s in self.config['monitor_sources'] if s.get('role') == 'index']
         if source not in registered or not re.fullmatch('[a-f0-9]{64}', version):
             raise Hold('Pinned registered index required')
-        document = self.bridge.index['documents'].get(source['url'])
-        attempts = [a for a in self.bridge.index['attempts'] if a['source_url']==source['url']]
-        if (not document or document['versions'][-1]['sha256'] != version or
-                (attempts and attempts[-1]['outcome'] not in {'new_version','unchanged'})):
-            raise Hold('Index is stale or latest acquisition failed; retain previous registry')
+        self.current_index(source['url'],version)
         rec, body = self.bridge.record(source['url'], version)
         if (sha256(body).hexdigest() != version or rec['sha256'] != version
                 or rec['source_url'] != source['url'] or rec['final_url'] != source['url']
@@ -215,12 +222,14 @@ class Registry:
                 if any(p.name != 'weekly.lock' for p in self.root.iterdir()):
                     raise Hold('Use empty isolated registry root')
                 durable_record(self.root, 'registry_identity', identity)
+            # A worker can append to CAS after this bridge was constructed.
+            self.bridge.index = self.bridge.store.read_index()
             events = self.history(); indexes, candidates = self.state(events)
             op = request['operation']
             if op == 'report': return self.report(candidates)
             if op == 'scan': data = self.scan(request, indexes)
             else:
-                row = self.current(candidates,request)
+                row = self.current(candidates,request,indexes)
                 if op == 'proposal': return self.proposal(row)
                 if op == 'decision': data = self.decision(row,request)
                 elif op == 'evidence': data = self.attach(row,request)

@@ -13,6 +13,7 @@ from mayor_updates.projection import Hold
 class RegistryTests(unittest.TestCase):
     def setUp(self):
         fixtures.ContinuousTests.setUp(self)
+        self.bridge.store.read_index=lambda:copy.deepcopy(self.bridge.index)
         self.source = self.sources[1]
         self.ledger = sr.Registry(self.state,self.bridge,'kyoto')
         self.url = 'https://www.city.kyoto.lg.jp/gyozai/test.pdf'
@@ -151,6 +152,27 @@ class RegistryTests(unittest.TestCase):
                   locator={'physical_page':1},quote='not present')
         with self.assertRaises(Hold):self.ledger.apply(self.request('evidence',receipt_spec=spec,notes=[note]))
         self.assertEqual(before,{p.name:p.read_bytes() for p in self.state.glob('event-*')})
+
+    def test_unscanned_cas_change_or_failed_observation_blocks_all_review_actions(self):
+        self.scan([(self.url,'予算案')]);spec=self.receipt_spec()
+        self.ledger.apply(self.request('decision',decision='approve_for_source_registration',policy_ids=['P-04']))
+        requests=[self.request('proposal'),self.request('decision',decision='hold'),
+                  self.request('evidence',receipt_spec=spec)]
+        old=copy.deepcopy(self.bridge.index)
+        before={p.name:p.read_bytes() for p in self.state.glob('event-*')}
+        self.save([])  # Different worker's CAS update, bridge cache remains old.
+        updated=copy.deepcopy(self.bridge.index);self.bridge.index=copy.deepcopy(old)
+        self.bridge.store.read_index=lambda:copy.deepcopy(updated)
+        for request in requests:
+            with self.assertRaises(Hold):self.ledger.apply(request)
+        updated=copy.deepcopy(old)
+        updated['attempts'].append(dict(source_url=self.source['url'],outcome='timeout'))
+        for request in requests:
+            with self.assertRaises(Hold):self.ledger.apply(request)
+        self.assertEqual(before,{p.name:p.read_bytes() for p in self.state.glob('event-*')})
+        # Recovery with the same accepted SHA does not manufacture a new review.
+        updated=old
+        self.assertFalse(self.ledger.apply(requests[0])['network_enabled'])
 
 
 if __name__=='__main__':unittest.main()
