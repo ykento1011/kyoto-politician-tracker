@@ -183,8 +183,9 @@ def run(registry, config, output):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--request',required=True);parser.add_argument('--output',required=True)
-    args=parser.parse_args();weekly.assert_owner_only(args.request)
+    args=parser.parse_args()
     config=load(args.request);configure_shell(config)
+    weekly.assert_owner_only(args.request)
     for pin in config['code_files']: weekly.pinned_input(pin)
     if not any(Path(p['path']).resolve()==Path(__file__).resolve() for p in config['code_files']):
         raise Hold('review_code_must_be_pinned')

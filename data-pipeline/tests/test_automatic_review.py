@@ -98,6 +98,20 @@ class AutomaticTests(fixtures.RegistryTests):
         (self.bridge.code_root/'budget/fixture').write_bytes(b'changed')
         self.assertEqual(self.evaluate()['status'],'HOLD')
 
+    def test_cli_configures_shell_before_request_acl_and_stops_before_bridge(self):
+        from mayor_updates.projection import Hold
+        calls=[]
+        def acl(_):
+            calls.append('acl');raise Hold('test stop before inputs')
+        with patch('sys.argv',['automatic_review','--request','fixture.json','--output','out']), \
+             patch.object(a,'load',side_effect=lambda _:calls.append('load') or {'powershell_exe':'TEST'}), \
+             patch.object(a,'configure_shell',side_effect=lambda _:calls.append('configure')), \
+             patch.object(a.weekly,'assert_owner_only',side_effect=acl), \
+             patch.object(a.weekly,'P1Bridge') as bridge:
+            with self.assertRaises(Hold):a.main()
+            bridge.assert_not_called()
+        self.assertEqual(calls,['load','configure','acl'])
+
     def test_output_dedup_preserves_history_and_public_data(self):
         def pin(name,value):
             p=self.root/name;p.write_text(json.dumps(value));return {'path':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
