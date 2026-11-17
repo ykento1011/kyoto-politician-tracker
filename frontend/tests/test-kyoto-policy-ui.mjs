@@ -63,7 +63,9 @@ try {
  }
  assert.equal(records,27);
  const totals=render(Totals,{data});
- for(const value of ['85.7%','12/14','91億1,549万円','9,115,487,000','48億8,215万8,000円','確定済み件数・公約達成率ではありません']) assert.ok(totals.includes(value),value);
+ for(const value of ['85.7%','12/14','91億1,549万円','9,115,487,000']) assert.ok(!totals.includes(value),value);
+ for(const value of ['このトラッカーの見方・作り方','公約達成率でも市長への評価でもなく','6. 更新・原典確認・訂正の方法','全件の照合が完了しているわけではありません']) assert.ok(totals.includes(value));
+ assert.ok(render(View,{data,cityCode:'kyoto',initialSearch:'?view=mayor&mayorSection=summary'}).includes('このトラッカーの見方・作り方'));
  // Failed presentation guards never promote a replacement source.
  const bad=structuredClone(data.pledges[0]); bad.budget_records[0].doc_url='https://example.com/other.pdf';
  assert.equal(policyPresentation(bad).source,null);

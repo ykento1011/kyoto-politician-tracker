@@ -3,8 +3,8 @@ const data=require('../frontend/public/data/kyoto_mayor_tracker.json');
 test('Kyoto budget history separates annual totals, deltas and unconfirmed amounts',async({page})=>{
  await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
  await page.goto('/kyoto/?view=mayor');
- await page.getByRole('link',{name:'集計・算定方法を見る'}).click();
- await expect(page.getByText(data.summary_stats.total_allocated_budget_jpy,{exact:true})).toBeVisible();
+ await page.getByRole('link',{name:'このトラッカーの見方・作り方'}).click();
+ await expect(page.locator('.kp-guide')).not.toContainText(data.summary_stats.total_allocated_budget_jpy);
  await page.getByRole('link',{name:'← 政策一覧へ',exact:true}).first().click();
  await page.getByRole('link',{name:'P-09 根拠・履歴',exact:true}).click();
  await expect(page.locator('[data-budget-role="delta"]')).toHaveCount(2);

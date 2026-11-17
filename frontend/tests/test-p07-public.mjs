@@ -17,7 +17,7 @@ try {
   const {KyotoPolicyDetail:Detail,KyotoPolicyTotals:Totals}=await server.ssrLoadModule('/src/components/KyotoPolicyTracker.jsx');
   const markup=renderToStaticMarkup(React.createElement(React.Fragment,null,...[policy].map(p=>React.createElement(Detail,{key:p.id,pledge:p,mayorInfo:data.mayor_info})),React.createElement(Totals,{data})));
   assert.equal((markup.match(/data-budget-aggregation="excluded"/g)||[]).length,5);
-  for(const text of ['7億1,500万円','9,900万円','3,650万円','2,500万円','0円','債務負担行為','2億4,400万円','集計対象外','原典',data.summary_stats.total_allocated_budget_jpy]) assert.ok(markup.includes(text),text);
+  for(const text of ['7億1,500万円','9,900万円','3,650万円','2,500万円','0円','債務負担行為','2億4,400万円','集計対象外','原典']) assert.ok(markup.includes(text),text);
   assert.ok(!markup.includes('財源内訳：'));
   for(const record of policy.budget_records) assert.ok(markup.includes(record.doc_url));
   console.log('PASS: P-07 evidence, aggregation exclusion and sources; offline SSR.');

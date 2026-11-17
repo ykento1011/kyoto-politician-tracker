@@ -150,33 +150,52 @@ export function KyotoPolicyDetail({pledge: p, mayorInfo}) {
   </>;
 }
 
+// Keep the summary export and URL for existing bookmarks.
 export function KyotoPolicyTotals({data}) {
-  const stats = data.summary_stats || {};
-  return <>
-    <h1>登録情報の集計・算定方法</h1>
-    <p className="kp-warning">公約達成率や、確認済みの単年度予算総額ではありません。</p>
-    {(data.kpis || []).map((kpi,i)=><section className="kp-block" key={i}>
-      <h2>{kpi.label}（元の登録指標）</h2><p className="kp-value">{kpi.value}</p><p>{kpi.subtext}</p>
-      {kpi.badge && <p>元の補助表示：{kpi.badge}</p>}
-      {kpi.evidence_note && <p className="kp-warning" data-kpi-evidence-note>{kpi.evidence_note}</p>}
-    </section>)}
-    <section className="kp-block"><h2>算定方法と限界</h2>
-      <p>件数・割合は従来の登録stage_levelに基づく参考値です。予算措置以上の登録件数÷登録政策数を小数第1位で表示しています。議案同一性の未確認項目を含み、確定済み件数・公約達成率ではありません。</p>
-      <ul className="kp-stage-list">{Object.entries(stats.stages || {}).map(([key,value]) => <li key={key}>{({enacted:'成立段階',bill_submitted:'議案提出',budgeted:'予算化',official_plan_only:'公式計画のみ',reviewing:'検討中'})[key] || key}：{value}件（旧登録）</li>)}</ul>
-      <p>登録政策数：{stats.total_pledges}件</p>
-      <p>関連予算集計の元値：{stats.total_allocated_budget_raw?.toLocaleString('ja-JP')}円／表示：{stats.total_allocated_budget_jpy}</p>
-      <p data-budget-total-note>{stats.budget_total_note}</p>
-      <p>複数年度を含み、確認区分未付与の従来登録額48億8,215万8,000円を含みます。全額が原典認証済みの総額ではなく、令和8年度の確定予算・決算・実際の支出額ではありません。</p>
-      <p>宿泊税の登録見込：{stats.accommodation_tax_revenue_jpy}／財源規律の登録値：{stats.debt_repayment_jpy}</p>
+  const stages=policyProgress({}).steps;
+  const states=[
+    ['confirmed','資料確認済み','その資料に書かれた内容を確認した範囲です。公約全体の実現や、次の段階の達成を意味しません。'],
+    ['legacy','旧登録・参考','以前登録された段階や記録です。原典との対応を確認できていない情報を含みます。'],
+    ['hold','保留','議案の番号・会期・件名などの対応を確認中です。可決済みの証拠には使いません。'],
+    ['paused','停止中','最新の発表で事業が一時停止しています。過去の契約を取り消した、事業を中止したという意味ではありません。'],
+    ['unverified','未確認','必要な根拠を確認できていません。予算や事業が存在しないと断定する表示ではありません。'],
+  ];
+  return <div className="kp-guide">
+    <h1>このトラッカーの見方・作り方</h1>
+    <p className="kp-guide-lead">これは公約達成率でも市長への評価でもなく、公式資料から確認できる政策プロセスの案内です。</p>
+    <section className="kp-block"><h2>1. このトラッカーは何を示すのか</h2>
+      <p>公約が計画・予算・議会の審議・実施へどう進んでいるかを、資料とともにたどれます。まず各カードの現況と重要な未確認事項をご覧ください。</p>
+      <p>5段階は点数ではありません。資料で分かったことと、まだ分からないことを分けて表示します。</p>
     </section>
-    <section className="kp-block kp-evidence"><h2>市長・公約の出典と表示の見方</h2>
-      <p>{data.mayor_info?.name}／{data.mayor_info?.title}／{data.mayor_info?.party}／{data.mayor_info?.term}</p>
-      <SourceLink url={data.mayor_info?.bulletin_pdf}>{data.mayor_info?.bulletin_label || '市長公約の原文'}</SourceLink>
-      <SourceLink url={data.mayor_info?.strategy_main_pdf}>{data.mayor_info?.strategy_main_label || '登録された基本構想'}</SourceLink>
-      <p>直接確認・文脈上の関連・未確認を区別します。参考・未確認額を直接額へ合算しません。旧登録の表示は、新たな原典認証を意味しません。</p>
-      <p>外部原典は新しいタブで開きます。リンク先の応答やPDFのページ移動は閲覧環境によって異なります。</p>
+    <section className="kp-block kp-evidence"><h2>2. どの公約を、どの資料から調べているのか</h2>
+      <p>{data.mayor_info?.name}市長の選挙公報などをもとに登録した京都の14政策を掲載しています。市長の発言や政策をすべて網羅した一覧ではありません。</p>
+      <p>選挙公報で公約の原文、市の計画で位置付け、予算資料で事業と金額、議案・結果資料で審議の経緯、公式発表で最新状況を調べます。資料があるだけで、公約との直接の対応を認定しません。</p>
+      <SourceLink url={data.mayor_info?.bulletin_pdf}>公約の出発点：選挙公報</SourceLink>
+      <SourceLink url={data.mayor_info?.strategy_main_pdf}>登録された市の基本構想</SourceLink>
+      <p>各政策の「根拠・履歴」に、原文・予算・議案・確認情報を残しています。全件の照合が完了しているわけではありません。</p>
     </section>
-  </>;
+    <section className="kp-block"><h2>3. 5段階は何を意味するのか</h2>
+      <ol className="kp-step-explanations">{stages.map(step=><li key={step.number}><h3>{step.number} {step.label}</h3><p>{step.meaning}</p></li>)}</ol>
+      <p>旧登録の参考段階は達成認定ではありません。例えば、P-01の準備予算案は制度の実施と区別し、P-02の議決は保留、P-03は過去契約より最新の工事停止を優先しています。</p>
+    </section>
+    <section className="kp-block"><h2>4. 確認状態の違い</h2>
+      <dl className="kp-state-definitions">{states.map(([key,label,note])=><div key={key}><dt className={'kp-state-tag kp-step-'+key}><span aria-hidden="true">{PROGRESS_STATES[key].symbol} </span>{label}</dt><dd>{note}</dd></div>)}</dl>
+      <p>色に加えて文字・記号・枠の形・線で区別します。資料確認済みの範囲は、各政策の説明も合わせてご確認ください。</p>
+    </section>
+    <section className="kp-block"><h2>5. 予算はどう読むのか</h2>
+      <p><strong>予算案</strong>は提案段階です。議会で議決された予算、実際に使った額、政策の実現は、それぞれ別に確認します。</p>
+      <p><strong>直接対応</strong>は資料で政策との直接の関係を確認したもの、<strong>関連参考</strong>は同じ分野などの文脈で関連するものです。参考予算や未確認額を直接予算に合算しません。</p>
+      <p>年度・事業範囲・当初額と補正額にも注意が必要です。異なる年度や重なる事業を足して、公約の総費用とはしません。</p>
+      <p>従来の集計値は元データと履歴に保持していますが、確認済みの達成率や単年度の確定予算としては示しません。</p>
+    </section>
+    <section className="kp-block"><h2>6. 更新・原典確認・訂正の方法</h2>
+      <p>新しい資料や誤りが見つかった際は、政策との対応と確認状態を見直す必要があります。公式資料の取得・変更検知と、公開内容の確認・反映は別工程です。この画面が常に最新、全件確認済み、自動的に訂正済みと保証するものではありません。</p>
+      <p>各政策の「根拠・履歴」から資料の用途・年度・ページを確認し、公式原典を開いて前後の文脈もお読みください。原典は新しいタブで開きます。外部URLの応答やPDFの目的ページへの移動は、未検証のものがあります。</p>
+      <p>出典の誤りやリンク切れは、詳細の「出典・確認履歴」にある旗の「一次資料の不備を報告」からお知らせください。その他のご意見はページ下部のフォームで受け付けます。報告だけで自動的に公開情報が修正されるわけではありません。</p>
+      <p>サイト全体の分析手法は共通ナビの「分析方法」にあります。京都の政策表示では、ここで説明する個別の確認状態を優先してお読みください。</p>
+      <p className="kp-muted">AIは入口。判断するのは市民です。</p>
+    </section>
+  </div>;
 }
 
 // URL state supports sharing/reloading. History entries retain the originating
@@ -275,7 +294,7 @@ export default function KyotoPolicyTracker({data, onBack, initialSearch}) {
           <div className="kp-field"><label htmlFor="policy-category">分野</label><select id="policy-category" value={route.category} onChange={e=>filter({category:e.target.value})}>
             <option value="ALL">すべての分野</option>{categories.map(cat=><option key={cat}>{cat}</option>)}
           </select></div>
-          <a id="policy-totals-link" className="kp-button" href={href({section:'summary',policy:''})} onClick={e=>navigate(e,{section:'summary',policy:''},'policy-totals-link')}>集計・算定方法を見る</a>
+          <a id="policy-totals-link" className="kp-button" href={href({section:'summary',policy:''})} onClick={e=>navigate(e,{section:'summary',policy:''},'policy-totals-link')}>このトラッカーの見方・作り方</a>
         </div>
         <p role="status" aria-live="polite">{filtered.length}件を表示</p>
         <div className="kp-grid" data-policy-list>{filtered.map(p=>{
