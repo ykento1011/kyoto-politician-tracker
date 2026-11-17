@@ -74,7 +74,7 @@ const STAGES = [
 ];
 export const PROGRESS_STATES = {
   confirmed: {symbol:'◇', label:'資料確認済み'},
-  legacy: {symbol:'○', label:'旧登録・参考', compact:'参考'},
+  legacy: {symbol:'○', label:'政策との対応を確認中', compact:'確認中'},
   hold: {symbol:'?', label:'確認中・保留', compact:'保留'},
   paused: {symbol:'Ⅱ', label:'停止中'},
   unverified: {symbol:'・', label:'未確認'},
@@ -86,19 +86,19 @@ export function policyProgress(p) {
   const reference = Number.isInteger(p.stage_level) && p.stage_level >= 1 && p.stage_level <= 5 ? p.stage_level : null;
   const steps = STAGES.map(([label, meaning], i)=>({number:i+1, label, meaning,
     state:reference && i<reference ? 'legacy' : 'unverified',
-    note:reference && i<reference ? '旧登録の参考範囲です。この段階への到達を原典で認定していません。' : '到達を確認できていません。未実施と断定するものではありません。'}));
+    note:reference && i<reference ? 'この段階の根拠と政策との対応を確認中です。到達を認定したものではありません。' : '到達を確認できていません。未実施と断定するものではありません。'}));
   const view = policyPresentation(p);
   if (p.id==='P-01' && p.progress_evidence?.status==='preparation') {
     if(view.source) Object.assign(steps[2],{state:'confirmed', short:'予算案のみ',
       note:'確認済みなのは導入準備の予算案への記載です。予算議決・制度の試験運用・実施は未確認です。'});
-    Object.assign(steps[3],{state:'hold',note:'旧登録議案の同一性は保留中です。条例可決の実績として扱いません。'});
+    Object.assign(steps[3],{state:'hold',note:'議案の同一性は保留中です。条例可決の実績として扱いません。'});
   }
   if(p.id==='P-02' && p.progress_evidence?.status==='hold') {
     if(view.source) Object.assign(steps[0],{state:'confirmed',short:'公約原文',note:'公約原文の資料を確認できます。条例可決の証拠ではありません。'});
-    Object.assign(steps[3],{state:'hold',note:'旧登録は④ですが、議案の同一性は保留中です。条例可決を達成済みと認定していません。'});
+    Object.assign(steps[3],{state:'hold',note:'④に関する議案の同一性は保留中です。条例可決を達成済みと認定していません。'});
   }
   if(p.id==='P-03' && p.latest_update?.kind==='construction_paused' && view.source) {
-    Object.assign(steps[3],{note:'旧登録④は過去契約の履歴です。現在の工事進行や制度開始を示しません。'});
+    Object.assign(steps[3],{note:'④にあるのは過去契約の履歴です。現在の工事進行や制度開始を示しません。'});
     Object.assign(steps[4],{state:'paused',note:'2026-11-05の発表では工事一時停止、令和10年度中の開始不可、開始時期未定です。⑤への到達認定ではありません。'});
   }
   const historicalContract = p.id==='P-03' && reference===4 && steps[4].state==='paused';

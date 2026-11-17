@@ -4,6 +4,23 @@ test.beforeEach(async({page})=>{
  await page.route('**/*',r=>new URL(r.request().url()).hostname==='127.0.0.1'?r.continue():r.abort());
 });
 
+for(const width of [320,375,1440]) test(`Kyoto shared header menu reaches the portal at ${width}px`,async({page})=>{
+ await page.setViewportSize({width,height:900});
+ await page.goto('/kyoto/?view=mayor');
+ await expect(page.locator('[data-policy-card]')).toHaveCount(14);
+ const header=page.locator('header').first();
+ await expect(header).toBeVisible();
+ const city=header.getByRole('button',{name:'京都市',exact:true}).filter({visible:true});
+ await expect(city).toBeInViewport();
+ await city.click();
+ const portal=page.getByRole('button',{name:'← 総合ポータルへ戻る',exact:true}).filter({visible:true});
+ await expect(portal).toBeVisible();
+ await expect(portal).toBeInViewport();
+ expect(await portal.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
+ await portal.click();
+ await expect(page).toHaveURL(/\/$/);
+ await expect(page.locator('.kyoto-policy-ui')).toHaveCount(0);
+});
 test('Kyoto overview keeps four fields, safe sources and unchanged figures in totals',async({page})=>{
  await page.goto('/kyoto/?view=mayor');
  const ui=page.locator('.kyoto-policy-ui');
@@ -36,8 +53,8 @@ test('mayor identity and five-stage reference remain distinct from verified achi
  await expect(cards.locator('[data-stage]')).toHaveCount(70);
  for(const p of data.pledges){
   const card=page.locator(`[data-policy-card="${p.id}"]`);
-  await expect(card).toContainText(`旧登録の参考段階：${p.stage_level}`);
-  await expect(card).toContainText('到達認定は別');
+  await expect(card).toContainText(`根拠を確認している段階：${p.stage_level}`);
+  await expect(card).toContainText('政策との対応を確認中');
  }
  await expect(page.locator('[data-policy-card="P-01"] [data-stage="3"]')).toContainText('予算案のみ');
  await expect(page.locator('[data-policy-card="P-02"] [data-stage="4"]')).toHaveAttribute('data-stage-state','hold');
