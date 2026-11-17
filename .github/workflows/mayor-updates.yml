@@ -1,7 +1,7 @@
 name: Mayor update engine (offline)
 on:
   pull_request:
-    branches: [main]
+    branches: [main, codex/issue88-evidence-handoff]
     paths:
       - 'data-pipeline/mayor_updates/**'
       - 'data-pipeline/tests/test_*mayor*.py'
@@ -35,6 +35,7 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_periodic_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_source_registry_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_evidence_handoff.py'
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_automatic_review.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_pdf_mayor.py'
       - name: Test explicit city scope without network
         run: |
