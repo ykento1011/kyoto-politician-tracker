@@ -2,6 +2,7 @@
 import copy
 from datetime import datetime
 import json
+import os
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -11,7 +12,35 @@ from mayor_updates.projection import Hold
 
 
 class PeriodicTests(unittest.TestCase):
-    setUp = fixtures.ContinuousTests.setUp
+    def setUp(self):
+        fixtures.ContinuousTests.setUp(self)
+        self.bridge.store.read_index = lambda: copy.deepcopy(self.bridge.index)
+
+    def test_acquisition_refreshes_cached_index_from_separate_store(self):
+        self.cycle('2026-11-23', callback=lambda *_: {'stopped':False,'new_get_requests':3})
+        stale = copy.deepcopy(self.bridge.index)
+        self.bridge.save(self.sources[2], 'worker-saved-new-version')
+        fresh = copy.deepcopy(self.bridge.index)
+        self.bridge.index = stale
+        self.bridge.store.read_index = lambda: copy.deepcopy(fresh)
+        changed = self.cycle('2026-11-30', callback=lambda *_: {'stopped':False,'new_get_requests':3})
+        self.assertEqual(changed['new_review_count'], 1)
+        pointer = json.loads((self.state/'state.json').read_text(encoding='utf-8'))
+        self.assertEqual(pointer['monitor']['documents'][self.sources[2]['url']]['sha256'],
+                         fresh['documents'][self.sources[2]['url']]['versions'][-1]['sha256'])
+
+    def test_new_directories_are_private_under_standard_umask(self):
+        previous = os.umask(0o022)
+        try:
+            self.cycle('2026-11-23', callback=lambda *_: {'stopped':False,'new_get_requests':3})
+        finally:
+            os.umask(previous)
+        for path in (self.state/'cycles', self.state/'outbox', self.state/'cycles/2026-11-23',
+                     self.state/'cycles/2026-11-23/acquisition'):
+            if os.name == 'posix':
+                self.assertEqual(path.stat().st_mode & 0o777, 0o700)
+            else:
+                self.assertTrue(path.is_dir())  # Real Windows ACL requires private integration.
 
     def cycle(self, day, *, callback=None, hour=9):
         return periodic.execute(self.bridge, self.config, self.baseline, [], self.state,

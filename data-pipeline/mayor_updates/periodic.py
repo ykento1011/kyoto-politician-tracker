@@ -71,11 +71,11 @@ def execute(bridge, config, baseline, rules, state_root, *, now, base_revision,
             child = root/name
             if child.is_symlink() or (child.exists() and child.resolve().parent != root):
                 raise Hold('Private state redirection refused')
-            child.mkdir(exist_ok=True)
+            child.mkdir(mode=0o700, exist_ok=True)
             weekly.assert_owner_only(child)
         output = root/'cycles'/timing['cycle_key']
         try:
-            output.mkdir()  # Persistent reservation before any possible GET; never cleared.
+            output.mkdir(mode=0o700)  # Persistent reservation before GET; never cleared.
         except FileExistsError as exc:
             raise Hold('Week already reserved; no automatic retry') from exc
         weekly.assert_owner_only(output)
@@ -88,8 +88,11 @@ def execute(bridge, config, baseline, rules, state_root, *, now, base_revision,
         try:
             bridge.store.verify_integrity()
             if acquisition is not None:
-                acq = output/'acquisition'; acq.mkdir(); weekly.assert_owner_only(acq)
+                acq = output/'acquisition'; acq.mkdir(mode=0o700); weekly.assert_owner_only(acq)
                 acquired = acquisition(sources, acq)
+                # P1Bridge caches its index; worker processes append to the store.
+                bridge.store.verify_integrity()
+                bridge.index = bridge.store.read_index()
             result, _ = run_trial(bridge, config, baseline, rules, output,
                 previous=prior.get('monitor'), base_revision=base_revision,
                 acquisition=acquired, seen_reviews=prior.get('seen_reviews', {}),
