@@ -23,7 +23,12 @@ try {
   for(const text of ['約1億9,000万円','1億2,400万円','印刷p.188','物理16','2026-11-05',
     '令和10年度中','新たな開始時期は未定','整備工事が一時停止','過去の契約・実施記録',
     'これまでの到達段階','従来の集計値は元データと履歴に保持']) assert.ok(markup.includes(text),text);
-  for(const text of ['財源内訳：','4,000万円','7,000万円','1,400万円','data-budget-relation="direct"']) assert.ok(!markup.includes(text),text);
+  // The reviewed project proposal also happens to be 7,000万円; it is not the
+  // unverified funding breakdown that must remain hidden in registered budgets.
+  const registeredMarkup=markup.replace(/<article[^>]*data-source-fact="budget_proposal"[\s\S]*?<\/article>/g,'');
+  for(const text of ['財源内訳：','4,000万円','7,000万円','1,400万円','data-budget-relation="direct"']) assert.ok(!registeredMarkup.includes(text),text);
+  assert.ok(markup.includes('7,000万円（70,000千円）'));
+  assert.ok(markup.includes('給食センター整備の直接予算とは認定していません'));
   assert.ok(markup.includes(policy.milestone.title));
   assert.ok(markup.includes(policy.latest_update.source_url));
   for(const record of policy.budget_records) assert.ok(markup.includes(record.doc_url));
