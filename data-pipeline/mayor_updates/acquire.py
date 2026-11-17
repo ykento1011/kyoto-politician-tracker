@@ -17,7 +17,7 @@ from urllib.parse import urlsplit
 from .engine import PrivateOutput
 from .projection import Hold
 from .p1_bridge import P1Bridge
-from .city_scope import validate_selection, validate_storage, reserve_request, signature
+from .city_scope import validate_selection, validate_storage, reserve_request, signature, is_kyoto_wave1
 
 
 def utc():
@@ -101,6 +101,8 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
     if not authorized:
         raise Hold('Explicit one-shot acquisition authorization required')
     validate_sources(sources,media_type=media_type,scope=scope)
+    if scope is not None and is_kyoto_wave1(scope) and sources != scope['sources']:
+        raise Hold('Kyoto wave1 parent must process P-04 then P-14 together')
     if scope is not None:
         validate_storage(scope,storage,snapshot_root,output)
         assert_owner_only(storage["state_root"])
@@ -164,7 +166,14 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
                 body=bridge.store.snapshot_bytes(sha)
                 if hashlib.sha256(body).hexdigest()!=sha or len(body)>source['max_bytes']:
                     raise Hold('Readback integrity/size mismatch')
+                if scope is not None and is_kyoto_wave1(scope) and (
+                        version.get('document_id') != source['document_id'] or not body.startswith(b'%PDF-')):
+                    raise Hold('Kyoto wave1 saved PDF identity mismatch')
                 receipt.update(sha256=sha,stored_bytes=len(body),readback_pass=True)
+            except Hold as exc:
+                if scope is None or not is_kyoto_wave1(scope):
+                    raise
+                receipt.update(status='readback_stop',detail=str(exc),stop=True)
             except (ValueError,OSError) as exc:
                 receipt.update(status='readback_stop',detail=str(exc),stop=True)
         receipts.append(receipt)

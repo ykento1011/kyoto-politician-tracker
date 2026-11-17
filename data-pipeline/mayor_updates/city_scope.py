@@ -1,10 +1,77 @@
 """Explicit fixed-source city trial scope; no transport, CAS or publication."""
 import hashlib
 import json
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
 from .projection import Hold
 from .engine import PrivateOutput
+
+KYOTO_WAVE1 = 'kyoto_p04_p14_r7_pdfs'
+KYOTO_INDEX_URL = 'https://www.city.kyoto.lg.jp/gyozai/page/0000335933.html'
+KYOTO_INDEX_SHA = 'be45c0421b1ca127853416f420991cd8d288841fb46ce6e76f0bc601860180bd'
+KYOTO_WAVE1_DOCS = (
+    ('P-04', '07_kouhou_kowaka.pdf', 119),
+    ('P-14', '06_kouhou_hohuku.pdf', 118),
+)
+
+def is_kyoto_wave1(scope):
+    return scope.get('profile') == KYOTO_WAVE1
+
+def validate_wave1_contract(scope):
+    if (scope['city_code'] != 'kyoto' or scope['policy_ids'] != ['P-04', 'P-14'] or
+            scope['max_requests'] != 2 or scope['max_requests_by_media'] != {'html': 0, 'pdf': 2} or
+            scope['max_total_bytes'] != 4194304 or len(scope['sources']) != 2 or
+            scope.get('index_sha256') != KYOTO_INDEX_SHA):
+        raise Hold('Invalid fixed Kyoto wave1 contract')
+    for row, (policy, filename, anchor) in zip(scope['sources'], KYOTO_WAVE1_DOCS):
+        url = 'https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/' + filename
+        expected = dict(id='kyoto-r7-' + policy.lower(), url=url, policy_ids=[policy],
+                        fiscal_year=2025, media_type='pdf', document_kind='other_official',
+                        max_bytes=2097152, index_url=KYOTO_INDEX_URL, index_anchor=anchor,
+                        document_id='kyoto-doc-' + hashlib.sha256(url.encode()).hexdigest()[:24])
+        if any(row.get(k) != v for k, v in expected.items()):
+            raise Hold('Kyoto wave1 URL/policy/year/document identity mismatch')
+
+class _IndexLinks(HTMLParser):
+    def __init__(self):
+        super().__init__(); self.depth = 0; self.links = []
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == 'div' and (self.depth or attrs.get('id') == 'mol_contents'):
+            self.depth += 1
+        if self.depth and tag == 'a':
+            self.links.append(attrs.get('href'))
+    def handle_endtag(self, tag):
+        if tag == 'div' and self.depth:
+            self.depth -= 1
+
+def validate_wave1_index(snapshot_root):
+    """Read only: require the pinned original and its existing CAS record."""
+    root = Path(snapshot_root).resolve(strict=True)
+    sha = KYOTO_INDEX_SHA
+    relative = 'objects/' + sha[:2] + '/' + sha + '.bin'
+    try:
+        index = json.loads((root/'index.json').read_text(encoding='utf-8'))
+        records = [v['record'] for v in index['documents'][KYOTO_INDEX_URL]['versions']
+                   if v['sha256'] == sha]
+        if len(records) != 1:
+            raise ValueError('Expected one pinned index version')
+        rec = records[0]
+        expected = dict(city_code='kyoto', source_url=KYOTO_INDEX_URL, final_url=KYOTO_INDEX_URL,
+                        sha256=sha, version_id=sha, fiscal_year=2025, mime_type='text/html',
+                        snapshot_relative_path=relative)
+        if any(rec.get(k) != v for k, v in expected.items()):
+            raise ValueError('Index record mismatch')
+        body = (root/relative).read_bytes()
+        if hashlib.sha256(body).hexdigest() != sha:
+            raise ValueError('Index original SHA mismatch')
+        parser = _IndexLinks(); parser.feed(body.decode('utf-8'))
+        for _, filename, anchor in KYOTO_WAVE1_DOCS:
+            if parser.links[anchor-1] != './cmsfiles/contents/0000335/335933/' + filename:
+                raise ValueError('Index anchor mismatch')
+    except (OSError, ValueError, KeyError, IndexError, TypeError) as exc:
+        raise Hold('Saved Kyoto wave1 index verification failed') from exc
 
 def signature(value):
     return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
@@ -33,7 +100,9 @@ def validate_scope(scope):
     if any(scope.get(k)!=v for k,v in dict(timeout_seconds=10,redirects=0,retries=0,tls_verify=True).items()):
         raise Hold('City trial communication safeguards changed')
     rows=scope['sources']; caps=scope['max_requests_by_media']
-    if (not rows or len(rows)>scope['max_requests'] or scope['max_requests']>2 or
+    if is_kyoto_wave1(scope):
+        validate_wave1_contract(scope)
+    elif (not rows or len(rows)>scope['max_requests'] or scope['max_requests']>2 or
             caps!={'html':1,'pdf':1} or scope['max_total_bytes']!=4194304):
         raise Hold('Initial city trial is limited to one HTML and one PDF')
     seen=set(); ids=set()
@@ -45,7 +114,7 @@ def validate_scope(scope):
                 s['document_kind'] not in {'budget_index','other_official'} or
                 not s['policy_ids'] or not set(s['policy_ids'])<=set(scope['policy_ids'])):
             raise Hold('Invalid city fixed document')
-        if s.get('index_url') and s['index_url'] not in [r['url'] for r in rows if r['media_type']=='html']:
+        if not is_kyoto_wave1(scope) and s.get('index_url') and s['index_url'] not in [r['url'] for r in rows if r['media_type']=='html']:
             raise Hold('Index provenance must be a fixed HTML source in this scope')
         seen.add(s['url']);ids.add(s['id'])
     if any(sum(s['media_type']==m for s in rows)>cap for m,cap in caps.items()) or sum(s['max_bytes'] for s in rows)>scope['max_total_bytes']:
@@ -63,7 +132,8 @@ def validate_selection(scope,sources,media_type):
 def validate_storage(scope,storage,snapshot_root,output):
     validate_scope(scope)
     root=PrivateOutput(storage['private_root']).root
-    binding_path=root/'city_binding.json'
+    # A separate immutable binding leaves every existing city_binding.json intact.
+    binding_path=root/('kyoto_p04_p14_binding.json' if is_kyoto_wave1(scope) else 'city_binding.json')
     if hashlib.sha256(binding_path.read_bytes()).hexdigest()!=storage['binding_sha256']:
         raise Hold('Private city binding SHA mismatch')
     binding=json.loads(binding_path.read_text(encoding='utf-8'))
@@ -73,6 +143,10 @@ def validate_storage(scope,storage,snapshot_root,output):
             cas==state or cas in state.parents or state in cas.parents or
             root not in cas.parents or root not in state.parents or state not in out.parents):
         raise Hold('Private city/CAS/state scope mismatch')
+    if is_kyoto_wave1(scope):
+        if not cas.is_dir() or not state.is_dir() or binding.get('index_sha256') != KYOTO_INDEX_SHA:
+            raise Hold('Existing Kyoto CAS/state and pinned index binding required')
+        validate_wave1_index(cas)
     return state
 
 def reserve_request(scope,storage,source):

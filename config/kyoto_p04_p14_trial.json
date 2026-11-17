@@ -1,0 +1,56 @@
+{
+  "profile": "kyoto_p04_p14_r7_pdfs",
+  "city_code": "kyoto",
+  "enabled": false,
+  "network_enabled": false,
+  "allowed_hosts": [
+    "www.city.kyoto.lg.jp"
+  ],
+  "policy_ids": [
+    "P-04",
+    "P-14"
+  ],
+  "max_requests": 2,
+  "max_total_bytes": 4194304,
+  "max_requests_by_media": {
+    "html": 0,
+    "pdf": 2
+  },
+  "timeout_seconds": 10,
+  "redirects": 0,
+  "retries": 0,
+  "tls_verify": true,
+  "index_sha256": "be45c0421b1ca127853416f420991cd8d288841fb46ce6e76f0bc601860180bd",
+  "sources": [
+    {
+      "id": "kyoto-r7-p-04",
+      "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/07_kouhou_kowaka.pdf",
+      "title": "令和7年度当初予算案 子ども若者はぐくみ局",
+      "policy_ids": [
+        "P-04"
+      ],
+      "fiscal_year": 2025,
+      "media_type": "pdf",
+      "document_kind": "other_official",
+      "max_bytes": 2097152,
+      "index_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000335933.html",
+      "index_anchor": 119,
+      "document_id": "kyoto-doc-fb901e26a4cbcceb9612052a"
+    },
+    {
+      "id": "kyoto-r7-p-14",
+      "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/06_kouhou_hohuku.pdf",
+      "title": "令和7年度当初予算案 保健福祉局",
+      "policy_ids": [
+        "P-14"
+      ],
+      "fiscal_year": 2025,
+      "media_type": "pdf",
+      "document_kind": "other_official",
+      "max_bytes": 2097152,
+      "index_url": "https://www.city.kyoto.lg.jp/gyozai/page/0000335933.html",
+      "index_anchor": 118,
+      "document_id": "kyoto-doc-1be228e3df9465a97d689f59"
+    }
+  ]
+}
