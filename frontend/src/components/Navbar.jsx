@@ -68,7 +68,7 @@ export default function Navbar({
     <>
       {/* メインヘッダー: select-noneとbackdrop-blurを排除して確実にタップを感知 */}
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-xs">
-        <div className="max-w-6xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 min-h-14 sm:min-h-16 flex flex-wrap items-center justify-between gap-2 max-[360px]:px-1 max-[360px]:gap-0">
           
           {/* ロゴ */}
           <button
@@ -77,7 +77,7 @@ export default function Navbar({
               closeAll();
               onLogoClick();
             }}
-            className="flex items-center gap-2 text-left cursor-pointer focus:outline-none shrink-0"
+            className="flex items-center gap-2 max-[360px]:gap-1 text-left cursor-pointer focus:outline-none shrink-0"
           >
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-sm shrink-0">
               <Landmark className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -93,7 +93,7 @@ export default function Navbar({
           </button>
 
           {/* PC用ナビゲーション (640px 以上) */}
-          <nav className="hidden sm:flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <nav className="hidden sm:flex flex-wrap max-w-full items-center gap-1.5 sm:gap-2">
             {/* PC 都市選択 */}
             <div className="relative mr-1" ref={desktopDropdownRef}>
               <button
@@ -190,7 +190,7 @@ export default function Navbar({
           </nav>
 
           {/* モバイル用ナビゲーション (640px 未満) */}
-          <div className="flex sm:hidden items-center gap-2 shrink-0">
+          <div className="flex sm:hidden flex-wrap max-w-full items-center gap-2 max-[360px]:gap-1">
             {/* モバイル都市選択ボタン */}
             <button
               type="button"
@@ -198,7 +198,7 @@ export default function Navbar({
                 setIsMobileMenuOpen(false);
                 setIsCityDropdownOpen(!isCityDropdownOpen);
               }}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-800 active:bg-slate-200 cursor-pointer"
+              className="flex items-center gap-1 px-2.5 max-[360px]:px-1 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-800 active:bg-slate-200 cursor-pointer"
             >
               <span>{CITIES[cityCode]?.label || '都市'}</span>
               <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
@@ -211,7 +211,7 @@ export default function Navbar({
                 closeAll();
                 onOpenMayor();
               }}
-              className="flex items-center gap-1 min-h-[44px] px-3 py-2 rounded-lg text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 active:bg-indigo-100 cursor-pointer shrink-0"
+              className="flex items-center gap-1 min-h-[44px] px-3 max-[360px]:px-1 py-2 rounded-lg text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 active:bg-indigo-100 cursor-pointer shrink-0"
             >
               <Landmark className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
               <span>政策進捗</span>
