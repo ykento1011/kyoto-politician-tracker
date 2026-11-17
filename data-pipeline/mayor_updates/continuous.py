@@ -7,6 +7,7 @@ import argparse
 from datetime import date, datetime, timezone
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import uuid
@@ -62,6 +63,8 @@ def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_
             if load(binding) != identity:
                 raise Hold('State belongs to another city/source series')
         else:
+            if any(p.name != 'weekly.lock' for p in root.iterdir()):
+                raise Hold('First cycle requires an empty isolated state, not existing weekly state')
             PrivateOutput(root).json(binding.name, identity)
         cycles = root / 'cycles'; cycles.mkdir(exist_ok=True)
         output = cycles / cycle_key
@@ -127,6 +130,14 @@ def review_decision(state_root, review_key, decision, reviewer, reason):
         return payload
 
 
+def configure_shell(runtime):
+    if os.name == 'nt':
+        shell = Path(runtime['powershell_exe']).resolve(strict=True)
+        if shell.name.lower() != 'pwsh.exe' or not shell.is_file():
+            raise Hold('PowerShell runtime must be explicit')
+        os.environ['MAYOR_PWSH_EXE'] = str(shell)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--runtime', required=True)
@@ -135,6 +146,7 @@ def main():
     runtime = load(args.runtime)
     if runtime.get('network_enabled') is not False:
         raise Hold('This entry is offline only')
+    configure_shell(runtime)
     weekly.assert_owner_only(args.runtime)
     if not any(Path(s['path']).resolve()==Path(__file__).resolve() for s in runtime['code_files']):
         raise Hold('Executing continuous entry must be pinned')

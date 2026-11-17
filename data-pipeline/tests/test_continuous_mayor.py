@@ -95,4 +95,20 @@ class ContinuousTests(unittest.TestCase):
         with self.assertRaises(Hold):loop.review_decision(self.state,key,'approved','TEST','approve')
         with self.assertRaises(Hold):loop.review_decision(self.state,'unknown','hold','TEST','reason')
 
+    def test_existing_unbound_weekly_state_is_never_adopted(self):
+        pointer=self.state/'state.json';pointer.write_text('{"existing":"weekly"}')
+        before=pointer.read_bytes()
+        with self.assertRaises(Hold):self.run_cycle(17)
+        self.assertEqual(pointer.read_bytes(),before)
+        self.assertEqual([p.name for p in self.state.iterdir()],['state.json'])
+
+    def test_windows_runtime_shell_is_set_before_acl(self):
+        shell=self.root/'pwsh.exe';shell.write_bytes(b'TEST fixture; not executable')
+        env={}
+        with patch.object(loop,'os',SimpleNamespace(name='nt',environ=env)):
+            loop.configure_shell({'powershell_exe':str(shell)})
+            self.assertEqual(env['MAYOR_PWSH_EXE'],str(shell.resolve()))
+            wrong=self.root/'other.exe';wrong.write_bytes(b'fixture')
+            with self.assertRaises(Hold):loop.configure_shell({'powershell_exe':str(wrong)})
+
 if __name__=='__main__':unittest.main()
