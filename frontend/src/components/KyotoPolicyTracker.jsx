@@ -3,7 +3,7 @@ import BudgetEvidence from './BudgetEvidence';
 import ProgressEvidence from './ProgressEvidence';
 import PolicyEvidenceHold, {hasProgressReview} from './PolicyEvidenceHold';
 import ReportIssueButton from './ReportIssueButton';
-import {officialKyotoUrl, policyPresentation, policyRouteHref, readPolicyRoute, sourceMedia} from './kyotoPolicyPresentation';
+import {officialKyotoUrl, policyPresentation, policyProgress, PROGRESS_STATES, policyRouteHref, readPolicyRoute, sourceMedia} from './kyotoPolicyPresentation';
 import './KyotoPolicyTracker.css';
 
 function SourceLink({url, children, primary = false, broken = false}) {
@@ -23,8 +23,39 @@ function PolicyIntro({pledge, detail = false}) {
     <Heading>{view.title}</Heading>
     <p className="kp-status">{view.status}</p>
     <p className="kp-warning" data-important-uncertainty>{view.warning}</p>
+    <PolicyProgress pledge={pledge} />
     {detail && view.source && <SourceLink primary url={view.source.url}>{view.source.label}</SourceLink>}
   </>;
+}
+
+function MayorProfile({mayor = {}}) {
+  const [photo,setPhoto]=useState(mayor.profile_image || mayor.fallback_image);
+  useEffect(()=>setPhoto(mayor.profile_image || mayor.fallback_image),[mayor.profile_image,mayor.fallback_image]);
+  return <div className="kp-mayor" aria-label="市長プロフィール">
+    {photo ? <img src={photo} alt={`${mayor.name || '京都市長'}の顔写真`} width="112" height="112"
+      onError={()=>setPhoto(photo!==mayor.fallback_image ? mayor.fallback_image : null)} />
+      : <span className="kp-photo-fallback">写真は表示できません</span>}
+    <div><p className="kp-muted">{mayor.title}</p><p className="kp-mayor-name">{mayor.name}</p><p>任期：{mayor.term}</p></div>
+  </div>;
+}
+
+function PolicyProgress({pledge, expanded = false}) {
+  const progress=policyProgress(pledge);
+  return <div className={'kp-progress'+(expanded?' kp-progress-expanded':'')} data-policy-progress={pledge.id}>
+    {!expanded && <p className="kp-reference">旧登録の参考段階：{progress.reference ? `${progress.reference} ${progress.referenceLabel}` : progress.referenceLabel}</p>}
+    {!expanded && <ol className="kp-steps" aria-label="5段階の進捗と確認状況">
+      {progress.steps.map(step=><li key={step.number} className={`kp-step kp-step-${step.state}`} data-stage={step.number} data-stage-state={step.state}>
+        <span className="kp-step-number">{step.number}</span><span className="kp-step-title">{step.label}</span>
+        <span className="kp-step-state"><span aria-hidden="true">{PROGRESS_STATES[step.state].symbol} </span>{step.short || PROGRESS_STATES[step.state].compact || PROGRESS_STATES[step.state].label}</span>
+      </li>)}
+    </ol>}
+    {!expanded && <p className="kp-progress-note">◇は資料の範囲で確認済み。破線は旧登録の参考。段階への到達認定は別です。</p>}
+    {expanded && <ol className="kp-step-explanations">{progress.steps.map(step=><li key={step.number}>
+      <h3>{step.number} {step.label}</h3>
+      <p className={`kp-state-tag kp-step-${step.state}`}><span aria-hidden="true">{PROGRESS_STATES[step.state].symbol} </span>{PROGRESS_STATES[step.state].label}{step.short && `：${step.short}`}</p>
+      <p>{step.note}</p><p className="kp-muted">段階の意味：{step.meaning}</p>
+    </li>)}</ol>}
+  </div>;
 }
 
 function RegisteredHistory({pledge: p}) {
@@ -69,6 +100,10 @@ function SourceWithReport({url, title, broken, pledge, mayor}) {
 export function KyotoPolicyDetail({pledge: p, mayorInfo}) {
   return <>
     <section className="kp-card" aria-label={`${p.id} 現況`}><PolicyIntro pledge={p} detail /></section>
+    <section className="kp-block" aria-labelledby="progress-heading"><h2 id="progress-heading">5段階の意味と確認状況</h2>
+      <p>資料確認済みは、その資料が示す範囲だけの確認です。前後の段階の達成を推測しません。</p>
+      <PolicyProgress pledge={p} expanded />
+    </section>
     <details><summary>元の公約名・分野</summary><p>{p.headline}</p><p>{p.category}</p></details>
     <nav className="kp-links kp-navigation" aria-label="詳細内の移動">
       <a className="kp-button" href="#policy-budget">予算</a>
@@ -234,7 +269,7 @@ export default function KyotoPolicyTracker({data, onBack, initialSearch}) {
         <a className="kp-button kp-navigation" href={href({policy:'',section:''})} onClick={back}>← 政策一覧へ</a>
       </> : <>
         <button className="kp-home kp-navigation" onClick={onBack}>← トップへ戻る</button>
-        <header className="kp-header"><h1>京都市長政策</h1><p>公式資料から政策の現在地を確認できます。</p><p className="kp-muted">{data.mayor_info?.name} 市長 ／ 掲載 {pledges.length}件</p></header>
+        <header className="kp-header"><MayorProfile mayor={data.mayor_info}/><div><h1>京都市長政策</h1><p>公式資料から政策の現在地を確認できます。</p><p className="kp-muted">掲載 {pledges.length}件</p></div></header>
         <div className="kp-toolbar">
           <div className="kp-field"><label htmlFor="policy-query">政策名で探す</label><input id="policy-query" type="search" value={route.query} onChange={e=>filter({query:e.target.value})} placeholder="公約名・施策を検索" /></div>
           <div className="kp-field"><label htmlFor="policy-category">分野</label><select id="policy-category" value={route.category} onChange={e=>filter({category:e.target.value})}>

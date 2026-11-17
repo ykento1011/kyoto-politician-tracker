@@ -64,3 +64,43 @@ export function policyRouteHref(route, search = '') {
   }
   return '?' + q.toString();
 }
+
+const STAGES = [
+  ['公約表明', '選挙公報などに記載された公約。実現したことを示す段階ではありません。'],
+  ['市公式確定計画', '市の公式計画への位置付け。計画の確定と当該公約との対応を確認します。'],
+  ['予算措置', '当該施策への予算措置。予算案の記載と議決済み予算は区別します。'],
+  ['条例提出・可決', '条例等の議案の提出・議決。議案の同一性と審議結果をそれぞれ確認します。'],
+  ['成立・執行', '制度の施行・事業の実施。関連する別施策や過去の実績とは区別します。'],
+];
+export const PROGRESS_STATES = {
+  confirmed: {symbol:'◇', label:'資料確認済み'},
+  legacy: {symbol:'○', label:'旧登録・参考', compact:'参考'},
+  hold: {symbol:'?', label:'確認中・保留', compact:'保留'},
+  paused: {symbol:'Ⅱ', label:'停止中'},
+  unverified: {symbol:'・', label:'未確認'},
+};
+
+// stage_level is only a historical reference, never a completion/verification
+// count. The few evidence-scoped descriptions reuse accepted presentation gates.
+export function policyProgress(p) {
+  const reference = Number.isInteger(p.stage_level) && p.stage_level >= 1 && p.stage_level <= 5 ? p.stage_level : null;
+  const steps = STAGES.map(([label, meaning], i)=>({number:i+1, label, meaning,
+    state:reference && i<reference ? 'legacy' : 'unverified',
+    note:reference && i<reference ? '旧登録の参考範囲です。この段階への到達を原典で認定していません。' : '到達を確認できていません。未実施と断定するものではありません。'}));
+  const view = policyPresentation(p);
+  if (p.id==='P-01' && p.progress_evidence?.status==='preparation') {
+    if(view.source) Object.assign(steps[2],{state:'confirmed', short:'予算案のみ',
+      note:'確認済みなのは導入準備の予算案への記載です。予算議決・制度の試験運用・実施は未確認です。'});
+    Object.assign(steps[3],{state:'hold',note:'旧登録議案の同一性は保留中です。条例可決の実績として扱いません。'});
+  }
+  if(p.id==='P-02' && p.progress_evidence?.status==='hold') {
+    if(view.source) Object.assign(steps[0],{state:'confirmed',short:'公約原文',note:'公約原文の資料を確認できます。条例可決の証拠ではありません。'});
+    Object.assign(steps[3],{state:'hold',note:'旧登録は④ですが、議案の同一性は保留中です。条例可決を達成済みと認定していません。'});
+  }
+  if(p.id==='P-03' && p.latest_update?.kind==='construction_paused' && view.source) {
+    Object.assign(steps[3],{note:'旧登録④は過去契約の履歴です。現在の工事進行や制度開始を示しません。'});
+    Object.assign(steps[4],{state:'paused',note:'2026-11-05の発表では工事一時停止、令和10年度中の開始不可、開始時期未定です。⑤への到達認定ではありません。'});
+  }
+  const historicalContract = p.id==='P-03' && reference===4 && steps[4].state==='paused';
+  return {reference, referenceLabel:historicalContract ? '過去契約の履歴' : reference ? STAGES[reference-1][0] : '段階未登録', steps};
+}

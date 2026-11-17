@@ -14,11 +14,36 @@ const server=await createServer({root,configFile:false,envDir:false,publicDir:fa
 try {
  const {default:View,LegacyMayorTrackerView:Legacy}=await server.ssrLoadModule('/src/components/MayorTrackerView.jsx');
  const {KyotoPolicyDetail:Detail,KyotoPolicyTotals:Totals}=await server.ssrLoadModule('/src/components/KyotoPolicyTracker.jsx');
- const {policyPresentation,officialKyotoUrl,readPolicyRoute,policyRouteHref}=await server.ssrLoadModule('/src/components/kyotoPolicyPresentation.js');
+ const {policyPresentation,policyProgress,officialKyotoUrl,readPolicyRoute,policyRouteHref}=await server.ssrLoadModule('/src/components/kyotoPolicyPresentation.js');
  const render=(Component,props)=>renderToStaticMarkup(React.createElement(Component,props));
  const list=render(View,{data,cityCode:'kyoto'});
  assert.equal((list.match(/data-policy-card=/g)||[]).length,14);
  assert.equal((list.match(/data-important-uncertainty/g)||[]).length,14);
+ assert.ok(list.includes('src="/councilors/kyoto/matsui_koji.jpg"'));
+ for(const value of [data.mayor_info.name,data.mayor_info.title,data.mayor_info.term]) assert.ok(list.includes(value));
+ assert.equal((list.match(/data-policy-progress=/g)||[]).length,14);
+ assert.equal((list.match(/data-stage=/g)||[]).length,70);
+ const progress=data.pledges.map(policyProgress);
+ assert.deepEqual(progress[0].steps.map(s=>s.state),['legacy','legacy','confirmed','hold','unverified']);
+ assert.equal(progress[0].steps[2].short,'予算案のみ');
+ assert.ok(progress[0].steps[2].note.includes('予算議決'));
+ assert.equal(progress[1].steps[3].state,'hold');
+ assert.equal(progress[2].steps[3].state,'legacy');
+ assert.equal(progress[2].steps[4].state,'paused');
+ for(let i=3;i<14;i++) assert.ok(progress[i].steps.every(s=>['legacy','unverified'].includes(s.state)));
+ // A registration, even stage 5, cannot promote evidence into verified success.
+ for(const stage_level of [1,2,3,4,5,0,6,null,'4']) {
+   const state=policyProgress({id:'P-99',headline:'Unreviewed',stage_level});
+   assert.ok(state.steps.every(s=>['legacy','unverified'].includes(s.state)));
+   assert.equal(state.reference,Number.isInteger(stage_level)&&stage_level>=1&&stage_level<=5?stage_level:null);
+ }
+ for(const id of ['P-01','P-02','P-03']) {
+   const badSource=structuredClone(data.pledges.find(p=>p.id===id));
+   if(id==='P-01') badSource.budget_records.forEach(r=>r.is_broken=true);
+   if(id==='P-02') badSource.election_promise.is_broken=true;
+   if(id==='P-03') badSource.latest_update.source_url='https://example.com/changed';
+   assert.ok(policyProgress(badSource).steps.every(s=>s.state!=='confirmed'&&s.state!=='paused'));
+ }
  for(const hidden of ['85.7%','91億1,549万円','2億7,100万円','2億6,900万円','議88','議145','契約可決・着工']) assert.ok(!list.includes(hidden),hidden);
  for(const visible of ['準備予算案を見る','議決根拠を確認中','令和10年度中の開始は不可','2026-11-05','新たな開始時期は未定']) assert.ok(list.includes(visible),visible);
  assert.equal((list.match(/target="_blank"/g)||[]).length,3);
@@ -30,6 +55,7 @@ try {
    const html=render(Detail,{pledge:p,mayorInfo:data.mayor_info});
    records+=(html.match(/data-budget-relation=/g)||[]).length;
    assert.ok(html.includes(p.headline));
+   assert.ok(html.includes('5段階の意味と確認状況'));
    if(p.election_promise?.quote) assert.ok(html.includes(p.election_promise.quote));
    if(p.milestone) assert.ok(html.includes(p.milestone.title));
    if(p.legislative_bill) assert.ok(html.includes(p.legislative_bill.bill_number));

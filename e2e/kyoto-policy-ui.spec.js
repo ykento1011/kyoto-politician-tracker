@@ -23,6 +23,53 @@ test('Kyoto overview keeps four fields, safe sources and unchanged figures in to
  await expect(ui).toContainText('確定済み件数・公約達成率ではありません');
 });
 
+test('mayor identity and five-stage reference remain distinct from verified achievement',async({page})=>{
+ await page.goto('/kyoto/?view=mayor');
+ const profile=page.getByLabel('市長プロフィール',{exact:true});
+ await expect(profile).toContainText(data.mayor_info.name);
+ await expect(profile).toContainText(data.mayor_info.title);
+ await expect(profile).toContainText(data.mayor_info.term);
+ await expect(profile.getByRole('img')).toHaveAttribute('src',data.mayor_info.profile_image);
+ await expect.poll(()=>profile.getByRole('img').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
+ const cards=page.locator('[data-policy-card]');
+ await expect(cards.locator('.kp-steps')).toHaveCount(14);
+ await expect(cards.locator('[data-stage]')).toHaveCount(70);
+ for(const p of data.pledges){
+  const card=page.locator(`[data-policy-card="${p.id}"]`);
+  await expect(card).toContainText(`旧登録の参考段階：${p.stage_level}`);
+  await expect(card).toContainText('到達認定は別');
+ }
+ await expect(page.locator('[data-policy-card="P-01"] [data-stage="3"]')).toContainText('予算案のみ');
+ await expect(page.locator('[data-policy-card="P-02"] [data-stage="4"]')).toHaveAttribute('data-stage-state','hold');
+ await expect(page.locator('[data-policy-card="P-03"] [data-stage="4"]')).toHaveAttribute('data-stage-state','legacy');
+ await expect(page.locator('[data-policy-card="P-03"] [data-stage="5"]')).toContainText('停止中');
+ for(const p of data.pledges.slice(3)) await expect(page.locator(`[data-policy-card="${p.id}"] [data-stage-state="confirmed"]`)).toHaveCount(0);
+ for(const id of ['P-01','P-02','P-03']) {
+  await page.getByRole('link',{name:`${id} 根拠・履歴`,exact:true}).click();
+  await expect(page.getByRole('heading',{name:'5段階の意味と確認状況'})).toBeVisible();
+  await expect(page.locator('.kp-step-explanations > li')).toHaveCount(5);
+  if(id==='P-01') await expect(page.locator('.kp-step-explanations')).toContainText('予算議決・制度の試験運用・実施は未確認');
+  if(id==='P-02') await expect(page.locator('.kp-step-explanations')).toContainText('条例可決を達成済みと認定していません');
+  if(id==='P-03') await expect(page.locator('.kp-step-explanations')).toContainText('⑤への到達認定ではありません');
+  await page.getByRole('link',{name:'← 政策一覧へ',exact:true}).first().click();
+ }
+});
+
+test('mayor photo uses the existing fallback once and retains identity if both fail',async({page})=>{
+ await page.route('**/councilors/kyoto/matsui_koji.jpg',r=>r.abort());
+ await page.goto('/kyoto/?view=mayor');
+ const profile=page.getByLabel('市長プロフィール',{exact:true});
+ await expect(profile.getByRole('img')).toHaveAttribute('src',data.mayor_info.fallback_image);
+ await expect.poll(()=>profile.getByRole('img').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
+ let failures=0;
+ await page.route('**/councilors/kyoto/mayor.jpg',r=>{failures++;return r.abort();});
+ await page.reload();
+ await expect(profile.getByText('写真は表示できません')).toBeVisible();
+ await expect(profile).toContainText(data.mayor_info.name);
+ await expect(profile.getByRole('img')).toHaveCount(0);
+ expect(failures).toBe(1);
+});
+
 test('all policies and 27 budget records remain reachable without external requests',async({page})=>{
  await page.goto('/kyoto/?view=mayor');let count=0;
  for(const p of data.pledges){
