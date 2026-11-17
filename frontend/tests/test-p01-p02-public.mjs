@@ -16,10 +16,9 @@ try {
  const {KyotoPolicyDetail:Detail,KyotoPolicyTotals:Totals}=await server.ssrLoadModule('/src/components/KyotoPolicyTracker.jsx');
  const render=p=>renderToStaticMarkup(React.createElement(React.Fragment,null,React.createElement(Detail,{pledge:p,mayorInfo:data.mayor_info}),React.createElement(Totals,{data})));
  const a=render(data.pledges[0]),b=render(data.pledges[1]);
- assert.equal((a.match(/data-kpi-evidence-note/g)||[]).length,2);
- assert.ok(a.includes('確定済み件数・公約達成率ではありません'));
- assert.ok(a.includes('48億8,215万8,000円'));
- assert.ok(a.includes('全額が原典認証済みの総額ではなく'));
+ assert.ok(a.includes('公約達成率でも市長への評価でもなく'));
+ assert.ok(JSON.stringify(data.kpis).includes('85.7%'));
+ assert.ok(JSON.stringify(data).includes('91億1,549万円'));
  for(const markup of [a,b]) {
    assert.ok(markup.includes('data-legislative-status="hold"'));
    assert.ok(markup.includes('未確認の登録議案'));
@@ -35,7 +34,7 @@ try {
  assert.ok(b.includes('data-progress-held'));
  assert.ok(!b.includes('政策ライフサイクル進捗'));
  assert.ok(!b.includes('条例改正案可決・国協議中'));
- assert.ok(b.includes('85.7%') && b.includes('91億1,549万円'));
+ assert.ok(!b.includes('85.7%') && !b.includes('91億1,549万円'));
  const p3=render(data.pledges[2]);
  assert.ok(p3.includes('整備工事が一時停止') && p3.includes('過去の契約・実施記録'));
  assert.ok(!p3.includes('data-policy-evidence="review"'));

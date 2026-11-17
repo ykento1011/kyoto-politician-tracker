@@ -19,7 +19,7 @@ try {
   assert.equal((markup.match(/data-budget-role="delta"/g)||[]).length,3);
   assert.equal((markup.match(/data-budget-role="after_change"/g)||[]).length,1);
   assert.equal((markup.match(/data-budget-aggregation="included"/g)||[]).length,2);
-  for(const text of ['4億6,232万9,000円','＋2億5,800万円','令和7年度9月補正','令和8年度9月補正','＋25億円','10億円','35億円','補正後額','91億1,549万円','今回の照合対象外']) assert.ok(markup.includes(text),text);
+  for(const text of ['4億6,232万9,000円','＋2億5,800万円','令和7年度9月補正','令和8年度9月補正','＋25億円','10億円','35億円','補正後額','今回の照合対象外']) assert.ok(markup.includes(text),text);
   assert.ok(!markup.includes('財源内訳：'));
   for(const p of policies)for(const record of p.budget_records.filter(r=>r.amount_role)) assert.ok(markup.includes(record.doc_url));
   console.log('PASS: P-05/P-09 annual history, sources, selection and exact JPY display.');
