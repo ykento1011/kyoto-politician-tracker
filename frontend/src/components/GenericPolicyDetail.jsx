@@ -48,7 +48,7 @@ export default function GenericPolicyDetail({pledge:p,mayorInfo,adapter,Progress
         </div>)}
         <p>確認日時・確認者・取得履歴が公開データにない箇所は補完しません。資料が保存されていることだけで政策との対応を確認済みにはしません。</p>
       </details>
-      {p.debate_statements?.length>0 && <details><summary>登録された答弁・出典（政策対応は確認中）</summary>{p.debate_statements.map((s,i)=><div className="kp-source" key={i}><h3>{s.speaker}</h3><p>{s.date} {s.session_name}</p><blockquote>{s.quote_summary}</blockquote><Source url={s.official_url || s.url}>登録答弁の原典</Source></div>)}</details>}
+      {p.debate_statements?.length>0 && <details><summary>登録された答弁・出典（政策対応は確認中）</summary>{p.debate_statements.map((s,i)=><div className="kp-source" key={i}><h3>{s.speaker}</h3><p>{s.date} {s.session_name}</p><blockquote>{s.quote_summary}</blockquote><Source url={s.official_url || s.url}>登録答弁の原典</Source>{(s.official_url || s.url) && <p>登録URL（確認状態とは別）：{s.official_url || s.url}</p>}</div>)}</details>}
     </section>
   </>;
 }

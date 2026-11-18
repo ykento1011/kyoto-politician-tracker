@@ -32,6 +32,11 @@ try {
     assert.ok(html.includes('出典・確認履歴'));
     assert.equal((html.match(/data-budget-relation=/g)||[]).length,p.budget_records?.length || 0);
     if(city==='kobe')assert.ok(!html.includes('準備予算案を見る'));
+    if(city==='kobe')for(const statement of p.debate_statements || []) {
+      const url=statement.official_url || statement.url;
+      if(url)assert.ok(html.includes(url.replaceAll('&','&amp;')),'suppressed debate URL retained as text');
+      if(url && !adapter.officialUrl(url))assert.ok(!html.includes(`href="${url}"`));
+    }
    }
   }
   assert.equal(JSON.stringify(data),before);
