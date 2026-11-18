@@ -159,9 +159,13 @@ if($SelfTest){
     $rows=@(foreach($d in @('Inbound','Outbound')){[pscustomobject]@{Name=$prefix+'-'+$d;Group=$prefix;Direction=$d;Action='Block';Enabled='True';Profile='Any';Program='Any';Service='Any';Protocol='Any';LocalAddress='Any';RemoteAddress='Any';LocalPort='Any';RemotePort='Any';LocalUser='Any';RemoteUser='Any';OverrideBlockRules='False'}})
     if(@(Get-RemovalNames $plan $started $done $release $rows $false $sha $success $doneSha).Count -ne 2){throw 'Positive test failed'}
     $passed=3
-    foreach($case in @('hold','unconfirmed','foreign','duplicate','elapsed','no_ack','different_sha','changed_rule','string_boolean','bad_success','bad_done_sha','missing_success')){
-        $p=$plan|ConvertTo-Json -Depth 10|ConvertFrom-Json;$s=$started|ConvertTo-Json|ConvertFrom-Json;$d=$done|ConvertTo-Json|ConvertFrom-Json;$a=$release|ConvertTo-Json|ConvertFrom-Json;$o=@($rows|ConvertTo-Json|ConvertFrom-Json);$c=$success|ConvertTo-Json|ConvertFrom-Json
-        switch($case){'unconfirmed'{$d.termination_confirmed=$false};'foreign'{$p.added_rules[0].name='foreign'};'duplicate'{$o+= $o[0]};'elapsed'{$d.elapsed_seconds=10};'no_ack'{$a.all_processes_exited=$false};'different_sha'{$s.plan_sha256='c'*64};'changed_rule'{$o[0].Program='other.exe'};'string_boolean'{$d.termination_confirmed='True'};'bad_success'{$c.completion_token='f'*64};'bad_done_sha'{$c.termination_record_sha256='f'*64};'missing_success'{$c=$null}}
+    foreach($case in @('hold','unconfirmed','foreign','duplicate','elapsed','no_ack','different_sha','changed_rule','missing_program','string_boolean','bad_success','bad_done_sha','missing_success')){
+        $p=$plan|ConvertTo-Json -Depth 10|ConvertFrom-Json;$s=$started|ConvertTo-Json|ConvertFrom-Json;$d=$done|ConvertTo-Json|ConvertFrom-Json;$a=$release|ConvertTo-Json|ConvertFrom-Json;$c=$success|ConvertTo-Json|ConvertFrom-Json
+        # PS5.1 emits a JSON array as one array object; clone each row instead.
+        $o=@(foreach($row in $rows){ConvertFrom-Json -InputObject (ConvertTo-Json -InputObject $row -Depth 10)})
+        if($o.Count -ne $rows.Count){throw 'Synthetic row count changed'}
+        foreach($row in $o){if($row -isnot [pscustomobject] -or $null -eq $row.PSObject.Properties['Program']){throw 'Synthetic row shape changed'}}
+        switch($case){'unconfirmed'{$d.termination_confirmed=$false};'foreign'{$p.added_rules[0].name='foreign'};'duplicate'{$o+= $o[0]};'elapsed'{$d.elapsed_seconds=10};'no_ack'{$a.all_processes_exited=$false};'different_sha'{$s.plan_sha256='c'*64};'changed_rule'{$o[0].Program='other.exe'};'missing_program'{$o[0].PSObject.Properties.Remove('Program')};'string_boolean'{$d.termination_confirmed='True'};'bad_success'{$c.completion_token='f'*64};'bad_done_sha'{$c.termination_record_sha256='f'*64};'missing_success'{$c=$null}}
         $blocked=$false
         try{$null=Get-RemovalNames $p $s $d $a $o ($case -eq 'hold') $sha $c $doneSha}catch{$blocked=$true}
         if(-not $blocked){throw ('Negative test failed: '+$case)}
