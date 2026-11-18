@@ -71,7 +71,7 @@ class EquivalenceTests(fixtures.AutomaticTests):
     def test_append_only_index_does_not_carry_source_registration(self):
         self.new_index([(self.url,'proposal'),('https://www.city.kyoto.lg.jp/extra.pdf','extra')])
         history=[p.read_bytes() for p in self.state.glob('event-*')]
-        self.assert_status('UNCHANGED');self.assert_status('UNCHANGED')
+        self.assert_status('HOLD');self.assert_status('HOLD')
         _,rows=self.ledger.state(self.ledger.history())
         row=rows[self.req['candidate_id']]
         self.assertIsNone(row['decision'])
@@ -184,6 +184,43 @@ class EquivalenceTests(fixtures.AutomaticTests):
         self.assertFalse(artifact['publication_authorized'])
         self.cfg.update(comparison_mode=MODE,offline_test_mode=True)
         self.assert_status('HOLD') # Even a valid AUTO rule cannot be used here.
+
+    def test_attachment_boundary_and_approved_exact_addition(self):
+        from mayor_updates.fact_equivalence import addition_proof,list_boundary
+        before=('<html><body><div id="mol_contents"><h3>事業概要</h3>'
+            '<div class="mol_attachfileblock"><p class="mol_attachfileblock_title">予算案</p>'
+            '<ul><li><a href="'+self.url+'">proposal</a></li></ul></div></div>'
+            '<footer>footer</footer></body></html>').encode()
+        addition=b'<li><a href="https://www.city.kyoto.lg.jp/extra.pdf">Other unrelated series</a></li>'
+        pos=list_boundary(before,self.source,self.url)
+        after=before[:pos]+addition+before[pos:]
+        primary=self.root/'primary.txt';primary.write_text('TEST primary: unrelated series, no correction',encoding='utf-8')
+        rule=dict(decision='approve_exact_unrelated_index_addition',
+            binding={k:self.observed[k] for k in ('city','candidate_id','source_url','index_sha256','revision')},
+            insertion_sha256=hashlib.sha256(addition).hexdigest(),source_registration_authorized=False,
+            publication_authorized=False,rule_id='TEST ONLY',version=1,reviewer='TEST ONLY',
+            reviewed_at='TEST ONLY',review_record_id='TEST ONLY',
+            primary_evidence=dict(path=str(primary),sha256=hashlib.sha256(primary.read_bytes()).hexdigest()),
+            primary_quote='TEST primary: unrelated series, no correction',
+            correction_withdrawal_supplement_replacement_excluded=True)
+        context={'proof':{'index_addition_rule':self.pin('addition_rule.json',rule)}}
+        proof=addition_proof(self.ledger,before,after,self.source,self.observed,context)
+        self.assertEqual(proof['insertion_byte_offset'],pos)
+        with self.assertRaises(Hold):addition_proof(self.ledger,before,after,self.source,self.observed,{'proof':{}})
+        for bad in (
+            before.replace(b'</footer>',addition+b'</footer>'),
+            after.replace(b'proposal',b'changed'),
+            before[:pos]+addition.replace(b'extra.pdf',b'test.pdf')+before[pos:],
+            before[:pos]+b'<p>correction</p>'+before[pos:],
+            after.replace(b'<h3>',b'<h4>'),
+        ):
+            with self.subTest(html=bad[:30]):
+                with self.assertRaises(Hold):addition_proof(self.ledger,before,bad,self.source,self.observed,context)
+        for field,value in [('correction_withdrawal_supplement_replacement_excluded',False),
+                            ('review_record_id',None),('primary_quote','not in evidence')]:
+            bad=copy.deepcopy(rule);bad[field]=value
+            ctx={'proof':{'index_addition_rule':self.pin('bad_addition_rule.json',bad)}}
+            with self.assertRaises(Hold):addition_proof(self.ledger,before,after,self.source,self.observed,ctx)
 
 
 for name in dir(fixtures.AutomaticTests):

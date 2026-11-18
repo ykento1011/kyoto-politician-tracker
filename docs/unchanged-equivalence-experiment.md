@@ -1,5 +1,39 @@
 # Offline same-fact continuation experiment
 
+## Attachment-list revision (2026-11-18)
+
+Changed index bytes now require an explicit balanced attachment `ul` boundary,
+not a document ending in `</div>`. A strict HTMLParser stack locates byte spans;
+BeautifulSoup independently identifies the sole target link under
+`#mol_contents > ... div.mol_attachfileblock > ul > li > a`. The original
+prefix/suffix must be byte-identical and only one bare `li/a` may be appended
+immediately before that list's closing tag. Existing adapter listing comparison
+still protects the target text, classification, context, ordinal and href.
+
+Structural independence alone does not authorize continuation. The pinned proof
+must reference an owner-only `index_addition_rule` `{path, sha256}`. That existing
+human-approved rule must contain `decision: approve_exact_unrelated_index_addition`,
+the exact old city/candidate/source URL/index SHA/revision `binding`, the exact
+`insertion_sha256`, rule ID/version/reviewer/time/record ID, and
+`source_registration_authorized: false`, `publication_authorized: false`.
+It must explicitly attest
+`correction_withdrawal_supplement_replacement_excluded: true` and reference
+owner-only pinned `primary_evidence` bytes with a nonempty literal `primary_quote`.
+The caller must supply genuine saved primary evidence and an actual review
+decision; the module creates neither. A hash/quote check cannot independently
+prove the truth of a human decision. Trust remains in the reviewed, operator-pinned
+rule and its primary evidence. Missing or unresolved evidence HOLD.
+
+Real R7/R8 HTML was copied in memory for **boundary-only** checks, without applying
+the new head to the three real facts. Boundaries were found at byte offsets
+41,944 (R7) and 30,625 (R8). Both inserted-link probes HOLD with
+`equivalence_unrelatedness_rule_missing`; no actual approved unrelatedness rule
+exists for these probes. Original bytes remained unchanged. This is a fixture
+mutation, not an observed official revision.
+
+The former document-tail bare-link exception below is superseded by this stricter
+attachment-list contract. Footer edits and unknown/unbalanced markup HOLD.
+
 Stacked on PR #93, commit `7267871d0a8efa9239ef9cb420bd813a89ffa528`.
 This is **not enabled for the three real accepted facts**, acquisition, source
 registration, publication, or scheduled execution. Strict comparison remains the

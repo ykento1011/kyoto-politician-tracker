@@ -6,6 +6,9 @@ from copy import deepcopy
 from hashlib import sha256
 import re
 from urllib.parse import urlsplit
+from urllib.parse import urljoin
+from html.parser import HTMLParser
+from bs4 import BeautifulSoup
 
 from .engine import digest
 from .index_adapter import saved_index, comparison_links
@@ -13,6 +16,95 @@ from .projection import Hold
 from .city_scope import official_host
 
 MODE = 'offline_unchanged_equivalence_v1'
+
+
+def list_boundary(body, source, target):
+    """Locate an explicit, balanced attachment UL in original UTF-8 bytes."""
+    text = body.decode('utf-8')
+    lines = text.splitlines(keepends=True)
+    class Spans(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=False)
+            self.stack=[]; self.spans=[]
+        def byte_position(self):
+            line,col=self.getpos()
+            return len((''.join(lines[:line-1])+lines[line-1][:col]).encode('utf-8'))
+        def handle_starttag(self, tag, attrs):
+            if tag not in {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}:
+                self.stack.append((tag,self.byte_position()))
+        def handle_startendtag(self, tag, attrs):
+            pass
+        def handle_endtag(self, tag):
+            if not self.stack or self.stack[-1][0]!=tag:
+                raise Hold('equivalence_unbalanced_html')
+            opened,start=self.stack.pop()
+            if opened=='ul':self.spans.append((start,self.byte_position()))
+    parser=Spans();parser.feed(text);parser.close()
+    if parser.stack:raise Hold('equivalence_unbalanced_html')
+    soup=BeautifulSoup(text,'html.parser')
+    if len(soup.select(source.get('selector','#mol_contents')))!=1:
+        raise Hold('equivalence_ambiguous_content')
+    matches=[]
+    for start,end in parser.spans:
+        fragment=BeautifulSoup(body[start:end].decode('utf-8')+'</ul>','html.parser')
+        anchors=[a for a in fragment.find_all('a',href=True)
+                 if urljoin(source['resolution_base'],a['href'])==target]
+        if len(anchors)==1:matches.append((start,end))
+    if len(matches)!=1:raise Hold('equivalence_ambiguous_list')
+    targets=[a for a in soup.find_all('a',href=True)
+             if urljoin(source['resolution_base'],a['href'])==target]
+    if len(targets)!=1:raise Hold('equivalence_duplicate_target')
+    anchor=targets[0];li=anchor.parent;ul=li.parent;block=ul.parent
+    if (li.name!='li' or ul.name!='ul' or block.name!='div'
+            or block.get('class')!=['mol_attachfileblock']
+            or block.select_one('.mol_attachfileblock_title') is None
+            or block.find_parent(id='mol_contents') is None):
+        raise Hold('equivalence_unknown_attachment_list')
+    return matches[0][1]
+
+
+def addition_proof(registry, before, after, source, old, context):
+    from . import weekly
+    from .operations import load
+    position=list_boundary(before,source,old['source_url'])
+    size=len(after)-len(before)
+    if size<=0 or after[:position]!=before[:position] or after[position+size:]!=before[position:]:
+        raise Hold('equivalence_unproven_index_delta')
+    addition=after[position:position+size]
+    # No arbitrary HTML. Existing bytes include headings, neighbours and suffix.
+    match=re.fullmatch(rb'<li><a href="(https://[^"<>]+\.pdf)">([^<>&]+)</a></li>',addition)
+    if not match:raise Hold('equivalence_unknown_index_structure')
+    url=match[1].decode('utf-8');parsed=urlsplit(url)
+    if parsed.netloc!=official_host(registry.city) or parsed.query or parsed.fragment:
+        raise Hold('equivalence_foreign_index_addition')
+    soup=BeautifulSoup(after.decode('utf-8'),'html.parser')
+    if sum(urljoin(source['resolution_base'],a['href'])==url for a in soup.find_all('a',href=True))!=1:
+        raise Hold('equivalence_duplicate_index_link')
+    if list_boundary(after,source,old['source_url'])!=position+size:
+        raise Hold('equivalence_list_boundary_changed')
+    spec=context['proof'].get('index_addition_rule')
+    if not spec:raise Hold('equivalence_unrelatedness_rule_missing')
+    def pinned(spec):
+        path=weekly.pinned_input(spec);weekly.assert_owner_only(path)
+        return path
+    rule=load(pinned(spec))
+    binding={k:old[k] for k in ('city','candidate_id','source_url','index_sha256','revision')}
+    if (rule.get('decision')!='approve_exact_unrelated_index_addition'
+            or rule.get('binding')!=binding or rule.get('insertion_sha256')!=sha256(addition).hexdigest()
+            or rule.get('source_registration_authorized') is not False
+            or rule.get('publication_authorized') is not False
+            or not all(rule.get(k) for k in ('rule_id','version','reviewer','reviewed_at','review_record_id'))):
+        raise Hold('equivalence_unrelatedness_rule_mismatch')
+    evidence=pinned(rule['primary_evidence']).read_bytes()
+    # Exact saved primary evidence is required, not a machine-written assertion.
+    quote=rule.get('primary_quote')
+    if not isinstance(quote,str) or not quote or quote.encode('utf-8') not in evidence:
+        raise Hold('equivalence_primary_evidence_mismatch')
+    if rule.get('correction_withdrawal_supplement_replacement_excluded') is not True:
+        raise Hold('equivalence_semantic_dependency_unresolved')
+    return dict(insertion_byte_offset=position,insertion_sha256=sha256(addition).hexdigest(),
+        prefix_sha256=sha256(before[:position]).hexdigest(),suffix_sha256=sha256(before[position:]).hexdigest(),
+        unrelatedness_rule_sha256=spec['sha256'],primary_evidence_sha256=rule['primary_evidence']['sha256'])
 
 
 def public_projection(value, policy):
@@ -40,7 +132,7 @@ def public_projection(value, policy):
     return value
 
 
-def index_equivalent(registry, old, observed):
+def index_equivalent(registry, old, observed, context):
     # Prove both revisions actually occur in the immutable, checked event chain.
     history = registry.history()
     prefix = next((i+1 for i,e in enumerate(history) if e['event_sha256']==old['revision']), None)
@@ -76,26 +168,12 @@ def index_equivalent(registry, old, observed):
     if not inventories[0].get(url) or inventories[0].get(url)!=inventories[1].get(url):
         raise Hold('equivalence_listing_context_or_position_changed')
     before, after = bodies
+    proof={}
     if before != after:
-        # Deliberately narrow byte proof. No generic DOM diff or normalization.
-        if (not before.endswith(b'</div>') or not after.endswith(b'</div>')
-                or not after.startswith(before[:-6])):
-            raise Hold('equivalence_unproven_index_delta')
-        addition = after[len(before)-6:-6].decode('utf-8')
-        pattern = r'<a href="(https://[^"<>]+\.pdf)">([^<>&]+)</a>'
-        matches = list(re.finditer(pattern, addition))
-        if not matches or ''.join(m.group(0) for m in matches)!=addition:
-            raise Hold('equivalence_unknown_index_structure')
-        urls = [m.group(1) for m in matches]
-        if len(urls)!=len(set(urls)) or any(u in inventories[0] for u in urls):
-            raise Hold('equivalence_duplicate_index_link')
-        for u in urls:
-            parsed = urlsplit(u)
-            if parsed.netloc!=official_host(registry.city) or parsed.query or parsed.fragment:
-                raise Hold('equivalence_foreign_index_addition')
+        proof=addition_proof(registry,before,after,source,old,context)
     return {'old_index_sha256':old['index_sha256'], 'new_index_sha256':observed['index_sha256'],
             'old_revision':old['revision'], 'new_revision':observed['revision'],
-            'target_listing_sha256':digest(inventories[0][url])}
+            'target_listing_sha256':digest(inventories[0][url]),**proof}
 
 
 def prove(registry, observed, accepted, public, context):
@@ -115,7 +193,7 @@ def prove(registry, observed, accepted, public, context):
         normalized[k] = old[k]
     if digest(normalized) != digest(old):
         raise Hold('equivalence_fact_original_receipt_changed')
-    indexes = index_equivalent(registry, old, observed)
+    indexes = index_equivalent(registry, old, observed, context)
     left = public_projection(context['old_public'],old['fact']['policy_id'])
     right = public_projection(public,old['fact']['policy_id'])
     if digest(left) != digest(right):
