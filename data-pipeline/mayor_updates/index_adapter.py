@@ -115,14 +115,16 @@ def preserved_units(bridge, source, version):
     soup=BeautifulSoup(body,'html.parser'); main=soup.select_one(source.get('selector','#mol_contents'))
     if main is None: raise Hold('Content selector missing')
     units=[]; heading=''; position=0; first_h2_seen=False
-    for node in main.find_all(['h2','h3','h4','p']):
+    full_content = source.get('review_scope') == 'full_content'
+    tags = ['h2','h3','h4','p'] + (['li','table'] if full_content else [])
+    for node in main.find_all(tags):
         position+=1; quote=node.get_text(' ',strip=True)
         if not quote: continue
         if node.name=='h2':
             if first_h2_seen and source.get('review_scope') != 'full_content': break
             first_h2_seen=True
         if node.name.startswith('h'): heading=quote
-        if source['role']=='progress' and node.name=='p':
+        if source['role']=='progress' and node.name in {'p','li','table'}:
             units.append({'kind':'progress_evidence','policy_id':source.get('policy_id'),
                           'source_url':source['url'],'sha256':rec['sha256'],'version_id':rec['version_id'],
                           'retrieved_at':rec['retrieved_at'],'locator':{'selector':source.get('selector','#mol_contents'),

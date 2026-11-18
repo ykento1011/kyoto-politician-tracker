@@ -131,7 +131,7 @@ class OfflineWeeklyTests(unittest.TestCase):
     def test_osaka_later_section_change_is_preserved_and_deduplicated(self):
         data = self.setup_city('osaka'); bridge, source, state, _ = data
         self.run_city('osaka', data, '2026-11-23')
-        body = b'<div id="mol_contents"><h2>Leading section</h2><p>unchanged intro</p><h2>Eligibility</h2><p>changed later section</p></div>'
+        body = b'<div id="mol_contents"><h2>Leading section</h2><p>unchanged intro</p><h2>Eligibility</h2><p>changed later section</p><ul><li>target condition</li></ul><table><tr><td>table footnote</td></tr></table></div>'
         sha = hashlib.sha256(body).hexdigest(); bridge.bodies[sha] = body
         doc = bridge.index['documents'][source['url']]['versions'][-1]
         doc['record'].update(sha256=sha, version_id=sha); doc['sha256'] = sha
@@ -141,6 +141,7 @@ class OfflineWeeklyTests(unittest.TestCase):
         self.assertEqual(len(later), 1)
         self.assertEqual(later[0]['locator']['heading'], 'Eligibility')
         self.assertEqual(later[0]['sha256'], sha)
+        self.assertTrue({'target condition', 'table footnote'} <= {unit['quote'] for unit in queue['source_units']})
         self.assertEqual(self.run_city('osaka', data, '2026-12-07')['new_review_count'], 0)
 
     def test_city_mixture_and_foreign_url_refused(self):
