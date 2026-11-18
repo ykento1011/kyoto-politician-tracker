@@ -19,22 +19,23 @@ from .stage2_guard import _record, supervise, publish_success, restore_evidence
 LIVE_FLOW_ENABLED = False
 
 
-def plan_bytes(spec, run_id, restore_script_sha256):
+def plan_bytes(spec, run_id, restore_script_sha256, *, worker_manifest=None):
     """Deterministic proposal bytes, never a source or human approval receipt."""
     _spec(spec)
     if (not re.fullmatch('[0-9a-f]{32}', run_id)
             or not re.fullmatch('[0-9a-f]{64}', restore_script_sha256)):
         raise Hold('Fixed run and restoration script SHA required')
     prefix = 'GikaiMikata-Stage2-' + run_id
-    return json.dumps({'schema_version': 1, 'run_id': run_id,
+    value={'schema_version': 1, 'run_id': run_id,
         'synthetic': True, 'live_enabled': False, 'fixed_launch': asdict(spec),
         'restore_script_sha256': restore_script_sha256,
         'network_plan': {'scope': 'whole_host', 'profiles': 'Any',
             'ipv4': True, 'ipv6': True, 'protocol': 'Any',
             'redirect_retry': False, 'automatic_apply': False},
         'added_rules': [{'name': prefix+'-'+d, 'direction': d}
-                        for d in ('Inbound', 'Outbound')]},
-        sort_keys=True).encode()
+                        for d in ('Inbound', 'Outbound')]}
+    if worker_manifest is not None:value['worker']=worker_manifest
+    return json.dumps(value,sort_keys=True).encode()
 
 
 class _BudgetAPI:
@@ -101,7 +102,8 @@ class _LaunchWorker:
 
 def simulate_stage2(root, spec, api, *, run_id, expected_plan_sha256,
                     restore_script, expected_restore_sha256,
-                    simulation=False, clock=time.monotonic):
+                    simulation=False, clock=time.monotonic,
+                    worker_spec=None, code_root=None, code_pins=None, worker_api_factory=None):
     """One local synthetic flow, no Firewall calls and no automatic restoration.
 
     Caller supplies an empty nonproduction scratch. All journal writes are under
@@ -109,21 +111,44 @@ def simulate_stage2(root, spec, api, *, run_id, expected_plan_sha256,
     Native adapters are rejected before writes; LIVE_FLOW_ENABLED is not a switch
     to a real mode. Real provisioning/OS isolation must be separately authorized.
     """
-    if (LIVE_FLOW_ENABLED is not False or simulation is not True
-            or getattr(api, 'simulation_only', None) is not True
+    if (simulation is not True or getattr(api, 'simulation_only', None) is not True
             or not isinstance(spec, FixedLaunch)):
         raise Hold('Live Stage 2 flow disabled')
+    return _stage2(root,spec,api,run_id=run_id,expected_plan_sha256=expected_plan_sha256,
+        restore_script=restore_script,expected_restore_sha256=expected_restore_sha256,
+        simulation=True,clock=clock,worker_spec=worker_spec,code_root=code_root,
+        code_pins=code_pins,worker_api_factory=worker_api_factory)
+
+
+def run_native_stage2(root,spec,*,run_id,expected_plan_sha256,restore_script,expected_restore_sha256,
+                      worker_spec,code_root,code_pins,clock=time.monotonic):
+    """Fully wired native path, source-disabled; no activation switch or OS setup."""
+    if LIVE_FLOW_ENABLED is not True:raise Hold('Native Stage 2 flow source-disabled')
+    from .worker_ipc import WorkerWindowsAPI
+    api=WorkerWindowsAPI(spec,deadline=clock()+10,clock=clock)
+    return _stage2(root,spec,api,run_id=run_id,expected_plan_sha256=expected_plan_sha256,
+        restore_script=restore_script,expected_restore_sha256=expected_restore_sha256,
+        simulation=False,clock=clock,worker_spec=worker_spec,code_root=code_root,
+        code_pins=code_pins,worker_api_factory=WorkerWindowsAPI)
+
+
+def _stage2(root,spec,api,*,run_id,expected_plan_sha256,restore_script,expected_restore_sha256,
+             simulation,clock,worker_spec,code_root,code_pins,worker_api_factory):
     started = clock()
     _spec(spec)
     root = Path(root).resolve(strict=True)
     if any(root.iterdir()): raise Hold('Fresh flow scratch required; never retry a consumed run')
-    body = plan_bytes(spec, run_id, expected_restore_sha256)
+    worker_manifest=None
+    if worker_spec is not None:
+        worker_manifest={'spec':asdict(worker_spec),'code_root':code_root,'code_pins':code_pins}
+    body = plan_bytes(spec, run_id, expected_restore_sha256,worker_manifest=worker_manifest)
     digest = sha256(body).hexdigest()
     if (digest != expected_plan_sha256
             or sha256(Path(restore_script).read_bytes()).hexdigest() != expected_restore_sha256):
         raise Hold('Fixed plan or offline restoration script differs')
     deadline = started+min(10, spec.timeout_seconds)
     journal = root/'journal'
+    worker=None
     try:
         # The plan is outside the empty supervisor journal, but bound by its SHA.
         _record(root, 'proposal.json', json.loads(body))
@@ -133,9 +158,18 @@ def simulate_stage2(root, spec, api, *, run_id, expected_plan_sha256,
         journal.mkdir(exist_ok=False)
         budget = math.floor(deadline-clock())
         if budget < 3: raise Hold('Insufficient total Stage 2 budget after preflight')
-        worker = _LaunchWorker(spec, api, run_id, plan_sha, clock, deadline)
+        if worker_spec is None:
+            worker = _LaunchWorker(spec, api, run_id, plan_sha, clock, deadline)
+        else:
+            from .worker_ipc import provision_worker, WorkerWindowsAPI
+            ipc=root/'worker_ipc';ipc.mkdir(exist_ok=False)
+            worker=provision_worker(ipc,worker_spec,spec,code_root=code_root,code_pins=code_pins,
+                run_id=run_id,plan_sha256=plan_sha,plan_body=body,deadline=deadline,
+                api_factory=worker_api_factory or WorkerWindowsAPI,simulation=simulation,clock=clock)
+            budget=math.floor(deadline-clock())
+            if budget<3:raise Hold('Worker provisioning consumed remaining work budget')
         result = supervise(journal, run_id, plan_sha, worker,
-            clock=clock, total_seconds=budget, simulation=True)
+            clock=clock, total_seconds=budget, simulation=simulation)
         # The existing PS restoration validator contains *all* inputs, including
         # PlanPath, beneath JournalRoot. Preserve that boundary unchanged.
         _record(journal, 'plan.json', json.loads(body))
@@ -160,6 +194,14 @@ def simulate_stage2(root, spec, api, *, run_id, expected_plan_sha256,
                 'state': 'HOLD', 'restore_prohibited': True,
                 'reason': type(exc).__name__, 'automatic_restore': False})
             except Exception: pass  # Absent handoff/operator ack never grants recovery.
+        if worker_spec is not None and worker is not None and not worker.closed:
+            outcome={'state':'HOLD','termination_confirmed':False,'cleanup_complete':False}
+            try:outcome['termination_confirmed']=worker.kill_and_confirm(timeout_seconds=max(0,deadline-clock())) is True
+            except Exception:pass
+            try:outcome['cleanup_complete']=worker.close_handles(timeout_seconds=max(0,deadline-clock())) is True
+            except Exception:pass
+            try:_record(root,'worker_failure_cleanup.json',outcome)
+            except Exception:pass
         raise Hold('Stage 2 integration HOLD; keep isolation, no automatic restore') from exc
 
 

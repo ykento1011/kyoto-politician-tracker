@@ -2,7 +2,8 @@
 
 The worker must already be dormant under a kill-on-close containment job before
 beginning validation; start_verification signals it, not an unbounded CreateProcess.
-The worker protocol is injected. No live worker factory or activation is shipped.
+The worker protocol is injected. worker_ipc supplies source-disabled provisioning;
+no live worker activation is enabled.
 """
 import ctypes as c
 import hashlib
@@ -14,6 +15,8 @@ from pathlib import Path
 import tempfile
 import time
 from .projection import Hold
+
+LIVE_SUPERVISION_ENABLED = False
 
 
 def _record(root, name, value):
@@ -33,12 +36,15 @@ def supervise(root, run_id, plan_sha256, worker, *, clock=time.monotonic,
               total_seconds=10, cleanup_reserve=2, simulation=False):
     """Bound all validation/work/cleanup decisions in one monotonic parent window.
 
-    Only mock workers can run here. The separate parent kills the worker's whole
+    Only mock workers can run with the current source gates. The separate parent kills the worker's whole
     job when a native verification API hangs, rather than trusting that worker to
     check a cooperative deadline. Real worker setup/OS binding is a separate gate.
     No Firewall restoration or automatic permission to remove rules is performed.
     """
-    if simulation is not True or getattr(worker, 'simulation_only', None) is not True:
+    synthetic = simulation is True and getattr(worker, 'simulation_only', None) is True
+    native = (LIVE_SUPERVISION_ENABLED is True and simulation is False
+              and getattr(worker, 'simulation_only', None) is False)
+    if not synthetic and not native:
         raise Hold('Live Stage 2 supervision is disabled')
     if (type(total_seconds) is not int or not 3 <= total_seconds <= 10
             or type(cleanup_reserve) is not int or not 1 <= cleanup_reserve < total_seconds
@@ -157,8 +163,8 @@ def restore_evidence(root, run_id, plan_sha256):
 class DormantWindowsWorkerPort:
     """Concrete disabled-native IPC for a pre-created, contained verification worker.
 
-    Provisioning that worker/job/start-event and running its fixed request is NOT
-    authorized here. All APIs use the already-disabled NativeWindowsAdapter gate.
+    worker_ipc provides the disabled provisioning/request/report connection.
+    Running it live is NOT authorized here. All APIs use the already-disabled NativeWindowsAdapter gate.
     The real port cannot pass supervise's synthetic-only guard.
     """
     simulation_only = False
