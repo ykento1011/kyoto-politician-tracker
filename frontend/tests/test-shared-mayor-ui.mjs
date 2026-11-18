@@ -17,14 +17,16 @@ try {
  const render=(Component,props)=>renderToStaticMarkup(React.createElement(Component,props));
  for(const city of ['kyoto','osaka','nagoya','yokohama','kobe']) {
   const data=load(city),before=JSON.stringify(data),adapter=cityPresentation(city);
-  for(const value of [`http://www.city.${city}.lg.jp/x`,`https://www.city.${city}.lg.jp:443/x`,`https://user@www.city.${city}.lg.jp/x`,`https://www.city.${city}.lg.jp.evil.example/x`,'javascript:alert(1)']) assert.equal(officialCityUrl(city,value),null);
-  assert.equal(officialCityUrl(city,`https://www.city.${city}.lg.jp/x`),`https://www.city.${city}.lg.jp/x`);
+  const host=city==='nagoya'?'www.city.nagoya.jp':`www.city.${city}.lg.jp`;
+  for(const value of [`http://${host}/x`,`https://${host}:443/x`,`https://user@${host}/x`,`https://${host}.evil.example/x`,'javascript:alert(1)']) assert.equal(officialCityUrl(city,value),null);
+  assert.equal(officialCityUrl(city,`https://${host}/x`),`https://${host}/x`);
+  if(city==='nagoya')assert.equal(officialCityUrl(city,'https://www.city.nagoya.lg.jp/x'),null);
   if(city!=='kyoto') {
    const foreign={id:'P-03',headline:'foreign policy',stage_level:4,latest_update:{kind:'construction_paused',source_url:'https://www.city.kyoto.lg.jp/x'}};
    assert.ok(adapter.progress({...foreign,latest_update:undefined}).steps.every(s=>s.state!=='confirmed'&&s.state!=='paused'));
    assert.equal(adapter.officialUrl('https://www.city.kyoto.lg.jp/x'),null);
   }
-  if(city==='kyoto'||city==='kobe') {
+  {
    assert.equal((render(View,{data,cityCode:city}).match(/data-policy-card=/g)||[]).length,data.pledges.length);
    for(const p of data.pledges) {
     const html=render(View,{data,cityCode:city,initialSearch:`?view=mayor&policy=${p.id}`});
@@ -41,6 +43,20 @@ try {
   }
   assert.equal(JSON.stringify(data),before);
  }
+ const osakaPolicy=load('osaka').pledges[0];
+ const osakaDetail=render(View,{data:load('osaka'),cityCode:'osaka',initialSearch:`?policy=${osakaPolicy.id}`});
+ assert.ok(osakaDetail.includes(osakaPolicy.election_promise.bulletin_url));
+ assert.ok(!osakaDetail.includes(`href="${osakaPolicy.election_promise.bulletin_url}"`));
+ assert.ok(osakaDetail.includes('配信元は未認証'));
+ const nagoyaDetail=render(View,{data:load('nagoya'),cityCode:'nagoya',initialSearch:'?policy=nagoya_p2'});
+ for(const text of ['120〜130億円','102億円','対応は未確認','年度・対象・会計'])assert.ok(nagoyaDetail.includes(text));
+ const yokohama=load('yokohama');
+ const yokohamaDetail=render(View,{data:yokohama,cityCode:'yokohama',initialSearch:'?policy=YOKOHAMA-M01'});
+ assert.ok(yokohamaDetail.includes('404として追跡中'));
+ assert.ok(yokohamaDetail.includes('2026年1月の当初予算を同年10月'));
+ const brokenBudget=yokohama.pledges[0].budget_records[0].doc_url;
+ assert.ok(yokohamaDetail.includes(brokenBudget));assert.ok(!yokohamaDetail.includes(`href="${brokenBudget}"`));
+ assert.ok(!cityPresentation('kobe').presentation({id:'nagoya_p2',headline:'other'}).warning.includes('102億円'));
  // Same component can render another configured city without enabling its route.
  const osaka=load('osaka');assert.equal((render(Shared,{data:osaka,cityCode:'osaka'}).match(/data-policy-card=/g)||[]).length,4);
  const missing={mayor_info:{},pledges:[{id:'P-03',headline:'missing evidence',stage_level:5}]};

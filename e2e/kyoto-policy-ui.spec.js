@@ -150,17 +150,17 @@ test('shared navigation synchronizes detail and totals with the URL and browser 
  }
 });
 
-test('three not-yet-connected cities retain legacy display and shared navigation',async({page})=>{
+test('three connected cities use shared display and common navigation',async({page})=>{
  for(const city of ['osaka','nagoya','yokohama']){
   await page.goto(`/${city}/?view=mayor`);
-  const title=page.getByText(/政策ライフサイクル検証基盤/);
+  const title=page.locator('[data-mayor-city] .kp-header h1');
   await expect(title).toBeVisible();
   const original=await title.textContent();
-  await expect(page.locator('.kyoto-policy-ui')).toHaveCount(0);
+  await expect(page.locator(`[data-mayor-city="${city}"]`)).toHaveCount(1);
   await openMayorFromSharedNavigation(page);
   await expect(page).toHaveURL(new RegExp(`/${city}/\\?view=mayor$`));
   await expect(title).toHaveText(original);
-  await expect(page.locator('.kyoto-policy-ui')).toHaveCount(0);
+  await expect(page.locator(`[data-mayor-city="${city}"]`)).toHaveCount(1);
  }
 });
 

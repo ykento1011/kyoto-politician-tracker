@@ -107,10 +107,11 @@ try {
  assert.equal(policyPresentation(p3).source.url,'https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html');
  p3.milestone.is_broken=true;
  assert.ok(!render(Detail,{pledge:p3,mayorInfo:data.mayor_info}).includes(`href="${contract}"`));
- // Existing non-Kyoto render path is identical, including its evidence UI.
+ // All configured non-Kyoto cities now use the accepted shared component.
+ const {default:Shared}=await server.ssrLoadModule('/src/components/SharedPolicyTracker.jsx');
  for(const city of ['osaka','nagoya','yokohama']) {
    const cityData=JSON.parse(fs.readFileSync(path.join(root,`public/data/${city}_mayor_tracker.json`),'utf8'));
-   assert.equal(render(View,{data:cityData,cityCode:city}),render(Legacy,{data:cityData,cityCode:city}));
+   assert.equal(render(View,{data:cityData,cityCode:city}),render(Shared,{data:cityData,cityCode:city}));
  }
  const route={policy:'P-03',section:'',query:'給食',category:'教育'};
  assert.deepEqual(readPolicyRoute(policyRouteHref(route,'?view=mayor&city=kyoto')),route);
@@ -119,5 +120,5 @@ try {
  assert.ok(deepLink.includes('policy-budget'));assert.ok(!deepLink.includes('data-policy-list'));
  assert.ok(render(View,{data,cityCode:'kyoto',initialSearch:'?policy=unknown'}).includes('政策が見つかりません'));
  assert.equal(JSON.stringify(data),before);
- console.log('PASS: Kyoto four-field overview, all 14 details/27 budgets, holds, null-safe sources, unchanged totals/data and three-city legacy SSR.');
+ console.log('PASS: Kyoto 14 details/27 budgets and accepted evidence preserved; configured cities use the shared SSR.');
 } finally {await server.close();}

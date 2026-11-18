@@ -30,7 +30,7 @@ export const CITIES = {
   osaka: {
     // Link display only; grants no acquisition or verification permission.
     mayorDisplayHosts: ['www.city.osaka.lg.jp'],
-    sharedMayorUI: false,
+    sharedMayorUI: true,
     mayorName: '横山 秀幸',
     mayorTitle: '大阪市長',
     term: '2023年4月就任〜',
@@ -56,8 +56,8 @@ export const CITIES = {
   },
   nagoya: {
     // Link display only; grants no acquisition or verification permission.
-    mayorDisplayHosts: ['www.city.nagoya.lg.jp'],
-    sharedMayorUI: false,
+    mayorDisplayHosts: ['www.city.nagoya.jp'],
+    sharedMayorUI: true,
     mayorName: '広沢 一郎',
     mayorTitle: '名古屋市長',
     term: '2024年11月就任〜',
@@ -84,7 +84,7 @@ export const CITIES = {
   yokohama: {
     // Link display only; grants no acquisition or verification permission.
     mayorDisplayHosts: ['www.city.yokohama.lg.jp'],
-    sharedMayorUI: false,
+    sharedMayorUI: true,
     mayorName: '原澤 あつみ',
     mayorTitle: '横浜市長',
     term: '2026年10月就任〜',
