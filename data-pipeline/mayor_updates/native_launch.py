@@ -8,6 +8,7 @@ import ctypes as c
 from ctypes import wintypes as w
 from dataclasses import dataclass
 from hashlib import sha256
+import math
 import ntpath
 import os
 import subprocess
@@ -397,8 +398,10 @@ class NativeWindowsAdapter:
         process.suspended = False
 
     def wait(self, process, *, timeout_seconds):
-        if timeout_seconds != self.spec.timeout_seconds: raise Hold('Fixed timeout required')
-        status = self._call('kernel32', 'WaitForSingleObject', D, [P, D], process.handle, timeout_seconds * 1000)
+        if (type(timeout_seconds) not in (int, float) or not math.isfinite(timeout_seconds)
+                or not 0 < timeout_seconds <= self.spec.timeout_seconds):
+            raise Hold('Remaining timeout must not exceed fixed maximum')
+        status = self._call('kernel32', 'WaitForSingleObject', D, [P, D], process.handle, int(timeout_seconds * 1000))
         if status != 0: raise Hold('Wait failed or timed out')
         code = D()
         self._ok(self._call('kernel32', 'GetExitCodeProcess', w.BOOL,
