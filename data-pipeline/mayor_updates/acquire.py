@@ -137,7 +137,11 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
         else:
             if scope is not None: reserve_request(scope,storage,source)
             key=hashlib.sha256(url.encode()).hexdigest()[:20]
-            run=out.root/key; run.mkdir(exist_ok=False)
+            run=out.root/key
+            # POSIX needs an explicit private mode. On Windows inherit the
+            # verified parent ACL; Python's special 0700 mode may grant admins.
+            private_mode = 0o700 if scope is not None and is_yokohama_major_pdf(scope) and os.name != 'nt' else 0o777
+            run.mkdir(mode=private_mode, exist_ok=False)
             runout=PrivateOutput(run)
             runout.json('source.json',source)
             runout.json('single_get_started.json',{'at_utc':utc(),'source_url':url,'authorized_max_get':1,'media_type':media_type,

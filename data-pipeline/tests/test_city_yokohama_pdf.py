@@ -2,6 +2,7 @@
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import socket
 import subprocess
@@ -23,6 +24,7 @@ def sha(path):
 
 class YokohamaPdfTests(unittest.TestCase):
     def setUp(self):
+        self.real_acl = acquire.assert_owner_only
         for p in (patch.object(socket.socket, 'connect', side_effect=AssertionError('HTTP forbidden')),
                   patch.object(acquire, 'assert_owner_only', return_value={'owner_only':True})):
             mock = p.start(); self.addCleanup(p.stop)
@@ -31,7 +33,7 @@ class YokohamaPdfTests(unittest.TestCase):
     def fixture(self, root, *, active=False):
         root = root.resolve(strict=True)
         cas = root/'cas'; state = root/'state'; out = state/'receipts'; code = root/'code'
-        for p in (cas, state, out, code): p.mkdir()
+        for p in (cas, state, out, code): p.mkdir(mode=0o700)
         html = ('<div id="tmp_contents"><h2>'+cs.YOKOHAMA_INDEX_HEADING+'</h2>'+''.join(
             '<a href="other'+str(n)+'.html">other</a>' for n in range(16))+
             '<a href="'+cs.YOKOHAMA_PDF_HREF+'">'+cs.YOKOHAMA_PDF_LABEL+'</a></div>').encode()
@@ -190,15 +192,22 @@ class YokohamaPdfTests(unittest.TestCase):
         s=cs.yokohama_major_pdf_scope();s.pop('profile')
         with self.assertRaises(Hold):cs.validate_scope(s)
 
-    def parent_trial(self, failure=None):
+    def parent_trial(self, failure=None, *, real_worker_acl=False):
         with tempfile.TemporaryDirectory() as t:
             data=self.fixture(Path(t),active=True);s,storage,cas,out,code,f,obj,index=data
+            if real_worker_acl:
+                f.chmod(0o600)  # Newly created synthetic binding only.
             before=(cas/'index.json').read_bytes();legacy=(Path(t)/'city_binding.json').read_bytes()
             bridge=MagicMock();bridge.hashes={};bridge.store.read_index.return_value=index;bridge.store.verify_integrity.return_value={}
             body=b'%PDF-1.7\nsynthetic';digest=hashlib.sha256(body).hexdigest();bridge.store.snapshot_bytes.return_value=body
             if failure=='readback':bridge.store.snapshot_bytes.return_value=b'corrupt'
             def process(cmd,**kwargs):
                 self.assertEqual(kwargs['timeout'],10)
+                if real_worker_acl:
+                    run = Path(cmd[cmd.index('--output')+1])
+                    self.assertEqual(run.stat().st_mode & 0o777,0o700)
+                    with patch.object(acquire,'assert_owner_only',self.real_acl):
+                        self.assertEqual(cs.validate_storage(s,storage,cas,run,code_root=code),out.parent)
                 source=json.loads(Path(cmd[cmd.index('--source-file')+1]).read_text())
                 self.assertEqual(source['url'],cs.YOKOHAMA_PDF_URL)
                 if failure=='timeout':raise subprocess.TimeoutExpired(cmd,10)
@@ -222,6 +231,12 @@ class YokohamaPdfTests(unittest.TestCase):
     def test_parent_timeout_keeps_reservation(self):self.parent_trial('timeout')
     def test_parent_readback_failure_stops(self):self.parent_trial('readback')
     def test_parent_foreign_version_stops(self):self.parent_trial('identity')
+
+    @unittest.skipIf(os.name=='nt','POSIX umask/permission regression; Windows inherits verified parent ACL')
+    def test_worker_creation_with_umask_022_passes_real_owner_only_guard(self):
+        prior=os.umask(0o022)
+        try:self.parent_trial(real_worker_acl=True)
+        finally:os.umask(prior)
 
     def test_refresh_is_rejected_before_p1_or_reservation(self):
         s=cs.yokohama_major_pdf_scope()

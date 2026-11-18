@@ -40,11 +40,12 @@ scope設定は固定契約と厳密比較し、余分な値やTrue/1の型差も
 
 ## 合成試験と未実施事項
 
-新規14試験と既存京都15、一般都市10を通信0で確認。
+新規15試験（Windowsで14 PASS／POSIX限定1 SKIP）と既存京都15、一般都市10を通信0で確認。
 正常な専用bindingの読取りで全ファイル不変、fallback拒否、改変・欠落・URL偽装・位置変更・異年度・PIN/ACL/CAS不一致を検証。
 親入口は合成子プロセスだけを使用し、1PDF・10秒の引渡し、読戻し、失敗/タイムアウト/異都市versionの停止、予約重複拒否を確認。
 テストのindex/P1 SHAは合成データ用に限定置換し、本番定数も別の試験で固定値一致を検査する。
 テスト中のbinding・予約・原本はTemporaryDirectory内の合成物のみ。ソケット接続は拒否している。
+独立レビューP2の新規workerディレクトリ権限を修正。専用profileのPOSIX作成時だけ0700を指定し、umask022で実ACL検査を通す回帰をLinux CIで行う。Windowsは検証済み親ACLを継承し、既存ACLや一般profileは変えない。
 
 未実施: 実原本へ新ガードを適用する私有結合、実workerのPIN/ACL検査時間、実PDF取得、正式source登録、active binding作成、取得予約、政策対応審査。
 実P1/保存索引/owner-only環境への接続は別ゲート。PIN/ACL検査もworkerの10秒内であり、実環境で完了できなければHOLD（時間制限は緩めない）。
