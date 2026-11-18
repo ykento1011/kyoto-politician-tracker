@@ -99,6 +99,34 @@ class OfflineWeeklyTests(unittest.TestCase):
         bridge.bodies[sha] = b'corrupt'
         with self.assertRaises(Hold): self.run_city('kobe', data, '2026-12-07')
         self.assertEqual((state/'state.json').read_bytes(), before)
+        self.assertTrue((state/'cycles/2026-12-07/failure.json').exists())
+        bridge.bodies[sha] = body
+        with self.assertRaisesRegex(Hold, 'already attempted'):
+            self.run_city('kobe', data, '2026-12-07')
+
+    def test_empty_or_unreviewable_content_keeps_last_good(self):
+        for city, content in [('osaka', ''), ('yokohama', '<h2>令和8年度</h2>'),
+                              ('kobe', '<p>body without a heading</p>')]:
+            data = self.setup_city(city); bridge, source, state, _ = data
+            self.run_city(city, data, '2026-11-23'); before = (state/'state.json').read_bytes()
+            body = ('<div id="'+source['selector'][1:]+'">'+content+'</div>').encode()
+            sha = hashlib.sha256(body).hexdigest(); bridge.bodies[sha] = body
+            doc = bridge.index['documents'][source['url']]['versions'][-1]
+            doc['record'].update(sha256=sha, version_id=sha); doc['sha256'] = sha
+            self.assertFalse(self.run_city(city, data, '2026-11-30')['state_advanced'])
+            self.assertEqual((state/'state.json').read_bytes(), before)
+            self.assertTrue((state/'cycles/2026-11-30/safety_hold.json').exists())
+            with self.assertRaises(Hold): self.run_city(city, data, '2026-11-30')
+
+    def test_non_html_mime_failure_consumes_week(self):
+        data = self.setup_city('osaka'); bridge, source, state, _ = data
+        self.run_city('osaka', data, '2026-11-23'); before = (state/'state.json').read_bytes()
+        bridge.index['documents'][source['url']]['versions'][-1]['record']['mime_type'] = 'application/pdf'
+        with self.assertRaises(Hold): self.run_city('osaka', data, '2026-11-30')
+        bridge.index['documents'][source['url']]['versions'][-1]['record']['mime_type'] = 'text/html'
+        with self.assertRaisesRegex(Hold, 'already attempted'): self.run_city('osaka', data, '2026-11-30')
+        self.assertTrue((state/'cycles/2026-11-30/failure.json').exists())
+        self.assertEqual((state/'state.json').read_bytes(), before)
 
     def test_city_mixture_and_foreign_url_refused(self):
         data = self.setup_city('osaka'); bridge, source, state, _ = data

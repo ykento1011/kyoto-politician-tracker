@@ -27,11 +27,12 @@ CASは読み取り、stateは都市・全profile・CAS絶対実体へ束縛す�
 
 ## 今回の検証結果
 
-- targeted: 新規8 PASS、既存continuous 6 PASS、periodic 21 PASS、operations 16 PASS／私有依存12 SKIP。合計51 PASS／12 SKIP。SKIPは実結合成功に数えない。
+- targeted: 新規10 PASS、既存continuous 6 PASS、periodic 21 PASS、operations 16 PASS／私有依存12 SKIP。合計53 PASS／12 SKIP。SKIPは実結合成功に数えない。
 - 保存済み3都市HTMLの実バイトを隔離fixture bridgeへ読み取り、各都市の初回状態登録と次週のunchanged／追加レビュー0を確認。P1本体・receipt検証器を通す私有CLI結合試験ではない。
 - 合成改版は3都市それぞれ非公開レビュー1件、同一版は追加0、同週重複は拒否。失敗・訂正・撤回・追補・未知構造・異年度・都市混入・CAS変更は停止しlast-goodを保持。
 - private原本・既存CAS/state/予約への書込み0。試験用state/周期記録は一時隔離領域内だけ。公式GET、公開JSON、main、本番、既存監視変更0。
 - 私有P1 CLI接続、正式source登録、実HTTPの再観測／実改版、Windows定期起動、外部通知、公開は未実施・別GO。
+- 初回CodexレビューのP2・2件を修正。保存原本検査は周期予約後に実施し、SHA/MIME異常で停止しても失敗記録と予約を保持。修復後の同週再処理も拒否。selectorだけの空本文・見出しやレビュー可能原文位置の欠落もHOLDする。
 
 ## 保存原本の限定照合（通信0）
 
@@ -60,6 +61,10 @@ CASは読み取り、stateは都市・全profile・CAS絶対実体へ束縛す�
 | 既存binding | 保存binding SHA読戻し一致。ただし索引HTML用なのでPDFへ転用しない |
 | 正式source承認／個別通信GO | PDFについて未成立。以前の1GETは索引HTML限定であり流用不可 |
 | 専用scope/binding・実行予約 | 未作成。承認後に別途検証。現在実行可能とは判定しない |
+
+既存validate_scopeは総量2MiBの案をHTML1件＋PDF1件／4MiB契約との不一致で拒否する。
+既存4MiB契約での診断用メモリ案も、保存索引をindex_urlに持ちながらHTMLを取得対象に含めないため拒否することを通信0で確認した。
+上限を拡大して実行せず、索引も再GETしない。保存索引の読取り照合を持つPDF専用契約は別の最小設計・Coding GOが必要。
 
 判定HOLD／現在の実GETはNO-GO。次の個別承認は上記1URL、1GET、2MiB、親の壁時計10秒、TLS検証、redirect/retry/追加リンク0。
 保存済み同URLを再確認してから排他的に予約し、失敗・不明・中断は予約を保持して停止、再取得しない。

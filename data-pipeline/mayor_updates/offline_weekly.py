@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 
 from . import continuous, weekly
 from .engine import digest
+from .index_adapter import preserved_units
 from .operations import load
 from .periodic import period
 from .projection import Hold
@@ -51,6 +52,13 @@ def inspect_saved(bridge, sources):
         if len(main) != 1:
             holds.append({'source_url':source['url'], 'reason':'unknown_or_ambiguous_structure'})
             continue
+        headings = main[0].find_all(['h2', 'h3', 'h4'])
+        paragraphs = main[0].find_all('p')
+        if (not any(node.get_text(strip=True) for node in headings) or
+                not any(node.get_text(strip=True) for node in paragraphs) or
+                (source['role'] == 'progress' and not preserved_units(bridge, source, record['sha256']))):
+            holds.append({'source_url':source['url'], 'reason':'missing_reviewable_source_content'})
+            continue
         text = main[0].get_text(' ', strip=True)
         signals = [word for word in ('訂正', '撤回', '差替', '差し替', '取消', '追補') if word in text]
         if signals:
@@ -63,10 +71,9 @@ def run(bridge, config, baseline, state_root, *, city, now, base_revision):
     """Caller supplies a pinned P1 bridge and isolated private state; reads CAS only."""
     timing = period(now)
     local, sources = prepare(config, city)
-    holds = inspect_saved(bridge, sources)
     result = continuous.cycle(bridge, local, baseline, [], state_root, city=city,
         cycle_key=timing['cycle_key'], base_revision=base_revision,
-        offline_sources=sources, observation_holds=holds)
+        offline_sources=sources, observation_check=lambda:inspect_saved(bridge, sources))
     return {**result, 'city':city, 'profile_sha256':digest(sources),
             'mode':'saved_originals_only', 'schedule':timing,
             'source_registration_granted':False, 'acquisition_authorized':False}

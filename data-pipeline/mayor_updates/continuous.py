@@ -48,7 +48,7 @@ def manifest(config, city, *, offline_sources=None):
 
 
 def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_revision,
-          offline_sources=None, observation_holds=()):
+          offline_sources=None, observation_holds=(), observation_check=None):
     """Consume one offline observation cycle against a private, persistent state."""
     if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', cycle_key):
         raise Hold('An explicit ISO calendar-date cycle is required')
@@ -83,6 +83,8 @@ def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_
         prior = load(root/'state.json') if (root/'state.json').exists() else {'monitor':{}, 'seen_reviews':{}}
         try:
             bridge.store.verify_integrity()
+            if observation_check is not None:
+                observation_holds = observation_check()
             result, _ = run_trial(bridge, config, baseline, rules, output,
                 previous=prior.get('monitor'), base_revision=base_revision,
                 seen_reviews=prior.get('seen_reviews', {}), city=city,
