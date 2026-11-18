@@ -48,6 +48,9 @@ jobs:
           python -B -m unittest discover -s tests -p "test_member_history.py"
           python -B -m unittest discover -s tests -p "test_nagoya_article_review.py"
 
+      - name: Test common council observation cycle (offline)
+        run: python -B -m unittest discover -s tests -p "test_common_council_cycle.py"
+
       # 2. ビルドテスト
       - name: Set up Node.js
         uses: actions/setup-node@v4
