@@ -30,6 +30,7 @@ jobs:
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_launch_contract_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_native_launch_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_guard_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_mayor_updates.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_kyoto_operations.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_weekly_mayor.py'
@@ -49,3 +50,6 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_p1_offline.py' -v
           echo '### External P1 integration: NOT VALIDATED' >> "$GITHUB_STEP_SUMMARY"
           echo 'This hosted job has no approved immutable P1 dependency. Its P1 city tests are skipped; an offline CI pass is not integration acceptance. A separate approved private environment must supply the pinned P1 code before merge.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Test offline Firewall restore plan without OS changes
+        shell: pwsh
+        run: ./scripts/Restore-Stage2Firewall.ps1 -SelfTest
