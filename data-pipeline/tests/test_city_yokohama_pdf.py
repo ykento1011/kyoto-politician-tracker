@@ -200,6 +200,9 @@ class YokohamaPdfTests(unittest.TestCase):
             before=(cas/'index.json').read_bytes();legacy=(Path(t)/'city_binding.json').read_bytes()
             bridge=MagicMock();bridge.hashes={};bridge.store.read_index.return_value=index;bridge.store.verify_integrity.return_value={}
             body=b'%PDF-1.7\nsynthetic';digest=hashlib.sha256(body).hexdigest();bridge.store.snapshot_bytes.return_value=body
+            if failure in ('header','size'):
+                body=b'not PDF' if failure=='header' else b'%PDF-'+b'x'*2097152
+                digest=hashlib.sha256(body).hexdigest();bridge.store.snapshot_bytes.return_value=body
             if failure=='readback':bridge.store.snapshot_bytes.return_value=b'corrupt'
             def process(cmd,**kwargs):
                 self.assertEqual(kwargs['timeout'],10)
@@ -211,10 +214,18 @@ class YokohamaPdfTests(unittest.TestCase):
                 source=json.loads(Path(cmd[cmd.index('--source-file')+1]).read_text())
                 self.assertEqual(source['url'],cs.YOKOHAMA_PDF_URL)
                 if failure=='timeout':raise subprocess.TimeoutExpired(cmd,10)
-                version=dict(document_id=source['document_id'],version_id=digest,city_code='yokohama',
-                    source_url=source['url'],final_url=source['url'],fiscal_year=2026,
-                    mime_type='application/pdf',document_type='other_official')
-                if failure=='identity':version['city_code']='kobe'
+                version=dict(document_id=source['document_id'],version_id=digest,
+                    source_url=source['url'],final_url=source['url'],
+                    snapshot_relative_path='objects/'+digest[:2]+'/'+digest+'.bin',
+                    retrieved_at='2026-11-18T00:00:00+00:00',new_version=True,new_object=True)
+                record={**version,'sha256':digest,'city_code':'yokohama','fiscal_year':2026,
+                    'mime_type':'application/pdf','document_type':'other_official'}
+                if failure=='identity':record['city_code']='kobe'
+                updated=copy.deepcopy(index)
+                updated['documents'][source['url']]={'versions':[{'sha256':digest,'record':record}]}
+                if failure=='duplicate':
+                    updated['documents'][source['url']]['versions']*=2
+                bridge.store.read_index.return_value=updated
                 outcome=dict(status='stored_new_version',version=version,http_status=200)
                 Path(cmd[cmd.index('--output')+1],'worker_outcome.json').write_text(json.dumps(outcome))
                 return subprocess.CompletedProcess(cmd,0,'','')
@@ -222,6 +233,8 @@ class YokohamaPdfTests(unittest.TestCase):
                 result=acquire.capture_sources(code,cas,s['sources'],out,authorized=True,media_type='pdf',scope=s,storage=storage)
             self.assertEqual(proc.call_count,1);self.assertEqual(result['stopped'],bool(failure))
             self.assertEqual(result['public_writes'],0)
+            if failure != 'timeout':
+                self.assertEqual(result['receipts'][0]['readback_pass'],not bool(failure))
             self.assertEqual((cas/'index.json').read_bytes(),before)
             self.assertEqual((Path(t)/'city_binding.json').read_bytes(),legacy)
             self.assertEqual(len(list(out.parent.glob('single_request_*.json'))),1)
@@ -231,6 +244,52 @@ class YokohamaPdfTests(unittest.TestCase):
     def test_parent_timeout_keeps_reservation(self):self.parent_trial('timeout')
     def test_parent_readback_failure_stops(self):self.parent_trial('readback')
     def test_parent_foreign_version_stops(self):self.parent_trial('identity')
+    def test_parent_duplicate_cas_keeps_reservation(self):self.parent_trial('duplicate')
+    def test_parent_non_pdf_stops(self):self.parent_trial('header')
+    def test_parent_oversize_stops(self):self.parent_trial('size')
+
+    def test_minimal_stored_version_join_and_negative_identities(self):
+        source=cs.yokohama_major_pdf_scope()['sources'][0]; digest='a'*64
+        version=dict(document_id=source['document_id'],version_id=digest,
+            source_url=source['url'],final_url=source['url'],
+            snapshot_relative_path='objects/aa/'+digest+'.bin',
+            retrieved_at='2026-11-18T00:00:00+00:00',new_version=True,new_object=True)
+        record={**version,'sha256':digest,'city_code':'yokohama','fiscal_year':2026,
+            'mime_type':'application/pdf','document_type':'other_official'}
+        receipt={'source_url':source['url'],'final_url':source['url'],'version':version}
+        ledger={'documents':{source['url']:{'versions':[{'sha256':digest,'record':record}]}}}
+        store=MagicMock();store.read_index.return_value=ledger
+        self.assertEqual(acquire.yokohama_saved_record(store,source,receipt),record)
+        for key,value in [('city_code','kobe'),('fiscal_year',2025),('document_id','wrong'),
+                ('source_url',source['url']+'?other'),('final_url',source['url']+'?other'),
+                ('mime_type','text/html'),('document_type','budget_index'),
+                ('sha256','b'*64),('version_id','b'*64),('snapshot_relative_path','other'),
+                ('retrieved_at','2025-01-01T00:00:00+00:00')]:
+            changed=copy.deepcopy(ledger)
+            changed['documents'][source['url']]['versions'][0]['record'][key]=value
+            store.read_index.return_value=changed
+            with self.subTest(cas=key),self.assertRaises(Hold):
+                acquire.yokohama_saved_record(store,source,receipt)
+        for mutation in ('absent','duplicate','envelope_sha','missing_record'):
+            changed=copy.deepcopy(ledger); rows=changed['documents'][source['url']]['versions']
+            if mutation=='absent':changed['documents']={}
+            elif mutation=='duplicate':rows.append(copy.deepcopy(rows[0]))
+            elif mutation=='envelope_sha':rows[0]['sha256']='b'*64
+            else:rows[0].pop('record')
+            store.read_index.return_value=changed
+            with self.subTest(cas=mutation),self.assertRaises(Hold):
+                acquire.yokohama_saved_record(store,source,receipt)
+        store.read_index.return_value=ledger
+        for key in version:
+            if key in ('new_version','new_object'):continue
+            changed=copy.deepcopy(receipt);changed['version'].pop(key)
+            with self.subTest(missing=key),self.assertRaises(Hold):
+                acquire.yokohama_saved_record(store,source,changed)
+        for key in ('sha256','source_url','final_url'):
+            changed=copy.deepcopy(receipt);changed[key]='wrong'
+            with self.subTest(receipt=key),self.assertRaises(Hold):
+                acquire.yokohama_saved_record(store,source,changed)
+        store.snapshot_bytes.assert_not_called()
 
     @unittest.skipIf(os.name=='nt','POSIX umask/permission regression; Windows inherits verified parent ACL')
     def test_worker_creation_with_umask_022_passes_real_owner_only_guard(self):

@@ -51,3 +51,16 @@ scope設定は固定契約と厳密比較し、余分な値やTrue/1の型差も
 実P1/保存索引/owner-only環境への接続は別ゲート。PIN/ACL検査もworkerの10秒内であり、実環境で完了できなければHOLD（時間制限は緩めない）。
 scope/bindingは人間のsource登録承認や実GETの承認receiptを代替しない。
 Ready化・マージ・本番・公式GETはPM/代表の別GOが必要。
+
+## StoredVersionとCASの接続（PR #100後続）
+
+固定P1のStoredVersionはID・URL・保存位置・取得日時と作成フラグの8項目を返す。
+都市・年度・媒体を返却値に要求せず、返却version ID（SHA）を固定URLのCAS versionsへ一意に接続する。
+CASの外側SHA・recordのSHA/version ID・返却IDを相互照合し、都市、年度、文書ID、媒体、種別、URLをrecordで検査する。
+保存位置・取得時刻も返却値と一致させ、原本SHA・2MiB・PDFヘッダーを読み戻すまでreadback_passはfalse。
+欠落・重複・矛盾はreadback_stop。既存原本を変更せず、予約は保持する。旧bindingへのfallbackはない。
+
+この変更でacquire.pyのコードSHAが変わる。将来の専用bindingは別承認後、実ファイルの新SHAへ固定して新規作成する必要がある。
+既存binding・固定P1の18ファイルPIN・scope定数は変更しない。
+4.515秒／6.683秒は過去の通信0予備計測であり、実P1初期化・通信・保存・検査を含む10秒達成は未実証。
+新しい実通信・source承認・active binding・予約は別ゲート。
