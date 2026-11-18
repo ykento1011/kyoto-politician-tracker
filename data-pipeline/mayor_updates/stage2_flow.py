@@ -19,15 +19,16 @@ from .stage2_guard import _record, supervise, publish_success, restore_evidence
 LIVE_FLOW_ENABLED = False
 
 
-def plan_bytes(spec, run_id, restore_script_sha256, *, worker_manifest=None):
+def plan_bytes(spec, run_id, restore_script_sha256, *, worker_manifest=None, simulation=True):
     """Deterministic proposal bytes, never a source or human approval receipt."""
     _spec(spec)
+    if type(simulation) is not bool:raise Hold('Explicit plan mode required')
     if (not re.fullmatch('[0-9a-f]{32}', run_id)
             or not re.fullmatch('[0-9a-f]{64}', restore_script_sha256)):
         raise Hold('Fixed run and restoration script SHA required')
     prefix = 'GikaiMikata-Stage2-' + run_id
     value={'schema_version': 1, 'run_id': run_id,
-        'synthetic': True, 'live_enabled': False, 'fixed_launch': asdict(spec),
+        'synthetic': simulation, 'live_enabled': False, 'fixed_launch': asdict(spec),
         'restore_script_sha256': restore_script_sha256,
         'network_plan': {'scope': 'whole_host', 'profiles': 'Any',
             'ipv4': True, 'ipv6': True, 'protocol': 'Any',
@@ -141,7 +142,7 @@ def _stage2(root,spec,api,*,run_id,expected_plan_sha256,restore_script,expected_
     worker_manifest=None
     if worker_spec is not None:
         worker_manifest={'spec':asdict(worker_spec),'code_root':code_root,'code_pins':code_pins}
-    body = plan_bytes(spec, run_id, expected_restore_sha256,worker_manifest=worker_manifest)
+    body = plan_bytes(spec, run_id, expected_restore_sha256,worker_manifest=worker_manifest,simulation=simulation)
     digest = sha256(body).hexdigest()
     if (digest != expected_plan_sha256
             or sha256(Path(restore_script).read_bytes()).hexdigest() != expected_restore_sha256):
@@ -181,7 +182,7 @@ def _stage2(root,spec,api,*,run_id,expected_plan_sha256,restore_script,expected_
             'plan_file': 'journal/plan.json', 'journal_directory': 'journal',
             'operator_acknowledgement': 'NOT_PROVIDED',
             'automatic_restore': False, 'restoration_authorized': False,
-            'real_execution_authorized': False, 'mode': 'synthetic_only'}
+            'real_execution_authorized': False, 'mode': 'synthetic_only' if simulation else 'native_stage2'}
         _record(root, 'restore_request.json', request)
         if clock() >= deadline: raise Hold('Restore handoff missed total deadline')
         # Withhold the supervisor capability until the entire flow returns on

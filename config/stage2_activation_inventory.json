@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "selected_recovery": "independent representative console program; generated text only, not executed",
+  "source_changes_required_for_separately_approved_native_run": [
+    {"file":"data-pipeline/mayor_updates/native_launch.py","symbol":"NATIVE_EXECUTION_ENABLED","current":false,"candidate":true},
+    {"file":"data-pipeline/mayor_updates/stage2_flow.py","symbol":"LIVE_FLOW_ENABLED","current":false,"candidate":true},
+    {"file":"data-pipeline/mayor_updates/stage2_guard.py","symbol":"LIVE_SUPERVISION_ENABLED","current":false,"candidate":true},
+    {"file":"data-pipeline/mayor_updates/worker_ipc.py","symbol":"WORKER_EXECUTION_ENABLED","current":false,"candidate":true},
+    {"file":"scripts/Stage2Worker.py","symbol":"LIVE_BOOTSTRAP_ENABLED","current":false,"candidate":true}
+  ],
+  "unchanged_gates": [
+    "Restore-Stage2Firewall.ps1 LiveFirewallChangesEnabled=false and unconditional Apply refusal; not used for actual removal",
+    "FixedLaunch.enabled=false remains a fixed configuration contract, not an execution permission",
+    "all official-source acquisition, binding, reservation and monitoring permissions remain disabled/unchanged"
+  ],
+  "private_deployment_required_before_go": [
+    "accept Python executable signature including timestamp/revocation; do not weaken offline trust policy",
+    "if the current candidate remains HOLD, administrator must supply a different vendor-signed Python runtime that passes the same offline revocation checks; any host revocation-cache maintenance requires explicit consent, never install or relax trusted roots silently",
+    "pin owner-only Python runtime and dependency closure; actual DLL resolution remains part of real acceptance",
+    "copy exact approved worker bootstrap/package set into a new owner-only code area",
+    "apply only the five reviewed activation differences to private copies after explicit GO, not this repository",
+    "recompute all affected code PINs and plan SHA; disabled-copy PINs cannot be reused after activation",
+    "bind actual worker EXE/signer SHA, leaf PowerShell EXE/signer SHA, SID1004, code root and eight code PINs",
+    "use a fresh run ID, empty IPC/journal area and exclusive one-shot reservation; no acquisition reservation or active binding",
+    "prepare a native (synthetic=false), still non-authorizing plan and exact GUID-named two-rule snapshot",
+    "preposition reviewed recovery console text, its SHA and baseline snapshot on local disk; representative must be present"
+  ],
+  "manual_os_actions_requiring_same_explicit_stage2_go": [
+    "verify both exact new rule names absent in ActiveStore/PersistentStore and save baseline; any existing name or duplicate is HOLD, never overwrite or reuse",
+    "local administrator creates exactly two persistent all-profile/all-program/all-service/all-protocol Block rules (one inbound, one outbound), no change to existing rules",
+    "verify both stores and filters, authenticated bypass/IPsec/third-party paths and existing connections before worker start",
+    "bounded non-municipality connectivity baseline and blocked probes according to stage2_probe_plan.json, including Dnscache attribution",
+    "read-only OS deny/packet observation; do not silently enable audit policy or install drivers if unavailable",
+    "invoke run_native_stage2 once from fixed non-elevated SID1004 with explicit private plan/runtime arguments",
+    "representative independently verifies all target processes exited, then pastes exact-run recovery text in local administrator PS5.1",
+    "if exit cannot be proved: retain isolation; a local reboot contingency needs explicit prior consent, never auto-reboot or auto-restore",
+    "confirm both added rules absent and compare baseline before resuming business"
+  ],
+  "acceptance_boundary": "Preparation is not native authorization. OS rule creation, probes and recovery are representative-operated steps; no automatic Firewall/probe/recovery executor is shipped or implied. Worker verification/work/cleanup has its own unchanged 10-second bound; manual maintenance is not claimed inside it.",
+  "current_real_processes": 0,
+  "current_firewall_mutations": 0,
+  "current_network_requests": 0
+}

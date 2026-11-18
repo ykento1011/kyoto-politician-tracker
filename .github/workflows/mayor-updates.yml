@@ -34,6 +34,9 @@ jobs:
           python -B data-pipeline/tests/test_stage2_flow_mayor.py --export-handoff $fixture
           if($LASTEXITCODE -ne 0){throw 'Fixture generation failed'}
           ./scripts/Test-Stage2Handoff.ps1 -FixtureRoot $fixture -Case '${{ matrix.handoff_case }}'
+          if('${{ matrix.handoff_case }}' -eq 'positive'){
+            ./scripts/Prepare-Stage2LocalRecovery.ps1 -SelfTest
+          }
   offline-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -52,6 +55,7 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_guard_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_flow_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_worker_ipc_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_preparation_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_mayor_updates.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_kyoto_operations.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_weekly_mayor.py'
@@ -74,3 +78,6 @@ jobs:
       - name: Test offline Firewall restore plan without OS changes
         shell: pwsh
         run: ./scripts/Restore-Stage2Firewall.ps1 -SelfTest
+      - name: Test independent manual recovery preparation without executing emitted text
+        shell: pwsh
+        run: ./scripts/Prepare-Stage2LocalRecovery.ps1 -SelfTest
