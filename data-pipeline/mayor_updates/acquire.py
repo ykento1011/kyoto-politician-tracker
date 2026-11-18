@@ -97,6 +97,41 @@ def worker(code_root,snapshot_root,source,output,*,media_type="html",scope=None,
     PrivateOutput(output).json('worker_outcome.json',asdict(result))
 
 
+def yokohama_saved_record(store, source, receipt):
+    """Join P1's minimal StoredVersion to exactly one CAS record, read-only."""
+    try:
+        version = receipt['version']
+        sha = version['version_id']
+        if not isinstance(sha, str) or len(sha) != 64 or any(c not in '0123456789abcdef' for c in sha):
+            raise Hold('Yokohama invalid version SHA')
+        for value in (version.get('sha256', sha), receipt.get('sha256', sha)):
+            if value != sha:
+                raise Hold('Yokohama receipt SHA mismatch')
+        url = source['url']
+        versions = store.read_index()['documents'][url]['versions']
+        matches = [v for v in versions if v['sha256'] == sha or v['record']['version_id'] == sha]
+        if len(matches) != 1:
+            raise Hold('Yokohama exact CAS version unavailable or ambiguous')
+        entry = matches[0]; record = entry['record']
+        expected = dict(city_code='yokohama', source_url=url, final_url=url,
+            fiscal_year=2026, document_id=source['document_id'], sha256=sha,
+            version_id=sha, mime_type='application/pdf', document_type='other_official')
+        if entry['sha256'] != sha or any(record.get(k) != v for k,v in expected.items()):
+            raise Hold('Yokohama CAS metadata mismatch')
+        for key in ('document_id', 'version_id', 'source_url', 'final_url',
+                    'snapshot_relative_path', 'retrieved_at'):
+            if not isinstance(version.get(key), str) or not version[key] or version[key] != record.get(key):
+                raise Hold('Yokohama StoredVersion/CAS identity mismatch')
+        # Enriched cached records must not contradict CAS either.
+        if any(key in version and version[key] != value for key,value in expected.items()):
+            raise Hold('Yokohama returned metadata mismatch')
+        if receipt.get('source_url') != url or receipt.get('final_url', url) != url:
+            raise Hold('Yokohama outcome URL mismatch')
+        return record
+    except (KeyError, TypeError, AttributeError) as exc:
+        raise Hold('Yokohama incomplete CAS/receipt identity') from exc
+
+
 def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,refresh=False,media_type="html",scope=None,storage=None):
     if not authorized:
         raise Hold('Explicit one-shot acquisition authorization required')
@@ -167,19 +202,18 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
                                             status='worker_stop_no_retry',details=str(exc))
         version=receipt.get('version')
         if version:
-            sha=version.get('sha256') or version['version_id']
+            if scope is not None and is_yokohama_major_pdf(scope):
+                receipt['readback_pass'] = False
             try:
+                if scope is not None and is_yokohama_major_pdf(scope):
+                    version = yokohama_saved_record(bridge.store, source, receipt)
+                sha=version.get('sha256') or version['version_id']
                 body=bridge.store.snapshot_bytes(sha)
                 if hashlib.sha256(body).hexdigest()!=sha or len(body)>source['max_bytes']:
                     raise Hold('Readback integrity/size mismatch')
                 if scope is not None and (is_kyoto_wave1(scope) or is_yokohama_major_pdf(scope)) and (
                         version.get('document_id') != source['document_id'] or not body.startswith(b'%PDF-')):
                     raise Hold('Fixed saved PDF identity mismatch')
-                if scope is not None and is_yokohama_major_pdf(scope):
-                    expected = dict(city_code='yokohama', source_url=url, final_url=url,
-                        fiscal_year=2026, mime_type='application/pdf', document_type='other_official')
-                    if any(version.get(k) != v for k,v in expected.items()):
-                        raise Hold('Yokohama saved PDF metadata mismatch')
                 receipt.update(sha256=sha,stored_bytes=len(body),readback_pass=True)
             except Hold as exc:
                 if scope is None or not (is_kyoto_wave1(scope) or is_yokohama_major_pdf(scope)):
