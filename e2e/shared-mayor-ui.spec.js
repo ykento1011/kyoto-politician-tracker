@@ -48,7 +48,8 @@ test('Kobe restores search, category, focus and browser URL navigation',async({p
  await page.goForward();await expect(page.getByRole('heading',{name:'予算資料',exact:true})).toBeVisible();
  await page.goto('/kobe/?view=mayor&policy=KOBE-M01');
  await expect(page.getByRole('heading',{name:'予算資料',exact:true})).toBeVisible();
- await page.evaluate(()=>{history.pushState({},'', '/kobe/?view=mayor');window.dispatchEvent(new Event('app-navigate'));});
+ await page.locator('header').first().getByRole('button',{name:/市長政策進捗|^政策進捗$/}).filter({visible:true}).click();
+ await expect(page).toHaveURL(/\/kobe\/\?view=mayor$/);
  await expect(page.locator('[data-policy-card]')).toHaveCount(5);
 });
 

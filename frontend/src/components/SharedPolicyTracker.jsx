@@ -38,7 +38,7 @@ export function MayorProfile({mayor = {}}) {
   const [photo,setPhoto]=useState(mayor.profile_image || mayor.fallback_image);
   useEffect(()=>setPhoto(mayor.profile_image || mayor.fallback_image),[mayor.profile_image,mayor.fallback_image]);
   return <div className="kp-mayor" aria-label="市長プロフィール">
-    {photo ? <img src={photo} alt={`${mayor.name || '京都市長'}の顔写真`} width="112" height="112"
+    {photo ? <img src={photo} alt={`${mayor.name || mayor.title || '市長'}の顔写真`} width="112" height="112"
       onError={()=>setPhoto(photo!==mayor.fallback_image ? mayor.fallback_image : null)} />
       : <span className="kp-photo-fallback">写真は表示できません</span>}
     <div><p className="kp-muted">{mayor.title}</p><p className="kp-mayor-name">{mayor.name}</p><p>任期：{mayor.term}</p></div>
