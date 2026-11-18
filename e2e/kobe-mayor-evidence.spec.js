@@ -3,6 +3,7 @@ const data=require('../frontend/public/data/kobe_mayor_tracker.json');
 test('Kobe M01 keeps unconfirmed amount and source without showing funding as confirmed',async({page})=>{
  await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
  await page.goto('/kobe/?view=mayor');
+ await page.getByRole('link',{name:'KOBE-M01 根拠・履歴',exact:true}).click();
  const record=page.locator('section[data-budget-relation="unconfirmed"]').filter({hasText:'14億2,000万円'});
  await expect(record).toHaveCount(1);
  await expect(record.getByText('14億2,000万円',{exact:true})).toBeVisible();
@@ -22,20 +23,19 @@ test('Kobe M01 keeps unconfirmed amount and source without showing funding as co
  await expect(camera.locator('[data-budget-aggregation="excluded"]')).toHaveCount(1);
  await expect(camera).not.toContainText('財源内訳：');
  await expect(camera.getByRole('link',{name:'公式資料（PDF）を確認'})).toHaveAttribute('href',data.pledges[0].budget_records[1].doc_url);
- await expect(page.getByText('掲載答弁記録',{exact:true})).toBeVisible();
+ await expect(page.getByText('登録された答弁・出典（政策対応は確認中）',{exact:true})).toBeVisible();
  await expect(page.getByText('関連予算総額',{exact:true})).toHaveCount(0);
  for(const policy of data.pledges.slice(2)) {
-  const card=page.locator('div.rounded-2xl').filter({has:page.getByText(policy.id,{exact:true})});
-  const amount=card.locator('span.text-base.font-black');
-  await expect(amount).toHaveText(policy.budget_records[0].amount_display);
-  await expect(amount).toBeVisible();
+  await page.goto(`/kobe/?view=mayor&policy=${policy.id}`);
+  await expect(page.getByText(policy.budget_records[0].amount_display,{exact:true})).toBeVisible();
  }
 });
 
 test('Kobe M02 labels the unconfirmed registration and distinguishes in-city and outside-city schools',async({page})=>{
  await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
  await page.goto('/kobe/?view=mayor');
- const card=page.locator('div.rounded-2xl').filter({has:page.getByText('KOBE-M02',{exact:true})});
+ await page.getByRole('link',{name:'KOBE-M02 根拠・履歴',exact:true}).click();
+ const card=page.locator('[data-mayor-city="kobe"]');
  const record=card.locator('section[data-budget-relation="unconfirmed"]');
  await expect(record).toHaveCount(1);
  await expect(record.getByText('22億8,000万円',{exact:true})).toBeVisible();

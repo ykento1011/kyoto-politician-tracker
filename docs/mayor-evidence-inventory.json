@@ -1,0 +1,3794 @@
+{
+  "schema": "mayor-policy-evidence-inventory-v1",
+  "scope": "read-only inventory, no new verification/permission",
+  "policies": [
+    {
+      "city": "kyoto",
+      "policy_id": "P-01",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "市バス等の「市民優先価格（2階建て運賃）」導入への挑戦",
+      "registered_stage": {
+        "level": 3,
+        "label": "導入準備（予算案確認）",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "国との連携による全国初のパイロットプロジェクトとなる市バス等の『市民優先価格』への挑戦など、市民が観光の意義や効果を実感できる環境づくり",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "重点プロジェクト「市民生活と調和した持続可能な観光と移動」に明記。国とのパイロットプロジェクトを通じた市民優先の運賃体系導入方針を市の総合戦略として公式確定。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "市バス等の市民優先価格の制度周知・PRとバスのシステム改修支援（2事業合計）",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf",
+          "year": "令和8年度当初予算（案）",
+          "locator": "市長記者会見資料「新京都戦略の改定及び令和８年度当初予算（案）について」（令和8年2月4日） 印刷p.21／PDF物理22ページ（内訳：印刷p.31／PDF物理32ページ）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "18ce8cb227cdd800990b2252390ba77524c99d375c54ed8aa0ac8453539a45ab",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "2億7,100万円／関係:direct／集計:従来登録。令和9年度の市民優先価格導入を見据えた準備。内訳は、民間バス事業者への支援2億6,100万円、市民周知・PR・システム改修1,000万円。後者は公営企業予算で、市バスのシステム改修は令和8年度は契約のみ。原文に記載された丸め済みの総事業費です（十万円単位を四捨五入）。議決済み予算や政策達成を示すものではありません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "市バス等の旅客流動調査及びお客様アンケート調査、路線・ダイヤ編成に向けたデータ分析基盤の整備",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf",
+          "year": "令和8年度当初予算（案）",
+          "locator": "市長記者会見資料「新京都戦略の改定及び令和８年度当初予算（案）について」（令和8年2月4日） 印刷p.21／PDF物理22ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "18ce8cb227cdd800990b2252390ba77524c99d375c54ed8aa0ac8453539a45ab",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "2億6,900万円／関係:contextual／集計:従来登録。関連する調査・分析予算（参考）。同じ交通政策の文脈から関連性を推定しています。市民優先価格への直接充当額は未確認のため、直接予算の集計には含めません。原文に記載された丸め済みの総事業費です（十万円単位を四捨五入）。議決済み予算や政策達成を示すものではありません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "観光特急バス（EX100・EX101系統）運行開始",
+          "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000324838.html",
+          "year": "2024-06-01",
+          "locator": "",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "観光特急バスの運行開始は関連する別施策の登録記録です。市民優先価格制度の導入・試験運用を示す根拠ではありません。この運行記録の原典照合も未完了です。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない",
+        "議案同一性を保留。可決・制度実施を推測しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-02",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "宿泊税上限引き上げおよび使途の拡大",
+      "registered_stage": {
+        "level": 4,
+        "label": "議決根拠を確認中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "宿泊税の引き上げや使途の拡大により、市民生活と調和した持続可能な観光振興財源を確保します。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「持続可能な行財政運営の確立」の基幹戦略として明記。観光課題解決・インフラ受入環境整備への使途拡充および最高税額見直しを公式計画化。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "宿泊税制度見直し検討及び観光客受入環境充実支援事業",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000275019.html",
+          "year": "令和8年度 当初予算",
+          "locator": "京都市行財政局 宿泊税の使途・活用事業一覧",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "1億1,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "市会本会議にて宿泊税条例改正案が賛成多数で可決",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000236942.html",
+          "year": "2025-12-15",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "この可決日・件名の原典との対応は未確認です。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない",
+        "議案同一性を保留。可決・制度実施を推測しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-03",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "全員制中学校給食の早期完全実施（京都方式）",
+      "registered_stage": {
+        "level": 4,
+        "label": "給食センター契約可決・着工",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "全員制中学校給食の早期実現。食育と温かい給食をすべての中学生に届けます。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「子育て環境日本一・健やかな学びの保障」に明記。PFI給食センター整備と親子方式の連携による全市立中学校での完全実施工程を法定計画として位置づけ。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "中学校給食完全実施推進事業（給食センターPFI・配膳室改修）",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/13_kouhou_kyoiku.pdf",
+          "year": "令和7年度（登録情報・予算区分は未確認）",
+          "locator": "令和7年度 京都市予算案 事業概要（教育委員会事務局）（照合対象：印刷p.143〜155／物理1〜13ページ。登録額の根拠位置は未確認）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "970e8cb06a398ad9496417a3bc9d147f645ee2e172c5b445dd868d4a5b74ba93",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "1億2,400万円／関係:unconfirmed／集計:従来登録。登録額1億2,400万円と登録事業名は、この保存資料では確認できていません。予算が存在しないという意味ではありません。直接予算の集計から除外し、財源内訳も未確認として扱います。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "中学校等の給食費の物価高騰分の公費負担（原文の説明に基づく表記）",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/15_kyouiku_kouhou.pdf",
+          "year": "令和8年度当初予算（案）",
+          "locator": "令和8年度京都市予算案 新規・充実等 事業概要（教育委員会事務局） 印刷p.188／物理16ページ「小学校給食の無償化」内「4 その他」",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "8ad5cc401ba9f85abb71f6dfbc961d9d36d5d1180c7698678913787739ed7c69",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "約1億9,000万円／関係:contextual／集計:従来登録。原文は「約1.9億円」。中学校等の保護者負担を据え置くための給食費対策として関連する参考予算です。給食センター整備への直接充当額には認定せず、直接予算の集計に含めません。財源内訳は未確認です。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "給食センター事業実施契約議案が市会で可決・着工",
+          "url": "https://www2.city.kyoto.lg.jp/shikai/img/honkaigi/gian/R7-9/G07-104.pdf",
+          "year": "2025-10-24",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "最新発表",
+          "title": "全員制中学校給食の実施状況の進ちょくについて",
+          "url": "https://www.city.kyoto.lg.jp/kyoiku/page/0000347372.html",
+          "year": "2026-11-05",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "59d642a637e5495d7094da5f6e7640ec77f90c51bc0eda2eb28a9fcdc61cde03",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認",
+          "limitations": "給食センターの整備工事が一時停止し、令和10年度中の全員制中学校給食の開始はできないと発表されました。新たな開始時期は未定です。過去の契約可決の記録は残し、事業中止や契約の取消しとは扱いません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "budget_proposal",
+          "title": "令和8年度 教育委員会予算広報資料（PM指定・本文確認前）",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/15_kyouiku_kouhou.pdf",
+          "year": 2026,
+          "locator": [
+            {
+              "physical_page": 18,
+              "printed_page": 190
+            },
+            {
+              "physical_page": 19,
+              "printed_page": 191
+            },
+            {
+              "physical_page": 20,
+              "printed_page": 192
+            }
+          ],
+          "quote": "70,000 千円",
+          "submeasure": "献立・食育・情報発信（関連施策）",
+          "original_sha256": "8ad5cc401ba9f85abb71f6dfbc961d9d36d5d1180c7698678913787739ed7c69",
+          "receipt_sha256": "ea3c0312d30ff5d9aefdab60dc796e50267e62934ab56bd42148322da4ba301a",
+          "url_registered": true,
+          "cas_index_reference": true,
+          "literal_policy_verification": "既存3事実のPM原典審査・代表承認を参照（今回の新規認定なし）",
+          "public_acceptance": "既存公開・同一事実UNCHANGEDのみ。記録6948610656",
+          "limitations": "予算議決・施行・実績は未確認。既存受入事実の再照合のみ。"
+        },
+        {
+          "kind": "budget_proposal",
+          "title": "令和8年度 教育委員会予算広報資料（PM指定・本文確認前）",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/15_kyouiku_kouhou.pdf",
+          "year": 2026,
+          "locator": [
+            {
+              "physical_page": 16,
+              "printed_page": 188
+            }
+          ],
+          "quote": "令和8 年度予算額：約1.9 億円",
+          "submeasure": "給食費物価高騰対策（複数校種の関連施策）",
+          "original_sha256": "8ad5cc401ba9f85abb71f6dfbc961d9d36d5d1180c7698678913787739ed7c69",
+          "receipt_sha256": "ea3c0312d30ff5d9aefdab60dc796e50267e62934ab56bd42148322da4ba301a",
+          "url_registered": true,
+          "cas_index_reference": true,
+          "literal_policy_verification": "既存3事実のPM原典審査・代表承認を参照（今回の新規認定なし）",
+          "public_acceptance": "既存公開・同一事実UNCHANGEDのみ。記録6948610656",
+          "limitations": "予算議決・施行・実績は未確認。既存受入事実の再照合のみ。"
+        }
+      ],
+      "confirmed_scope": [
+        "停止発表優先・開始時期未定。過去契約とは別",
+        "R8学校給食未来プロジェクト7,000万円・給食費高騰対策約1.9億円は関連予算案。直接センター整備費・議決・実績は認定しない"
+      ],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）",
+        "代表承認PM転記6948610656（既存同一事実UNCHANGEDのみ）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-04",
+      "branches": [
+        "子ども医療費",
+        "第2子以降保育料支援"
+      ],
+      "displayed_claim": "府市協調子ども医療費助成拡充と第2子以降保育料無償化",
+      "registered_stage": {
+        "level": 4,
+        "label": "条例可決・制度施行",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "京都府との強固な連携により、子どもの医療費助成を拡充し、第2子以降の保育料無償化を進めます。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「府市協調・子育て負担軽減プロジェクト」に位置づけ。小児通院医療費の自己負担上限月200円の対象拡充および多子世帯の保育料無償化推進を公式確定。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "子ども医療費支給事業（通院助成対象年齢拡充・府制度連携）",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000336/336421/R7_jigyo_hagukumi.pdf",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（はぐくみ局分） p.14",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "14億2,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "多子世帯保育料軽減拡充事業（第2子以降無償化）",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000336/336421/R7_jigyo_hagukumi.pdf",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（はぐくみ局分） p.16",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "14億円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "通院医療費月200円上限の対象を小学校卒業まで完全拡充",
+          "url": "https://www.city.kyoto.lg.jp/hagukumi/page/0000305888.html",
+          "year": "2024-09-01",
+          "locator": "",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "budget_proposal",
+          "title": "令和7年度当初予算案 子ども若者はぐくみ局",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/07_kouhou_kowaka.pdf",
+          "year": 2025,
+          "locator": [
+            {
+              "physical_page": 1,
+              "printed_page": 103
+            }
+          ],
+          "quote": "418,800 千円",
+          "submeasure": "第2子以降保育料無償化",
+          "original_sha256": "4c3d5f1210dd2928c180d7e4237b50c80cd6467675e6b0ee2ca97c4395c373cb",
+          "receipt_sha256": "b42bfc11fbb37ecdde1bafc6554ae6c30b653d6275937bed9ea9b9e88b661cad",
+          "url_registered": true,
+          "cas_index_reference": true,
+          "literal_policy_verification": "既存3事実のPM原典審査・代表承認を参照（今回の新規認定なし）",
+          "public_acceptance": "既存公開・同一事実UNCHANGEDのみ。記録6948610656",
+          "limitations": "予算議決・施行・実績は未確認。既存受入事実の再照合のみ。"
+        }
+      ],
+      "confirmed_scope": [
+        "第2子以降保育料無償化418,800千円のR7予算案記載のみ。印刷103／PDF1"
+      ],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない",
+        "子ども医療費と保育料を分離。登録14億円／別年度5,900万円と合算しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）",
+        "代表承認PM転記6948610656／Issue82・既存公開受入"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-05",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "京町家保全継承・若年子育て世帯居住支援",
+      "registered_stage": {
+        "level": 3,
+        "label": "予算化・改修支援中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "失われゆく京町家を守るため、固定資産税・相続税負担の軽減と、リノベーション・活用の規制緩和を断行します。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「歴史都市京都の景観・町家継承と若者定住」に明記。居住用町家の改修助成拡充や税負担軽減措置の制度設計を法定計画に位置づけ。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "京町家保全・継承の推進",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/08_tokei_kouhou.pdf",
+          "year": "令和8年度当初予算（案）",
+          "locator": "令和8年度京都市予算案 新規・充実等事業概要（都市計画局） 印刷p.129〜130／物理1〜2ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "43db7d86892deb5811f9f7934cd595bb1bc530df89255f091fd86a7ba0cb7710",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "既存公開データにsource_checkedの区分あり（新規認定ではない）",
+          "limitations": "4億6,232万9,000円／関係:direct／集計:included。原文の全体事業費462,329千円に精度を合わせました（従来登録4億6,200万円）。うち充実分357,300千円。改修補助の拡充82,710千円のほか、応援金、調査・指定、公的サブリース等を含む全体額です。9月の改修補助増額258,000千円と対象範囲が一致すると確認できないため、補正後の全体額は推計しません。財源内訳は未確認、議決成立・実施の認定ではありません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "京町家改修補助金",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809nagatyou.pdf",
+          "year": "令和8年度9月補正（議決確認は未実施）",
+          "locator": "令和8年度9月補正予算の概要 印刷p.3／物理3ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "2a1abba1ba88c0845df1dcf9e407864f67da8b10525309c58cf265c510a668a3",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "既存公開データにsource_checkedの区分あり（新規認定ではない）",
+          "limitations": "＋2億5,800万円／関係:direct／集計:excluded。改修補助の申請増加に対応する補正増額。京町家保全への直接の関係は確認できますが、当初の全体事業費とは対象範囲が異なるため集計しません。補正後の個別事業額は未確認です。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "若年・子育て世帯既存住宅購入・リフォーム支援（京都安心すまい応援金）",
+          "url": "https://www.city.kyoto.lg.jp/tokei/cmsfiles/contents/0000336/336421/R7_tokei_sumai.pdf",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（都市計画局） p.22",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "2億8,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "京町家カルテ制度のデジタル化・流通プラットフォーム運用開始",
+          "url": "https://www.city.kyoto.lg.jp/tokei/page/0000330039.html",
+          "year": "2024-10-01",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）",
+        "PR45受入：年度・当初／補正履歴を保持、範囲不明の合算禁止"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-06",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "京都駅周辺・三条京阪都市再生・ビジネス集積",
+      "registered_stage": {
+        "level": 3,
+        "label": "計画策定・推進中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "京都駅南部や三条京阪をはじめ、高さ・容積率規制の戦略的見直しによるオフィス・研究開発拠点の集積",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「都市再生・産業立地戦略」の最重点ゾーンとして指定。京都駅東南部および三条京阪における高機能オフィス誘導と都市計画特例活用を確定。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "文化芸術シンボルゾーン創出・市有地活用推進事業",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000336/336421/R7_sogo_project.pdf",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（総合企画局） p.5",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "5,200万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "京都駅東南部エリアのまちづくり方針改定案公表",
+          "url": "https://www.city.kyoto.lg.jp/tokei/page/0000318901.html",
+          "year": "2024-12-01",
+          "locator": "",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-07",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "スタートアップ創出・京都シリコンバレー化構想",
+      "registered_stage": {
+        "level": 3,
+        "label": "予算執行・拠点形成中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "大学の知と伝統の融合によるスタートアップ・エコシステムの確立と、世界から挑戦者が集まるインキュベーション機能の強化",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「知恵産業創造・グローバルスタートアップ拠点化」プログラムに明記。大学発ディープテック実証拠点の整備と国内外ベンチャーキャピタル呼び込みを策定。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "スタートアップ支援及び企業立地促進強化事業",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+          "year": "令和8年度当初予算（案・登録額の原典対応は未確認）",
+          "locator": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局）印刷p.48〜64／物理1〜17ページを照合。登録額の根拠位置は未確認。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "d595bb77b9a6a9927f99522466225b5a6cd89c0ad726f5f22ea604212b188ff5",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "7億1,500万円／関係:unconfirmed／集計:excluded。登録値7億1,500万円は削除せず保持しています。今回確認した原典では、この登録事業名・金額と財源内訳の対応を確認できませんでした。直接予算の集計から除外しています。下の個別事業が登録額の内訳かも未確認のため、加算・置換しません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "京都スタートアップ・海外展開支援プロジェクト",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+          "year": "令和8年度当初予算（案）",
+          "locator": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局） 印刷p.48／物理1ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "d595bb77b9a6a9927f99522466225b5a6cd89c0ad726f5f22ea604212b188ff5",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "9,900万円／関係:direct／集計:excluded。全体事業費9,900万円のうち充実分3,650万円。充実分は全体額に含まれ、補正による増額ではありません。支援目的の関連は確認できますが、既存登録額との重複・専用充当額が未確認のため集計対象外です。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "ユース・アントレプレナーシップ（起業家精神）プログラム",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+          "year": "令和8年度当初予算（案）",
+          "locator": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局） 印刷p.50／物理3ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "d595bb77b9a6a9927f99522466225b5a6cd89c0ad726f5f22ea604212b188ff5",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "2,500万円／関係:direct／集計:excluded。スタートアップ創出に向けた支援を原文で確認。既存登録額との重複・政策への専用充当額は未確認のため、集計対象外です。予算案であり実施・達成の認定ではありません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "企業立地促進助成",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/04_sankan_kouhou.pdf",
+          "year": "令和8年度当初予算（案）",
+          "locator": "令和8年度京都市予算案 新規・充実等 事業概要（産業観光局） 印刷p.52〜53／物理5〜6ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "d595bb77b9a6a9927f99522466225b5a6cd89c0ad726f5f22ea604212b188ff5",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "0円／関係:contextual／集計:excluded。予算欄は0円で「債務負担行為設定あり」。事業全体の予算がないという意味ではありません。債務負担の限度額・期間、P-07への直接充当は未確認です。補助上限を事業総額として扱いません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "中小企業デジタル化推進事業",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809nagatyou.pdf",
+          "year": "令和8年度9月補正（議決確認は未実施）",
+          "locator": "令和8年度9月補正予算の概要 印刷p.1・3／物理1・3ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "2a1abba1ba88c0845df1dcf9e407864f67da8b10525309c58cf265c510a668a3",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "2億4,400万円／関係:contextual／集計:excluded。今回の補正増額2億4,400万円。中小企業支援として関連しますが、P-07への直接対応は未確認です。繰越明許費欄にも同額がありますが二重加算しません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "国内最大級スタートアップカンファレンス「IVS京都」開催支援",
+          "url": "https://www.city.kyoto.lg.jp/menu2/category/26-13-0-0-0-0-0-0-0-0.html",
+          "year": "2024-07-04",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）",
+        "PR44受入：7億1,500万円未確認・集計外、関連事業と分離"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-08",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "しごとの仕方改革・行政DX・BPR推進",
+      "registered_stage": {
+        "level": 3,
+        "label": "庁内改革実行中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "縦割り行政の打破、庁内ペーパーレスの徹底、現場職員の提案が政策化されるクリエイティブな市役所への脱皮",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「クリエイティブ市役所変革・DX推進」に位置づけ。ガバメントクラウド標準化対応、行政手続オンライン化率95%目標、BPR徹底を公式計画化。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "職場のデジタル環境整備及び業務プロセス改革（BPR）推進事業",
+          "url": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（総合企画局デジタル化推進室）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "1億6,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "自治体情報システム標準化対応事業",
+          "url": "https://www.city.kyoto.lg.jp/sogo/page/0000294117.html",
+          "year": "令和7年度 9月補正",
+          "locator": "令和7年度9月補正予算概要 p.3",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "4億2,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "市長直轄「政策企画・改革推進室」の新設",
+          "url": "https://www.city.kyoto.lg.jp/sogo/page/0000339369.html",
+          "year": "2024-04-01",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-09",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "持続可能な行財政運営・過去負債返済の堅持",
+      "registered_stage": {
+        "level": 3,
+        "label": "黒字決算堅持・負債返済中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "将来世代に借金のツケを回さない。行財政改革の成果を維持し、実質収支黒字を堅持します。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「財政規律と公債償還の堅持」を戦略全体の最重要前提条件として位置づけ。公債償還基金取崩し分の計画的返済完了に向けたロードマップを策定。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "過去負債（公債償還基金の計画外の取崩し）の返済",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000335/335933/nagacho_9gatsu.pdf",
+          "year": "令和7年度9月補正（議決確認は未実施）",
+          "locator": "令和7年度9月補正予算の概要 印刷p.4／物理4ページ（一般会計）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "2e5c1fcf358b26ce32ec4201561c8c628bfeb2d216e5cfed360173b6a6782853",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "既存公開データにsource_checkedの区分あり（新規認定ではない）",
+          "limitations": "＋25億円／関係:direct／集計:excluded。原文2,500,000千円は令和7年度の補正増額です。一般財源との記載を確認しましたが、登録済み財源説明全体の確認はしていません。令和7年度の当初・補正後総額は今回未確認のため、増額単独では集計しません。令和8年度の25億円とは別年度です。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "過去負債（公債償還基金の計画外の取崩し）の返済",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000349/349867/kaikenshiryo.pdf",
+          "year": "令和8年度当初予算（案・履歴）",
+          "locator": "市長記者会見資料「新京都戦略の改定及び令和8年度当初予算（案）について」 印刷p.28／物理29ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "18ce8cb227cdd800990b2252390ba77524c99d375c54ed8aa0ac8453539a45ab",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "既存公開データにsource_checkedの区分あり（新規認定ではない）",
+          "limitations": "10億円／関係:direct／集計:excluded。当初案の計画的返済10億円。9月一般会計補正説明書の補正前額1,000,000千円とも一致します。同年度の補正後額35億円に含まれるため、集計には別加算しません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "過去負債（公債償還基金の計画外の取崩し）の返済（基金運用金償還金）",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809ippann.pdf",
+          "year": "令和8年度9月補正（議決確認は未実施）",
+          "locator": "議第103号 令和8年度京都市一般会計補正予算・補正予算に関する説明書 印刷p.5／物理9ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "317de761599e11e00edd60e435723aaca572144b0b4917ec5bfd0215cd487e55",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "既存公開データにsource_checkedの区分あり（新規認定ではない）",
+          "limitations": "＋25億円／関係:direct／集計:excluded。補正増額2,500,000千円。補正後35億円の内数なので別加算しません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "過去負債（公債償還基金の計画外の取崩し）の返済（基金運用金償還金）",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/0809ippann.pdf",
+          "year": "令和8年度9月補正（議決確認は未実施）",
+          "locator": "議第103号 令和8年度京都市一般会計補正予算・補正予算に関する説明書 印刷p.5／物理9ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "317de761599e11e00edd60e435723aaca572144b0b4917ec5bfd0215cd487e55",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "既存公開データにsource_checkedの区分あり（新規認定ではない）",
+          "limitations": "35億円／関係:direct／集計:included。補正前1,000,000千円＋今回補正2,500,000千円＝補正後3,500,000千円を同じ予算行で確認しました。同年度の履歴から補正後額のみを集計します。実際の返済完了額や決算額を意味しません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "2年連続の財政再生団体転落危機の完全回避確認",
+          "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000284994.html",
+          "year": "2024-08-01",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）",
+        "PR45受入：年度・当初／増額／補正後を分離、重複加算なし"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-10",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "「双京構想」推進・文化財修理拠点誘致",
+      "registered_stage": {
+        "level": 2,
+        "label": "市公式計画化・国要望中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "文化庁移転を契機とした『文化首都・京都』の確立。皇室機能の一部を京都で果たす双京構想の推進と文化財修復拠点の整備",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「文化首都・京都の飛躍」施策として位置づけ。文化庁との密接な連携のもと、皇室文化の継承発信と国立文化財修理センター機能の京都誘致を公式計画化。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "文化財修理サイクルの確立に向けた修理助成制度再構築事業",
+          "url": "https://www.city.kyoto.lg.jp/bunshi/cmsfiles/contents/0000348/348991/R8_bunka_shuri.pdf",
+          "year": "令和8年度 当初予算",
+          "locator": "令和8年度予算案主要事業説明書（文化市民局）",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "2億円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "文部科学大臣に対する文化財保存修理体制強化に関する政策要望書の提出",
+          "url": "https://www.city.kyoto.lg.jp/bunshi/page/0000312045.html",
+          "year": "2024-11-20",
+          "locator": "",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-11",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "観光地美化・スマートごみ箱・交通抑制",
+      "registered_stage": {
+        "level": 3,
+        "label": "実証実験・配備中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "観光混雑対策と美化の両立。パーク＆ライドの徹底、スマートごみ箱の増設による散乱ごみ対策",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「生活環境と調和した観光管理」施策に明記。主要観光地へのスマートごみ箱（SmaGO）の継続的配備とパーク＆ライド等の交通マネジメントを規定。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "スマートごみ箱（SmaGO）設置促進・美化受入環境整備事業",
+          "url": "https://www.city.kyoto.lg.jp/kankyo/cmsfiles/contents/0000336/336421/R7_kankyo_smago.pdf",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（環境政策局） p.9",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "4,500万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "嵐山・清水・祇園エリアへのスマートごみ箱40基配備",
+          "url": "https://www.city.kyoto.lg.jp/kankyo/page/0000327891.html",
+          "year": "2024-08-01",
+          "locator": "",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-12",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "洛西・向島ニュータウン等郊外再生",
+      "registered_stage": {
+        "level": 3,
+        "label": "再生ビジョン推進中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "郊外型大規模団地の再生。若者や子育て世帯が住みたくなるリノベーション支援とコミュニティ拠点整備",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「郊外拠点・ニュータウン再生プロジェクト」として公式策定。洛西SAIKOプロジェクト等の若者・子育て世帯向け居住・コミュニティ再生を位置づけ。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "こどもまんなか公園魅力アップ（洛西SAIKOプロジェクト推進分）",
+          "url": "https://www.city.kyoto.lg.jp/kensetu/cmsfiles/contents/0000336/336421/R7_kensetu_rakusai.pdf",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（建設局） p.18",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "8,716万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "洛西SAKAIBA共創拠点オープン",
+          "url": "https://www.city.kyoto.lg.jp/tokei/page/0000315201.html",
+          "year": "2024-07-01",
+          "locator": "",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-13",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "北山エリア文化交流拠点化・音楽祭",
+      "registered_stage": {
+        "level": 2,
+        "label": "市公式計画化・協議中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "植物園や京都コンサートホールを核とした北山エリアの文化・にぎわい創出。府立大学アリーナ計画の市民的合意形成と調和",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「北山文化ゾーンのにぎわい創出」施策に明記。植物園の自然環境と京都コンサートホール等の文化拠点を調和させた文化発信・音楽イベント構想を位置づけ。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "京都コンサートホール機能強化・北山エリア活性化検討事業",
+          "url": "https://www.city.kyoto.lg.jp/bunshi/cmsfiles/contents/0000336/336421/R7_bunshi_kitayama.pdf",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（文化市民局） p.11",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "2,800万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "府市北山エリア整備連絡会議の再開",
+          "url": "https://www.city.kyoto.lg.jp/bunshi/page/0000321456.html",
+          "year": "2024-12-01",
+          "locator": "",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kyoto",
+      "policy_id": "P-14",
+      "branches": [
+        "精神障害者医療費",
+        "AYA世代支援"
+      ],
+      "displayed_claim": "精神障害者医療費支給・AYA世代支援",
+      "registered_stage": {
+        "level": 4,
+        "label": "条例可決・助成開始",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "令和6年 京都市長選公報原本",
+          "url": "https://www.city.kyoto.lg.jp/senkyo/cmsfiles/contents/0000326/326065/kouhou.pdf",
+          "year": "",
+          "locator": "誰ひとり取り残さない共生社会。精神障害者医療費助成の通院対象拡大やAYA世代がん患者支援の実現",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "新京都戦略（令和8年3月改定）別綴 政策集",
+          "url": "https://www.city.kyoto.lg.jp/sogo/cmsfiles/contents/0000339/339369/seisakushuu2.pdf",
+          "year": "2026-03-01",
+          "locator": "「誰ひとり取り残さない共生福祉」重点項目に位置づけ。精神通院医療費助成の確実な運用と若年がん患者在宅療養支援の定着を公定計画化。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "重度心身障害者医療費支給事業（精神障害者通院・入院対象拡充）",
+          "url": "https://www.city.kyoto.lg.jp/hokenfukushi/cmsfiles/contents/0000336/336421/R7_fukushi_seishin.pdf",
+          "year": "令和7年度 当初予算",
+          "locator": "令和7年度主要事業説明書（保健福祉局） p.27",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "6億8,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "精神障害者通院医療費助成の拡充施行",
+          "url": "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000311202.html",
+          "year": "2025-01-01",
+          "locator": "",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない",
+        "保存PDFと精神医療・AYA政策枝との対応は保留。議163の認定なし"
+      ],
+      "existing_review_references": [
+        "TASK-0010／TASK-0012の会話上のPM受入（新規承認ではない）"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "osaka",
+      "policy_id": "OSAKA-M01",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "0〜2歳児保育料の完全無償化（第2子無償化・第1子所得制限撤廃）",
+      "registered_stage": {
+        "level": 5,
+        "label": "5.成立・執行",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "横山ひでゆき 選挙公報掲載枠",
+          "url": "https://prod-cdn.go2senkyo.com/public/senkyo_koho/26972/20260201%E5%A4%A7%E9%98%AA%E5%B8%82%E9%95%B7%E9%81%B8%E6%8C%99.pdf",
+          "year": "",
+          "locator": "教育・子育て負担の軽減 最大770万円以上軽減（所得制限なしでの保育料無償化拡大）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "0〜2歳児保育料無償化公式制度案内（第2子無償化・第1子完全無償化ロードマップ）",
+          "url": "https://www.city.osaka.lg.jp/kodomo/page/0000608688.html",
+          "year": "2026年2月",
+          "locator": "認可保育所・児童発達支援について所得制限なしで第1子・第2子保育料を無償化する方針を確定。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "e9151f0f53408da7df3157540b41f3e46f374d457dd43406314f698167de8842",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "0〜2歳児保育無償化拡充・保育人材確保事業",
+          "url": "https://www.city.osaka.lg.jp/seisakukikakushitsu/page/0000596827.html",
+          "year": "令和6年度〜令和8年度",
+          "locator": "こども青少年局 予算事業概要",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "102億2,400万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "令和8年9月から認可保育施設を利用するすべての子どもの保育料を無償化します（こども青少年局）",
+          "url": "https://www.city.osaka.lg.jp/kodomo/page/0000608688.html",
+          "year": "2026年9月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "e9151f0f53408da7df3157540b41f3e46f374d457dd43406314f698167de8842",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "osaka",
+      "policy_id": "OSAKA-M02",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "習い事・塾代助成事業の所得制限完全撤廃",
+      "registered_stage": {
+        "level": 5,
+        "label": "5.成立・執行",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "横山ひでゆき 選挙公報掲載枠",
+          "url": "https://prod-cdn.go2senkyo.com/public/senkyo_koho/26972/20260201%E5%A4%A7%E9%98%AA%E5%B8%82%E9%95%B7%E9%81%B8%E6%8C%99.pdf",
+          "year": "",
+          "locator": "塾代助成事業の全学年・所得制限撤廃による教育格差是正",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "大阪市習い事・塾代助成事業（所得制限完全撤廃・令和8年4月デジタルクーポン移行）",
+          "url": "https://www.city.osaka.lg.jp/kodomo/page/0000661365.html",
+          "year": "2024年10月施行",
+          "locator": "小学5年生から中学3年生までの全生徒を対象に所得制限を撤廃し、対象者を約10万人に倍増。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "習い事・塾代助成事業（所得制限撤廃に伴う拡充）",
+          "url": "https://www.city.osaka.lg.jp/kodomo/cmsfiles/contents/0000499/499222/2ki5nenkan.pdf",
+          "year": "令和6年度〜令和7年度",
+          "locator": "施策体系計画書（公文書PDF）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "65億1,600万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "大阪市習い事・塾代助成事業（こども青少年局公式案内）",
+          "url": "https://www.city.osaka.lg.jp/kodomo/page/0000661365.html",
+          "year": "2024年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "osaka",
+      "policy_id": "OSAKA-M03",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "万博レガシーを継承した夢洲第2期区域まちづくりと国際観光拠点形成",
+      "registered_stage": {
+        "level": 4,
+        "label": "4.要綱策定・契約",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "横山ひでゆき 選挙公報掲載枠",
+          "url": "https://prod-cdn.go2senkyo.com/public/senkyo_koho/26972/20260201%E5%A4%A7%E9%98%AA%E5%B8%82%E9%95%B7%E9%81%B8%E6%8C%99.pdf",
+          "year": "",
+          "locator": "大阪・関西万博 最大約370億円黒字見込み / 規制緩和による事業の高度化・生産性向上",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "万博レガシーを継承した夢洲第2期区域まちづくり方針（大屋根リング残置・記念公園等）",
+          "url": "https://www.city.osaka.lg.jp/osakatokei/page/0000683343.html",
+          "year": "令和8年6月改定",
+          "locator": "万博大屋根リングの一部残置を含む記念公園ゾーン整備および国際観光拠点の形成。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "万博レガシーを継承した夢洲第2期区域まちづくり事業",
+          "url": "https://www.city.osaka.lg.jp/osakatokei/cmsfiles/contents/0000683/683343/R8_jigyogaiyou.pdf",
+          "year": "令和8年度",
+          "locator": "大阪市都市計画局 事業概要PDF",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "事業概要確定済／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "万博レガシーを継承した夢洲第2期区域のまちづくり（大阪都市計画局）",
+          "url": "https://www.city.osaka.lg.jp/osakatokei/page/0000683343.html",
+          "year": "2026年8月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "osaka",
+      "policy_id": "OSAKA-M04",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "副首都・大阪の実現（府市一体の成長戦略・経済基盤強化）",
+      "registered_stage": {
+        "level": 5,
+        "label": "5.成立・執行",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "横山ひでゆき 選挙公報掲載枠",
+          "url": "https://prod-cdn.go2senkyo.com/public/senkyo_koho/26972/20260201%E5%A4%A7%E9%98%AA%E5%B8%82%E9%95%B7%E9%81%B8%E6%8C%99.pdf",
+          "year": "",
+          "locator": "副首都・大阪の実現によって 日本の経済成長を大阪がけん引! 地方分権をさらに促進させ、経済基盤を強化",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "副首都ビジョン推進ポータル（府市一体成長戦略・首都機能バックアップ等）",
+          "url": "https://www.city.osaka.lg.jp/fukushutosuishin/page/0000540938.html",
+          "year": "2026年度改定",
+          "locator": "東西二軸での日本経済牽引を果たす副首都機能の確立と、若者・女性のチャレンジにあふれる都市づくり。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "副首都推進・広域行政連携推進事業",
+          "url": "https://www.city.osaka.lg.jp/fukushutosuishin/page/0000540938.html",
+          "year": "令和6年度〜令和8年度",
+          "locator": "副首都ビジョン推進取組事例集",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "4億2,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "大阪の副首都構想（副首都ビジョンの推進等・副首都推進局）",
+          "url": "https://www.city.osaka.lg.jp/fukushutosuishin/page/0000540938.html",
+          "year": "2026年6月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "nagoya",
+      "policy_id": "nagoya_p1",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "名古屋城天守閣の木造本物復元推進",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化・協議中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "",
+          "url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html",
+          "year": "",
+          "locator": "史実に忠実な復元を必ず完遂。本丸外を無料開放。名古屋城全体を極力江戸時代の風情に。名古屋城木造化をきっかけとして公共建築、高層建築などへ木材活用をすすめる",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "天守閣整備事業におけるバリアフリーの考え方（垂直昇降設備技術公募・当事者協議）",
+          "url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/",
+          "year": "令和5年3月策定（令和6年度実施状況反映）",
+          "locator": "特別史跡名古屋城跡の適切な保存管理を図り、木造復元を一体とした現状変更許可取得に向け、事業を着実に推進する。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "特別史跡名古屋城跡保存活用事業費（天守閣木造復元関連経費）",
+          "url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/",
+          "year": "令和6・7年度",
+          "locator": "観光文化交流局主要事業説明書",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "調査設計・保全対策費計上／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "天守閣整備事業におけるバリアフリーの考え方（名古屋城公式）",
+          "url": "https://www.nagoyajo.city.nagoya.jp/save/tenshu_information/barrierfree/",
+          "year": "2024年11月〜",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "nagoya",
+      "policy_id": "nagoya_p2",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "市民税減税の推進と税率拡大検証（5%から10%へ）",
+      "registered_stage": {
+        "level": 3,
+        "label": "3.予算計上・制度継続運用",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "",
+          "url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html",
+          "year": "",
+          "locator": "市民税5%減税を10%減税へ。さらに市民の皆さまへ減税でお返しします。日本で唯一の恒久的な市民税減税。平成22年から14年間累計1,496億円の減税で3,087億円の市税増収。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "個人の市民税減税の概要（一律5%減税ロジック・世帯年収別減税額モデルケース）",
+          "url": "https://www.city.nagoya.jp/kurashi/zeikin/1037356/1011880/1012157/1033970.html",
+          "year": "令和5年3月策定",
+          "locator": "市民税減税の適切な運用と安定的な税収基盤の確保を両立し、持続可能な財政運営を行う。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "c65b39a349c8b3b4dd2e4119384ed27ef4cc29464bc7bd32d3bf499fff1c61ef",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "市民税減税に伴う歳入減対策（税負担軽減措置）",
+          "url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html",
+          "year": "令和7年度",
+          "locator": "財政局主要事業説明書（一般財源）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "平年約120〜130億円減収織込／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "議案（同一性はAの照合待ち）",
+          "title": "名古屋市市税条例の一部を改正する条例案",
+          "url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1030860.html",
+          "year": "令和6年11月定例会",
+          "locator": "市長提出議案",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "個人の市民税の減税の概要（財政局公式）",
+          "url": "https://www.city.nagoya.jp/kurashi/zeikin/1037356/1011880/1012157/1033970.html",
+          "year": "2024年11月29日",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "c65b39a349c8b3b4dd2e4119384ed27ef4cc29464bc7bd32d3bf499fff1c61ef",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "nagoya",
+      "policy_id": "nagoya_p3",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "敬老パス改善（回数制限緩和・翌年繰越・タクシー併給）",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化・電算設計中",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "",
+          "url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html",
+          "year": "",
+          "locator": "利用料を5,000円⇒3,000円、3,000円→2,000円に値下げ。年間730回の余った利用回数を翌年に繰り越し可能に。回数制限を年間730回→1000回に。障がい者タクシー助成制度と敬老パスの併給を可能に。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "敬老パス制度改善案内（730回上限・私鉄拡充・90分以内乗り継ぎ1回カウント緩和）",
+          "url": "https://www.city.nagoya.jp/kenkofukushi/koureisha/1016534/1016423.html",
+          "year": "令和5年3月策定",
+          "locator": "高齢者の社会参加を促進し生きがいづくりと介護予防を図るため、敬老パスの適切な交付と運用を行う。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "敬老パス交付事業費（交付経費・運行補填・併給設計）",
+          "url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/016/536/keiroupasuseidonituite.pdf",
+          "year": "令和7年度",
+          "locator": "健康福祉局主要事業説明書",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "約140億〜150億円規模／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "令和6年2月1日から敬老パスの利用回数の数えかたが変わりました！（健康福祉局）",
+          "url": "https://www.city.nagoya.jp/kenkofukushi/koureisha/1016534/1016423.html",
+          "year": "2025年1月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "nagoya",
+      "policy_id": "nagoya_p4",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "市長給料年額800万円の継続および退職手当の全額不支給",
+      "registered_stage": {
+        "level": 4,
+        "label": "4.条例案可決・成立執行",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "",
+          "url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html",
+          "year": "",
+          "locator": "市長報酬800万円、退職金全額返上。市長報酬2,830万円⇒800万円、4年ごとの退職金4,220万円⇒0円。市民並み給与を継承！",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "市長給料年額800万円特例および期末手当不支給の執行実績（記者発表資料）",
+          "url": "https://www.city.nagoya.jp/houdou/pressr7/3002887/3003057.html",
+          "year": "令和5年3月策定",
+          "locator": "特別職報酬等の適正化を推進し、簡素で効率的な行財政運営を確立する。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "総務局 特別職給料等経費（市長給与）",
+          "url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/031/917/01.pdf",
+          "year": "令和7年度",
+          "locator": "総務局主要事業説明書（退職金4,220万円削減）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "年額約800万円（年2,030万円削減）／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "議案（同一性はAの照合待ち）",
+          "title": "市長等の給料及び退職手当の特例に関する条例の制定について",
+          "url": "https://www.city.nagoya.jp/shikai/shingi/1030858/1030859/1031911.html",
+          "year": "令和7年2月定例会",
+          "locator": "市長提出議案",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "令和6年12月期末・勤勉手当の支給等（総務局 記者発表資料）",
+          "url": "https://www.city.nagoya.jp/houdou/pressr7/3002887/3003057.html",
+          "year": "2025年3月10日",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "nagoya",
+      "policy_id": "nagoya_p5",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "第2子以降・0歳児からの保育料無償化と子ども応援委員会の拡充",
+      "registered_stage": {
+        "level": 3,
+        "label": "3.予算計上・段階的拡充",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "",
+          "url": "https://www.city.nagoya.jp/shisei/senkyo/1030152/1030179/1032417.html",
+          "year": "",
+          "locator": "保育料0歳児から完全無償。子ども応援委員会常勤スクールカウンセラー(SC)、スクールソーシャルワーカー(SSW)を中学校の規模に応じて加配を行う。常勤スクールカウンセラーの管理職も増員してスクールカウンセラーが育成できる体制強化。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "なごや子ども応援委員会支援体制（17ブロック専門職配置・相談ルート体系案内）",
+          "url": "https://www.city.nagoya.jp/kodomo/schools/1017052/1017057.html",
+          "year": "令和5年3月策定",
+          "locator": "多子世帯等への経済的負担軽減を推進するとともに、子ども応援委員会の充実によりいじめ・不登校対策等の相談機能を強化する。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "保育所等運営給付費（第2子軽減枠拡大）／子ども応援委員会設置運営事業費",
+          "url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf",
+          "year": "令和7年度",
+          "locator": "子ども青少年局・教育委員会主要事業説明書",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "当初予算計上／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "議案（同一性はAの照合待ち）",
+          "title": "令和7年度名古屋市一般会計予算案（子ども青少年局・教育委員会関係費）",
+          "url": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/034/095/kodomonomiraizenryokuoen_budget_expansion_2025r.pdf",
+          "year": "令和7年2月定例会",
+          "locator": "第1号議案",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "なごや子ども応援委員会について（教育委員会公式）",
+          "url": "https://www.city.nagoya.jp/kodomo/schools/1017052/1017057.html",
+          "year": "2024年12月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M01",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "災害に強く、危機管理に優れた横浜をつくります。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "災害に強く、危機管理に優れた横浜をつくります。 激甚化する風水害・地震に備え、避難所環境の抜本改善、木密地域対策、耐震化を推進。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "在宅避難のすすめ／横浜市避難ナビ（マンション防災・デジタルツール活用）",
+          "url": "https://www.city.yokohama.lg.jp/bousai-kyukyu-bohan/bousai-saigai/moshimo/wagaya/default20230904.html",
+          "year": "2026年度",
+          "locator": "災害に強く、危機管理に優れた横浜をつくります。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "災害に強く、危機管理に優れた横浜推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "在宅避難のすすめ／避難ナビ（防災・危機管理統括本部）",
+          "url": "https://www.city.yokohama.lg.jp/bousai-kyukyu-bohan/bousai-saigai/moshimo/wagaya/default20230904.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない",
+        "旧予算URL404追跡。避難啓発資料は予算根拠でない。R8当初予算と同年10月選挙公約を自動対応させない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M02",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "必要な人に、必要な支援が届く福祉を実現します。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "必要な人に、必要な支援が届く福祉を実現します。 小児医療費助成の所得制限撤廃の堅持と、重層的セーフティネットの構築。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "介護予防・健康づくり事業（フレイル予防・データドリブン一体的実施ハマプロ）",
+          "url": "https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/fukushi-kaigo/koreisha-kaigo/kaigoyobo-kenkoudukuri-ikigai/kaigoyobo-kenkoudukuri/kaigoyobou.html",
+          "year": "2026年度",
+          "locator": "必要な人に、必要な支援が届く福祉を実現します。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "必要な人に、必要な支援が届く福祉推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "元気なうちから介護予防・健康づくり（健康福祉局）",
+          "url": "https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/fukushi-kaigo/koreisha-kaigo/kaigoyobo-kenkoudukuri-ikigai/kaigoyobo-kenkoudukuri/kaigoyobou.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M03",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "道路・橋・上下水道など、暮らしを支えるインフラを守ります。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "道路・橋・上下水道など、暮らしを支えるインフラを守ります。 インフラ長寿命化計画の推進と通学路・地域交通網の安全総点検。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "道路構造物・橋梁のアセットマネジメント（事後保全から予防保全への転換計画）",
+          "url": "https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/doro/kensetsu/kyoryo/asset-management.html",
+          "year": "2026年度",
+          "locator": "道路・橋・上下水道など、暮らしを支えるインフラを守ります。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "道路・橋・上下水道など、暮らしを推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "橋梁のアセットマネジメント（道路局・水道局）",
+          "url": "https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/doro/kensetsu/kyoryo/asset-management.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M04",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "子育て支援をさらに充実させ、子どもを安心して育てられる横浜をつくります。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "子育て支援をさらに充実させ、子どもを安心して育てられる横浜をつくります。 中学校給食の全員喫食に向けた品質向上と放課後児童クラブの受入枠拡大。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "地域子育て支援施策（親子の居場所づくり・保育所整備・学童保育推進）",
+          "url": "https://www.city.yokohama.lg.jp/city-info/yokohamashi/org/kodomo/soshiki-gyomu/chikoshien.html",
+          "year": "2026年度",
+          "locator": "子育て支援をさらに充実させ、子どもを安心して育てられる横浜をつくります。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "子育て支援をさらに充実させ、子ど推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "地域子育て支援課の業務案内（こども青少年局）",
+          "url": "https://www.city.yokohama.lg.jp/city-info/yokohamashi/org/kodomo/soshiki-gyomu/chikoshien.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M05",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "18区それぞれの個性を生かし、地域の活力を高めます。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "18区それぞれの個性を生かし、地域の活力を高めます。 各区の地域課題に即した区長権限と予算の拡充、商店街活性化支援。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "「地域づくり大学校」事例集（18区ボトムアップ型地域活動・活力創出）",
+          "url": "https://www.city.yokohama.lg.jp/kurashi/kyodo-manabi/shiminkyodo/kyodo/jirei/chiikidai.html",
+          "year": "2026年度",
+          "locator": "18区それぞれの個性を生かし、地域の活力を高めます。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "18区それぞれの個性を生かし、地推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "「地域づくり大学校」修了生活動事例集（市民局）",
+          "url": "https://www.city.yokohama.lg.jp/kurashi/kyodo-manabi/shiminkyodo/kyodo/jirei/chiikidai.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M06",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "財政基盤を強化し、将来世代に責任を持つ市政を実現します。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "財政基盤を強化し、将来世代に責任を持つ市政を実現します。 徹底した事業見直しとDX推進による業務効率化、健全な財政規律の堅持。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "財政状況ワンストップページ（財政ビジョン・PB均衡・行財政改革進捗）",
+          "url": "https://www.city.yokohama.lg.jp/city-info/zaisei/jokyo/onestopzaisei.html",
+          "year": "2026年度",
+          "locator": "財政基盤を強化し、将来世代に責任を持つ市政を実現します。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "財政基盤を強化し、将来世代に責任推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "ワンストップ財政情報・アニュアルレポート（財政局）",
+          "url": "https://www.city.yokohama.lg.jp/city-info/zaisei/jokyo/onestopzaisei.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M07",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "GREEN EXPO 2027を契機に横浜の未来を切り拓きます。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "GREEN EXPO 2027を契機に横浜の未来を切り拓きます。 旧上瀬谷通信施設での国際園芸博覧会の成功と脱炭素先行地域の推進。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "GREEN×EXPO 2027開催概要（国際園芸博覧会推進・GX技術体験展示）",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/engeihaku/expo.html",
+          "year": "2026年度",
+          "locator": "GREEN EXPO 2027を契機に横浜の未来を切り拓きます。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "GREEN EXPO 2027を推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "GREEN×EXPO 2027について（脱炭素・GREEN EXPO推進局）",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/engeihaku/expo.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M08",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "企業を呼び込み、横浜に働く場所と新たな雇用を生み出します。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "企業を呼び込み、横浜に働く場所と新たな雇用を生み出します。 都心臨海部・郊外部への企業誘致促進とスタートアップエコシステムの強化。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "企業誘致・立地支援ポータル（オフィス立地補助金・雇用創出税制優遇）",
+          "url": "https://www.city.yokohama.lg.jp/business/keizai/yuchi/",
+          "year": "2026年度",
+          "locator": "企業を呼び込み、横浜に働く場所と新たな雇用を生み出します。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "企業を呼び込み、横浜に働く場所と推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "企業誘致・立地支援情報（経済局）",
+          "url": "https://www.city.yokohama.lg.jp/business/keizai/yuchi/",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M09",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "観光客が訪れるだけでなく楽しみ、過ごす「滞在型観光」の拠点にします。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "観光客が訪れるだけでなく楽しみ、過ごす「滞在型観光」の拠点にします。 夜間観光・MICE誘致の強化と地域周遊型観光の促進。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "文化芸術創造都市・創造界隈拠点（歴史的建造物活用・滞在型観光創出）",
+          "url": "https://www.city.yokohama.lg.jp/kanko-bunka/bunka/sozotoshi/sozotoshi/kyoten/kyoten.html",
+          "year": "2026年度",
+          "locator": "観光客が訪れるだけでなく楽しみ、過ごす「滞在型観光」の拠点にします。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "観光客が訪れるだけでなく楽しみ、推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "創造都市の拠点（創造界隈について・にぎわいスポーツ文化局）",
+          "url": "https://www.city.yokohama.lg.jp/kanko-bunka/bunka/sozotoshi/sozotoshi/kyoten/kyoten.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M10",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "横浜の持つ豊富な基盤を活かし、世界に誇るエンタメ一大拠点にします。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "横浜の持つ豊富な基盤を活かし、世界に誇るエンタメ一大拠点にします。 アリーナや文化施設を活用した国際イベント誘致とクリエイティブ産業育成。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "エンタメ・文化芸術創造都市拠点（BankART・象の鼻テラス等）",
+          "url": "https://www.city.yokohama.lg.jp/kanko-bunka/bunka/sozotoshi/sozotoshi/kyoten/kyoten.html",
+          "year": "2026年度",
+          "locator": "横浜の持つ豊富な基盤を活かし、世界に誇るエンタメ一大拠点にします。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "横浜の持つ豊富な基盤を活かし、世推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "創造界隈拠点・文化芸術発信（にぎわいスポーツ文化局）",
+          "url": "https://www.city.yokohama.lg.jp/kanko-bunka/bunka/sozotoshi/sozotoshi/kyoten/kyoten.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M11",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "公正・適正な官民連携で、民間の力を最大限に生かします。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "公正・適正な官民連携で、民間の力を最大限に生かします。 PPP/PFIの透明性確保と民間活力を活かした公共施設再整備。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "共創フロント（公民連携相談・テーマ型／フリー型官民連携スキーム）",
+          "url": "https://www.city.yokohama.lg.jp/business/kyoso/kyosofront/front/front.html",
+          "year": "2026年度",
+          "locator": "公正・適正な官民連携で、民間の力を最大限に生かします。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "公正・適正な官民連携で、民間の力推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/shisaku/shin-chuki.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": true,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "共創フロント（政策局共創推進室）",
+          "url": "https://www.city.yokohama.lg.jp/business/kyoso/kyosofront/front/front.html",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "yokohama",
+      "policy_id": "YOKOHAMA-M12",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "市職員に笑顔を取り戻し、一丸となって市民のために働く市役所をつくります。",
+      "registered_stage": {
+        "level": 2,
+        "label": "2.市公式計画化",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "原沢あつみ 選挙公報掲載枠",
+          "url": "https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018kohosya_koho.files/R08_kouhou.pdf",
+          "year": "",
+          "locator": "市職員に笑顔を取り戻し、一丸となって市民のために働く市役所をつくります。 働き方改革の断行と現場主義に基づく市民協働型アプローチの徹底。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "横浜市中期計画（策定推進方針）",
+          "url": "https://www.city.yokohama.lg.jp/city-info/saiyo-jinji/jinji/WEplan.html",
+          "year": "2026年度",
+          "locator": "市職員に笑顔を取り戻し、一丸となって市民のために働く市役所をつくります。 に関する新市政方針の策定と施策反映。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "市職員に笑顔を取り戻し、一丸とな推進事業",
+          "url": "https://www.city.yokohama.lg.jp/city-info/saiyo-jinji/jinji/ikenboshu.html",
+          "year": "令和8年度",
+          "locator": "横浜市主要事業計画",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "予算措置・計画反映中／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "新市長就任に伴う重点政策検討チームの発足",
+          "url": "https://www.city.yokohama.lg.jp/",
+          "year": "2026年10月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kobe",
+      "policy_id": "KOBE-M01",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "強靭で力強いまち（あらゆる危機に備え市民の日常を守る）",
+      "registered_stage": {
+        "level": 4,
+        "label": "4.要綱策定・契約",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "神戸市長選公報（1面・第1の柱）",
+          "url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+          "year": "",
+          "locator": "幾多の経験と想像力を駆使し、あらゆる危機に備え市民の“日常”を守る。●防災DX ●防犯カメラ・街灯増設 ●サイバー攻撃対策 ●「森の未来都市神戸」への貢献 ●近隣市町との広域連携",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "神戸市カメラ見る&守る（防犯カメラ市直営化モデル・2026年度末5,500台増設計画）",
+          "url": "https://www.city.kobe.lg.jp/a62348/cameratyokuei.html",
+          "year": "2025年度改定",
+          "locator": "阪神・淡路大震災の教訓を踏まえ、激甚化する風水害・南海トラフ地震への備えを先端テクノロジー（防災DX）で高度化し、サイバー攻撃への耐性強化や防犯街灯の全面増設を位置づけ。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "防災・減災推進事業・防犯カメラ等設置補助",
+          "url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
+          "year": "令和8年度",
+          "locator": "神戸市予算説明書（危機管理室・市民参画推進局）（登録済み出典・対応関係は未照合）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "14億2,000万円／関係:unconfirmed／集計:excluded。登録額14億2,000万円は保持しています。今回確認した令和8年度予算説明書（危機管理局）では、登録事業名・金額・財源内訳との対応を確認できませんでした。原典未確認として直接予算の集計から除外しています。既存の出典URLと登録内容の対応も未照合です。今回の確認だけで登録額の誤りとは断定していません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "神戸市防犯カメラの増設",
+          "url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannannnopoint.pdf",
+          "year": "令和8年度当初予算（案）",
+          "locator": "神戸市令和8年度当初予算案（2026年2月16日 市長定例会見資料）印刷p.22／PDF22ページ",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": true,
+          "original_sha256": "5167ac3d04c27218e6db7c2ff96d09cb6333dd50a4783a52e3e41e2297ca6ebf",
+          "receipt_reference": "CAS観測履歴参照あり（取得receipt本体の再照合は今回未実施）",
+          "literal_policy_verification": "既存公開データにsource_checkedの区分あり（新規認定ではない）",
+          "limitations": "6億2,102万1,000円／関係:direct／集計:excluded。原文は621,021千円。通学路・駅周辺・住宅地・都心エリアの神戸市防犯カメラを合計5,500台まで増設する予算案です。既存登録14億2,000万円との積算関係・重複可能性が未確認のため、集計には加算しません。議決成立・執行実績を確認したものではありません。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "議案（同一性はAの照合待ち）",
+          "title": "神戸市防災行政無線のデジタル化及び情報伝達網強靭化に関する条例",
+          "url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+          "year": "令和7年定例会",
+          "locator": "議第31号",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "神戸市カメラ見る&守る（危機管理局公式）",
+          "url": "https://www.city.kobe.lg.jp/a62348/cameratyokuei.html",
+          "year": "2026年3月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [
+        "621,021千円の防犯カメラ増設・R8予算案記載。印刷22／PDF22。集計外"
+      ],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない",
+        "登録14億2,000万円と財源は未確認。798,655千円の年度範囲とも同一視しない"
+      ],
+      "existing_review_references": [
+        "PR51・55の会話上のPM受入、公開JSON source_checked"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kobe",
+      "policy_id": "KOBE-M02",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "人間らしいあたたかいまち（子育ても仕事も両立できる社会づくり）",
+      "registered_stage": {
+        "level": 5,
+        "label": "5.成立・執行",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "神戸市長選公報（1面・第2の柱）",
+          "url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+          "year": "",
+          "locator": "“子育て”も“仕事”も両立でき、誰もがいきいきと暮らせるまちをつくる。●きめ細かく多様な支援 ●高校生通学定期券無料化の充実 ●「まちなか自習室」●無料コワーキングスペースの拡充",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "高校生等通学定期券補助制度（市内高校等：全額、市外高校等：半額）",
+          "url": "https://www.city.kobe.lg.jp/a64411/kosodate/seshonen/kokoteiki/kokoteiki.html",
+          "year": "2025年度改定",
+          "locator": "市内在住の高校生等の通学定期券代について、市内高校等に通う場合は全額、市外高校等に通う場合は半額を補助する。補助条件は令和8年度こども家庭局予算説明書の印刷p.6／PDF8ページで確認。「まちなか自習室」など、子育て・教育環境の充実も公約の対象。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "高校生等通学定期券補助・子育て支援事業（登録内容・原典未確認）",
+          "url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
+          "year": "令和8年度",
+          "locator": "神戸市予算説明書（こども家庭局）（登録済み出典・対応関係は未照合）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "22億8,000万円／関係:unconfirmed／集計:excluded。登録額22億8,000万円は保持しています。今回確認した令和8年度の公式予算資料では、この登録事業・金額と一般財源内訳との対応を確認できませんでした。原典未確認として集計対象外とし、未確認の財源内訳は表示していません。既存出典URLと登録内容の対応も未照合です。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "議案（同一性はAの照合待ち）",
+          "title": "神戸市こども・若者ケアラー支援条例及び通学費等補助に関する条例",
+          "url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+          "year": "令和7年定例会",
+          "locator": "議第18号",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "高校生通学定期券の補助制度（こども家庭局公式）",
+          "url": "https://www.city.kobe.lg.jp/a64411/kosodate/seshonen/kokoteiki/kokoteiki.html",
+          "year": "2025年9月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [
+        "既存公開説明の補助条件：市内在住、市内高校等全額／市外半額"
+      ],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない",
+        "登録22億8,000万円は未確認・集計外。2,549,822／2,545,222千円との差は未解決、公開追加なし"
+      ],
+      "existing_review_references": [
+        "PR58・59の会話上のPM受入"
+      ],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kobe",
+      "policy_id": "KOBE-M03",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "グローバル社会に羽ばたくまち（新国際都市として圏域経済を牽引）",
+      "registered_stage": {
+        "level": 4,
+        "label": "4.条例提出・審議",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "神戸市長選公報（1面・第3の柱）",
+          "url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+          "year": "",
+          "locator": "圏域経済を牽引する世界とつながる「新たな国際都市」として。●空港ターミナル強化 ●海外ビジネス展開の促進 ●スパコン・量子コンピューター活用 ●都心の再生 ●質の高い観光促進",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "神戸空港の機能強化（2025年4月国際チャーター便就航・第2ターミナル供用開始・2030年定期便マイルストーン）",
+          "url": "https://www.city.kobe.lg.jp/a11380/kurashi/access/airport/index.html",
+          "year": "2025年度改定",
+          "locator": "神戸空港の国際化（新サブターミナル供用）と神戸医療産業都市（KBIC）の発展、三宮クロススクエア等の都心再整備を一体的に進め、国際的な集客力・産業競争力を高める。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "都心・三宮再整備及び神戸空港機能強化推進事業",
+          "url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
+          "year": "令和8年度",
+          "locator": "神戸市予算説明書（都市局・港湾局）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "58億4,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "議案（同一性はAの照合待ち）",
+          "title": "神戸空港条例の一部を改正する条例（国際線対応新ターミナル関連）",
+          "url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+          "year": "令和7年定例会",
+          "locator": "議第42号",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "神戸空港の機能強化（港湾局公式）",
+          "url": "https://www.city.kobe.lg.jp/a11380/kurashi/access/airport/index.html",
+          "year": "2025年春",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kobe",
+      "policy_id": "KOBE-M04",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "海と山を感じる美しいまち（自然と調和する豊かなライフスタイル）",
+      "registered_stage": {
+        "level": 5,
+        "label": "5.成立・執行",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "神戸市長選公報（1面・第4の柱）",
+          "url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+          "year": "",
+          "locator": "自然と暮らしが調和する「豊かなライフスタイル」を実現する。●「市内居住」「職住近接」推進 ●スポンジ化対策 ●多様な住宅供給 ●マンション管理の適正化 ●こうべ木陰プロジェクト",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "名谷活性化プラン（リノベーション・神戸／tete名谷・須磨パティオ・新北須磨支所・住みかえーる）",
+          "url": "https://www.city.kobe.lg.jp/i73375/kuyakusho/sumaku/syokaitorikumi/sumanewtown/myodani.html",
+          "year": "2025年度改定",
+          "locator": "都心部への過度な住宅集積を抑制しつつ、西神中央・名谷・垂水など郊外拠点駅のリノベーションと、六甲山・ウォーターフロントの自然資源を活かした良好な住環境形成を推進。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "駅前・住宅地リノベーション及び緑化推進事業",
+          "url": "https://www.city.kobe.lg.jp/documents/48584/2026yosannogaiyou.pdf",
+          "year": "令和8年度",
+          "locator": "神戸市予算説明書（建築住宅局・都市局）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "29億6,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "議案（同一性はAの照合待ち）",
+          "title": "神戸市都市計画等に関する条例の一部を改正する条例（タワマン規制等）",
+          "url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+          "year": "令和6年定例会",
+          "locator": "議第61号",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "名谷活性化プラン～躍動する多世代共生のまちへ～（須磨区公式）",
+          "url": "https://www.city.kobe.lg.jp/i73375/kuyakusho/sumaku/syokaitorikumi/sumanewtown/myodani.html",
+          "year": "2025年12月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    },
+    {
+      "city": "kobe",
+      "policy_id": "KOBE-M05",
+      "branches": [
+        "全体（施策単位の認定へ拡張しない）"
+      ],
+      "displayed_claim": "対話と参加が進むまち（多様な主体との協働による先駆的市政）",
+      "registered_stage": {
+        "level": 4,
+        "label": "4.条例提出・審議",
+        "verification": "到達認定ではない"
+      },
+      "sources": [
+        {
+          "kind": "公約",
+          "title": "神戸市長選公報（1面・第5の柱）",
+          "url": "https://www.city.kobe.lg.jp/documents/23740/senkyokouhoushityousen.pdf",
+          "year": "",
+          "locator": "多様な主体との協働により「先駆的」な行政運営を徹底的に進める。●行政機能強化 ●特別市法制化に向けた活動 ●地域貢献活動促進 ●AI活用・現場力強化",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "計画",
+          "title": "多様な大都市制度シンポジウム（特別市法制化に向けた市民参加型アジェンダセッティング）",
+          "url": "https://www.city.kobe.lg.jp/a89138/028840038990.html",
+          "year": "2025年度改定",
+          "locator": "二重行政の解消と地方主権を確立するための「特別自治市」法制化を国に働きかけつつ、市役所業務への生成AI実装とEBPM推進により市民サービスを高度化。",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "予算案／予算（登録区分を保持）",
+          "title": "デジタル市役所・行政DX・大都市制度推進事業",
+          "url": "https://www.city.kobe.lg.jp/documents/48584/2025yosanngaiyou.pdf",
+          "year": "令和8年度",
+          "locator": "神戸市予算説明書（企画調整局・行財政局）",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認または従来登録。関係区分と確認完了は別",
+          "limitations": "8億9,000万円／関係:区分未付与／集計:従来登録。",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "議案（同一性はAの照合待ち）",
+          "title": "神戸市個人情報保護条例の一部を改正する条例（AI適正利用関連規程）",
+          "url": "https://www.city.kobe.lg.jp/a28891/shise/shikai/gian/index.html",
+          "year": "令和7年定例会",
+          "locator": "議第9号",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "政策との対応・議決・施行・実績は別途確認",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        },
+        {
+          "kind": "関連施策／実績（登録情報）",
+          "title": "多様な大都市制度シンポジウム～多極分散型社会の形成に向けて～（企画調整局）",
+          "url": "https://www.city.kobe.lg.jp/a89138/028840038990.html",
+          "year": "2026年1月",
+          "locator": "",
+          "broken": false,
+          "url_registered": true,
+          "cas_index_reference": false,
+          "original_sha256": null,
+          "receipt_reference": "今回確認できる保存索引では未特定",
+          "literal_policy_verification": "未確認",
+          "limitations": "実施や公約全体の達成を認定しない",
+          "public_acceptance": "既存公開登録。原典認証・公開承認の範囲は個別記録参照"
+        }
+      ],
+      "confirmed_scope": [],
+      "holds": [
+        "原典登録・保存・原文照合・政策対応・公開承認を分離。stage_levelから確認済みと推定しない"
+      ],
+      "existing_review_references": [],
+      "checked_on": "2026-11-18（既存記録の読取整理）",
+      "next_action": "保存資料の追加照合／未取得資料の限定取得計画。現段階では新GET不要"
+    }
+  ],
+  "counts": {
+    "kyoto": 14,
+    "osaka": 4,
+    "nagoya": 5,
+    "yokohama": 12,
+    "kobe": 5
+  },
+  "total": 40,
+  "public_file_sha256": {
+    "frontend\\public\\data\\kyoto_mayor_tracker.json": "60d87ccc09078114c0206c80fed4ae5db61dc5ba2d8d445f3e0adcdc794fde95",
+    "frontend\\public\\data\\osaka_mayor_tracker.json": "b1eba4ce643d124a2e105ec66c4b379cfaf20d4759b851a4162319c32303ecfe",
+    "frontend\\public\\data\\nagoya_mayor_tracker.json": "949dfe658f1b2bbf816cfeca9f96e982b8ade51a148ec83468f35bb2dd400991",
+    "frontend\\public\\data\\yokohama_mayor_tracker.json": "506ff5431ff5f44071345566623ff76a9b0674a032b6831c22b60bf6e4329507",
+    "frontend\\public\\data\\kobe_mayor_tracker.json": "703b1b1b553accd8209522e98ace9334099ecec66be7868f3aa05635a83424ff"
+  },
+  "accepted_existing_fact_reference": [
+    {
+      "case": "p03project",
+      "fingerprint": "8f00ea5ce9fcb4d1bb8cab7802528ab53ced60adb934c0cb14acb7abcde5a695",
+      "review_record_id": "6948610656"
+    },
+    {
+      "case": "p03inflation",
+      "fingerprint": "9515a52f3b46855934571a89e0967b5aab70a536574b58e2951ccb4a9dd517a2",
+      "review_record_id": "6948610656"
+    },
+    {
+      "case": "p04",
+      "fingerprint": "6ad061997c5f4208f24b1c6af92e5b63724a8ce2ef5c6b833c442de973fcca1d",
+      "review_record_id": "6948610656"
+    }
+  ],
+  "limitations": [
+    "保存索引のURL参照は保存バイト・receiptの新規直接検証を意味しない",
+    "UNCHANGED3事実を政策精査完了数や追加人手削減として計上しない",
+    "正本は手元でv7.1/ロードマップv4.8を確認。最新正本との差分はPMで反映判断"
+  ]
+}

@@ -60,6 +60,7 @@ jobs:
       - name: Test Kyoto budget evidence display (offline)
         run: |
           node frontend/tests/test-kyoto-policy-ui.mjs
+          node frontend/tests/test-shared-mayor-ui.mjs
           node frontend/tests/test-p01-p02-public.mjs
           node frontend/tests/test-p03-public.mjs
           node frontend/tests/test-p07-public.mjs

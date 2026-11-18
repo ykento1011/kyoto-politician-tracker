@@ -15,20 +15,23 @@ const server=await createServer({root,configFile:false,envDir:false,publicDir:fa
   cacheDir:path.join(root,'.qa_cache'),plugins:[react()],server:{middlewareMode:true,watch:null},appType:'custom'});
 try {
   const {default:MayorTrackerView}=await server.ssrLoadModule('/src/components/MayorTrackerView.jsx');
-  const markup=renderToStaticMarkup(React.createElement(MayorTrackerView,{data:{...data,pledges:[policy]},cityCode:'kobe'}));
+  const markup=renderToStaticMarkup(React.createElement(MayorTrackerView,{data,cityCode:'kobe',initialSearch:'?view=mayor&policy=KOBE-M01'}));
   assert.equal((markup.match(/data-budget-relation="unconfirmed"/g)||[]).length,1);
   assert.equal((markup.match(/data-budget-aggregation="excluded"/g)||[]).length,2);
-  for(const text of ['14億2,000万円','原典未確認','集計対象外','未照合','掲載答弁記録','10件']) assert.ok(markup.includes(text),text);
+  for(const text of ['14億2,000万円','原典未確認','集計対象外','未照合']) assert.ok(markup.includes(text),text);
   for(const text of ['財源内訳：','8億5,000万円','5億7,000万円','関連予算総額']) assert.ok(!markup.includes(text),text);
   assert.ok(markup.includes(policy.budget_records[0].doc_url));
   assert.equal((markup.match(/data-budget-relation="direct"/g)||[]).length,1);
   for(const text of ['6億2,102万1,000円','621,021千円','令和8年度当初予算（案）','神戸市防犯カメラの増設','印刷p.22／PDF22ページ','重複可能性が未確認','事業目的との直接関係を確認した根拠']) assert.ok(markup.includes(text),text);
   assert.ok(markup.includes(policy.budget_records[1].doc_url));
   const full=renderToStaticMarkup(React.createElement(MayorTrackerView,{data,cityCode:'kobe'}));
-  assert.equal((full.match(/data-budget-relation=/g)||[]).length,3);
-  for(const other of data.pledges.filter(p=>p.id!=='KOBE-M01')) assert.ok(full.includes(other.budget_records[0].amount_display));
+  assert.equal((full.match(/data-policy-card=/g)||[]).length,5);
+  for(const other of data.pledges.filter(p=>p.id!=='KOBE-M01')) {
+    const detail=renderToStaticMarkup(React.createElement(MayorTrackerView,{data,cityCode:'kobe',initialSearch:`?view=mayor&policy=${other.id}`}));
+    assert.ok(detail.includes(other.budget_records[0].amount_display));
+  }
   const m02=data.pledges.find(p=>p.id==='KOBE-M02');
-  const m02html=renderToStaticMarkup(React.createElement(MayorTrackerView,{data:{...data,pledges:[m02]},cityCode:'kobe'}));
+  const m02html=renderToStaticMarkup(React.createElement(MayorTrackerView,{data,cityCode:'kobe',initialSearch:'?view=mayor&policy=KOBE-M02'}));
   assert.equal((m02html.match(/data-budget-relation="unconfirmed"/g)||[]).length,1);
   assert.equal((m02html.match(/data-budget-aggregation="excluded"/g)||[]).length,1);
   for(const text of ['22億8,000万円','原典未確認','市内高校等：全額、市外高校等：半額','市内在住','印刷p.6／PDF8ページ']) assert.ok(m02html.includes(text),text);

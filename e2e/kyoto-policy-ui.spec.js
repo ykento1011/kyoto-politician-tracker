@@ -150,8 +150,8 @@ test('shared navigation synchronizes detail and totals with the URL and browser 
  }
 });
 
-test('four other cities retain their legacy display and shared navigation',async({page})=>{
- for(const city of ['kobe','osaka','nagoya','yokohama']){
+test('three not-yet-connected cities retain legacy display and shared navigation',async({page})=>{
+ for(const city of ['osaka','nagoya','yokohama']){
   await page.goto(`/${city}/?view=mayor`);
   const title=page.getByText(/政策ライフサイクル検証基盤/);
   await expect(title).toBeVisible();
