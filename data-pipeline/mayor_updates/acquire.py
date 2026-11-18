@@ -17,7 +17,7 @@ from urllib.parse import urlsplit
 from .engine import PrivateOutput
 from .projection import Hold
 from .p1_bridge import P1Bridge
-from .city_scope import validate_selection, validate_storage, reserve_request, signature, is_kyoto_wave1
+from .city_scope import validate_selection, validate_storage, reserve_request, signature, is_kyoto_wave1, is_yokohama_major_pdf
 
 
 def utc():
@@ -65,7 +65,7 @@ def validate_sources(sources, *, media_type="html", scope=None):
 def worker(code_root,snapshot_root,source,output,*,media_type="html",scope=None,storage=None):
     if scope is not None:
         validate_selection(scope,[source],media_type)
-        validate_storage(scope,storage,snapshot_root,output)
+        validate_storage(scope,storage,snapshot_root,output,code_root=code_root)
         assert_owner_only(storage["state_root"])
         assert_owner_only(snapshot_root)
     out=PrivateOutput(output)
@@ -101,10 +101,12 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
     if not authorized:
         raise Hold('Explicit one-shot acquisition authorization required')
     validate_sources(sources,media_type=media_type,scope=scope)
+    if scope is not None and is_yokohama_major_pdf(scope) and refresh:
+        raise Hold('Fixed Yokohama PDF cannot refresh an existing original')
     if scope is not None and is_kyoto_wave1(scope) and sources != scope['sources']:
         raise Hold('Kyoto wave1 parent must process P-04 then P-14 together')
     if scope is not None:
-        validate_storage(scope,storage,snapshot_root,output)
+        validate_storage(scope,storage,snapshot_root,output,code_root=code_root)
         assert_owner_only(storage["state_root"])
     out=PrivateOutput(output)
     # ACLs are verified, never changed. Both run receipts and originals are private.
@@ -135,7 +137,11 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
         else:
             if scope is not None: reserve_request(scope,storage,source)
             key=hashlib.sha256(url.encode()).hexdigest()[:20]
-            run=out.root/key; run.mkdir(exist_ok=False)
+            run=out.root/key
+            # POSIX needs an explicit private mode. On Windows inherit the
+            # verified parent ACL; Python's special 0700 mode may grant admins.
+            private_mode = 0o700 if scope is not None and is_yokohama_major_pdf(scope) and os.name != 'nt' else 0o777
+            run.mkdir(mode=private_mode, exist_ok=False)
             runout=PrivateOutput(run)
             runout.json('source.json',source)
             runout.json('single_get_started.json',{'at_utc':utc(),'source_url':url,'authorized_max_get':1,'media_type':media_type,
@@ -166,12 +172,17 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
                 body=bridge.store.snapshot_bytes(sha)
                 if hashlib.sha256(body).hexdigest()!=sha or len(body)>source['max_bytes']:
                     raise Hold('Readback integrity/size mismatch')
-                if scope is not None and is_kyoto_wave1(scope) and (
+                if scope is not None and (is_kyoto_wave1(scope) or is_yokohama_major_pdf(scope)) and (
                         version.get('document_id') != source['document_id'] or not body.startswith(b'%PDF-')):
-                    raise Hold('Kyoto wave1 saved PDF identity mismatch')
+                    raise Hold('Fixed saved PDF identity mismatch')
+                if scope is not None and is_yokohama_major_pdf(scope):
+                    expected = dict(city_code='yokohama', source_url=url, final_url=url,
+                        fiscal_year=2026, mime_type='application/pdf', document_type='other_official')
+                    if any(version.get(k) != v for k,v in expected.items()):
+                        raise Hold('Yokohama saved PDF metadata mismatch')
                 receipt.update(sha256=sha,stored_bytes=len(body),readback_pass=True)
             except Hold as exc:
-                if scope is None or not is_kyoto_wave1(scope):
+                if scope is None or not (is_kyoto_wave1(scope) or is_yokohama_major_pdf(scope)):
                     raise
                 receipt.update(status='readback_stop',detail=str(exc),stop=True)
             except (ValueError,OSError) as exc:

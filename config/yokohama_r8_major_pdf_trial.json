@@ -1,0 +1,46 @@
+{
+  "profile": "yokohama_r8_major_pdf",
+  "city_code": "yokohama",
+  "enabled": false,
+  "network_enabled": false,
+  "allowed_hosts": [
+    "www.city.yokohama.lg.jp"
+  ],
+  "policy_ids": [
+    "YOKOHAMA-M01"
+  ],
+  "policy_relation": "unconfirmed",
+  "method": "GET",
+  "max_requests": 1,
+  "max_requests_by_media": {
+    "html": 0,
+    "pdf": 1
+  },
+  "max_total_bytes": 2097152,
+  "timeout_seconds": 10,
+  "wall_timeout_seconds": 10,
+  "tls_verify": true,
+  "redirects": 0,
+  "retries": 0,
+  "follow_discovered_links": false,
+  "index_sha256": "872f5c8da45129bd6a3296269942880e20eeac8de6a163bb556e2bde294ae98b",
+  "p1_manifest_sha256": "df02598305964e5d3bea333301ecccb93e26702db6f0a43a5fe6f8c180dd57d2",
+  "sources": [
+    {
+      "id": "yokohama-r8-major-projects",
+      "url": "https://www.city.yokohama.lg.jp/city-info/zaisei/jokyo/yosan/r8/r8yosan.files/R8yosan-shuyou.pdf",
+      "title": "令和8年度予算・資料編（主要事業一覧）",
+      "media_type": "pdf",
+      "document_kind": "other_official",
+      "fiscal_year": 2026,
+      "max_bytes": 2097152,
+      "policy_ids": [
+        "YOKOHAMA-M01"
+      ],
+      "policy_relation": "unconfirmed",
+      "index_url": "https://www.city.yokohama.lg.jp/city-info/zaisei/jokyo/yosan/r8/r8yosan.html",
+      "index_anchor": 17,
+      "document_id": "yokohama-doc-a19d0abfd5a6d4ca51da9599"
+    }
+  ]
+}

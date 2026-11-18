@@ -12,6 +12,7 @@ on:
       - 'config/mayor_update_sources.json'
       - 'config/kyoto_additional_pdf_watch.json'
       - 'config/kyoto_p04_p14_trial.json'
+      - 'config/yokohama_r8_major_pdf_trial.json'
       - 'scripts/Export-KyotoWeeklyTask.ps1'
       - '.github/workflows/mayor-updates.yml'
   workflow_dispatch:
@@ -38,6 +39,7 @@ jobs:
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_scope.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_kyoto_wave1.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_city_yokohama_pdf.py' -v
       - name: Test saved city replay and persistent dedup
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_replay.py' -v
