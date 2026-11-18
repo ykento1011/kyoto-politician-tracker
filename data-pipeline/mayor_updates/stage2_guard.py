@@ -5,9 +5,11 @@ beginning validation; start_verification signals it, not an unbounded CreateProc
 The worker protocol is injected. No live worker factory or activation is shipped.
 """
 import ctypes as c
+import hashlib
 import json
 import os
 import re
+import secrets
 from pathlib import Path
 import tempfile
 import time
@@ -47,11 +49,13 @@ def supervise(root, run_id, plan_sha256, worker, *, clock=time.monotonic,
     root = Path(root).resolve(strict=True)
     if any(root.iterdir()): raise Hold('New empty run journal required')
     started = clock(); deadline = started + total_seconds
+    completion_token = secrets.token_hex(32)
     base = {'schema_version':1, 'run_id':run_id, 'plan_sha256':plan_sha256,
             'auto_restore':False, 'total_seconds':total_seconds}
     # Missing success acknowledgement means restore denied, even if later writes
     # fail or the supervisor crashes. Never remove this intent on failure.
-    _record(root, 'run_started.json', {**base, 'state':'restore_blocked'})
+    _record(root, 'run_started.json', {**base, 'state':'restore_blocked',
+        'completion_token_sha256':hashlib.sha256(completion_token.encode()).hexdigest()})
     def remaining(reserve=0):
         value = deadline - clock() - reserve
         if value <= 0: raise Hold('Stage 2 total deadline expired')
@@ -80,7 +84,7 @@ def supervise(root, run_id, plan_sha256, worker, *, clock=time.monotonic,
             'elapsed_seconds':clock()-started})
         remaining()
         return {**base, 'state':'awaiting_manual_restore', 'auto_restore':False,
-                'elapsed_seconds':clock()-started}
+                'elapsed_seconds':clock()-started, '_completion_token':completion_token}
     except Exception as exc:
         failure = {**base, 'state':'HOLD', 'restore_prohibited':True,
                    'reason':type(exc).__name__, 'elapsed_seconds':clock()-started}
@@ -92,19 +96,56 @@ def supervise(root, run_id, plan_sha256, worker, *, clock=time.monotonic,
             budget = max(0, deadline-clock())
             failure['termination_confirmed'] = worker.kill_and_confirm(timeout_seconds=budget) is True
         except Exception: failure['termination_confirmed']=False
+        try:
+            failure['cleanup_complete'] = worker.close_handles(
+                timeout_seconds=max(0,deadline-clock())) is True
+        except Exception: failure['cleanup_complete']=False
+        failure['elapsed_seconds']=clock()-started
+        failure['cleanup_within_deadline']=clock()<deadline
+        try: _record(root, 'failure_cleanup.json', failure)
+        except Exception: pass  # Start intent + absent success capability still deny restore.
         # The immutable HOLD stays even if termination later succeeds.
         raise Hold('Stage 2 HOLD; automatic restore prohibited') from exc
+
+
+def publish_success(root, result):
+    """Post-return audit commit, never callable with a failed supervisor result.
+
+    The secret preimage is returned only after validation/cleanup/publication
+    met the deadline. Late acknowledgement + failed HOLD publication cannot
+    produce it. This machine capability is not a human approval signature.
+    """
+    root = Path(root)
+    if (root/'HOLD.json').exists(): raise Hold('Persistent HOLD')
+    started = json.loads((root/'run_started.json').read_text(encoding='utf-8'))
+    token = result.get('_completion_token')
+    if (result.get('state')!='awaiting_manual_restore' or type(token) is not str
+            or hashlib.sha256(token.encode()).hexdigest()!=started['completion_token_sha256']
+            or any(result.get(k)!=started.get(k) for k in ('run_id','plan_sha256','total_seconds'))
+            or not 0 <= result['elapsed_seconds'] < started['total_seconds']):
+        raise Hold('No successful supervisor return capability')
+    _record(root, 'supervisor_success.json', {
+        'run_id':started['run_id'], 'plan_sha256':started['plan_sha256'],
+        'completion_token':token, 'elapsed_seconds':result['elapsed_seconds'],
+        'termination_record_sha256':hashlib.sha256((root/'termination_confirmed.json').read_bytes()).hexdigest()})
 
 
 def restore_evidence(root, run_id, plan_sha256):
     """Conservative journal reader for the offline restore gate, no OS mutation."""
     root = Path(root)
     if (root/'HOLD.json').exists(): raise Hold('Persistent HOLD blocks restoration')
-    started = json.loads((root/'run_started.json').read_text(encoding='utf-8'))
-    done = json.loads((root/'termination_confirmed.json').read_text(encoding='utf-8'))
-    for record in (started, done):
+    try:
+        started = json.loads((root/'run_started.json').read_text(encoding='utf-8'))
+        done = json.loads((root/'termination_confirmed.json').read_text(encoding='utf-8'))
+        success = json.loads((root/'supervisor_success.json').read_text(encoding='utf-8'))
+    except (OSError,ValueError) as exc: raise Hold('Completion journal missing or incomplete') from exc
+    if (hashlib.sha256(success.get('completion_token','').encode()).hexdigest()!=started.get('completion_token_sha256')
+            or success.get('termination_record_sha256')!=hashlib.sha256((root/'termination_confirmed.json').read_bytes()).hexdigest()
+            or not 0 <= success['elapsed_seconds'] < started['total_seconds']):
+        raise Hold('Supervisor completion not committed')
+    for record in (started, done, success):
         if (record.get('run_id') != run_id or record.get('plan_sha256') != plan_sha256
-                or record.get('auto_restore') is not False): raise Hold('Restore identity mismatch')
+                or ('auto_restore' in record and record['auto_restore'] is not False)): raise Hold('Restore identity mismatch')
     if done.get('termination_confirmed') is not True or done.get('cleanup_complete') is not True:
         raise Hold('Restore termination evidence incomplete')
     if not 0 <= done['elapsed_seconds'] < done['total_seconds']:
@@ -124,13 +165,18 @@ class DormantWindowsWorkerPort:
 
     def __init__(self, api, worker_process, job, start_event, report_reader):
         self.api=api;self.process=worker_process;self.job=job;self.event=start_event
-        self.report_reader=report_reader;self.started=False;self.closed=False
+        self.report_reader=report_reader;self.started=False;self.closed=False;self.ownership_verified=False;self.termination_verified=False
 
     def start_verification(self):
         if self.started or self.closed: raise Hold('Worker already consumed')
         # Outer containment permits only worker + one fixed leaf helper. Inner
         # helper job retains PR #104/#105's active-process limit of one.
         if self.api.job_policy(self.job)!=(True,2,False):raise Hold('Outer job containment mismatch')
+        if (self.api.processes.get(self.process.pid) is not self.process
+                or self.job not in self.api.jobs
+                or self.api.job_members(self.job)!=(self.process,)):
+            raise Hold('Worker ownership/job membership mismatch')
+        self.ownership_verified=True
         self.started=True
         self.api._ok(self.api._call('kernel32','SetEvent',c.c_int32,
             [c.c_void_p],self.event),'Start verification event')
@@ -150,10 +196,14 @@ class DormantWindowsWorkerPort:
         return self.report_reader()
 
     def confirm_empty_job(self,*,timeout_seconds):
+        if self.closed:return self.termination_verified
         if self._wait(timeout_seconds)!=0:return False
-        return self.api.job_members(self.job)==()
+        self.termination_verified=self.api.job_members(self.job)==()
+        return self.termination_verified
 
     def kill_and_confirm(self,*,timeout_seconds):
+        if not self.ownership_verified:return False
+        if self.closed:return self.termination_verified
         try:
             self.api._ok(self.api._call('kernel32','TerminateJobObject',c.c_int32,
                 [c.c_void_p,c.c_uint32],self.job,1),'Kill outer worker job')
@@ -161,7 +211,8 @@ class DormantWindowsWorkerPort:
         except Exception:return False
 
     def close_handles(self,*,timeout_seconds):
-        if timeout_seconds<=0 or self.closed:return False
+        if self.closed:return True
+        if timeout_seconds<0 or not self.ownership_verified:return False
         self.api._close(self.process.thread);self.process.thread=None
         self.api._close(self.process.handle);self.process.handle=None
         self.api._close(self.event);self.event=None

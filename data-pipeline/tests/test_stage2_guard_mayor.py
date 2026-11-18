@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from mayor_updates.stage2_guard import supervise,restore_evidence
+from mayor_updates.stage2_guard import supervise,restore_evidence,publish_success
 from mayor_updates.projection import Hold
 
 class Clock:
@@ -17,7 +17,7 @@ class Clock:
 
 class Worker:
     simulation_only=True
-    def __init__(self,clock):self.clock=clock;self.mode='ok';self.killed=0;self.budgets=[]
+    def __init__(self,clock):self.clock=clock;self.mode='ok';self.killed=0;self.closed=0;self.budgets=[]
     def start_verification(self):self.clock.now+=0.2
     def wait_for_result(self,*,timeout_seconds):
         self.budgets.append(timeout_seconds)
@@ -31,6 +31,7 @@ class Worker:
         self.clock.now+=0.1
         return self.mode!='job_unknown'
     def close_handles(self,*,timeout_seconds):
+        self.closed+=1
         self.clock.now+=11 if self.mode=='cleanup_timeout' else 0.1
         return self.mode!='cleanup_failed'
     def kill_and_confirm(self,*,timeout_seconds):
@@ -50,6 +51,8 @@ class GuardTests(unittest.TestCase):
     def test_success_requires_manual_release_and_includes_cleanup(self):
         result=self.run_guard();self.assertEqual(result['state'],'awaiting_manual_restore')
         self.assertFalse(result['auto_restore']);self.assertGreater(result['elapsed_seconds'],0.6)
+        with self.assertRaises(Hold):restore_evidence(self.root,'b'*32,'a'*64)
+        publish_success(self.root,result)
         evidence=restore_evidence(self.root,'b'*32,'a'*64)
         self.assertFalse(evidence['restoration_authorized'])
         self.assertFalse((self.root/'HOLD.json').exists())
@@ -61,6 +64,7 @@ class GuardTests(unittest.TestCase):
                 self.assertTrue((self.root/'run_started.json').exists())
                 record=json.loads((self.root/'HOLD.json').read_text())
                 self.assertTrue(record['restore_prohibited']);self.assertEqual(self.worker.killed,1)
+                self.assertGreaterEqual(self.worker.closed,1)
                 with self.assertRaises(Hold):restore_evidence(self.root,'b'*32,'a'*64)
     def test_same_run_cannot_repeat(self):
         self.run_guard();before={p.name:p.read_bytes() for p in self.root.iterdir()}
@@ -86,8 +90,22 @@ class GuardTests(unittest.TestCase):
         self.assertTrue((self.root/'run_started.json').exists())
         self.assertFalse((self.root/'termination_confirmed.json').exists())
     def test_journal_identity_mismatch_rejected(self):
-        self.run_guard()
+        publish_success(self.root,self.run_guard())
         with self.assertRaises(Hold):restore_evidence(self.root,'foreign','a'*64)
+
+    def test_late_ack_and_failed_hold_publication_cannot_restore(self):
+        from mayor_updates import stage2_guard as module
+        real=module._record
+        def fail(root,name,value):
+            if name=='HOLD.json':raise OSError('mock disk failure')
+            real(root,name,value)
+            if name=='termination_confirmed.json':self.clock.now=11
+        with patch.object(module,'_record',side_effect=fail),self.assertRaises(Hold):self.run_guard()
+        self.assertTrue((self.root/'termination_confirmed.json').exists())
+        self.assertFalse((self.root/'HOLD.json').exists())
+        self.assertFalse((self.root/'supervisor_success.json').exists())
+        with self.assertRaises(Hold):restore_evidence(self.root,'b'*32,'a'*64)
+        with self.assertRaises(Hold):publish_success(self.root,{'state':'awaiting_manual_restore'})
 
 
 
@@ -99,12 +117,15 @@ class WorkerPortTests(unittest.TestCase):
         process=SimpleNamespace(thread=11,handle=12,pid=13)
         calls=[]
         class API:
-            processes={13:process};jobs={14}
+            processes={13:process};jobs={14};ended=False
             def job_policy(self,job):return True,2,False
             def _ok(self,value,label):
                 if not value:raise Hold(label)
-            def _call(self,dll,name,result,types,*args):calls.append((name,args));return 0 if name=='WaitForSingleObject' else 1
-            def job_members(self,job):return ()
+            def _call(self,dll,name,result,types,*args):
+                calls.append((name,args))
+                if name in ('WaitForSingleObject','TerminateJobObject'):self.ended=True
+                return 0 if name=='WaitForSingleObject' else 1
+            def job_members(self,job):return () if self.ended else (process,)
             def _close(self,handle):calls.append(('close',(handle,)))
         api=API();port=DormantWindowsWorkerPort(api,process,14,15,lambda:{'synthetic':True})
         return api,port,calls
@@ -125,8 +146,29 @@ class WorkerPortTests(unittest.TestCase):
             supervise(t,'b'*32,'a'*64,port,simulation=True)
         self.assertFalse(calls)
     def test_outer_job_kill_and_confirm(self):
-        api,port,calls=self.fixture();self.assertTrue(port.kill_and_confirm(timeout_seconds=1))
+        api,port,calls=self.fixture();port.start_verification();calls.clear()
+        self.assertTrue(port.kill_and_confirm(timeout_seconds=1))
         self.assertEqual(calls[0],('TerminateJobObject',(14,1)))
         with patch.object(api,'_call',return_value=0):self.assertFalse(port.kill_and_confirm(timeout_seconds=1))
+
+    def test_unowned_or_uncontained_worker_never_signalled_or_killed(self):
+        for kind in ('empty','foreign','unowned','wrong_job'):
+            api,port,calls=self.fixture()
+            if kind=='empty':api.ended=True
+            elif kind=='foreign':api.job_members=lambda job:('other',)
+            elif kind=='unowned':api.processes={}
+            else:api.jobs=set()
+            with self.subTest(kind=kind),self.assertRaises(Hold):port.start_verification()
+            self.assertFalse(port.kill_and_confirm(timeout_seconds=1))
+            self.assertFalse(port.close_handles(timeout_seconds=1))
+            self.assertFalse(calls)
+
+    def test_closed_port_never_reuses_native_handles(self):
+        api,port,calls=self.fixture();port.start_verification()
+        self.assertTrue(port.kill_and_confirm(timeout_seconds=1))
+        self.assertTrue(port.close_handles(timeout_seconds=1));calls.clear()
+        self.assertTrue(port.kill_and_confirm(timeout_seconds=0))
+        self.assertTrue(port.close_handles(timeout_seconds=0))
+        self.assertFalse(calls);self.assertFalse(api.processes);self.assertFalse(api.jobs)
 
 if __name__=='__main__':unittest.main()
