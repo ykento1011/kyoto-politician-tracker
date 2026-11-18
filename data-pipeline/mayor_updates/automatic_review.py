@@ -85,7 +85,7 @@ def inspect(registry, request):
         'original_sha256':version, 'receipt':audit, 'fact':deepcopy(fact), 'pages':pages}
 
 
-def decide(registry, request, rules, accepted, public_sha):
+def decide(registry, request, rules, accepted, public_sha, equivalence=None):
     result = {'status':'HOLD', 'publication_authorized':False, 'public_writes':0,
         'policy_certified':False, 'budget_addition':False,
         'requested_fact':deepcopy(request.get('fact')), 'reason':None,
@@ -102,6 +102,12 @@ def decide(registry, request, rules, accepted, public_sha):
     try:
         row, observed = inspect(registry, request)
         result['observed'] = observed
+        if equivalence is not None:
+            from .fact_equivalence import prove
+            proof = prove(registry, observed, accepted, equivalence['public'], equivalence)
+            result.update(status='UNCHANGED', reason='offline_same_fact_continuation',
+                          question=None, equivalence_proof=proof)
+            return result  # Never fall through to AUTO_VERIFIED in test mode.
         fingerprint = engine.digest({'observed':observed,'public_sha256':public_sha})
         result['fingerprint'] = fingerprint
         # An accepted baseline is a separate operator-pinned human review artifact;
@@ -158,14 +164,31 @@ def run(registry, config, output):
     rules=pinned(config['rules']); accepted=pinned(config['accepted'])
     public_path=weekly.pinned_input(config['public_snapshot'])
     public_sha=sha256(public_path.read_bytes()).hexdigest()
+    equivalence = None
+    mode = config.get('comparison_mode', 'strict')
+    if mode != 'strict':
+        from .fact_equivalence import MODE
+        if mode != MODE or config.get('offline_test_mode') is not True:
+            raise Hold('explicit_offline_equivalence_test_mode_required')
+        # Both the proof manifest and historical snapshot are operator-pinned,
+        # owner-only inputs. No approval/baseline is generated or rewritten.
+        proof = pinned(config['equivalence_proof'])
+        old_public = pinned(proof['old_public_snapshot'])
+        equivalence = dict(proof=proof, old_public=old_public,
+            old_public_sha256=proof['old_public_snapshot']['sha256'],
+            proof_sha256=config['equivalence_proof']['sha256'],
+            accepted_file_sha256=config['accepted']['sha256'],
+            public=pinned(config['public_snapshot']), public_sha256=public_sha)
     if registry.bridge.hashes != config['p1_sha256']: raise Hold('p1_pin_mismatch')
     started=time.perf_counter(); counts={k:0 for k in ('UNCHANGED','AUTO_VERIFIED','HOLD')}
-    new=0
+    new=0; continuations=[]
     with weekly.single_run(out.root):
         for request in config['requests']:
-            result=decide(registry,request,rules,accepted,public_sha)
+            result=decide(registry,request,rules,accepted,public_sha,equivalence)
             counts[result['status']]+=1
-            if result['status']=='UNCHANGED': continue
+            if result['status']=='UNCHANGED':
+                if equivalence is not None: continuations.append(result['equivalence_proof'])
+                continue
             key=engine.digest(result)
             dest=out.root/(key+'.json')
             if dest.exists():
@@ -176,7 +199,8 @@ def run(registry, config, output):
                 'verified_at':datetime.now(timezone.utc).isoformat(),
                 'actor':'machine:exact-fact-review-v1'})
             new+=1
-    return {**counts,'new_records':new,'human_review_required':counts['HOLD'],
+    return {**counts,**({'continuations':continuations} if equivalence is not None else {}),
+        'new_records':new,'human_review_required':counts['HOLD'],
         'elapsed_seconds':time.perf_counter()-started,'network_requests':0,'public_writes':0}
 
 
@@ -189,6 +213,11 @@ def main():
     for pin in config['code_files']: weekly.pinned_input(pin)
     if not any(Path(p['path']).resolve()==Path(__file__).resolve() for p in config['code_files']):
         raise Hold('review_code_must_be_pinned')
+    if config.get('comparison_mode', 'strict') != 'strict':
+        from . import fact_equivalence
+        if not any(Path(p['path']).resolve()==Path(fact_equivalence.__file__).resolve()
+                   for p in config['code_files']):
+            raise Hold('equivalence_code_must_be_pinned')
     bridge=weekly.P1Bridge(config['p1_code_root'],config['snapshot_root'],city_capable=True)
     registry=Registry(config['registry_root'],bridge,config['city'])
     print(run(registry,config,args.output))

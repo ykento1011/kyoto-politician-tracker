@@ -1,12 +1,13 @@
 name: Mayor update engine (offline)
 on:
   pull_request:
-    branches: [main, codex/issue88-evidence-handoff]
+    branches: [main, codex/issue88-evidence-handoff, codex/issue92-auto-review]
     paths:
       - 'data-pipeline/mayor_updates/**'
       - 'data-pipeline/tests/test_*mayor*.py'
       - 'data-pipeline/tests/test_kyoto_operations.py'
       - 'data-pipeline/tests/test_city*.py'
+      - 'data-pipeline/tests/test_fact_equivalence.py'
       - 'data-pipeline/p1_patches/**'
       - 'config/kobe_m01_trial.json'
       - 'config/mayor_update_sources.json'
@@ -36,6 +37,7 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_source_registry_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_evidence_handoff.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_automatic_review.py'
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_fact_equivalence.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_pdf_mayor.py'
       - name: Test explicit city scope without network
         run: |
