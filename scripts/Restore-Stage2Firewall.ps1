@@ -201,7 +201,10 @@ $doneStream=$streams[[IO.Path]::GetFullPath((Join-Path $JournalRoot 'termination
 $done=Read-JsonStream $doneStream;$doneSha=Get-StreamSha $doneStream
 $success=Read-JsonStream $streams[[IO.Path]::GetFullPath((Join-Path $JournalRoot 'supervisor_success.json'))]
 $release=Read-JsonStream $streams[[IO.Path]::GetFullPath((Join-Path $JournalRoot 'operator_release.json'))]
-if($Apply){$observed=@(foreach($r in $plan.added_rules){Get-ExactLiveRule $r.name})}else{$observed=@(Read-JsonStream $streams[[IO.Path]::GetFullPath($ObservedRulesPath)])}
+if($Apply){$observed=@(foreach($r in $plan.added_rules){Get-ExactLiveRule $r.name})}else{
+    # PS5.1 preserves a deserialized JSON array as one pipeline object.
+    $observed=@(foreach($row in (Read-JsonStream $streams[[IO.Path]::GetFullPath($ObservedRulesPath)])){$row})
+}
 $names=@(Get-RemovalNames $plan $started $done $release $observed (Test-Path -LiteralPath (Join-Path $JournalRoot 'HOLD.json')) $actual $success $doneSha)
 if($Apply){Remove-ExactLiveDelta $names $observed}
 @{mode=($(if($Apply){'manual_delta_removed'}else{'dry_run'}));would_remove=$names;firewall_writes=($(if($Apply){$names.Count}else{0}));automatic_restore=$false}|ConvertTo-Json -Depth 4

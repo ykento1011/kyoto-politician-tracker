@@ -2,6 +2,7 @@
 from dataclasses import replace
 from hashlib import sha256
 import json
+import shutil
 from pathlib import Path
 import sys
 import tempfile
@@ -57,9 +58,9 @@ class FlowTests(unittest.TestCase):
         self.assertFalse(result['restoration_authorized'])
         self.assertEqual(result['operator_acknowledgement'], 'NOT_PROVIDED')
         self.assertFalse((self.root/'journal/operator_release.json').exists())
-        self.assertEqual(result['plan_sha256'], sha256((self.root/'plan.json').read_bytes()).hexdigest())
+        self.assertEqual(result['plan_sha256'], sha256((self.root/'journal/plan.json').read_bytes()).hexdigest())
         self.assertEqual(result['plan_sha256'], result['proposal_sha256'])
-        plan = json.loads((self.root/'plan.json').read_bytes())
+        plan = json.loads((self.root/'journal/plan.json').read_bytes())
         self.assertEqual(plan['fixed_launch']['executable'], self.spec.executable)
         self.assertEqual([r['direction'] for r in plan['added_rules']], ['Inbound','Outbound'])
         with self.assertRaises(Hold):restore_evidence(self.root/'journal','a'*32,result['plan_sha256'])
@@ -93,6 +94,24 @@ class FlowTests(unittest.TestCase):
                 api.wait(SuspendedProcess(1,2,3),timeout_seconds=value)
         self.assertFalse(api.calls)
 
+    def test_late_process_acquisition_is_retained_for_termination(self):
+        self.spec=replace(self.spec,image_sha256=sha256(b'synthetic native image').hexdigest())
+        self.api=MockNative(self.spec)
+        original=self.api._fn
+        def factory(dll,name,result,types):
+            fn=original(dll,name,result,types)
+            def call(*args):
+                value=fn(*args)
+                if name=='CreateProcessW':self.now=9
+                return value
+            return call
+        self.api._fn=factory
+        with self.assertRaises(Hold):self.run_flow()
+        calls=[name for name,args in self.api.calls]
+        self.assertIn('TerminateProcess',calls)
+        self.assertNotIn('ResumeThread',calls)
+        self.assertTrue((self.root/'journal/HOLD.json').exists())
+
     def test_plan_script_or_fixed_argument_change_blocks_before_launch(self):
         for values in ({'expected_plan_sha256':'c'*64}, {'expected_restore_sha256':'c'*64}):
             with self.subTest(values=values), self.assertRaises(Hold): self.run_flow(**values)
@@ -119,7 +138,7 @@ class FlowTests(unittest.TestCase):
         with patch.object(flow,'_record',side_effect=late),self.assertRaises(Hold):self.run_flow()
         self.assertTrue((self.root/'journal/HOLD.json').exists())
         with self.assertRaises(Hold):restore_evidence(self.root/'journal','a'*32,
-            sha256((self.root/'plan.json').read_bytes()).hexdigest())
+            sha256((self.root/'journal/plan.json').read_bytes()).hexdigest())
 
     def test_hung_verification_preserves_hold_cleanup_and_no_resume(self):
         original=self.api.inspect_file
@@ -140,7 +159,7 @@ class FlowTests(unittest.TestCase):
         with patch.object(flow,'_record',side_effect=late),self.assertRaises(Hold):self.run_flow()
         self.assertFalse((self.root/'journal/supervisor_success.json').exists())
         with self.assertRaises(Hold):restore_evidence(self.root/'journal','a'*32,
-            sha256((self.root/'plan.json').read_bytes()).hexdigest())
+            sha256((self.root/'journal/plan.json').read_bytes()).hexdigest())
 
     def test_repeat_and_existing_journal_never_overwritten(self):
         self.run_flow()
@@ -165,4 +184,27 @@ class FlowTests(unittest.TestCase):
                 self.assertTrue((self.root/'HOLD.json').exists())
 
 
-if __name__=='__main__':unittest.main()
+def export_synthetic_handoff(destination):
+    """CI-only fixture; its operator record is explicitly synthetic, not approval."""
+    case=FlowTests();case.setUp()
+    try:
+        result=case.run_flow();flow.commit_flow_success(case.root,result)
+        journal=case.root/'journal';plan=json.loads((journal/'plan.json').read_bytes())
+        observed=[]
+        for rule in plan['added_rules']:
+            observed.append(dict(Name=rule['name'],Group='GikaiMikata-Stage2-'+plan['run_id'],
+                Direction=rule['direction'],Action='Block',Enabled='True',Profile='Any',Program='Any',
+                Service='Any',Protocol='Any',LocalAddress='Any',RemoteAddress='Any',LocalPort='Any',
+                RemotePort='Any',LocalUser='Any',RemoteUser='Any',OverrideBlockRules='False'))
+        (journal/'observed.json').write_text(json.dumps(observed),encoding='utf-8')
+        (journal/'operator_release.json').write_text(json.dumps(dict(
+            synthetic_test_only=True,run_id=plan['run_id'],plan_sha256=result['plan_sha256'],
+            decision='manual_restore_after_local_exit_check',actor='onsite_operator',
+            all_processes_exited=True)),encoding='utf-8')
+        shutil.copytree(case.root,destination)  # fails if destination already exists
+    finally:case.doCleanups()
+
+
+if __name__=='__main__':
+    if len(sys.argv)==3 and sys.argv[1]=='--export-handoff':export_synthetic_handoff(sys.argv[2])
+    else:unittest.main()

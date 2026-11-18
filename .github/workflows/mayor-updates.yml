@@ -16,6 +16,24 @@ on:
       - '.github/workflows/mayor-updates.yml'
   workflow_dispatch:
 jobs:
+  windows-handoff:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        handoff_case: [positive, missing_program, changed_program]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate nonsecret synthetic handoff and validate existing restore path
+        shell: powershell
+        run: |
+          $fixture=Join-Path $env:RUNNER_TEMP ('stage2-handoff-'+[guid]::NewGuid().ToString('N'))
+          python -B data-pipeline/tests/test_stage2_flow_mayor.py --export-handoff $fixture
+          if($LASTEXITCODE -ne 0){throw 'Fixture generation failed'}
+          ./scripts/Test-Stage2Handoff.ps1 -FixtureRoot $fixture -Case '${{ matrix.handoff_case }}'
   offline-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 5

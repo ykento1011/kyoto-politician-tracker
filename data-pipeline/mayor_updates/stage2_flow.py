@@ -61,6 +61,10 @@ class _BudgetAPI:
             if name == 'terminate_and_confirm': self.terminated = result is True
             if name == 'close_handles': self.closed = True
             if self.clock() >= self.deadline-(0 if cleanup else self.reserve):
+                # Return newly acquired ownership to the launch state machine
+                # before its next operation observes expiry and runs cleanup.
+                if name in ('lock_image', 'create_job', 'create_process') and result is not None:
+                    return result
                 raise Hold('Shared Stage 2 budget exceeded during API call')
             return result
         return call
@@ -122,8 +126,8 @@ def simulate_stage2(root, spec, api, *, run_id, expected_plan_sha256,
     journal = root/'journal'
     try:
         # The plan is outside the empty supervisor journal, but bound by its SHA.
-        _record(root, 'plan.json', json.loads(body))
-        actual = (root/'plan.json').read_bytes()
+        _record(root, 'proposal.json', json.loads(body))
+        actual = (root/'proposal.json').read_bytes()
         if actual != body: raise Hold('Plan bytes differ from fixed proposal')
         plan_sha = sha256(actual).hexdigest()
         journal.mkdir(exist_ok=False)
@@ -132,11 +136,15 @@ def simulate_stage2(root, spec, api, *, run_id, expected_plan_sha256,
         worker = _LaunchWorker(spec, api, run_id, plan_sha, clock, deadline)
         result = supervise(journal, run_id, plan_sha, worker,
             clock=clock, total_seconds=budget, simulation=True)
+        # The existing PS restoration validator contains *all* inputs, including
+        # PlanPath, beneath JournalRoot. Preserve that boundary unchanged.
+        _record(journal, 'plan.json', json.loads(body))
+        if (journal/'plan.json').read_bytes() != body: raise Hold('Restore plan readback mismatch')
         if clock() >= deadline: raise Hold('Total flow deadline exceeded')
         request = {'schema_version': 1, 'run_id': run_id,
             'plan_sha256': plan_sha, 'proposal_sha256': digest,
             'restore_script_sha256': expected_restore_sha256,
-            'plan_file': 'plan.json', 'journal_directory': 'journal',
+            'plan_file': 'journal/plan.json', 'journal_directory': 'journal',
             'operator_acknowledgement': 'NOT_PROVIDED',
             'automatic_restore': False, 'restoration_authorized': False,
             'real_execution_authorized': False, 'mode': 'synthetic_only'}
@@ -161,7 +169,7 @@ def commit_flow_success(root, result):
     if (root/'HOLD.json').exists(): raise Hold('Flow HOLD blocks completion commit')
     saved = json.loads((root/'restore_request.json').read_bytes())
     public = {k:v for k,v in result.items() if k != '_supervisor_result'}
-    if saved != public or sha256((root/'plan.json').read_bytes()).hexdigest() != saved['plan_sha256']:
+    if saved != public or sha256((root/'journal/plan.json').read_bytes()).hexdigest() != saved['plan_sha256']:
         raise Hold('Flow handoff identity mismatch')
     publish_success(root/'journal', result['_supervisor_result'])
     return restore_evidence(root/'journal', saved['run_id'], saved['plan_sha256'])
