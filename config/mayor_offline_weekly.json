@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "network_enabled": false,
+  "cities": {
+    "osaka": [
+      {
+        "id": "osaka-childcare-guide",
+        "url": "https://www.city.osaka.lg.jp/kodomo/page/0000608688.html",
+        "title": "保育料無償化の制度案内",
+        "policy_ids": [
+          "OSAKA-M01"
+        ],
+        "role": "progress",
+        "selector": "#mol_contents",
+        "resolution_base": "https://www.city.osaka.lg.jp/kodomo/page/0000608688.html",
+        "fiscal_year": 2026,
+        "document_kind": "institution_guide",
+        "media_type": "html",
+        "interval_days": 7,
+        "max_bytes": 2097152,
+        "registration_status": "pending",
+        "policy_relation": "unconfirmed",
+        "acquisition_enabled": false,
+        "fiscal_year_basis": "tracking_year_only_unverified"
+      }
+    ],
+    "yokohama": [
+      {
+        "id": "yokohama-r8-budget-index",
+        "url": "https://www.city.yokohama.lg.jp/city-info/zaisei/jokyo/yosan/r8/r8yosan.html",
+        "title": "令和8年度予算索引",
+        "policy_ids": [
+          "YOKOHAMA-M01"
+        ],
+        "role": "index",
+        "selector": "#tmp_contents",
+        "resolution_base": "https://www.city.yokohama.lg.jp/city-info/zaisei/jokyo/yosan/r8/r8yosan.html",
+        "fiscal_year": 2026,
+        "document_kind": "budget_index",
+        "media_type": "html",
+        "interval_days": 7,
+        "max_bytes": 2097152,
+        "registration_status": "pending",
+        "policy_relation": "unconfirmed",
+        "acquisition_enabled": false,
+        "fiscal_year_basis": "saved_index_heading"
+      }
+    ],
+    "kobe": [
+      {
+        "id": "kobe-r8-budget-committee",
+        "url": "https://www.city.kobe.lg.jp/z/shikaijimukyoku/giann_etc/r8/yosantokubetsu.html",
+        "title": "令和8年度予算特別委員会索引",
+        "policy_ids": [
+          "KOBE-M01"
+        ],
+        "role": "index",
+        "selector": "#tmp_contents",
+        "resolution_base": "https://www.city.kobe.lg.jp/z/shikaijimukyoku/giann_etc/r8/yosantokubetsu.html",
+        "fiscal_year": 2026,
+        "document_kind": "budget_index",
+        "media_type": "html",
+        "interval_days": 7,
+        "max_bytes": 2097152,
+        "registration_status": "pending",
+        "policy_relation": "unconfirmed",
+        "acquisition_enabled": false,
+        "fiscal_year_basis": "saved_index_heading"
+      }
+    ]
+  }
+}

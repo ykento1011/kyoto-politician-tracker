@@ -4,6 +4,7 @@ Only source-bound listing candidates are returned. A linked PDF is never read,
 classified as fact-verified, or downloaded by this adapter.
 """
 import re
+import unicodedata
 from collections import Counter
 from copy import deepcopy
 from bs4 import BeautifulSoup
@@ -27,7 +28,7 @@ def saved_index(bridge, source, version, *, city="kyoto"):
     main=soup.select_one(source.get('selector','#mol_contents'))
     if main is None: raise Hold('Official content selector not found')
     expected=f"令和{source['fiscal_year']-2018}年度"
-    if expected not in main.get_text(): raise Hold('Index fiscal year does not match configuration')
+    if expected not in unicodedata.normalize('NFKC', main.get_text()): raise Hold('Index fiscal year does not match configuration')
     links={}; section=''; context=''; month=None; ordinal=0
     for node in main.find_all(['h2','h3','h4','p','a']):
         text=node.get_text(' ',strip=True)

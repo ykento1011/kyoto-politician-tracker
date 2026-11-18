@@ -10,6 +10,7 @@ on:
       - 'data-pipeline/p1_patches/**'
       - 'config/kobe_m01_trial.json'
       - 'config/mayor_update_sources.json'
+      - 'config/mayor_offline_weekly.json'
       - 'config/kyoto_additional_pdf_watch.json'
       - 'config/kyoto_p04_p14_trial.json'
       - 'scripts/Export-KyotoWeeklyTask.ps1'
@@ -32,6 +33,7 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_kyoto_operations.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_weekly_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_continuous_mayor.py'
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_offline_weekly_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_periodic_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_pdf_mayor.py'
       - name: Test explicit city scope without network
