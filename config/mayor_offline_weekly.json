@@ -6,6 +6,7 @@
     "osaka": [
       {
         "id": "osaka-childcare-guide",
+        "review_scope": "full_content",
         "url": "https://www.city.osaka.lg.jp/kodomo/page/0000608688.html",
         "title": "保育料無償化の制度案内",
         "policy_ids": [

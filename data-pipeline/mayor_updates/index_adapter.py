@@ -119,7 +119,7 @@ def preserved_units(bridge, source, version):
         position+=1; quote=node.get_text(' ',strip=True)
         if not quote: continue
         if node.name=='h2':
-            if first_h2_seen: break  # Preserve the leading announcement, not obsolete sections.
+            if first_h2_seen and source.get('review_scope') != 'full_content': break
             first_h2_seen=True
         if node.name.startswith('h'): heading=quote
         if source['role']=='progress' and node.name=='p':

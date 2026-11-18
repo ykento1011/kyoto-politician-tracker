@@ -27,12 +27,13 @@ CASは読み取り、stateは都市・全profile・CAS絶対実体へ束縛す�
 
 ## 今回の検証結果
 
-- targeted: 新規10 PASS、既存continuous 6 PASS、periodic 21 PASS、operations 16 PASS／私有依存12 SKIP。合計53 PASS／12 SKIP。SKIPは実結合成功に数えない。
+- targeted: 新規11 PASS、既存continuous 6 PASS、periodic 21 PASS、operations 16 PASS／私有依存12 SKIP。合計54 PASS／12 SKIP。SKIPは実結合成功に数えない。
 - 保存済み3都市HTMLの実バイトを隔離fixture bridgeへ読み取り、各都市の初回状態登録と次週のunchanged／追加レビュー0を確認。P1本体・receipt検証器を通す私有CLI結合試験ではない。
 - 合成改版は3都市それぞれ非公開レビュー1件、同一版は追加0、同週重複は拒否。失敗・訂正・撤回・追補・未知構造・異年度・都市混入・CAS変更は停止しlast-goodを保持。
 - private原本・既存CAS/state/予約への書込み0。試験用state/周期記録は一時隔離領域内だけ。公式GET、公開JSON、main、本番、既存監視変更0。
 - 私有P1 CLI接続、正式source登録、実HTTPの再観測／実改版、Windows定期起動、外部通知、公開は未実施・別GO。
 - 初回CodexレビューのP2・2件を修正。保存原本検査は周期予約後に実施し、SHA/MIME異常で停止しても失敗記録と予約を保持。修復後の同週再処理も拒否。selectorだけの空本文・見出しやレビュー可能原文位置の欠落もHOLDする。
+- 再レビューのP2・1件を修正。大阪の制度案内は `review_scope=full_content` で全セクションを保持し、2つ目以降のh2配下の変更も原文・見出し・位置・SHAを私有レビューへ渡す。既定の京都お知らせ抽出は変更しない。
 
 ## 保存原本の限定照合（通信0）
 
