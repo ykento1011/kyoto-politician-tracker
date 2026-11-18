@@ -169,4 +169,3 @@ class DormantWindowsWorkerPort:
         self.api.processes.pop(self.process.pid,None);self.api.jobs.discard(self.job)
         self.closed=True
         return True
-
