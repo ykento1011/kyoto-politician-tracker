@@ -3,10 +3,13 @@ import ctypes as c
 from dataclasses import asdict, replace
 from hashlib import sha256
 import json
+import importlib.util
+import marshal
 import ntpath
 from pathlib import Path
 import sys
 import tempfile
+import types
 import unittest
 from unittest.mock import patch
 
@@ -63,7 +66,7 @@ class FakeAPI(m.WorkerWindowsAPI,MockNative):
                 self.calls.append((name,a))
                 if name=='ConvertStringSecurityDescriptorToSecurityDescriptorW':a[2]._obj.value=2;return 1
                 if name in ('CreateEventW','OpenEventW'):return 55
-                if name=='GetLastError':return 183 if self.world.mode=='event_collision' else 0
+                if name=='GetLastError':return 183 if self.world.mode=='event_collision' else (5 if self.world.mode=='event_status' else 0)
                 if name=='GetCurrentProcessId':return 123
                 if name=='SetEvent':
                     self.world.signalled=True
@@ -182,7 +185,7 @@ class WorkerTests(unittest.TestCase):
                 self.assertTrue((self.journal/'HOLD.json').exists())
                 self.assertFalse((self.journal/'supervisor_success.json').exists())
     def test_provisioning_failure_stop_and_persistent_hold(self):
-        for mode in ('wrong_sid','directory_acl','code_sha','event_collision','event_acl','assign_failure','late_create'):
+        for mode in ('wrong_sid','directory_acl','code_sha','event_collision','event_status','event_acl','assign_failure','late_create'):
             with self.subTest(mode=mode),tempfile.TemporaryDirectory() as t:
                 self.ipc=Path(t);bodies=self.world.bodies;self.world=World();self.world.bodies=bodies;self.world.mode=mode
                 with self.assertRaises(Hold):self.provision()
@@ -238,5 +241,29 @@ class WorkerTests(unittest.TestCase):
                 if passes:api._event_acl(10)
                 else:
                     with self.assertRaises(Hold):api._event_acl(10)
+
+    def test_bootstrap_ignores_conflicting_unchecked_bytecode_and_unlisted_modules(self):
+        import runpy
+        script=Path(__file__).resolve().parents[2]/'scripts/Stage2Worker.py'
+        loader_class=runpy.run_path(str(script))['PinnedPackage']
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);package=root/'data-pipeline/mayor_updates';package.mkdir(parents=True)
+            pins={}
+            for relative in m.CODE_FILES:
+                path=root/relative;path.parent.mkdir(parents=True,exist_ok=True)
+                body=b"value='pinned source'\n" if relative.endswith('worker_ipc.py') else b''
+                path.write_bytes(body);pins[relative]=sha256(body).hexdigest()
+            source=package/'worker_ipc.py'
+            cache=Path(importlib.util.cache_from_source(str(source)));cache.parent.mkdir(exist_ok=True)
+            # PEP 552 unchecked-hash cache with different executable content.
+            cache.write_bytes(importlib.util.MAGIC_NUMBER+(1).to_bytes(4,'little')+b'0'*8+
+                marshal.dumps(compile("value='UNPINNED bytecode'",str(source),'exec')))
+            loader=loader_class(root,pins)
+            spec=loader.find_spec('mayor_updates.worker_ipc')
+            module=importlib.util.module_from_spec(spec);loader.exec_module(module)
+            self.assertEqual(module.value,'pinned source')
+            with self.assertRaises(ImportError):loader.find_spec('mayor_updates.unapproved')
+            source.write_bytes(b"value='changed source'")
+            with self.assertRaises(ImportError):loader.exec_module(module)
 
 if __name__=='__main__':unittest.main()

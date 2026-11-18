@@ -182,7 +182,7 @@ class WorkerWindowsAPI(NativeWindowsAdapter):
             error=self._call('kernel32','GetLastError',D,[])
             if not event:raise Hold('Start event creation failed')
             self.events.add(event)
-            if error==183:raise Hold('Start event already exists')
+            if error!=0:raise Hold('Start event already exists or creation status is unknown')
             self._event_acl(event)
             return event
         finally:
