@@ -91,7 +91,8 @@ class TransportTests(unittest.TestCase):
                       {"headers": [["Content-Length", "99999999"]]},
                       {"headers": [["Content-Length", "100"]]},
                       {"headers": [["Set-Cookie", "sid=x; Domain=other.example; Secure"]]},
-                      {"headers": [["Set-Cookie", "sid=x; Secure"]]}):
+                      {"headers": [["Set-Cookie", "sid=x; Secure"]]},
+                      {"headers": [["Content-Type", "text/html"], ["Content-Type", "text/html"]]}):
             with self.subTest(attrs=attrs):
                 t = g.StreamTransport(g.FakeConnection)
                 with self.assertRaises(g.Hold): t.request(1, io.BytesIO(), dict(self.fixtures[0], **attrs))
@@ -155,6 +156,10 @@ class TransportTests(unittest.TestCase):
             def write(self, data): return 0
         with self.assertRaises(g.Hold):
             g.StreamTransport(g.FakeConnection).request(1, ShortSink(), self.fixtures[0])
+        t = g.StreamTransport(g.FakeConnection)
+        with patch.object(g.FakeConnection, "close", side_effect=OSError("close failed")):
+            with self.assertRaises(OSError): t.request(1, io.BytesIO(), self.fixtures[0])
+        with self.assertRaises(g.Hold): t.request(2, io.BytesIO(), self.fixtures[1])
 
 
 if __name__ == "__main__":

@@ -136,11 +136,16 @@ class StreamTransport:
                 cookies.append(parts[0])
             if cookies:
                 self.cookies = cookies
+            result = {"status": 200, "bytes": written, "content_type": response.getheader("Content-Type", ""),
+                      "method": method, "url": "https://"+HOST+path}
             self.failed = False
-            return {"status": 200, "bytes": written, "content_type": response.getheader("Content-Type", ""),
-                    "method": method, "url": "https://"+HOST+path}
+            return result
         finally:
-            connection.close()
+            try:
+                connection.close()
+            except Exception:
+                self.failed = True
+                raise
             self.last_finish = time.monotonic()
 
 
