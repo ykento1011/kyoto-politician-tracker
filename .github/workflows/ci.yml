@@ -48,6 +48,9 @@ jobs:
           python -B -m unittest discover -s tests -p "test_member_history.py"
           python -B -m unittest discover -s tests -p "test_nagoya_article_review.py"
 
+      - name: Test disabled Nagoya Phase 1 transport (fake only)
+        run: python -B -m unittest discover -s tests -p "test_nagoya_phase1_transport.py"
+
       # 2. ビルドテスト
       - name: Set up Node.js
         uses: actions/setup-node@v4
