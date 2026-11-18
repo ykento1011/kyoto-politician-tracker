@@ -1,0 +1,18 @@
+# Native adapter: disabled Stage 2 implementation
+
+Stacked on PR #104 head `05c7b1acb907029210750e021c1f94c50a8fdbc9`. That PR and its contract are unchanged. No Osaka input, existing P1, CAS, receipt, ACL, state, reservation or runtime is modified.
+
+`native_launch.py` supplies the native operation bodies behind the accepted contract: CreateFileW held image/ancestor handles, raw owner/DACL inspection, primary token SID/non-elevation checks, ReadFile byte identity, cached-only WinVerifyTrust and its selected signer certificate, explicit CreateProcessW application name with CREATE_SUSPENDED/hidden window, process-image and child-token query, Job Object containment, ResumeThread, bounded wait, whole-job/process termination acknowledgement and handle cleanup.
+
+All calls pass through `_fn`. `NATIVE_EXECUTION_ENABLED=False` rejects before DLL loading. There is no command line entry or activation parameter; the accepted simulation contract also rejects this real adapter (`simulation_only=False`). Activation/integration needs a separate reviewed change and PM GO. The mock subclasses override only the DLL function resolver and observations under test; no real native API is called. The flag is a source gate, not an OS security boundary against malicious Python code or a hostile host administrator.
+
+13 new synthetic tests exercise actual adapter bodies with fake C-function results, including raw ACL layout, cached trust's chosen signer digest/closure, suspended request flags, byte/ID/actor mismatch, invalid handles/API failures, Job membership/descendants, termination failure, and disabled DLL loading. Earlier #104 tests are retained for automatic CI but are not rerun manually for environment troubleshooting. No new dependency or secret fixture.
+
+## Remaining Stage 2 gates
+
+- Select and explicitly pin a real signed executable, arguments, signer SHA and full runtime dependencies. Existing Python/PowerShell installations are not assumed to pass this adapter's strict owner-only EXE requirement. Signature trust/revocation data must already be cached; missing/unknown trust HOLDs without online retrieval. The actual loaded image is matched to the held file via path, bytes and file ID under no-write/no-delete handles; it is not a hash of relocated process memory or proof of all DLLs.
+- Raw Windows ABI, sharing-lock compatibility, real token/ACL/ancestor behavior, certificate provider behavior and Job nesting are untested on a live child. Unknown/unsupported ACEs or unsafe ancestors HOLD, not silently relax.
+- This single-process Job is the fixed-helper contract, not authorization to run a weekly Python tree. Native launch inherits the current environment; a reviewed deterministic environment/DLL/module policy and exact harmless request must be fixed before activation. It must not be used for arbitrary PowerShell commands or public/untrusted inputs.
+- Current code uses the accepted 10-second wait contract. That wait does not measure total preflight, trust verification or native process creation wall time. A separate parent deadline/confirmed Job termination must be reviewed before real activation if an end-to-end 10-second wall limit is required. Never claim the earlier timing or a mock wait proves it.
+- Termination/handle cleanup failure means keep OS isolation, report HOLD and use local recovery. No Firewall restoration is performed by this module. OS blocking, a local administrator and on-site recovery approval remain separate. The representative's presence today does not authorize live API calls here.
+- No live process, Firewall change or Osaka third attempt is part of this PR. No Ready/merge/deploy.

@@ -29,6 +29,7 @@ jobs:
       - name: Test proposals, bounded acquisition and persistent weekly entry
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_launch_contract_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_native_launch_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_mayor_updates.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_kyoto_operations.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_weekly_mayor.py'
