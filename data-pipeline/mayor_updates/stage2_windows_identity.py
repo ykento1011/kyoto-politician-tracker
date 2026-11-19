@@ -9,11 +9,188 @@ from hashlib import sha256
 import os
 from pathlib import Path
 import threading
+import ntpath
+import re
 
 from .launch_contract import FixedLaunch, _image
 from .native_launch import NativeWindowsAdapter, FILETIME, P, D, TRUSTED_INSTALLER_SID, LockedImage
 from .projection import Hold
 from .stage2_acceptance import require
+from .native_launch import GUID, TRUSTDATA, PROVIDERCERT_HEAD
+
+
+CRYPTSVC_SID = 'S-1-5-80-242729624-280608522-2219052887-3187409060-2225943459'
+
+
+class CatalogTrust(c.Structure):
+    _fields_ = [('size', D), ('version', D), ('catalog_path', w.LPCWSTR),
+                ('tag', w.LPCWSTR), ('member_path', w.LPCWSTR), ('member_handle', P),
+                ('hash', P), ('hash_size', D), ('context', P), ('admin', P)]
+
+
+def ps51_paths(pin, windows):
+    """Only a pinned, two-alias inbox PS5.1 image; never a worker exception."""
+    expected = ntpath.join(windows, 'System32', 'WindowsPowerShell', 'v1.0', 'powershell.exe')
+    aliases = pin['aliases']
+    require(pin['path'].casefold() == expected.casefold(), 'Inbox PS5.1 only')
+    require(type(aliases) is list and len(aliases) == 2 and
+            len({p.casefold() for p in aliases}) == 2 and
+            expected.casefold() in {p.casefold() for p in aliases}, 'Exact two PS5.1 aliases')
+    other = next(p for p in aliases if p.casefold() != expected.casefold())
+    relative = ntpath.relpath(other, ntpath.join(windows, 'WinSxS'))
+    require(re.fullmatch(r'amd64_microsoft-windows-powershell-exe_31bf3856ad364e35_[0-9.]+_none_[0-9a-f]{16}\\powershell\.exe',
+                         relative, re.I) is not None, 'Fixed WinSxS PS5.1 alias')
+    catroot = ntpath.join(windows, 'System32', 'CatRoot')
+    catdir = ntpath.join(catroot, '{F750E6C3-38EE-11D1-85E5-00C04FC295EE}')
+    catalog = pin['catalog']
+    require(ntpath.dirname(catalog['path']).casefold() == catdir.casefold() and
+            re.fullmatch(r'Microsoft-Windows-Client-Features-Package~31bf3856ad364e35~amd64~~[0-9.]+\.cat',
+                         ntpath.basename(catalog['path']), re.I) is not None, 'Fixed Windows catalog')
+    for value in (pin['sha256'], pin['signer_sha256'], catalog['sha256']):
+        require(type(value) is str and re.fullmatch('[0-9a-f]{64}', value), 'PS5.1 SHA pin')
+    require(re.fullmatch('[0-9A-F]{64}', catalog['member_hash']) is not None, 'Catalog member pin')
+    require(type(pin['volume_serial']) is int and type(pin['file_id']) is int, 'File identity pins')
+    expected_catalog_aliases = [catalog['path'], ntpath.join(windows,'WinSxS','Catalogs',catalog['sha256']+'.cat'),
+                               ntpath.join(windows,'servicing','Packages',ntpath.basename(catalog['path']))]
+    require(type(catalog['aliases']) is list and len(catalog['aliases']) == 3 and
+            {p.casefold() for p in catalog['aliases']} == {p.casefold() for p in expected_catalog_aliases}, 'Exact catalog aliases')
+    require(type(catalog['volume_serial']) is int and type(catalog['file_id']) is int, 'Catalog file identity pins')
+    for path in aliases + catalog['aliases']:
+        require(ntpath.normpath(path) == path and ntpath.isabs(path) and ':' not in path[2:], 'Canonical system path')
+    return expected, (catroot.casefold(), catdir.casefold())
+
+
+class SystemPs51Verifier(NativeWindowsAdapter):
+    """Read-only inbox PS5.1 verification. Worker NativeWindowsAdapter is unchanged."""
+    def __init__(self, pin, windows):
+        self.pin = pin
+        self.expected, self.catalog_directories = ps51_paths(pin, windows)
+        super().__init__(FixedLaunch(pin['path'], (), pin['sha256'], pin['signer_sha256'], TRUSTED_INSTALLER_SID))
+
+    def catalog_directory_acl(self, handle, path):
+        # CryptSvc may maintain exactly these Windows catalog directories, not
+        # the executable, its aliases, catalog leaf, IPC or arbitrary ancestors.
+        require(path.casefold() in self.catalog_directories, 'Catalog ACL boundary')
+        owner, dacl, sd = P(), P(), P()
+        status = self._call('advapi32', 'GetSecurityInfo', D,
+            [P,D,D,c.POINTER(P),P,c.POINTER(P),P,c.POINTER(P)],
+            handle,1,5,c.byref(owner),None,c.byref(dacl),None,c.byref(sd))
+        try:
+            require(status == 0 and owner.value and dacl.value, 'Catalog descriptor')
+            trusted = {TRUSTED_INSTALLER_SID, 'S-1-5-18', 'S-1-5-32-544', CRYPTSVC_SID}
+            require(self._sid(owner.value) in trusted - {CRYPTSVC_SID}, 'Catalog directory owner')
+            count = c.c_ushort.from_address(dacl.value + 4).value
+            require(count <= 128, 'Catalog ACE bound')
+            for i in range(count):
+                ace = P()
+                self._ok(self._call('advapi32','GetAce',w.BOOL,[P,D,c.POINTER(P)],dacl,i,c.byref(ace)), 'Catalog ACE')
+                kind = c.c_ubyte.from_address(ace.value).value
+                flags = c.c_ubyte.from_address(ace.value+1).value
+                size = c.c_ushort.from_address(ace.value+2).value
+                require(kind in (0,1) and size >= 12 and not flags & ~0x1f, 'Catalog ACE structure')
+                if kind == 1 or flags & 8: continue  # no grant on this existing directory
+                mask = D.from_address(ace.value+4).value
+                sid = self._sid(ace.value+8)
+                require(not mask & 0x500D0156 or sid in trusted, 'Untrusted catalog writer')
+        finally:
+            if sd.value: self._call('kernel32','LocalFree',P,[P],sd)
+
+    def aliases(self, path, expected):
+        size = D(32768); buf = c.create_unicode_buffer(size.value)
+        enum = self._call('kernel32','FindFirstFileNameW',P,[w.LPCWSTR,D,c.POINTER(D),w.LPWSTR],
+                          path,0,c.byref(size),buf)
+        require(enum not in (None,0,c.c_void_p(-1).value), 'Hardlink enumeration')
+        rows = []
+        try:
+            while True:
+                rows.append(ntpath.splitdrive(path)[0]+buf.value)
+                require(len(rows) <= len(expected), 'Unexpected system file link')
+                size.value = len(buf)
+                if not self._call('kernel32','FindNextFileNameW',w.BOOL,[P,c.POINTER(D),w.LPWSTR],enum,c.byref(size),buf):
+                    require(c.get_last_error() == 38, 'Incomplete hardlink enumeration')
+                    break
+        finally:
+            self._ok(self._call('kernel32','FindClose',w.BOOL,[P],enum), 'Hardlink enum close')
+        require(len(rows) == len(expected) and {p.casefold() for p in rows} ==
+                {p.casefold() for p in expected}, 'Hardlink set differs')
+        return rows
+
+    def verify(self):
+        handles = []
+        try:
+            image = None
+            catpin = self.pin['catalog']
+            for path in self.aliases(self.expected,self.pin['aliases']) + self.aliases(catpin['path'],catpin['aliases']):
+                for parent in reversed(Path(path).parents):
+                    h = self._open(str(parent),directory=True); handles.append(h); self._info(h)
+                    if str(parent).casefold() in self.catalog_directories:
+                        self.catalog_directory_acl(h,str(parent))
+                    else: self._acl(h,parent=True)
+                h = self._open(path); handles.append(h)
+                info = self._info(h); self._acl(h,parent=True)
+                require(not info.attributes & 0x10, 'Regular PS5.1/catalog file')
+                digest = sha256(self._bytes(h,info)).hexdigest()
+                if path.casefold() in {p.casefold() for p in catpin['aliases']}:
+                    require(info.links == 3 and info.volume == catpin['volume_serial'] and
+                            ((info.index_high<<32)|info.index_low) == catpin['file_id'] and
+                            digest == catpin['sha256'], 'Catalog bytes/file identity')
+                else:
+                    require(info.links == 2 and info.volume == self.pin['volume_serial'] and
+                            (info.index_high<<32)|info.index_low == self.pin['file_id'] and
+                            digest == self.pin['sha256'], 'PS5.1 bytes/file identity')
+                    if path.casefold() == self.expected.casefold(): image = h
+            require(image is not None, 'PS5.1 image missing')
+            self.aliases(self.expected,self.pin['aliases'])
+            self.aliases(catpin['path'],catpin['aliases'])
+            self.verify_catalog(image)
+            return handles
+        except BaseException:
+            for h in reversed(handles): self._close(h)
+            raise
+
+    def verify_catalog(self, image):
+        admin = P(); trust = TRUSTDATA()
+        action = GUID(0x00AAC56B,0xCD44,0x11D0,(c.c_ubyte*8)(0x8C,0xC2,0,0xC0,0x4F,0xC2,0x95,0xEE))
+        try:
+            self._ok(self._call('wintrust','CryptCATAdminAcquireContext2',w.BOOL,
+                [c.POINTER(P),P,w.LPCWSTR,P,D],c.byref(admin),None,'SHA256',None,0), 'Catalog context')
+            size = D()
+            self._ok(self._call('wintrust','CryptCATAdminCalcHashFromFileHandle2',w.BOOL,
+                [P,P,c.POINTER(D),P,D],admin,image,c.byref(size),None,0), 'Catalog hash size')
+            require(size.value == 32, 'SHA256 catalog hash only')
+            buf = (c.c_ubyte*32)()
+            self._ok(self._call('wintrust','CryptCATAdminCalcHashFromFileHandle2',w.BOOL,
+                [P,P,c.POINTER(D),P,D],admin,image,c.byref(size),buf,0), 'Catalog member hash')
+            tag = bytes(buf).hex().upper()
+            require(size.value == 32 and tag == self.pin['catalog']['member_hash'], 'Catalog membership pin')
+            cat = CatalogTrust(); cat.size=c.sizeof(cat); cat.catalog_path=self.pin['catalog']['path']
+            cat.tag=tag; cat.member_path=self.expected; cat.member_handle=image
+            cat.hash=c.cast(buf,P); cat.hash_size=32; cat.admin=admin
+            trust.size=c.sizeof(trust); trust.ui=2; trust.revocation=1; trust.choice=2
+            trust.file=c.cast(c.pointer(cat),P); trust.action=1; trust.flags=0x1080
+            status=self._call('wintrust','WinVerifyTrust',c.c_int32,
+                [P,c.POINTER(GUID),c.POINTER(TRUSTDATA)],P(-1),c.byref(action),c.byref(trust))
+            require(status == 0 and trust.state, 'Strict offline catalog signature')
+            provider=self._call('wintrust','WTHelperProvDataFromStateData',P,[P],trust.state)
+            require(provider, 'Catalog provider')
+            signer=self._call('wintrust','WTHelperGetProvSignerFromChain',P,[P,D,w.BOOL,D],provider,0,False,0)
+            require(signer, 'Catalog signer')
+            ptr=self._call('wintrust','WTHelperGetProvCertFromChain',P,[P,D],signer,0)
+            require(ptr, 'Catalog certificate')
+            head=c.cast(ptr,c.POINTER(PROVIDERCERT_HEAD)).contents
+            require(head.cert, 'Catalog certificate context')
+            cert=head.cert.contents
+            require(cert.encoded and 0 < cert.length <= 1024*1024, 'Catalog certificate size')
+            require(sha256(c.string_at(cert.encoded,cert.length)).hexdigest() == self.pin['signer_sha256'], 'Catalog signer pin')
+        finally:
+            try:
+                if trust.state:
+                    trust.action=2
+                    require(self._call('wintrust','WinVerifyTrust',c.c_int32,
+                        [P,c.POINTER(GUID),c.POINTER(TRUSTDATA)],P(-1),c.byref(action),c.byref(trust)) == 0, 'Catalog trust close')
+            finally:
+                if admin.value:
+                    self._ok(self._call('wintrust','CryptCATAdminReleaseContext',w.BOOL,[P,D],admin,0), 'Catalog context close')
 
 
 class WindowsIdentity:
@@ -78,19 +255,11 @@ class WindowsIdentity:
         expected=os.path.join(os.environ.get('SystemRoot','C:\\Windows'),
                               'System32','WindowsPowerShell','v1.0','powershell.exe')
         require(pin['path'].casefold()==expected.casefold(),'Fixed system PS5.1 only')
-        system=NativeWindowsAdapter(FixedLaunch(pin['path'],(),pin['sha256'],pin['signer_sha256'],
-                                               TRUSTED_INSTALLER_SID))
+        system=SystemPs51Verifier(pin, os.environ.get('SystemRoot','C:\\Windows'))
         handles=[]
         try:
             if not self.system_verified:
-                for parent in reversed(Path(expected).parents):
-                    h=system._open(str(parent),directory=True);handles.append(h)
-                    system._info(h);system._acl(h,parent=True)
-                h=system._open(expected);handles.append(h)
-                info=system._info(h);system._acl(h,parent=True)
-                require(info.links==1 and sha256(system._bytes(h,info)).hexdigest()==pin['sha256'], 'PS5.1 image bytes')
-                locked=LockedImage(expected,h,tuple(handles[:-1]))
-                require(system._signature(locked)==pin['signer_sha256'],'PS5.1 cache-only signature')
+                handles=system.verify()
                 self.retained.extend(handles);handles=[]
                 self.system_verified = True
         finally:
