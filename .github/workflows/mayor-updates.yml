@@ -16,6 +16,43 @@ on:
       - '.github/workflows/mayor-updates.yml'
   workflow_dispatch:
 jobs:
+  windows-handoff:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        handoff_case: [positive, missing_program, changed_program]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate nonsecret synthetic handoff and validate existing restore path
+        shell: powershell
+        run: |
+          $fixture=Join-Path $env:RUNNER_TEMP ('stage2-handoff-'+[guid]::NewGuid().ToString('N'))
+          python -B data-pipeline/tests/test_stage2_flow_mayor.py --export-handoff $fixture
+          if($LASTEXITCODE -ne 0){throw 'Fixture generation failed'}
+          ./scripts/Test-Stage2Handoff.ps1 -FixtureRoot $fixture -Case '${{ matrix.handoff_case }}'
+          if('${{ matrix.handoff_case }}' -eq 'positive'){
+            ./scripts/Prepare-Stage2LocalRecovery.ps1 -SelfTest
+          }
+      - name: Test new admin IPC and independent guardian functions without OS operations
+        if: matrix.handoff_case == 'positive'
+        shell: powershell
+        run: ./scripts/Test-Stage2AdminBridge.ps1
+      - name: Test raw audit evidence and fail-closed CSV without invoking auditpol
+        if: matrix.handoff_case == 'positive'
+        shell: powershell
+        run: ./scripts/Test-Stage2AuditCsv.ps1
+      - name: Test creation-time evidence owner descriptors without native bridge
+        if: matrix.handoff_case == 'positive'
+        shell: powershell
+        run: ./scripts/Test-Stage2EvidenceOwner.ps1
+      - name: Test external binary evidence streaming with synthetic ports
+        if: matrix.handoff_case == 'positive'
+        shell: powershell
+        run: ./scripts/Test-Stage2ExternalEvidence.ps1
   offline-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -30,6 +67,13 @@ jobs:
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_launch_contract_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_native_launch_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_native_root_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_guard_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_flow_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_worker_ipc_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_preparation_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_acceptance_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_os_adapter_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_mayor_updates.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_kyoto_operations.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_weekly_mayor.py'
@@ -49,3 +93,9 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_p1_offline.py' -v
           echo '### External P1 integration: NOT VALIDATED' >> "$GITHUB_STEP_SUMMARY"
           echo 'This hosted job has no approved immutable P1 dependency. Its P1 city tests are skipped; an offline CI pass is not integration acceptance. A separate approved private environment must supply the pinned P1 code before merge.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Test offline Firewall restore plan without OS changes
+        shell: pwsh
+        run: ./scripts/Restore-Stage2Firewall.ps1 -SelfTest
+      - name: Test independent manual recovery preparation without executing emitted text
+        shell: pwsh
+        run: ./scripts/Prepare-Stage2LocalRecovery.ps1 -SelfTest

@@ -83,6 +83,16 @@ def simulate_fixed_launch(spec, winapi, *, simulation=False):
     _spec(spec)
     if simulation is not True or getattr(winapi, 'simulation_only', None) is not True:
         raise Hold('Only explicit synthetic WinAPI simulation is supported')
+    return _fixed_launch(spec, winapi)
+
+
+def _fixed_launch(spec, winapi):
+    """Shared state machine; native callers require their own source gate.
+
+    This private helper does not load an OS backend; NativeWindowsAdapter retains
+    its independent source gate. The public simulation contract is unchanged.
+    """
+    _spec(spec)
     image = job = process = None
     resumed = False
     try:

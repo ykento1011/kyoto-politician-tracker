@@ -8,6 +8,7 @@ import ctypes as c
 from ctypes import wintypes as w
 from dataclasses import dataclass
 from hashlib import sha256
+import math
 import ntpath
 import os
 import subprocess
@@ -18,6 +19,7 @@ P = c.c_void_p
 D = c.c_uint32
 Q = c.c_size_t
 NATIVE_EXECUTION_ENABLED = False  # source-level gate; no public activation parameter
+TRUSTED_INSTALLER_SID = 'S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464'
 
 class FILETIME(c.Structure):
     _fields_ = [('low', D), ('high', D)]
@@ -101,6 +103,7 @@ class NativeWindowsAdapter:
         self.processes = {}
         self.jobs = set()
         self.images = []
+        self._opened_paths = {}
 
     def _fn(self, dll, name, result, args):
         if not NATIVE_EXECUTION_ENABLED or os.name != 'nt':
@@ -118,7 +121,30 @@ class NativeWindowsAdapter:
         return value
 
     def _close(self, handle):
-        if handle: self._ok(self._call('kernel32', 'CloseHandle', w.BOOL, [P], handle), 'CloseHandle')
+        if handle:
+            self._ok(self._call('kernel32', 'CloseHandle', w.BOOL, [P], handle), 'CloseHandle')
+            self._opened_paths.pop(handle, None)
+
+    def _root_role(self, handle, parent):
+        """C: volume root only; never infer an exception from an ACL's owner."""
+        path = self._opened_paths.get(handle)
+        if not parent or not path or not self.spec.executable.lower().startswith('c:\\'):
+            return 'regular'
+        if path.lower() == 'c:\\':
+            if ntpath.dirname(self.spec.executable).lower() == 'c:\\':
+                raise Hold('Protected child directory required below volume root')
+            info = self._info(handle)
+            if not info.attributes & 0x10: raise Hold('Volume root must be a directory')
+            buf = c.create_unicode_buffer(32768)
+            length = self._call('kernel32', 'GetFinalPathNameByHandleW', D,
+                [P, w.LPWSTR, D, D], handle, buf, len(buf), 0)
+            actual = buf.value
+            if actual.startswith('\\\\?\\'): actual = actual[4:]
+            if not 0 < length < len(buf) or actual.lower() != 'c:\\':
+                raise Hold('Volume-root handle identity unproven')
+            return 'volume_root'
+        if ntpath.dirname(path).lower() == 'c:\\': return 'protected_root_child'
+        return 'regular'
 
     def _sid(self, sid):
         text = P()
@@ -147,6 +173,7 @@ class NativeWindowsAdapter:
         finally: self._close(token.value)
 
     def _acl(self, handle, *, parent=False):
+        role = self._root_role(handle, parent)
         owner = P(); dacl = P(); sd = P()
         status = self._call('advapi32', 'GetSecurityInfo', D,
             [P, D, D, c.POINTER(P), P, c.POINTER(P), P, c.POINTER(P)],
@@ -155,6 +182,11 @@ class NativeWindowsAdapter:
         try:
             if not owner.value or not dacl.value: raise Hold('Owner or DACL missing')
             owner_sid = self._sid(owner.value)
+            if role in ('volume_root', 'protected_root_child'):
+                control = w.WORD(); revision = D()
+                self._ok(self._call('advapi32', 'GetSecurityDescriptorControl', w.BOOL,
+                    [P, c.POINTER(w.WORD), c.POINTER(D)], sd, c.byref(control), c.byref(revision)), 'DACL control')
+                if not control.value & 0x1000: raise Hold('Protected root/child DACL required')
             count = c.c_ushort.from_address(dacl.value + 4).value
             allowed = set(); trusted = {self.spec.actor_sid, 'S-1-5-18', 'S-1-5-32-544'}
             for i in range(count):
@@ -165,16 +197,35 @@ class NativeWindowsAdapter:
                 flags = c.c_ubyte.from_address(ace.value + 1).value
                 size = c.c_ushort.from_address(ace.value + 2).value
                 if kind not in (0, 1) or size < 12: raise Hold('Unsupported ACL structure')
-                if kind == 1 or flags & 8: continue  # deny or inherit-only ACE cannot grant here
+                if role == 'volume_root' and flags & ~0x1F:
+                    raise Hold('Unknown volume-root ACE flags')
+                if kind == 1: continue  # ignoring deny cannot introduce a grant
+                if flags & 8 and role != 'volume_root': continue
                 mask = D.from_address(ace.value + 4).value
                 sid = self._sid(ace.value + 8)
+                if role == 'volume_root':
+                    root_trusted = trusted | {TRUSTED_INSTALLER_SID}
+                    if sid not in root_trusted:
+                        if flags & 8:
+                            # Exact observed inherit-only grant. It cannot reach
+                            # the existing protected direct child checked below.
+                            if (sid, flags, mask) != ('S-1-5-11', 0x0B, 0xE0010000):
+                                raise Hold('Unknown volume-root inheritance')
+                        else:
+                            read_mask = 0x001200A9
+                            allowed_mask = read_mask | (4 if sid == 'S-1-5-11' else 0)
+                            if mask & ~allowed_mask:
+                                raise Hold('Dangerous volume-root grant')
+                    continue
+                if flags & 8: continue  # unchanged non-root inherit-only behavior
                 if parent:
                     # Delete, delete-child, write DAC/owner, generic write/all,
                     # add/overwrite data, subdirectory, EA/attributes.
                     if mask & 0x500D0156 and sid not in trusted:
                         raise Hold('Untrusted writable ancestor')
                 else: allowed.add(sid)
-            good = (owner_sid in trusted if parent else
+            good = (owner_sid in (trusted | {TRUSTED_INSTALLER_SID}) if role == 'volume_root' else
+                    owner_sid in trusted if parent else
                     owner_sid == self.spec.actor_sid and allowed == {self.spec.actor_sid})
             if not good: raise Hold('Owner-only executable or safe ancestor ACL required')
             return owner_sid
@@ -188,6 +239,7 @@ class NativeWindowsAdapter:
         handle = self._call('kernel32', 'CreateFileW', P,
             [w.LPCWSTR, D, D, P, D, D, P], path, access, share, None, 3, flags, None)
         if handle in (None, 0, c.c_void_p(-1).value): raise Hold('Cannot lock image/ancestor')
+        self._opened_paths[handle] = path
         return handle
 
     def _info(self, handle):
@@ -346,8 +398,10 @@ class NativeWindowsAdapter:
         process.suspended = False
 
     def wait(self, process, *, timeout_seconds):
-        if timeout_seconds != self.spec.timeout_seconds: raise Hold('Fixed timeout required')
-        status = self._call('kernel32', 'WaitForSingleObject', D, [P, D], process.handle, timeout_seconds * 1000)
+        if (type(timeout_seconds) not in (int, float) or not math.isfinite(timeout_seconds)
+                or not 0 < timeout_seconds <= self.spec.timeout_seconds):
+            raise Hold('Remaining timeout must not exceed fixed maximum')
+        status = self._call('kernel32', 'WaitForSingleObject', D, [P, D], process.handle, int(timeout_seconds * 1000))
         if status != 0: raise Hold('Wait failed or timed out')
         code = D()
         self._ok(self._call('kernel32', 'GetExitCodeProcess', w.BOOL,

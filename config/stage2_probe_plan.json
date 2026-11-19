@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "network_enabled": false,
+  "purpose": "Single Stage 2 isolation acceptance; no municipality/document acquisition",
+  "request_payload": "DNS question only; no HTTP/TLS request body or private data",
+  "per_attempt_timeout_ms": 1000,
+  "retry_count": 0,
+  "http_requests": 0,
+  "max_client_attempts": 9,
+  "probes": [
+    {"id":"tcp4","destination":"1.1.1.1","family":4,"port":443,"transport":"TCP","baseline_attempts":1,"blocked_attempts":1},
+    {"id":"tcp6","destination":"2606:4700:4700::1111","family":6,"port":443,"transport":"TCP","baseline_attempts":1,"blocked_attempts":1},
+    {"id":"dns4","destination":"1.1.1.1","family":4,"port":53,"transport":"UDP","query":"example.com.","qtype":"A","max_datagrams_per_attempt":1,"baseline_attempts":1,"blocked_attempts":1},
+    {"id":"dns6","destination":"2606:4700:4700::1111","family":6,"port":53,"transport":"UDP","query":"example.com.","qtype":"AAAA","max_datagrams_per_attempt":1,"baseline_attempts":1,"blocked_attempts":1},
+    {"id":"system_dns_proxy","destination":"exact DNS addresses in private preapproved resolver snapshot","port":53,"transport":"Windows DNS Client API","query_template":"stage2-{run_id}.example.com.","baseline_attempts":0,"blocked_attempts":1,"service":"Dnscache","service_sid":"S-1-5-20","max_observed_service_send_attempts":8}
+  ],
+  "baseline_failure": "HOLD affected family; an unreachable endpoint is not isolation proof; no retry or alternate target",
+  "blocked_success": "No external egress and attributable OS deny evidence for fixed destination/actor; a timeout alone is insufficient",
+  "dns_proxy_success": "Deny evidence attributable to current Dnscache PID and NetworkService SID; cached answer or client-only traffic does not cover this case",
+  "hold_conditions": ["resolver snapshot changed","service identity changed","no attributable OS trace","unknown authenticated bypass/IPsec/third-party path","any egress while blocked","unknown pending service request","attempt limit exceeded","unavailable IPv6 baseline"],
+  "failure_action": "Stop testing, retain isolation and records, no automatic recovery; local representative handles verified termination/recovery",
+  "worker_total_seconds": 10,
+  "network_probe_phase_budget_seconds": 9,
+  "boundary": "Worker total deadline remains 10s; administrator rule application, connectivity baseline and manual recovery are separate on-site acceptance phases, not claimed within that worker deadline",
+  "separate_go_required": ["all probes including baseline","OS packet/deny observation","exact two-rule creation/removal","native source activation","local reboot contingency if termination cannot be established"]
+}
