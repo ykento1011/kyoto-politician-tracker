@@ -121,3 +121,40 @@ unchanged. Existing Stage 2 authorization is not renewed by this code. Completin
 and reviewing native OS port bindings and the local independent watchdog is still
 necessary before an actual integrated execution command can be issued; this
 offline command is not that live command.
+
+### Disabled native connection (PR #106 follow-up)
+
+The preserved native work now connects `WindowsPorts` and `WorkerFlow` through
+exclusive file IPC to a local administrator PS5.1 broker. Requests/replies bind
+run ID, plan SHA, runtime SHA, nonce and a consumed sequence; retained process
+tokens/images distinguish the elevated broker and non-elevated controller.
+The bootstrap verifies an exact 14-file controller PIN set before imports.
+The original worker's eight-file contract and private assets are unchanged.
+
+Future entry shape (NOT an authorized or currently runnable live command):
+`<fixed-python> -B scripts/Run-Stage2Acceptance.py --runtime <private-runtime> --runtime-sha256 <fixed-sha>`.
+It requires the representative's existing local administrator console handoff;
+it does not elevate, switch accounts or promise unattended one-command execution.
+`LIVE_ACCEPTANCE_ENABLED`, `LIVE_OS_ADAPTER_ENABLED` and `LiveOsBridgeEnabled`
+remain false. No private activation, runtime preparation or PIN replacement was
+performed by these tests.
+
+The independent guardian requests actor stop at 45 seconds and attempts audit
+rollback regardless of stop success. Stop/readback failures leave durable HOLD;
+Firewall removal is never automatic. The broker independently verifies the old
+worker completion capability before requesting local exit acknowledgement.
+The emitted local text also contains an audit-only PS5.1 recovery path that does
+not depend on Python or the IPC broker. Kernel/API hangs can still prevent a
+software watchdog from acting: the synthetic tests do NOT establish a real
+60-second stopping guarantee. Physical attendance and independent local recovery
+remain necessary.
+
+New tests exercise IPC identity/sequence/PIN mismatches, timeout STOP, ambiguous
+DNS service ownership, native source gates and a complete mocked WindowsPorts to
+existing WorkerFlow transaction. PS5.1 extracts only named function ASTs for
+in-memory tests of binding, completion capability, stop failure and independent
+audit restoration. No native entry, Firewall, audit, DNS or worker is executed.
+Actual DNS ETW schema/transport attribution may fail closed; unknown evidence
+cannot pass through timing correlation alone. The remaining execution gate is
+the separately authorized integrated 5157 failure interval (max 60 seconds,
+strictly fewer than 64 events), private re-PIN and actual local acceptance.

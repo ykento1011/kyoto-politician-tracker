@@ -95,8 +95,12 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
     Python checks: a live adapter needs its independent local restoration guard.
     No live adapter or command-line activation switch is supplied here.
     """
-    require(simulation is True and getattr(ports, 'simulation_only', None) is True and
-            getattr(worker, 'simulation_only', None) is True,
+    synthetic = (simulation is True and getattr(ports, 'simulation_only', None) is True and
+                 getattr(worker, 'simulation_only', None) is True)
+    native = (LIVE_ACCEPTANCE_ENABLED is True and simulation is False and
+              getattr(ports, 'simulation_only', None) is False and
+              getattr(worker, 'simulation_only', None) is False)
+    require(synthetic or native,
             'Live Stage 2 acceptance source-disabled')
     require(type(plan) is dict and re.fullmatch('[0-9a-f]{32}', plan.get('run_id', '')) and
             re.fullmatch('[0-9a-f]{64}', plan.get('native_plan_sha256', '')) and
@@ -109,12 +113,12 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
     rid = plan['run_id']
     rules = ['GikaiMikata-Stage2-' + rid + '-' + d for d in ('Inbound', 'Outbound')]
     _record(root, 'start.json', {'plan': plan, 'plan_sha256': digest(plan),
-                              'synthetic': True, 'real_execution_authorized': False})
+                              'synthetic': synthetic, 'real_execution_authorized': False})
     audit_attempted = firewall_attempted = worker_attempted = False
     original = None
     deadline = None
     errors, events, attempts = [], [], []
-    status = {'state': 'HOLD', 'synthetic': True, 'audit_restored': False,
+    status = {'state': 'HOLD', 'synthetic': synthetic, 'audit_restored': False,
               'firewall_restored': False, 'termination_confirmed': False,
               'real_execution_authorized': False, 'automatic_firewall_restore': False}
     seen_records = {}
