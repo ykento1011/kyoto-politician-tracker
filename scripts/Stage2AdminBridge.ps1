@@ -85,8 +85,17 @@ function Save-New([string]$Path,$Value){
     $json=ConvertTo-Json -InputObject $Value -Depth 24
     $null=ConvertFrom-Json -InputObject $json
     $body=$enc.GetPreamble()+$enc.GetBytes($json)
-    $s=[IO.File]::Open($Path,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
-    try{$s.Write($body,0,$body.Length);$s.Flush($true)}finally{$s.Dispose()}
+    # Same-directory rename publishes only a closed, fully flushed record.
+    # File.Move's two-argument overload refuses an existing destination.
+    $temporary=Join-Path ([IO.Path]::GetDirectoryName($Path)) ('.stage2-'+[Guid]::NewGuid().ToString('N')+'.tmp')
+    $created=$false
+    try{
+        $s=[IO.File]::Open($temporary,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+        $created=$true
+        try{$s.Write($body,0,$body.Length);$s.Flush($true)}finally{$s.Dispose()}
+        [IO.File]::Move($temporary,$Path)
+        $created=$false
+    }finally{if($created){[IO.File]::Delete($temporary)}}
 }
 function Assert-Private([string]$Path){
     $p=[IO.Path]::GetFullPath($Path)
@@ -257,6 +266,7 @@ function Apply-Rules {
             -Profile Any -Program Any -Service Any -Protocol Any -LocalAddress Any -RemoteAddress Any
     }
     Assert-Rules
+    if((Snapshot-Firewall) -cne $script:FirewallBefore){throw 'Non-delta Firewall settings changed; no probes'}
     # Exact rule label AND approved Windows Firewall sublayer, never fuzzy name
     # matching. Unknown netsh XML versions stop before any probe.
     $path=Join-Path $script:Box 'filters.xml'
@@ -339,6 +349,23 @@ function Stop-DnsTrace {
     $script:TraceLossProven=(-not $loss.Missing -and $loss.EventsLost -eq 0 -and $loss.LogBuffersLost -eq 0 -and $loss.RealTimeBuffersLost -eq 0 -and
         (Get-Item -LiteralPath (Join-Path $script:Box 'dns.etl')).Length -lt 16777216)
 }
+function Read-DnsTransport($Event,$Data){
+    # Classify service ownership BEFORE schema filtering; unknown versions must
+    # never vanish from the independent send counter in a mixed-version trace.
+    if(-not $Data.ContainsKey('PID')){throw 'Transport owner missing'}
+    if([int]$Data.PID -ne $script:Dns.pid){return $null}
+    if($Event.Id -cnotin @(42,58) -or $Event.Version -ne 0){throw 'Unsupported DNS service transport schema'}
+    if($Event.Id -eq 42){
+        $remote=[Net.IPAddress]::new([BitConverter]::GetBytes([uint32]$Data.daddr)).ToString()
+    }else{
+        $hex=$Data.daddr -replace '[^0-9a-fA-F]',''
+        if($hex.Length -ne 32){throw 'Unknown IPv6 ETW encoding'}
+        $bytes=New-Object byte[] 16;for($i=0;$i -lt 16;$i++){$bytes[$i]=[Convert]::ToByte($hex.Substring($i*2,2),16)}
+        $remote=[Net.IPAddress]::new($bytes).ToString()
+    }
+    $networkPort=[BitConverter]::ToInt16([BitConverter]::GetBytes([uint16]$Data.dport),0)
+    return @{remote=$remote;port=([Net.IPAddress]::NetworkToHostOrder($networkPort) -band 65535)}
+}
 function Dns-Evidence($Receipt){
     Stop-DnsTrace
     $rows=@(Get-WinEvent -Path (Join-Path $script:Box 'dns.etl') -Oldest)
@@ -348,18 +375,10 @@ function Dns-Evidence($Receipt){
         [xml]$x=$e.ToXml();$d=@{};foreach($v in $x.Event.EventData.Data){$d[$v.Name]=[string]$v.'#text'}
         $tick=$e.TimeCreated.ToUniversalTime().ToFileTimeUtc()
         if($tick -lt $Receipt.start_tick -or $tick -gt $Receipt.end_tick){continue}
-        if($e.ProviderName -ceq 'Microsoft-Windows-Kernel-Network' -and $e.Id -cin @(42,58) -and $e.Version -eq 0){
-            if([int]$d.PID -ne $script:Dns.pid){continue}
-            if($e.Id -eq 42){
-                $remote=[Net.IPAddress]::new([BitConverter]::GetBytes([uint32]$d.daddr)).ToString()
-            }else{
-                $hex=$d.daddr -replace '[^0-9a-fA-F]',''
-                if($hex.Length -ne 32){throw 'Unknown IPv6 ETW encoding'}
-                $bytes=New-Object byte[] 16;for($i=0;$i -lt 16;$i++){$bytes[$i]=[Convert]::ToByte($hex.Substring($i*2,2),16)}
-                $remote=[Net.IPAddress]::new($bytes).ToString()
-            }
-            $port=[Net.IPAddress]::NetworkToHostOrder([int16][uint16]$d.dport) -band 65535
-            if($remote -cnotin $script:Runtime.resolvers -or $port -ne 53){$other+=@($e)}else{$sends+=@($e)}
+        if($e.ProviderName -ceq 'Microsoft-Windows-Kernel-Network'){
+            $transport=Read-DnsTransport $e $d
+            if($null -eq $transport){continue}
+            if($transport.remote -cnotin $script:Runtime.resolvers -or $transport.port -ne 53){$other+=@($e)}else{$sends+=@($e)}
             continue
         }
         if($e.ProviderName -cne 'Microsoft-Windows-DNS-Client'){continue}

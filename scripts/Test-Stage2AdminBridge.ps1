@@ -6,7 +6,7 @@ $tokens=$null;$errors=$null
 $path=Join-Path $PSScriptRoot 'Stage2AdminBridge.ps1'
 $ast=[Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors)
 if($errors.Count){throw ($errors|Out-String)}
-foreach($name in @('Assert-Binding','Assert-Completion','Invoke-GuardRecovery','Restore-Audit')){
+foreach($name in @('Assert-Binding','Assert-Completion','Invoke-GuardRecovery','Restore-Audit','Apply-Rules','Save-New','Read-DnsTransport')){
     $nodes=@($ast.FindAll({param($n) $n -is [Management.Automation.Language.FunctionDefinitionAst] -and $n.Name -ceq $name},$false))
     if($nodes.Count -ne 1){throw 'Function boundary'}
     . ([scriptblock]::Create($nodes[0].Extent.Text))
@@ -14,6 +14,30 @@ foreach($name in @('Assert-Binding','Assert-Completion','Invoke-GuardRecovery','
 $script:Passed=0
 function Check($ok,$message){if(-not $ok){throw $message};$script:Passed++}
 $script:Binding=@{run_id=('a'*32);runtime_sha256=('b'*64);plan_sha256=('c'*64);nonce=('d'*64)}
+$temp=Join-Path ([IO.Path]::GetTempPath()) ('stage2-ipc-synthetic-'+[Guid]::NewGuid().ToString('N'))
+$null=[IO.Directory]::CreateDirectory($temp)
+try{
+    $record=Join-Path $temp 'published.json'
+    Save-New $record @{binding=$script:Binding;complete=$true}
+    $body=[IO.File]::ReadAllText($record);$value=$body|ConvertFrom-Json
+    Check ($value.complete -eq $true) 'Closed complete publication'
+    $held=$false;try{Save-New $record @{complete=$false}}catch{$held=$true}
+    Check ($held -and [IO.File]::ReadAllText($record) -ceq $body) 'No overwrite on collision'
+    Check ([IO.Directory]::GetFiles($temp).Count -eq 1) 'Temporary file cleaned after collision'
+}finally{[IO.File]::Delete($record);[IO.Directory]::Delete($temp)}
+$script:Dns=@{pid=200}
+$send=[pscustomobject]@{Id=42;Version=0}
+$data=@{PID='200';daddr=[uint32]0x01010101;dport=[uint16]13568}
+$transport=Read-DnsTransport $send $data
+Check ($transport.remote -ceq '1.1.1.1' -and $transport.port -eq 53) 'Known DNS transport'
+foreach($case in @('version','id','owner_missing')){
+    $event=[pscustomobject]@{Id=42;Version=0};$values=@{};foreach($key in $data.Keys){$values[$key]=$data[$key]}
+    if($case -eq 'version'){$event.Version=1}
+    if($case -eq 'id'){$event.Id=999}
+    if($case -eq 'owner_missing'){$values.Remove('PID')}
+    $held=$false;try{$null=Read-DnsTransport $event $values}catch{$held=$true}
+    Check $held ('Unknown transport HOLD '+$case)
+}
 Assert-Binding ([pscustomobject]$script:Binding)
 Check $true 'binding'
 foreach($key in $script:Binding.Keys){
@@ -71,4 +95,21 @@ foreach($case in @('normal','agent_alive','stop_timeout','stop_throw','restore_f
     }
     if($case -eq 'identity_mismatch'){Check ($script:GuardClient.Kills -eq 0) 'No wrong PID kill'}
 }
+# Exercise the new post-add snapshot check with an in-memory module; no real
+# NetSecurity module or cmdlet is imported. Fail before any netsh/filter call.
+if(Get-Module NetSecurity){throw 'Synthetic test requires no real NetSecurity module'}
+$fake=New-Module -Name NetSecurity -ScriptBlock {
+    function Get-NetFirewallRule {param($PolicyStore)}
+    function New-NetFirewallRule {param($PolicyStore,$Name,$DisplayName,$Group,$Direction,$Action,$Enabled,$Profile,$Program,$Service,$Protocol,$LocalAddress,$RemoteAddress)}
+    Export-ModuleMember -Function Get-NetFirewallRule,New-NetFirewallRule
+}
+Import-Module $fake
+try{
+    function Assert-Rules {}
+    function Snapshot-Firewall {return 'unexpected-change'}
+    function Invoke-FixedTool {throw 'Must stop before tool calls'}
+    $script:FirewallBefore='original';$script:RuleNames=@('Inbound','Outbound'|ForEach-Object {'GikaiMikata-Stage2-'+$script:Binding.run_id+'-'+$_})
+    $reason='';try{$null=Apply-Rules}catch{$reason=$_.Exception.Message}
+    Check ($reason -ceq 'Non-delta Firewall settings changed; no probes') 'Snapshot drift blocks probes'
+}finally{Remove-Module $fake}
 @{passed=$script:Passed;synthetic=$true;firewall_operations=0;audit_operations=0;native_process_launches=0}|ConvertTo-Json -Compress
