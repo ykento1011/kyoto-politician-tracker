@@ -41,6 +41,10 @@ jobs:
         if: matrix.handoff_case == 'positive'
         shell: powershell
         run: ./scripts/Test-Stage2AdminBridge.ps1
+      - name: Test raw audit evidence and fail-closed CSV without invoking auditpol
+        if: matrix.handoff_case == 'positive'
+        shell: powershell
+        run: ./scripts/Test-Stage2AuditCsv.ps1
   offline-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 5

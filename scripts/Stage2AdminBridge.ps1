@@ -145,22 +145,182 @@ function Invoke-FixedTool([string]$Name,[string[]]$Arguments,[int]$Milliseconds=
         return $a
     }finally{$proc.Dispose()}
 }
+function Initialize-AuditCaptureTypes {
+    if('Stage2AuditRaw' -as [type]){return}
+    Add-Type -TypeDefinition @'
+using System;
+using System.IO;
+using System.Threading.Tasks;
+public sealed class Stage2AuditChunk { public byte[] Bytes; public bool Overflow; }
+public static class Stage2AuditRaw {
+ public static async Task<Stage2AuditChunk> Read(Stream stream) {
+  using(var output=new MemoryStream()) {
+   byte[] block=new byte[4096];
+   while(output.Length<=65536) {
+    int count=await stream.ReadAsync(block,0,(int)Math.Min(block.Length,65537-output.Length)).ConfigureAwait(false);
+    if(count==0)return new Stage2AuditChunk{Bytes=output.ToArray(),Overflow=false};
+    output.Write(block,0,count);
+   }
+   return new Stage2AuditChunk{Bytes=output.ToArray(),Overflow=true};
+  }
+ }
+}
+'@
+}
+function Invoke-AuditCapture([string]$Guid) {
+    if($Guid -cnotin @($script:Connection,$script:Packet)){throw 'Fixed audit query GUID'}
+    $path=Join-Path $env:SystemRoot 'System32\auditpol.exe'
+    if((Get-FileHash -LiteralPath $path).Hash.ToLowerInvariant() -cne $script:Runtime.system_tools.'auditpol.exe'){throw 'Audit tool PIN'}
+    Initialize-AuditCaptureTypes
+    $info=New-Object Diagnostics.ProcessStartInfo
+    $info.FileName=$path;$info.Arguments='/get "/subcategory:'+$Guid+'" /r'
+    $info.UseShellExecute=$false;$info.CreateNoWindow=$true
+    $info.RedirectStandardOutput=$true;$info.RedirectStandardError=$true
+    $proc=New-Object Diagnostics.Process;$proc.StartInfo=$info
+    $result=@{guid=$Guid;started_utc=[DateTime]::UtcNow.ToString('o');finished_utc=$null;
+        console_code_page=[Console]::OutputEncoding.CodePage;stdout=[byte[]]@();stderr=[byte[]]@();
+        stdout_complete=$false;stderr_complete=$false;overflow=$false;exit_code=$null;failure=$null}
+    $started=$false;$outTask=$null;$errTask=$null
+    try{
+        $started=$proc.Start();if(-not $started){throw 'Audit process not started'}
+        # No StreamReader decoding: preserve bytes returned by both pipe streams.
+        $outTask=[Stage2AuditRaw]::Read($proc.StandardOutput.BaseStream)
+        $errTask=[Stage2AuditRaw]::Read($proc.StandardError.BaseStream)
+        if(-not $proc.WaitForExit(2000)){throw 'Audit capture timeout'}
+        $result.exit_code=$proc.ExitCode
+        if(-not [Threading.Tasks.Task]::WaitAll([Threading.Tasks.Task[]]@($outTask,$errTask),1000)){throw 'Audit pipes incomplete'}
+    }catch{$result.failure=$_.Exception.GetType().Name+': '+$_.Exception.Message}
+    finally{
+        if($started){
+            try{if(-not $proc.HasExited){$proc.Kill();if(-not $proc.WaitForExit(1000)){throw 'Audit termination unconfirmed'}}}
+            catch{$result.failure='Audit termination unconfirmed'}
+        }
+        foreach($key in @('stdout','stderr')){
+            $task=if($key -ceq 'stdout'){$outTask}else{$errTask}
+            if($null -ne $task -and $task.Status -eq [Threading.Tasks.TaskStatus]::RanToCompletion){
+                $chunk=$task.GetAwaiter().GetResult();$result[$key]=$chunk.Bytes
+                $result[$key+'_complete']=-not $chunk.Overflow
+                if($chunk.Overflow){$result.overflow=$true}
+            }
+        }
+        $result.finished_utc=[DateTime]::UtcNow.ToString('o');$proc.Dispose()
+    }
+    return $result
+}
+function Save-AuditCapture($Capture,[string]$Guid) {
+    Assert-Private $script:Box
+    if($Guid -cnotin @($script:Connection,$script:Packet) -or $Capture.guid -cne $Guid){throw 'Capture GUID binding'}
+    foreach($key in @('stdout','stderr')){
+        if($Capture[$key] -isnot [byte[]] -or $Capture[$key].Length -gt 65537){throw 'Raw capture bound'}
+    }
+    $sha=[Security.Cryptography.SHA256]::Create()
+    try{
+        $record=@{schema_version=1;binding=$script:Binding;guid=$Guid;
+            started_utc=$Capture.started_utc;finished_utc=$Capture.finished_utc;
+            exit_code=$Capture.exit_code;capture_failure=$Capture.failure;overflow=$Capture.overflow;
+            stdout_complete=$Capture.stdout_complete;stderr_complete=$Capture.stderr_complete;
+            console_code_page=$Capture.console_code_page;encoding_status='UNVALIDATED_BEFORE_PARSE';
+            provenance='raw redirected BaseStream bytes; not re-encoded text';
+            stdout_base64=[Convert]::ToBase64String($Capture.stdout);stderr_base64=[Convert]::ToBase64String($Capture.stderr);
+            stdout_sha256=[BitConverter]::ToString($sha.ComputeHash($Capture.stdout)).Replace('-','').ToLowerInvariant();
+            stderr_sha256=[BitConverter]::ToString($sha.ComputeHash($Capture.stderr)).Replace('-','').ToLowerInvariant()}
+    }finally{$sha.Dispose()}
+    $path=Join-Path $script:Box ('audit-capture-'+[Guid]::NewGuid().ToString('N')+'.json')
+    Save-New $path $record
+    Assert-Private $path
+    $saved=Read-FixedJson $path 262144
+    if(($saved|ConvertTo-Json -Depth 24 -Compress) -cne ($record|ConvertTo-Json -Depth 24 -Compress)){
+        # Hashtable/PSCustomObject enumeration order is not a byte identity test.
+        foreach($key in $record.Keys){if($key -ne 'binding' -and $saved.PSObject.Properties[$key].Value -cne $record[$key]){throw 'Capture readback differs'}}
+        Assert-Binding $saved.binding
+    }
+    return $path
+}
+function Decode-AuditCapture($Capture) {
+    if($Capture.failure -or $Capture.exit_code -ne 0 -or $Capture.overflow -or
+       -not $Capture.stdout_complete -or -not $Capture.stderr_complete -or $Capture.stderr.Length -ne 0){throw 'Audit command/capture HOLD'}
+    $b=$Capture.stdout;$skip=0
+    if($b.Length -ge 3 -and $b[0] -eq 239 -and $b[1] -eq 187 -and $b[2] -eq 191){$cp=65001;$skip=3;$basis='UTF8_BOM'}
+    elseif($b.Length -ge 2 -and $b[0] -eq 255 -and $b[1] -eq 254){$cp=1200;$skip=2;$basis='UTF16LE_BOM'}
+    elseif($b.Length -ge 2 -and $b[0] -eq 254 -and $b[1] -eq 255){$cp=1201;$skip=2;$basis='UTF16BE_BOM'}
+    else{
+        $cp=$Capture.console_code_page;$basis='RECORDED_CONSOLE_CODEPAGE_SCHEMA_MUST_MATCH'
+        if($cp -notin @(65001,932)){throw 'Unproven BOMless audit encoding'}
+    }
+    $encoding=[Text.Encoding]::GetEncoding($cp,[Text.EncoderFallback]::ExceptionFallback,[Text.DecoderFallback]::ExceptionFallback)
+    $text=$encoding.GetString($b,$skip,$b.Length-$skip)
+    if([Convert]::ToBase64String($encoding.GetBytes($text)) -cne [Convert]::ToBase64String($b,$skip,$b.Length-$skip)){throw 'Audit encoding roundtrip'}
+    return @{text=$text;code_page=$cp;basis=$basis}
+}
+function Read-SavedAuditCapture([string]$Path,[string]$Guid) {
+    $saved=Read-FixedJson $Path 262144;Assert-Binding $saved.binding
+    if($saved.schema_version -ne 1 -or $saved.guid -cne $Guid){throw 'Saved capture identity'}
+    $capture=@{failure=$saved.capture_failure;exit_code=$saved.exit_code;overflow=$saved.overflow;
+        stdout_complete=$saved.stdout_complete;stderr_complete=$saved.stderr_complete;console_code_page=$saved.console_code_page}
+    $sha=[Security.Cryptography.SHA256]::Create()
+    try{
+        foreach($key in @('stdout','stderr')){
+            $encoded=$saved.PSObject.Properties[$key+'_base64'].Value
+            if($encoded -isnot [string] -or $encoded.Length -gt 87384){throw 'Saved byte bound'}
+            $bytes=[Convert]::FromBase64String($encoded)
+            if($bytes.Length -gt 65537 -or [BitConverter]::ToString($sha.ComputeHash($bytes)).Replace('-','').ToLowerInvariant() -cne $saved.PSObject.Properties[$key+'_sha256'].Value){throw 'Saved byte SHA differs'}
+            $capture[$key]=$bytes
+        }
+    }finally{$sha.Dispose()}
+    return $capture
+}
+function Convert-AuditCsv([string]$Csv,[string]$ExpectedGuid) {
+    # Accept only the observed Japanese system-policy /r schema. Do not turn
+    # a missing sixth column into an empty exclusion or silently drop extras.
+    $names=@{
+        '{0CCE9226-69AE-11D9-BED3-505054503030}'='フィルタリング プラットフォームの接続'
+        '{0CCE9225-69AE-11D9-BED3-505054503030}'='フィルタリング プラットフォーム パケットのドロップ'
+    }
+    if(-not $names.ContainsKey($ExpectedGuid) -or $Csv.Length -gt 65536){throw 'Audit GUID/size'}
+    $null=(New-Object Text.UTF8Encoding($false,$true)).GetBytes($Csv)
+    if($Csv.Length -gt 0 -and [int]$Csv[0] -eq 0xfeff){$Csv=$Csv.Substring(1)}
+    if($Csv.IndexOf([char]0xfffd) -ge 0 -or $Csv.IndexOf([char]0xfeff) -ge 0 -or $Csv.IndexOf([char]0) -ge 0){throw 'Audit encoding HOLD'}
+    $lines=@(($Csv -split '\r?\n') | Where-Object {$_ -cne ''})
+    if($lines.Count -ne 2 -or $lines[0] -cne 'コンピューター名,ポリシー ターゲット,サブカテゴリ,サブカテゴリ GUID,包含設定,除外設定'){throw 'Audit CSV header/row count'}
+    $field='(?:"(?:[^"\r\n]|"")*"|[^",\r\n]*)'
+    if($lines[1] -cnotmatch ('^'+$field+'(?:,'+$field+'){5}$')){throw 'Audit CSV six-column structure'}
+    if($lines[1] -cnotmatch ',(?:"")?$'){throw 'Nonempty raw exclusion'}
+    # ConvertFrom-Csv can trim unquoted whitespace. Require exact raw identity
+    # and state fields before conversion so padding is not silently normalized.
+    $target='(?:"システム"|システム)'
+    $name=[regex]::Escape($names[$ExpectedGuid]);$id=[regex]::Escape($ExpectedGuid)
+    $state='(?:監査なし|失敗|成功|成功および失敗)'
+    $exact='^'+$field+','+$target+',(?:"'+$name+'"|'+$name+'),(?:"'+$id+'"|'+$id+'),(?:"'+$state+'"|'+$state+'),(?:"")?$'
+    if($lines[1] -cnotmatch $exact){throw 'Raw audit identity/state differs'}
+    $rows=@(ConvertFrom-Csv -InputObject $lines[1] -Header computer,target,name,guid,inclusion,exclusion)
+    if($rows.Count -ne 1){throw 'Audit CSV row count'}
+    $row=$rows[0]
+    if([string]::IsNullOrWhiteSpace($row.computer) -or $row.target -cne 'システム' -or
+       $row.guid -cne $ExpectedGuid -or $row.name -cne $names[$ExpectedGuid]){throw 'Audit row identity'}
+    if(-not [string]::IsNullOrEmpty($row.exclusion)){throw 'Unknown exclusion'}
+    switch -Exact ($row.inclusion){
+        '監査なし' {return @{success=$false;failure=$false}}
+        '失敗' {return @{success=$false;failure=$true}}
+        '成功' {return @{success=$true;failure=$false}}
+        '成功および失敗' {return @{success=$true;failure=$true}}
+        default {throw 'Unexpected success audit or locale'}
+    }
+}
 function Read-Audit {
     $result=[ordered]@{}
     foreach($g in @($script:Connection,$script:Packet)){
-        $csv=Invoke-FixedTool 'auditpol.exe' @('/get',('/subcategory:'+$g),'/r')
-        $rows=@($csv -split '\r?\n'|Where-Object {$_ -match [regex]::Escape($g)})
-        if($rows.Count -ne 1){throw 'Audit row ambiguous'}
-        $row=$rows[0]|ConvertFrom-Csv -Header computer,target,name,guid,inclusion,exclusion
-        if($row.exclusion){throw 'Unknown exclusion'}
-        switch -Exact ($row.inclusion){
-            '監査なし' {$v=@{success=$false;failure=$false}}
-            '失敗' {$v=@{success=$false;failure=$true}}
-            '成功' {$v=@{success=$true;failure=$false}}
-            '成功および失敗' {$v=@{success=$true;failure=$true}}
-            default {throw 'Unexpected success audit or locale'}
+        $capture=Invoke-AuditCapture $g
+        $path=Save-AuditCapture $capture $g # must succeed before decoding or PASS
+        try{
+            $decoded=Decode-AuditCapture (Read-SavedAuditCapture $path $g)
+            $value=Convert-AuditCsv $decoded.text $g
+            Save-New ($path+'.parsed.json') @{binding=$script:Binding;guid=$g;state='PARSED';code_page=$decoded.code_page;basis=$decoded.basis;value=$value}
+            Assert-Private ($path+'.parsed.json')
+            $result[$g.Trim('{}').ToLowerInvariant()]=$value
+        }catch{
+            Save-New ($path+'.hold.json') @{binding=$script:Binding;guid=$g;state='HOLD';reason=$_.Exception.Message}
+            throw
         }
-        $result[$g.Trim('{}').ToLowerInvariant()]=$v
     }
     return $result
 }
