@@ -71,6 +71,17 @@ class Tests(unittest.TestCase):
         with self.assertRaises(Hold):v.verify()
         self.assertIn(EXE,closed);self.assertIn(CAT,closed)
 
+    def test_cleanup_failure_still_attempts_every_owned_handle(self):
+        v=self.verifier();opened=[];closed=[]
+        def opening(path,**kw):opened.append(path);return path
+        def closing(h):
+            closed.append(h)
+            raise Hold('Synthetic CloseHandle failure')
+        v._open=opening;v._close=closing
+        with self.assertRaisesRegex(Hold,'termination unconfirmed') as result:v.verify()
+        self.assertEqual(closed,list(reversed(opened)))
+        self.assertIsInstance(result.exception.__cause__,Hold)
+
     def test_catalog_directory_boundary(self):
         v=m.SystemPs51Verifier(PIN,ROOT)
         with self.assertRaises(Hold):v.catalog_directory_acl(1,r'C:\scratch')

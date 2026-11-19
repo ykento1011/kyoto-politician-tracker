@@ -144,8 +144,13 @@ class SystemPs51Verifier(NativeWindowsAdapter):
             self.aliases(catpin['path'],catpin['aliases'])
             self.verify_catalog(image)
             return handles
-        except BaseException:
-            for h in reversed(handles): self._close(h)
+        except BaseException as verification_error:
+            cleanup_errors = []
+            for h in reversed(handles):
+                try: self._close(h)
+                except BaseException as error: cleanup_errors.append(error)
+            if cleanup_errors:
+                raise Hold('PS5.1 verification and handle cleanup failed; termination unconfirmed') from verification_error
             raise
 
     def verify_catalog(self, image):
