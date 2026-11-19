@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import KyotoPolicyTracker from './KyotoPolicyTracker';
+import SharedPolicyTracker from './SharedPolicyTracker';
+import {CITIES} from '../config/cities';
 import ReportIssueButton from './ReportIssueButton';
 import BudgetEvidence, { hasBudgetEvidence } from './BudgetEvidence';
 import ProgressEvidence from './ProgressEvidence';
@@ -21,6 +23,9 @@ const STAGES = [
 export default function MayorTrackerView(props) {
   if (props.cityCode === 'kyoto' && Array.isArray(props.data?.pledges)) {
     return <KyotoPolicyTracker {...props} />;
+  }
+  if (CITIES[props.cityCode]?.sharedMayorUI && Array.isArray(props.data?.pledges)) {
+    return <SharedPolicyTracker key={props.cityCode} {...props}/>;
   }
   return <LegacyMayorTrackerView {...props} />;
 }

@@ -645,7 +645,7 @@ export default function App() {
 
   if (currentRoute.type === 'mayor') {
     return (
-      <div data-kyoto-policy-page={cityCode === 'kyoto' || undefined} className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
+      <div data-kyoto-policy-page={cityCode === 'kyoto' || undefined} data-shared-mayor-page={getCityConfig(cityCode)?.sharedMayorUI || undefined} className="min-h-screen bg-[#F8FAFC] text-slate-800 font-sans flex flex-col justify-between">
         {renderNavbar(false)}
         <div className="flex-grow">
           <Suspense fallback={suspenseSpinner}>

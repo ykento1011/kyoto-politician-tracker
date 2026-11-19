@@ -95,7 +95,7 @@
 
 /* The existing shared header/feedback remain unchanged outside this page. */
 [data-kyoto-policy-page] { min-width:0; }
-[data-kyoto-policy-page] > aside[aria-label="ご意見・改善要望フォーム"] { position:static; align-self:flex-end; margin:1rem; }
+:is([data-kyoto-policy-page],[data-shared-mayor-page]) > aside[aria-label="ご意見・改善要望フォーム"] { position:static; align-self:flex-end; margin:1rem; }
 [data-kyoto-policy-page] :is(a,button):focus-visible { outline:3px solid #8a4b00; outline-offset:3px; }
 .kyoto-policy-ui .kp-source .kp-button { margin:.3rem .3rem .3rem 0; }
 .kyoto-policy-ui .kp-detail > .kp-navigation { margin-bottom:1rem; margin-top:1rem; }

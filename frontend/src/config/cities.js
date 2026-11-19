@@ -1,6 +1,9 @@
-﻿// 各都市の基本メタデータ、表示呼称、データファイルパス規定の一元管理 (SSoT)
+// 各都市の基本メタデータ、表示呼称、データファイルパス規定の一元管理 (SSoT)
 export const CITIES = {
   kyoto: {
+    // Link display only; grants no acquisition or verification permission.
+    mayorDisplayHosts: ['www.city.kyoto.lg.jp', 'www2.city.kyoto.lg.jp'],
+    sharedMayorUI: true,
     mayorName: '松井 孝治',
     mayorTitle: '京都市長',
     term: '2024年2月就任〜',
@@ -25,6 +28,9 @@ export const CITIES = {
     ogpImage: 'https://gikai-mikata.jp/ogp-kyoto.png',
   },
   osaka: {
+    // Link display only; grants no acquisition or verification permission.
+    mayorDisplayHosts: ['www.city.osaka.lg.jp'],
+    sharedMayorUI: false,
     mayorName: '横山 秀幸',
     mayorTitle: '大阪市長',
     term: '2023年4月就任〜',
@@ -49,6 +55,9 @@ export const CITIES = {
     ogpImage: 'https://gikai-mikata.jp/ogp-osaka.png',
   },
   nagoya: {
+    // Link display only; grants no acquisition or verification permission.
+    mayorDisplayHosts: ['www.city.nagoya.lg.jp'],
+    sharedMayorUI: false,
     mayorName: '広沢 一郎',
     mayorTitle: '名古屋市長',
     term: '2024年11月就任〜',
@@ -73,6 +82,9 @@ export const CITIES = {
     ogpImage: 'https://gikai-mikata.jp/ogp-nagoya.png',
   },
   yokohama: {
+    // Link display only; grants no acquisition or verification permission.
+    mayorDisplayHosts: ['www.city.yokohama.lg.jp'],
+    sharedMayorUI: false,
     mayorName: '原澤 あつみ',
     mayorTitle: '横浜市長',
     term: '2026年10月就任〜',
@@ -97,6 +109,9 @@ export const CITIES = {
     ogpImage: 'https://gikai-mikata.jp/ogp-yokohama.png',
   },
   kobe: {
+    // Link display only; grants no acquisition or verification permission.
+    mayorDisplayHosts: ['www.city.kobe.lg.jp'],
+    sharedMayorUI: true,
     code: 'kobe',
     mayorName: '久元 喜造',
     mayorTitle: '神戸市長',
