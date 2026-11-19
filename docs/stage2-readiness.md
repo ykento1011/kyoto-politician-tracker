@@ -51,3 +51,67 @@ Review corrections retain newly acquired image/Job/process ownership before a po
 - `stage2_activation_inventory.json` lists the entire selected path: five source flags (native, flow, supervisor, worker, bootstrap); private deployment/re-PIN after activation; fixed native plan/run/empty IPC; representative-operated exact two-rule creation; baseline/blocked probes and OS observation; one fixed worker/leaf acceptance; local termination confirmation and exact delta recovery. The normal restore script's two live barriers remain unchanged and are not part of the selected recovery route. No automatic Firewall/probe/recovery executor is implied. Raw `run_native_stage2` is still disabled. A native proposal uses `synthetic=false` but remains `live_enabled=false` and grants no permission. All source flags remain false in this PR.
 
 All physical native-process/Job/IPC/DLL/deadline and IPv4/IPv6/DNS/bypass behavior remains one separately approved on-site acceptance. The worker's ten-second window includes provisioning/validation/work/cleanup; administrator rule application, connectivity baseline and manual recovery are separate maintenance phases and are not falsely counted within it. Any unavailable prerequisite or unexplained route HOLDs the run rather than expanding its permissions. Osaka CLI trial 3 and official acquisitions are excluded.
+
+## Stage 2 + 5157 transaction (offline implementation)
+
+`stage2_acceptance.run` connects injected audit, Security-log archive, fixed probe,
+Firewall and local operator ports around the existing worker flow. `WorkerFlow`
+calls `run_native_stage2` and its existing completion commit; it does not replace
+Job/IPC/termination checks. **The new controller currently accepts synthetic ports
+only. No native audit/Firewall/probe adapter or live CLI is supplied.**
+`LIVE_ACCEPTANCE_ENABLED` is false and is not a command-line activation switch.
+The demo deliberately imports nonsecret fixtures from the test file. Demo output
+is synthetic evidence, never the Windows Stage 2 result or an operator signature.
+
+One command, from the repository root, exercises the complete offline normal flow:
+
+```powershell
+python -B scripts/Run-Stage2Acceptance.py --offline --state-root "$env:TEMP\stage2-acceptance-offline-001"
+```
+
+The output directory must not exist; do not delete/reuse it to retry a consumed
+run. The native worker is **not** launched by this command. Relevant negative
+tests are `test_stage2_acceptance_mayor.py`; old accepted tests need not be rerun
+manually. They forbid subprocess/network calls and use synthetic SID/process data.
+
+The controller archives the pre-existing 20MiB Security log before changing audit
+bits. The adapter contract requires exclusive owner-only EVTX export, SHA/readback,
+first/last RecordId and complete coverage, including the original retained range;
+record gaps, truncation or clears HOLD. After independent audit rollback it exports
+the new range. XML/EVTX are private data and must not be committed. An exporter
+must preserve originals across circular-log rollover; metadata asserted by a fake
+does not prove that a real Windows export or record continuity succeeded.
+
+Only connection-failure audit is ever requested. Success audit is preserved, and
+packet-drop audit remains off. The original bits must both be off. There is no
+zero-events fallback to 5152. The interval is bounded by 60 seconds, read limits
+never exceed 64 events, and the 64th event triggers HOLD. Every port gets a deadline;
+native blocking is not bounded by these cooperative checks. PRE-BLOCK must prove
+an independent local restoration watchdog before a future live adapter is used.
+
+Four fixed baseline probes run before auditing; five blocked probes follow. Failed
+or unknown attempts are consumed, not retried. Exactly one attributable 5157 is
+required per blocked probe: same run, tuple/direction/time interval, positive
+runtime filter ID mapped to one of the exact two rules, retained process identity,
+PID/start time/image/token SID. Header PID and RemoteUserID are not owner evidence.
+DNS additionally needs the run-specific query, unchanged resolver list and service
+identity, fresh noncached completion, no pending query and independently observed
+1–8 service sends. Counting 5157 records is not a DNS-send counter. Unavailable
+service-send evidence HOLDs instead of substituting caller PID or timeout.
+
+Normal recovery requires the existing worker completion and whole-Job termination
+proof, then a real local operator acknowledgement and exact Inbound/Outbound delta
+removal in both stores. An error never automatically removes Firewall rules. When
+termination is unknown, keep blocking and preserve HOLD; no automatic reboot/reset.
+Audit rollback is independent: even failed/unknown Job termination or Firewall
+recovery must attempt to restore only the original failure bit, and read back both
+subcategories plus other audit settings. An audit-restore failure is a persistent
+HOLD requiring local administrator recovery. Never clear logs or restore/import
+the entire audit/Firewall policy.
+
+Next permission request: one integrated 5157 failure-audit interval, <=60 seconds,
+<=64 records, original bits restored/read back on all exits. 5152/success remain
+unchanged. Existing Stage 2 authorization is not renewed by this code. Completing
+and reviewing native OS port bindings and the local independent watchdog is still
+necessary before an actual integrated execution command can be issued; this
+offline command is not that live command.

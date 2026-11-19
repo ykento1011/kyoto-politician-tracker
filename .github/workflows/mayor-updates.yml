@@ -56,6 +56,7 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_flow_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_worker_ipc_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_preparation_mayor.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_stage2_acceptance_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_mayor_updates.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_kyoto_operations.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_weekly_mayor.py'
