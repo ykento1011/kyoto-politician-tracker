@@ -4,6 +4,7 @@ Ports are an observation/privilege boundary, NOT evidence produced by this
 module. Synthetic receipts must never be reused as Windows acceptance evidence.
 The existing native worker flow is reused through WorkerFlow below.
 """
+from copy import deepcopy
 from hashlib import sha256
 from ipaddress import ip_address
 import json
@@ -228,7 +229,7 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
         require(result.get('external_egress') is False, 'Egress or unknown result')
         collect()
         verify_denial(probe_id, result)
-        accepted_probes[probe_id] = json.loads(json.dumps(result))
+        accepted_probes[probe_id] = deepcopy(result)
         journal('probe_result_%02d' % len(attempts), result)
 
     try:

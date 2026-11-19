@@ -87,6 +87,7 @@ class FakePorts:
                       reachable=True, external_egress=False, start_tick=20, end_tick=30,
                       tuple=['192.0.2.10', 34567, *target])
         if ':' in target[0]: result['tuple'][0]='2001:db8::10'
+        if self.mutate == 'tuple_receipts': result['tuple']=tuple(result['tuple'])
         if self.mutate == 'wrong_observed_destination':
             result['tuple']=['192.0.2.10',34567,'203.0.113.1',22,6]
         if self.mutate == 'wrong_observed_family': result['tuple'][0]='2001:db8::10'
@@ -315,6 +316,12 @@ class AcceptanceTests(unittest.TestCase):
                 self.assertEqual(result['event_count'],6)
                 self.assertTrue(any('ambiguous' in error for error in result['errors']))
                 self.assertIn('export_after',ports.calls)
+
+    def test_tuple_receipts_keep_identity_on_final_revalidation(self):
+        result,ports=self.execute(mutate='tuple_receipts')
+        self.assertEqual(result['state'],'PASS')
+        self.assertEqual(result['client_attempts'],9)
+        self.assertTrue(result['audit_restored'])
 
 
 if __name__=='__main__':unittest.main()
