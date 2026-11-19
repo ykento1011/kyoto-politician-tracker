@@ -117,6 +117,7 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
               'firewall_restored': False, 'termination_confirmed': False,
               'real_execution_authorized': False, 'automatic_firewall_restore': False}
     seen_records = {}
+    accepted_probes = {}
     batch_number = 0
 
     def journal(name, body):
@@ -149,6 +150,38 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
         require(len(events) < 64, '64 event safety stop')
         if not final:
             remaining()
+
+    def verify_denial(probe_id, result):
+        actor = identity(result['actor'])
+        matched = []
+        for event in events:
+            # Never use the generic ETW header PID or RemoteUserID as token SID.
+            if event.get('probe_id') != probe_id:
+                continue
+            require(event.get('run_id') == rid and event.get('event_id') == 5157 and
+                    event.get('filter_id') in filters and
+                    event.get('rule_name') == filters[event['filter_id']] and
+                    filters[event['filter_id']] == rules[1] and
+                    event.get('direction') == 'Outbound' and
+                    type(event.get('utc_tick')) is int and
+                    result['start_tick'] <= event['utc_tick'] <= result['end_tick'] and
+                    event.get('tuple') == result['tuple'], 'Deny/probe/filter binding')
+            owner = identity(event['owner'])
+            require(owner['started'] <= event['utc_tick'], 'Process created after denial')
+            if probe_id == 'system_dns_proxy':
+                require(owner == dns and event.get('query') == result['query'], 'DNS service attribution')
+            else:
+                require(owner == actor, 'PID/start time/image/token SID mismatch')
+            matched.append(event)
+        require(len(matched) == 1, 'Missing/ambiguous attributable denial')
+        if probe_id == 'system_dns_proxy':
+            require(result.get('cached') is False and result.get('query_complete') is True and
+                    result.get('pending_service_requests') == 0 and
+                    type(result.get('service_send_count')) is int and
+                    1 <= result['service_send_count'] <= 8 and
+                    result.get('service_send_count_verified') is True and
+                    identity(result['service_before']) == dns == identity(result['service_after']),
+                    'DNS send count/lifetime/completion unproven')
 
     def probe(probe_id, blocked):
         require(len(attempts) < 9, 'Nine probe limit')
@@ -194,35 +227,8 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
             return
         require(result.get('external_egress') is False, 'Egress or unknown result')
         collect()
-        matched = []
-        for event in events:
-            # Never use the generic ETW header PID or RemoteUserID as token SID.
-            if event.get('probe_id') != probe_id:
-                continue
-            require(event.get('run_id') == rid and event.get('event_id') == 5157 and
-                    event.get('filter_id') in filters and
-                    event.get('rule_name') == filters[event['filter_id']] and
-                    filters[event['filter_id']] == rules[1] and
-                    event.get('direction') == 'Outbound' and
-                    type(event.get('utc_tick')) is int and
-                    result['start_tick'] <= event['utc_tick'] <= result['end_tick'] and
-                    event.get('tuple') == result['tuple'], 'Deny/probe/filter binding')
-            owner = identity(event['owner'])
-            require(owner['started'] <= event['utc_tick'], 'Process created after denial')
-            if probe_id == 'system_dns_proxy':
-                require(owner == dns and event.get('query') == result['query'], 'DNS service attribution')
-            else:
-                require(owner == actor, 'PID/start time/image/token SID mismatch')
-            matched.append(event)
-        require(len(matched) == 1, 'Missing/ambiguous attributable denial')
-        if probe_id == 'system_dns_proxy':
-            require(result.get('cached') is False and result.get('query_complete') is True and
-                    result.get('pending_service_requests') == 0 and
-                    type(result.get('service_send_count')) is int and
-                    1 <= result['service_send_count'] <= 8 and
-                    result.get('service_send_count_verified') is True and
-                    identity(result['service_before']) == dns == identity(result['service_after']),
-                    'DNS send count/lifetime/completion unproven')
+        verify_denial(probe_id, result)
+        accepted_probes[probe_id] = json.loads(json.dumps(result))
         journal('probe_result_%02d' % len(attempts), result)
 
     try:
@@ -323,6 +329,8 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
                 # Drain the full enabled interval *after* the failure bit is
                 # restored. Late operator/recovery denials count toward 64 too.
                 collect(final=True)
+                for probe_id, receipt in accepted_probes.items():
+                    verify_denial(probe_id, receipt)
             except Exception as exc:
                 errors.append('final drain: '+str(exc))
                 status['state'] = 'HOLD'

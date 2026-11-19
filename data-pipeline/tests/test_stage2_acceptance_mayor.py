@@ -53,6 +53,7 @@ class FakePorts:
         self.audit[guid]['failure'] = value
         if not value and self.mutate == 'late_audit_restore': self.now+=61
         if not value and self.mutate == 'audit_tail_events': self.add_tail(59)
+        if not value and self.mutate == 'audit_late_duplicate': self.add_tail(1)
         if value and self.mutate == 'success_bit':
             self.audit[guid]['success'] = True
         if value and self.mutate == 'packet_bit':
@@ -134,6 +135,7 @@ class FakePorts:
     def confirm_local_exit(self, rid, result, **kw):
         self.call('operator')
         if self.mutate == 'operator_tail_events': self.add_tail(59)
+        if self.mutate == 'operator_late_duplicate': self.add_tail(1)
         if self.mutate == 'operator_cancel': raise KeyboardInterrupt('synthetic cancellation')
         return dict(run_id=rid, onsite_exit_confirmed=True)
 
@@ -303,6 +305,16 @@ class AcceptanceTests(unittest.TestCase):
         result,ports=self.execute(mutate='operator_cancel')
         self.assertEqual(result['state'],'HOLD');self.assertTrue(result['audit_restored'])
         self.assertNotIn('restore_rules',ports.calls)
+
+    def test_late_duplicate_invalidates_previously_unique_probe(self):
+        for case in ('operator_late_duplicate','audit_late_duplicate'):
+            with self.subTest(case=case), tempfile.TemporaryDirectory() as root:
+                ports=FakePorts(mutate=case)
+                result=flow.run(root,PLAN,ports,FakeWorker(ports),simulation=True,clock=lambda:ports.now)
+                self.assertEqual(result['state'],'HOLD');self.assertTrue(result['audit_restored'])
+                self.assertEqual(result['event_count'],6)
+                self.assertTrue(any('ambiguous' in error for error in result['errors']))
+                self.assertIn('export_after',ports.calls)
 
 
 if __name__=='__main__':unittest.main()
