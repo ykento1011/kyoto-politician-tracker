@@ -12,7 +12,7 @@ Firewall, worker or live runtime was exercised by these tests.
 | Bridge Agent, elevated SID1004 | DNS provider list | Save-EvidenceBytes, same creation descriptor |
 | Controller, non-elevated SID1004 | controller intent, client identity, request, STOP, transaction journal, recovery TXT | Existing _record / exclusive text write; owner-only parent and retained WindowsIdentity path checks. Default owner is NOT assumed for an elevated controller: elevated controller is rejected. |
 | Worker / supervisor, non-elevated SID1004 | request, worker_started, report, HOLD, termination and success journal | Existing _record, fixed actor/Job, locked owner-only read paths and run/nonce/plan checks |
-| Windows tools / ETW | Security EVTX, DNS ETL | Not written by Save-New. Existing owner/path checks remain fail-closed. Native tool-created artifact ownership is a separate unproven live boundary; this patch does not claim these tools honor the descriptor or repair their ACL. |
+| Windows tools / ETW | Security EVTX, DNS ETL | Dedicated raw-output boundary and bounded streaming into owner-only derivatives; original attributes/content are never repaired. Native generation remains unmeasured. |
 
 ## New publisher
 
@@ -48,6 +48,43 @@ successful test files after inspection under a separately agreed cleanup scope.
 If the token cannot assign SID1004 at creation, HOLD without changing privileges,
 ownership or ACL. Do not use the experiment as a new Stage 2 run authorization.
 
-Before Stage 2, the native EVTX/ETL writer boundary must also be resolved or shown
-to satisfy existing checks; this patch deliberately does not weaken it. Real
-hang termination, DNS attribution and restoration remain unverified.
+## External binary evidence boundary
+
+Raw files are exactly `before.evtx`, `after.evtx`, and `dns.etl` in the fixed private
+mailbox. EVTX requires successful fixed-PIN wevtutil completion. ETL requires the
+exact owned session/path, successful stop, session absence, and zero loss in all
+three counters. Existing raw ETL and derived destinations are refused.
+
+Raw owner may be SID1004, BUILTIN Administrators, or LocalSystem, reflecting the
+explicit external-producer boundary. Its DACL must have exactly one FullControl
+Allow ACE for SID1004 (inherited from the private parent is accepted for raw files
+only); other owners/grants, directory/reparse/multiple-link files are HOLD.
+This policy does not claim the raw owner was SID1004 and does not change the strict
+SID1004 owner/protected-DACL requirement for derived/IPC files.
+
+A retained read handle denies write/delete sharing. Volume/file ID, size, last
+write time and descriptor are checked around the copy. Active writers, missing
+identity, incomplete producer state or mutation are HOLD. The private parent is
+checked independently. Byte streaming uses 64 KiB buffers; EVTX is bounded at
+32 MiB (container allowance for the existing 20 MiB Security log), ETL strictly
+below 16 MiB. These are artifact caps, not permission to resize/export/trace now.
+The 2 MiB JSON publisher is not used for the binary body.
+
+Source is read twice under the same lock, SHA/length compared, temporary derivative
+is checked for exact security and byte identity, then atomically published without
+overwrite and verified again for file ID/SHA/length. A run/nonce/plan-bound provenance
+JSON records raw owner/DACL/identity, producer PIN/completion, names, SHA, size and
+copy time. Failure retains partial evidence, throws HOLD, never removes the raw
+file. Raw/derived handles stay retained through downstream parsing.
+
+EVTX RecordId continuity and before/after archive validation use the derivative.
+DNS ETL stop/loss checks and existing query/PID/SID/transport attribution remain
+required; a successful byte copy alone cannot accept policy or DNS evidence.
+
+Three separate future GOs remain: (1) inert admin-token file creation above,
+(2) at most one Security export with no log modification, and (3) one short,
+nonpersistent ETL session with fixed name/providers, local stop and loss evidence.
+All use isolated private areas, no Stage 2 run/worker/probes, retain originals,
+record actual producer ACLs, and HOLD on policy mismatch rather than repairing ACL.
+Exact trace duration and teardown must be fixed in that separate GO. Real hang
+termination, DNS attribution and restoration remain unverified.

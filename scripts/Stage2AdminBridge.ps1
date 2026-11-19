@@ -419,12 +419,113 @@ function Log-Boundary {
     return @{enabled=$l.IsEnabled;maximum_bytes=$l.MaximumSizeInBytes;oldest=$first.RecordId;latest=$last.RecordId;
         cleared=($last.RecordId -lt $script:StartBoundary.latest);evidence_missing=($first.RecordId -gt $script:StartBoundary.latest+1)}
 }
+function Initialize-ExternalEvidenceTypes {
+    if('Stage2FileIdentity' -as [type]){return}
+    Add-Type -TypeDefinition @'
+using System; using System.IO; using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
+[StructLayout(LayoutKind.Sequential)] public struct Stage2FileInfo {
+ public uint Attributes,CreationLow,CreationHigh,AccessLow,AccessHigh,WriteLow,WriteHigh;
+ public uint Volume,SizeHigh,SizeLow,Links,IndexHigh,IndexLow;
+}
+public static class Stage2FileIdentity {
+ [DllImport("kernel32.dll",SetLastError=true)] static extern bool GetFileInformationByHandle(SafeFileHandle h,out Stage2FileInfo i);
+ public static Stage2FileInfo Read(FileStream s) {
+  Stage2FileInfo i; if(!GetFileInformationByHandle(s.SafeFileHandle,out i))throw new IOException("File identity unavailable");
+  return i;
+ }
+}
+'@
+}
+function Open-ExternalEvidence([string]$Path){
+    if((Get-Item -LiteralPath $Path -Force).Attributes -band [IO.FileAttributes]::ReparsePoint){throw 'External reparse'}
+    # Deny concurrent write/delete sharing; an active writer causes HOLD.
+    return [IO.File]::Open($Path,[IO.FileMode]::Open,[IO.FileAccess]::Read,[IO.FileShare]::Read)
+}
+function Get-ExternalIdentity($Stream){
+    Initialize-ExternalEvidenceTypes
+    $i=[Stage2FileIdentity]::Read($Stream)
+    if(($i.Attributes -band 0x410) -or $i.Links -ne 1){throw 'External directory/reparse/multilink'}
+    return ('{0}:{1}:{2}:{3}:{4}:{5}:{6}' -f $i.Volume,$i.IndexHigh,$i.IndexLow,$i.SizeHigh,$i.SizeLow,$i.WriteHigh,$i.WriteLow)
+}
+function Get-ExternalSecurity($Stream){return $Stream.GetAccessControl()}
+function Assert-ExternalSecurity($Security){
+    # Raw output has a separate provenance boundary. This is NOT the owner-only
+    # derivative policy: only the known local actor/admin/service owners qualify.
+    if($Security.GetOwner([Security.Principal.SecurityIdentifier]).Value -cnotin @($script:ActorSid,'S-1-5-32-544','S-1-5-18')){throw 'External owner unknown'}
+    $rules=@($Security.GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier]))
+    if($rules.Count -ne 1 -or $rules[0].IdentityReference.Value -cne $script:ActorSid -or
+       $rules[0].AccessControlType -ne [Security.AccessControl.AccessControlType]::Allow -or
+       $rules[0].FileSystemRights -ne [Security.AccessControl.FileSystemRights]::FullControl -or
+       $rules[0].InheritanceFlags -ne 0 -or $rules[0].PropagationFlags -ne 0){throw 'External DACL unknown'}
+}
+function Copy-ExternalStream($Source,$Destination,[long]$Limit){
+    $Source.Position=0;$hash=[Security.Cryptography.SHA256]::Create();$count=0L
+    try{
+        $buffer=New-Object byte[] 65536
+        while(($read=$Source.Read($buffer,0,$buffer.Length)) -gt 0){
+            $count+=$read;if($count -gt $Limit){throw 'External stream bound'}
+            $null=$hash.TransformBlock($buffer,0,$read,$buffer,0)
+            if($null -ne $Destination){$Destination.Write($buffer,0,$read)}
+        }
+        $null=$hash.TransformFinalBlock([byte[]]@(),0,0)
+        if($count -le 0){throw 'Empty external evidence'}
+        return @{length=$count;sha256=[BitConverter]::ToString($hash.Hash).Replace('-','').ToLowerInvariant()}
+    }finally{$hash.Dispose()}
+}
+function Accept-ExternalEvidence([string]$Kind,[string]$Phase,$Completion){
+    if($Kind -ceq 'evtx' -and $Phase -cin @('before','after')){
+        $name=$Phase+'.evtx';$tool='wevtutil.exe';$limit=33554432L
+        if($Completion.exit_code -ne 0){throw 'Export incomplete'}
+    }elseif($Kind -ceq 'etl' -and $Phase -ceq 'dns'){
+        $name='dns.etl';$tool='logman.exe';$limit=16777215L
+        if($Completion.status -ne 0 -or $Completion.missing -ne $false -or $Completion.stopped -ne $true -or
+           $Completion.events_lost -ne 0 -or $Completion.buffers_lost -ne 0 -or $Completion.realtime_lost -ne 0){throw 'Trace incomplete/lost'}
+    }else{throw 'External fixed scope'}
+    Assert-Binding $Completion.binding
+    if($Completion.tool -cne $tool -or $Completion.tool_sha256 -cne $script:Runtime.system_tools.$tool){throw 'External producer PIN'}
+    Assert-Private $script:Box
+    $sourcePath=Join-Path $script:Box $name
+    $target=Join-Path $script:Box ($Phase+'.accepted.'+$Kind)
+    if(Test-Path -LiteralPath $target){throw 'External derivative collision'}
+    $source=Open-ExternalEvidence $sourcePath
+    try{
+        $id=Get-ExternalIdentity $source;$security=Get-ExternalSecurity $source;Assert-ExternalSecurity $security
+        $sddl=$security.GetSecurityDescriptorSddlForm([Security.AccessControl.AccessControlSections]::All)
+        if($source.Length -le 0 -or $source.Length -gt $limit){throw 'External file size'}
+        $temporary=Join-Path $script:Box ('.external-'+[Guid]::NewGuid().ToString('N')+'.tmp')
+        $out=New-EvidenceStream $temporary (New-EvidenceSecurity)
+        try{Assert-EvidenceSecurity (Get-ExternalSecurity $out);$copied=Copy-ExternalStream $source $out $limit;$out.Flush($true)}finally{$out.Dispose()}
+        Assert-EvidenceFile $temporary
+        $again=Copy-ExternalStream $source $null $limit
+        if($copied.sha256 -cne $again.sha256 -or $copied.length -ne $again.length -or (Get-ExternalIdentity $source) -cne $id -or
+           (Get-ExternalSecurity $source).GetSecurityDescriptorSddlForm([Security.AccessControl.AccessControlSections]::All) -cne $sddl){throw 'Raw evidence changed'}
+        $verify=Open-ExternalEvidence $temporary
+        try{$derived=Copy-ExternalStream $verify $null $limit;$derivedId=Get-ExternalIdentity $verify}finally{$verify.Dispose()}
+        if($derived.sha256 -cne $copied.sha256 -or $derived.length -ne $copied.length){throw 'Derivative readback'}
+        Assert-Private $script:Box;Publish-Evidence $temporary $target;Assert-EvidenceFile $target
+        $verify=Open-ExternalEvidence $target
+        try{
+            $final=Copy-ExternalStream $verify $null $limit
+            if((Get-ExternalIdentity $verify) -cne $derivedId -or $final.sha256 -cne $copied.sha256 -or $final.length -ne $copied.length){throw 'Published evidence differs'}
+            Save-New ($target+'.provenance.json') @{binding=$script:Binding;kind=$Kind;producer=$Completion;
+                raw_name=$name;raw_identity=$id;raw_sddl=$sddl;sha256=$copied.sha256;length=$copied.length;
+                derived_name=[IO.Path]::GetFileName($target);derived_identity=$derivedId;copied_utc=[DateTime]::UtcNow.ToString('o');raw_modified=$false}
+            # Retain read/no-write/no-delete handles while downstream parses the
+            # derivative; both original and derivative stay locked until teardown.
+            $script:Streams.Add($verify);$verify=$null
+        }finally{if($null -ne $verify){$verify.Dispose()}}
+        $script:Streams.Add($source);$source=$null
+        return $target
+    }finally{if($null -ne $source){$source.Dispose()}}
+}
 function Export-Security([string]$Phase){
     if($Phase -cnotin @('before','after')){throw 'Export phase'}
     $path=Join-Path $script:Box ($Phase+'.evtx')
     if(Test-Path -LiteralPath $path){throw 'Existing EVTX; no overwrite'}
     $null=Invoke-FixedTool 'wevtutil.exe' @('epl','Security',$path,'/ow:false') 5000
-    Assert-Private $path
+    $path=Accept-ExternalEvidence 'evtx' $Phase ([pscustomobject]@{binding=[pscustomobject]$script:Binding;tool='wevtutil.exe';
+        tool_sha256=$script:Runtime.system_tools.'wevtutil.exe';exit_code=0})
     $first=Get-WinEvent -Path $path -Oldest -MaxEvents 1
     $last=Get-WinEvent -Path $path -MaxEvents 1
     # Actual exported RecordId continuity, not file size/metadata alone. The full
@@ -543,6 +644,7 @@ function Read-Denials([long]$After,[int]$Limit){
         lost=[int]($boundary.evidence_missing -or $boundary.cleared);boundary=$boundary}
 }
 function Start-DnsTrace {
+    if(Test-Path -LiteralPath (Join-Path $script:Box 'dns.etl')){throw 'Existing raw ETL; no overwrite'}
     $name='GikaiMikata-Stage2DNS-'+$script:Binding.run_id
     $existing=Invoke-FixedTool 'logman.exe' @('query','-ets')
     if($existing -match [regex]::Escape($name)){throw 'Existing ETW session; no takeover'}
@@ -566,8 +668,10 @@ function Stop-DnsTrace {
     Save-New (Join-Path $script:Box 'dns-trace-final-loss.json') $loss
     $after=Invoke-FixedTool 'logman.exe' @('query','-ets')
     if($after -match [regex]::Escape('GikaiMikata-Stage2DNS-'+$script:Binding.run_id)){throw 'ETW stop unconfirmed'}
-    $script:TraceLossProven=(-not $loss.Missing -and $loss.EventsLost -eq 0 -and $loss.LogBuffersLost -eq 0 -and $loss.RealTimeBuffersLost -eq 0 -and
-        (Get-Item -LiteralPath (Join-Path $script:Box 'dns.etl')).Length -lt 16777216)
+    $script:DnsAcceptedPath=Accept-ExternalEvidence 'etl' 'dns' ([pscustomobject]@{binding=[pscustomobject]$script:Binding;
+        tool='logman.exe';tool_sha256=$script:Runtime.system_tools.'logman.exe';status=$loss.Status;missing=$loss.Missing;
+        stopped=$true;events_lost=$loss.EventsLost;buffers_lost=$loss.LogBuffersLost;realtime_lost=$loss.RealTimeBuffersLost})
+    $script:TraceLossProven=$true
 }
 function Read-DnsTransport($Event,$Data){
     # Classify service ownership BEFORE schema filtering; unknown versions must
@@ -588,7 +692,8 @@ function Read-DnsTransport($Event,$Data){
 }
 function Dns-Evidence($Receipt){
     Stop-DnsTrace
-    $rows=@(Get-WinEvent -Path (Join-Path $script:Box 'dns.etl') -Oldest)
+    if(-not $script:TraceLossProven -or -not $script:DnsAcceptedPath){throw 'No accepted trace'}
+    $rows=@(Get-WinEvent -Path $script:DnsAcceptedPath -Oldest)
     $matched=@();$other=@()
     $sends=@();$responses=@()
     foreach($e in $rows){

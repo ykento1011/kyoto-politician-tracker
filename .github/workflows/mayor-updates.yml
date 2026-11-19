@@ -49,6 +49,10 @@ jobs:
         if: matrix.handoff_case == 'positive'
         shell: powershell
         run: ./scripts/Test-Stage2EvidenceOwner.ps1
+      - name: Test external binary evidence streaming with synthetic ports
+        if: matrix.handoff_case == 'positive'
+        shell: powershell
+        run: ./scripts/Test-Stage2ExternalEvidence.ps1
   offline-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 5
