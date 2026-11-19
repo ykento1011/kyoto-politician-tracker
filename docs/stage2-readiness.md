@@ -88,6 +88,12 @@ zero-events fallback to 5152. The interval is bounded by 60 seconds, read limits
 never exceed 64 events, and the 64th event triggers HOLD. Every port gets a deadline;
 native blocking is not bounded by these cooperative checks. PRE-BLOCK must prove
 an independent local restoration watchdog before a future live adapter is used.
+Rollback/readback time is included in the 60-second acceptance decision: late
+rollback still attempts restoration but latches HOLD. A final incremental drain
+after disabling audit covers events during operator acknowledgement and recovery.
+Raw batches and a final EVTX export are retained even when the 64th event or loss
+causes HOLD. Actual tuples must match the fixed address family/destination/port/
+protocol, and DNS destinations must belong to the exact saved resolver snapshot.
 
 Four fixed baseline probes run before auditing; five blocked probes follow. Failed
 or unknown attempts are consumed, not retried. Exactly one attributable 5157 is

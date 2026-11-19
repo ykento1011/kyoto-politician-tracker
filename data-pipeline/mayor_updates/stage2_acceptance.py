@@ -5,6 +5,7 @@ module. Synthetic receipts must never be reused as Windows acceptance evidence.
 The existing native worker flow is reused through WorkerFlow below.
 """
 from hashlib import sha256
+from ipaddress import ip_address
 import json
 from pathlib import Path
 import re
@@ -116,6 +117,7 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
               'firewall_restored': False, 'termination_confirmed': False,
               'real_execution_authorized': False, 'automatic_firewall_restore': False}
     seen_records = {}
+    batch_number = 0
 
     def journal(name, body):
         _record(root, name + '.json', body)
@@ -124,8 +126,14 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
         require(deadline is not None and clock() < deadline, '60 second audit deadline')
         return deadline
 
-    def collect():
-        batch = ports.read_denials(rid, limit=64-len(events), deadline=remaining())
+    def collect(final=False):
+        nonlocal batch_number
+        batch = ports.read_denials(rid, limit=64-len(events),
+                                   after_record=max(seen_records, default=log_start['latest']),
+                                   deadline=clock()+5 if final else remaining())
+        batch_number += 1
+        # Preserve returned evidence before interpreting loss/cap failures.
+        journal('denial_batch_%02d' % batch_number, batch)
         require(type(batch) is dict and batch.get('truncated') is False and
                 batch.get('lost') == 0 and type(batch.get('events')) is list,
                 'Security evidence loss/overflow')
@@ -139,7 +147,8 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
             seen_records[record] = event
             events.append(event)
         require(len(events) < 64, '64 event safety stop')
-        remaining()
+        if not final:
+            remaining()
 
     def probe(probe_id, blocked):
         require(len(attempts) < 9, 'Nine probe limit')
@@ -161,9 +170,24 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
                 'Probe SID/lifetime differs')
         if probe_id in TARGETS:
             require(tuple(result['target']) == TARGETS[probe_id], 'Fixed destination differs')
+            destination, port, protocol = TARGETS[probe_id]
         else:
             require(result.get('query') == 'stage2-'+rid+'.example.com.' and
                     result.get('resolvers') == preflight['resolvers'], 'DNS query/resolver differs')
+            destination, port, protocol = None, 53, 17
+        observed = result.get('tuple')
+        require(type(observed) in (list, tuple) and len(observed) == 5 and
+                type(observed[1]) is int and 1 <= observed[1] <= 65535 and
+                type(observed[3]) is int and observed[3] == port and
+                type(observed[4]) is int and observed[4] == protocol,
+                'Observed tuple port/protocol differs from approved target')
+        local, remote = ip_address(observed[0]), ip_address(observed[2])
+        require(local.version == remote.version, 'Observed address-family mismatch')
+        if destination is not None:
+            require(remote == ip_address(destination), 'Observed destination differs')
+        else:
+            require(str(remote) in [str(ip_address(x)) for x in preflight['resolvers']],
+                    'Observed DNS destination outside resolver snapshot')
         if not blocked:
             require(result.get('reachable') is True, 'Baseline unavailable; not isolation proof')
             journal('probe_result_%02d' % len(attempts), result)
@@ -266,7 +290,7 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
         status['firewall_restored'] = True
         remaining()
         status['state'] = 'PASS'
-    except Exception as exc:
+    except BaseException as exc:
         errors.append(type(exc).__name__+': '+str(exc))
         status['state'] = 'HOLD'
         # A failed flow NEVER removes Firewall rules automatically, even if a
@@ -286,6 +310,9 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
                 require(after == original and ports.audit_other_settings_unchanged() is True,
                         'Audit restoration/readback differs')
                 status['audit_restored'] = True
+                # Restoration is mandatory even after expiry, but a late
+                # rollback/readback must never leave a successful acceptance.
+                require(clock() < deadline, '60 second audit deadline including rollback')
             except Exception as exc:
                 errors.append('audit restore: '+str(exc))
                 status['state'] = 'HOLD'
@@ -293,6 +320,15 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
             status['audit_restored'] = True  # no audit mutation attempted
         if audit_attempted:
             try:
+                # Drain the full enabled interval *after* the failure bit is
+                # restored. Late operator/recovery denials count toward 64 too.
+                collect(final=True)
+            except Exception as exc:
+                errors.append('final drain: '+str(exc))
+                status['state'] = 'HOLD'
+            try:
+                # Export still runs after overflow/loss/attribution failures;
+                # evidence preservation must not depend on acceptance passing.
                 end = ports.log_boundary()
                 saved = ports.export_security('after', rid)
                 archive_ok(saved, log_start['latest']+1, end['latest'])

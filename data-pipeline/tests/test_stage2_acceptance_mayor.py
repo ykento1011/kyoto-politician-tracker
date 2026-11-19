@@ -51,6 +51,8 @@ class FakePorts:
         self.call('enable' if value else 'restore_audit')
         assert guid == flow.CONNECTION
         self.audit[guid]['failure'] = value
+        if not value and self.mutate == 'late_audit_restore': self.now+=61
+        if not value and self.mutate == 'audit_tail_events': self.add_tail(59)
         if value and self.mutate == 'success_bit':
             self.audit[guid]['success'] = True
         if value and self.mutate == 'packet_bit':
@@ -83,6 +85,10 @@ class FakePorts:
                       retries=0, http_requests=0, actor=self.client, target=target,
                       reachable=True, external_egress=False, start_tick=20, end_tick=30,
                       tuple=['192.0.2.10', 34567, *target])
+        if ':' in target[0]: result['tuple'][0]='2001:db8::10'
+        if self.mutate == 'wrong_observed_destination':
+            result['tuple']=['192.0.2.10',34567,'203.0.113.1',22,6]
+        if self.mutate == 'wrong_observed_family': result['tuple'][0]='2001:db8::10'
         if name == 'system_dns_proxy':
             result.update(query='stage2-'+run_id+'.example.com.', resolvers=['192.0.2.53'],
                           cached=False, query_complete=True, pending_service_requests=0,
@@ -117,9 +123,9 @@ class FakePorts:
             if self.mutate == 'deadline': self.now+=61
         return result
 
-    def read_denials(self, rid, limit, **kw):
+    def read_denials(self, rid, limit, after_record, **kw):
         self.call('read_denials')
-        values=copy.deepcopy(self.denials)
+        values=copy.deepcopy([e for e in self.denials if e['record_id']>after_record])
         if self.mutate == 'event_cap':
             values=[dict(values[0], record_id=101+i) for i in range(64)]
         return dict(events=values[:limit], truncated=len(values)>limit or self.mutate=='truncated',
@@ -127,7 +133,13 @@ class FakePorts:
 
     def confirm_local_exit(self, rid, result, **kw):
         self.call('operator')
+        if self.mutate == 'operator_tail_events': self.add_tail(59)
+        if self.mutate == 'operator_cancel': raise KeyboardInterrupt('synthetic cancellation')
         return dict(run_id=rid, onsite_exit_confirmed=True)
+
+    def add_tail(self, count):
+        last=max(e['record_id'] for e in self.denials)
+        self.denials.extend(dict(self.denials[0],record_id=last+i+1) for i in range(count))
 
     def restore_exact_rules_by_operator(self, rules, **kw):
         self.call('restore_rules')
@@ -264,6 +276,33 @@ class AcceptanceTests(unittest.TestCase):
         self.assertEqual(result['state'],'PASS')
         self.assertTrue(result['termination_confirmed'])
         self.assertEqual(fixture.api.creations,1)
+
+    def test_late_rollback_is_restored_but_cannot_pass(self):
+        result,ports=self.execute(mutate='late_audit_restore')
+        self.assertEqual(result['state'],'HOLD');self.assertTrue(result['audit_restored'])
+        self.assertTrue(any('including rollback' in x for x in result['errors']))
+
+    def test_final_drain_includes_operator_and_rollback_events(self):
+        for case in ('operator_tail_events','audit_tail_events'):
+            with self.subTest(case=case), tempfile.TemporaryDirectory() as root:
+                ports=FakePorts(mutate=case)
+                result=flow.run(root,PLAN,ports,FakeWorker(ports),simulation=True,clock=lambda:ports.now)
+                self.assertEqual(result['state'],'HOLD');self.assertTrue(result['audit_restored'])
+                self.assertEqual(result['event_count'],64)
+                self.assertIn('export_after',ports.calls)
+
+    def test_observed_tuple_must_match_fixed_metadata(self):
+        for case in ('wrong_observed_destination','wrong_observed_family'):
+            with tempfile.TemporaryDirectory() as root:
+                ports=FakePorts(mutate=case)
+                result=flow.run(root,PLAN,ports,FakeWorker(ports),simulation=True,clock=lambda:ports.now)
+                self.assertEqual(result['state'],'HOLD')
+                self.assertNotIn('enable',ports.calls)
+
+    def test_cancel_restores_audit_and_preserves_block(self):
+        result,ports=self.execute(mutate='operator_cancel')
+        self.assertEqual(result['state'],'HOLD');self.assertTrue(result['audit_restored'])
+        self.assertNotIn('restore_rules',ports.calls)
 
 
 if __name__=='__main__':unittest.main()
