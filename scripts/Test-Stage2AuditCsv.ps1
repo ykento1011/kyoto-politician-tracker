@@ -62,6 +62,27 @@ foreach($name in @('Save-New','Save-AuditCapture','Read-SavedAuditCapture','Deco
     . ([scriptblock]::Create($n[0].Extent.Text))
 }
 Initialize-AuditCaptureTypes
+Add-Type -TypeDefinition @'
+using System; using System.IO; using System.Threading.Tasks;
+public sealed class AuditPartialFixture : MemoryStream {
+ public bool Hang; int calls;
+ public override Task<int> ReadAsync(byte[] b,int o,int n,System.Threading.CancellationToken c) {
+  if(calls++==0){b[o]=65;return Task.FromResult(1);}
+  if(Hang)return new TaskCompletionSource<int>().Task;
+  var t=new TaskCompletionSource<int>();t.SetException(new IOException("synthetic read fault"));return t.Task;
+ }
+}
+'@
+foreach($hang in @($false,$true)){
+    $stream=New-Object AuditPartialFixture;$stream.Hang=$hang;$buffer=New-Object Stage2AuditBuffer
+    $task=[Stage2AuditRaw]::Read($stream,$buffer)
+    try{$null=$task.Wait(10)}catch{}
+    $partial=$buffer.Freeze()
+    Check ($partial.Length -eq 1 -and $partial[0] -eq 65 -and $task.Status -ne [Threading.Tasks.TaskStatus]::RanToCompletion) 'Partial bytes survive fault or stalled read'
+    $buffer.Append([byte[]]@(66),1)
+    Check ($buffer.Freeze().Length -eq 1) 'Frozen evidence cannot change after publication'
+    $stream.Dispose()
+}
 foreach($length in @(0,17,65536,65537,70000)){
     $stream=New-Object IO.MemoryStream(,[byte[]](New-Object byte[] $length))
     try{

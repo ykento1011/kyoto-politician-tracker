@@ -152,14 +152,20 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 public sealed class Stage2AuditChunk { public byte[] Bytes; public bool Overflow; }
+public sealed class Stage2AuditBuffer {
+ readonly object gate=new object(); readonly MemoryStream data=new MemoryStream(); bool frozen;
+ public void Append(byte[] bytes,int count) { lock(gate) { if(!frozen)data.Write(bytes,0,count); } }
+ public byte[] Freeze() { lock(gate) { frozen=true; return data.ToArray(); } }
+}
 public static class Stage2AuditRaw {
- public static async Task<Stage2AuditChunk> Read(Stream stream) {
+ public static Task<Stage2AuditChunk> Read(Stream stream) { return Read(stream,new Stage2AuditBuffer()); }
+ public static async Task<Stage2AuditChunk> Read(Stream stream,Stage2AuditBuffer partial) {
   using(var output=new MemoryStream()) {
    byte[] block=new byte[4096];
    while(output.Length<=65536) {
     int count=await stream.ReadAsync(block,0,(int)Math.Min(block.Length,65537-output.Length)).ConfigureAwait(false);
     if(count==0)return new Stage2AuditChunk{Bytes=output.ToArray(),Overflow=false};
-    output.Write(block,0,count);
+    partial.Append(block,count); output.Write(block,0,count);
    }
    return new Stage2AuditChunk{Bytes=output.ToArray(),Overflow=true};
   }
@@ -181,11 +187,12 @@ function Invoke-AuditCapture([string]$Guid) {
         console_code_page=[Console]::OutputEncoding.CodePage;stdout=[byte[]]@();stderr=[byte[]]@();
         stdout_complete=$false;stderr_complete=$false;overflow=$false;exit_code=$null;failure=$null}
     $started=$false;$outTask=$null;$errTask=$null
+    $outBuffer=New-Object Stage2AuditBuffer;$errBuffer=New-Object Stage2AuditBuffer
     try{
         $started=$proc.Start();if(-not $started){throw 'Audit process not started'}
         # No StreamReader decoding: preserve bytes returned by both pipe streams.
-        $outTask=[Stage2AuditRaw]::Read($proc.StandardOutput.BaseStream)
-        $errTask=[Stage2AuditRaw]::Read($proc.StandardError.BaseStream)
+        $outTask=[Stage2AuditRaw]::Read($proc.StandardOutput.BaseStream,$outBuffer)
+        $errTask=[Stage2AuditRaw]::Read($proc.StandardError.BaseStream,$errBuffer)
         if(-not $proc.WaitForExit(2000)){throw 'Audit capture timeout'}
         $result.exit_code=$proc.ExitCode
         if(-not [Threading.Tasks.Task]::WaitAll([Threading.Tasks.Task[]]@($outTask,$errTask),1000)){throw 'Audit pipes incomplete'}
@@ -195,6 +202,10 @@ function Invoke-AuditCapture([string]$Guid) {
             try{if(-not $proc.HasExited){$proc.Kill();if(-not $proc.WaitForExit(1000)){throw 'Audit termination unconfirmed'}}}
             catch{$result.failure='Audit termination unconfirmed'}
         }
+        # Bounded settling after termination; freeze partial evidence even on fault/timeout.
+        $pending=@($outTask,$errTask)|Where-Object {$null -ne $_}
+        if($pending.Count){try{if(-not [Threading.Tasks.Task]::WaitAll([Threading.Tasks.Task[]]$pending,1000)){$result.failure='Audit reader cleanup incomplete'}}catch{$result.failure='Audit reader fault'}}
+        $result.stdout=$outBuffer.Freeze();$result.stderr=$errBuffer.Freeze()
         foreach($key in @('stdout','stderr')){
             $task=if($key -ceq 'stdout'){$outTask}else{$errTask}
             if($null -ne $task -and $task.Status -eq [Threading.Tasks.TaskStatus]::RanToCompletion){
