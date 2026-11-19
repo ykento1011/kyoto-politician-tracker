@@ -34,11 +34,13 @@ function PolicyIntro({pledge, detail = false}) {
   </>;
 }
 
-export function MayorProfile({mayor = {}}) {
-  const [photo,setPhoto]=useState(mayor.profile_image || mayor.fallback_image);
-  useEffect(()=>setPhoto(mayor.profile_image || mayor.fallback_image),[mayor.profile_image,mayor.fallback_image]);
+export function MayorProfile({mayor = {}, cityCode}) {
+  const profileImage = cityCode === 'yokohama'
+    ? '/councilors/yokohama/yokohama-mayor-profile.png' : mayor.profile_image;
+  const [photo,setPhoto]=useState(profileImage || mayor.fallback_image);
+  useEffect(()=>setPhoto(profileImage || mayor.fallback_image),[profileImage,mayor.fallback_image]);
   return <div className="kp-mayor" aria-label="市長プロフィール">
-    {photo ? <img src={photo} alt={`${mayor.name || mayor.title || '市長'}の顔写真`} width="112" height="112"
+    {photo ? <img src={photo} alt={cityCode === 'yokohama' ? '横浜市長プロフィール写真' : `${mayor.name || mayor.title || '市長'}の顔写真`} width="112" height="112"
       onError={()=>setPhoto(photo!==mayor.fallback_image ? mayor.fallback_image : null)} />
       : <span className="kp-photo-fallback">写真は表示できません</span>}
     <div><p className="kp-muted">{mayor.title}</p><p className="kp-mayor-name">{mayor.name}</p><p>任期：{mayor.term}</p></div>
@@ -315,7 +317,7 @@ function PolicyTrackerBody({data, onBack, initialSearch, cityCode}) {
         <a className="kp-button kp-navigation" href={href({policy:'',section:''})} onClick={back}>← 政策一覧へ</a>
       </> : <>
         <button className="kp-home kp-navigation" onClick={onBack}>← トップへ戻る</button>
-        <header className="kp-header"><MayorProfile mayor={data.mayor_info}/><div><h1>{adapter.cityName}長政策</h1><p>公式資料から政策の現在地を確認できます。</p><p className="kp-muted">掲載 {pledges.length}件</p></div></header>
+        <header className="kp-header"><MayorProfile mayor={data.mayor_info} cityCode={cityCode}/><div><h1>{adapter.cityName}長政策</h1><p>公式資料から政策の現在地を確認できます。</p><p className="kp-muted">掲載 {pledges.length}件</p></div></header>
         <div className="kp-toolbar">
           <div className="kp-field"><label htmlFor="policy-query">政策名で探す</label><input id="policy-query" type="search" value={route.query} onChange={e=>filter({query:e.target.value})} placeholder="公約名・施策を検索" /></div>
           <div className="kp-field"><label htmlFor="policy-category">分野</label><select id="policy-category" value={route.category} onChange={e=>filter({category:e.target.value})}>
