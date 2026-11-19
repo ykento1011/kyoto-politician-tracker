@@ -93,6 +93,9 @@ class FakePorts:
                          record_id=101+len(self.denials), filter_id=2, rule_name=self.rules[1],
                          direction='Outbound', utc_tick=25, tuple=result['tuple'],
                          owner=copy.deepcopy(self.dns if name == 'system_dns_proxy' else self.client))
+            if self.mutate == 'inbound_filter':
+                event.update(filter_id=1, rule_name=self.rules[0])
+            if self.mutate == 'boolean_count': result['client_calls']=True
             if name == 'system_dns_proxy':
                 event['query'] = result['query']
             if self.mutate == 'missing_deny':
@@ -172,7 +175,7 @@ class AcceptanceTests(unittest.TestCase):
 
     def test_attribution_failures_keep_firewall_and_restore_audit(self):
         for case in ('missing_deny','filter_id','event_id','run_id','tuple','rule_name','utc_tick',
-                     'sid','pid_reuse','duplicate_deny','dns_requester','dns_count',
+                     'sid','pid_reuse','duplicate_deny','inbound_filter','boolean_count','dns_requester','dns_count',
                      'dns_unknown_count','dns_pending','dns_cached','truncated','lost','event_cap','deadline'):
             with self.subTest(case=case), tempfile.TemporaryDirectory() as root:
                 ports=FakePorts(mutate=case)

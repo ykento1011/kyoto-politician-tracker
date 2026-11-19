@@ -149,8 +149,10 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
         result = ports.probe(probe_id, blocked=blocked, run_id=rid,
                              deadline=remaining() if blocked else clock()+1)
         require(result.get('run_id') == rid and result.get('probe_id') == probe_id and
-                result.get('blocked') is blocked and result.get('client_calls') == 1 and
-                result.get('retries') == 0 and result.get('http_requests') == 0,
+                result.get('blocked') is blocked and
+                type(result.get('client_calls')) is int and result['client_calls'] == 1 and
+                type(result.get('retries')) is int and result['retries'] == 0 and
+                type(result.get('http_requests')) is int and result['http_requests'] == 0,
                 'Probe result binding')
         actor = identity(result['actor'])
         require(actor['sid'] == plan['sid'] and type(result.get('start_tick')) is int and
@@ -176,6 +178,7 @@ def run(root, plan, ports, worker, *, simulation=False, clock=time.monotonic):
             require(event.get('run_id') == rid and event.get('event_id') == 5157 and
                     event.get('filter_id') in filters and
                     event.get('rule_name') == filters[event['filter_id']] and
+                    filters[event['filter_id']] == rules[1] and
                     event.get('direction') == 'Outbound' and
                     type(event.get('utc_tick')) is int and
                     result['start_tick'] <= event['utc_tick'] <= result['end_tick'] and
