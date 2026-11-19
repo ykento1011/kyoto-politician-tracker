@@ -98,6 +98,12 @@ function Assert-Private([string]$Path){if(-not ([IO.Path]::GetFullPath($Path)).S
 function Assert-Binding($v){foreach($k in $script:Binding.Keys){if($v.$k -cne $script:Binding[$k]){throw 'Fixture binding'}}}
 function Read-FixedJson([string]$Path,[int]$Limit){$b=[IO.File]::ReadAllBytes($Path);if($b.Length -gt $Limit){throw 'Fixture bound'};return ((New-Object Text.UTF8Encoding($false,$true)).GetString($b).TrimStart([char]0xfeff)|ConvertFrom-Json)}
 $script:DenyAcl=$false
+# Secure creation is tested separately with explicit descriptor mocks. This
+# suite exercises CSV ordering only, never an elevated/native creation path.
+function Save-EvidenceBytes([string]$Path,[byte[]]$Body){
+    $f=[IO.File]::Open($Path,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+    try{$f.Write($Body,0,$Body.Length);$f.Flush($true)}finally{$f.Dispose()}
+}
 $script:Capture=@{guid=$guid;started_utc='2026-01-01T00:00:00Z';finished_utc='2026-01-01T00:00:01Z';console_code_page=65001;
     stdout=[Text.Encoding]::UTF8.GetBytes($csv);stderr=[byte[]]@();stdout_complete=$true;stderr_complete=$true;overflow=$false;exit_code=0;failure=$null}
 try{

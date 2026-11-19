@@ -80,22 +80,72 @@ function Assert-Completion($Started,$Done,$Success,[string]$DoneSha){
        $Done.elapsed_seconds -lt 0 -or $Done.elapsed_seconds -ge $Done.total_seconds){throw 'Uncommitted completion capability'}
 }
 
+function New-EvidenceSecurity {
+    if($script:ActorSid -cnotmatch '^S-1-5-21-[0-9]+-[0-9]+-[0-9]+-1004$'){throw 'Fixed evidence owner'}
+    $sid=New-Object Security.Principal.SecurityIdentifier($script:ActorSid)
+    $security=New-Object Security.AccessControl.FileSecurity
+    $security.SetOwner($sid)
+    $security.SetAccessRuleProtection($true,$false)
+    $rule=New-Object Security.AccessControl.FileSystemAccessRule($sid,[Security.AccessControl.FileSystemRights]::FullControl,[Security.AccessControl.AccessControlType]::Allow)
+    $security.AddAccessRule($rule)
+    return $security
+}
+function Assert-EvidenceSecurity($Security){
+    if($Security.GetOwner([Security.Principal.SecurityIdentifier]).Value -cne $script:ActorSid -or -not $Security.AreAccessRulesProtected){throw 'Evidence owner/protection'}
+    $rules=@($Security.GetAccessRules($true,$true,[Security.Principal.SecurityIdentifier]))
+    if($rules.Count -ne 1 -or $rules[0].IsInherited -or $rules[0].IdentityReference.Value -cne $script:ActorSid -or
+       $rules[0].AccessControlType -ne [Security.AccessControl.AccessControlType]::Allow -or
+       $rules[0].FileSystemRights -ne [Security.AccessControl.FileSystemRights]::FullControl -or
+       $rules[0].InheritanceFlags -ne 0 -or $rules[0].PropagationFlags -ne 0){throw 'Evidence DACL'}
+}
+function New-EvidenceStream([string]$Path,$Security){
+    # .NET Framework / PS5.1 supplies the security descriptor to CreateFile at
+    # CREATE_NEW, not a later Set-Acl/SetOwner operation on an existing file.
+    return [IO.FileStream]::new($Path,[IO.FileMode]::CreateNew,
+        [Security.AccessControl.FileSystemRights]::FullControl,[IO.FileShare]::None,
+        4096,[IO.FileOptions]::WriteThrough,$Security)
+}
+function Assert-EvidenceFile([string]$Path){
+    Assert-Private $Path
+    Assert-EvidenceSecurity (Get-Acl -LiteralPath $Path)
+}
+function Read-EvidenceBytes([string]$Path){return ,([IO.File]::ReadAllBytes($Path))}
+function Publish-Evidence([string]$Temporary,[string]$Path){[IO.File]::Move($Temporary,$Path)}
+function Save-EvidenceBytes([string]$Path,[byte[]]$Body){
+    if($Body.Length -gt 2097152){throw 'Evidence size bound'}
+    $Path=[IO.Path]::GetFullPath($Path)
+    $parent=[IO.Path]::GetDirectoryName($Path)
+    Assert-Private $parent
+    if(Test-Path -LiteralPath $Path){throw 'Evidence collision'}
+    $security=New-EvidenceSecurity;Assert-EvidenceSecurity $security
+    $temporary=Join-Path $parent ('.stage2-'+[Guid]::NewGuid().ToString('N')+'.tmp')
+    # Retain failed partial files for diagnosis; never delete or repair evidence.
+    $s=New-EvidenceStream $temporary $security
+    try{
+        Assert-EvidenceSecurity ($s.GetAccessControl())
+        $s.Write($Body,0,$Body.Length);$s.Flush($true)
+    }finally{$s.Dispose()}
+    Assert-EvidenceFile $temporary
+    $sha=[Security.Cryptography.SHA256]::Create()
+    try{
+        $expected=[Convert]::ToBase64String($sha.ComputeHash($Body))
+        foreach($file in @($temporary)){
+            $read=Read-EvidenceBytes $file
+            if($read.Length -ne $Body.Length -or [Convert]::ToBase64String($sha.ComputeHash($read)) -cne $expected){throw 'Evidence temporary readback'}
+        }
+        Assert-Private $parent
+        Publish-Evidence $temporary $Path
+        Assert-EvidenceFile $Path
+        $read=Read-EvidenceBytes $Path
+        if($read.Length -ne $Body.Length -or [Convert]::ToBase64String($sha.ComputeHash($read)) -cne $expected){throw 'Evidence final readback'}
+    }finally{$sha.Dispose()}
+}
 function Save-New([string]$Path,$Value){
     $enc=New-Object Text.UTF8Encoding($true,$true)
     $json=ConvertTo-Json -InputObject $Value -Depth 24
     $null=ConvertFrom-Json -InputObject $json
     $body=$enc.GetPreamble()+$enc.GetBytes($json)
-    # Same-directory rename publishes only a closed, fully flushed record.
-    # File.Move's two-argument overload refuses an existing destination.
-    $temporary=Join-Path ([IO.Path]::GetDirectoryName($Path)) ('.stage2-'+[Guid]::NewGuid().ToString('N')+'.tmp')
-    $created=$false
-    try{
-        $s=[IO.File]::Open($temporary,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
-        $created=$true
-        try{$s.Write($body,0,$body.Length);$s.Flush($true)}finally{$s.Dispose()}
-        [IO.File]::Move($temporary,$Path)
-        $created=$false
-    }finally{if($created){[IO.File]::Delete($temporary)}}
+    Save-EvidenceBytes $Path $body
 }
 function Assert-Private([string]$Path){
     $p=[IO.Path]::GetFullPath($Path)
@@ -500,8 +550,7 @@ function Start-DnsTrace {
     $pf=Join-Path $script:Box 'dns-providers.txt'
     $lines=@('{1c95126e-7eea-49a9-a3fe-a378b03ddb4d} 0xffffffffffffffff 5',
              'Microsoft-Windows-Kernel-Network 0xffffffffffffffff 5')
-    $f=[IO.File]::Open($pf,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
-    try{$b=[Text.Encoding]::ASCII.GetBytes(($lines -join "`r`n"));$f.Write($b,0,$b.Length);$f.Flush($true)}finally{$f.Dispose()}
+    Save-EvidenceBytes $pf ([Text.Encoding]::ASCII.GetBytes(($lines -join "`r`n")))
     $null=Invoke-FixedTool 'logman.exe' @('create','trace',$name,'-pf',$pf,
         '-o',(Join-Path $script:Box 'dns.etl'),'-f','bin','-max','16','-ct','system','-ets')
 }

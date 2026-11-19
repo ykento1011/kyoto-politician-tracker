@@ -12,6 +12,10 @@ foreach($name in @('Assert-Binding','Assert-Completion','Invoke-GuardRecovery','
     . ([scriptblock]::Create($nodes[0].Extent.Text))
 }
 $script:Passed=0
+function Save-EvidenceBytes([string]$Path,[byte[]]$Body){
+    $f=[IO.File]::Open($Path,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
+    try{$f.Write($Body,0,$Body.Length);$f.Flush($true)}finally{$f.Dispose()}
+}
 function Check($ok,$message){if(-not $ok){throw $message};$script:Passed++}
 $script:Binding=@{run_id=('a'*32);runtime_sha256=('b'*64);plan_sha256=('c'*64);nonce=('d'*64)}
 $temp=Join-Path ([IO.Path]::GetTempPath()) ('stage2-ipc-synthetic-'+[Guid]::NewGuid().ToString('N'))
