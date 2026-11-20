@@ -2,6 +2,7 @@
 import hashlib
 from importlib import metadata
 import json
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -65,13 +66,22 @@ class OfflinePreflightTests(unittest.TestCase):
  def run_case(self,mode):
   with tempfile.TemporaryDirectory() as directory:
    root=Path(directory);state=root/'state';state.mkdir()
+   pipeline=root/'code/data-pipeline';package=pipeline/'mayor_updates'
+   shutil.copytree(PACKAGE,package,ignore=shutil.ignore_patterns('__pycache__'))
+   shutil.copytree(PIPELINE/'p1_patches',pipeline/'p1_patches')
+   profile=pipeline.parent/'config/mayor_offline_weekly.json';profile.parent.mkdir()
+   profile.write_bytes(PROFILE.read_bytes())
+   shutil.copyfile(PROFILE.parent/'mayor_update_sources.json',profile.parent/'mayor_update_sources.json')
+   resources=[pin(pipeline/'p1_patches'/name) for name in
+              ('city_identity.json','nagoya_host.json','yokohama_directory.json')]
    # Existing state sentinel must survive even malformed-input and dependency holds.
    sentinel=state/'last-good';sentinel.write_text('unchanged')
    config=root/'config.json';config.write_text(json.dumps({'network_enabled':False,'enabled':False,'cities':{'yokohama':{}}}))
    baseline=root/'baseline.json';baseline.write_text('{}')
    shell=root/'pwsh.exe';shell.write_bytes(b'SYNTHETIC_NOT_EXECUTED')
    runtime={'network_enabled':False,'state_root':str(state),'config':pin(config),'baseline':pin(baseline),
-    'profile':pin(PROFILE),'code_files':[pin(p) for p in PACKAGE.glob('*.py')],
+    'profile':pin(profile),'code_files':[pin(p) for p in package.glob('*.py')],
+    'resource_files':resources,
     'city':'yokohama','base_revision':'synthetic-only','p1_code_root':str(root/'no_p1'),
     'snapshot_root':str(root/'no_cas'),'powershell_exe':str(shell)}
    contract={'python':sys.executable,'python_sha256':sha(Path(sys.executable)),
@@ -86,9 +96,23 @@ class OfflinePreflightTests(unittest.TestCase):
    if mode=='missing_output':runtime['state_root']=str(root/'missing');contract['state_root']=runtime['state_root'];contract['runtime_sha256']=digest(runtime)
    if mode=='input_network_enabled':
     config.write_text(json.dumps({'network_enabled':True,'enabled':False}));runtime['config']=pin(config);contract['runtime_sha256']=digest(runtime)
+   if mode.startswith('missing_resource:'):
+    (pipeline/'p1_patches'/mode.split(':',1)[1]).unlink()
+   if mode=='resource_misplaced':
+    path=Path(resources[0]['path']);path.rename(root/path.name)
+   if mode=='resource_reference_changed':
+    other=root/'city_identity.json';other.write_bytes(Path(resources[0]['path']).read_bytes())
+    resources[0]['path']=str(other)
+   if mode=='resource_pin_missing':resources[0].pop('sha256')
+   if mode=='resource_pin_mismatch':resources[0]['sha256']='0'*64
+   if mode=='resource_changed':Path(resources[0]['path']).write_bytes(b'{}')
+   if mode=='resource_contract_missing':runtime.pop('resource_files')
+   if mode=='resource_duplicate':resources[2]=dict(resources[0])
+   if mode.startswith('resource_'):
+    contract['runtime_sha256']=digest(runtime)
    rp=root/'runtime.json';rp.write_text(json.dumps(runtime));cp=root/'contract.json';cp.write_text(json.dumps(contract))
    before={str(p.relative_to(state)):p.read_bytes() for p in state.rglob('*') if p.is_file()}
-   result=subprocess.run([sys.executable,'-B','-c',CHILD,str(PIPELINE),mode,'--runtime',str(rp),'--contract',str(cp),'--contract-sha256',sha(cp)],capture_output=True,text=True,timeout=25)
+   result=subprocess.run([sys.executable,'-B','-c',CHILD,str(pipeline),mode,'--runtime',str(rp),'--contract',str(cp),'--contract-sha256',sha(cp)],capture_output=True,text=True,timeout=25)
    self.assertEqual(result.returncode,0,result.stderr)
    data=json.loads(result.stdout.splitlines()[-1]);events=data['events']
    if mode=='normal':
@@ -107,5 +131,12 @@ class OfflinePreflightTests(unittest.TestCase):
  def test_missing_dependency_contract(self):self.run_case('missing_dependency_contract')
  def test_missing_output_before_business_import(self):self.run_case('missing_output')
  def test_input_network_enabled(self):self.run_case('input_network_enabled')
+ def test_resource_guards_before_business_import(self):
+  modes=['missing_resource:'+name for name in
+         ('city_identity.json','nagoya_host.json','yokohama_directory.json')]
+  modes+=['resource_misplaced','resource_reference_changed','resource_pin_missing',
+          'resource_pin_mismatch','resource_changed','resource_contract_missing','resource_duplicate']
+  for mode in modes:
+   with self.subTest(mode=mode):self.run_case(mode)
 
 if __name__=='__main__':unittest.main()

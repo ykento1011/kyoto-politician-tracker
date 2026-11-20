@@ -11,6 +11,7 @@ from pathlib import Path
 import sys
 
 MODULES = {'jsonschema': 'jsonschema', 'beautifulsoup4': 'bs4'}
+P1_RESOURCES = ('city_identity.json', 'nagoya_host.json', 'yokohama_directory.json')
 
 class DependencyHold(RuntimeError):
     pass
@@ -55,6 +56,25 @@ def require_contract(runtime, contract_path, contract_sha256):
         expected_profile = Path(__file__).resolve().parents[2] / 'config/mayor_offline_weekly.json'
         if Path(runtime['profile']['path']).resolve() != expected_profile.resolve():
             raise DependencyHold('HOLD: fixed saved-source profile mismatch')
+        # Expected bytes come from the PIN-bound runtime, never from the files
+        # being inspected. These are required by P1Bridge before its imports.
+        resource_root = Path(__file__).resolve().parents[1] / 'p1_patches'
+        resources = runtime.get('resource_files')
+        if not isinstance(resources, list) or len(resources) != len(P1_RESOURCES):
+            raise DependencyHold('HOLD: mandatory P1 resource PINs missing')
+        expected_paths = {resource_root / name for name in P1_RESOURCES}
+        seen = set()
+        for spec in resources:
+            path = Path(spec['path'])
+            pin = spec.get('sha256')
+            if path not in expected_paths or path in seen or path.resolve() != path:
+                raise DependencyHold('HOLD: fixed P1 resource location mismatch')
+            if (not isinstance(pin, str) or len(pin) != 64 or
+                    any(c not in '0123456789abcdef' for c in pin)):
+                raise DependencyHold('HOLD: mandatory P1 resource PIN missing/invalid')
+            if not path.is_file() or sha(path) != pin:
+                raise DependencyHold('HOLD: P1 resource missing/changed')
+            seen.add(path)
         specs = [runtime[key] for key in ('config', 'baseline', 'profile')]
         specs += runtime['code_files']
         required = {p.resolve() for p in Path(__file__).parent.glob('*.py')}
