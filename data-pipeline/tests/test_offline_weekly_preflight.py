@@ -30,6 +30,12 @@ class Loader(importlib.abc.Loader):
   if module.__name__=='mayor_updates.weekly':
    module.assert_owner_only=lambda path:events.append('owner_check')
    module.P1Bridge=lambda *a,**k:events.append('P1_STUB') or object()
+  if module.__name__=='mayor_updates.continuous':
+   def cycle(*a,**k):
+    assert k['city']=='yokohama' and k['offline_sources'] and callable(k['observation_check'])
+    assert a[1]['network_enabled'] is False and a[1]['enabled'] is False
+    events.append('CYCLE_STUB');return {'state_advanced':True}
+   module.cycle=cycle
 class Watch(importlib.abc.MetaPathFinder):
  def find_spec(self,fullname,path=None,target=None):
   if fullname.startswith('mayor_updates.') and fullname not in ('mayor_updates.offline_weekly','mayor_updates.dependency_preflight'):
@@ -46,9 +52,7 @@ if mode=='missing_dependency':
   return original(name)
  metadata.version=version
 from mayor_updates import offline_weekly
-# Only the final business cycle is stubbed; actual main/preflight/guard wiring executes.
-def downstream(*a,**k):events.append('DOWNSTREAM_STUB');return {'state_advanced':True}
-offline_weekly.run=downstream
+# Real main, preflight, run, prepare and manifest execute; cycle alone is stubbed.
 sys.argv=['offline_weekly',*args]
 try:
  offline_weekly.main();outcome='PASS'
@@ -63,18 +67,20 @@ class OfflinePreflightTests(unittest.TestCase):
    root=Path(directory);state=root/'state';state.mkdir()
    # Existing state sentinel must survive even malformed-input and dependency holds.
    sentinel=state/'last-good';sentinel.write_text('unchanged')
-   config=root/'config.json';config.write_text(json.dumps({'network_enabled':False,'enabled':False}))
+   config=root/'config.json';config.write_text(json.dumps({'network_enabled':False,'enabled':False,'cities':{'yokohama':{}}}))
    baseline=root/'baseline.json';baseline.write_text('{}')
    shell=root/'pwsh.exe';shell.write_bytes(b'SYNTHETIC_NOT_EXECUTED')
    runtime={'network_enabled':False,'state_root':str(state),'config':pin(config),'baseline':pin(baseline),
     'profile':pin(PROFILE),'code_files':[pin(p) for p in PACKAGE.glob('*.py')],
-    'city':'nagoya','base_revision':'synthetic-only','p1_code_root':str(root/'no_p1'),
+    'city':'yokohama','base_revision':'synthetic-only','p1_code_root':str(root/'no_p1'),
     'snapshot_root':str(root/'no_cas'),'powershell_exe':str(shell)}
    contract={'python':sys.executable,'python_sha256':sha(Path(sys.executable)),
     'dependencies':{name:metadata.version(name) for name in ('jsonschema','beautifulsoup4')},
     'runtime_sha256':digest(runtime),'state_root':str(state)}
    if mode=='contract_mismatch':contract['state_root']=str(root/'wrong')
    if mode=='network_enabled':runtime['network_enabled']=True;contract['runtime_sha256']=digest(runtime)
+   if mode=='wrong_profile':
+    other=root/'other-profile.json';other.write_bytes(PROFILE.read_bytes());runtime['profile']=pin(other);contract['runtime_sha256']=digest(runtime)
    if mode=='input_changed':config.write_text('{"changed":true}')
    if mode=='missing_dependency_contract':contract['dependencies'].pop('jsonschema')
    if mode=='missing_output':runtime['state_root']=str(root/'missing');contract['state_root']=runtime['state_root'];contract['runtime_sha256']=digest(runtime)
@@ -86,13 +92,14 @@ class OfflinePreflightTests(unittest.TestCase):
    self.assertEqual(result.returncode,0,result.stderr)
    data=json.loads(result.stdout.splitlines()[-1]);events=data['events']
    if mode=='normal':
-    self.assertEqual(data['outcome'],'PASS',data);self.assertEqual(events.count('P1_STUB'),1);self.assertEqual(events.count('DOWNSTREAM_STUB'),1)
+    self.assertEqual(data['outcome'],'PASS',data);self.assertEqual(events.count('P1_STUB'),1);self.assertEqual(events.count('CYCLE_STUB'),1)
     self.assertTrue(any(e.startswith('business_import:') for e in events));self.assertIn('owner_check',events)
    else:
     self.assertTrue(data['outcome'].startswith('DependencyHold:HOLD:'),data);self.assertEqual(events,[],data)
    self.assertEqual(before,{str(p.relative_to(state)):p.read_bytes() for p in state.rglob('*') if p.is_file()})
    self.assertFalse((root/'no_p1').exists());self.assertFalse((root/'no_cas').exists())
  def test_normal_real_entry_and_preflight_to_stub(self):self.run_case('normal')
+ def test_wrong_profile_before_business_import(self):self.run_case('wrong_profile')
  def test_missing_dependency_before_business_import(self):self.run_case('missing_dependency')
  def test_contract_mismatch_before_business_import(self):self.run_case('contract_mismatch')
  def test_network_enabled_before_business_import(self):self.run_case('network_enabled')

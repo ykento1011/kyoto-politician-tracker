@@ -52,6 +52,9 @@ def require_contract(runtime, contract_path, contract_sha256):
                                     for p in (root, *root.parents)):
             raise DependencyHold('HOLD: output must be a provisioned private directory')
         # Runtime digest binds all settings; verify actual bytes before business import.
+        expected_profile = Path(__file__).resolve().parents[2] / 'config/mayor_offline_weekly.json'
+        if Path(runtime['profile']['path']).resolve() != expected_profile.resolve():
+            raise DependencyHold('HOLD: fixed saved-source profile mismatch')
         specs = [runtime[key] for key in ('config', 'baseline', 'profile')]
         specs += runtime['code_files']
         required = {p.resolve() for p in Path(__file__).parent.glob('*.py')}
