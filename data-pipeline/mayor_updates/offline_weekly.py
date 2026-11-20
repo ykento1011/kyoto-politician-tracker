@@ -9,9 +9,13 @@ import json
 PROFILE = Path(__file__).resolve().parents[2] / 'config/mayor_offline_weekly.json'
 
 
+def load(path):
+    """Keep the existing JSON-loader seam without importing business modules."""
+    return json.loads(Path(path).read_text(encoding="utf-8-sig"))
+
+
 def prepare(config, city):
     from . import continuous
-    from .operations import load
     from .projection import Hold
     profile = load(PROFILE)
     if profile.get('network_enabled') is not False or profile.get('enabled') is not False:
@@ -96,7 +100,6 @@ def main():
 
 def _run_checked(runtime, runtime_path, contract_path):
     from . import continuous, weekly
-    from .operations import load
     from .projection import Hold
     if runtime.get('network_enabled') is not False:
         raise Hold('This entry has no network mode')
