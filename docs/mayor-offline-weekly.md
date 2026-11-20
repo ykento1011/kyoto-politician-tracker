@@ -11,8 +11,11 @@ UI #96/#97、未マージの #87/#89/#93/#94 に依存しない。
 全sourceはpending、取得無効。大阪の2026は追跡年であり、本文で確認した予算年度ではない。
 都市・policy ID・資料用途・年度の根拠は別項目。政策との対応はHOLDのまま。
 
-起動例は `python -B -m mayor_updates.offline_weekly --runtime <owner-only-runtime>`。
-runtimeはnetwork_enabled=false、city、隔離state_root、snapshot_root、固定P1ルート、config/baseline/profileのSHA、code_filesのPINを必要とする。
+承認された保存版処理のCLI形式は `python -B -m mayor_updates.offline_weekly --runtime <owner-only-runtime> --contract <owner-only-contract> --contract-sha256 <approved-contract-sha256>`。この形式の記載は実行許可ではない。
+runtimeはnetwork_enabled=false、city、隔離state_root、snapshot_root、固定P1ルート、config/baseline/profileのSHA、code_filesのPINに加え、resource_filesを必要とする。
+resource_filesには実行コピーの `data-pipeline/p1_patches/` にある `city_identity.json`、`nagoya_host.json`、`yokohama_directory.json` の3件を、各path・sha256の組で指定する。期待SHAは承認された固定成果物に由来するJSONファイル自身のSHA-256であり、JSON内のpatch_sha256やGit blob IDではない。検査対象から期待値を自動採用しない。
+contractは承認済みPythonのパス・SHA、依存版、runtime_sha256、state_rootを束縛し、CLIのcontract SHAと照合する。3資材の欠落・誤配置・PIN欠落・不一致は業務import・P1初期化・周期予約前にHOLDする。
+resource_filesのない旧runtimeを新コードへそのまま切り替えることはできない。将来の配備にはコード・資材PIN、runtime digest、契約SHAの明示的な対応付けと承認が必要であり、このPRの統合だけで私有契約や実行コピーを移行しない。既承認の旧固定コピーを使う単発処理とは別の変更として扱う。
 実パス・receipt実体はリポジトリへ登録しない。CLIのPIN/ACL検査は合成試験の代替ではなく実環境接続時の別ゲート。
 
 月曜09:00 JST以降の当週キーだけを消費し、過去週を取り戻さない。
