@@ -4,19 +4,15 @@ from copy import deepcopy
 from datetime import datetime
 from pathlib import Path
 
-from bs4 import BeautifulSoup
-
-from . import continuous, weekly
-from .engine import digest
-from .index_adapter import preserved_units
-from .operations import load
-from .periodic import period
-from .projection import Hold
+import json
 
 PROFILE = Path(__file__).resolve().parents[2] / 'config/mayor_offline_weekly.json'
 
 
 def prepare(config, city):
+    from . import continuous
+    from .operations import load
+    from .projection import Hold
     profile = load(PROFILE)
     if profile.get('network_enabled') is not False or profile.get('enabled') is not False:
         raise Hold('Saved-source profiles cannot activate communication')
@@ -39,6 +35,9 @@ def prepare(config, city):
 
 def inspect_saved(bridge, sources):
     """Conservative exceptions only; never infer a political/budget fact."""
+    from bs4 import BeautifulSoup
+    from .index_adapter import preserved_units
+    from .projection import Hold
     holds = []
     for source in sources:
         doc = bridge.index['documents'].get(source['url'])
@@ -69,6 +68,9 @@ def inspect_saved(bridge, sources):
 
 def run(bridge, config, baseline, state_root, *, city, now, base_revision):
     """Caller supplies a pinned P1 bridge and isolated private state; reads CAS only."""
+    from . import continuous
+    from .engine import digest
+    from .periodic import period
     timing = period(now)
     local, sources = prepare(config, city)
     result = continuous.cycle(bridge, local, baseline, [], state_root, city=city,
@@ -82,12 +84,25 @@ def run(bridge, config, baseline, state_root, *, city, now, base_revision):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--runtime', required=True)
+    parser.add_argument('--contract', required=True, help='Approved private preflight contract')
+    parser.add_argument('--contract-sha256', required=True)
     args = parser.parse_args()
-    runtime = load(args.runtime)
+    # stdlib only until all dependency, I/O and offline checks pass.
+    from .dependency_preflight import require_contract
+    runtime = json.loads(Path(args.runtime).read_text(encoding='utf-8-sig'))
+    require_contract(runtime, args.contract, args.contract_sha256)
+    return _run_checked(runtime, args.runtime, args.contract)
+
+
+def _run_checked(runtime, runtime_path, contract_path):
+    from . import continuous, weekly
+    from .operations import load
+    from .projection import Hold
     if runtime.get('network_enabled') is not False:
         raise Hold('This entry has no network mode')
     continuous.configure_shell(runtime)
-    weekly.assert_owner_only(args.runtime)
+    weekly.assert_owner_only(runtime_path)
+    weekly.assert_owner_only(contract_path)
     required = {path.resolve() for path in Path(__file__).parent.glob('*.py')}
     files = runtime['code_files']
     if not required <= {Path(spec['path']).resolve() for spec in files}:
