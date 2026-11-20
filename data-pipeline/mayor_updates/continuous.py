@@ -19,12 +19,15 @@ from .projection import Hold
 from urllib.parse import urlsplit
 
 
-def manifest(config, city):
+def manifest(config, city, *, offline_sources=None):
     """Normalize registered sources without guessing a policy/amount relationship."""
     registry = load(Path(__file__).resolve().parents[2] / 'config/mayor_update_sources.json')['cities']
     if city not in registry:
         raise Hold('Unknown city')
-    registered = registry[city]['monitor_sources']
+    registered = (registry[city].get('monitor_sources', []) if offline_sources is None
+                  else offline_sources)
+    if offline_sources is not None and (config.get('network_enabled') is not False or config.get('enabled') is not False):
+        raise Hold('Alternative saved-source manifests are offline only')
     sources = config['cities'][city]['monitor_sources']
     if not sources or sources != registered:
         raise Hold('Use the exact registered sources; source additions need separate review')
@@ -44,12 +47,13 @@ def manifest(config, city):
     return rows
 
 
-def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_revision):
+def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_revision,
+          offline_sources=None, observation_holds=(), observation_check=None):
     """Consume one offline observation cycle against a private, persistent state."""
     if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', cycle_key):
         raise Hold('An explicit ISO calendar-date cycle is required')
     date.fromisoformat(cycle_key)
-    rows = manifest(config, city)
+    rows = manifest(config, city, offline_sources=offline_sources)
     root = PrivateOutput(state_root).root
     weekly.assert_owner_only(root)
     cas = Path(bridge.store.root).resolve(strict=True)
@@ -58,6 +62,8 @@ def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_
         raise Hold('Loop state must be separate from CAS')
     with weekly.single_run(root):
         identity = {'city':city, 'manifest_sha256':digest(rows)}
+        if offline_sources is not None:
+            identity.update(offline_profile_sha256=digest(offline_sources), snapshot_root=str(cas))
         binding = root / 'loop_identity.json'
         if binding.exists():
             if load(binding) != identity:
@@ -77,11 +83,18 @@ def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_
         prior = load(root/'state.json') if (root/'state.json').exists() else {'monitor':{}, 'seen_reviews':{}}
         try:
             bridge.store.verify_integrity()
+            if observation_check is not None:
+                observation_holds = observation_check()
             result, _ = run_trial(bridge, config, baseline, rules, output,
                 previous=prior.get('monitor'), base_revision=base_revision,
                 seen_reviews=prior.get('seen_reviews', {}), city=city,
-                allowed=config['cities'][city]['policy_ids'])
+                allowed=(sorted({p for row in rows for p in row['policy_ids']})
+                         if offline_sources is not None else config['cities'][city]['policy_ids']))
             status = load(output/'run_status.json')
+            if observation_holds:
+                status = {**status, 'state':'stopped_no_public_change',
+                          'holds':list(observation_holds), 'public_writes':0}
+                out.json('safety_hold.json', status)
             observations = []
             good_state = (prior.get('monitor', {}) if status['state']=='stopped_no_public_change'
                           else result['state'])
@@ -94,6 +107,22 @@ def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_
                     'confirmed_fact':'Saved source observation only; policy effect requires human review',
                     'review_status':'unverified', 'published_revision':None})
             out.json('observations.json', observations)
+            if offline_sources is not None:
+                report_rows = []
+                for row in observations:
+                    observed = row['observed_at']
+                    age = ((date.fromisoformat(cycle_key) -
+                            datetime.fromisoformat(observed.replace('Z', '+00:00')).date()).days
+                           if observed else None)
+                    report_rows.append({**row, 'saved_observation_age_days':age,
+                        'source_registration_status':next(s['registration_status'] for s in offline_sources if s['url']==row['official_url']),
+                        'fiscal_year_basis':next(s['fiscal_year_basis'] for s in offline_sources if s['url']==row['official_url']),
+                        'freshness_basis':'saved receipt, not a new HTTP observation',
+                        'policy_relation':'HOLD: policy correspondence requires separate review'})
+                out.json('city_report.json', {'city':city, 'cycle_key':cycle_key,
+                    'state':status['state'], 'holds':status.get('holds', []),
+                    'sources':report_rows, 'source_approval_inherited':False,
+                    'network_requests':0, 'public_writes':0})
             weekly.review_index(output, status, city_label=city)
             # Review files and observation metadata are durable before good pointer advances.
             summary = {'cycle_key':cycle_key, 'state':status['state'],
