@@ -265,6 +265,8 @@ def _connect_locked(contract_spec, approval_spec, contract, approval, acquire, p
     append_json(output/'reservation.json', {'city': 'kobe', 'url': URL, 'week': week,
         'started_at': now.isoformat(), 'contract_sha256': contract_spec['sha256'],
         'approval_sha256': approval_spec['sha256'], 'retry_allowed': False})
+    phase = 'acquisition'
+    result = None
     try:
         # Do not carry an earlier week/validity check across slow validation or
         # the weekly boundary. This only ignores our own already-consumed slot.
@@ -314,6 +316,7 @@ def _connect_locked(contract_spec, approval_spec, contract, approval, acquire, p
         if rec.get('fiscal_year') != 2026 or rec.get('mime_type') != 'text/html':
             raise Hold('Wrong CAS year or medium')
         append_json(output/'verified_handoff.json', audit)
+        phase = 'private_cycle'
         result = process(bridge=bridge, source=dict(SOURCE), sha256=version,
                          document_id=document, acquisition_audit=audit,
                          cycle_key=week, network_enabled=False, publication_authorized=False)
@@ -323,6 +326,7 @@ def _connect_locked(contract_spec, approval_spec, contract, approval, acquire, p
             raise Hold('Private processing incomplete or communication/publication nonzero/unknown')
         if not result['state_advanced'] and result.get('state') != 'stopped_no_public_change':
             raise Hold('Unknown processing outcome')
+        phase = 'completion_receipt'
         append_json(output/'completed.json', {'termination_confirmed': True,
             'receipt_sha256': receipt_spec['sha256'], 'private_result': result,
             'publication_authorized': False})
@@ -330,6 +334,11 @@ def _connect_locked(contract_spec, approval_spec, contract, approval, acquire, p
                 'private_result': result, 'week': week, 'output': str(output),
                 'acquisition_audit': audit, 'public_writes': 0}
     except Exception as exc:
+        # A final receipt failure must not pretend an already committed cycle
+        # was rolled back. Unknown cycle exceptions require its own evidence.
+        retained = True if phase == 'acquisition' else (
+            not result['state_advanced'] if result is not None and
+            type(result.get('state_advanced')) is bool else None)
         append_json(output/'failure.json', {'reason': str(exc), 'retry_allowed': False,
-                                         'previous_state_retained': True})
+            'phase': phase, 'previous_state_retained': retained, 'private_result': result})
         raise

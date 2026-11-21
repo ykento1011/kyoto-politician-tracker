@@ -190,6 +190,21 @@ class AdapterTests(setup.ConnectionTests):
         with self.assertRaises(Hold):self.connected()
         self.assertEqual(self.worker_calls,2)
 
+    def test_final_receipt_failure_does_not_claim_cycle_rollback(self):
+        original=k.append_json
+        def fail_final(path,value):
+            if path.name=='completed.json':raise OSError('synthetic final receipt failure')
+            return original(path,value)
+        with patch.object(k,'append_json',side_effect=fail_final):
+            with self.assertRaises(OSError):self.connected()
+        failure=json.loads(next((self.root/'series').glob('*/failure.json')).read_text())
+        self.assertEqual(failure['phase'],'completion_receipt')
+        self.assertFalse(failure['previous_state_retained'])
+        self.assertTrue(failure['private_result']['state_advanced'])
+        self.assertTrue((self.root/'processing/state.json').exists())
+        with self.assertRaises(Hold):self.connected()
+        self.assertEqual(self.worker_calls,1)
+
     def test_termination_unknown_stops_before_cycle(self):
         self.unknown=True
         with self.assertRaises(Hold):self.connected()
