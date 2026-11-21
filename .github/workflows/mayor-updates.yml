@@ -40,6 +40,7 @@ jobs:
           python -B -m unittest discover -s data-pipeline/tests -p 'test_offline_weekly_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_offline_weekly_preflight.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_periodic_mayor.py'
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_source_registry_mayor.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_pdf_mayor.py'
       - name: Test explicit city scope without network
         run: |
