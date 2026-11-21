@@ -33,6 +33,7 @@ jobs:
         run: python -m pip install beautifulsoup4==4.15.0 PyMuPDF==1.28.2 jsonschema==4.26.0
       - name: Test proposals, bounded acquisition and persistent weekly entry
         run: |
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_launch_contract_mayor.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_mayor_updates.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_kyoto_operations.py'
           python -B -m unittest discover -s data-pipeline/tests -p 'test_weekly_mayor.py'
