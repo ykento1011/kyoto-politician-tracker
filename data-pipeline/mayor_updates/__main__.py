@@ -1,8 +1,11 @@
 """Offline CLI. No command performs HTTP, git, publication or generation in-place."""
 import argparse
 import json
+from datetime import datetime
+from hashlib import sha256
 from pathlib import Path
-from .engine import PrivateOutput, propose, review_html, approved_bundle
+from urllib.parse import urlsplit
+from .engine import PrivateOutput, propose, review_html, approved_bundle, publication_receipt, Hold
 from .p1_bridge import P1Bridge
 from .monitor import monitor_saved, request_plan
 
@@ -11,9 +14,43 @@ def load(path):
     return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 
 
+def record_publication(args, out):
+    """Validate caller-supplied observation, not independently verify deployment."""
+    names = ('baseline', 'packet', 'approval', 'published_data')
+    if any(not getattr(args, name) for name in names):
+        raise Hold('Explicit baseline, packet, approval and published data required')
+    if not all((args.commit, args.deployed_url, args.published_at)):
+        raise Hold('Explicit commit, HTTPS URL and aware publication time required')
+    paths = {name: Path(getattr(args, name)).resolve(strict=True) for name in names}
+    if paths['published_data'] in [paths[n] for n in names[:3]]:
+        raise Hold('Publication observation must be a separate supplied input')
+    url = urlsplit(args.deployed_url)
+    if (url.scheme != 'https' or not url.hostname or url.username or url.password
+            or any(c.isspace() or ord(c) < 32 for c in args.deployed_url)):
+        raise Hold('Valid absolute HTTPS publication URL required')
+    try:
+        url.port  # Reject malformed/out-of-range ports as well.
+        when = datetime.fromisoformat(args.published_at.replace('Z', '+00:00'))
+        if when.utcoffset() is None:
+            raise ValueError('timezone missing')
+    except ValueError as exc:
+        raise Hold('Timezone-aware publication timestamp required') from exc
+    # Hash the very bytes parsed, rather than rereading potentially changed files.
+    raw = {name: path.read_bytes() for name, path in paths.items()}
+    data = {name: json.loads(body.decode('utf-8-sig')) for name, body in raw.items()}
+    bundle = approved_bundle(data['baseline'], data['packet'], data['approval'])
+    receipt = publication_receipt(bundle, commit=args.commit,
+        deployed_url=args.deployed_url, published_at=args.published_at,
+        published_data=data['published_data'])
+    receipt['observation_inputs'] = {name: {'sha256': sha256(body).hexdigest()}
+                                     for name, body in raw.items()}
+    receipt['verification_scope'] = 'supplied observation consistency only; deployment not independently verified'
+    out.json('publication_receipt_PRIVATE.json', receipt)
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['propose', 'handoff', 'monitor'])
+    parser.add_argument('command', choices=['propose', 'handoff', 'monitor', 'publication-receipt'])
     parser.add_argument('--baseline')
     parser.add_argument('--output', required=True, help='Existing unique private run directory')
     parser.add_argument('--config')
@@ -26,8 +63,15 @@ def main():
     parser.add_argument('--snapshot-root')
     parser.add_argument('--packet')
     parser.add_argument('--approval')
+    parser.add_argument('--published-data', help='Saved JSON explicitly observed on the public side')
+    parser.add_argument('--commit', help='Full externally observed public commit; no default')
+    parser.add_argument('--deployed-url')
+    parser.add_argument('--published-at', help='Explicit ISO timestamp with timezone; no clock fallback')
     args = parser.parse_args()
     out = PrivateOutput(args.output)
+    if args.command == 'publication-receipt':
+        record_publication(args, out)
+        return
     if args.command == 'monitor':
         bridge = P1Bridge(args.p1_code_root, args.snapshot_root)
         config = load(args.config)
