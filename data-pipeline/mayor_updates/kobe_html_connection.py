@@ -157,8 +157,14 @@ def _connect_locked(contract_spec, approval_spec, contract, approval, acquire, p
         _, _, current_week = validate(contract, approval, clock(), own_attempt=output)
         if current_week != week:
             raise Hold('Week changed before acquisition')
+        acquisition_started = clock()
+        local_start = acquisition_started.astimezone(JST)
+        if (not aware(approval['valid_from']) <= acquisition_started < aware(approval['valid_until']) or
+                (local_start.date() - timedelta(days=local_start.weekday())).isoformat() != week):
+            raise Hold('Approval expired during validation')
         outcome = acquire(source=dict(SOURCE), limits=dict(LIMITS), output=output,
                           cas_root=cas, p1_code_root=Path(contract['p1_code_root']))
+        acquisition_finished = clock()
         if outcome.get('termination_confirmed') is not True:
             raise Hold('Worker termination unknown')
         # Recreate after acquisition, rather than reuse the pre-acquisition index.
@@ -183,6 +189,13 @@ def _connect_locked(contract_spec, approval_spec, contract, approval, acquire, p
                 'document_id': 'kobe-doc-' + sha256(URL.encode()).hexdigest()[:24],
                 'acquisition_receipt': receipt_spec, 'acquisition_preflight': preflight_spec}
         version, document, audit = receipt_identity(spec, SOURCE, bridge)
+        observed = aware(audit['acquisition_observed_at'])
+        if (not acquisition_started <= observed <= acquisition_finished or
+                not aware(approval['valid_from']) <= observed < aware(approval['valid_until']) or
+                acquisition_finished >= aware(approval['valid_until']) or
+                (observed.astimezone(JST).date() - timedelta(
+                    days=observed.astimezone(JST).weekday())).isoformat() != week):
+            raise Hold('Receipt observation is outside this authorized acquisition attempt')
         rec, _ = bridge.record(URL, version)
         if rec.get('fiscal_year') != 2026 or rec.get('mime_type') != 'text/html':
             raise Hold('Wrong CAS year or medium')

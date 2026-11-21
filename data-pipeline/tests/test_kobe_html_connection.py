@@ -173,5 +173,23 @@ class ConnectionTests(unittest.TestCase):
         with self.assertRaises(Hold): self.run_case()
         self.assertEqual(list((self.root/'series').glob('*/completed.json')),[])
 
+    def forged_observation(self, stamp):
+        def mutate(r, p, b):
+            r['receipts'][0]['version']['retrieved_at'] = stamp
+            b.record.return_value[0]['retrieved_at'] = stamp
+            b.index['attempts'][0]['observed_at'] = stamp
+        self.mutation = mutate
+        with self.assertRaisesRegex(Hold, 'outside this authorized'):
+            self.run_case()
+        self.assertNotIn('process', self.calls)
+        self.assertEqual(len(list((self.root/'series').glob('*/reservation.json'))), 1)
+        self.assertEqual(list((self.root/'series').glob('*/completed.json')), [])
+
+    def test_past_receipt_cannot_be_relabelled_as_new_get(self):
+        self.forged_observation('2026-11-15T01:00:00+00:00')
+
+    def test_future_receipt_is_not_current_acquisition(self):
+        self.forged_observation('2026-11-23T01:00:01+00:00')
+
 
 if __name__ == '__main__': unittest.main()

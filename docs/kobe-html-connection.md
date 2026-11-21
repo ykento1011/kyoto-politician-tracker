@@ -44,7 +44,9 @@ CAS; no stale pre-fetch index or alternative CAS is used. Standard pinned
 receipt/preflight files are checked with `operations.receipt_identity`, including
 P1 hashes, city, URL, fiscal year, document ID, exact version and byte count.
 Original receipt time and current observation time remain distinct for unchanged
-content. Only that verified version is delivered to the private-processing
+content. The latter must lie between the internal before/after acquisition
+timestamps and within the authorized week/window; replaying an old receipt under
+a new output path cannot count as a fresh GET. Only that verified version is delivered to the private-processing
 callback with communication/publication disabled. There is no CAS copying or
 index synthesis. A result with unknown/nonzero network requests or public writes
 cannot be recorded as complete. Private processing and its durable state/period guards must be
