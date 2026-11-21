@@ -4,7 +4,7 @@ Each explicit cycle is consumed once, including failures. Original acquisition
 remains a separate approved P1 operation; one-shot reservations are never touched.
 """
 import argparse
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timezone, timedelta
 import hashlib
 import json
 import os
@@ -47,8 +47,30 @@ def manifest(config, city, *, offline_sources=None):
     return rows
 
 
+def saved_observation_age(observed, evaluated_at):
+    """Receipt age in JST calendar days; never substitute a reservation date."""
+    try:
+        acquired = datetime.fromisoformat(observed.replace('Z', '+00:00'))
+        if (acquired.tzinfo is None or acquired.utcoffset() is None or
+                evaluated_at.tzinfo is None or evaluated_at.utcoffset() is None):
+            raise ValueError('timezone required')
+        if acquired > evaluated_at:
+            raise ValueError('receipt is in the future')
+        jst = timezone(timedelta(hours=9))
+        return {
+            'saved_observation_age_days': (evaluated_at.astimezone(jst).date() -
+                                           acquired.astimezone(jst).date()).days,
+            'age_evaluated_at': evaluated_at.isoformat(),
+            'age_receipt_at': observed,
+            'age_definition': 'JST calendar-date difference; receipt timestamp unchanged',
+        }
+    except (ValueError, TypeError, AttributeError) as exc:
+        raise Hold('Invalid or missing saved-observation timestamp: ' + str(exc)) from exc
+
+
 def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_revision,
-          offline_sources=None, observation_holds=(), observation_check=None):
+          offline_sources=None, observation_holds=(), observation_check=None,
+          evaluated_at=None):
     """Consume one offline observation cycle against a private, persistent state."""
     if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', cycle_key):
         raise Hold('An explicit ISO calendar-date cycle is required')
@@ -110,11 +132,8 @@ def cycle(bridge, config, baseline, rules, state_root, *, city, cycle_key, base_
             if offline_sources is not None:
                 report_rows = []
                 for row in observations:
-                    observed = row['observed_at']
-                    age = ((date.fromisoformat(cycle_key) -
-                            datetime.fromisoformat(observed.replace('Z', '+00:00')).date()).days
-                           if observed else None)
-                    report_rows.append({**row, 'saved_observation_age_days':age,
+                    age = saved_observation_age(row['observed_at'], evaluated_at)
+                    report_rows.append({**row, **age,
                         'source_registration_status':next(s['registration_status'] for s in offline_sources if s['url']==row['official_url']),
                         'fiscal_year_basis':next(s['fiscal_year_basis'] for s in offline_sources if s['url']==row['official_url']),
                         'freshness_basis':'saved receipt, not a new HTTP observation',
