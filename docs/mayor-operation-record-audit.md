@@ -40,6 +40,8 @@ The caller supplies an explicit approved schedule for exactly one cycle. Example
 
 All timestamps must include a timezone; evaluation time is explicit, never filled from the current clock. At the exact deadline, an absent record is missing evidence. A result or HOLD can be reported before the deadline. Input file SHA-256 values and the supplied target/evaluation time accompany the classification. Approval references are caller assertions, not independently authenticated grants; this CLI cannot confer permission to execute. A single approved cycle never creates future expected cycles.
 
+The caller explicitly binds `scheduled_at` to `cycle_key`; the reader does not derive a new weekly schedule or authorize that binding. Where saved records provide a scheduled timestamp, it must match the requested instant. Explicit city, series, mode or identity contradictions in any inspected record are rejected even when the intent matches; omitted fields in the legacy result format are bound through the root and intent.
+
 Read-only inspection is not an atomic snapshot of a live writer. Use saved, quiescent evidence; concurrent changes require a separate later observation. No OS/task-start evidence is collected. No new source permission, public write, last-good update, lock release or retry is authorized. A partial output left by a failed save is not a successful report and must not be overwritten by an automatic retry.
 
 Validation uses synthetic record files and temporary private output. The real reader/classifier/writer and CLI are exercised; only a read-permission failure is injected. Existing operational roots, reservations and outbox are not test inputs.

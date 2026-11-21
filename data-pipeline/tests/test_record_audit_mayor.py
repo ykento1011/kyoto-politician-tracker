@@ -19,7 +19,7 @@ class RecordAuditTests(unittest.TestCase):
         self.base = Path(self.temp.name)
         self.records = self.base/'records'; self.records.mkdir()
         self.output = self.base/'output'; self.output.mkdir()
-        self.schedule = self.base/'schedule.json'
+        self.schedule = self.base/'input'/'schedule.json'
         self.spec = dict(approved=True, paused=False, applicable=True,
                          approval_reference='synthetic approval for this cycle only',
                          cycle_key='2026-11-16', scheduled_at='2026-11-16T09:00:00+09:00',
@@ -122,6 +122,17 @@ class RecordAuditTests(unittest.TestCase):
         cycle = self.setup_records()
         (cycle/'cycle_result.json').write_text('{broken', encoding='utf-8')
         self.assertEqual(self.inspect()['classification'], 'invalid_evidence')
+
+    def test_result_explicit_target_contradictions(self):
+        cycle = self.setup_records()
+        original = {'cycle_key':self.spec['cycle_key'], 'state':'unchanged'}
+        for field, value in [('city','osaka'), ('manifest_sha256','b'*64),
+                             ('series_id','b'*64), ('identity', {'city':'osaka'}),
+                             ('mode','approved_acquisition'), ('network_requests',1),
+                             ('network_requests',False), ('network_requests','0')]:
+            with self.subTest(field=field, value=value):
+                self.write(cycle/'cycle_result.json', dict(original, **{field:value}))
+                self.assertEqual(self.inspect()['classification'], 'invalid_evidence')
         with patch.object(Path, 'read_bytes', side_effect=PermissionError('synthetic denied')):
             self.assertEqual(self.inspect()['classification'], 'invalid_evidence')
         self.records = self.base/'missing-root'
@@ -148,6 +159,9 @@ class RecordAuditTests(unittest.TestCase):
         self.output = self.records
         self.assertNotEqual(self.cli().returncode, 0)
         self.assertEqual(list(self.records.iterdir()), [])
+        self.output = self.schedule.parent/'nested-output'; self.output.mkdir()
+        self.assertNotEqual(self.cli().returncode, 0)
+        self.assertEqual(list(self.output.iterdir()), [])
 
 
 if __name__ == '__main__':

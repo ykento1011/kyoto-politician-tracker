@@ -119,6 +119,14 @@ def inspect(schedule_path, records_root, evaluated_at):
             if spec['format'] == 'continuous' and intent.get('network_requests') != 0:
                 raise ValueError('Offline intent mode mismatch')
             for name, item in found.items():
+                expected = dict(identity, city=spec['city'], series_id=spec['series_id'])
+                if any(k in item and item[k] != v for k, v in expected.items()):
+                    raise ValueError('Record target mismatch: '+name)
+                if ('identity' in item and item['identity'] != identity):
+                    raise ValueError('Record nested identity mismatch: '+name)
+                if (spec['mode'] == 'offline' and 'network_requests' in item and
+                        (type(item['network_requests']) is not int or item['network_requests'] != 0)):
+                    raise ValueError('Record offline network contradiction: '+name)
                 if 'cycle_key' in item and item['cycle_key'] != key:
                     raise ValueError('Record cycle mismatch: '+name)
                 if 'mode' in item and item['mode'] != spec['mode']:
@@ -162,7 +170,8 @@ def main():
     root = Path(args.records_root).resolve()
     source = Path(args.schedule).resolve()
     if (out.root == root or root in out.root.parents or out.root in root.parents
-            or out.root == source.parent or out.root in source.parents):
+            or out.root == source.parent or out.root in source.parents
+            or source.parent in out.root.parents):
         raise ValueError('Output must be separate from input records and schedule')
     result = inspect(args.schedule, args.records_root, args.evaluated_at)
     out.json('operation_record_audit_PRIVATE.json', result)
