@@ -14,12 +14,18 @@ reservation evidence; editing a contract PIN is a new deployment approval, not a
 retry mechanism. No private paths, identities or approvals are provided here.
 
 Approval binds the contract SHA, source, roots, JST Monday week, validity window
-and approval reference. The known consumed 2026-11-16 week is rejected. Legacy
+and approval reference. The clock is internal and checked again immediately
+before acquisition; tests mock the clock, callers cannot supply a past week.
+The known consumed 2026-11-16 week is rejected. Legacy
 URL markers require pinned termination evidence, legacy cycle directories and
 locks block execution. Reservation names depend only on city, exact URL and week.
 Exclusive directory creation prevents concurrent/same-week attempts across run
 names and contract versions within the canonical root. Failed or unknown
 attempts remain blocking; no cleanup/reset/retry interface exists.
+The existing `weekly.single_run` lock serializes validation through completion
+within that root, including across week boundaries. Unknown directories (even
+without a reservation file) also block. Removal of an OS/process lock alone
+never clears a retained unsuccessful reservation.
 
 ## Acquisition and handoff seams
 
@@ -40,7 +46,8 @@ P1 hashes, city, URL, fiscal year, document ID, exact version and byte count.
 Original receipt time and current observation time remain distinct for unchanged
 content. Only that verified version is delivered to the private-processing
 callback with communication/publication disabled. There is no CAS copying or
-index synthesis. Private processing and its durable state/period guards must be
+index synthesis. A result with unknown/nonzero network requests or public writes
+cannot be recorded as complete. Private processing and its durable state/period guards must be
 bound by the future approved caller; no live cycle is installed here.
 
 ## Scope of evidence and dependencies

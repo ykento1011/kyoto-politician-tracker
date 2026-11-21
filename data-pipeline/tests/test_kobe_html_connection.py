@@ -82,13 +82,13 @@ class ConnectionTests(unittest.TestCase):
     def process(self, **kw):
         self.calls.append('process')
         self.assertFalse(kw['network_enabled']); self.assertFalse(kw['publication_authorized'])
-        return {'state_advanced':True, 'public_writes':0}
+        return {'state_advanced':True, 'public_writes':0, 'network_requests':0}
 
     def run_case(self, acquire=None):
         cp = self.pin('contract', self.c); self.a['contract_sha256'] = cp['sha256']
         ap = self.pin('approval', self.a)
-        with patch.object(k, 'P1Bridge', side_effect=self.factory):
-            return k.connect(cp, ap, now=self.now, acquire=acquire or self.acquire, process=self.process)
+        with patch.object(k, 'P1Bridge', side_effect=self.factory), patch.object(k, 'clock', return_value=self.now):
+            return k.connect(cp, ap, acquire=acquire or self.acquire, process=self.process)
 
     def test_new_and_same_version_handoff(self):
         result = self.run_case()
@@ -148,6 +148,30 @@ class ConnectionTests(unittest.TestCase):
         storage={'state_root':str(self.root/'legacy')}
         reserve_request(scope,storage,k.SOURCE)
         with self.assertRaises(Hold): reserve_request(scope,storage,k.SOURCE)
+
+    def test_interrupted_directory_and_existing_lock_rejected(self):
+        (self.root/'series/unfinished').mkdir()
+        with self.assertRaises(Hold): self.run_case()
+        self.assertEqual(self.calls, [])
+        (self.root/'series/unfinished').rmdir()  # Test fixture only.
+        (self.root/'series/weekly.lock').write_text('synthetic other process')
+        with self.assertRaises(Hold): self.run_case()
+        self.assertTrue((self.root/'series/weekly.lock').exists())
+
+    def test_expiry_at_pre_acquisition_check_keeps_slot(self):
+        cp=self.pin('contract',self.c); self.a['contract_sha256']=cp['sha256']
+        ap=self.pin('approval',self.a)
+        later=datetime.fromisoformat('2026-11-23T11:00:00+09:00')
+        with patch.object(k,'clock',side_effect=[self.now,self.now,later]):
+            with self.assertRaises(Hold):
+                k.connect(cp,ap,acquire=self.acquire,process=self.process)
+        self.assertEqual(self.calls,[])
+        self.assertEqual(len(list((self.root/'series').glob('*/failure.json'))),1)
+
+    def test_process_public_write_or_unknown_network_is_not_success(self):
+        self.process=lambda **kw:{'state_advanced':True,'public_writes':1}
+        with self.assertRaises(Hold): self.run_case()
+        self.assertEqual(list((self.root/'series').glob('*/completed.json')),[])
 
 
 if __name__ == '__main__': unittest.main()

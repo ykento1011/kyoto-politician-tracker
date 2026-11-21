@@ -51,7 +51,11 @@ def directory(value):
     return path.resolve(strict=True)
 
 
-def validate(contract, approval, now):
+def clock():
+    return datetime.now(timezone.utc)
+
+
+def validate(contract, approval, now, *, own_attempt=None):
     if (contract.get('mode') != 'kobe-html1-reobservation-v1' or
             contract.get('city') != 'kobe' or contract.get('source') != SOURCE or
             contract.get('limits') != LIMITS):
@@ -98,12 +102,18 @@ def validate(contract, approval, now):
         old = directory(value)
         if list(old.rglob('*.lock')) or (old / 'cycles' / week).exists():
             raise Hold('Legacy lock or consumed cycle')
-    for attempt in root.glob('*/reservation.json'):
-        end = attempt.parent / 'completed.json'
+    for attempt in root.iterdir():
+        if attempt.name == 'weekly.lock':
+            continue
+        if attempt == own_attempt:
+            continue
+        if not attempt.is_dir() or not (attempt/'reservation.json').is_file():
+            raise Hold('Unknown or interrupted reservation entry')
+        end = attempt / 'completed.json'
         if not end.is_file():
             raise Hold('Previous acquisition outcome/termination unresolved')
         # Failure records deliberately never count as successful completion.
-        if json.loads(end.read_text()) .get('termination_confirmed') is not True:
+        if json.loads(end.read_text()).get('termination_confirmed') is not True:
             raise Hold('Previous termination unresolved')
     return root, cas, week
 
@@ -114,7 +124,7 @@ def append_json(path, value):
         json.dump(value, stream, ensure_ascii=False, indent=2)
 
 
-def connect(contract_spec, approval_spec, *, now, acquire, process):
+def connect(contract_spec, approval_spec, *, acquire, process):
     """Candidate orchestration. No live callback is supplied or enabled here.
 
     acquire writes the standard acquisition_result/preflight under its fixed
@@ -124,6 +134,13 @@ def connect(contract_spec, approval_spec, *, now, acquire, process):
     contract, approval = read_pinned(contract_spec), read_pinned(approval_spec)
     if approval.get('contract_sha256') != contract_spec['sha256']:
         raise Hold('Approval is not bound to the deployment contract')
+    root, _, _ = validate(contract, approval, clock())
+    with weekly.single_run(root):
+        return _connect_locked(contract_spec, approval_spec, contract, approval, acquire, process)
+
+
+def _connect_locked(contract_spec, approval_spec, contract, approval, acquire, process):
+    now = clock()
     root, cas, week = validate(contract, approval, now)
     key = sha256(('kobe\n' + URL + '\n' + week).encode()).hexdigest()
     output = root / key
@@ -135,6 +152,11 @@ def connect(contract_spec, approval_spec, *, now, acquire, process):
         'started_at': now.isoformat(), 'contract_sha256': contract_spec['sha256'],
         'approval_sha256': approval_spec['sha256'], 'retry_allowed': False})
     try:
+        # Do not carry an earlier week/validity check across slow validation or
+        # the weekly boundary. This only ignores our own already-consumed slot.
+        _, _, current_week = validate(contract, approval, clock(), own_attempt=output)
+        if current_week != week:
+            raise Hold('Week changed before acquisition')
         outcome = acquire(source=dict(SOURCE), limits=dict(LIMITS), output=output,
                           cas_root=cas, p1_code_root=Path(contract['p1_code_root']))
         if outcome.get('termination_confirmed') is not True:
@@ -168,8 +190,10 @@ def connect(contract_spec, approval_spec, *, now, acquire, process):
         result = process(bridge=bridge, source=dict(SOURCE), sha256=version,
                          document_id=document, acquisition_audit=audit,
                          cycle_key=week, network_enabled=False, publication_authorized=False)
-        if result.get('state_advanced') is not True:
-            raise Hold('Private processing did not advance normally')
+        if (result.get('state_advanced') is not True or
+                type(result.get('public_writes')) is not int or result['public_writes'] != 0 or
+                type(result.get('network_requests')) is not int or result['network_requests'] != 0):
+            raise Hold('Private processing incomplete or communication/publication nonzero/unknown')
         append_json(output/'completed.json', {'termination_confirmed': True,
             'receipt_sha256': receipt_spec['sha256'], 'private_result': result,
             'publication_authorized': False})
