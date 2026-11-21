@@ -109,6 +109,10 @@ def validate_scope(scope):
     rows=scope['sources']; caps=scope['max_requests_by_media']
     if is_kyoto_wave1(scope):
         validate_wave1_contract(scope)
+    elif scope.get('profile') == 'kobe_html1_reobservation':
+        from .kobe_html_connection import acquisition_scope
+        if scope != acquisition_scope():
+            raise Hold('Exact Kobe HTML1 acquisition scope required')
     elif (not rows or len(rows)>scope['max_requests'] or scope['max_requests']>2 or
             caps!={'html':1,'pdf':1} or scope['max_total_bytes']!=4194304):
         raise Hold('Initial city trial is limited to one HTML and one PDF')
@@ -138,6 +142,9 @@ def validate_selection(scope,sources,media_type):
 
 def validate_storage(scope,storage,snapshot_root,output):
     validate_scope(scope)
+    if scope.get('profile') == 'kobe_html1_reobservation':
+        from .kobe_html_connection import validate_ticket
+        return validate_ticket(scope, storage, snapshot_root, output)
     root=PrivateOutput(storage['private_root']).root
     # A separate immutable binding leaves every existing city_binding.json intact.
     binding_path=root/(wave1_binding_name(scope) if is_kyoto_wave1(scope) else 'city_binding.json')
@@ -177,6 +184,13 @@ def validate_storage(scope,storage,snapshot_root,output):
 def reserve_request(scope,storage,source):
     if scope.get('enabled') is not True or scope.get('network_enabled') is not True:
         raise Hold('City trial network is disabled')
+    if scope.get('profile') == 'kobe_html1_reobservation':
+        from .kobe_html_connection import validate_ticket, append_json
+        validate_selection(scope, [source], 'html')
+        validate_ticket(scope, storage, storage['snapshot_root'], storage['attempt_output'])
+        append_json(Path(storage['attempt_output'])/'request_authorized.json',
+                    {'source_url':source['url'], 'scope_sha256':signature(scope)})
+        return
     state=Path(storage['state_root'])
     marker=state/('single_request_'+hashlib.sha256(source['url'].encode()).hexdigest()+'.json')
     try:

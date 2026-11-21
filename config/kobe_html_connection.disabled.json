@@ -1,0 +1,36 @@
+{
+  "mode": "kobe-html1-reobservation-v1",
+  "city": "kobe",
+  "enabled": false,
+  "network_enabled": false,
+  "source": {
+    "id": "kobe-r8-budget-committee",
+    "url": "https://www.city.kobe.lg.jp/z/shikaijimukyoku/giann_etc/r8/yosantokubetsu.html",
+    "fiscal_year": 2026,
+    "document_kind": "budget_index",
+    "media_type": "html",
+    "policy_ids": [
+      "KOBE-M01"
+    ],
+    "max_bytes": 2097152,
+    "title": "令和8年度予算特別委員会索引"
+  },
+  "limits": {
+    "get_per_url": 1,
+    "max_received_bytes": 2097152,
+    "max_total_received_bytes": 2097152,
+    "max_accepted_bytes": 2097151,
+    "wall_timeout_seconds": 10,
+    "tls_verify": true,
+    "redirects": 0,
+    "retries": 0,
+    "link_following": 0
+  },
+  "series_root": null,
+  "cas_root": null,
+  "p1_code_root": null,
+  "series_identity": null,
+  "legacy_reservations": [],
+  "legacy_state_roots": [],
+  "processing_state_root": null
+}

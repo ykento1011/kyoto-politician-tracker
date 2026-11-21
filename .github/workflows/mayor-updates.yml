@@ -6,6 +6,9 @@ on:
       - 'data-pipeline/mayor_updates/**'
       - 'data-pipeline/tests/test_*mayor*.py'
       - 'data-pipeline/tests/test_offline_weekly_preflight.py'
+      - 'data-pipeline/tests/test_kobe_html_connection.py'
+      - 'data-pipeline/tests/test_kobe_acquisition_adapter.py'
+      - 'config/kobe_html_connection.disabled.json'
       - 'data-pipeline/tests/test_kyoto_operations.py'
       - 'data-pipeline/tests/test_city*.py'
       - 'data-pipeline/p1_patches/**'
@@ -46,6 +49,8 @@ jobs:
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_replay.py' -v
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_receipt.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_kobe_html_connection.py' -v
+          python -B -m unittest discover -s data-pipeline/tests -p 'test_kobe_acquisition_adapter.py' -v
       - name: Report external P1 integration availability
         run: |
           python -B -m unittest discover -s data-pipeline/tests -p 'test_city_p1_offline.py' -v

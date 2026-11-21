@@ -189,5 +189,62 @@ class OfflineWeeklyTests(unittest.TestCase):
         self.assertEqual((state/'state.json').read_bytes(), previous)
 
 
+class SavedObservationClockTests(unittest.TestCase):
+    setUp = OfflineWeeklyTests.setUp
+    setup_city = OfflineWeeklyTests.setup_city
+    save = OfflineWeeklyTests.save
+    run_city = OfflineWeeklyTests.run_city
+
+    def test_jst_calendar_days_and_invalid_dates(self):
+        now = datetime.fromisoformat('2026-11-21T09:40:00+09:00')
+        for stamp, expected in [('2026-11-15T04:45:58+00:00', 6),
+                                ('2026-11-21T00:00:00+09:00', 0),
+                                ('2026-11-20T15:00:00+00:00', 0),
+                                ('2026-11-20T14:59:59+00:00', 1)]:
+            with self.subTest(stamp=stamp):
+                result = continuous.saved_observation_age(stamp, now)
+                self.assertEqual(result['saved_observation_age_days'], expected)
+                self.assertEqual(result['age_receipt_at'], stamp)
+                self.assertEqual(result['age_evaluated_at'], now.isoformat())
+        for stamp in (None, '', 'bad', '2026-11-15', '2026-11-15T09:00:00',
+                      '2026-11-21T09:41:00+09:00'):
+            with self.subTest(stamp=stamp), self.assertRaises(Hold):
+                continuous.saved_observation_age(stamp, now)
+        for invalid_now in (None, datetime(2026, 11, 21)):
+            with self.assertRaises(Hold):
+                continuous.saved_observation_age('2026-11-15T00:00:00Z', invalid_now)
+
+    def test_real_adapter_report_uses_start_not_week_and_preserves_receipt(self):
+        data = self.setup_city('kobe'); bridge, source, state, _ = data
+        rec = bridge.index['documents'][source['url']]['versions'][-1]['record']
+        rec['retrieved_at'] = '2026-11-15T04:45:58.963797+00:00'
+        result = self.run_city('kobe', data, '2026-11-21')
+        self.assertEqual(result['cycle_key'], '2026-11-16')
+        self.assertTrue(result['state_advanced'])
+        report = continuous.load(state/'cycles/2026-11-16/city_report.json')
+        row = report['sources'][0]
+        self.assertEqual(row['saved_observation_age_days'], 6)
+        self.assertEqual(row['age_evaluated_at'], '2026-11-21T10:00:00+09:00')
+        self.assertEqual(row['age_receipt_at'], rec['retrieved_at'])
+        self.assertFalse(report['source_approval_inherited'])
+        self.assertEqual(report['public_writes'], 0)
+        with self.assertRaises(Hold):
+            self.run_city('kobe', data, '2026-11-22')
+
+    def test_invalid_receipt_preserves_last_good_and_consumes_week(self):
+        data = self.setup_city('kobe'); bridge, source, state, _ = data
+        self.run_city('kobe', data, '2026-11-23')
+        before = (state/'state.json').read_bytes()
+        self.save(bridge, source, 'kobe', 'new-document')
+        rec = bridge.index['documents'][source['url']]['versions'][-1]['record']
+        rec['retrieved_at'] = '2026-11-30T10:00:00'  # No timezone.
+        with self.assertRaises(Hold):
+            self.run_city('kobe', data, '2026-11-30')
+        self.assertEqual((state/'state.json').read_bytes(), before)
+        self.assertTrue((state/'cycles/2026-11-30/failure.json').exists())
+        with self.assertRaises(Hold):
+            self.run_city('kobe', data, '2026-11-30')
+
+
 if __name__ == '__main__':
     unittest.main()

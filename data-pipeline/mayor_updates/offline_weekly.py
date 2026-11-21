@@ -79,13 +79,15 @@ def run(bridge, config, baseline, state_root, *, city, now, base_revision):
     local, sources = prepare(config, city)
     result = continuous.cycle(bridge, local, baseline, [], state_root, city=city,
         cycle_key=timing['cycle_key'], base_revision=base_revision,
-        offline_sources=sources, observation_check=lambda:inspect_saved(bridge, sources))
+        offline_sources=sources, observation_check=lambda:inspect_saved(bridge, sources),
+        evaluated_at=now)
     return {**result, 'city':city, 'profile_sha256':digest(sources),
             'mode':'saved_originals_only', 'schedule':timing,
             'source_registration_granted':False, 'acquisition_authorized':False}
 
 
 def main():
+    started_at = datetime.now().astimezone()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--runtime', required=True)
     parser.add_argument('--contract', required=True, help='Approved private preflight contract')
@@ -95,10 +97,10 @@ def main():
     from .dependency_preflight import require_contract
     runtime = json.loads(Path(args.runtime).read_text(encoding='utf-8-sig'))
     require_contract(runtime, args.contract, args.contract_sha256)
-    return _run_checked(runtime, args.runtime, args.contract)
+    return _run_checked(runtime, args.runtime, args.contract, started_at)
 
 
-def _run_checked(runtime, runtime_path, contract_path):
+def _run_checked(runtime, runtime_path, contract_path, started_at):
     from . import continuous, weekly
     from .projection import Hold
     if runtime.get('network_enabled') is not False:
@@ -117,7 +119,7 @@ def _run_checked(runtime, runtime_path, contract_path):
     paths = {key:weekly.pinned_input(runtime[key]) for key in ('config', 'baseline')}
     bridge = weekly.P1Bridge(runtime['p1_code_root'], runtime['snapshot_root'], city_capable=True)
     result = run(bridge, load(paths['config']), load(paths['baseline']), runtime['state_root'],
-        city=runtime['city'], now=datetime.now().astimezone(), base_revision=runtime['base_revision'])
+        city=runtime['city'], now=started_at, base_revision=runtime['base_revision'])
     import json
     print(json.dumps(result, ensure_ascii=False))
     if not result['state_advanced']:
