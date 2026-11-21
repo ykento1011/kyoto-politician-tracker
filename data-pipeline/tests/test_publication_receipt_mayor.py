@@ -60,6 +60,25 @@ class PublicationReceiptCLI(unittest.TestCase):
         p = self.root/'approval.json'; value=json.loads(p.read_text()); value['packet_id']='wrong'
         p.write_text(json.dumps(value)); self.reject()
 
+    def test_empty_approval_template(self):
+        p=self.root/'approval.json'; value=json.loads(p.read_text())
+        value.update(reviewer='', decision=None, accepted_candidate_ids=[])
+        p.write_text(json.dumps(value)); self.reject()
+
+    def test_arbitrary_result_hash_cannot_replace_review_packet(self):
+        (self.root/'packet.json').write_text(json.dumps({'result_sha256':'a'*64}))
+        self.reject()
+
+    def test_canonical_match_does_not_claim_raw_byte_equality(self):
+        p=self.root/'published.json'; original=p.read_bytes()
+        p.write_text(json.dumps(json.loads(original), sort_keys=True, indent=4))
+        self.assertNotEqual(original, p.read_bytes())
+        result=self.invoke(); self.assertEqual(result.returncode,0,result.stderr)
+        receipt=json.loads((self.out/'publication_receipt_PRIVATE.json').read_text())
+        self.assertIn('raw-byte equality not verified',receipt['comparison_method'])
+        self.assertNotEqual(receipt['observation_inputs']['published_data']['sha256'],
+                            hashlib.sha256(original).hexdigest())
+
     def test_baseline_mismatch(self):
         p=self.root/'baseline.json'; value=json.loads(p.read_text()); value['extra']='changed'
         p.write_text(json.dumps(value)); self.reject()

@@ -15,7 +15,13 @@ The CLI cannot independently establish that a supplied file came from production
 
 Only `publication_receipt_PRIVATE.json` is written using the existing private,
 exclusive-create writer. It includes SHA-256 hashes of the exact four parsed
-inputs and an explicit consistency-only verification scope. Missing/invalid
+inputs and an explicit consistency-only verification scope.
+The result comparison uses the existing canonical JSON digest (sorted keys),
+so formatting/key-order differences can match. Input hashes describe raw bytes;
+they do not establish candidate/public raw-byte equality. The receipt records
+this distinction in `comparison_method`.
+
+Missing/invalid
 inputs, mismatches, duplicate output, and write failures cause a nonzero exit;
 they do not authorize publication or retry. A partial file after an I/O failure
 is failure evidence, not a successful receipt, and is not overwritten.

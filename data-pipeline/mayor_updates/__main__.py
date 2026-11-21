@@ -45,6 +45,7 @@ def record_publication(args, out):
     receipt['observation_inputs'] = {name: {'sha256': sha256(body).hexdigest()}
                                      for name, body in raw.items()}
     receipt['verification_scope'] = 'supplied observation consistency only; deployment not independently verified'
+    receipt['comparison_method'] = 'canonical JSON digest equality; candidate/public raw-byte equality not verified'
     out.json('publication_receipt_PRIVATE.json', receipt)
 
 
