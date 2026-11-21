@@ -1,7 +1,6 @@
-"""Non-active Kobe HTML connection candidate; no CLI or default live transport.
+"""Explicit Kobe HTML acquisition/processing connection; disabled until approved.
 
-The two callbacks are integration seams, exercised only with stubs in this PR.
-Deployment approval must pin this module, its callers, and both input contracts.
+The public entry is kobe_acquisition. connect also retains synthetic test seams.
 """
 from datetime import datetime, timedelta, timezone
 from hashlib import sha256
@@ -16,7 +15,8 @@ from .projection import Hold
 URL = 'https://www.city.kobe.lg.jp/z/shikaijimukyoku/giann_etc/r8/yosantokubetsu.html'
 SOURCE = {'id': 'kobe-r8-budget-committee', 'url': URL, 'fiscal_year': 2026,
           'document_kind': 'budget_index', 'media_type': 'html',
-          'policy_ids': ['KOBE-M01'], 'max_bytes': 2097152}
+          'policy_ids': ['KOBE-M01'], 'max_bytes': 2097152,
+          'title': '令和8年度予算特別委員会索引'}
 LIMITS = {'get_per_url': 1, 'max_received_bytes': 2097152,
           'max_total_received_bytes': 2097152, 'max_accepted_bytes': 2097151,
           'wall_timeout_seconds': 10, 'tls_verify': True, 'redirects': 0,
@@ -84,8 +84,10 @@ def validate(contract, approval, now, *, own_attempt=None):
     # Canonical root is controlled by the separately pinned deployment contract,
     # never by a run name, output directory or the per-week approval.
     identity = read_pinned(contract['series_identity'])
-    if identity != {'city': 'kobe', 'url': URL, 'series_root': str(root),
-                    'cas_root': str(cas)}:
+    expected_identity = {'city': 'kobe', 'url': URL, 'series_root': str(root), 'cas_root': str(cas)}
+    if 'processing_state_root' in contract:
+        expected_identity['processing_state_root'] = str(directory(contract['processing_state_root']))
+    if identity != expected_identity:
         raise Hold('Canonical series identity mismatch')
     if not contract.get('legacy_reservations') or not contract.get('legacy_state_roots'):
         raise Hold('Known legacy evidence must not be omitted')
@@ -124,8 +126,117 @@ def append_json(path, value):
         json.dump(value, stream, ensure_ascii=False, indent=2)
 
 
+def acquisition_scope():
+    return dict(profile='kobe_html1_reobservation', city_code='kobe',
+        policy_ids=['KOBE-M01'], allowed_hosts=['www.city.kobe.lg.jp'],
+        enabled=True, network_enabled=True, sources=[dict(SOURCE)],
+        max_requests=1, max_requests_by_media={'html':1, 'pdf':0},
+        max_total_bytes=2097152, timeout_seconds=10, tls_verify=True,
+        redirects=0, retries=0)
+
+
+def validate_ticket(scope, storage, snapshot_root, output):
+    """Parent AND worker check the pinned authorization and permanent reservation.
+
+    This is a distinct scope, not a skip flag on the old permanent-URL contract.
+    No binding, approval, or legacy marker is generated here.
+    """
+    contract = read_pinned(storage['connection_contract'])
+    approval = read_pinned(storage['connection_approval'])
+    if approval.get('contract_sha256') != storage['connection_contract']['sha256']:
+        raise Hold('Ticket contract PIN mismatch')
+    out = Path(storage['attempt_output']).resolve(strict=True)
+    root, cas, week = validate(contract, approval, clock(), own_attempt=out)
+    expected = root / sha256(('kobe\n'+URL+'\n'+week).encode()).hexdigest()
+    if (scope != acquisition_scope() or out != expected or
+            Path(storage['state_root']).resolve() != root or
+            Path(snapshot_root).resolve() != cas or
+            Path(output).resolve() not in (out, out/sha256(URL.encode()).hexdigest()[:20])):
+        raise Hold('Acquisition ticket root/output/scope mismatch')
+    reservation = json.loads((out/'reservation.json').read_text())
+    if any(reservation.get(k) != v for k,v in dict(city='kobe', url=URL, week=week,
+            contract_sha256=storage['connection_contract']['sha256'],
+            approval_sha256=storage['connection_approval']['sha256'], retry_allowed=False).items()):
+        raise Hold('Acquisition reservation mismatch')
+    if (out/'completed.json').exists() or (out/'failure.json').exists():
+        raise Hold('Acquisition attempt already terminal')
+    return root
+
+
+def run_connected(runtime):
+    """Concrete adapters: existing acquisition parent -> exact CAS -> real cycle.
+
+    Called only after the stdlib dependency/input preflight in the public entry.
+    External boundaries (worker/P1) can be replaced in tests; adapters are real.
+    """
+    from . import acquire as parent, continuous, offline_weekly
+    contract_spec = runtime['connection_contract']
+    approval_spec = runtime['connection_approval']
+    contract = read_pinned(contract_spec)
+    continuous.configure_shell(runtime)
+    config, baseline = read_pinned(runtime['config']), read_pinned(runtime['baseline'])
+    if weekly.pinned_input(runtime['profile']) != offline_weekly.PROFILE.resolve():
+        raise Hold('Wrong processing profile')
+    local, sources = offline_weekly.prepare(config, 'kobe')
+    if len(sources) != 1 or any(sources[0].get(k) != v for k,v in SOURCE.items()):
+        raise Hold('Processing/acquisition source disagreement')
+    state = directory(contract['processing_state_root'])
+    if str(state) != runtime['state_root'] or runtime['city'] != 'kobe':
+        raise Hold('Processing state/city binding mismatch')
+    root, cas, week = validate(contract, read_pinned(approval_spec), clock())
+    if any(a == b or a in b.parents or b in a.parents
+           for a,b in ((state,root),(state,cas))):
+        raise Hold('Processing state must be separate from acquisition and CAS')
+    identity = read_pinned(contract['series_identity'])
+    if identity.get('processing_state_root') != str(state):
+        raise Hold('Canonical processing state missing')
+    if (state/'weekly.lock').exists() or (state/'cycles'/week).exists():
+        raise Hold('Processing state locked or cycle consumed')
+    if (baseline.get('city_code') != 'kobe' or
+            not runtime.get('base_revision') or runtime.get('network_enabled') is not False):
+        raise Hold('Private processing contract mismatch')
+
+    def acquisition(**kw):
+        storage = dict(connection_contract=contract_spec, connection_approval=approval_spec,
+            attempt_output=str(kw['output']), state_root=str(root), snapshot_root=str(cas))
+        result = parent.capture_sources(kw['p1_code_root'], cas, [kw['source']], kw['output'],
+            authorized=True, refresh=True, media_type='html', scope=acquisition_scope(), storage=storage)
+        child = kw['output']/sha256(URL.encode()).hexdigest()[:20]
+        evidence = json.loads((child/'termination.json').read_text())
+        if (result['stopped'] or evidence.get('termination_confirmed') is not True or
+                evidence.get('returncode') != 0 or evidence.get('outcome_sha256') !=
+                sha256((child/'worker_outcome.json').read_bytes()).hexdigest() or
+                evidence.get('intent_sha256') != sha256((child/'single_get_started.json').read_bytes()).hexdigest()):
+            raise Hold('Acquisition failed or worker termination unconfirmed')
+        def pin(name):
+            path=kw['output']/name
+            return {'path':str(path), 'sha256':sha256(path.read_bytes()).hexdigest()}
+        return dict(termination_confirmed=True, acquisition_receipt=pin('acquisition_result.json'),
+                    acquisition_preflight=pin('preflight.json'))
+
+    def process(**kw):
+        # One evaluation clock AFTER acquisition, distinct from overall start.
+        evaluated_at = clock()
+        bridge = kw['bridge']
+        def exact_observation():
+            current = bridge.store.read_index()
+            doc = current['documents'].get(URL)
+            if not doc or doc['versions'][-1]['sha256'] != kw['sha256']:
+                raise Hold('Acquired version changed before cycle')
+            if bridge.record(URL,kw['sha256'])[0]['document_id'] != kw['document_id']:
+                raise Hold('Processing document identity mismatch')
+            return offline_weekly.inspect_saved(bridge, sources)
+        result = continuous.cycle(bridge, local, baseline, [], state, city='kobe',
+            cycle_key=kw['cycle_key'], base_revision=runtime['base_revision'],
+            offline_sources=sources, observation_check=exact_observation, evaluated_at=evaluated_at)
+        append_json(state/'cycles'/kw['cycle_key']/'acquisition_handoff.json',
+                    {**kw['acquisition_audit'], 'processing_started_at':evaluated_at.isoformat()})
+        return result
+    return connect(contract_spec, approval_spec, acquire=acquisition, process=process)
+
+
 def connect(contract_spec, approval_spec, *, acquire, process):
-    """Candidate orchestration. No live callback is supplied or enabled here.
+    """Shared orchestration; run_connected supplies the concrete adapters.
 
     acquire writes the standard acquisition_result/preflight under its fixed
     output and must confirm worker termination. process receives only the exact
@@ -203,14 +314,17 @@ def _connect_locked(contract_spec, approval_spec, contract, approval, acquire, p
         result = process(bridge=bridge, source=dict(SOURCE), sha256=version,
                          document_id=document, acquisition_audit=audit,
                          cycle_key=week, network_enabled=False, publication_authorized=False)
-        if (result.get('state_advanced') is not True or
+        if (type(result.get('state_advanced')) is not bool or
                 type(result.get('public_writes')) is not int or result['public_writes'] != 0 or
                 type(result.get('network_requests')) is not int or result['network_requests'] != 0):
             raise Hold('Private processing incomplete or communication/publication nonzero/unknown')
+        if not result['state_advanced'] and result.get('state') != 'stopped_no_public_change':
+            raise Hold('Unknown processing outcome')
         append_json(output/'completed.json', {'termination_confirmed': True,
             'receipt_sha256': receipt_spec['sha256'], 'private_result': result,
             'publication_authorized': False})
-        return {'state': 'private_result_saved', 'week': week, 'output': str(output),
+        return {'state': 'private_result_saved' if result['state_advanced'] else 'content_hold',
+                'private_result': result, 'week': week, 'output': str(output),
                 'acquisition_audit': audit, 'public_writes': 0}
     except Exception as exc:
         append_json(output/'failure.json', {'reason': str(exc), 'retry_allowed': False,

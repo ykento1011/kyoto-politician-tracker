@@ -62,6 +62,43 @@ def validate_sources(sources, *, media_type="html", scope=None):
         raise Hold('This initial Kyoto connection is limited to three fixed documents')
 
 
+def run_confirmed_worker(cmd, env, run):
+    """Bounded wait of this fixed worker, reusing the existing subprocess model.
+
+    File-backed output avoids waiting for inherited PIPE EOF. This attests this
+    worker's termination, NOT arbitrary descendants or a whole-operation SLA.
+    The pinned HTML worker does not launch external document converters.
+    """
+    evidence = {'termination_confirmed':False, 'started_at':utc(),
+        'command_sha256':signature(cmd), 'intent_sha256':hashlib.sha256(
+            (run/'single_get_started.json').read_bytes()).hexdigest()}
+    process = None
+    timed_out = False
+    try:
+        with (run/'worker.stdout').open('xb') as stdout, (run/'worker.stderr').open('xb') as stderr:
+            process = subprocess.Popen(cmd, env=env, stdout=stdout, stderr=stderr,
+                                       stdin=subprocess.DEVNULL)
+            evidence['pid'] = process.pid
+            try:
+                code = process.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                timed_out = True
+                process.kill()
+                code = process.wait(timeout=2)
+            evidence.update(termination_confirmed=process.poll() is not None,
+                            returncode=code, timed_out=timed_out)
+        outcome = run/'worker_outcome.json'
+        if outcome.is_file():
+            evidence['outcome_sha256'] = hashlib.sha256(outcome.read_bytes()).hexdigest()
+        if timed_out or code != 0 or not evidence['termination_confirmed']:
+            raise Hold('Worker failed/timed out; retained reservation, no retry')
+        return subprocess.CompletedProcess(cmd, code, '', (run/'worker.stderr').read_text(
+            encoding='utf-8', errors='replace')[-500:])
+    finally:
+        evidence['observed_at'] = utc()
+        PrivateOutput(run).json('termination.json', evidence)
+
+
 def worker(code_root,snapshot_root,source,output,*,media_type="html",scope=None,storage=None):
     if scope is not None:
         validate_selection(scope,[source],media_type)
@@ -78,7 +115,18 @@ def worker(code_root,snapshot_root,source,output,*,media_type="html",scope=None,
         intent=json.loads(marker.read_text(encoding='utf-8'))
         if intent.get('scope_sha256')!=signature(scope) or scope.get('network_enabled') is not True or scope.get('enabled') is not True:
             raise Hold('City worker scope/activation mismatch')
-    out.json('worker_consumed.json',{'source_url':source['url'],'at_utc':utc()})
+    if scope is not None and scope.get('profile') == 'kobe_html1_reobservation':
+        auth=Path(storage['attempt_output'])/'request_authorized.json'
+        if (not auth.is_file() or json.loads(auth.read_text()).get('scope_sha256') != signature(scope) or
+                (out.root/'worker_consumed.json').exists()):
+            raise Hold('Missing/consumed Kobe parent request authorization')
+        from .kobe_html_connection import read_pinned, append_json
+        contract=read_pinned(storage['connection_contract'])
+        if Path(code_root).resolve() != Path(contract['p1_code_root']).resolve():
+            raise Hold('Worker P1 root differs from authorization')
+        append_json(out.root/'worker_consumed.json',{'source_url':source['url'],'at_utc':utc()})
+    else:
+        out.json('worker_consumed.json',{'source_url':source['url'],'at_utc':utc()})
     bridge=P1Bridge(code_root,snapshot_root,city_capable=True) if scope is not None else P1Bridge(code_root,snapshot_root)
     from budget.fetch import SourceFetcher,UrllibTransport
     if scope is None:
@@ -119,7 +167,7 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
           'limits':{'get_per_url':1,'tls_verify':True,'redirects':0,'retries':0,
                     'wall_timeout_seconds':10,'max_received_bytes':max(s['max_bytes'] for s in sources),
                     'max_total_received_bytes':sum(s['max_bytes'] for s in sources),
-                    'max_accepted_bytes':max(s['max_bytes'] for s in sources)-1},'cas_before':bridge.store.verify_integrity()})
+                    'max_accepted_bytes':max(s['max_bytes'] for s in sources)-1, 'link_following':0},'cas_before':bridge.store.verify_integrity()})
     receipts=[]
     for source in sources:
         url=source['url']; history=bridge.store.read_index()['documents'].get(url)
@@ -148,7 +196,10 @@ def capture_sources(code_root,snapshot_root,sources,output,*,authorized=False,re
             env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1','PYTHONIOENCODING':'utf-8',
                  'PYTHONPATH':str(Path(__file__).resolve().parents[1])}
             try:
-                completed=subprocess.run(cmd,env=env,capture_output=True,text=True,encoding='utf-8',timeout=10)
+                if scope is not None and scope.get('profile') == 'kobe_html1_reobservation':
+                    completed=run_confirmed_worker(cmd, env, run)
+                else:
+                    completed=subprocess.run(cmd,env=env,capture_output=True,text=True,encoding='utf-8',timeout=10)
                 if completed.returncode!=0 or not (run/'worker_outcome.json').exists():
                     raise Hold('Worker failed/incomplete; no retry: '+completed.stderr[-500:])
                 received=json.loads((run/'worker_outcome.json').read_text(encoding='utf-8'))
