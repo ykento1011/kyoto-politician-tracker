@@ -203,11 +203,14 @@ def run_connected(runtime):
             authorized=True, refresh=True, media_type='html', scope=acquisition_scope(), storage=storage)
         child = kw['output']/sha256(URL.encode()).hexdigest()[:20]
         evidence = json.loads((child/'termination.json').read_text())
-        if (result['stopped'] or evidence.get('termination_confirmed') is not True or
-                evidence.get('returncode') != 0 or evidence.get('outcome_sha256') !=
+        if evidence.get('termination_confirmed') is not True:
+            raise Hold('worker_termination_unknown: cycle not started')
+        if result['stopped'] or evidence.get('returncode') != 0:
+            raise Hold('acquisition_failed: cycle not started')
+        if (evidence.get('outcome_sha256') !=
                 sha256((child/'worker_outcome.json').read_bytes()).hexdigest() or
                 evidence.get('intent_sha256') != sha256((child/'single_get_started.json').read_bytes()).hexdigest()):
-            raise Hold('Acquisition failed or worker termination unconfirmed')
+            raise Hold('Acquisition termination evidence identity mismatch')
         def pin(name):
             path=kw['output']/name
             return {'path':str(path), 'sha256':sha256(path.read_bytes()).hexdigest()}
@@ -225,12 +228,12 @@ def run_connected(runtime):
                 raise Hold('Acquired version changed before cycle')
             if bridge.record(URL,kw['sha256'])[0]['document_id'] != kw['document_id']:
                 raise Hold('Processing document identity mismatch')
+            append_json(state/'cycles'/kw['cycle_key']/'acquisition_handoff.json',
+                        {**kw['acquisition_audit'], 'processing_started_at':evaluated_at.isoformat()})
             return offline_weekly.inspect_saved(bridge, sources)
         result = continuous.cycle(bridge, local, baseline, [], state, city='kobe',
             cycle_key=kw['cycle_key'], base_revision=runtime['base_revision'],
             offline_sources=sources, observation_check=exact_observation, evaluated_at=evaluated_at)
-        append_json(state/'cycles'/kw['cycle_key']/'acquisition_handoff.json',
-                    {**kw['acquisition_audit'], 'processing_started_at':evaluated_at.isoformat()})
         return result
     return connect(contract_spec, approval_spec, acquire=acquisition, process=process)
 

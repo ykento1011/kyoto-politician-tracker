@@ -38,7 +38,7 @@ class AdapterTests(setup.ConnectionTests):
         self.saved.store.snapshot_bytes=lambda sha:self.saved.bodies[sha]
         self.saved.store.record_failure=lambda **kw:None
         self.label='initial';self.worker_calls=0;self.fail=False;self.unknown=False
-        self.factories=[]
+        self.factories=[];self.acquisition_delay=0
         for p in (patch.object(acquire,'assert_owner_only',return_value={'owner_only':True}),
                   patch.object(continuous,'configure_shell'),
                   patch.object(acquire,'P1Bridge',side_effect=self.new_bridge),
@@ -76,6 +76,7 @@ class AdapterTests(setup.ConnectionTests):
         sha=hashlib.sha256(body).hexdigest()
         prior=self.saved.index['documents'].get(k.URL)
         unchanged=prior and prior['versions'][-1]['sha256']==sha
+        self.now+=timedelta(seconds=self.acquisition_delay)
         observed=self.now.astimezone(k.timezone.utc).isoformat()
         rec=dict(city_code='kobe',document_id='kobe-doc-'+hashlib.sha256(k.URL.encode()).hexdigest()[:24],
             source_url=k.URL,final_url=k.URL,sha256=sha,version_id=sha,mime_type='text/html',
@@ -100,7 +101,7 @@ class AdapterTests(setup.ConnectionTests):
     def connected(self, through_entry=False):
         cp=self.pin('contract',self.c);self.a['contract_sha256']=cp['sha256']
         self.runtime.update(connection_contract=cp,connection_approval=self.pin('approval',self.a))
-        with patch.object(k,'clock',return_value=self.now):
+        with patch.object(k,'clock',side_effect=lambda:self.now):
             if through_entry:
                 from mayor_updates import dependency_preflight as pre, kobe_acquisition
                 from importlib.metadata import version
@@ -146,9 +147,15 @@ class AdapterTests(setup.ConnectionTests):
         self.assertEqual(Path(self.legacy['path']).read_bytes(),before)
 
     def test_public_entry_real_preflight_adapters_parent_and_cycle(self):
+        started=self.now;self.acquisition_delay=5
         result=self.connected(through_entry=True)
         self.assertEqual(result['state'],'private_result_saved')
         self.assertEqual(self.worker_calls,1)
+        report=json.loads((self.root/'processing/cycles/2026-11-23/city_report.json').read_text())
+        evaluated=report['sources'][0]['age_evaluated_at']
+        self.assertEqual(evaluated,self.now.isoformat())
+        self.assertNotEqual(evaluated,started.isoformat())
+        self.assertEqual(report['cycle_key'],'2026-11-23')
         self.assertTrue((self.root/'processing/cycles/2026-11-23/cycle_result.json').is_file())
 
     def test_real_cycle_content_hold_keeps_last_good(self):
@@ -167,6 +174,21 @@ class AdapterTests(setup.ConnectionTests):
         self.assertEqual(len(list((self.root/'series').glob('*/failure.json'))),1)
         with self.assertRaises(Hold):self.connected()
         self.assertEqual(self.worker_calls,1)
+
+    def test_handoff_save_failure_precedes_last_good_commit(self):
+        self.connected();before=(self.root/'processing/state.json').read_bytes()
+        self.next_week();self.label='changed'
+        original=k.append_json
+        def fail_handoff(path,value):
+            if path.name=='acquisition_handoff.json':raise OSError('synthetic disk failure')
+            return original(path,value)
+        with patch.object(k,'append_json',side_effect=fail_handoff):
+            with self.assertRaises(OSError):self.connected()
+        self.assertEqual((self.root/'processing/state.json').read_bytes(),before)
+        self.assertTrue((self.root/'processing/cycles/2026-11-30/failure.json').exists())
+        self.assertTrue((self.root/'processing/cycles/2026-11-30/intent.json').exists())
+        with self.assertRaises(Hold):self.connected()
+        self.assertEqual(self.worker_calls,2)
 
     def test_termination_unknown_stops_before_cycle(self):
         self.unknown=True
