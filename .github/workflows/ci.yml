@@ -49,6 +49,9 @@ jobs:
           python -B -m unittest discover -s tests -p "test_member_history.py"
           python -B -m unittest discover -s tests -p "test_nagoya_article_review.py"
 
+      - name: Test Nagoya SSP Phase 1 guard (synthetic only)
+        run: python -B -m unittest discover -s tests -p "test_nagoya_ssp_phase1_guard.py"
+
       # 2. ビルドテスト
       - name: Set up Node.js
         uses: actions/setup-node@v4
