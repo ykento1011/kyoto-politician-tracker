@@ -1,0 +1,120 @@
+{
+  "kyoto": {
+    "cadence": "weekly-proposal-disabled",
+    "network_enabled": false,
+    "publication_enabled": false,
+    "completeness": "unknown",
+    "publication_lag": "unknown",
+    "corrections": "HOLD",
+    "meeting_kinds": [
+      "plenary",
+      "standing_committee",
+      "special_committee"
+    ],
+    "provider": "ssp",
+    "tenant_id": "355",
+    "tenant_dir": "kyoto",
+    "term_start": "2023-05-01",
+    "term_basis": "PM accepted current-term filter",
+    "minutes_top": "https://ssp.kaigiroku.net/tenant/kyoto/SpTop.html",
+    "member_source": "https://www2.city.kyoto.lg.jp/shikai/meibo/gojuon.html",
+    "bill_source": "https://www2.city.kyoto.lg.jp/shikai/honkaigi",
+    "source_status": "code exists; official original/readiness varies; see evidence matrix",
+    "accepted_receipt_guards": {
+      "index": [
+        "bfa292dd7577bd81eb7c1061ec563f7981ec6a349ca7b254ec85f5163ace5ff7"
+      ],
+      "schedules": [
+        "152a362cb3573a8d0e3ebac8b7cbcd85d14599491be6e67515f88e9bd10b7db4"
+      ]
+    }
+  },
+  "osaka": {
+    "cadence": "weekly-proposal-disabled",
+    "network_enabled": false,
+    "publication_enabled": false,
+    "completeness": "unknown",
+    "publication_lag": "unknown",
+    "corrections": "HOLD",
+    "meeting_kinds": [
+      "plenary",
+      "standing_committee",
+      "special_committee"
+    ],
+    "provider": "ssp",
+    "tenant_id": "357",
+    "tenant_dir": "cityosaka",
+    "term_start": null,
+    "term_basis": "official term not established; wrapper default not evidence",
+    "minutes_top": "https://ssp.kaigiroku.net/tenant/cityosaka/SpTop.html",
+    "member_source": "https://www.city.osaka.lg.jp/shikai/page/0000310422.html",
+    "bill_source": null,
+    "source_status": "code exists; official original/readiness varies; see evidence matrix"
+  },
+  "nagoya": {
+    "cadence": "weekly-proposal-disabled",
+    "network_enabled": false,
+    "publication_enabled": false,
+    "completeness": "unknown",
+    "publication_lag": "unknown",
+    "corrections": "HOLD",
+    "meeting_kinds": [
+      "plenary",
+      "standing_committee",
+      "special_committee"
+    ],
+    "provider": "ssp",
+    "tenant_id": "207",
+    "tenant_dir": "nagoya",
+    "term_start": "2023-04-12",
+    "term_basis": "PM accepted normal term from official 186; individual tenure independent",
+    "minutes_top": "https://ssp.kaigiroku.net/tenant/nagoya/SpTop.html",
+    "member_source": "https://www.city.nagoya.jp/shikai/about/1030778/1030799.html",
+    "bill_source": null,
+    "source_status": "code exists; official original/readiness varies; see evidence matrix"
+  },
+  "yokohama": {
+    "cadence": "weekly-proposal-disabled",
+    "network_enabled": false,
+    "publication_enabled": false,
+    "completeness": "unknown",
+    "publication_lag": "unknown",
+    "corrections": "HOLD",
+    "meeting_kinds": [
+      "plenary",
+      "standing_committee",
+      "special_committee"
+    ],
+    "provider": "ssp",
+    "tenant_id": "20",
+    "tenant_dir": "yokohama",
+    "term_start": null,
+    "term_basis": "official exact term not established",
+    "minutes_top": "https://ssp.kaigiroku.net/tenant/yokohama/SpTop.html",
+    "member_source": "https://www.city.yokohama.lg.jp/shikai/giin/kaihabetsu.html",
+    "bill_source": "https://www.city.yokohama.lg.jp/shikai/koho/yokohama/dayori.html",
+    "source_status": "code exists; official original/readiness varies; see evidence matrix"
+  },
+  "kobe": {
+    "cadence": "weekly-proposal-disabled",
+    "network_enabled": false,
+    "publication_enabled": false,
+    "completeness": "unknown",
+    "publication_lag": "unknown",
+    "corrections": "HOLD",
+    "meeting_kinds": [
+      "plenary",
+      "standing_committee",
+      "special_committee"
+    ],
+    "provider": "discussnet",
+    "tenant_id": null,
+    "tenant_dir": null,
+    "term_start": null,
+    "term_basis": "official exact term not established",
+    "minutes_top": "https://www.city.kobe.hyogo.dbsr.jp",
+    "member_source": null,
+    "bill_source": "https://www.city.kobe.lg.jp/z/shikaijimukyoku/giann_etc/kekka3.html",
+    "source_status": "code exists; official original/readiness varies; see evidence matrix"
+  }
+}
